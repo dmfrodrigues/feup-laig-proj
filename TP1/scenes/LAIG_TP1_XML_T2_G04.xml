@@ -120,7 +120,7 @@
                 <scale sx="0.25" sy="0.05" sz="0.30"/>
             </transformations>
             <descendants>
-                <noderef id="cube">
+                <noderef id="cube"/>
             </descendants>
         </node>
         <node id="chair_back">
@@ -129,13 +129,13 @@
                 <scale sx="0.25" sy="0.30" sz="0.05"/>
             </transformations>
             <descendants>
-                <noderef id="cube">
+                <noderef id="cube"/>
             </descendants>
         </node>
-        <node id="chair_leg1"><transformations><translation x="+0.100" y="0.000" z="+0.125"/></transformations><descendants><noderef id="chair_leg"></descendants></node>
-        <node id="chair_leg2"><transformations><translation x="-0.100" y="0.000" z="+0.125"/></transformations><descendants><noderef id="chair_leg"></descendants></node>
-        <node id="chair_leg3"><transformations><translation x="+0.100" y="0.000" z="-0.125"/></transformations><descendants><noderef id="chair_leg"></descendants></node>
-        <node id="chair_leg4"><transformations><translation x="-0.100" y="0.000" z="-0.125"/></transformations><descendants><noderef id="chair_leg"></descendants></node>
+        <node id="chair_leg1"><transformations><translation x="+0.100" y="0.000" z="+0.125"/></transformations><descendants><noderef id="chair_leg"/></descendants></node>
+        <node id="chair_leg2"><transformations><translation x="-0.100" y="0.000" z="+0.125"/></transformations><descendants><noderef id="chair_leg"/></descendants></node>
+        <node id="chair_leg3"><transformations><translation x="+0.100" y="0.000" z="-0.125"/></transformations><descendants><noderef id="chair_leg"/></descendants></node>
+        <node id="chair_leg4"><transformations><translation x="-0.100" y="0.000" z="-0.125"/></transformations><descendants><noderef id="chair_leg"/></descendants></node>
         <node id="chair_leg">
             <transformations>
                 <translation  x="0.00"  y="0.15"  z="0.00"/>
@@ -155,12 +155,12 @@
                 <noderef id="cube_bac"/>
             </descendants>
         </node>
-        <node id="cube_top"><transformations><translation x="+0.0" y="+0.5" z="+0.0"/><rotation axis="x" angle= "-90"/></transformations><descendants><leaf type="rectangle" x1="-0.5" y1="-0.5" x2="0.5" y2="0.5"></descendants></node>
-        <node id="cube_bot"><transformations><translation x="+0.0" y="-0.5" z="+0.0"/><rotation axis="x" angle= "+90"/></transformations><descendants><leaf type="rectangle" x1="-0.5" y1="-0.5" x2="0.5" y2="0.5"></descendants></node>
-        <node id="cube_fro"><transformations><translation x="+0.0" y="+0.0" z="+0.5"/>                                 </transformations><descendants><leaf type="rectangle" x1="-0.5" y1="-0.5" x2="0.5" y2="0.5"></descendants></node>
-        <node id="cube_bac"><transformations><translation x="+0.0" y="+0.0" z="-0.5"/><rotation axis="x" angle="+180"/></transformations><descendants><leaf type="rectangle" x1="-0.5" y1="-0.5" x2="0.5" y2="0.5"></descendants></node>
-        <node id="cube_rig"><transformations><translation x="+0.5" y="+0.0" z="+0.0"/><rotation axis="y" angle= "+90"/></transformations><descendants><leaf type="rectangle" x1="-0.5" y1="-0.5" x2="0.5" y2="0.5"></descendants></node>
-        <node id="cube_lef"><transformations><translation x="-0.5" y="+0.0" z="+0.0"/><rotation axis="y" angle= "-90"/></transformations><descendants><leaf type="rectangle" x1="-0.5" y1="-0.5" x2="0.5" y2="0.5"></descendants></node>
+        <node id="cube_top"><transformations><translation x="+0.0" y="+0.5" z="+0.0"/><rotation axis="x" angle= "-90"/></transformations><descendants><leaf type="rectangle" x1="-0.5" y1="-0.5" x2="0.5" y2="0.5"/></descendants></node>
+        <node id="cube_bot"><transformations><translation x="+0.0" y="-0.5" z="+0.0"/><rotation axis="x" angle= "+90"/></transformations><descendants><leaf type="rectangle" x1="-0.5" y1="-0.5" x2="0.5" y2="0.5"/></descendants></node>
+        <node id="cube_fro"><transformations><translation x="+0.0" y="+0.0" z="+0.5"/>                                 </transformations><descendants><leaf type="rectangle" x1="-0.5" y1="-0.5" x2="0.5" y2="0.5"/></descendants></node>
+        <node id="cube_bac"><transformations><translation x="+0.0" y="+0.0" z="-0.5"/><rotation axis="x" angle="+180"/></transformations><descendants><leaf type="rectangle" x1="-0.5" y1="-0.5" x2="0.5" y2="0.5"/></descendants></node>
+        <node id="cube_rig"><transformations><translation x="+0.5" y="+0.0" z="+0.0"/><rotation axis="y" angle= "+90"/></transformations><descendants><leaf type="rectangle" x1="-0.5" y1="-0.5" x2="0.5" y2="0.5"/></descendants></node>
+        <node id="cube_lef"><transformations><translation x="-0.5" y="+0.0" z="+0.0"/><rotation axis="y" angle= "-90"/></transformations><descendants><leaf type="rectangle" x1="-0.5" y1="-0.5" x2="0.5" y2="0.5"/></descendants></node>
     
         <node id="table">
             <material id="metal"/>
@@ -180,10 +180,10 @@
             </descendants>
         </node>
 
-        <node id="table_leg1"><transformations><translation x="-0.4" y="0.0" z="0.2"/></transformations><descendants><noderef id="table_leg"></descendants></node>
-        <node id="table_leg2"><transformations><translation x="-0.4" y="0.0" z="-0.2"/></transformations><descendants><noderef id="table_leg"></descendants></node>
-        <node id="table_leg3"><transformations><translation x="0.4" y="0.0" z="-0.2"/></transformations><descendants><noderef id="table_leg"></descendants></node>
-        <node id="table_leg4"><transformations><translation x="0.4" y="0.0" z="0.2"/></transformations><descendants><noderef id="table_leg"></descendants></node>
+        <node id="table_leg1"><transformations><translation x="-0.4" y="0.0" z="+0.2"/></transformations><descendants><noderef id="table_leg"/></descendants></node>
+        <node id="table_leg2"><transformations><translation x="-0.4" y="0.0" z="-0.2"/></transformations><descendants><noderef id="table_leg"/></descendants></node>
+        <node id="table_leg3"><transformations><translation x="+0.4" y="0.0" z="-0.2"/></transformations><descendants><noderef id="table_leg"/></descendants></node>
+        <node id="table_leg4"><transformations><translation x="+0.4" y="0.0" z="+0.2"/></transformations><descendants><noderef id="table_leg"/></descendants></node>
 
         <node id="table_leg">
             <transformations>
