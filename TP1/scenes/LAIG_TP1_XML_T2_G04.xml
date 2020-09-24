@@ -190,7 +190,6 @@
                 <rotation axis="xx" angle="-90"/>
             </transformations>
             <descendants>
-                <!-- raio na base (bottomRadius); raio no topo (topRadius); altura (height); número de divisões em rotação (slices); número de divisões em altura (stacks). -->
                 <leaf id="cylinder" bottom_radius="0.04" top_radius="0.04" height="0.5" slices="32" stacks="8"/>
             </descendants>
         </node>
