@@ -1,0 +1,210 @@
+<lsf>
+    <initials>
+        <reference length="1.0"/>
+        <root id="root"/>
+    </initials>
+    <views default="default_camera">
+        <!-- at least one of the following type of cameras must be declared -->
+        <perspective id="default_camera" near="0.1" far="500" angle="45">
+            <from x="10.0" y="3.0" z="10.0"/>
+            <to   x= "0.0" y="1.0" z= "0.0"/>
+        </perspective>
+        <ortho id="ortho_camera" near="0.2" far="100" left="-0.2" right="0.2" top="0.2" bottom="-0.2">
+            <from x="5" y="0" z="10"/>
+            <to x="5" y="0" z="0"/>
+            <up x="0" y="1" z="0"/><!-- optional, default 0,1,0 -->
+        </ortho>
+    </views>
+    <illumination>
+        <ambient    r="0.2" g="0.2" b="0.2" a="1.0"/>
+        <background r="0.1" g="0.7" b="1.0" a="1.0"/>
+    </illumination>
+    <lights>
+        <!-- NOTE: at least one light should be present, and a maximum of eight lights is accepted. -->
+        <light id="light1">
+            <enable value="1"/>
+            <position x="10.0" y="12.0" z="9.5" w="1.0"/> <!-- w=1: point light; w=0: directional light -->
+            <ambient  r= "0.0" g= "0.0" b="0.0" a="1.0"/>
+            <diffuse  r= "1.0" g= "1.0" b="1.0" a="1.0"/>
+            <specular r= "1.0" g= "1.0" b="1.0" a="1.0"/>
+        </light>
+    </lights>
+    <textures>
+        <!-- NOTE: this block "TEXTURE" must be repeated as necessary with different "id" -->
+        <texture id="grey_painted_metal" path="./scenes/images/grey_painted_metal.jpg"/>
+        <texture id="grey_plastic"       path="./scenes/images/grey_plastic.jpg"      />
+        <texture id="white_tabletop"     path="./scenes/images/white_tabletop.jpg"    />
+        <texture id="world_map"          path="./scenes/images/world_map.jpg"         />
+        <texture id="worn_out_plastic"   path="./scenes/images/worn_out_plastic.jpg"  />        
+    </textures>
+    <materials>
+        <!-- At least one material should be present. -->
+        <material id="plastic">
+            <shininess value="ff"/>
+            <ambient  r="1.0" g="1.0" b="1.0" a="1.0"/>
+            <diffuse  r="1.0" g="1.0" b="1.0" a="1.0"/>
+            <specular r="0.3" g="0.3" b="0.3" a="1.0"/>
+            <emissive r="0.0" g="0.0" b="0.0" a="1.0"/>
+        </material>
+        <material id="metal">
+            <shininess value="ff"/>
+            <ambient  r="1.0" g="1.0" b="1.0" a="1.0"/>
+            <diffuse  r="1.0" g="1.0" b="1.0" a="1.0"/>
+            <specular r="0.6" g="0.6" b="0.6" a="1.0"/>
+            <emissive r="0.0" g="0.0" b="0.0" a="1.0"/>
+        </material>
+    </materials>
+
+    <nodes>
+        <node id="demoRoot">            <!-- defines one intermediate node; may be repeated as necessary -->
+            <!-- next two lines are mandatory -->
+            <material id="demoMaterial"/>   <!-- this superimposes the material received from parent node id="null" maintains material from parent node -->
+
+            <texture id="demoTexture"><!-- declared texture superimposes the texture received from parent node id="null" maintains texture from parent node id="clear" clears texture declaration received from parent node -->
+                <amplification afs="2.0" aft="2.0"/>    <!-- for primitives = dx/afs, dy/aft -->
+            </texture>
+
+            <!-- geom. transf. are optional and may be repeated, in any order, as necessary: -->
+            <transformations>
+                <translation x="0" y="1.0" z="1.0"/>
+                <rotation axis="yy" angle="45"/>
+                <scale sx="2" sy="1" sz="1"/>
+            </transformations>
+
+            <!-- declaring descendants, at least one node or one leaf must be present
+             descendants may be mixed, nodes and leafs -->
+            <descendants>
+                <noderef id="demoChild"/>
+                <!-- "ss" is the identifier of a node or of leaf; -->
+                <!-- may be repeated as necessary. It can refer an -->
+                <!-- identifier of another node, before or later defined in the file. -->
+                <!-- next lines define nodes of type leaf; may be repeated, in any order, as necessary -->
+                <leaf type="rectangle" x1="0" y1="1" x2="1" y2="0"/>
+                <!-- 2D coordinates on the XY plane for left-top and right-bottom vertices. -->
+            </descendants>
+        </node>
+        <node id="demoChild">            <!-- defines one intermediate node; may be repeated as necessary -->
+            <!-- next two lines are mandatory -->
+            <material id="null"/><!-- this superimposes the material received from parent node id="null" maintains material from parent node -->
+
+            <texture id="clear"><!-- declared texture superimposes the texture received from parent node id="null" maintains texture from parent node id="clear" clears texture declaration received from parent node -->
+                <amplification afs="2.0" aft="2.0"/><!-- for primitives = dx/afs, dy/aft -->
+            </texture>
+
+            <!-- geom. transf. are optional and may be repeated, in any order, as necessary: -->
+            <transformations>
+                <translation x="2" y="0.0" z="2.0"/>
+            </transformations>
+
+            <!-- declaring descendants, at least one node or one leaf must be present
+             descendants may be mixed, nodes and leafs -->
+            <descendants>
+                <leaf type="triangle" x1="ff" y1="ff" x2="ff" y2="ff" x3="ff" y3="ff" z3="ff"/> <!-- x y z coordinates of each vertex -->
+            </descendants>
+        </node>
+        <node id="chair">
+            <material id="grey_plastic"/>
+            <texture  id="plastic"/>
+            <descendants>
+                <noderef id="chair_leg1"/>
+                <noderef id="chair_leg2"/>
+                <noderef id="chair_leg3"/>
+                <noderef id="chair_leg4"/>
+                <noderef id="chair_seat"/>
+                <noderef id="chair_back"/>
+            </descendants>
+        </node>
+        <node id="chair_seat">
+            <transformations>
+                <translate x="0.0" y="0.325" z="0.0"/>
+                <scale sx="0.25" sy="0.05" sz="0.30"/>
+            </transformations>
+            <descendants>
+                <noderef id="cube">
+            </descendants>
+        </node>
+        <node id="chair_back">
+            <transformations>
+                <translate x="0.0" y="0.50" z="-0.125"/>
+                <scale sx="0.25" sy="0.30" sz="0.05"/>
+            </transformations>
+            <descendants>
+                <noderef id="cube">
+            </descendants>
+        </node>
+        <node id="chair_leg1"><transformations><translation x="+0.100" y="0.000" z="+0.125"/></transformations><descendants><noderef id="chair_leg"></descendants></node>
+        <node id="chair_leg2"><transformations><translation x="-0.100" y="0.000" z="+0.125"/></transformations><descendants><noderef id="chair_leg"></descendants></node>
+        <node id="chair_leg3"><transformations><translation x="+0.100" y="0.000" z="-0.125"/></transformations><descendants><noderef id="chair_leg"></descendants></node>
+        <node id="chair_leg4"><transformations><translation x="-0.100" y="0.000" z="-0.125"/></transformations><descendants><noderef id="chair_leg"></descendants></node>
+        <node id="chair_leg">
+            <transformations>
+                <translation  x="0.00"  y="0.15"  z="0.00"/>
+                <scale       sx="0.05" sy="0.30" sz="0.05"/>
+            </transformations>
+            <descendants>
+                <noderef id="cube"/>
+            </descendants>
+        </node>
+        <node id="cube">
+            <descendants>
+                <noderef id="cube_top"/>
+                <noderef id="cube_bot"/>
+                <noderef id="cube_lef"/>
+                <noderef id="cube_rig"/>
+                <noderef id="cube_fro"/>
+                <noderef id="cube_bac"/>
+            </descendants>
+        </node>
+        <node id="cube_top"><transformations><translation x="+0.0" y="+0.5" z="+0.0"/><rotation axis="x" angle= "-90"/></transformations><descendants><leaf type="rectangle" x1="-0.5" y1="-0.5" x2="0.5" y2="0.5"></descendants></node>
+        <node id="cube_bot"><transformations><translation x="+0.0" y="-0.5" z="+0.0"/><rotation axis="x" angle= "+90"/></transformations><descendants><leaf type="rectangle" x1="-0.5" y1="-0.5" x2="0.5" y2="0.5"></descendants></node>
+        <node id="cube_fro"><transformations><translation x="+0.0" y="+0.0" z="+0.5"/>                                 </transformations><descendants><leaf type="rectangle" x1="-0.5" y1="-0.5" x2="0.5" y2="0.5"></descendants></node>
+        <node id="cube_bac"><transformations><translation x="+0.0" y="+0.0" z="-0.5"/><rotation axis="x" angle="+180"/></transformations><descendants><leaf type="rectangle" x1="-0.5" y1="-0.5" x2="0.5" y2="0.5"></descendants></node>
+        <node id="cube_rig"><transformations><translation x="+0.5" y="+0.0" z="+0.0"/><rotation axis="y" angle= "+90"/></transformations><descendants><leaf type="rectangle" x1="-0.5" y1="-0.5" x2="0.5" y2="0.5"></descendants></node>
+        <node id="cube_lef"><transformations><translation x="-0.5" y="+0.0" z="+0.0"/><rotation axis="y" angle= "-90"/></transformations><descendants><leaf type="rectangle" x1="-0.5" y1="-0.5" x2="0.5" y2="0.5"></descendants></node>
+    
+        <node id="table">
+            <material id="metal"/>
+            <texture id="grey_painted_metal"/>
+
+            <!-- geom. transf. are optional and may be repeated, in any order, as necessary: -->
+            <transformations>
+                <translation x="0.0" y="0.0" z="0.0"/>
+            </transformations>
+
+            <descendants>
+                <noderef id="table_top"/>
+                <noderef id="table_leg1"/>
+                <noderef id="table_leg2"/>
+                <noderef id="table_leg3"/>
+                <noderef id="table_leg4"/>
+            </descendants>
+        </node>
+
+        <node id="table_leg1"><transformations><translation x="-0.4" y="0.0" z="0.2"/></transformations><descendants><noderef id="table_leg"></descendants></node>
+        <node id="table_leg2"><transformations><translation x="-0.4" y="0.0" z="-0.2"/></transformations><descendants><noderef id="table_leg"></descendants></node>
+        <node id="table_leg3"><transformations><translation x="0.4" y="0.0" z="-0.2"/></transformations><descendants><noderef id="table_leg"></descendants></node>
+        <node id="table_leg4"><transformations><translation x="0.4" y="0.0" z="0.2"/></transformations><descendants><noderef id="table_leg"></descendants></node>
+
+        <node id="table_leg">
+            <transformations>
+                <rotation axis="xx" angle="-90"/>
+            </transformations>
+            <descendants>
+                <!-- raio na base (bottomRadius); raio no topo (topRadius); altura (height); número de divisões em rotação (slices); número de divisões em altura (stacks). -->
+                <leaf id="cylinder" bottom_radius="0.04" top_radius="0.04" height="0.5" slices="32" stacks="8"/>
+            </descendants>
+        </node>
+        
+        <node id="table_top">
+            <material id="plastic"/>
+            <texture id="white_tabletop"/>
+            <transformations>
+                <translation x="0.0" y="0.0035" z="0.0"/>
+                <scale sx="1.0" sy="0.007" sz="0.5"/>
+            </transformations>
+            <descendants>
+                <noderef id="cube"/>
+            </descendants>
+        </node>
+    </nodes>
+</lsf>
