@@ -40,14 +40,14 @@
     <materials>
         <!-- At least one material should be present. -->
         <material id="plastic">
-            <shininess value="ff"/>
+            <shininess value="1.0"/>
             <ambient  r="1.0" g="1.0" b="1.0" a="1.0"/>
             <diffuse  r="1.0" g="1.0" b="1.0" a="1.0"/>
             <specular r="0.3" g="0.3" b="0.3" a="1.0"/>
             <emissive r="0.0" g="0.0" b="0.0" a="1.0"/>
         </material>
         <material id="metal">
-            <shininess value="ff"/>
+            <shininess value="4.0"/>
             <ambient  r="1.0" g="1.0" b="1.0" a="1.0"/>
             <diffuse  r="1.0" g="1.0" b="1.0" a="1.0"/>
             <specular r="0.6" g="0.6" b="0.6" a="1.0"/>
