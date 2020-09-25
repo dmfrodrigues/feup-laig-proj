@@ -11,6 +11,6 @@ chmod 755 pull.sh
 
 rm -rf $repo_path
 mkdir -p $repo_path
-cp lib TP1 TP2 TP3 pull.php $repo_path
+cp -r lib TP1 TP2 TP3 pull.php $repo_path
 
 echo "<!DOCTYPE html><html><body>Last updated "`date`"</body></html>" > $repo_path/index.html
