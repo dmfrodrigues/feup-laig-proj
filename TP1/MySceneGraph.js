@@ -245,7 +245,50 @@ class MySceneGraph {
      * @param {view block element} viewsNode
      */
     parseViews(viewsNode) {
-        this.onXMLMinorError("To do: Parse views and create cameras.");
+        
+        this.views = {};
+        this.views.list = {};
+        this.views.default = viewsNode.attributes.default.value;
+        
+        for(let i = 0; i < viewsNode.children.length; ++i){
+            let camera = viewsNode.children[i];
+            
+            let fromAttr = null;
+            let toAttr   = null;
+            let upAttr   = null;
+            for(let j = 0; j < camera.children.length; ++j){
+                if(camera.children[j].nodeName == "from") fromAttr = camera.children[j].attributes;
+                if(camera.children[j].nodeName == "to"  ) toAttr   = camera.children[j].attributes;
+                if(camera.children[j].nodeName == "up"  ) upAttr   = camera.children[j].attributes;
+            }
+
+            if(camera.nodeName == "perspective"){
+                this.views.list[camera.id] = new CGFcamera(
+                    parseFloat(camera.attributes.angle.value)*DEGREE_TO_RAD,
+                    parseFloat(camera.attributes.near.value),
+                    parseFloat(camera.attributes.far.value),
+                    vec3.fromValues(fromAttr.x.value, fromAttr.y.value, fromAttr.z.value),
+                    vec3.fromValues(toAttr  .x.value, toAttr  .y.value, toAttr  .z.value)
+                );
+            } else if(camera.nodeName == "ortho"){
+                this.views.list[camera.id] = new CGFcameraOrtho(
+                    parseFloat(camera.attributes.left  .value),
+                    parseFloat(camera.attributes.right .value),
+                    parseFloat(camera.attributes.bottom.value),
+                    parseFloat(camera.attributes.top   .value),
+                    parseFloat(camera.attributes.near  .value),
+                    parseFloat(camera.attributes.far   .value),
+                    vec3.fromValues(fromAttr.x.value, fromAttr.y.value, fromAttr.z.value),
+                    vec3.fromValues(toAttr  .x.value, toAttr  .y.value, toAttr  .z.value),
+                    vec3.fromValues(upAttr  .x.value, upAttr  .y.value, upAttr  .z.value)
+                );
+            }
+        }
+
+        console.log(this.scene.camera);
+        console.log(this.views.list[this.views.default]);
+        this.scene.camera = this.views.list[this.views.default];
+        
         return null;
     }
 
