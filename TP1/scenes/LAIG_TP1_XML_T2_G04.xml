@@ -176,8 +176,8 @@
             </descendants>
         </node>
         <node id="globe_axis">
-            <material id="plastic">
-            <texture id="worn_out_plastic">
+            <material id="plastic"/>
+            <texture id="worn_out_plastic"/>
             <transformations>
                 <translate x="0.1414" y="0.1414" z="0.0000"/>
                 <rotation axis="x" angle="-90"/>
@@ -185,7 +185,7 @@
             <descendants>
                 <leaf type="cylinder" height="0.42" topRadius="0.01" bottomRadius="0.01" stacks="10" slices="16"/>
             </descendants>
-        </material>
+        </node>
         <node id="globe_world_axis">
             <transformations>
                 <rotation axis="x" angle="-90"/>
