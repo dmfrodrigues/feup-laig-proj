@@ -142,10 +142,10 @@
             </descendants>
         </node>
 
-        <node id="table_leg1"><transformations><translation x="-0.4" y="0.0" z="+0.2"/></transformations><descendants><noderef id="table_leg"/></descendants></node>
-        <node id="table_leg2"><transformations><translation x="-0.4" y="0.0" z="-0.2"/></transformations><descendants><noderef id="table_leg"/></descendants></node>
-        <node id="table_leg3"><transformations><translation x="+0.4" y="0.0" z="-0.2"/></transformations><descendants><noderef id="table_leg"/></descendants></node>
-        <node id="table_leg4"><transformations><translation x="+0.4" y="0.0" z="+0.2"/></transformations><descendants><noderef id="table_leg"/></descendants></node>
+        <node id="table_leg1"><transformations><translation x="-0.4" y="+0.25" z="+0.2"/></transformations><descendants><noderef id="table_leg"/></descendants></node>
+        <node id="table_leg2"><transformations><translation x="-0.4" y="+0.25" z="-0.2"/></transformations><descendants><noderef id="table_leg"/></descendants></node>
+        <node id="table_leg3"><transformations><translation x="+0.4" y="+0.25" z="-0.2"/></transformations><descendants><noderef id="table_leg"/></descendants></node>
+        <node id="table_leg4"><transformations><translation x="+0.4" y="+0.25" z="+0.2"/></transformations><descendants><noderef id="table_leg"/></descendants></node>
 
         <node id="table_leg">
             <transformations>
@@ -160,7 +160,7 @@
             <material id="plastic"/>
             <texture id="white_tabletop"/>
             <transformations>
-                <translation x="0.0" y="0.0035" z="0.0"/>
+                <translation x="0.0" y="0.5035" z="0.0"/>
                 <scale sx="1.0" sy="0.007" sz="0.5"/>
             </transformations>
             <descendants>
