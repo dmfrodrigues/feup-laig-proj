@@ -1,5 +1,5 @@
 user="$HOME"
-repo_name="${PWD##*/}"
+repo_name=`basename "$(dirname \"$0\")"`
 deploy_dir="$user/public_html/feup/3/1/$repo_name"
 this_repo="`dirname \"$0\"`"
 
