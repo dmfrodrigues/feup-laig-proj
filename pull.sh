@@ -1,16 +1,15 @@
-user="/usr/users2/2018/up201806429"
-repo_name="laig-t02-g04"
-deploy_dir="$user/public_html/feup/3/1"
-repo_path="$deploy_dir/$repo_name"
-original_repo="$user/feup/3S1/LAIG/laig-t02-g04"
+user="$HOME"
+repo_name="${PWD##*/}"
+deploy_dir="$user/public_html/feup/3/1/$repo_name"
+this_repo="`dirname \"$0\"`"
 
-cd $original_repo
+cd $this_repo
 
 git pull
 chmod 755 pull.sh
 
-rm -rf $repo_path
-mkdir -p $repo_path
-cp -r lib TP1 TP2 TP3 pull.php $repo_path
+rm -rf $deploy_dir
+mkdir -p $deploy_dir
+cp -r lib TP1 TP2 TP3 pull.php $deploy_dir
 
-echo "<!DOCTYPE html><html><body>Last updated "`date`"</body></html>" > $repo_path/index.html
+echo "<!DOCTYPE html><html><body>Last updated "`date`"</body></html>" > $deploy_dir/index.html
