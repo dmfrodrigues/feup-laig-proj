@@ -167,5 +167,75 @@
                 <noderef id="cube"/>
             </descendants>
         </node>
+
+        <node id="globe_world">
+            <material id="plastic"/>
+            <texture id="world_map"/>
+            <descendants>
+                <leaf type="sphere" radius="0.18" slices="20" stacks="8"/>
+            </descendants>
+        </node>
+        <node id="globe_axis">
+            <material id="plastic"/>
+            <texture id="worn_out_plastic"/>
+            <transformations>
+                <translate x="0.1414" y="0.1414" z="0.0000"/>
+                <rotation axis="x" angle="-90"/>
+            </transformations>
+            <descendants>
+                <leaf type="cylinder" height="0.42" topRadius="0.01" bottomRadius="0.01" stacks="10" slices="16"/>
+            </descendants>
+        </node>
+        <node id="globe_world_axis">
+            <transformations>
+                <rotation axis="x" angle="-90"/>
+                <translate x="0.00" y="0.22" z="0.00"/>
+            </transformations>
+            <descendants>
+                <noderef id="globe_world"/>
+                <noderef id="globe_axis"/>
+            </descendants>
+        </node>
+        
+        <node id="globe_wheel">
+            <descendants>
+                <leaf type="cylinder" height="0.025" topRadius="0.02" bottomRadius="0.02" stacks="4" slices="16"/>
+            </descendants>
+        </node>
+        <node id="globe_support">
+            <transformations>
+                <translate x="0.000" y="-0.015" z="0.000"/>
+                <rotation axis="x" angle="-90"/>
+            </transformations>
+            <descendants>
+                <leaf type="cylinder" height="0.03" topRadius="0.02" bottomRadius="0.02" stacks="4" slices="16"/>
+            </descendants>
+        </node>
+        <node id="globe_base">
+            <transformations>
+                <translate x="+0.08596" y="-0.04" z="0.000"/>
+                <rotation axis="x" angle="-90"/>
+            </transformations>
+            <descendants>
+                <leaf type="cylinder" height="0.02" topRadius="0.18" bottomRadius="0.20" stacks="2" slices="16"/>
+            </descendants>
+        </node>
+
+        <node id="globe_plastic">
+            <descendants>
+                <noderef id="globe_wheel"/>
+                <noderef id="globe_support"/>
+                <noderef id="globe_base"/>
+            </descendants>
+        </node>
+        <node id="globe">
+            <transformations>
+                <translate x="-0.08596" y="+0.5" z="0.0"/>
+            </transformations>
+            <descendants>
+                <noderef id="globe_world_axis"/>
+                <noderef id="globe_plastic"/>
+            </descendants>
+        </node>
     </nodes>
 </lsf>
