@@ -1,11 +1,11 @@
 # LAIG 2020/2021 - TP2
 
-## Group: T0xG0y
+## Group: T02G04
 
 | Name             | Number    | E-Mail             |
 | ---------------- | --------- | ------------------ |
-| John Doe         | 201801010 | ...                |
-| Jane Doe         | 201801011 | ...                |
+| Breno Accioly de Barros Pimentel | 201800170 | up201800170@fe.up.pt |
+| Diogo Miguel Ferreira Rodrigues  | 201806429 | up201806429@fe.up.pt |
 
 ----
 ## Project information

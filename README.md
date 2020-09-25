@@ -1,6 +1,6 @@
 # LAIG 2020/2021
 
-## Group T0xG0y
+## Group T02G04
 | Name             | Number    | E-Mail             |
 | ---------------- | --------- | ------------------ |
 | Breno Accioly de Barros Pimentel | 201800170 | up201800170@fe.up.pt |
