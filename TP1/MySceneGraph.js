@@ -285,8 +285,6 @@ class MySceneGraph {
             }
         }
 
-        console.log(this.scene.camera);
-        console.log(this.views.list[this.views.default]);
         this.scene.camera = this.views.list[this.views.default];
         
         return null;
@@ -413,9 +411,15 @@ class MySceneGraph {
      * @param {textures block element} texturesNode
      */
     parseTextures(texturesNode) {
-
-        //For each texture in textures block, check ID and file URL
-        this.onXMLMinorError("To do: Parse textures.");
+        this.textures = {};
+        for(let i = 0; i < texturesNode.children.length; ++i){
+            let texture = texturesNode.children[i];
+            this.textures[texture.id] = new CGFtexture(
+                this.scene,
+                texture.attributes.path.value
+            );
+        }
+        console.log(this.textures);
         return null;
     }
 

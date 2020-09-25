@@ -31,11 +31,11 @@
     </lights>
     <textures>
         <!-- NOTE: this block "TEXTURE" must be repeated as necessary with different "id" -->
-        <texture id="grey_painted_metal" path="./scenes/images/grey_painted_metal.jpg"/>
-        <texture id="grey_plastic"       path="./scenes/images/grey_plastic.jpg"      />
-        <texture id="white_tabletop"     path="./scenes/images/white_tabletop.jpg"    />
-        <texture id="world_map"          path="./scenes/images/world_map.jpg"         />
-        <texture id="worn_out_plastic"   path="./scenes/images/worn_out_plastic.jpg"  />        
+        <texture id="black_painted_metal" path="./scenes/images/black-painted-metal.jpg"/>
+        <texture id="grey_plastic"        path="./scenes/images/plastic-pink.jpg"       />
+        <texture id="white_tabletop"      path="./scenes/images/white-tabletop.jpg"     />
+        <texture id="world_map"           path="./scenes/images/world-map.jpg"          />
+        <texture id="worn_out_plastic"    path="./scenes/images/plastic-yellow.jpg"     />        
     </textures>
     <materials>
         <!-- At least one material should be present. -->
@@ -126,7 +126,7 @@
     
         <node id="table">
             <material id="metal"/>
-            <texture id="grey_painted_metal"/>
+            <texture id="black_painted_metal"/>
 
             <!-- geom. transf. are optional and may be repeated, in any order, as necessary: -->
             <transformations>
