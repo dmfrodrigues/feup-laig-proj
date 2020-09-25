@@ -1,4 +1,4 @@
-user="/usr/users2/2018/up291806429"
+user="/usr/users2/2018/up201806429"
 repo_name="laig-t02-g04"
 deploy_dir="$user/public_html/feup/3/1"
 repo_path="$deploy_dir/$repo_name"
