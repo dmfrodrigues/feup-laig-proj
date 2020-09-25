@@ -414,10 +414,10 @@ class MySceneGraph {
     }
 
     /**
-   * Parses the <nodes> block.
-   * @param {nodes block element} nodesNode
-   */
-  parseNodes(nodesNode) {
+     * Parses the <nodes> block.
+     * @param {nodes block element} nodesNode
+     */
+    parseNodes(nodesNode) {
         var children = nodesNode.children;
 
         this.nodes = [];
