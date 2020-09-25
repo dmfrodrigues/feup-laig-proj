@@ -1,7 +1,7 @@
-repo_name=laig-t02-g04
-deploy_dir=~/public_html/feup/3/1
-repo_path=$deploy_dir/$repo_name
-original_repo = ~/feup/3S1/LAIG/laig-t02-g04
+repo_name="laig-t02-g04"
+deploy_dir="~/public_html/feup/3/1"
+repo_path="$deploy_dir/$repo_name"
+original_repo="~/feup/3S1/LAIG/laig-t02-g04"
 
 cd $original_repo
 
