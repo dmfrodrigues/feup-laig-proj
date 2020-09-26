@@ -4,7 +4,6 @@ class Node extends CGFobject {
         super(scene);
         this.scene = scene;
         this.id    = id;
-        console.log(this.id);
         this.children = [];
         this.material = null;
         this.texture  = null;
@@ -12,7 +11,6 @@ class Node extends CGFobject {
 
     setMaterial(material){
         this.material = material;
-        this.material.apply();
     }
 
     setTexture(texture){
