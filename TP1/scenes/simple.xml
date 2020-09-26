@@ -61,7 +61,7 @@
             <material id="metal"/>
 
             <descendants>
-                <leaf type="rectangle" x1="0" y1="1" x2="1" y2="0"/>
+                <leaf type="rectangle" x1="0" y1="0" x2="1" y2="1"/>
             </descendants>
         </node>
     </nodes>
