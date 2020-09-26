@@ -485,7 +485,6 @@ class MySceneGraph {
         }
 
         this.scene.materials = this.materials;
-        console.log(this.scene.materials);
 
         this.log("Parsed materials");
 
