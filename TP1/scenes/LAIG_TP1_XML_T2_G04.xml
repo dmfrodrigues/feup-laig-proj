@@ -65,8 +65,7 @@
             <material id="metal"/>
 
             <descendants>
-                <leaf type="sphere" radius="1.0" slices="4" stacks="4"/>
-                <!-- <noderef id="globe_world"/> -->
+                <noderef id="globe_world"/>
             </descendants>
         </node>
         <node id="chair">
@@ -177,7 +176,8 @@
             <material id="plastic"/>
             <texture id="world_map"/>
             <descendants>
-                <leaf type="sphere" radius="0.18" slices="20" stacks="8"/>
+                <!-- slices should be a multiple of 24, and stacks a multiple of 6 -->
+                <leaf type="sphere" radius="0.18" slices="72" stacks="24"/>
             </descendants>
         </node>
         <node id="globe_axis">
