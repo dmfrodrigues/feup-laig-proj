@@ -549,9 +549,12 @@ class MySceneGraph {
             if(typeof texture  !== "undefined") node.setTexture (this.textures [texture. id]);
             // Descendants
             let descendants = grandChildren[descendantsIndex].children;
+            nodeDescendants[nodeID] = [];
             for(let j = 0; j < descendants.length; ++j){
                 let descendant = descendants[j];
-                if(descendant.nodeName == 'leaf'){
+                if(descendant.nodeName == 'noderef'){
+                    nodeDescendants[nodeID].push(descendant.id);
+                } else if(descendant.nodeName == 'leaf'){
                     let leaf = {};
                     switch(descendant.attributes.type.value){
                         case "rectangle":
@@ -584,10 +587,22 @@ class MySceneGraph {
                             return `no such leaf type "${descendant.attributes.type}"`;
                     }
                     node.addChild(leaf);
-                }
+                } else return `no such descendant type "${descendant.nodeName}"`;
             }
 
+            if(typeof this.nodes[nodeID] != "undefined") return "node with same id already exists";
             this.nodes[nodeID] = node;
+        }
+
+        for(let nodeID in nodeDescendants){
+            let node = this.nodes[nodeID];
+            let descendants = nodeDescendants[nodeID];
+            for(let i = 0; i < descendants.length; ++i){
+                let childID = descendants[i];
+                let child = this.nodes[childID];
+                if(typeof child == "undefined") return `node "${nodeID}" has child "${childID}" which does not exist`;
+                node.addChild(child);
+            }
         }
     }
 
