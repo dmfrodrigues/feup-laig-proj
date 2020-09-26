@@ -286,6 +286,7 @@ class MySceneGraph {
         }
 
         this.scene.camera = this.views.list[this.views.default];
+        this.scene.interface.setActiveCamera(this.scene.camera);
 
         this.log("Parsed views");
         
@@ -569,7 +570,12 @@ class MySceneGraph {
                             this.onXMLMinorError("TODO: Implement cylinder");
                             break;
                         case "sphere":
-                            this.onXMLMinorError("TODO: Implement sphere");
+                            leaf = new MySphere(
+                                this.scene,
+                                parseFloat(descendant.attributes.radius.value),
+                                parseInt(descendant.attributes.slices.value),
+                                parseInt(descendant.attributes.stacks.value)
+                            );
                             break;
                         case "torus":
                             this.onXMLMinorError("TODO: Implement torus");
