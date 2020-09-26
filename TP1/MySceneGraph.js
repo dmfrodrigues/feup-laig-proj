@@ -505,6 +505,8 @@ class MySceneGraph {
         var grandgrandChildren = [];
         var nodeNames = [];
 
+        let nodeDescendants = {};
+
         // Any number of nodes.
         for (var i = 0; i < children.length; i++) {
 
@@ -535,6 +537,8 @@ class MySceneGraph {
             var descendantsIndex = nodeNames.indexOf("descendants");
 
             this.onXMLMinorError("To do: Parse nodes.");
+
+            let node = new Node(this.scene, nodeID);
             // Transformations
 
             // Material
@@ -542,6 +546,33 @@ class MySceneGraph {
             // Texture
 
             // Descendants
+            let descendants = grandChildren[descendantsIndex].children;
+            for(let j = 0; j < descendants.length; ++j){
+                let descendant = descendants[j];
+                if(descendant.nodeName == 'leaf'){
+                    let leaf = {};
+                    switch(descendant.attributes.type.value){
+                        case "rectangle":
+                            leaf = new MyRectangle(
+                                this.scene,
+                                parseFloat(descendant.attributes.x1.value),
+                                parseFloat(descendant.attributes.y1.value),
+                                parseFloat(descendant.attributes.x2.value),
+                                parseFloat(descendant.attributes.y2.value)
+                            );
+                            break;
+                        case null:
+                            return "leaf type can not be null";
+                        default:
+                            break;
+                            // return `no such leaf type "${descendant.attributes.type}"`;
+                    }
+                    console.log(leaf);
+                    node.addChild(leaf);
+                }
+            }
+
+            this.nodes[nodeID] = node;
         }
     }
 
@@ -645,8 +676,8 @@ class MySceneGraph {
      */
     displayScene() {
         
-        //To do: Create display loop for transversing the scene graph, calling the root node's display function
+        //TODO: Create display loop for transversing the scene graph, calling the root node's display function
         
-        //this.nodes[this.idRoot].display()
+        this.nodes[this.idRoot].display();
     }
 }
