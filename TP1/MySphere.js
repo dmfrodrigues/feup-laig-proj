@@ -36,7 +36,7 @@ class MySphere extends CGFobject {
 		for(let i = 0; i <= 2*this.stacks; ++i){
 			let theta = 0.5*Math.PI - 0.5*Math.PI*i/this.stacks; //elevation
 			let t = i/(2*this.stacks);
-			for(let j = 0; j < this.slices; ++j){
+			for(let j = 0; j <= this.slices; ++j){
 				let phi = 2.0*Math.PI*j/this.slices; //azimuth
 				
 				let x = Math.cos(theta) * Math.cos(phi);
@@ -51,19 +51,13 @@ class MySphere extends CGFobject {
 
 		// Indices
 		for(let stack = 0; stack < 2*this.stacks; ++stack){
-			let base1 = this.slices * stack;
-			let base2 = this.slices * (stack+1);
+			let base1 = (this.slices+1) * stack;
+			let base2 = (this.slices+1) * (stack+1);
 			let i, j, k, l;
 			for(i = base1, j = base1 + 1, k = base2, l = base2+1; j < base2; ++i, ++j, ++k, ++l){
 				this.indices.push(i, k, l);
 				this.indices.push(i, l, j);
 			}
-			i = base1 + this.slices-1;
-			j = base1;
-			k = base2 + this.slices-1;
-			l = base2;
-			this.indices.push(i, k, l);
-			this.indices.push(i, l, j);
 		}
 
 		// Normals
