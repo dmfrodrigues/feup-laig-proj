@@ -542,9 +542,10 @@ class MySceneGraph {
 
             // Material
             let material = grandChildren[materialIndex];
-            node.setMaterial(this.materials[material.id]);
+            if(typeof material !== "undefined") node.setMaterial(this.materials[material.id]);
             // Texture
-
+            let texture = grandChildren[textureIndex];
+            if(typeof texture  !== "undefined") node.setTexture (this.textures [texture. id]);
             // Descendants
             let descendants = grandChildren[descendantsIndex].children;
             for(let j = 0; j < descendants.length; ++j){
