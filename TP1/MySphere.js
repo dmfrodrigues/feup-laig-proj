@@ -18,21 +18,10 @@ class MySphere extends CGFobject {
 	}
 	
 	initBuffers() {
+		// Vertices and texCoords
 		this.vertices  = [];
 		this.texCoords = [];
-		this.indices   = [];
 
-		// Vertices and texCoords
-
-		/*
-		Texture coords (s,t)
-		+----------> s
-        |
-        |
-		|
-		v
-        t
-        */
 		for(let i = 0; i <= 2*this.stacks; ++i){
 			let theta = 0.5*Math.PI - 0.5*Math.PI*i/this.stacks; //elevation
 			let t = i/(2*this.stacks);
@@ -48,8 +37,11 @@ class MySphere extends CGFobject {
 				this.texCoords.push(s, t);
 			}
 		}
+		for(let i = 0; i < this.vertices.length; ++i) this.vertices[i] *= this.radius;
 
 		// Indices
+		this.indices   = [];
+
 		for(let stack = 0; stack < 2*this.stacks; ++stack){
 			let base1 = (this.slices+1) * stack;
 			let base2 = (this.slices+1) * (stack+1);
@@ -61,9 +53,10 @@ class MySphere extends CGFobject {
 		}
 
 		// Normals
-		this.normals = this.vertices/this.radius;
+		this.normals = [];
+		this.vertices.forEach(i => this.normals.push(i/this.radius));
 		
-		
+		// Others		
 		this.primitiveType = this.scene.gl.TRIANGLES;
 		this.initGLBuffers();
 	}
