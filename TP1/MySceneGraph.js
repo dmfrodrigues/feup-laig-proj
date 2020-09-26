@@ -561,11 +561,20 @@ class MySceneGraph {
                                 parseFloat(descendant.attributes.y2.value)
                             );
                             break;
-                        case null:
-                            return "leaf type can not be null";
-                        default:
+                        case "triangle":
+                            this.onXMLMinorError("TODO: Implement triangle");
                             break;
-                            // return `no such leaf type "${descendant.attributes.type}"`;
+                        case "cylinder":
+                            this.onXMLMinorError("TODO: Implement cylinder");
+                            break;
+                        case "sphere":
+                            this.onXMLMinorError("TODO: Implement sphere");
+                            break;
+                        case "torus":
+                            this.onXMLMinorError("TODO: Implement torus");
+                            break;
+                        default:
+                            return `no such leaf type "${descendant.attributes.type}"`;
                     }
                     node.addChild(leaf);
                 }
