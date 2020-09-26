@@ -4,7 +4,13 @@ class Node extends CGFobject {
         super(scene);
         this.scene = scene;
         this.id    = id;
+        console.log(this.id);
         this.children = [];
+        this.material = null;
+    }
+
+    setMaterial(material){
+        this.material = material;
     }
     
     addChild(child){
@@ -13,10 +19,11 @@ class Node extends CGFobject {
 
 	display(){
         this.scene.pushMatrix();{
-            for(let child in this.children){
-                //console.log(id);
-                console.log(child);
-                //child.display();
+
+            if(this.material != null) this.material.apply();
+            for(let i = 0; i < this.children.length; ++i){
+                let child = this.children[i];
+                child.display();
             }
         }this.scene.popMatrix();
     }
