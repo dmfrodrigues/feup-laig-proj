@@ -286,6 +286,8 @@ class MySceneGraph {
         }
 
         this.scene.camera = this.views.list[this.views.default];
+
+        this.log("Parsed views");
         
         return null;
     }
@@ -419,7 +421,9 @@ class MySceneGraph {
                 texture.attributes.path.value
             );
         }
-        console.log(this.textures);
+
+        this.log("Parsed textures");
+
         return null;
     }
 
