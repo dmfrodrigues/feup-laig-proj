@@ -541,7 +541,8 @@ class MySceneGraph {
             // Transformations
 
             // Material
-
+            let material = grandChildren[materialIndex];
+            node.setMaterial(this.materials[material.id]);
             // Texture
 
             // Descendants
@@ -566,7 +567,6 @@ class MySceneGraph {
                             break;
                             // return `no such leaf type "${descendant.attributes.type}"`;
                     }
-                    console.log(leaf);
                     node.addChild(leaf);
                 }
             }
