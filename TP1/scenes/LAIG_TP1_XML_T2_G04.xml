@@ -152,7 +152,7 @@
                 <rotation axis="xx" angle="-90"/>
             </transformations>
             <descendants>
-                <leaf id="cylinder" bottom_radius="0.04" top_radius="0.04" height="0.5" slices="32" stacks="8"/>
+                <leaf type="cylinder" bottom_radius="0.04" top_radius="0.04" height="0.5" slices="32" stacks="8"/>
             </descendants>
         </node>
         
