@@ -504,6 +504,8 @@ class MySceneGraph {
         var grandgrandChildren = [];
         var nodeNames = [];
 
+        let nodeDescendants = {};
+
         // Any number of nodes.
         for (var i = 0; i < children.length; i++) {
 
@@ -534,13 +536,52 @@ class MySceneGraph {
             var descendantsIndex = nodeNames.indexOf("descendants");
 
             this.onXMLMinorError("To do: Parse nodes.");
+
+            let node = new Node(this.scene, nodeID);
             // Transformations
 
             // Material
-
+            let material = grandChildren[materialIndex];
+            if(typeof material !== "undefined") node.setMaterial(this.materials[material.id]);
             // Texture
-
+            let texture = grandChildren[textureIndex];
+            if(typeof texture  !== "undefined") node.setTexture (this.textures [texture. id]);
             // Descendants
+            let descendants = grandChildren[descendantsIndex].children;
+            for(let j = 0; j < descendants.length; ++j){
+                let descendant = descendants[j];
+                if(descendant.nodeName == 'leaf'){
+                    let leaf = {};
+                    switch(descendant.attributes.type.value){
+                        case "rectangle":
+                            leaf = new MyRectangle(
+                                this.scene,
+                                parseFloat(descendant.attributes.x1.value),
+                                parseFloat(descendant.attributes.y1.value),
+                                parseFloat(descendant.attributes.x2.value),
+                                parseFloat(descendant.attributes.y2.value)
+                            );
+                            break;
+                        case "triangle":
+                            this.onXMLMinorError("TODO: Implement triangle");
+                            break;
+                        case "cylinder":
+                            this.onXMLMinorError("TODO: Implement cylinder");
+                            break;
+                        case "sphere":
+                            this.onXMLMinorError("TODO: Implement sphere");
+                            break;
+                        case "torus":
+                            this.onXMLMinorError("TODO: Implement torus");
+                            break;
+                        default:
+                            return `no such leaf type "${descendant.attributes.type}"`;
+                    }
+                    node.addChild(leaf);
+                }
+            }
+
+            this.nodes[nodeID] = node;
         }
     }
 
@@ -644,8 +685,8 @@ class MySceneGraph {
      */
     displayScene() {
         
-        //To do: Create display loop for transversing the scene graph, calling the root node's display function
+        //TODO: Create display loop for transversing the scene graph, calling the root node's display function
         
-        //this.nodes[this.idRoot].display()
+        this.nodes[this.idRoot].display();
     }
 }
