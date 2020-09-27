@@ -46,7 +46,13 @@ class MyCylinder extends CGFobject {
                         this.indices.push(face + h * this.slices, face + this.slices + h * this.slices, face + h * this.slices + this.slices + 1);
                     }
                 }
-                this.normals.push(x, y, 0);
+
+                let Nx = Math.cos(theta*face);
+                let Ny = Math.sin(theta*face);
+                let Nz = (this.bottomRadius-this.topRadius)/this.height;
+                let R = Math.sqrt(Nx*Nx + Ny*Ny + Nz*Nz);
+                this.normals.push(Nx/R, Ny/R, Nz/R);
+                
                 this.texCoords.push(face / this.slices, h / this.stacks);
             }
 
