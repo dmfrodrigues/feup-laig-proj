@@ -4,9 +4,14 @@ class Node extends CGFobject {
         super(scene);
         this.scene = scene;
         this.id    = id;
-        this.children = [];
-        this.material = null;
-        this.texture  = null;
+        this.transformation = mat4.create();
+        this.material       = null;
+        this.texture        = null;
+        this.children       = [];
+    }
+
+    setTransformation(M){
+        mat4.copy(this.transformation, M);
     }
 
     setMaterial(material){
@@ -23,6 +28,8 @@ class Node extends CGFobject {
 
 	display(){
         this.scene.pushMatrix();{
+
+            this.scene.multMatrix(this.transformation);
 
             if(this.texture  != null) this.material.setTexture(this.texture);
             if(this.material != null) this.material.apply();
