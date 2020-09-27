@@ -62,10 +62,36 @@
     <nodes>
         <node id="root">
             <descendants>
-                <noderef id="globe"/>
+                <noderef id="globe_and_table"/>
+                <noderef id="chair_next_to_table"/>
+            </descendants>
+        </node>
+
+        <node id="globe_and_table">
+            <descendants>
+                <noderef id="globe_on_table"/>
                 <noderef id="table"/>
             </descendants>
         </node>
+        <node id="globe_on_table">
+            <transformations>
+                <translation x="0.2" y="0.507" z="-0.04"/>
+            </transformations>
+            <descendants>
+                <noderef id="globe"/>
+            </descendants>
+        </node>
+
+        <node id="chair_next_to_table">
+            <transformations>
+                <translation x="0.0" y="0.0" z="0.3"/>
+                <rotation axis="yy" angle="190"/>
+            </transformations>
+            <descendants>
+                <noderef id="chair"/>
+            </descendants>
+        </node>
+
         <node id="chair">
             <material id="plastic"/>
             <texture  id="plastic_pink"/>
