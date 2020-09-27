@@ -245,7 +245,51 @@ class MySceneGraph {
      * @param {view block element} viewsNode
      */
     parseViews(viewsNode) {
-        this.onXMLMinorError("To do: Parse views and create cameras.");
+        
+        this.views = {};
+        this.views.list = {};
+        this.views.default = viewsNode.attributes.default.value;
+        
+        for(let i = 0; i < viewsNode.children.length; ++i){
+            let camera = viewsNode.children[i];
+            
+            let fromAttr = null;
+            let toAttr   = null;
+            let upAttr   = null;
+            for(let j = 0; j < camera.children.length; ++j){
+                if(camera.children[j].nodeName == "from") fromAttr = camera.children[j].attributes;
+                if(camera.children[j].nodeName == "to"  ) toAttr   = camera.children[j].attributes;
+                if(camera.children[j].nodeName == "up"  ) upAttr   = camera.children[j].attributes;
+            }
+
+            if(camera.nodeName == "perspective"){
+                this.views.list[camera.id] = new CGFcamera(
+                    parseFloat(camera.attributes.angle.value)*DEGREE_TO_RAD,
+                    parseFloat(camera.attributes.near.value),
+                    parseFloat(camera.attributes.far.value),
+                    vec3.fromValues(fromAttr.x.value, fromAttr.y.value, fromAttr.z.value),
+                    vec3.fromValues(toAttr  .x.value, toAttr  .y.value, toAttr  .z.value)
+                );
+            } else if(camera.nodeName == "ortho"){
+                this.views.list[camera.id] = new CGFcameraOrtho(
+                    parseFloat(camera.attributes.left  .value),
+                    parseFloat(camera.attributes.right .value),
+                    parseFloat(camera.attributes.bottom.value),
+                    parseFloat(camera.attributes.top   .value),
+                    parseFloat(camera.attributes.near  .value),
+                    parseFloat(camera.attributes.far   .value),
+                    vec3.fromValues(fromAttr.x.value, fromAttr.y.value, fromAttr.z.value),
+                    vec3.fromValues(toAttr  .x.value, toAttr  .y.value, toAttr  .z.value),
+                    vec3.fromValues(upAttr  .x.value, upAttr  .y.value, upAttr  .z.value)
+                );
+            }
+        }
+
+        this.scene.camera = this.views.list[this.views.default];
+        this.scene.interface.setActiveCamera(this.scene.camera);
+
+        this.log("Parsed views");
+        
         return null;
     }
 
@@ -280,7 +324,7 @@ class MySceneGraph {
         else
             this.background = color;
 
-        this.log("Parsed Illumination.");
+        this.log("Parsed illumination");
 
         return null;
     }
@@ -370,9 +414,17 @@ class MySceneGraph {
      * @param {textures block element} texturesNode
      */
     parseTextures(texturesNode) {
+        this.textures = {};
+        for(let i = 0; i < texturesNode.children.length; ++i){
+            let texture = texturesNode.children[i];
+            this.textures[texture.id] = new CGFtexture(
+                this.scene,
+                texture.attributes.path.value
+            );
+        }
 
-        //For each texture in textures block, check ID and file URL
-        this.onXMLMinorError("To do: Parse textures.");
+        this.log("Parsed textures");
+
         return null;
     }
 
@@ -406,18 +458,44 @@ class MySceneGraph {
                 return "ID must be unique for each light (conflict: ID = " + materialID + ")";
 
             //Continue here
-            this.onXMLMinorError("To do: Parse materials.");
+
+            grandChildren = children[i].children;
+            
+            nodeNames = [];
+
+            this.materials[materialID] = new CGFappearance(this.scene);
+            
+            for (var j = 0; j < grandChildren.length; j++) {
+                nodeNames.push(grandChildren[j].nodeName);
+            }
+
+            let ambientIndex = nodeNames.indexOf("ambient");
+            let diffuseIndex = nodeNames.indexOf("diffuse");
+            let emissionIndex = nodeNames.indexOf("emissive");
+            let specularIndex = nodeNames.indexOf("specular");
+            let shininessIndex = nodeNames.indexOf("shininess");
+
+            this.materials[materialID].ambient = this.parseColor(grandChildren[ambientIndex], "ambient");
+            this.materials[materialID].diffuse = this.parseColor(grandChildren[diffuseIndex], "diffuse");
+            this.materials[materialID].emission = this.parseColor(grandChildren[emissionIndex], "emissive");
+            this.materials[materialID].specular = this.parseColor(grandChildren[specularIndex], "specular");
+            
+            this.materials[materialID].shininess = this.reader.getFloat(grandChildren[shininessIndex], "value");
+
         }
 
-        //this.log("Parsed materials");
+        this.scene.materials = this.materials;
+
+        this.log("Parsed materials");
+
         return null;
     }
 
     /**
-   * Parses the <nodes> block.
-   * @param {nodes block element} nodesNode
-   */
-  parseNodes(nodesNode) {
+     * Parses the <nodes> block.
+     * @param {nodes block element} nodesNode
+     */
+    parseNodes(nodesNode) {
         var children = nodesNode.children;
 
         this.nodes = [];
@@ -425,6 +503,8 @@ class MySceneGraph {
         var grandChildren = [];
         var grandgrandChildren = [];
         var nodeNames = [];
+
+        let nodeDescendants = {};
 
         // Any number of nodes.
         for (var i = 0; i < children.length; i++) {
@@ -455,15 +535,142 @@ class MySceneGraph {
             var textureIndex = nodeNames.indexOf("texture");
             var descendantsIndex = nodeNames.indexOf("descendants");
 
-            this.onXMLMinorError("To do: Parse nodes.");
+            let node = new Node(this.scene, nodeID);
             // Transformations
-
+            let transformations = grandChildren[transformationsIndex];
+            let M = mat4.create();
+            if(typeof transformations !== "undefined"){
+                transformations = transformations.children;
+                for(let i = 0; i < transformations.length; ++i){
+                    let trans = transformations[i];
+                    switch(trans.nodeName){
+                        case "translation":
+                            let x = parseFloat(trans.attributes.x.value);
+                            let y = parseFloat(trans.attributes.y.value);
+                            let z = parseFloat(trans.attributes.z.value);
+                            if(x == NaN || y == NaN || z == NaN) return "translation has missing attributes";
+                            mat4.translate(M, M, vec3.fromValues(x, y, z));
+                            break;
+                        case "rotation":
+                            let angle = parseFloat(trans.attributes.angle.value)*DEGREE_TO_RAD;
+                            if(angle == NaN) return "rotation has missing attributes"
+                            switch(trans.attributes.axis.value){
+                                case "xx": mat4.rotateX(M, M, angle); break;
+                                case "yy": mat4.rotateY(M, M, angle); break;
+                                case "zz": mat4.rotateZ(M, M, angle); break;
+                                default: return `no such rotation axis "${trans.attributes.axis.value}"`;
+                            }
+                            break;
+                        case "scale":
+                            let sx = parseFloat(trans.attributes.sx.value);
+                            let sy = parseFloat(trans.attributes.sy.value);
+                            let sz = parseFloat(trans.attributes.sz.value);
+                            if(sx == NaN || sy == NaN || sz == NaN) return "scale has missing attributes";
+                            mat4.scale(M, M, vec3.fromValues(sx, sy, sz));
+                            break;
+                        default:
+                            return `no such transformation "${trans.nodeName}"`;
+                    }
+                }
+            }
+            node.setTransformation(M);
             // Material
-
+            let material = grandChildren[materialIndex];
+            if(typeof material !== "undefined") {
+                let mat = this.materials[material.id];
+                if(typeof mat == "undefined") return `no such material "${material.id}"`;
+                node.setMaterial(mat);
+            }
             // Texture
-
+            let texture = grandChildren[textureIndex];
+            if(typeof texture  !== "undefined") {
+                let tex = this.textures [texture.id];
+                if(typeof tex == "undefined") return `no such texture "${texture.id}"`;
+                node.setTexture (tex);
+            }
             // Descendants
+            let descendants = grandChildren[descendantsIndex].children;
+            nodeDescendants[nodeID] = [];
+            for(let j = 0; j < descendants.length; ++j){
+                let descendant = descendants[j];
+                if(descendant.nodeName == 'noderef'){
+                    nodeDescendants[nodeID].push(descendant.id);
+                } else if(descendant.nodeName == 'leaf'){
+                    let leaf = {};
+                    switch(descendant.attributes.type.value){
+                        case "rectangle":
+                            leaf = new MyRectangle(
+                                this.scene,
+                                parseFloat(descendant.attributes.x1.value),
+                                parseFloat(descendant.attributes.y1.value),
+                                parseFloat(descendant.attributes.x2.value),
+                                parseFloat(descendant.attributes.y2.value)
+                            );
+                            break;
+                        case "triangle":
+                            leaf = new MyTriangle(
+                                this.scene,
+                                parseFloat(descendant.attributes.x1.value),
+                                parseFloat(descendant.attributes.y1.value),
+                                parseFloat(descendant.attributes.z1.value),
+                                parseFloat(descendant.attributes.x2.value),
+                                parseFloat(descendant.attributes.y2.value),
+                                parseFloat(descendant.attributes.z2.value),
+                                parseFloat(descendant.attributes.x3.value),
+                                parseFloat(descendant.attributes.y3.value),
+                                parseFloat(descendant.attributes.z3.value)
+                            );
+                            break;
+                        case "cylinder":
+                            leaf = new MyCylinder(
+                                this.scene,
+                                parseFloat(descendant.attributes.bottomRadius.value),
+                                parseFloat(descendant.attributes.topRadius   .value),
+                                parseFloat(descendant.attributes.height      .value),
+                                parseFloat(descendant.attributes.slices      .value),
+                                parseFloat(descendant.attributes.stacks      .value)
+                            );
+                            break;
+                        case "sphere":
+                            leaf = new MySphere(
+                                this.scene,
+                                parseFloat(descendant.attributes.radius.value),
+                                parseInt(descendant.attributes.slices.value),
+                                parseInt(descendant.attributes.stacks.value)
+                            );
+                            break;
+                        case "torus":
+                            leaf = new MyTorus(
+                                this.scene,
+                                parseFloat(descendant.attributes.innerRadius.value),
+                                parseFloat(descendant.attributes.outerRadius.value),
+                                parseFloat(descendant.attributes.slices.value),
+                                parseFloat(descendant.attributes.loops.value)
+                            );
+                            break;
+                        default:
+                            return `no such leaf type "${descendant.attributes.type}"`;
+                    }
+                    node.addChild(leaf);
+                } else return `no such descendant type "${descendant.nodeName}"`;
+            }
+
+            if(typeof this.nodes[nodeID] != "undefined") return "node with same id already exists";
+            this.nodes[nodeID] = node;
         }
+
+        for(let nodeID in nodeDescendants){
+            let node = this.nodes[nodeID];
+            let descendants = nodeDescendants[nodeID];
+            for(let i = 0; i < descendants.length; ++i){
+                let childID = descendants[i];
+                let child = this.nodes[childID];
+                if(typeof child == "undefined") return `node "${nodeID}" has child "${childID}" which does not exist`;
+                node.addChild(child);
+            }
+        }
+
+        this.log("Parsed nodes");
     }
 
 
@@ -566,8 +773,8 @@ class MySceneGraph {
      */
     displayScene() {
         
-        //To do: Create display loop for transversing the scene graph, calling the root node's display function
+        //TODO: Create display loop for transversing the scene graph, calling the root node's display function
         
-        //this.nodes[this.idRoot].display()
+        this.nodes[this.idRoot].display();
     }
 }

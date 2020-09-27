@@ -17,4 +17,4 @@
 ----
 ## Issues/Problems
 
-- (items describing unimplemented features, bugs, problems, etc.)
+- Textures and materials are being correctly loaded, but they are not being properly applied.
