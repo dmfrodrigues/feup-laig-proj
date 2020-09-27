@@ -4,11 +4,13 @@
  * @param scene - Reference to MyScene object
  * @param x1 - x coordinate 1
  * @param y1 - y coordinate 1
+ * @param z1 - z coordinate 1
  * @param x2 - x coordinate 2
  * @param y2 - y coordinate 2
+ * @param z2 - z coordinate 2
  * @param x3 - x coordinate 3
  * @param y3 - y coordinate 3
- * @param z3 - z coordinate
+ * @param z3 - z coordinate 3
  */
 class MyTriangle extends CGFobject {
 	constructor(scene, x1, y1, z1, x2, y2, z2, x3, y3, z3) {
