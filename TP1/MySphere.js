@@ -1,12 +1,3 @@
-/**
- * MyRectangle
- * @constructor
- * @param scene - Reference to MyScene object
- * @param x1 - x coordinate corner 1
- * @param y1 - y coordinate corner 1
- * @param x2 - x coordinate corner 2
- * @param y2 - y coordinate corner 2
- */
 class MySphere extends CGFobject {
 	constructor(scene, radius, slices, stacks) {
 		super(scene);
@@ -45,8 +36,7 @@ class MySphere extends CGFobject {
 		for(let stack = 0; stack < 2*this.stacks; ++stack){
 			let base1 = (this.slices+1) * stack;
 			let base2 = (this.slices+1) * (stack+1);
-			let i, j, k, l;
-			for(i = base1, j = base1 + 1, k = base2, l = base2+1; j < base2; ++i, ++j, ++k, ++l){
+			for(let i = base1, j = base1 + 1, k = base2, l = base2+1; j < base2; ++i, ++j, ++k, ++l){
 				this.indices.push(i, k, l);
 				this.indices.push(i, l, j);
 			}
