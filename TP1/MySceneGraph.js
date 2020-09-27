@@ -558,9 +558,9 @@ class MySceneGraph {
                             let angle = parseFloat(trans.attributes.angle.value)*DEGREE_TO_RAD;
                             if(angle == NaN) return "rotation has missing attributes"
                             switch(trans.attributes.axis.value){
-                                case "x": mat4.rotateX(M, M, angle); break;
-                                case "y": mat4.rotateY(M, M, angle); break;
-                                case "z": mat4.rotateZ(M, M, angle); break;
+                                case "xx": mat4.rotateX(M, M, angle); break;
+                                case "yy": mat4.rotateY(M, M, angle); break;
+                                case "zz": mat4.rotateZ(M, M, angle); break;
                                 default: return `no such rotation axis "${trans.attributes.axis.value}"`;
                             }
                             break;
