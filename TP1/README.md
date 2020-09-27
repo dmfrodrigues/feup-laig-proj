@@ -10,10 +10,14 @@
 ----
 ## Project information
 
-- (items describing main strong points)
+- Hereditarity of materials and textures was implemented using two stacks, which are pushed (`XMLscene.pushAppearance()`) and popped (`XMLscene.popAppearance()`) similarly to CGFscene.pushMatrix() and CGFscene.popMatrix(). Current material and texture are set using `XMLscene.setAppearance(material, texture)`.
+
 - Scene
-  - (Brief description of the created scene)
-  - (relative link to the scene)
+  - Our scene includes:
+    - A wooden smooth table with metal legs
+    - A globe of Earth, with support, base and tilted axis
+    - A grey/pink plastic chair in front of the table
+  - https://web.fe.up.pt/~up201806429/feup/3/1/laig-t02-g04/TP1/
 ----
 ## Issues/Problems
 
