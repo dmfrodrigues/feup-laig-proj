@@ -324,7 +324,7 @@ class MySceneGraph {
         else
             this.background = color;
 
-        this.log("Parsed Illumination.");
+        this.log("Parsed illumination");
 
         return null;
     }
@@ -458,7 +458,6 @@ class MySceneGraph {
                 return "ID must be unique for each light (conflict: ID = " + materialID + ")";
 
             //Continue here
-            //this.onXMLMinorError("To do: Parse materials.");
 
             grandChildren = children[i].children;
             
@@ -536,8 +535,6 @@ class MySceneGraph {
             var textureIndex = nodeNames.indexOf("texture");
             var descendantsIndex = nodeNames.indexOf("descendants");
 
-            this.onXMLMinorError("To do: Parse nodes.");
-
             let node = new Node(this.scene, nodeID);
             // Transformations
             let transformations = grandChildren[transformationsIndex];
@@ -558,9 +555,9 @@ class MySceneGraph {
                             let angle = parseFloat(trans.attributes.angle.value)*DEGREE_TO_RAD;
                             if(angle == NaN) return "rotation has missing attributes"
                             switch(trans.attributes.axis.value){
-                                case "x": mat4.rotateX(M, M, angle); break;
-                                case "y": mat4.rotateY(M, M, angle); break;
-                                case "z": mat4.rotateZ(M, M, angle); break;
+                                case "xx": mat4.rotateX(M, M, angle); break;
+                                case "yy": mat4.rotateY(M, M, angle); break;
+                                case "zz": mat4.rotateZ(M, M, angle); break;
                                 default: return `no such rotation axis "${trans.attributes.axis.value}"`;
                             }
                             break;
@@ -664,6 +661,8 @@ class MySceneGraph {
                 node.addChild(child);
             }
         }
+
+        this.log("Parsed nodes");
     }
 
 
