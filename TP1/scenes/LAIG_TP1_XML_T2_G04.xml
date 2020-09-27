@@ -82,7 +82,7 @@
         </node>
         <node id="chair_seat">
             <transformations>
-                <translate x="0.0" y="0.325" z="0.0"/>
+                <translation x="0.0" y="0.325" z="0.0"/>
                 <scale sx="0.25" sy="0.05" sz="0.30"/>
             </transformations>
             <descendants>
@@ -91,7 +91,7 @@
         </node>
         <node id="chair_back">
             <transformations>
-                <translate x="0.0" y="0.50" z="-0.125"/>
+                <translation x="0.0" y="0.50" z="-0.125"/>
                 <scale sx="0.25" sy="0.30" sz="0.05"/>
             </transformations>
             <descendants>
@@ -153,10 +153,10 @@
 
         <node id="table_leg">
             <transformations>
-                <rotation axis="xx" angle="-90"/>
+                <rotation axis="x" angle="-90"/>
             </transformations>
             <descendants>
-                <leaf type="cylinder" bottom_radius="0.04" top_radius="0.04" height="0.5" slices="32" stacks="8"/>
+                <leaf type="cylinder" bottomRadius="0.04" topRadius="0.04" height="0.5" slices="32" stacks="8"/>
             </descendants>
         </node>
         
@@ -184,7 +184,7 @@
             <material id="plastic"/>
             <texture id="worn_out_plastic"/>
             <transformations>
-                <translate x="0.1414" y="0.1414" z="0.0000"/>
+                <translation x="0.1414" y="0.1414" z="0.0000"/>
                 <rotation axis="x" angle="-90"/>
             </transformations>
             <descendants>
@@ -194,7 +194,7 @@
         <node id="globe_world_axis">
             <transformations>
                 <rotation axis="x" angle="-90"/>
-                <translate x="0.00" y="0.22" z="0.00"/>
+                <translation x="0.00" y="0.22" z="0.00"/>
             </transformations>
             <descendants>
                 <noderef id="globe_world"/>
@@ -209,7 +209,7 @@
         </node>
         <node id="globe_support">
             <transformations>
-                <translate x="0.000" y="-0.015" z="0.000"/>
+                <translation x="0.000" y="-0.015" z="0.000"/>
                 <rotation axis="x" angle="-90"/>
             </transformations>
             <descendants>
@@ -218,7 +218,7 @@
         </node>
         <node id="globe_base">
             <transformations>
-                <translate x="+0.08596" y="-0.04" z="0.000"/>
+                <translation x="+0.08596" y="-0.04" z="0.000"/>
                 <rotation axis="x" angle="-90"/>
             </transformations>
             <descendants>
@@ -235,7 +235,7 @@
         </node>
         <node id="globe">
             <transformations>
-                <translate x="-0.08596" y="+0.5" z="0.0"/>
+                <translation x="-0.08596" y="+0.5" z="0.0"/>
             </transformations>
             <descendants>
                 <noderef id="globe_world_axis"/>
