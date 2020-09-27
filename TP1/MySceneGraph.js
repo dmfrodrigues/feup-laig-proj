@@ -576,10 +576,18 @@ class MySceneGraph {
             node.setTransformation(M);
             // Material
             let material = grandChildren[materialIndex];
-            if(typeof material !== "undefined") node.setMaterial(this.materials[material.id]);
+            if(typeof material !== "undefined") {
+                let mat = this.materials[material.id];
+                if(typeof mat == "undefined") return `no such material "${material.id}"`;
+                node.setMaterial(mat);
+            }
             // Texture
             let texture = grandChildren[textureIndex];
-            if(typeof texture  !== "undefined") node.setTexture (this.textures [texture. id]);
+            if(typeof texture  !== "undefined") {
+                let tex = this.textures [texture.id];
+                if(typeof tex == "undefined") return `no such texture "${texture.id}"`;
+                node.setTexture (tex);
+            }
             // Descendants
             let descendants = grandChildren[descendantsIndex].children;
             nodeDescendants[nodeID] = [];
