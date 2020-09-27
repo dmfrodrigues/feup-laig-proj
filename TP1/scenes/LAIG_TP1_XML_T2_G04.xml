@@ -63,6 +63,7 @@
         <node id="root">
             <descendants>
                 <noderef id="globe_world"/>
+                <noderef id="table"/>
             </descendants>
         </node>
         <node id="chair">
@@ -143,14 +144,14 @@
             </descendants>
         </node>
 
-        <node id="table_leg1"><transformations><translation x="-0.4" y="+0.25" z="+0.2"/></transformations><descendants><noderef id="table_leg"/></descendants></node>
-        <node id="table_leg2"><transformations><translation x="-0.4" y="+0.25" z="-0.2"/></transformations><descendants><noderef id="table_leg"/></descendants></node>
-        <node id="table_leg3"><transformations><translation x="+0.4" y="+0.25" z="-0.2"/></transformations><descendants><noderef id="table_leg"/></descendants></node>
-        <node id="table_leg4"><transformations><translation x="+0.4" y="+0.25" z="+0.2"/></transformations><descendants><noderef id="table_leg"/></descendants></node>
+        <node id="table_leg1"><transformations><translation x="-0.4" y="+0.5" z="+0.2"/></transformations><descendants><noderef id="table_leg"/></descendants></node>
+        <node id="table_leg2"><transformations><translation x="-0.4" y="+0.5" z="-0.2"/></transformations><descendants><noderef id="table_leg"/></descendants></node>
+        <node id="table_leg3"><transformations><translation x="+0.4" y="+0.5" z="-0.2"/></transformations><descendants><noderef id="table_leg"/></descendants></node>
+        <node id="table_leg4"><transformations><translation x="+0.4" y="+0.5" z="+0.2"/></transformations><descendants><noderef id="table_leg"/></descendants></node>
 
         <node id="table_leg">
             <transformations>
-                <rotation axis="xx" angle="-90"/>
+                <rotation axis="xx" angle="90"/>
             </transformations>
             <descendants>
                 <leaf type="cylinder" bottomRadius="0.04" topRadius="0.04" height="0.5" slices="32" stacks="8"/>
