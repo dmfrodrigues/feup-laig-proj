@@ -70,7 +70,6 @@ class MyCylinder extends CGFobject {
         this.vertices.push(0, 0, 0);
         this.normals.push(0, 0, -1);
         for (let i = 0; i < this.slices; i++) {
-            console.log(i, i + 1, idx + 1);
             if (i < this.slices - 1)
                 this.indices.push(i, i + 1, idx + 1);
             else
