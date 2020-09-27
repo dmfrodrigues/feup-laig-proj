@@ -19,6 +19,7 @@ serialInclude(
         'MyInterface.js',
         'MyRectangle.js',
         'MySphere.js',
+        'MyTorus.js',
         'Node.js',
 
 main=function()

@@ -581,7 +581,13 @@ class MySceneGraph {
                             );
                             break;
                         case "torus":
-                            this.onXMLMinorError("TODO: Implement torus");
+                            leaf = new MyTorus(
+                                this.scene,
+                                parseFloat(descendant.attributes.innerRadius.value),
+                                parseFloat(descendant.attributes.outerRadius.value),
+                                parseFloat(descendant.attributes.slices.value),
+                                parseFloat(descendant.attributes.loops.value)
+                            );
                             break;
                         default:
                             return `no such leaf type "${descendant.attributes.type}"`;
