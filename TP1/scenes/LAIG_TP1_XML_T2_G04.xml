@@ -62,7 +62,7 @@
     <nodes>
         <node id="root">
             <descendants>
-                <noderef id="globe_world"/>
+                <noderef id="globe"/>
             </descendants>
         </node>
         <node id="chair">
