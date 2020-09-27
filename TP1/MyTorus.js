@@ -39,9 +39,10 @@ class MyTorus extends CGFobject {
 				let Nx = -Math.cos(phi)*( r*Math.cos(phi)*Math.cos(theta) + R*Math.cos(theta));
 				let Ny =  Math.cos(phi)*(-r*Math.cos(phi)*Math.sin(theta) - R*Math.sin(theta));
 				let Nz = -Math.sin(theta)*Math.sin(phi)*(-r*Math.sin(theta)*Math.cos(phi) - R*Math.sin(theta))
-				         +Math.cos(theta)*Math.sin(phi)*( r*Math.cos(theta)*Math.cos(phi) + R*Math.cos(theta));
+						 +Math.cos(theta)*Math.sin(phi)*( r*Math.cos(theta)*Math.cos(phi) + R*Math.cos(theta));
+				let Nr = Math.sqrt(Nx*Nx + Ny*Ny + Nz*Nz);
 
-				this.normals.push(-Nx, -Ny, -Nz);
+				this.normals.push(-Nx/Nr, -Ny/Nr, -Nz/Nr);
 			}
 		}
 
