@@ -567,10 +567,28 @@ class MySceneGraph {
                             );
                             break;
                         case "triangle":
-                            this.onXMLMinorError("TODO: Implement triangle");
+                            leaf = new MyTriangle(
+                                this.scene,
+                                parseFloat(descendant.attributes.x1.value),
+                                parseFloat(descendant.attributes.y1.value),
+                                parseFloat(descendant.attributes.z1.value),
+                                parseFloat(descendant.attributes.x2.value),
+                                parseFloat(descendant.attributes.y2.value),
+                                parseFloat(descendant.attributes.z2.value),
+                                parseFloat(descendant.attributes.x3.value),
+                                parseFloat(descendant.attributes.y3.value),
+                                parseFloat(descendant.attributes.z3.value)
+                            );
                             break;
                         case "cylinder":
-                            this.onXMLMinorError("TODO: Implement cylinder");
+                            leaf = new MyCylinder(
+                                this.scene,
+                                parseFloat(descendant.attributes.bottomRadius.value),
+                                parseFloat(descendant.attributes.topRadius   .value),
+                                parseFloat(descendant.attributes.height      .value),
+                                parseFloat(descendant.attributes.slices      .value),
+                                parseFloat(descendant.attributes.stacks      .value)
+                            );
                             break;
                         case "sphere":
                             leaf = new MySphere(
