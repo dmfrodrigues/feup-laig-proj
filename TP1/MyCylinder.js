@@ -25,11 +25,9 @@ class MyCylinder extends CGFobject {
         this.indices = [];
         this.normals = [];
         this.texCoords = [];
-
-        let idx = 0;
+        let theta = (2 * Math.PI) / this.slices;
 
         for (let h = 0; h <= this.stacks; h++) {
-            let theta = (2 * Math.PI) / this.slices;
 
             for (let face = this.slices - 1; face >= 0; face--) {
                 let x = Math.cos(theta * face) * (this.bottomRadius - h * (this.bottomRadius - this.topRadius) / this.stacks);
@@ -37,7 +35,6 @@ class MyCylinder extends CGFobject {
                 let z = h * this.height / this.stacks;
 
                 this.vertices.push(x, y, z);
-                idx++;
 
                 if (h < this.stacks) {
                     if (face == this.slices - 1) {
@@ -53,28 +50,48 @@ class MyCylinder extends CGFobject {
                 this.texCoords.push(face / this.slices, h / this.stacks);
             }
 
-            theta += theta;
-
         }
 
         // top cover
+        
         this.vertices.push(0, 0, this.height);
         this.normals.push(0, 0, 1);
+        this.texCoords.push(0, 1);
+
+        let idx = this.vertices.length/3;
+        for(let i=0; i < this.slices; i++){
+            this.vertices.push(Math.cos(theta * i) * this.topRadius, Math.sin(theta * i) * this.topRadius, this.height);
+            this.normals.push(0, 0, 1);
+            this.texCoords.push(0, 1);
+        }
+        
         for (let i = 0; i < this.slices; i++) {
             if (i < this.slices - 1)
-                this.indices.push(idx, idx - i - 1, idx - i - 2);
+                this.indices.push(idx-1, idx + i, idx + i + 1);
             else
-                this.indices.push(idx, idx - i - 1, idx - 1);
+                this.indices.push(idx-1, idx + i, idx);
         }
+        
         // bottom cover
         this.vertices.push(0, 0, 0);
         this.normals.push(0, 0, -1);
+        this.texCoords.push(0, 1);
+
+        idx = this.vertices.length/3;
+        for(let i=0; i < this.slices; i++){
+            this.vertices.push(Math.cos(theta * i) * this.bottomRadius, Math.sin(theta * i) * this.bottomRadius, 0);
+            this.normals.push(0, 0, -1);
+            this.texCoords.push(0, 1);
+        }
+        
         for (let i = 0; i < this.slices; i++) {
             if (i < this.slices - 1)
-                this.indices.push(i, i + 1, idx + 1);
+                this.indices.push(idx + i + 1, idx + i, idx - 1);
             else
-                this.indices.push(i, 0, idx + 1);
+                this.indices.push(idx, idx + i, idx - 1);
         }
+        
+
         this.primitiveType = this.scene.gl.TRIANGLES;
         this.initGLBuffers();
     }
