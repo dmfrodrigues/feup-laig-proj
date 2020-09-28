@@ -10,8 +10,8 @@
             <to   x= "0.0" y="1.0" z= "0.0"/>
         </perspective>
         <perspective id="closer_camera" near="0.1" far="500" angle="45">
-            <from x="1.0" y="1.0" z="1.0"/>
-            <to   x="0.0" y="0.0" z="0.0"/>
+            <from x="1.6" y="1.4" z="1.6"/>
+            <to   x="0.0" y="1.0" z="0.0"/>
         </perspective>
         <ortho id="ortho_camera" near="0.2" far="100" left="-0.2" right="0.2" top="0.2" bottom="-0.2">
             <from x="5" y="0" z="10"/>
@@ -32,6 +32,13 @@
             <diffuse  r= "1.0" g= "1.0" b="1.0" a="1.0"/>
             <specular r= "1.0" g= "1.0" b="1.0" a="1.0"/>
         </light>
+        <light id="light2">
+            <enable value="1"/>
+            <position x="0.0" y="2.0" z="0.0" w="1.0"  />
+            <ambient  r= "0.0" g= "0.0" b="0.0" a="1.0"/>
+            <diffuse  r= "1.0" g= "1.0" b="1.0" a="1.0"/>
+            <specular r= "1.0" g= "1.0" b="1.0" a="1.0"/>
+        </light>
     </lights>
     <textures>
         <!-- NOTE: this block "TEXTURE" must be repeated as necessary with different "id" -->
@@ -46,6 +53,10 @@
         <texture id="intro-cg-back"       path="./scenes/images/intro-cg-back.jpg"      />
         <texture id="intro-cg-spine"      path="./scenes/images/intro-cg-spine.jpg"     />
         <texture id="intro-cg-stripe"     path="./scenes/images/intro-cg-stripe.jpg"    />
+
+        <texture id="floor"               path="./scenes/images/floor.jpg"              />
+        <texture id="wall"                path="./scenes/images/wall.jpg"               />
+        <texture id="ceil"                path="./scenes/images/ceil.jpg"               />
     </textures>
     <materials>
         <!-- At least one material should be present. -->
@@ -90,6 +101,12 @@
             <diffuse  r="1.0" g="1.0" b="1.0" a="1.0"/>
             <specular r="0.05" g="0.05" b="0.05" a="1.0"/>
             <emissive r="0.0" g="0.0" b="0.0" a="1.0"/>
+        <material id="paint">
+            <shininess value="4.0"/>
+            <ambient  r="1.0" g="1.0" b="1.0" a="1.0"/>
+            <diffuse  r="1.0" g="1.0" b="1.0" a="1.0"/>
+            <specular r="0.1" g="0.1" b="0.1" a="1.0"/>
+            <emissive r="0.0" g="0.0" b="0.0" a="1.0"/>
         </material>
     </materials>
 
@@ -101,6 +118,7 @@
             <descendants>
                 <noderef id="table_with_stuff"/>
                 <noderef id="chair_next_to_table"/>
+                <noderef id="walls"/>
             </descendants>
         </node>
 
@@ -793,5 +811,48 @@
             </descendants>
         </node>
 
+        <node id="floor">
+            <material id="null"/><texture id="floor"/>
+            <transformations><rotation axis="xx" angle="-90"/></transformations>
+            <descendants><leaf type="rectangle" x1="-1.5" y1="-1.5" x2="1.5" y2="1.5"/></descendants>
+        </node>
+        <node id="ceil">
+            <material id="null"/><texture id="ceil"/>
+            <transformations><translation x="0" y="2.5" z="0"/><rotation axis="xx" angle="90"/></transformations>
+            <descendants><leaf type="rectangle" x1="-1.5" y1="-1.5" x2="1.5" y2="1.5"/></descendants>
+        </node>
+        <node id="wall_x_pos">
+            <material id="null"/><texture id="null"/>
+            <transformations><translation x="1.5" y="1.5" z="0"/><rotation axis="yy" angle="-90" /></transformations>
+            <descendants><leaf type="rectangle" x1="-1.5" y1="-1.5" x2="1.5" y2="1.0"/></descendants>
+        </node>
+        <node id="wall_x_neg">
+            <material id="null"/><texture id="null"/>
+            <transformations><translation x="-1.5" y="1.5" z="0"/><rotation axis="yy" angle="90" /></transformations>
+            <descendants><leaf type="rectangle" x1="-1.5" y1="-1.5" x2="1.5" y2="1.0"/></descendants>
+        </node>
+        <node id="wall_z_pos">
+            <material id="null"/><texture id="null"/>
+            <transformations><translation x="0" y="1.5" z="-1.5"/><rotation axis="xx" angle="0" /></transformations>
+            <descendants><leaf type="rectangle" x1="-1.5" y1="-1.5" x2="1.5" y2="1.0"/></descendants>
+        </node>
+        <node id="wall_z_neg">
+            <material id="null"/><texture id="null"/>
+            <transformations><translation x="0" y="1.5" z="1.5"/><rotation axis="yy" angle="180" /></transformations>
+            <descendants><leaf type="rectangle" x1="-1.5" y1="-1.5" x2="1.5" y2="1.0"/></descendants>
+        </node>
+
+        <node id="walls">
+            <material id="paint"/>
+            <texture id="wall"/>
+            <descendants>
+                <noderef id="floor"/>
+                <noderef id="ceil"/>
+                <noderef id="wall_x_pos"/>
+                <noderef id="wall_x_neg"/>
+                <noderef id="wall_z_pos"/>
+                <noderef id="wall_z_neg"/>
+            </descendants>
+        </node>
     </nodes>
 </lsf>
