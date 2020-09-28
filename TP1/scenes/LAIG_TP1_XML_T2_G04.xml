@@ -36,18 +36,31 @@
     <textures>
         <!-- NOTE: this block "TEXTURE" must be repeated as necessary with different "id" -->
         <texture id="black_painted_metal" path="./scenes/images/black-painted-metal.jpg"/>
-        <texture id="plastic_pink"        path="./scenes/images/plastic-pink.jpg"       />
-        <texture id="white_tabletop"      path="./scenes/images/white-tabletop.jpg"     />
+        <texture id="plastic-rugged"      path="./scenes/images/plastic-edited.jpg"     />
+        <texture id="tabletop"            path="./scenes/images/white-tabletop.jpg"     />
         <texture id="world_map"           path="./scenes/images/world-map.jpg"          />
-        <texture id="worn_out_plastic"    path="./scenes/images/plastic-yellow.jpg"     />        
     </textures>
     <materials>
         <!-- At least one material should be present. -->
-        <material id="plastic">
+        <material id="plastic-white">
             <shininess value="1.0"/>
             <ambient  r="1.0" g="1.0" b="1.0" a="1.0"/>
             <diffuse  r="1.0" g="1.0" b="1.0" a="1.0"/>
             <specular r="0.3" g="0.3" b="0.3" a="1.0"/>
+            <emissive r="0.0" g="0.0" b="0.0" a="1.0"/>
+        </material>
+        <material id="plastic-pink">
+            <shininess value="1.0"/>
+            <ambient  r="0.15" g="0.11" b="0.23" a="1.0"/>
+            <diffuse  r="0.15" g="0.11" b="0.23" a="1.0"/>
+            <specular r="0.05" g="0.04" b="0.08" a="1.0"/>
+            <emissive r="0.0" g="0.0" b="0.0" a="1.0"/>
+        </material>
+        <material id="plastic-yellow">
+            <shininess value="1.0"/>
+            <ambient  r="0.86" g="0.86" b="0.73" a="1.0"/>
+            <diffuse  r="0.86" g="0.86" b="0.73" a="1.0"/>
+            <specular r="0.29" g="0.29" b="0.24" a="1.0"/>
             <emissive r="0.0" g="0.0" b="0.0" a="1.0"/>
         </material>
         <material id="metal">
@@ -105,8 +118,8 @@
         </node>
 
         <node id="chair">
-            <material id="plastic"/>
-            <texture  id="plastic_pink"/>
+            <material id="plastic-pink"/>
+            <texture id="plastic-rugged"/>
             <descendants>
                 <noderef id="chair_leg1"/>
                 <noderef id="chair_leg2"/>
@@ -357,8 +370,8 @@
         </node>
         
         <node id="table_top">
-            <material id="plastic"/>
-            <texture id="white_tabletop"/>
+            <material id="plastic-white"/>
+            <texture id="tabletop"/>
             <transformations>
                 <translation x="0.0" y="0.5035" z="0.0"/>
                 <scale sx="1.0" sy="0.007" sz="0.5"/>
@@ -369,7 +382,7 @@
         </node>
 
         <node id="globe_world">
-            <material id="plastic"/>
+            <material id="plastic-white"/>
             <texture id="world_map"/>
             <descendants>
                 <!-- slices should be a multiple of 24, and stacks a multiple of 6 -->
@@ -377,8 +390,8 @@
             </descendants>
         </node>
         <node id="globe_axis">
-            <material id="plastic"/>
-            <texture id="worn_out_plastic"/>
+            <material id="plastic-yellow"/>
+            <texture id="plastic-rugged"/>
             <transformations>
                 <translation x="0.00" y="0.00" z="-0.23"/>
             </transformations>
@@ -448,8 +461,8 @@
         </node>
 
         <node id="globe_plastic">
-            <material id="plastic"/>
-            <texture id="worn_out_plastic"/>
+            <material id="plastic-yellow"/>
+            <texture id="plastic-rugged"/>
             <descendants>
                 <noderef id="globe_wheel"/>
                 <noderef id="globe_support"/>
