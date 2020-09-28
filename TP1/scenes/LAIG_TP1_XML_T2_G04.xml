@@ -450,7 +450,7 @@
                 <translation x="0.00" y="0.00" z="-0.23"/>
             </transformations>
             <descendants>
-                <leaf type="cylinder" height="0.42" topRadius="0.01" bottomRadius="0.01" stacks="10" slices="16"/>
+                <leaf type="cylinder" height="0.42" topRadius="0.01" bottomRadius="0.01" stacks="6" slices="24"/>
             </descendants>
         </node>
         <node id="globe_world_axis">
