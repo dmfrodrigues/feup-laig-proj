@@ -25,76 +25,98 @@ class MyCylinder extends CGFobject {
         this.indices = [];
         this.normals = [];
         this.texCoords = [];
-        let theta = (2 * Math.PI) / this.slices;
 
-        for (let h = 0; h <= this.stacks; h++) {
+        for (let stack = 0; stack <= this.stacks; stack++) {
 
-            for (let face = this.slices - 1; face >= 0; face--) {
-                let x = Math.cos(theta * face) * (this.bottomRadius - h * (this.bottomRadius - this.topRadius) / this.stacks);
-                let y = Math.sin(theta * face) * (this.bottomRadius - h * (this.bottomRadius - this.topRadius) / this.stacks);
-                let z = h * this.height / this.stacks;
+            for (let slice = 0; slice <= this.slices; ++slice) {
+                let theta = 2*Math.PI*slice / this.slices;
+
+                let x = Math.cos(theta) * (this.bottomRadius - stack * (this.bottomRadius - this.topRadius) / this.stacks);
+                let y = Math.sin(theta) * (this.bottomRadius - stack * (this.bottomRadius - this.topRadius) / this.stacks);
+                let z = stack * this.height / this.stacks;
 
                 this.vertices.push(x, y, z);
 
-                if (h < this.stacks) {
-                    if (face == this.slices - 1) {
-                        this.indices.push(face + h * this.slices, face + this.slices + h * this.slices, face + h * this.slices + 1);
-                        this.indices.push(face + h * this.slices, face + h * this.slices + 1, (face + 1) * h);
-                    }
-                    else {
-                        this.indices.push(face + h * this.slices, face + h * this.slices + this.slices + 1, face + 1 + h * this.slices);
-                        this.indices.push(face + h * this.slices, face + this.slices + h * this.slices, face + h * this.slices + this.slices + 1);
-                    }
-                }
-
-                let Nx = Math.cos(theta*face);
-                let Ny = Math.sin(theta*face);
+                let Nx = Math.cos(theta);
+                let Ny = Math.sin(theta);
                 let Nz = (this.bottomRadius-this.topRadius)/this.height;
                 let R = Math.sqrt(Nx*Nx + Ny*Ny + Nz*Nz);
                 this.normals.push(Nx/R, Ny/R, Nz/R);
                 
-                this.texCoords.push(face / this.slices, h / this.stacks);
+                this.texCoords.push(
+                    slice / this.slices,
+                    1.0 - 0.5*stack / this.stacks
+                );
             }
 
+        }
+
+        for(let stack = 0; stack < this.stacks; stack++){
+            for(let slice = 0; slice < this.slices; ++slice){
+                let i = (this.slices+1)*stack + slice;
+                let j = i+1;
+                let k = (this.slices+1)*(stack+1) + slice;
+                let l = k+1;
+                this.indices.push(i, l, k);
+                this.indices.push(i, j, l);
+            }
         }
 
         // top cover
         
         this.vertices.push(0, 0, this.height);
         this.normals.push(0, 0, 1);
-        this.texCoords.push(0, 1);
+        this.texCoords.push(0.5/Math.PI, 0.25);
 
-        let idx = this.vertices.length/3;
-        for(let i=0; i < this.slices; i++){
-            this.vertices.push(Math.cos(theta * i) * this.topRadius, Math.sin(theta * i) * this.topRadius, this.height);
+        let top_center_index = this.vertices.length/3 - 1;
+        for(let slice = 0; slice <= this.slices; slice++){
+            let theta = 2*Math.PI*slice/this.slices;
+            this.vertices.push(
+                Math.cos(theta) * this.topRadius,
+                Math.sin(theta) * this.topRadius,
+                this.height
+            );
             this.normals.push(0, 0, 1);
-            this.texCoords.push(0, 1);
+            this.texCoords.push(
+                0.5/Math.PI + (0.5/Math.PI) * Math.cos(theta),
+                0.25-0.25*Math.sin(theta)
+            );
         }
         
-        for (let i = 0; i < this.slices; i++) {
-            if (i < this.slices - 1)
-                this.indices.push(idx-1, idx + i, idx + i + 1);
-            else
-                this.indices.push(idx-1, idx + i, idx);
+        for (let slice = 0; slice < this.slices; slice++) {
+            this.indices.push(
+                top_center_index,
+                top_center_index + 1 + slice,
+                top_center_index + 2 + slice
+            );
         }
         
         // bottom cover
         this.vertices.push(0, 0, 0);
         this.normals.push(0, 0, -1);
-        this.texCoords.push(0, 1);
+        this.texCoords.push(1.5/Math.PI, 0.25);
 
-        idx = this.vertices.length/3;
-        for(let i=0; i < this.slices; i++){
-            this.vertices.push(Math.cos(theta * i) * this.bottomRadius, Math.sin(theta * i) * this.bottomRadius, 0);
+        let bottom_center_index = this.vertices.length/3 - 1;
+        for(let slice = 0; slice <= this.slices; slice++){
+            let theta = 2*Math.PI*slice/this.slices;
+            this.vertices.push(
+                Math.cos(theta) * this.bottomRadius,
+                Math.sin(theta) * this.bottomRadius,
+                0
+            );
             this.normals.push(0, 0, -1);
-            this.texCoords.push(0, 1);
+            this.texCoords.push(
+                1.5/Math.PI + (0.5/Math.PI) * Math.cos(-theta),
+                0.25-0.25*Math.sin(-theta)
+            );
         }
         
-        for (let i = 0; i < this.slices; i++) {
-            if (i < this.slices - 1)
-                this.indices.push(idx + i + 1, idx + i, idx - 1);
-            else
-                this.indices.push(idx, idx + i, idx - 1);
+        for (let slice = 0; slice < this.slices; slice++) {
+            this.indices.push(
+                bottom_center_index,
+                bottom_center_index + 2 + slice,
+                bottom_center_index + 1 + slice
+            );
         }
         
 

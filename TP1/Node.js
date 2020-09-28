@@ -27,20 +27,19 @@ class Node extends CGFobject {
     }
 
 	display(){
-        this.scene.pushMatrix();{
+        this.scene.pushMatrix();
+        this.scene.pushAppearance();
+        {
+            this.scene.setAppearance(this.material, this.texture);
 
             this.scene.multMatrix(this.transformation);
-
-            if(this.texture  != null) this.material.setTexture(this.texture);
-            if(this.material != null) this.material.apply();
 
             for(let i = 0; i < this.children.length; ++i){
                 let child = this.children[i];
                 child.display();
             }
-
-            if(this.texture  != null) this.material.setTexture(null);
-            
-        }this.scene.popMatrix();
+        }
+        this.scene.popAppearance();
+        this.scene.popMatrix();
     }
 }

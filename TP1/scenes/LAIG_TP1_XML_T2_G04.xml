@@ -10,8 +10,8 @@
             <to   x= "0.0" y="1.0" z= "0.0"/>
         </perspective>
         <perspective id="closer_camera" near="0.1" far="500" angle="45">
-            <from x="4.0" y="1.0" z="4.0"/>
-            <to   x="0.0" y="0.0" z="0.0"/>
+            <from x="1.6" y="1.4" z="1.6"/>
+            <to   x="0.0" y="1.0" z="0.0"/>
         </perspective>
         <ortho id="ortho_camera" near="0.2" far="100" left="-0.2" right="0.2" top="0.2" bottom="-0.2">
             <from x="5" y="0" z="10"/>
@@ -25,29 +25,53 @@
     </illumination>
     <lights>
         <!-- NOTE: at least one light should be present, and a maximum of eight lights is accepted. -->
-        <light id="light1">
+        <light id="ceiling-light">
             <enable value="1"/>
-            <position x="10.0" y="12.0" z="9.5" w="1.0"/> <!-- w=1: point light; w=0: directional light -->
-            <ambient  r= "0.0" g= "0.0" b="0.0" a="1.0"/>
-            <diffuse  r= "1.0" g= "1.0" b="1.0" a="1.0"/>
-            <specular r= "1.0" g= "1.0" b="1.0" a="1.0"/>
+            <position x="0.0" y="2.0" z="0.0" w="1.0"/>
+            <ambient  r="0.0" g="0.0" b="0.0" a="1.0"/>
+            <diffuse  r="1.00" g="0.96" b="0.90" a="1.0"/>
+            <specular r="1.00" g="0.96" b="0.90" a="1.0"/>
         </light>
     </lights>
     <textures>
         <!-- NOTE: this block "TEXTURE" must be repeated as necessary with different "id" -->
         <texture id="black_painted_metal" path="./scenes/images/black-painted-metal.jpg"/>
-        <texture id="plastic_pink"        path="./scenes/images/plastic-pink.jpg"       />
-        <texture id="white_tabletop"      path="./scenes/images/white-tabletop.jpg"     />
+        <texture id="plastic-rugged"      path="./scenes/images/plastic-edited.jpg"     />
+        <texture id="tabletop"            path="./scenes/images/white-tabletop.jpg"     />
         <texture id="world_map"           path="./scenes/images/world-map.jpg"          />
-        <texture id="worn_out_plastic"    path="./scenes/images/plastic-yellow.jpg"     />        
+
+        <texture id="book-pages"          path="./scenes/images/book-pages.jpg"         />
+
+        <texture id="intro-cg-front"      path="./scenes/images/intro-cg-front.jpg"     />
+        <texture id="intro-cg-back"       path="./scenes/images/intro-cg-back.jpg"      />
+        <texture id="intro-cg-spine"      path="./scenes/images/intro-cg-spine.jpg"     />
+        <texture id="intro-cg-stripe"     path="./scenes/images/intro-cg-stripe.jpg"    />
+
+        <texture id="floor"               path="./scenes/images/floor.jpg"              />
+        <texture id="wall"                path="./scenes/images/wall.jpg"               />
+        <texture id="ceil"                path="./scenes/images/ceil.jpg"               />
     </textures>
     <materials>
         <!-- At least one material should be present. -->
-        <material id="plastic">
+        <material id="plastic-white">
             <shininess value="1.0"/>
             <ambient  r="1.0" g="1.0" b="1.0" a="1.0"/>
             <diffuse  r="1.0" g="1.0" b="1.0" a="1.0"/>
             <specular r="0.3" g="0.3" b="0.3" a="1.0"/>
+            <emissive r="0.0" g="0.0" b="0.0" a="1.0"/>
+        </material>
+        <material id="plastic-pink">
+            <shininess value="1.0"/>
+            <ambient  r="0.15" g="0.11" b="0.23" a="1.0"/>
+            <diffuse  r="0.15" g="0.11" b="0.23" a="1.0"/>
+            <specular r="0.05" g="0.04" b="0.08" a="1.0"/>
+            <emissive r="0.0" g="0.0" b="0.0" a="1.0"/>
+        </material>
+        <material id="plastic-yellow">
+            <shininess value="1.0"/>
+            <ambient  r="0.86" g="0.86" b="0.73" a="1.0"/>
+            <diffuse  r="0.86" g="0.86" b="0.73" a="1.0"/>
+            <specular r="0.29" g="0.29" b="0.24" a="1.0"/>
             <emissive r="0.0" g="0.0" b="0.0" a="1.0"/>
         </material>
         <material id="metal">
@@ -57,23 +81,55 @@
             <specular r="0.6" g="0.6" b="0.6" a="1.0"/>
             <emissive r="0.0" g="0.0" b="0.0" a="1.0"/>
         </material>
+        <material id="book-cover">
+            <shininess value="8.0"/>
+            <ambient  r="0.9" g="0.9" b="0.9" a="1.0"/>
+            <diffuse  r="0.9" g="0.9" b="0.9" a="1.0"/>
+            <specular r="0.8" g="0.8" b="0.8" a="1.0"/>
+            <emissive r="0.0" g="0.0" b="0.0" a="1.0"/>
+        </material>
+        <material id="book-pages">
+            <shininess value="8.0"/>
+            <ambient  r="1.0" g="1.0" b="1.0" a="1.0"/>
+            <diffuse  r="1.0" g="1.0" b="1.0" a="1.0"/>
+            <specular r="0.05" g="0.05" b="0.05" a="1.0"/>
+            <emissive r="0.0" g="0.0" b="0.0" a="1.0"/>
+        </material>
+        <material id="paint">
+            <shininess value="4.0"/>
+            <ambient  r="1.0" g="1.0" b="1.0" a="1.0"/>
+            <diffuse  r="1.0" g="1.0" b="1.0" a="1.0"/>
+            <specular r="0.1" g="0.1" b="0.1" a="1.0"/>
+            <emissive r="0.0" g="0.0" b="0.0" a="1.0"/>
+        </material>
     </materials>
 
     <nodes>
         <node id="root">
+            <material id="null"/>
+            <texture id="null">
+            </texture>
             <descendants>
-                <noderef id="globe_and_table"/>
+                <noderef id="table_with_stuff"/>
                 <noderef id="chair_next_to_table"/>
+                <noderef id="walls"/>
             </descendants>
         </node>
 
-        <node id="globe_and_table">
+        <node id="table_with_stuff">
+            <material id="null"/>
+            <texture id="null">
+            </texture>
             <descendants>
-                <noderef id="globe_on_table"/>
                 <noderef id="table"/>
+                <noderef id="globe_on_table"/>
+                <noderef id="book_on_table"/>
             </descendants>
         </node>
         <node id="globe_on_table">
+            <material id="null"/>
+            <texture id="null">
+            </texture>
             <transformations>
                 <translation x="0.2" y="0.507" z="-0.04"/>
             </transformations>
@@ -81,11 +137,27 @@
                 <noderef id="globe"/>
             </descendants>
         </node>
+        <node id="book_on_table">
+            <material id="null"/>
+            <texture id="null">
+            </texture>
+            <transformations>
+                <translation x="-0.15" y="0.507" z="0.05"/>
+                <rotation axis="yy" angle="15"/>
+                <rotation axis="xx" angle="-90"/>
+            </transformations>
+            <descendants>
+                <noderef id="book-cg"/>
+            </descendants>
+        </node>
 
         <node id="chair_next_to_table">
+            <material id="null"/>
+            <texture id="null">
+            </texture>
             <transformations>
                 <translation x="0.0" y="0.0" z="0.3"/>
-                <rotation axis="yy" angle="190"/>
+                <rotation axis="yy" angle="186"/>
             </transformations>
             <descendants>
                 <noderef id="chair"/>
@@ -93,8 +165,8 @@
         </node>
 
         <node id="chair">
-            <material id="plastic"/>
-            <texture  id="plastic_pink"/>
+            <material id="plastic-pink"/>
+            <texture id="plastic-rugged"/>
             <descendants>
                 <noderef id="chair_leg1"/>
                 <noderef id="chair_leg2"/>
@@ -105,6 +177,9 @@
             </descendants>
         </node>
         <node id="chair_seat">
+            <material id="null"/>
+            <texture id="null">
+            </texture>
             <transformations>
                 <translation x="0.0" y="0.325" z="0.0"/>
                 <scale sx="0.25" sy="0.05" sz="0.30"/>
@@ -114,6 +189,9 @@
             </descendants>
         </node>
         <node id="chair_back">
+            <material id="null"/>
+            <texture id="null">
+            </texture>
             <transformations>
                 <translation x="0.0" y="0.50" z="-0.125"/>
                 <scale sx="0.25" sy="0.30" sz="0.05"/>
@@ -122,11 +200,54 @@
                 <noderef id="cube"/>
             </descendants>
         </node>
-        <node id="chair_leg1"><transformations><translation x="+0.100" y="0.000" z="+0.125"/></transformations><descendants><noderef id="chair_leg"/></descendants></node>
-        <node id="chair_leg2"><transformations><translation x="-0.100" y="0.000" z="+0.125"/></transformations><descendants><noderef id="chair_leg"/></descendants></node>
-        <node id="chair_leg3"><transformations><translation x="+0.100" y="0.000" z="-0.125"/></transformations><descendants><noderef id="chair_leg"/></descendants></node>
-        <node id="chair_leg4"><transformations><translation x="-0.100" y="0.000" z="-0.125"/></transformations><descendants><noderef id="chair_leg"/></descendants></node>
+        <node id="chair_leg1">
+            <material id="null"/>
+            <texture id="null">
+            </texture>
+            <transformations>
+                <translation x="+0.100" y="0.000" z="+0.125"/>
+            </transformations>
+            <descendants>
+                <noderef id="chair_leg"/>
+            </descendants>
+        </node>
+        <node id="chair_leg2">
+            <material id="null"/>
+            <texture id="null">
+            </texture>
+            <transformations>
+                <translation x="-0.100" y="0.000" z="+0.125"/>
+            </transformations>
+            <descendants>
+                <noderef id="chair_leg"/>
+            </descendants>
+        </node>
+        <node id="chair_leg3">
+            <material id="null"/>
+            <texture id="null">
+            </texture>
+            <transformations>
+                <translation x="+0.100" y="0.000" z="-0.125"/>
+            </transformations>
+            <descendants>
+                <noderef id="chair_leg"/>
+            </descendants>
+        </node>
+        <node id="chair_leg4">
+            <material id="null"/>
+            <texture id="null">
+            </texture>
+            <transformations>
+                <translation x="-0.100" y="0.000" z="-0.125"/>
+            </transformations>
+            <descendants>
+                <noderef id="chair_leg"/>
+            </descendants>
+        </node>
         <node id="chair_leg">
+            <material id="null"/>
+            <texture id="null">
+            </texture>
             <transformations>
                 <translation  x="0.00"  y="0.15"  z="0.00"/>
                 <scale       sx="0.05" sy="0.30" sz="0.05"/>
@@ -136,6 +257,9 @@
             </descendants>
         </node>
         <node id="cube">
+            <material id="null"/>
+            <texture id="null">
+            </texture>
             <descendants>
                 <noderef id="cube_top"/>
                 <noderef id="cube_bot"/>
@@ -145,12 +269,77 @@
                 <noderef id="cube_bac"/>
             </descendants>
         </node>
-        <node id="cube_top"><transformations><translation x="+0.0" y="+0.5" z="+0.0"/><rotation axis="xx" angle= "-90"/></transformations><descendants><leaf type="rectangle" x1="-0.5" y1="-0.5" x2="0.5" y2="0.5"/></descendants></node>
-        <node id="cube_bot"><transformations><translation x="+0.0" y="-0.5" z="+0.0"/><rotation axis="xx" angle= "+90"/></transformations><descendants><leaf type="rectangle" x1="-0.5" y1="-0.5" x2="0.5" y2="0.5"/></descendants></node>
-        <node id="cube_fro"><transformations><translation x="+0.0" y="+0.0" z="+0.5"/>                                 </transformations><descendants><leaf type="rectangle" x1="-0.5" y1="-0.5" x2="0.5" y2="0.5"/></descendants></node>
-        <node id="cube_bac"><transformations><translation x="+0.0" y="+0.0" z="-0.5"/><rotation axis="xx" angle="+180"/></transformations><descendants><leaf type="rectangle" x1="-0.5" y1="-0.5" x2="0.5" y2="0.5"/></descendants></node>
-        <node id="cube_rig"><transformations><translation x="+0.5" y="+0.0" z="+0.0"/><rotation axis="yy" angle= "+90"/></transformations><descendants><leaf type="rectangle" x1="-0.5" y1="-0.5" x2="0.5" y2="0.5"/></descendants></node>
-        <node id="cube_lef"><transformations><translation x="-0.5" y="+0.0" z="+0.0"/><rotation axis="yy" angle= "-90"/></transformations><descendants><leaf type="rectangle" x1="-0.5" y1="-0.5" x2="0.5" y2="0.5"/></descendants></node>
+        <node id="cube_top">
+            <material id="null"/>
+            <texture id="null">
+            </texture>
+            <transformations>
+                <translation x="+0.0" y="+0.5" z="+0.0"/>
+                <rotation axis="xx" angle= "-90"/>
+            </transformations>
+            <descendants>
+                <leaf type="rectangle" x1="-0.5" y1="-0.5" x2="0.5" y2="0.5"/>
+            </descendants>
+        </node>
+        <node id="cube_bot">
+            <material id="null"/>
+            <texture id="null">
+            </texture>
+            <transformations>
+                <translation x="+0.0" y="-0.5" z="+0.0"/>
+                <rotation axis="xx" angle= "+90"/>
+            </transformations>
+            <descendants>
+                <leaf type="rectangle" x1="-0.5" y1="-0.5" x2="0.5" y2="0.5"/>
+            </descendants>
+        </node>
+        <node id="cube_fro">
+            <material id="null"/>
+            <texture id="null">
+            </texture>
+            <transformations>
+                <translation x="+0.0" y="+0.0" z="+0.5"/>
+            </transformations>
+            <descendants>
+                <leaf type="rectangle" x1="-0.5" y1="-0.5" x2="0.5" y2="0.5"/>
+            </descendants>
+        </node>
+        <node id="cube_bac">
+            <material id="null"/>
+            <texture id="null">
+            </texture>
+            <transformations>
+                <translation x="+0.0" y="+0.0" z="-0.5"/>
+                <rotation axis="xx" angle="+180"/>
+            </transformations>
+            <descendants>
+                <leaf type="rectangle" x1="-0.5" y1="-0.5" x2="0.5" y2="0.5"/>
+            </descendants>
+        </node>
+        <node id="cube_rig">
+            <material id="null"/>
+            <texture id="null">
+            </texture>
+            <transformations>
+                <translation x="+0.5" y="+0.0" z="+0.0"/>
+                <rotation axis="yy" angle= "+90"/>
+            </transformations>
+            <descendants>
+                <leaf type="rectangle" x1="-0.5" y1="-0.5" x2="0.5" y2="0.5"/>
+            </descendants>
+        </node>
+        <node id="cube_lef">
+            <material id="null"/>
+            <texture id="null">
+            </texture>
+            <transformations>
+                <translation x="-0.5" y="+0.0" z="+0.0"/>
+                <rotation axis="yy" angle= "-90"/>
+            </transformations>
+            <descendants>
+                <leaf type="rectangle" x1="-0.5" y1="-0.5" x2="0.5" y2="0.5"/>
+            </descendants>
+        </node>
     
         <node id="table">
             <material id="metal"/>
@@ -170,12 +359,55 @@
             </descendants>
         </node>
 
-        <node id="table_leg1"><transformations><translation x="-0.4" y="+0.5" z="+0.2"/></transformations><descendants><noderef id="table_leg"/></descendants></node>
-        <node id="table_leg2"><transformations><translation x="-0.4" y="+0.5" z="-0.2"/></transformations><descendants><noderef id="table_leg"/></descendants></node>
-        <node id="table_leg3"><transformations><translation x="+0.4" y="+0.5" z="-0.2"/></transformations><descendants><noderef id="table_leg"/></descendants></node>
-        <node id="table_leg4"><transformations><translation x="+0.4" y="+0.5" z="+0.2"/></transformations><descendants><noderef id="table_leg"/></descendants></node>
+        <node id="table_leg1">
+            <material id="null"/>
+            <texture id="null">
+            </texture>
+            <transformations>
+                <translation x="-0.4" y="+0.5" z="+0.2"/>
+            </transformations>
+            <descendants>
+                <noderef id="table_leg"/>
+            </descendants>
+        </node>
+        <node id="table_leg2">
+            <material id="null"/>
+            <texture id="null">
+            </texture>
+            <transformations>
+                <translation x="-0.4" y="+0.5" z="-0.2"/>
+            </transformations>
+            <descendants>
+                <noderef id="table_leg"/>
+            </descendants>
+        </node>
+        <node id="table_leg3">
+            <material id="null"/>
+            <texture id="null">
+            </texture>
+            <transformations>
+                <translation x="+0.4" y="+0.5" z="-0.2"/>
+            </transformations>
+            <descendants>
+                <noderef id="table_leg"/>
+            </descendants>
+        </node>
+        <node id="table_leg4">
+            <material id="null"/>
+            <texture id="null">
+            </texture>
+            <transformations>
+                <translation x="+0.4" y="+0.5" z="+0.2"/>
+            </transformations>
+            <descendants>
+                <noderef id="table_leg"/>
+            </descendants>
+        </node>
 
         <node id="table_leg">
+            <material id="null"/>
+            <texture id="null">
+            </texture>
             <transformations>
                 <rotation axis="xx" angle="90"/>
             </transformations>
@@ -185,8 +417,8 @@
         </node>
         
         <node id="table_top">
-            <material id="plastic"/>
-            <texture id="white_tabletop"/>
+            <material id="plastic-white"/>
+            <texture id="tabletop"/>
             <transformations>
                 <translation x="0.0" y="0.5035" z="0.0"/>
                 <scale sx="1.0" sy="0.007" sz="0.5"/>
@@ -197,7 +429,7 @@
         </node>
 
         <node id="globe_world">
-            <material id="plastic"/>
+            <material id="plastic-white"/>
             <texture id="world_map"/>
             <descendants>
                 <!-- slices should be a multiple of 24, and stacks a multiple of 6 -->
@@ -205,16 +437,19 @@
             </descendants>
         </node>
         <node id="globe_axis">
-            <material id="plastic"/>
-            <texture id="worn_out_plastic"/>
+            <material id="plastic-yellow"/>
+            <texture id="plastic-rugged"/>
             <transformations>
                 <translation x="0.00" y="0.00" z="-0.23"/>
             </transformations>
             <descendants>
-                <leaf type="cylinder" height="0.42" topRadius="0.01" bottomRadius="0.01" stacks="10" slices="16"/>
+                <leaf type="cylinder" height="0.42" topRadius="0.01" bottomRadius="0.01" stacks="6" slices="24"/>
             </descendants>
         </node>
         <node id="globe_world_axis">
+            <material id="null"/>
+            <texture id="null">
+            </texture>
             <transformations>
                 <translation x="0.00" y="0.22" z="0.00"/>
                 <rotation axis="xx" angle="-90"/>
@@ -225,6 +460,9 @@
             </descendants>
         </node>
         <node id="globe_world_axis_tilted">
+            <material id="null"/>
+            <texture id="null">
+            </texture>
             <transformations>
                 <rotation axis="zz" angle="-23"/>
             </transformations>
@@ -234,6 +472,9 @@
         </node>
         
         <node id="globe_wheel">
+            <material id="null"/>
+            <texture id="null">
+            </texture>
             <transformations>
                 <translation x="0.0000" y="0.0000" z="-0.0125"/>
             </transformations>
@@ -242,6 +483,9 @@
             </descendants>
         </node>
         <node id="globe_support">
+            <material id="null"/>
+            <texture id="null">
+            </texture>
             <transformations>
                 <translation x="0.000" y="-0.030" z="0.000"/>
                 <rotation axis="xx" angle="-90"/>
@@ -251,6 +495,9 @@
             </descendants>
         </node>
         <node id="globe_base">
+            <material id="null"/>
+            <texture id="null">
+            </texture>
             <transformations>
                 <translation x="+0.08596" y="-0.05" z="0.000"/>
                 <rotation axis="xx" angle="-90"/>
@@ -261,8 +508,8 @@
         </node>
 
         <node id="globe_plastic">
-            <material id="plastic"/>
-            <texture id="worn_out_plastic"/>
+            <material id="plastic-yellow"/>
+            <texture id="plastic-rugged"/>
             <descendants>
                 <noderef id="globe_wheel"/>
                 <noderef id="globe_support"/>
@@ -270,12 +517,335 @@
             </descendants>
         </node>
         <node id="globe">
+            <material id="null"/>
+            <texture id="null">
+            </texture>
             <transformations>
                 <translation x="-0.08596" y="+0.05" z="0.0"/>
             </transformations>
             <descendants>
                 <noderef id="globe_world_axis_tilted"/>
                 <noderef id="globe_plastic"/>
+            </descendants>
+        </node>
+
+        <node id="book-cg">
+            <material id="null"/>
+            <texture id="null">
+            </texture>
+            <descendants>
+                <noderef id="book-cg-cover"/>
+                <noderef id="book-cg-pages"/>
+            </descendants>
+        </node>
+        <node id="book-cg-cover">
+            <material id="book-cover"/>
+            <texture id="null">
+            </texture>
+            <descendants>
+                <noderef id="book-cg-back"/>
+                <noderef id="book-cg-spine"/>
+                <noderef id="book-cg-front"/>
+            </descendants>
+        </node>
+
+        <node id="book-cg-front">
+            <material id="null"/>
+            <texture id="null">
+            </texture>
+            <transformations>
+                <translation x="0" y="0" z="+0.0264"/>
+            </transformations>
+            <descendants>
+                <noderef id="book-cg-front-cover"/>
+                <noderef id="book-cg-front-edge-right"/>
+                <noderef id="book-cg-front-edge-top"/>
+                <noderef id="book-cg-front-edge-bot"/>
+                <noderef id="book-cg-front-inside"/>
+            </descendants>
+        </node>
+        <node id="book-cg-front-cover">
+            <material id="null"/>
+            <texture id="intro-cg-front">
+            </texture>
+            <descendants>
+                <leaf type="rectangle" x1="-0.0985" y1="-0.12" x2="0.0985" y2="0.12"/>
+            </descendants>
+        </node>
+        <node id="book-cg-front-edge-right">
+            <material id="null"/>
+            <texture id="intro-cg-stripe">
+            </texture>
+            <transformations>
+                <translation x="+0.0985" y="0" z="-0.001"/>
+                <rotation axis="yy" angle="90"/>
+                <rotation axis="zz" angle="90"/>
+            </transformations>
+            <descendants>
+                <leaf type="rectangle" x1="-0.12" y1="-0.001" x2="0.12" y2="0.001"/>
+            </descendants>
+        </node>
+        <node id="book-cg-front-edge-top">
+            <material id="null"/>
+            <texture id="intro-cg-stripe">
+            </texture>
+            <transformations>
+                <translation x="0.0" y="+0.12" z="-0.001"/>
+                <rotation axis="xx" angle="-90"/>
+            </transformations>
+            <descendants>
+                <leaf type="rectangle" x1="-0.0985" y1="-0.001" x2="0.0985" y2="0.001"/>
+            </descendants>
+        </node>
+        <node id="book-cg-front-edge-bot">
+            <material id="null"/>
+            <texture id="intro-cg-stripe">
+            </texture>
+            <transformations>
+                <translation x="0.0" y="-0.12" z="-0.001"/>
+                <rotation axis="xx" angle="+90"/>
+            </transformations>
+            <descendants>
+                <leaf type="rectangle" x1="-0.0985" y1="-0.001" x2="0.0985" y2="0.001"/>
+            </descendants>
+        </node>
+        <node id="book-cg-front-inside">
+            <material id="null"/>
+            <texture id="intro-cg-stripe">
+            </texture>
+            <transformations>
+                <translation x="0" y="0" z="-0.002"/>
+                <rotation axis="yy" angle="+180"/>
+            </transformations>
+            <descendants>
+                <leaf type="rectangle" x1="-0.0985" y1="-0.12" x2="0.0965" y2="0.12"/>
+            </descendants>
+        </node>
+
+        <node id="book-cg-back">
+            <material id="null"/>
+            <texture id="null">
+            </texture>
+            <transformations>
+                <rotation axis="yy" angle= "180"/>
+            </transformations>
+            <descendants>
+                <noderef id="book-cg-back-cover"/>
+                <noderef id="book-cg-back-edge-left"/>
+                <noderef id="book-cg-back-edge-top"/>
+                <noderef id="book-cg-back-edge-bot"/>
+                <noderef id="book-cg-back-inside"/>
+            </descendants>
+        </node>
+        <node id="book-cg-back-cover">
+            <material id="null"/>
+            <texture id="intro-cg-back">
+            </texture>
+            <descendants>
+                <leaf type="rectangle" x1="-0.0985" y1="-0.12" x2="0.0985" y2="0.12"/>
+            </descendants>
+        </node>
+        <node id="book-cg-back-edge-left">
+            <material id="null"/>
+            <texture id="intro-cg-stripe">
+            </texture>
+            <transformations>
+                <translation x="-0.0985" y="0" z="-0.001"/>
+                <rotation axis="yy" angle="-90"/>
+                <rotation axis="zz" angle="90"/>
+            </transformations>
+            <descendants>
+                <leaf type="rectangle" x1="-0.12" y1="-0.001" x2="0.12" y2="0.001"/>
+            </descendants>
+        </node>
+        <node id="book-cg-back-edge-top">
+            <material id="null"/>
+            <texture id="intro-cg-stripe">
+            </texture>
+            <transformations>
+                <translation x="0.0" y="+0.12" z="-0.001"/>
+                <rotation axis="xx" angle="-90"/>
+            </transformations>
+            <descendants>
+                <leaf type="rectangle" x1="-0.0985" y1="-0.001" x2="0.0985" y2="0.001"/>
+            </descendants>
+        </node>
+        <node id="book-cg-back-edge-bot">
+            <material id="null"/>
+            <texture id="intro-cg-stripe">
+            </texture>
+            <transformations>
+                <translation x="0.0" y="-0.12" z="-0.001"/>
+                <rotation axis="xx" angle="+90"/>
+            </transformations>
+            <descendants>
+                <leaf type="rectangle" x1="-0.0985" y1="-0.001" x2="0.0985" y2="0.001"/>
+            </descendants>
+        </node>
+        <node id="book-cg-back-inside">
+            <material id="null"/>
+            <texture id="intro-cg-stripe">
+            </texture>
+            <transformations>
+                <translation x="0" y="0" z="-0.002"/>
+                <rotation axis="yy" angle="+180"/>
+            </transformations>
+            <descendants>
+                <leaf type="rectangle" x1="-0.0965" y1="-0.12" x2="0.0985" y2="0.12"/>
+            </descendants>
+        </node>
+
+        <node id="book-cg-spine">
+            <material id="null"/>
+            <texture id="null">
+            </texture>
+            <transformations>
+                <translation x="-0.0985" y="0" z="+0.0132"/> -->
+                <rotation axis="yy" angle="-90"/>
+            </transformations>
+            <descendants>
+                <noderef id="book-cg-spine-cover"/>
+                <noderef id="book-cg-spine-top"/>
+                <noderef id="book-cg-spine-bot"/>
+                <noderef id="book-cg-spine-inside"/>
+            </descendants>
+        </node>
+        <node id="book-cg-spine-cover">
+            <material id="null"/>
+            <texture id="intro-cg-spine">
+            </texture>
+            <descendants>
+                <leaf type="rectangle" x1="-0.0132" y1="-0.12" x2="0.0132" y2="0.12"/>
+            </descendants>
+        </node>
+        <node id="book-cg-spine-top">
+            <material id="null"/>
+            <texture id="intro-cg-stripe">
+            </texture>
+            <transformations>
+                <translation x="0" y="0.12" z="-0.001"/>
+                <rotation axis="xx" angle="-90"/>
+            </transformations>
+            <descendants>
+                <leaf type="rectangle" x1="-0.0132" y1="-0.001" x2="0.0132" y2="0.001"/>
+            </descendants>
+        </node>
+        <node id="book-cg-spine-bot">
+            <material id="null"/>
+            <texture id="intro-cg-stripe">
+            </texture>
+            <transformations>
+                <translation x="0" y="-0.12" z="-0.001"/>
+                <rotation axis="xx" angle="+90"/>
+            </transformations>
+            <descendants>
+                <leaf type="rectangle" x1="-0.0132" y1="-0.001" x2="0.0132" y2="0.001"/>
+            </descendants>
+        </node>
+        <node id="book-cg-spine-inside">
+            <material id="null"/>
+            <texture id="intro-cg-stripe">
+            </texture>
+            <transformations>
+                <translation x="0" y="0" z="-0.002"/>
+                <rotation axis="yy" angle="180"/>
+            </transformations>
+            <descendants>
+                <leaf type="rectangle" x1="-0.0112" y1="-0.12" x2="0.0112" y2="0.12"/>
+            </descendants>
+        </node>
+
+        <node id="book-cg-pages">
+            <material id="book-pages"/>
+            <texture id="book-pages">
+            </texture>
+            <descendants>
+                <noderef id="book-cg-pages-right"/>
+                <noderef id="book-cg-pages-top"/>
+                <noderef id="book-cg-pages-bot"/>
+            </descendants>
+        </node>
+
+        <node id="book-cg-pages-right">
+            <material id="null"/>
+            <texture id="null">
+            </texture>
+            <transformations>
+                <translation x="0.0945" y="0" z="0.0132"/>
+                <rotation axis="yy" angle="90"/>
+            </transformations>
+            <descendants>
+                <leaf type="rectangle" x1="-0.0112" y1="-0.116" x2="0.0112" y2="0.116"/>
+            </descendants>
+        </node>
+        <node id="book-cg-pages-top">
+            <material id="null"/>
+            <texture id="null">
+            </texture>
+            <transformations>
+                <translation x="0" y="0.116" z="0.0132"/>
+                <rotation axis="yy" angle="+90"/>
+                <rotation axis="xx" angle="-90"/>
+            </transformations>
+            <descendants>
+                <leaf type="rectangle" x1="-0.0112" y1="-0.0945" x2="0.0112" y2="0.0965"/>
+            </descendants>
+        </node>
+        <node id="book-cg-pages-bot">
+            <material id="null"/>
+            <texture id="null">
+            </texture>
+            <transformations>
+                <translation x="0" y="-0.116" z="0.0132"/>
+                <rotation axis="yy" angle="+90"/>
+                <rotation axis="xx" angle="+90"/>
+            </transformations>
+            <descendants>
+                <leaf type="rectangle" x1="-0.0112" y1="-0.0965" x2="0.0112" y2="0.0945"/>
+            </descendants>
+        </node>
+
+        <node id="floor">
+            <material id="null"/><texture id="floor"/>
+            <transformations><rotation axis="xx" angle="-90"/></transformations>
+            <descendants><leaf type="rectangle" x1="-1.5" y1="-1.5" x2="1.5" y2="1.5"/></descendants>
+        </node>
+        <node id="ceil">
+            <material id="null"/><texture id="ceil"/>
+            <transformations><translation x="0" y="2.5" z="0"/><rotation axis="xx" angle="90"/></transformations>
+            <descendants><leaf type="rectangle" x1="-1.5" y1="-1.5" x2="1.5" y2="1.5"/></descendants>
+        </node>
+        <node id="wall_x_pos">
+            <material id="null"/><texture id="null"/>
+            <transformations><translation x="1.5" y="1.5" z="0"/><rotation axis="yy" angle="-90" /></transformations>
+            <descendants><leaf type="rectangle" x1="-1.5" y1="-1.5" x2="1.5" y2="1.0"/></descendants>
+        </node>
+        <node id="wall_x_neg">
+            <material id="null"/><texture id="null"/>
+            <transformations><translation x="-1.5" y="1.5" z="0"/><rotation axis="yy" angle="90" /></transformations>
+            <descendants><leaf type="rectangle" x1="-1.5" y1="-1.5" x2="1.5" y2="1.0"/></descendants>
+        </node>
+        <node id="wall_z_pos">
+            <material id="null"/><texture id="null"/>
+            <transformations><translation x="0" y="1.5" z="-1.5"/><rotation axis="xx" angle="0" /></transformations>
+            <descendants><leaf type="rectangle" x1="-1.5" y1="-1.5" x2="1.5" y2="1.0"/></descendants>
+        </node>
+        <node id="wall_z_neg">
+            <material id="null"/><texture id="null"/>
+            <transformations><translation x="0" y="1.5" z="1.5"/><rotation axis="yy" angle="180" /></transformations>
+            <descendants><leaf type="rectangle" x1="-1.5" y1="-1.5" x2="1.5" y2="1.0"/></descendants>
+        </node>
+
+        <node id="walls">
+            <material id="paint"/>
+            <texture id="wall"/>
+            <descendants>
+                <noderef id="floor"/>
+                <noderef id="ceil"/>
+                <noderef id="wall_x_pos"/>
+                <noderef id="wall_x_neg"/>
+                <noderef id="wall_z_pos"/>
+                <noderef id="wall_z_neg"/>
             </descendants>
         </node>
     </nodes>

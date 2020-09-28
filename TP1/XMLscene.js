@@ -38,6 +38,9 @@ class XMLscene extends CGFscene {
 
         this.defaultAppearance=new CGFappearance(this);
 
+        this.appearance_stack = [];
+        this.texture_stack = [];
+        this.appearance = this.defaultAppearance;
     }
 
     /**
@@ -50,6 +53,8 @@ class XMLscene extends CGFscene {
      * Initializes the scene lights with the values read from the XML file.
      */
     initLights() {
+        var folder_lights = this.interface.gui.addFolder("Lights");
+
         var i = 0;
         // Lights index.
 
@@ -61,6 +66,7 @@ class XMLscene extends CGFscene {
             if (this.graph.lights.hasOwnProperty(key)) {
                 var graphLight = this.graph.lights[key];
 
+                // this.lights[i] = new CGFlight(this, key);
                 this.lights[i].setPosition(...graphLight[1]);
                 this.lights[i].setAmbient(...graphLight[2]);
                 this.lights[i].setDiffuse(...graphLight[3]);
@@ -73,6 +79,8 @@ class XMLscene extends CGFscene {
                     this.lights[i].disable();
 
                 this.lights[i].update();
+
+                folder_lights.add(this.lights[i], 'enabled').name(key);
 
                 i++;
             }
@@ -92,6 +100,37 @@ class XMLscene extends CGFscene {
         this.initLights();
 
         this.sceneInited = true;
+    }
+
+    pushAppearance(){
+        this.appearance_stack.push(this.appearance);
+        this.texture_stack.push(this.texture);
+    }
+    popAppearance(){
+        this.appearance = this.appearance_stack.pop();
+        this.texture = this.texture_stack.pop();
+        this.appearance.apply();
+    }
+    clone_material(material){
+        if(material == "same") return "same";
+        var ret = new CGFappearance(material.scene);
+        ret.setAmbient  (material.ambient  [0], material.ambient  [1], material.ambient  [2], material.ambient  [3]);
+        ret.setDiffuse  (material.diffuse  [0], material.diffuse  [1], material.diffuse  [2], material.diffuse  [3]);
+        ret.setEmission (material.emission [0], material.emission [1], material.emission [2], material.emission [3]);
+        ret.setShininess(material.shininess);
+        ret.setSpecular (material.specular [0], material.specular [1], material.specular [2], material.specular [3]);
+        return ret;
+    }
+    setAppearance(material, tex){
+        // material
+        if(material == "same") this.appearance = this.clone_material(this.appearance_stack[this.appearance_stack.length-1]);
+        else                   this.appearance = this.clone_material(material);
+        // texture
+        if(tex == "same") this.texture = this.texture_stack[this.texture_stack.length-1];
+        else              this.texture = tex;
+        this.appearance.setTexture(this.texture);
+        // finally
+        this.appearance.apply();
     }
 
     /**
@@ -115,7 +154,7 @@ class XMLscene extends CGFscene {
 
         for (var i = 0; i < this.lights.length; i++) {
             this.lights[i].setVisible(true);
-            this.lights[i].enable();
+            this.lights[i].update();
         }
 
         if (this.sceneInited) {

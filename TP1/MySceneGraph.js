@@ -576,18 +576,21 @@ class MySceneGraph {
             node.setTransformation(M);
             // Material
             let material = grandChildren[materialIndex];
-            if(typeof material !== "undefined") {
-                let mat = this.materials[material.id];
-                if(typeof mat == "undefined") return `no such material "${material.id}"`;
-                node.setMaterial(mat);
-            }
+            if(typeof material == "undefined") return `<material> block is mandatory (node "${nodeID}")`;
+            let mat = (material.id == "null" ? "same" : this.materials[material.id]);
+            if(typeof mat == "undefined") return `no such material "${material.id}"`;
+            node.setMaterial(mat);
             // Texture
             let texture = grandChildren[textureIndex];
-            if(typeof texture  !== "undefined") {
-                let tex = this.textures [texture.id];
-                if(typeof tex == "undefined") return `no such texture "${texture.id}"`;
-                node.setTexture (tex);
+            if(typeof texture  == "undefined") return `<texture> block is mandatory (node "${nodeID}")`;
+            let tex;
+            switch(texture.id){
+                case "null" : tex = "same"; break;
+                case "clear": tex = null; break;
+                default: tex = this.textures[texture.id]; break;
             }
+            if(typeof tex == "undefined") return `no such texture "${texture.id}"`;
+            node.setTexture (tex);
             // Descendants
             let descendants = grandChildren[descendantsIndex].children;
             nodeDescendants[nodeID] = [];
