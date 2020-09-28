@@ -54,10 +54,10 @@
     <materials>
         <!-- At least one material should be present. -->
         <material id="plastic-white">
-            <shininess value="1.0"/>
+            <shininess value="5.0"/>
             <ambient  r="1.0" g="1.0" b="1.0" a="1.0"/>
             <diffuse  r="1.0" g="1.0" b="1.0" a="1.0"/>
-            <specular r="0.3" g="0.3" b="0.3" a="1.0"/>
+            <specular r="0.9" g="0.9" b="0.9" a="1.0"/>
             <emissive r="0.0" g="0.0" b="0.0" a="1.0"/>
         </material>
         <material id="plastic-pink">
@@ -75,17 +75,17 @@
             <emissive r="0.0" g="0.0" b="0.0" a="1.0"/>
         </material>
         <material id="metal">
-            <shininess value="4.0"/>
+            <shininess value="100.0"/>
             <ambient  r="1.0" g="1.0" b="1.0" a="1.0"/>
             <diffuse  r="1.0" g="1.0" b="1.0" a="1.0"/>
             <specular r="0.6" g="0.6" b="0.6" a="1.0"/>
             <emissive r="0.0" g="0.0" b="0.0" a="1.0"/>
         </material>
         <material id="book-cover">
-            <shininess value="8.0"/>
+            <shininess value="50.0"/>
             <ambient  r="0.9" g="0.9" b="0.9" a="1.0"/>
             <diffuse  r="0.9" g="0.9" b="0.9" a="1.0"/>
-            <specular r="0.8" g="0.8" b="0.8" a="1.0"/>
+            <specular r="1.0" g="1.0" b="1.0" a="1.0"/>
             <emissive r="0.0" g="0.0" b="0.0" a="1.0"/>
         </material>
         <material id="book-pages">
