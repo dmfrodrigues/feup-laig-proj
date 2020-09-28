@@ -25,19 +25,12 @@
     </illumination>
     <lights>
         <!-- NOTE: at least one light should be present, and a maximum of eight lights is accepted. -->
-        <light id="light1">
+        <light id="ceiling-light">
             <enable value="1"/>
-            <position x="10.0" y="12.0" z="9.5" w="0.0"/> <!-- w=1: point light; w=0: directional light -->
-            <ambient  r= "0.0" g= "0.0" b="0.0" a="1.0"/>
-            <diffuse  r= "1.0" g= "1.0" b="1.0" a="1.0"/>
-            <specular r= "1.0" g= "1.0" b="1.0" a="1.0"/>
-        </light>
-        <light id="light2">
-            <enable value="1"/>
-            <position x="0.0" y="2.0" z="0.0" w="1.0"  />
-            <ambient  r= "0.0" g= "0.0" b="0.0" a="1.0"/>
-            <diffuse  r= "1.0" g= "1.0" b="1.0" a="1.0"/>
-            <specular r= "1.0" g= "1.0" b="1.0" a="1.0"/>
+            <position x="0.0" y="2.0" z="0.0" w="1.0"/>
+            <ambient  r="0.0" g="0.0" b="0.0" a="1.0"/>
+            <diffuse  r="1.00" g="0.96" b="0.90" a="1.0"/>
+            <specular r="1.00" g="0.96" b="0.90" a="1.0"/>
         </light>
     </lights>
     <textures>

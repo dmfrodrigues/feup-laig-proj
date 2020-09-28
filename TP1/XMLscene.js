@@ -53,6 +53,8 @@ class XMLscene extends CGFscene {
      * Initializes the scene lights with the values read from the XML file.
      */
     initLights() {
+        var folder_lights = this.interface.gui.addFolder("Lights");
+
         var i = 0;
         // Lights index.
 
@@ -64,6 +66,7 @@ class XMLscene extends CGFscene {
             if (this.graph.lights.hasOwnProperty(key)) {
                 var graphLight = this.graph.lights[key];
 
+                // this.lights[i] = new CGFlight(this, key);
                 this.lights[i].setPosition(...graphLight[1]);
                 this.lights[i].setAmbient(...graphLight[2]);
                 this.lights[i].setDiffuse(...graphLight[3]);
@@ -76,6 +79,8 @@ class XMLscene extends CGFscene {
                     this.lights[i].disable();
 
                 this.lights[i].update();
+
+                folder_lights.add(this.lights[i], 'enabled').name(key);
 
                 i++;
             }
@@ -149,7 +154,7 @@ class XMLscene extends CGFscene {
 
         for (var i = 0; i < this.lights.length; i++) {
             this.lights[i].setVisible(true);
-            this.lights[i].enable();
+            this.lights[i].update();
         }
 
         if (this.sceneInited) {
