@@ -39,17 +39,18 @@
         <texture id="plastic-rugged"      path="./scenes/images/plastic-edited.jpg"     />
         <texture id="tabletop"            path="./scenes/images/white-tabletop.jpg"     />
         <texture id="world_map"           path="./scenes/images/world-map.jpg"          />
-
         <texture id="book-pages"          path="./scenes/images/book-pages.jpg"         />
-
         <texture id="intro-cg-front"      path="./scenes/images/intro-cg-front.jpg"     />
         <texture id="intro-cg-back"       path="./scenes/images/intro-cg-back.jpg"      />
         <texture id="intro-cg-spine"      path="./scenes/images/intro-cg-spine.jpg"     />
         <texture id="intro-cg-stripe"     path="./scenes/images/intro-cg-stripe.jpg"    />
-
         <texture id="floor"               path="./scenes/images/floor.jpg"              />
         <texture id="wall"                path="./scenes/images/wall.jpg"               />
         <texture id="ceil"                path="./scenes/images/ceil.jpg"               />
+        <texture id="door_wood"           path="./scenes/images/door_wood.jpg"          />
+        <texture id="handle_plate"        path="./scenes/images/handle_plate.jpg"       />
+        <texture id="steel"               path="./scenes/images/steel.jpg"              />               
+        <texture id="white_wood"          path="./scenes/images/white_wood.jpg"         />
     </textures>
     <materials>
         <!-- At least one material should be present. -->
@@ -110,6 +111,7 @@
             <texture id="null">
             </texture>
             <descendants>
+                <noderef id="door"/>
                 <noderef id="table_with_stuff"/>
                 <noderef id="chair_next_to_table"/>
                 <noderef id="walls"/>
@@ -847,6 +849,131 @@
                 <noderef id="wall_z_pos"/>
                 <noderef id="wall_z_neg"/>
             </descendants>
+        </node>
+
+        <node id="door">
+            <material id="plastic-white"/>
+            <texture id="door_wood"/>
+            <transformations><translation x="-1.5" y="0.0" z="0"/><rotation axis="yy" angle="90" /></transformations>
+            <descendants>
+                <noderef id="door_front"/>
+                <noderef id="door_arc"/>
+                <noderef id="door_handle"/>
+            </descendants>
+        </node>
+        <node id="door_front">
+            <material id="null"/>
+            <texture id="white_wood"/>
+            <transformations><translation x="0" y="0.9" z="0.0"/><scale sx="0.8" sy="1.8" sz="0.02"/></transformations>
+            <descendants>
+                <noderef id="cube"/>  
+            </descendants>
+        </node>
+        <node id="door_handle">
+            <material id="metal"/>
+            <texture id="steel"/>
+            <transformations><translation x="0.25" y="1.0" z="0.01"/></transformations>
+            <descendants>
+                <noderef id="door_handle_part1"/>
+                <noderef id="door_handle_part2"/>
+                <noderef id="door_handle_plate"/>
+            </descendants>
+        </node>
+        <node id="door_handle_plate">
+            <material id="metal"/>
+            <texture id="steel"/>
+            <transformations><translation x="0.0" y="0.0" z="0.005"/></transformations>
+            <descendants>
+                <noderef id="door_handle_plate_front"/>
+                <noderef id="door_handle_plate_top"/>
+                <noderef id="door_handle_plate_bottom"/>
+                <noderef id="door_handle_plate_left"/>
+                <noderef id="door_handle_plate_right"/>
+            </descendants>
+        </node>
+        <node id="door_handle_plate_front">
+            <material id="metal"/>
+            <texture id="handle_plate"/>
+            <transformations><translation x="0.0" y="0.0" z="0.003"/></transformations>
+            <descendants>
+                <leaf type="rectangle" x1="-0.03" y1="-0.08" x2="0.03" y2="0.08"/>
+            </descendants>
+        </node>
+        <node id="door_handle_plate_bottom">
+            <material id="metal"/>
+            <texture id="steel"/>
+            <transformations><translation x="0.0" y="-0.08" z="0.00015"/><rotation axis="xx" angle= "90"/></transformations>
+            <descendants>
+                <leaf type="rectangle" x1="-0.03" y1="-0.003" x2="0.03" y2="0.003"/>
+            </descendants>
+        </node>
+        <node id="door_handle_plate_top">
+            <material id="metal"/>
+            <texture id="steel"/>
+            <transformations><translation x="0.0" y="0.08" z="0.00015"/><rotation axis="xx" angle="-90"/></transformations>
+            <descendants>
+                <leaf type="rectangle" x1="-0.03" y1="-0.003" x2="0.03" y2="0.003"/>
+            </descendants>
+        </node>
+        <node id="door_handle_plate_left">
+            <material id="metal"/>
+            <texture id="steel"/>
+            <transformations><translation x="-0.03" y="0.00" z="0.00015"/><rotation axis="yy" angle="-90"/>
+            </transformations>
+            <descendants>
+                <leaf type="rectangle" x1="-0.003" y1="-0.08" x2="0.003" y2="0.08"/>
+            </descendants>
+        </node>
+        <node id="door_handle_plate_right">
+            <material id="metal"/>
+            <texture id="steel"/>
+            <transformations><translation x="0.03" y="0.00" z="0.00015"/><rotation axis="yy" angle="90"/></transformations>
+            <descendants>
+                <leaf type="rectangle" x1="-0.003" y1="-0.08" x2="0.003" y2="0.08"/>
+            </descendants>
+        </node>
+        <node id="door_handle_part1">
+            <material id="null"/>
+            <texture id="null"/>
+            <transformations><translation x="0" y="0.028" z="0.005"/></transformations>
+            <descendants>
+                <leaf type="cylinder" bottomRadius="0.008" topRadius="0.008" height="0.02" slices="16" stacks="2"/>
+            </descendants>
+        </node>
+        <node id="door_handle_part2">
+            <material id="null"/>
+            <texture id="null"/>
+            <transformations><translation x="0" y="0.028" z="0.025"/></transformations>
+            <descendants>
+                <leaf type="cylinder" bottomRadius="0.02" topRadius="0.025" height="0.03" slices="32" stacks="8"/>
+            </descendants>
+        </node>
+        <node id="door_arc">
+            <material id="null"/>
+            <texture id="null"/>
+            <descendants>
+                <noderef id="door_arc_left"/>
+                <noderef id="door_arc_right"/>
+                <noderef id="door_arc_top"/>
+            </descendants>
+        </node>
+        <node id="door_arc_left">
+            <material id="null"/>
+            <texture id="null"/>
+            <transformations><translation x="-0.4" y="0.9" z="0.0"/><scale sx="0.10" sy="1.8" sz="0.05"/></transformations>
+            <descendants><noderef id="cube"/></descendants>
+        </node>
+            <node id="door_arc_right">
+            <material id="null"/>
+            <texture id="null"/>
+            <transformations><translation x="0.4" y="0.9" z="0.0"/><scale sx="0.10" sy="1.8" sz="0.05"/></transformations>
+            <descendants><noderef id="cube"/></descendants>
+        </node>
+        <node id="door_arc_top">
+            <material id="null"/>
+            <texture id="null"/>
+            <transformations><translation x="0.0" y="1.85" z="0.0"/><scale sx="0.9" sy="0.1" sz="0.05"/></transformations>
+            <descendants><noderef id="cube"/></descendants>
         </node>
     </nodes>
 </lsf>
