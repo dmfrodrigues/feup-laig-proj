@@ -881,8 +881,8 @@
         <node id="bed_in_room">
             <material id="null"/><texture id="null"/>
             <transformations>
-                <translation x="-0.98" y="0" z="0.43"/>
-                <rotation axis="yy" angle="180"/>
+                <translation x="0.43" y="0" z="0.98"/>
+                <rotation axis="yy" angle="-90"/>
             </transformations>
             <descendants>
                 <noderef id="bed"/>
