@@ -7,8 +7,6 @@ class MyTorus extends CGFobject {
 		this.loops       = loops;
 
 		this.initBuffers();
-		this.initNormalVizBuffers();
-		this.enableNormalViz();
 	}
 	
 	initBuffers() {
