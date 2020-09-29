@@ -47,6 +47,10 @@
         <texture id="floor"               path="./scenes/images/floor.jpg"              />
         <texture id="wall"                path="./scenes/images/wall.jpg"               />
         <texture id="ceil"                path="./scenes/images/ceil.jpg"               />
+
+        <texture id="pine-wood"           path="./scenes/images/pine-wood.jpg"          />
+        <texture id="bed-sheets"          path="./scenes/images/bed-sheets.jpg"         />
+
         <texture id="door_wood"           path="./scenes/images/door_wood.jpg"          />
         <texture id="handle_plate"        path="./scenes/images/handle_plate.jpg"       />
         <texture id="steel"               path="./scenes/images/steel.jpg"              />               
@@ -103,6 +107,20 @@
             <specular r="0.1" g="0.1" b="0.1" a="1.0"/>
             <emissive r="0.0" g="0.0" b="0.0" a="1.0"/>
         </material>
+        <material id="wood">
+            <shininess value="1.0"/>
+            <ambient  r="1.0" g="1.0" b="1.0" a="1.0"/>
+            <diffuse  r="1.0" g="1.0" b="1.0" a="1.0"/>
+            <specular r="0.01" g="0.01" b="0.01" a="1.0"/>
+            <emissive r="0.0" g="0.0" b="0.0" a="1.0"/>
+        </material>
+        <material id="bed-sheets">
+            <shininess value="1.0"/>
+            <ambient  r="1.0" g="1.0" b="1.0" a="1.0"/>
+            <diffuse  r="1.0" g="1.0" b="1.0" a="1.0"/>
+            <specular r="0.0" g="0.0" b="0.0" a="1.0"/>
+            <emissive r="0.0" g="0.0" b="0.0" a="1.0"/>
+        </material>
     </materials>
 
     <nodes>
@@ -111,11 +129,20 @@
             <texture id="null">
             </texture>
             <descendants>
+                <noderef id="table_with_stuff_in_room"/>
+                <noderef id="chair_in_room"/>
                 <noderef id="door"/>
-                <noderef id="table_with_stuff"/>
-                <noderef id="chair_next_to_table"/>
                 <noderef id="walls"/>
+                <noderef id="bed_in_room"/>
             </descendants>
+        </node>
+
+        <node id="table_with_stuff_in_room">
+            <material id="null"/><texture id="null"/>
+            <transformations>
+                <translation x="0.99" y="0" z="-1.24"/>
+            </transformations>
+            <descendants><noderef id="table_with_stuff"/></descendants>
         </node>
 
         <node id="table_with_stuff">
@@ -153,12 +180,12 @@
             </descendants>
         </node>
 
-        <node id="chair_next_to_table">
+        <node id="chair_in_room">
             <material id="null"/>
             <texture id="null">
             </texture>
             <transformations>
-                <translation x="0.0" y="0.0" z="0.3"/>
+                <translation x="0.99" y="0.0" z="-0.94"/>
                 <rotation axis="yy" angle="186"/>
             </transformations>
             <descendants>
@@ -851,6 +878,393 @@
             </descendants>
         </node>
 
+        <node id="bed_in_room">
+            <material id="null"/><texture id="null"/>
+            <transformations>
+                <translation x="-0.98" y="0" z="0.43"/>
+                <rotation axis="yy" angle="180"/>
+            </transformations>
+            <descendants>
+                <noderef id="bed"/>
+            </descendants>
+        </node>
+
+        <node id="bed">
+            <material id="null"/><texture id="null"/>
+            <descendants>
+                <noderef id="bed_frame"/>
+                <noderef id="bed_base_mattress_blanket_in_frame"/>
+            </descendants>
+        </node>
+        <node id="bed_frame">
+            <material id="wood"/><texture id="pine-wood"/>
+            <descendants>
+                <noderef id="bed_leg1"/>
+                <noderef id="bed_leg2"/>
+                <noderef id="bed_leg3"/>
+                <noderef id="bed_leg4"/>
+                <noderef id="bed_headboard"/>
+                <noderef id="bed_footboard"/>
+                <noderef id="bed_leftboard"/>
+                <noderef id="bed_rightboard"/>
+                <noderef id="bed_leftsupport"/>
+                <noderef id="bed_rightsupport"/>
+            </descendants>
+        </node>
+        <node id="bed_leg1">
+            <material id="null"/><texture id="null"/>
+            <transformations><translation x="0.48" y="0" z="1.03"/></transformations>
+            <descendants><noderef id="beam"/></descendants>
+        </node>
+        <node id="bed_leg2">
+            <material id="null"/><texture id="null"/>
+            <transformations><translation x="-0.48" y="0" z="1.03"/></transformations>
+            <descendants><noderef id="beam"/></descendants>
+        </node>
+        <node id="bed_leg3">
+            <material id="null"/><texture id="null"/>
+            <transformations><translation x="0.48" y="0" z="-1.03"/></transformations>
+            <descendants><noderef id="beam_long"/></descendants>
+        </node>
+        <node id="bed_leg4">
+            <material id="null"/><texture id="null"/>
+            <transformations><translation x="-0.48" y="0" z="-1.03"/></transformations>
+            <descendants><noderef id="beam_long"/></descendants>
+        </node>
+        <node id="beam_long">
+            <material id="null"/><texture id="null"/>
+            <transformations><scale sx="1" sy="2.5" sz="1"/></transformations>
+            <descendants><noderef id="beam"/></descendants>
+        </node>
+        <node id="beam">
+            <material id="null"/><texture id="null"/>
+            <descendants>
+                <noderef id="beam_front"/>
+                <noderef id="beam_back"/>
+                <noderef id="beam_right"/>
+                <noderef id="beam_left"/>
+                <noderef id="beam_top"/>
+                <noderef id="beam_bot"/>
+            </descendants>
+        </node>
+        <node id="beam_front">
+            <material id="null"/><texture id="null"/>
+            <transformations>                                 <translation x="0" y="0" z="0.03"/></transformations>
+            <descendants><noderef id="beam_side"/></descendants>
+        </node>
+        <node id="beam_back">
+            <material id="null"/><texture id="null"/>
+            <transformations><rotation axis="yy" angle="180"/><translation x="0" y="0" z="0.03"/></transformations>
+            <descendants><noderef id="beam_side"/></descendants>
+        </node>
+        <node id="beam_right">
+            <material id="null"/><texture id="null"/>
+            <transformations><rotation axis="yy" angle="90"/><translation x="0" y="0" z="0.03"/></transformations>
+            <descendants><noderef id="beam_side"/></descendants>
+        </node>
+        <node id="beam_left">
+            <material id="null"/><texture id="null"/>
+            <transformations><rotation axis="yy" angle="270"/><translation x="0" y="0" z="0.03"/></transformations>
+            <descendants><noderef id="beam_side"/></descendants>
+        </node>
+        <node id="beam_side">
+            <material id="null"/><texture id="null"/>
+            <transformations><rotation axis="zz" angle="90"/></transformations>
+            <descendants>
+                <leaf type="rectangle" x1="0" x2 = "0.30" y1="-0.03" y2="0.03"/>
+            </descendants>
+        </node>
+        <node id="beam_top">
+            <material id="null"/><texture id="null"/>
+            <transformations><translation x="0" y="0.3" z="0"/><rotation axis="xx" angle="-90"/></transformations>
+            <descendants><noderef id="beam_base"/></descendants>
+        </node>
+        <node id="beam_bot">
+            <material id="null"/><texture id="null"/>
+            <transformations>                                  <rotation axis="xx" angle="+90"/></transformations>
+            <descendants><noderef id="beam_base"/></descendants>
+        </node>
+        <node id="beam_base">
+            <material id="null"/><texture id="null"/>
+            <descendants><leaf type="rectangle" x1="-0.03" x2="0.03" y1="-0.03" y2="0.03"/></descendants>
+        </node>
+
+        <node id="bed_headboard">
+            <material id="null"/><texture id="null"/>
+            <transformations><translation x="0" y="0.05" z="-1"/><scale sx="0.45" sy="0.60" sz="1"/><rotation axis="yy" angle="180"/></transformations>
+            <descendants><noderef id="bed_board"/></descendants>
+        </node>
+        <node id="bed_footboard">
+            <material id="null"/><texture id="null"/>
+            <transformations><translation x="0" y="0.05" z="+1"/><scale sx="0.45" sy="0.20" sz="1"/></transformations>
+            <descendants><noderef id="bed_board"/></descendants>
+        </node>
+        <node id="bed_rightboard">
+            <material id="null"/><texture id="null"/>
+            <transformations><translation x="0.45" y="0.05" z="0"/><rotation axis="yy" angle="90"/><scale sx="1" sy="0.20" sz="1"/></transformations>
+            <descendants><noderef id="bed_board"/></descendants>
+        </node>
+        <node id="bed_leftboard">
+            <material id="null"/><texture id="null"/>
+            <transformations><translation x="-0.45" y="0.05" z="0"/><rotation axis="yy" angle="-90"/><scale sx="1" sy="0.20" sz="1"/></transformations>
+            <descendants><noderef id="bed_board"/></descendants>
+        </node>
+        <node id="bed_board">
+            <material id="null"/><texture id="null"/>
+            <descendants>
+                <noderef id="bed_board_front"/>
+                <noderef id="bed_board_back"/>
+                <noderef id="bed_board_right"/>
+                <noderef id="bed_board_left"/>
+                <noderef id="bed_board_top"/>
+                <noderef id="bed_board_bot"/>
+            </descendants>
+        </node>
+        <node id="bed_board_front">
+            <material id="null"/><texture id="null"/>
+            <transformations><translation x="0" y="0" z="0.02"/></transformations>
+            <descendants><leaf type="rectangle" x1="-1" x2="+1" y1="0" y2="1"/></descendants>
+        </node>
+        <node id="bed_board_back">
+            <material id="null"/><texture id="null"/>
+            <transformations><rotation axis="yy" angle="180"/></transformations>
+            <descendants><leaf type="rectangle" x1="-1" x2="+1" y1="0" y2="1"/></descendants>
+        </node>
+        <node id="bed_board_right">
+            <material id="null"/><texture id="null"/>
+            <transformations><translation x="1" y="0" z="0.01"/><rotation axis="yy" angle="90"/><rotation axis="zz" angle="90"/></transformations>
+            <descendants><leaf type="rectangle" x1="0" x2="1" y1="-0.01" y2="+0.01"/></descendants>
+        </node>
+        <node id="bed_board_left">
+            <material id="null"/><texture id="null"/>
+            <transformations><translation x="-1" y="0" z="0.01"/><rotation axis="yy" angle="-90"/><rotation axis="zz" angle="90"/></transformations>
+            <descendants><leaf type="rectangle" x1="0" x2="1" y1="-0.01" y2="+0.01"/></descendants>
+        </node>
+        <node id="bed_board_top">
+            <material id="null"/><texture id="null"/>
+            <transformations><translation x="0" y="1" z="0.01"/><rotation axis="xx" angle="-90"/></transformations>
+            <descendants><leaf type="rectangle" x1="-1" x2="1" y1="-0.01" y2="+0.01"/></descendants>
+        </node>
+        <node id="bed_board_bot">
+            <material id="null"/><texture id="null"/>
+            <transformations><translation x="0" y="0" z="0.01"/><rotation axis="xx" angle="+90"/></transformations>
+            <descendants><leaf type="rectangle" x1="-1" x2="1" y1="-0.01" y2="+0.01"/></descendants>
+        </node>
+        <node id="bed_leftsupport">
+            <material id="null"/><texture id="null"/>
+            <transformations><translation x="0.435" y="0.12" z="+1"/><rotation axis="xx" angle="-90"/><scale sx="0.5" sy="6.66" sz="0.5"/></transformations>
+            <descendants><noderef id="beam"/></descendants>
+        </node>
+        <node id="bed_rightsupport">
+            <material id="null"/><texture id="null"/>
+            <transformations><translation x="-0.435" y="0.12" z="+1"/><rotation axis="xx" angle="-90"/><scale sx="0.5" sy="6.66" sz="0.5"/></transformations>
+            <descendants><noderef id="beam"/></descendants>
+        </node>
+
+        <node id="bed_base_mattress_blanket_in_frame">
+            <material id="null"/><texture id="null"/>
+            <transformations><translation x="0" y="0.15" z="0"/></transformations>
+            <descendants><noderef id="bed_base_mattress_blanket"/></descendants>
+        </node>
+        <node id="bed_base_mattress_blanket">
+            <material id="null"/><texture id="null"/>
+            <descendants>
+                <noderef id="bed_base"/>
+                <noderef id="bed_mattress_blanket_in_base"/>
+            </descendants>
+        </node>
+        <node id="bed_base">
+            <material id="null"/><texture id="null"/>
+            <transformations><translation x="0" y="0.015" z="0"/></transformations>
+            <descendants>
+                <noderef id="bed_base_metal"/>
+                <noderef id="bed_base_wood"/>
+            </descendants>
+        </node>
+        <node id="bed_base_metal">
+            <material id="metal"/><texture id="black_painted_metal"/>
+            <descendants>
+                <noderef id="bed_base_metal_right"/>
+                <noderef id="bed_base_metal_left"/>
+                <noderef id="bed_base_metal_head"/>
+                <noderef id="bed_base_metal_foot"/>
+                <noderef id="bed_base_metal_mid"/>
+            </descendants>
+        </node>
+        <node id="bed_base_metal_right">
+            <material id="null"/><texture id="null"/>
+            <transformations><translation x="0.43" y="0" z="+0.99"/><rotation axis="xx" angle="-90"/><scale sx="0.333" sy="6.6" sz="0.333"/></transformations>
+            <descendants><noderef id="beam"/></descendants>
+        </node>
+        <node id="bed_base_metal_left">
+            <material id="null"/><texture id="null"/>
+            <transformations><translation x="-0.43" y="0" z="+0.99"/><rotation axis="xx" angle="-90"/><scale sx="0.333" sy="6.6" sz="0.333"/></transformations>
+            <descendants><noderef id="beam"/></descendants>
+        </node>
+        <node id="bed_base_metal_mid">
+            <material id="null"/><texture id="null"/>
+            <transformations><translation x="0" y="-0.005" z="+0.99"/><rotation axis="xx" angle="-90"/><scale sx="0.333" sy="6.6" sz="0.1666"/></transformations>
+            <descendants><noderef id="beam"/></descendants>
+        </node>
+        <node id="bed_base_metal_head">
+            <material id="null"/><texture id="null"/>
+            <transformations><translation x="+0.44" y="0" z="-0.98"/><rotation axis="yy" angle="90"/><rotation axis="xx" angle="-90"/><scale sx="0.333" sy="2.9333" sz="0.333"/></transformations>
+            <descendants><noderef id="beam"/></descendants>
+        </node>
+        <node id="bed_base_metal_foot">
+            <material id="null"/><texture id="null"/>
+            <transformations><translation x="+0.44" y="0" z="+0.98"/><rotation axis="yy" angle="90"/><rotation axis="xx" angle="-90"/><scale sx="0.333" sy="2.9333" sz="0.333"/></transformations>
+            <descendants><noderef id="beam"/></descendants>
+        </node>
+
+        <node id="bed_base_wood">
+            <material id="wood"/><texture id="pine-wood"/>
+            <descendants>
+                <noderef id="bed_base_wood1"/>
+                <noderef id="bed_base_wood2"/>
+                <noderef id="bed_base_wood3"/>
+                <noderef id="bed_base_wood4"/>
+                <noderef id="bed_base_wood5"/>
+                <noderef id="bed_base_wood6"/>
+                <noderef id="bed_base_wood7"/>
+                <noderef id="bed_base_wood8"/>
+                <noderef id="bed_base_wood9"/>
+                <noderef id="bed_base_wood10"/>
+                <noderef id="bed_base_wood11"/>
+                <noderef id="bed_base_wood12"/>
+                <noderef id="bed_base_wood13"/>
+            </descendants>
+        </node>
+        <node id="bed_base_wood1">
+            <material id="null"/><texture id="null"/>
+            <transformations><translation x="0" y="0" z="-0.90"/></transformations>
+            <descendants><noderef id="bed_base_woodbeam"/></descendants>
+        </node>
+        <node id="bed_base_wood2">
+            <material id="null"/><texture id="null"/>
+            <transformations><translation x="0" y="0" z="-0.75"/></transformations>
+            <descendants><noderef id="bed_base_woodbeam"/></descendants>
+        </node>
+        <node id="bed_base_wood3">
+            <material id="null"/><texture id="null"/>
+            <transformations><translation x="0" y="0" z="-0.60"/></transformations>
+            <descendants><noderef id="bed_base_woodbeam"/></descendants>
+        </node>
+        <node id="bed_base_wood4">
+            <material id="null"/><texture id="null"/>
+            <transformations><translation x="0" y="0" z="-0.45"/></transformations>
+            <descendants><noderef id="bed_base_woodbeam"/></descendants>
+        </node>
+        <node id="bed_base_wood5">
+            <material id="null"/><texture id="null"/>
+            <transformations><translation x="0" y="0" z="-0.30"/></transformations>
+            <descendants><noderef id="bed_base_woodbeam"/></descendants>
+        </node>
+        <node id="bed_base_wood6">
+            <material id="null"/><texture id="null"/>
+            <transformations><translation x="0" y="0" z="-0.15"/></transformations>
+            <descendants><noderef id="bed_base_woodbeam"/></descendants>
+        </node>
+        <node id="bed_base_wood7">
+            <material id="null"/><texture id="null"/>
+            <transformations><translation x="0" y="0" z="+0.00"/></transformations>
+            <descendants><noderef id="bed_base_woodbeam"/></descendants>
+        </node>
+        <node id="bed_base_wood8">
+            <material id="null"/><texture id="null"/>
+            <transformations><translation x="0" y="0" z="+0.15"/></transformations>
+            <descendants><noderef id="bed_base_woodbeam"/></descendants>
+        </node>
+        <node id="bed_base_wood9">
+            <material id="null"/><texture id="null"/>
+            <transformations><translation x="0" y="0" z="+0.30"/></transformations>
+            <descendants><noderef id="bed_base_woodbeam"/></descendants>
+        </node>
+        <node id="bed_base_wood10">
+            <material id="null"/><texture id="null"/>
+            <transformations><translation x="0" y="0" z="+0.45"/></transformations>
+            <descendants><noderef id="bed_base_woodbeam"/></descendants>
+        </node>
+        <node id="bed_base_wood11">
+            <material id="null"/><texture id="null"/>
+            <transformations><translation x="0" y="0" z="+0.60"/></transformations>
+            <descendants><noderef id="bed_base_woodbeam"/></descendants>
+        </node>
+        <node id="bed_base_wood12">
+            <material id="null"/><texture id="null"/>
+            <transformations><translation x="0" y="0" z="+0.75"/></transformations>
+            <descendants><noderef id="bed_base_woodbeam"/></descendants>
+        </node>
+        <node id="bed_base_wood13">
+            <material id="null"/><texture id="null"/>
+            <transformations><translation x="0" y="0" z="+0.90"/></transformations>
+            <descendants><noderef id="bed_base_woodbeam"/></descendants>
+        </node>
+        <node id="bed_base_woodbeam">
+            <material id="null"/><texture id="null"/>
+            <transformations>
+                <translation x="+0.42" y="+0.0025" z="+0.00"/>
+                <rotation axis="yy" angle="90"/>
+                <rotation axis="xx" angle="-90"/>
+            <scale sx="1.3333" sy="2.8" sz="0.08333"/></transformations>
+            <descendants><noderef id="beam"/></descendants>
+        </node>
+
+        <node id="bed_mattress_blanket_in_base">
+            <material id="null"/><texture id="null"/>
+            <transformations><translation x="0" y="0.020" z="0"/></transformations>
+            <descendants>
+                <noderef id="bed_mattress_blanket"/>
+            </descendants>
+        </node>
+        <node id="bed_mattress_blanket">
+            <material id="null"/><texture id="null"/>
+            <descendants>
+                <noderef id="bed_mattress"/>
+                <!-- <noderef id="bed_blanket_in_mattress"/> -->
+            </descendants>
+        </node>
+        <node id="bed_mattress">
+            <material id="bed-sheets"/><texture id="bed-sheets"/>
+            <descendants>
+                <noderef id="bed_mattress_top"/>
+                <noderef id="bed_mattress_bot"/>
+                <noderef id="bed_mattress_fro"/>
+                <noderef id="bed_mattress_bac"/>
+                <noderef id="bed_mattress_lef"/>
+                 <noderef id="bed_mattress_rig"/>
+            </descendants>
+        </node>
+        <node id="bed_mattress_top">
+            <material id="null"/><texture id="null"/>
+            <transformations><translation x="0" y="0.20" z="0"/><rotation axis="xx" angle="-90"/></transformations>
+            <descendants><leaf type="rectangle" x1="-0.42" x2="+0.42" y1="-0.97" y2="+0.97"/></descendants>
+        </node>
+        <node id="bed_mattress_bot">
+            <material id="null"/><texture id="null"/>
+            <transformations><rotation axis="xx" angle="-90"/><rotation axis="yy" angle="180"/></transformations>
+            <descendants><leaf type="rectangle" x1="-0.42" x2="+0.42" y1="-0.97" y2="+0.97"/></descendants>
+        </node>
+        <node id="bed_mattress_fro">
+            <material id="null"/><texture id="null"/>
+            <transformations><translation x="0" y="0" z="0.97"/></transformations>
+            <descendants><leaf type="rectangle" x1="-0.42" x2="+0.42" y1="0" y2="0.20"/></descendants>
+        </node>
+        <node id="bed_mattress_bac">
+            <material id="null"/><texture id="null"/>
+            <transformations><translation x="0" y="0" z="-0.97"/><rotation axis="xx" angle="180"/></transformations>
+            <descendants><leaf type="rectangle" x1="-0.42" x2="+0.42" y1="-0.20" y2="0"/></descendants>
+        </node>
+        <node id="bed_mattress_lef">
+            <material id="null"/><texture id="null"/>
+            <transformations><translation x="-0.42" y="0" z="0"/><rotation axis="zz" angle="90"/><rotation axis="xx" angle="-90"/></transformations>
+            <descendants><leaf type="rectangle" x1="0" x2="0.20" y1="-0.97" y2="+0.97"/></descendants>
+        </node>
+        <node id="bed_mattress_rig">
+            <material id="null"/><texture id="null"/>
+            <transformations><translation x="+0.42" y="0" z="0"/><rotation axis="zz" angle="-90"/><rotation axis="xx" angle="-90"/></transformations>
+            <descendants><leaf type="rectangle" x1="-0.20" x2="0" y1="-0.97" y2="+0.97"/></descendants>
+        </node>
         <node id="door">
             <material id="plastic-white"/>
             <texture id="door_wood"/>
