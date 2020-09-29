@@ -51,7 +51,7 @@
         <texture id="pine-wood"           path="./scenes/images/pine-wood.jpg"          />
         <texture id="bed-sheets"          path="./scenes/images/bed-sheets.jpg"         />
 
-        <texture id="door_wood"           path="./scenes/images/door_wood.jpg"          />
+        <texture id="dark_wood"           path="./scenes/images/door_wood.jpg"          />
         <texture id="handle_plate"        path="./scenes/images/handle_plate.jpg"       />
         <texture id="steel"               path="./scenes/images/steel.jpg"              />               
         <texture id="white_wood"          path="./scenes/images/white_wood.jpg"         />
@@ -869,6 +869,7 @@
             <material id="paint"/>
             <texture id="wall"/>
             <descendants>
+                <noderef id="baseboard"/>
                 <noderef id="floor"/>
                 <noderef id="ceil"/>
                 <noderef id="wall_x_pos"/>
@@ -881,7 +882,7 @@
         <node id="bed_in_room">
             <material id="null"/><texture id="null"/>
             <transformations>
-                <translation x="0.43" y="0" z="0.98"/>
+                <translation x="0.41" y="0" z="0.96"/>
                 <rotation axis="yy" angle="-90"/>
             </transformations>
             <descendants>
@@ -1267,7 +1268,7 @@
         </node>
         <node id="door">
             <material id="plastic-white"/>
-            <texture id="door_wood"/>
+            <texture id="dark_wood"/>
             <transformations><translation x="-1.5" y="0.0" z="0"/><rotation axis="yy" angle="90" /></transformations>
             <descendants>
                 <noderef id="door_front"/>
@@ -1388,6 +1389,73 @@
             <texture id="null"/>
             <transformations><translation x="0.0" y="1.85" z="0.0"/><scale sx="0.9" sy="0.1" sz="0.05"/></transformations>
             <descendants><noderef id="cube"/></descendants>
+        </node>
+
+        <node id="baseboard">
+            <material id="wood"/>
+            <texture id="dark_wood"/>
+            <descendants>
+                <noderef id="baseboard_x_neg_left" />
+                <noderef id="baseboard_x_neg_right"/>
+                <noderef id="baseboard_z_pos"      />
+                <noderef id="baseboard_z_neg"      />
+                <noderef id="baseboard_x_pos"      />
+            </descendants>
+        </node>
+        <node id="baseboard_x_neg_left">
+            <material id="null"/>
+            <texture id="null"/>
+            <transformations>
+                <translation x="-1.49" y="0.02" z="0.975"/>
+                <scale sx="0.02" sy="0.04" sz="1.05"/>
+            </transformations>
+            <descendants>
+                <noderef id="cube"/>
+            </descendants>
+        </node>
+        <node id="baseboard_x_neg_right">
+            <material id="null"/>
+            <texture id="null"/>
+            <transformations>
+                <translation x="-1.49" y="0.02" z="-0.975"/>
+                <scale sx="0.02" sy="0.04" sz="1.05"/>
+            </transformations>
+            <descendants>
+                <noderef id="cube"/>
+            </descendants>
+        </node>
+        <node id="baseboard_z_pos">
+            <material id="null"/>
+            <texture id="null"/>
+            <transformations>
+                <translation x="0.01" y="0.02" z="1.49"/>
+                <scale sx="2.98" sy="0.04" sz="0.02"/>
+            </transformations>
+            <descendants>
+                <noderef id="cube"/>
+            </descendants>
+        </node>
+        <node id="baseboard_z_neg">
+            <material id="null"/>
+            <texture id="null"/>
+            <transformations>
+                <translation x="0.01" y="0.02" z="-1.49"/>
+                <scale sx="2.98" sy="0.04" sz="0.02"/>
+            </transformations>
+            <descendants>
+                <noderef id="cube"/>
+            </descendants>
+        </node>
+        <node id="baseboard_x_pos">
+            <material id="null"/>
+            <texture id="null"/>
+            <transformations>
+                <translation x="1.49" y="0.02" z="0"/>
+                <scale sx="0.02" sy="0.04" sz="2.96"/>
+            </transformations>
+            <descendants>
+                <noderef id="cube"/>
+            </descendants>
         </node>
     </nodes>
 </lsf>
