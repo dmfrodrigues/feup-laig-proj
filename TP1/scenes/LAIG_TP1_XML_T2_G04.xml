@@ -1278,7 +1278,7 @@
         <node id="door_front">
             <material id="null"/>
             <texture id="white_wood"/>
-            <transformations><translation x="0" y="0.9" z="0.0"/><scale sx="0.8" sy="1.8" sz="0.02"/></transformations>
+            <transformations><translation x="0" y="0.9" z="0.0"/><scale sx="0.7" sy="1.8" sz="0.02"/></transformations>
             <descendants>
                 <noderef id="cube"/>  
             </descendants>
