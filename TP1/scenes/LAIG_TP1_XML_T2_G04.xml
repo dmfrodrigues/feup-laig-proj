@@ -52,7 +52,7 @@
         <texture id="ceil"                path="./scenes/images/ceil.jpg"               />
 
         <texture id="pine-wood"           path="./scenes/images/pine-wood.jpg"          />
-        <texture id="bed-sheets"          path="./scenes/images/bed-sheets.jpg"         /> <!-- https://www.swedishlinens.com/products/waves-fitted-sheet-97x191cm-38x75-tranquil-gray -->
+        <texture id="bed-sheets"          path="./scenes/images/bed-sheets.jpg"         />
     </textures>
     <materials>
         <!-- At least one material should be present. -->
@@ -870,12 +870,22 @@
             </descendants>
         </node>
 
+        <node id="bed_in_room">
+            <material id="null"/><texture id="null"/>
+            <transformations>
+                <translation x="-0.98" y="0" z="0.43"/>
+                <rotation axis="yy" angle="180"/>
+            </transformations>
+            <descendants>
+                <noderef id="bed"/>
+            </descendants>
+        </node>
+
         <node id="bed">
             <material id="null"/><texture id="null"/>
             <descendants>
-                <!-- <noderef id="bed_frame"/>
-                <noderef id="bed_base_mattress_blanket_in_frame"/> -->
-                <noderef id="bed_base_mattress_blanket"/>
+                <noderef id="bed_frame"/>
+                <noderef id="bed_base_mattress_blanket_in_frame"/>
             </descendants>
         </node>
         <node id="bed_frame">
@@ -1194,7 +1204,7 @@
 
         <node id="bed_mattress_blanket_in_base">
             <material id="null"/><texture id="null"/>
-            <transformations><translation x="0" y="0.015" z="0"/></transformations>
+            <transformations><translation x="0" y="0.020" z="0"/></transformations>
             <descendants>
                 <noderef id="bed_mattress_blanket"/>
             </descendants>
@@ -1209,12 +1219,43 @@
         <node id="bed_mattress">
             <material id="bed-sheets"/><texture id="bed-sheets"/>
             <descendants>
-                <noderef id="bed_mattress_front"/>
+                <noderef id="bed_mattress_top"/>
+                <noderef id="bed_mattress_bot"/>
+                <noderef id="bed_mattress_fro"/>
+                <noderef id="bed_mattress_bac"/>
+                <noderef id="bed_mattress_lef"/>
+                 <noderef id="bed_mattress_rig"/>
             </descendants>
         </node>
-        <node id="bed_mattress_front">
+        <node id="bed_mattress_top">
             <material id="null"/><texture id="null"/>
+            <transformations><translation x="0" y="0.20" z="0"/><rotation axis="xx" angle="-90"/></transformations>
             <descendants><leaf type="rectangle" x1="-0.42" x2="+0.42" y1="-0.97" y2="+0.97"/></descendants>
+        </node>
+        <node id="bed_mattress_bot">
+            <material id="null"/><texture id="null"/>
+            <transformations><rotation axis="xx" angle="-90"/><rotation axis="yy" angle="180"/></transformations>
+            <descendants><leaf type="rectangle" x1="-0.42" x2="+0.42" y1="-0.97" y2="+0.97"/></descendants>
+        </node>
+        <node id="bed_mattress_fro">
+            <material id="null"/><texture id="null"/>
+            <transformations><translation x="0" y="0" z="0.97"/></transformations>
+            <descendants><leaf type="rectangle" x1="-0.42" x2="+0.42" y1="0" y2="0.20"/></descendants>
+        </node>
+        <node id="bed_mattress_bac">
+            <material id="null"/><texture id="null"/>
+            <transformations><translation x="0" y="0" z="-0.97"/><rotation axis="xx" angle="180"/></transformations>
+            <descendants><leaf type="rectangle" x1="-0.42" x2="+0.42" y1="-0.20" y2="0"/></descendants>
+        </node>
+        <node id="bed_mattress_lef">
+            <material id="null"/><texture id="null"/>
+            <transformations><translation x="-0.42" y="0" z="0"/><rotation axis="zz" angle="90"/><rotation axis="xx" angle="-90"/></transformations>
+            <descendants><leaf type="rectangle" x1="0" x2="0.20" y1="-0.97" y2="+0.97"/></descendants>
+        </node>
+        <node id="bed_mattress_rig">
+            <material id="null"/><texture id="null"/>
+            <transformations><translation x="+0.42" y="0" z="0"/><rotation axis="zz" angle="-90"/><rotation axis="xx" angle="-90"/></transformations>
+            <descendants><leaf type="rectangle" x1="-0.20" x2="0" y1="-0.97" y2="+0.97"/></descendants>
         </node>
     </nodes>
 </lsf>
