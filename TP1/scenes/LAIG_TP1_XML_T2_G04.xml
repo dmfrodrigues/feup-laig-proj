@@ -55,6 +55,8 @@
         <texture id="handle_plate"        path="./scenes/images/handle_plate.jpg"       />
         <texture id="steel"               path="./scenes/images/steel.jpg"              />               
         <texture id="white_wood"          path="./scenes/images/white_wood.jpg"         />
+
+        <texture id="crepe-paper"         path="./scenes/images/crepe-paper.jpg"        />
     </textures>
     <materials>
         <!-- At least one material should be present. -->
@@ -93,12 +95,19 @@
             <specular r="1.0" g="1.0" b="1.0" a="1.0"/>
             <emissive r="0.0" g="0.0" b="0.0" a="1.0"/>
         </material>
-        <material id="book-pages">
+        <material id="paper">
             <shininess value="8.0"/>
             <ambient  r="1.0" g="1.0" b="1.0" a="1.0"/>
             <diffuse  r="1.0" g="1.0" b="1.0" a="1.0"/>
             <specular r="0.05" g="0.05" b="0.05" a="1.0"/>
             <emissive r="0.0" g="0.0" b="0.0" a="1.0"/>
+        </material>
+        <material id="paper-translucid">
+            <shininess value="8.0"/>
+            <ambient  r="1.0" g="1.0" b="1.0" a="0.5"/>
+            <diffuse  r="1.0" g="1.0" b="1.0" a="0.5"/>
+            <specular r="0.05" g="0.05" b="0.05" a="0.5"/>
+            <emissive r="0.0" g="0.0" b="0.0" a="0.5"/>
         </material>
         <material id="paint">
             <shininess value="4.0"/>
@@ -134,6 +143,7 @@
                 <noderef id="door"/>
                 <noderef id="walls"/>
                 <noderef id="bed_in_room"/>
+                <noderef id="ceiling-light"/>
             </descendants>
         </node>
 
@@ -785,7 +795,7 @@
         </node>
 
         <node id="book-cg-pages">
-            <material id="book-pages"/>
+            <material id="paper"/>
             <texture id="book-pages">
             </texture>
             <descendants>
@@ -1456,6 +1466,111 @@
             <descendants>
                 <noderef id="cube"/>
             </descendants>
+        </node>
+
+        <node id="ceiling-light">
+            <material id="null"/><texture id="null"/>
+            <transformations>
+                <translation x="0" y="2" z="0"/>
+            </transformations>
+            <descendants>
+                <noderef id="lampshade"/>
+                <!-- <noderef id="lamp"/> -->
+            </descendants>
+        </node>
+
+        <node id="lampshade">
+            <material id="null"/><texture id="null"/>
+            <transformations>
+                <scale sx="1" sy="0.5" sz="1"/>
+            </transformations>
+            <descendants>
+                <noderef id="lampshade-paper"/>
+                <noderef id="lampshade-wires"/>
+            </descendants>
+        </node>
+
+        <node id="lampshade-paper">
+            <material id="paper-translucid"/>
+            <texture id="crepe-paper"/>
+            <transformations>
+                <rotation axis="xx" angle="-90"/>
+            </transformations>
+            <descendants>
+                <leaf type="sphere" radius="0.25" slices="10" stacks="64"/>
+            </descendants>
+        </node>
+
+        <node id="lampshade-wires">
+            <material id="metal"/>
+            <texture id="steel"/>
+            <descendants>
+                <noderef id="lampshade-wire1"/>
+                <noderef id="lampshade-wire2"/>
+                <noderef id="lampshade-wire3"/>
+                <noderef id="lampshade-wire4"/>
+                <noderef id="lampshade-wire5"/>
+                <noderef id="lampshade-wire6"/>
+                <noderef id="lampshade-wire7"/>
+                <noderef id="lampshade-wire8"/>
+                <noderef id="lampshade-wire9"/>
+                <noderef id="lampshade-wire10"/>
+            </descendants>
+        </node>
+        <node id="lampshade-wire">
+            <material id="null"/><texture id="null"/>
+            <descendants>
+                <leaf type="torus" innerRadius="0.001" outerRadius="0.25" slices="10" loops="128"/>
+            </descendants>
+        </node>
+        <node id="lampshade-wire1">
+            <material id="null"/><texture id="null"/>
+            <descendants><noderef id="lampshade-wire"/></descendants>
+        </node>
+        <node id="lampshade-wire2">
+            <material id="null"/><texture id="null"/>
+            <transformations><rotation axis="yy" angle="36"/></transformations>
+            <descendants><noderef id="lampshade-wire"/></descendants>
+        </node>
+        <node id="lampshade-wire3">
+            <material id="null"/><texture id="null"/>
+            <transformations><rotation axis="yy" angle="72"/></transformations>
+            <descendants><noderef id="lampshade-wire"/></descendants>
+        </node>
+        <node id="lampshade-wire4">
+            <material id="null"/><texture id="null"/>
+            <transformations><rotation axis="yy" angle="108"/></transformations>
+            <descendants><noderef id="lampshade-wire"/></descendants>
+        </node>
+        <node id="lampshade-wire5">
+            <material id="null"/><texture id="null"/>
+            <transformations><rotation axis="yy" angle="144"/></transformations>
+            <descendants><noderef id="lampshade-wire"/></descendants>
+        </node>
+        <node id="lampshade-wire6">
+            <material id="null"/><texture id="null"/>
+            <transformations><rotation axis="yy" angle="180"/></transformations>
+            <descendants><noderef id="lampshade-wire"/></descendants>
+        </node>
+        <node id="lampshade-wire7">
+            <material id="null"/><texture id="null"/>
+            <transformations><rotation axis="yy" angle="216"/></transformations>
+            <descendants><noderef id="lampshade-wire"/></descendants>
+        </node>
+        <node id="lampshade-wire8">
+            <material id="null"/><texture id="null"/>
+            <transformations><rotation axis="yy" angle="252"/></transformations>
+            <descendants><noderef id="lampshade-wire"/></descendants>
+        </node>
+        <node id="lampshade-wire9">
+            <material id="null"/><texture id="null"/>
+            <transformations><rotation axis="yy" angle="288"/></transformations>
+            <descendants><noderef id="lampshade-wire"/></descendants>
+        </node>
+        <node id="lampshade-wire10">
+            <material id="null"/><texture id="null"/>
+            <transformations><rotation axis="yy" angle="324"/></transformations>
+            <descendants><noderef id="lampshade-wire"/></descendants>
         </node>
     </nodes>
 </lsf>
