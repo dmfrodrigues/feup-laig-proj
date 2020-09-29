@@ -127,14 +127,19 @@
             <texture id="null">
             </texture>
             <descendants>
-                <!--
-                <noderef id="table_with_stuff"/>
-                <noderef id="chair_next_to_table"/>
+                <noderef id="table_with_stuff_in_room"/>
+                <noderef id="chair_in_room"/>
                 <noderef id="walls"/>
-                -->
-                <!-- <noderef id="bed"/> -->
-                <noderef id="bed_mattress"/>
+                <noderef id="bed_in_room"/>
             </descendants>
+        </node>
+
+        <node id="table_with_stuff_in_room">
+            <material id="null"/><texture id="null"/>
+            <transformations>
+                <translation x="0.99" y="0" z="-1.24"/>
+            </transformations>
+            <descendants><noderef id="table_with_stuff"/></descendants>
         </node>
 
         <node id="table_with_stuff">
@@ -172,12 +177,12 @@
             </descendants>
         </node>
 
-        <node id="chair_next_to_table">
+        <node id="chair_in_room">
             <material id="null"/>
             <texture id="null">
             </texture>
             <transformations>
-                <translation x="0.0" y="0.0" z="0.3"/>
+                <translation x="0.99" y="0.0" z="-0.94"/>
                 <rotation axis="yy" angle="186"/>
             </transformations>
             <descendants>
