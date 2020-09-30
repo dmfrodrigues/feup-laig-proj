@@ -12,7 +12,7 @@
  * @param y3 - y coordinate 3
  * @param z3 - z coordinate 3
  */
-class MyTriangle extends CGFobject {
+class MyTriangle extends ObjectAmp {
 	constructor(scene, x1, y1, z1, x2, y2, z2, x3, y3, z3) {
 		super(scene);
 		this.x1 = x1;
@@ -58,15 +58,6 @@ class MyTriangle extends CGFobject {
 
 		this.primitiveType = this.scene.gl.TRIANGLES;
 		this.initGLBuffers();
-	}
-
-	/**
-	 * @method updateTexCoords
-	 * @param {Array} coords - Array of texture coordinates
-	 */
-	updateTexCoords(coords) {
-		this.texCoords = [...coords];
-		this.updateTexCoordsGLBuffers();
 	}
 }
 

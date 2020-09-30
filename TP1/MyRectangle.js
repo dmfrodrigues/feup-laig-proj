@@ -7,7 +7,7 @@
  * @param x2 - x coordinate corner 2
  * @param y2 - y coordinate corner 2
  */
-class MyRectangle extends CGFobject {
+class MyRectangle extends ObjectAmp {
 	constructor(scene, x1, y1, x2, y2) {
 		super(scene);
 		this.x1 = x1;
@@ -50,24 +50,16 @@ class MyRectangle extends CGFobject {
         t
         */
 
-		this.texCoords = [
+		this.texCoordsOriginal = [
 			0, 1,
 			1, 1,
 			0, 0,
 			1, 0
-		]
+		];
+		this.updateTexCoords(this.texCoordsOriginal);
+
 		this.primitiveType = this.scene.gl.TRIANGLES;
 		this.initGLBuffers();
-	}
-
-	/**
-	 * @method updateTexCoords
-	 * Updates the list of texture coordinates of the rectangle
-	 * @param {Array} coords - Array of texture coordinates
-	 */
-	updateTexCoords(coords) {
-		this.texCoords = [...coords];
-		this.updateTexCoordsGLBuffers();
 	}
 }
 
