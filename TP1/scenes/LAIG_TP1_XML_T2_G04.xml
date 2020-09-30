@@ -880,15 +880,27 @@
             <transformations><translation x="-1.5" y="1.5" z="0"/><rotation axis="yy" angle="90" /></transformations>
             <descendants><leaf type="rectangle" x1="-1.5" y1="-1.5" x2="1.5" y2="1.0"/></descendants>
         </node>
-        <node id="wall_z_pos">
+        <node id="wall_z_neg">
             <material id="null"/><texture id="null"/>
             <transformations><translation x="0" y="1.5" z="-1.5"/><rotation axis="xx" angle="0" /></transformations>
             <descendants><leaf type="rectangle" x1="-1.5" y1="-1.5" x2="1.5" y2="1.0"/></descendants>
         </node>
-        <node id="wall_z_neg">
+        <node id="wall_z_pos_sides">
             <material id="null"/><texture id="null"/>
-            <transformations><translation x="0" y="1.5" z="1.5"/><rotation axis="yy" angle="180" /></transformations>
-            <descendants><leaf type="rectangle" x1="-1.5" y1="-1.5" x2="1.5" y2="1.0"/></descendants>
+            <transformations><translation x="0" y="0" z="1.5"/><rotation axis="yy" angle="180" /></transformations>
+            <descendants>
+                <leaf type="rectangle" x1="-1.50" y1="0.0"  x2="-0.75" y2="2.5"/>
+                <leaf type="rectangle" x1="+0.75" y1="0.0"  x2="+1.50" y2="2.5"/>
+            </descendants>
+        </node>
+
+        <node id="wall_z_pos_top_bottom">
+            <material id="paint"/><texture id="null"><amplification afs="1.0" aft="1.0"/></texture>
+            <transformations><translation x="0" y="0" z="1.5"/><rotation axis="yy" angle="180" /></transformations>
+            <descendants>
+                <leaf type="rectangle" x1="-0.75" y1="1.75" x2="+0.75" y2="2.5"/>
+                <leaf type="rectangle" x1="-0.75" y1="0.00" x2="+0.75" y2="1.0"/>
+            </descendants>
         </node>
 
         <node id="walls">
@@ -900,8 +912,9 @@
                 <noderef id="ceil"/>
                 <noderef id="wall_x_pos"/>
                 <noderef id="wall_x_neg"/>
-                <noderef id="wall_z_pos"/>
+                <noderef id="wall_z_pos_sides"/>
                 <noderef id="wall_z_neg"/>
+                <noderef id="wall_z_pos_top_bottom"/>
             </descendants>
         </node>
 
