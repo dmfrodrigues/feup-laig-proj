@@ -1,4 +1,4 @@
-class MyTorus extends CGFobject {
+class MyTorus extends ObjectAmp {
 	constructor(scene, innerRadius, outerRadius, slices, loops) {
 		super(scene);
 		this.innerRadius = innerRadius;
@@ -13,9 +13,9 @@ class MyTorus extends CGFobject {
 		let r = this.innerRadius;
 		let R = this.outerRadius;
 
-		// Vertices, texCoords and normals
+		// Vertices, texCoordsOriginal and normals
 		this.vertices  = [];
-		this.texCoords = [];
+		this.texCoordsOriginal = [];
 		this.normals   = [];
 
 		for(let i = 0; i <= this.loops; ++i){
@@ -32,7 +32,7 @@ class MyTorus extends CGFobject {
 				this.vertices.push(x, y, z);
 
 				let t = j/this.slices;
-				this.texCoords.push(s, t);
+				this.texCoordsOriginal.push(s, t);
 
 				let Nx = -Math.cos(phi)*( r*Math.cos(phi)*Math.cos(theta) + R*Math.cos(theta));
 				let Ny =  Math.cos(phi)*(-r*Math.cos(phi)*Math.sin(theta) - R*Math.sin(theta));
@@ -43,6 +43,8 @@ class MyTorus extends CGFobject {
 				this.normals.push(-Nx/Nr, -Ny/Nr, -Nz/Nr);
 			}
 		}
+
+        this.updateTexCoords(this.texCoordsOriginal);
 
 		// Indices
 		this.indices = [];
@@ -59,15 +61,5 @@ class MyTorus extends CGFobject {
 		// Others		
 		this.primitiveType = this.scene.gl.TRIANGLES;
 		this.initGLBuffers();
-	}
-
-	/**
-	 * @method updateTexCoords
-	 * Updates the list of texture coordinates of the rectangle
-	 * @param {Array} coords - Array of texture coordinates
-	 */
-	updateTexCoords(coords) {
-		this.texCoords = [...coords];
-		this.updateTexCoordsGLBuffers();
 	}
 }
