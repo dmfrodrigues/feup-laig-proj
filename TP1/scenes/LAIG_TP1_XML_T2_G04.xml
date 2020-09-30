@@ -1577,7 +1577,7 @@
         <material id="metal"/>
         <texture id="black_painted_metal"/>
         <transformations>
-            <translation x="0" y="0.5" z="0"/>
+            <translation x="-0.6" y="0.5" z="-1.35"/>
         </transformations>
         <descendants>
             <noderef id="shelf_metal_front1" />
