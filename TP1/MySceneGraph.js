@@ -591,6 +591,18 @@ class MySceneGraph {
             }
             if(typeof tex == "undefined") return `no such texture "${texture.id}"`;
             node.setTexture (tex);
+            let afs = 1, aft = 1;
+            for(let i = 0; i < texture.children.length; ++i){
+                let child = texture.children[i];
+                console.log(child);
+                switch(child.nodeName){
+                    case "amplification":
+                        afs = parseFloat(child.attributes.afs.value);
+                        aft = parseFloat(child.attributes.aft.value);
+                        break;
+                    default: return `block with tag "${child.nodeName}" not allowed inside <texture> block`;
+                }
+            }
             // Descendants
             let descendants = grandChildren[descendantsIndex].children;
             nodeDescendants[nodeID] = [];
@@ -654,6 +666,7 @@ class MySceneGraph {
                         default:
                             return `no such leaf type "${descendant.attributes.type}"`;
                     }
+                    leaf.setAmplification(afs, aft);
                     node.addChild(leaf);
                 } else return `no such descendant type "${descendant.nodeName}"`;
             }
