@@ -1,4 +1,4 @@
-class MySphere extends CGFobject {
+class MySphere extends ObjectAmp {
 	constructor(scene, radius, slices, stacks) {
 		super(scene);
 		this.radius = radius;
@@ -9,9 +9,9 @@ class MySphere extends CGFobject {
 	}
 	
 	initBuffers() {
-		// Vertices and texCoords
+		// Vertices and texCoordsOriginal
 		this.vertices  = [];
-		this.texCoords = [];
+		this.texCoordsOriginal = [];
 
 		for(let i = 0; i <= 2*this.stacks; ++i){
 			let theta = 0.5*Math.PI - 0.5*Math.PI*i/this.stacks; //elevation
@@ -25,10 +25,12 @@ class MySphere extends CGFobject {
 				this.vertices.push(x, y, z);
 
 				let s = j/this.slices;
-				this.texCoords.push(s, t);
+				this.texCoordsOriginal.push(s, t);
 			}
 		}
 		for(let i = 0; i < this.vertices.length; ++i) this.vertices[i] *= this.radius;
+
+        this.updateTexCoords(this.texCoordsOriginal);
 
 		// Indices
 		this.indices   = [];
@@ -49,16 +51,6 @@ class MySphere extends CGFobject {
 		// Others		
 		this.primitiveType = this.scene.gl.TRIANGLES;
 		this.initGLBuffers();
-	}
-
-	/**
-	 * @method updateTexCoords
-	 * Updates the list of texture coordinates of the rectangle
-	 * @param {Array} coords - Array of texture coordinates
-	 */
-	updateTexCoords(coords) {
-		this.texCoords = [...coords];
-		this.updateTexCoordsGLBuffers();
 	}
 }
 
