@@ -35,19 +35,13 @@ class MyTriangle extends ObjectAmp {
 
 		this.indices = [
 			0, 1, 2,
-            2, 1, 0,
-            
-            0, 1, 2,
-			2, 1, 0
+            2, 1, 0
 		];
 
 		this.normals = [
 			0, 0, 1,
 			0, 0, 1,
-            0, 0, 1,
-            0, 0, -1,
-			0, 0, -1,
-			0, 0, -1
+            0, 0, 1
 		];
 		
 
