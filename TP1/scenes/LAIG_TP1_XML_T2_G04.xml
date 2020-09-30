@@ -1579,186 +1579,186 @@
         </node>
 
 
-    <node id="shelf">
-        <material id="metal"/>
-        <texture id="black_painted_metal"/>
-        <transformations>
-            <translation x="-0.6" y="0.5" z="-1.35"/>
-        </transformations>
-        <descendants>
-            <noderef id="shelf_metal_front1" />
-            <noderef id="shelf_metal_front2" />
-            <noderef id="shelf_metal_back1"  />
-            <noderef id="shelf_metal_back2"  />
-            <noderef id="shelf_wood_support1"/>
-            <noderef id="shelf_wood_support2"/>
-            <noderef id="shelf_wood_support3"/>
-            <noderef id="shelf_metal_support1"/>
-            <noderef id="shelf_metal_support2"/>
-            <noderef id="shelf_metal_support3"/>
-        </descendants>
-    </node>
+        <node id="shelf">
+            <material id="metal"/>
+            <texture id="black_painted_metal"/>
+            <transformations>
+                <translation x="-0.6" y="0.5" z="-1.35"/>
+            </transformations>
+            <descendants>
+                <noderef id="shelf_metal_front1" />
+                <noderef id="shelf_metal_front2" />
+                <noderef id="shelf_metal_back1"  />
+                <noderef id="shelf_metal_back2"  />
+                <noderef id="shelf_wood_support1"/>
+                <noderef id="shelf_wood_support2"/>
+                <noderef id="shelf_wood_support3"/>
+                <noderef id="shelf_metal_support1"/>
+                <noderef id="shelf_metal_support2"/>
+                <noderef id="shelf_metal_support3"/>
+            </descendants>
+        </node>
 
-    <node id="shelf_metal_front1">
-        <material id="null"/>
-        <texture id="null"/>
-        <transformations>
-            <translation x="-0.5" y="0.0" z="0.1"/>
-            <scale sx="0.025" sy="1.0" sz="0.025"/>
-        </transformations>
-        <descendants>
-            <noderef id="cube"/>
-        </descendants>
-    </node>
-    <node id="shelf_metal_front2">
-        <material id="null"/>
-        <texture id="null"/>
-        <transformations>
-            <translation x="+0.5" y="0.0" z="0.1"/>
-            <scale sx="0.025" sy="1.0" sz="0.025"/>
-        </transformations>
-        <descendants>
-            <noderef id="cube"/>
-        </descendants>
-    </node>
+        <node id="shelf_metal_front1">
+            <material id="null"/>
+            <texture id="null"/>
+            <transformations>
+                <translation x="-0.5" y="0.0" z="0.1"/>
+                <scale sx="0.025" sy="1.0" sz="0.025"/>
+            </transformations>
+            <descendants>
+                <noderef id="cube"/>
+            </descendants>
+        </node>
+        <node id="shelf_metal_front2">
+            <material id="null"/>
+            <texture id="null"/>
+            <transformations>
+                <translation x="+0.5" y="0.0" z="0.1"/>
+                <scale sx="0.025" sy="1.0" sz="0.025"/>
+            </transformations>
+            <descendants>
+                <noderef id="cube"/>
+            </descendants>
+        </node>
 
-    <node id="shelf_metal_back1">
-        <material id="null"/>
-        <texture id="null"/>
-        <transformations>
-            <translation x="-0.5" y="0.0" z="-0.1"/>
-            <scale sx="0.025" sy="1.0" sz="0.025"/>
-        </transformations>
-        <descendants>
-            <noderef id="cube"/>
-        </descendants>
-    </node>
-    <node id="shelf_metal_back2">
-        <material id="null"/>
-        <texture id="null"/>
-        <transformations>
-            <translation x="+0.5" y="0.0" z="-0.1"/>
-            <scale sx="0.025" sy="1.0" sz="0.025"/>
-        </transformations>
-        <descendants>
-            <noderef id="cube"/>
-        </descendants>
-    </node>
+        <node id="shelf_metal_back1">
+            <material id="null"/>
+            <texture id="null"/>
+            <transformations>
+                <translation x="-0.5" y="0.0" z="-0.1"/>
+                <scale sx="0.025" sy="1.0" sz="0.025"/>
+            </transformations>
+            <descendants>
+                <noderef id="cube"/>
+            </descendants>
+        </node>
+        <node id="shelf_metal_back2">
+            <material id="null"/>
+            <texture id="null"/>
+            <transformations>
+                <translation x="+0.5" y="0.0" z="-0.1"/>
+                <scale sx="0.025" sy="1.0" sz="0.025"/>
+            </transformations>
+            <descendants>
+                <noderef id="cube"/>
+            </descendants>
+        </node>
 
-    <node id="shelf_wood_support1">
-        <material id="wood"/>
-        <texture id="pine-wood"/>
-        <transformations>
-            <translation x="0" y="0.0" z="0"/>
-            <scale sx="0.975" sy="0.025" sz="0.175"/>
-        </transformations>
-        <descendants>
-            <noderef id="cube"/>
-        </descendants>
-    </node>
+        <node id="shelf_wood_support1">
+            <material id="wood"/>
+            <texture id="pine-wood"/>
+            <transformations>
+                <translation x="0" y="0.0" z="0"/>
+                <scale sx="0.975" sy="0.025" sz="0.175"/>
+            </transformations>
+            <descendants>
+                <noderef id="cube"/>
+            </descendants>
+        </node>
 
-    <node id="shelf_wood_support2">
-        <material id="wood"/>
-        <texture id="pine-wood"/>
-        <transformations>
-            <translation x="0" y="0.25" z="0"/>
-            <scale sx="0.975" sy="0.025" sz="0.175"/>
-        </transformations>
-        <descendants>
-            <noderef id="cube"/>
-        </descendants>
-    </node>
-    <node id="shelf_wood_support3">
-        <material id="wood"/>
-        <texture id="pine-wood"/>
-        <transformations>
-            <translation x="0" y="0.4875" z="0"/>
-            <scale sx="0.975" sy="0.025" sz="0.175"/>
-        </transformations>
-        <descendants>
-            <noderef id="cube"/>
-        </descendants>
-    </node>
+        <node id="shelf_wood_support2">
+            <material id="wood"/>
+            <texture id="pine-wood"/>
+            <transformations>
+                <translation x="0" y="0.25" z="0"/>
+                <scale sx="0.975" sy="0.025" sz="0.175"/>
+            </transformations>
+            <descendants>
+                <noderef id="cube"/>
+            </descendants>
+        </node>
+        <node id="shelf_wood_support3">
+            <material id="wood"/>
+            <texture id="pine-wood"/>
+            <transformations>
+                <translation x="0" y="0.4875" z="0"/>
+                <scale sx="0.975" sy="0.025" sz="0.175"/>
+            </transformations>
+            <descendants>
+                <noderef id="cube"/>
+            </descendants>
+        </node>
 
-    <node id="shelf_metal_support1">
-        <material id="null"/>
-        <texture id="null"/>
-        <transformations><translation x="0" y="0.4875" z="0"/></transformations>
-        <descendants>
-            <noderef id="shelf_metal_support_p1"/>
-            <noderef id="shelf_metal_support_p2"/>
-            <noderef id="shelf_metal_support_p3"/>
-            <noderef id="shelf_metal_support_p4"/>
-        </descendants>
-    </node>
+        <node id="shelf_metal_support1">
+            <material id="null"/>
+            <texture id="null"/>
+            <transformations><translation x="0" y="0.4875" z="0"/></transformations>
+            <descendants>
+                <noderef id="shelf_metal_support_p1"/>
+                <noderef id="shelf_metal_support_p2"/>
+                <noderef id="shelf_metal_support_p3"/>
+                <noderef id="shelf_metal_support_p4"/>
+            </descendants>
+        </node>
 
-    <node id="shelf_metal_support2">
-        <material id="metal"/>
-        <texture id="black_painted_metal"/>
-        <transformations><translation x="0" y="0.25" z="0"/></transformations>
-        <descendants>
-            <noderef id="shelf_metal_support_p1"/>
-            <noderef id="shelf_metal_support_p2"/>
-            <noderef id="shelf_metal_support_p3"/>
-            <noderef id="shelf_metal_support_p4"/>
-        </descendants>
-    </node>
+        <node id="shelf_metal_support2">
+            <material id="metal"/>
+            <texture id="black_painted_metal"/>
+            <transformations><translation x="0" y="0.25" z="0"/></transformations>
+            <descendants>
+                <noderef id="shelf_metal_support_p1"/>
+                <noderef id="shelf_metal_support_p2"/>
+                <noderef id="shelf_metal_support_p3"/>
+                <noderef id="shelf_metal_support_p4"/>
+            </descendants>
+        </node>
 
-    <node id="shelf_metal_support3">
-        <material id="metal"/>
-        <texture id="black_painted_metal"/>
-        <transformations><translation x="0" y="0.0" z="0"/></transformations>
-        <descendants>
-            <noderef id="shelf_metal_support_p1"/>
-            <noderef id="shelf_metal_support_p2"/>
-            <noderef id="shelf_metal_support_p3"/>
-            <noderef id="shelf_metal_support_p4"/>
-        </descendants>
-    </node>
+        <node id="shelf_metal_support3">
+            <material id="metal"/>
+            <texture id="black_painted_metal"/>
+            <transformations><translation x="0" y="0.0" z="0"/></transformations>
+            <descendants>
+                <noderef id="shelf_metal_support_p1"/>
+                <noderef id="shelf_metal_support_p2"/>
+                <noderef id="shelf_metal_support_p3"/>
+                <noderef id="shelf_metal_support_p4"/>
+            </descendants>
+        </node>
 
-    <node id="shelf_metal_support_p1">
-        <material id="null"/>
-        <texture id="null"/>
-        <transformations>
-            <translation x="0" y="0.0" z="+0.095"/>
-            <scale sx="0.975" sy="0.025" sz="0.015"/>
-        </transformations>
-        <descendants>
-            <noderef id="cube"/>
-        </descendants>
-    </node>
-    <node id="shelf_metal_support_p2">
-        <material id="null"/>
-        <texture id="null"/>
-        <transformations>
-            <translation x="0" y="0.0" z="-0.095"/>
-            <scale sx="0.975" sy="0.025" sz="0.015"/>
-        </transformations>
-        <descendants>
-            <noderef id="cube"/>
-        </descendants>
-    </node>
-    <node id="shelf_metal_support_p3">
-        <material id="null"/>
-        <texture id="null"/>
-        <transformations>
-            <translation x="-0.5" y="0.0" z="0"/>
-            <scale sx="0.025" sy="0.025" sz="0.175"/>
-        </transformations>
-        <descendants>
-            <noderef id="cube"/>
-        </descendants>
-    </node>
-    <node id="shelf_metal_support_p4">
-        <material id="null"/>
-        <texture id="null"/>
-        <transformations>
-            <translation x="+0.5" y="0.0" z="0"/>
-            <scale sx="0.025" sy="0.025" sz="0.175"/>
-        </transformations>
-        <descendants>
-            <noderef id="cube"/>
-        </descendants>
-    </node>
+        <node id="shelf_metal_support_p1">
+            <material id="null"/>
+            <texture id="null"/>
+            <transformations>
+                <translation x="0" y="0.0" z="+0.095"/>
+                <scale sx="0.975" sy="0.025" sz="0.015"/>
+            </transformations>
+            <descendants>
+                <noderef id="cube"/>
+            </descendants>
+        </node>
+        <node id="shelf_metal_support_p2">
+            <material id="null"/>
+            <texture id="null"/>
+            <transformations>
+                <translation x="0" y="0.0" z="-0.095"/>
+                <scale sx="0.975" sy="0.025" sz="0.015"/>
+            </transformations>
+            <descendants>
+                <noderef id="cube"/>
+            </descendants>
+        </node>
+        <node id="shelf_metal_support_p3">
+            <material id="null"/>
+            <texture id="null"/>
+            <transformations>
+                <translation x="-0.5" y="0.0" z="0"/>
+                <scale sx="0.025" sy="0.025" sz="0.175"/>
+            </transformations>
+            <descendants>
+                <noderef id="cube"/>
+            </descendants>
+        </node>
+        <node id="shelf_metal_support_p4">
+            <material id="null"/>
+            <texture id="null"/>
+            <transformations>
+                <translation x="+0.5" y="0.0" z="0"/>
+                <scale sx="0.025" sy="0.025" sz="0.175"/>
+            </transformations>
+            <descendants>
+                <noderef id="cube"/>
+            </descendants>
+        </node>
     </nodes>
 </lsf>
