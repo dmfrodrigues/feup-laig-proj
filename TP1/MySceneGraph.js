@@ -627,13 +627,10 @@ class MySceneGraph {
                                 this.scene,
                                 parseFloat(descendant.attributes.x1.value),
                                 parseFloat(descendant.attributes.y1.value),
-                                parseFloat(descendant.attributes.z1.value),
                                 parseFloat(descendant.attributes.x2.value),
                                 parseFloat(descendant.attributes.y2.value),
-                                parseFloat(descendant.attributes.z2.value),
                                 parseFloat(descendant.attributes.x3.value),
-                                parseFloat(descendant.attributes.y3.value),
-                                parseFloat(descendant.attributes.z3.value)
+                                parseFloat(descendant.attributes.y3.value)
                             );
                             break;
                         case "cylinder":
