@@ -102,11 +102,11 @@
             <specular r="0.05" g="0.05" b="0.05" a="1.0"/>
             <emissive r="0.0" g="0.0" b="0.0" a="1.0"/>
         </material>
-        <material id="paper-translucid">
-            <shininess value="8.0"/>
+        <material id="paper-lamp">
+            <shininess value="0.5"/>
             <ambient  r="1.0" g="1.0" b="1.0" a="0.5"/>
-            <diffuse  r="1.0" g="1.0" b="1.0" a="0.5"/>
-            <specular r="0.05" g="0.05" b="0.05" a="0.5"/>
+            <diffuse  r="0.9" g="0.9" b="0.9" a="0.5"/>
+            <specular r="0.0" g="0.0" b="0.0" a="0.5"/>
             <emissive r="0.0" g="0.0" b="0.0" a="0.5"/>
         </material>
         <material id="paint">
@@ -1481,9 +1481,6 @@
 
         <node id="lampshade">
             <material id="null"/><texture id="null"/>
-            <transformations>
-                <scale sx="1" sy="0.5" sz="1"/>
-            </transformations>
             <descendants>
                 <noderef id="lampshade-paper"/>
                 <noderef id="lampshade-wires"/>
@@ -1491,13 +1488,13 @@
         </node>
 
         <node id="lampshade-paper">
-            <material id="paper-translucid"/>
+            <material id="paper-lamp"/>
             <texture id="crepe-paper"/>
             <transformations>
                 <rotation axis="xx" angle="-90"/>
             </transformations>
             <descendants>
-                <leaf type="sphere" radius="0.25" slices="10" stacks="64"/>
+                <leaf type="torus" innerRadius="0.12" outerRadius="0.19" slices="64" loops="10"/>
             </descendants>
         </node>
 
@@ -1519,8 +1516,9 @@
         </node>
         <node id="lampshade-wire">
             <material id="null"/><texture id="null"/>
+            <transformations><translation x="0.19" y="0" z="0" /></transformations>
             <descendants>
-                <leaf type="torus" innerRadius="0.001" outerRadius="0.25" slices="10" loops="128"/>
+                <leaf type="torus" innerRadius="0.001" outerRadius="0.12" slices="10" loops="128"/>
             </descendants>
         </node>
         <node id="lampshade-wire1">
