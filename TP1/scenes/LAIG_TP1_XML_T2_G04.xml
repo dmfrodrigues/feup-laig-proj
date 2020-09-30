@@ -1574,8 +1574,8 @@
 
 
     <node id="shelf">
-        <material id="null"/>
-        <texture id="null"/>
+        <material id="metal"/>
+        <texture id="black_painted_metal"/>
         <transformations>
             <translation x="0" y="0.5" z="0"/>
         </transformations>
@@ -1640,8 +1640,8 @@
     </node>
 
     <node id="shelf_wood_support1">
-        <material id="null"/>
-        <texture id="null"/>
+        <material id="wood"/>
+        <texture id="pine-wood"/>
         <transformations>
             <translation x="0" y="0.0" z="0"/>
             <scale sx="0.975" sy="0.025" sz="0.175"/>
@@ -1652,8 +1652,8 @@
     </node>
 
     <node id="shelf_wood_support2">
-        <material id="null"/>
-        <texture id="null"/>
+        <material id="wood"/>
+        <texture id="pine-wood"/>
         <transformations>
             <translation x="0" y="0.25" z="0"/>
             <scale sx="0.975" sy="0.025" sz="0.175"/>
@@ -1663,8 +1663,8 @@
         </descendants>
     </node>
     <node id="shelf_wood_support3">
-        <material id="null"/>
-        <texture id="null"/>
+        <material id="wood"/>
+        <texture id="pine-wood"/>
         <transformations>
             <translation x="0" y="0.4875" z="0"/>
             <scale sx="0.975" sy="0.025" sz="0.175"/>
@@ -1675,8 +1675,8 @@
     </node>
 
     <node id="shelf_metal_support1">
-        <material id="metal"/>
-        <texture id="black_painted_metal"/>
+        <material id="null"/>
+        <texture id="null"/>
         <transformations><translation x="0" y="0.4875" z="0"/></transformations>
         <descendants>
             <noderef id="shelf_metal_support_p1"/>
