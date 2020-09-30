@@ -49,7 +49,25 @@ class MyTriangle extends ObjectAmp {
 			0, 0, -1,
 			0, 0, -1
 		];
+		
 
+		let a = Math.sqrt(Math.pow(this.x2-this.x1, 2) + Math.pow(this.y2-this.y1, 2));
+		let b = Math.sqrt(Math.pow(this.x3-this.x2, 2) + Math.pow(this.y3-this.y2, 2));
+		let c = Math.sqrt(Math.pow(this.x1-this.x3, 2) + Math.pow(this.y1-this.y3, 2));
+
+		let cos_alpha = (a*a - b*b +c*c)/(2*a*c);
+		let sin_alpha = Math.sqrt(1-cos_alpha*cos_alpha);
+
+		let length_u = 1;
+		let length_v = 1;
+
+		this.texCoords = [
+			0, 0,
+			a/length_u, 0,
+			c*cos_alpha/length_u, c*sin_alpha/length_v
+		]
+
+		this.updateTexCoords(this.texCoords);
 		this.primitiveType = this.scene.gl.TRIANGLES;
 		this.initGLBuffers();
 	}
