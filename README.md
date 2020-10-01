@@ -19,7 +19,7 @@
     - A walled room with a door (and a handle) and [baseboard](https://en.wikipedia.org/wiki/Baseboard)
     - A wooden smooth table with metal legs
     - A globe of Earth, with support, base and tilted axis
-    - A grey/pink plastic chair in front of the table
+    - A grey/purple plastic chair in front of the table
     - A ceiling light with a toroidal lampshade
     - A bed, made of a [bed frame](https://en.wikipedia.org/wiki/Bed_frame), a [bed base](https://en.wikipedia.org/wiki/Bed_base) and a mattress
     - A television in the wall (uses triangles in the back part)
