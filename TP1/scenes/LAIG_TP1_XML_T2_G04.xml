@@ -57,6 +57,8 @@
         <texture id="white_wood"          path="./scenes/images/white_wood.jpg"         />
 
         <texture id="crepe-paper"         path="./scenes/images/crepe-paper.jpg"        />
+
+        <texture id="skysphere-empirestate" path="./scenes/images/skysphere/empirestate-day/skysphere-empirestate-small.jpg"/>
     </textures>
     <materials>
         <!-- At least one material should be present. -->
@@ -144,6 +146,13 @@
             <specular r="0.0" g="0.0" b="0.0" a="1.0"/>
             <emissive r="0.0" g="0.0" b="0.0" a="1.0"/>
         </material>
+        <material id="landscape">
+            <shininess value="0.0"/>
+            <ambient  r="0.0" g="0.0" b="0.0" a="1.0"/>
+            <diffuse  r="0.0" g="0.0" b="0.0" a="1.0"/>
+            <specular r="0.0" g="0.0" b="0.0" a="1.0"/>
+            <emissive r="1.0" g="1.0" b="1.0" a="1.0"/>
+        </material>
     </materials>
 
     <nodes>
@@ -160,6 +169,7 @@
                 <noderef id="ceiling-light"/>
                 <noderef id="shelf"/>
                 <noderef id="tv-in-room"/>
+                <noderef id="skysphere"/>
             </descendants>
         </node>
 
@@ -1939,6 +1949,20 @@
                 <rotation axis="zz" angle="180"/>
             </transformations>
             <descendants><noderef id="tv-border-box-lefrig"/></descendants>
+        </node>
+
+        <node id="skysphere">
+            <material id="landscape"/><texture id="skysphere-empirestate"/>
+            <transformations>
+                <rotation axis="yy" angle="180"/>
+                <rotation axis="yy" angle="+10"/> <!-- Adjustments -->
+                <rotation axis="zz" angle="3.3"/> <!-- Adjustments -->
+                <rotation axis="xx" angle="9"/> <!-- Adjustments -->
+                <rotation axis="zz" angle="-90"/>
+            </transformations>
+            <descendants>
+                <leaf type="sphere" radius="-400" slices="64" stacks="32"/>
+            </descendants>
         </node>
     </nodes>
 </lsf>
