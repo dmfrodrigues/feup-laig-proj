@@ -57,6 +57,8 @@
         <texture id="white_wood"          path="./scenes/images/white_wood.jpg"         />
 
         <texture id="crepe-paper"         path="./scenes/images/crepe-paper.jpg"        />
+
+        <texture id="skysphere-empirestate" path="./scenes/images/skysphere/empirestate-day/skysphere-empirestate-small.jpg"/>
     </textures>
     <materials>
         <!-- At least one material should be present. -->
@@ -144,6 +146,13 @@
             <specular r="0.0" g="0.0" b="0.0" a="1.0"/>
             <emissive r="0.0" g="0.0" b="0.0" a="1.0"/>
         </material>
+        <material id="landscape">
+            <shininess value="0.0"/>
+            <ambient  r="0.0" g="0.0" b="0.0" a="1.0"/>
+            <diffuse  r="0.0" g="0.0" b="0.0" a="1.0"/>
+            <specular r="0.0" g="0.0" b="0.0" a="1.0"/>
+            <emissive r="1.0" g="1.0" b="1.0" a="1.0"/>
+        </material>
     </materials>
 
     <nodes>
@@ -160,6 +169,8 @@
                 <noderef id="ceiling-light"/>
                 <noderef id="shelf"/>
                 <noderef id="tv-in-room"/>
+                <noderef id="skysphere"/>
+                <noderef id="window"/>
             </descendants>
         </node>
 
@@ -880,16 +891,134 @@
             <transformations><translation x="-1.5" y="1.5" z="0"/><rotation axis="yy" angle="90" /></transformations>
             <descendants><leaf type="rectangle" x1="-1.5" y1="-1.5" x2="1.5" y2="1.0"/></descendants>
         </node>
-        <node id="wall_z_pos">
+        <node id="wall_z_neg">
             <material id="null"/><texture id="null"/>
             <transformations><translation x="0" y="1.5" z="-1.5"/><rotation axis="xx" angle="0" /></transformations>
             <descendants><leaf type="rectangle" x1="-1.5" y1="-1.5" x2="1.5" y2="1.0"/></descendants>
         </node>
-        <node id="wall_z_neg">
+        <node id="wall_z_pos">
             <material id="null"/><texture id="null"/>
-            <transformations><translation x="0" y="1.5" z="1.5"/><rotation axis="yy" angle="180" /></transformations>
-            <descendants><leaf type="rectangle" x1="-1.5" y1="-1.5" x2="1.5" y2="1.0"/></descendants>
+            <transformations><translation x="0" y="0" z="1.5"/><rotation axis="yy" angle="180" /></transformations>
+            <descendants>
+                <leaf type="rectangle" x1="-1.50" y1="1.75" x2="-0.75" y2="2.5"/>
+                <leaf type="rectangle" x1="-1.50" y1="1.0"  x2="-0.75" y2="1.75"/>
+                <leaf type="rectangle" x1="-1.50" y1="0.0"  x2="-0.75" y2="1.0"/>
+
+                <leaf type="rectangle" x1="-0.75" y1="1.75" x2="+0.75" y2="2.5"/>
+                <leaf type="rectangle" x1="-0.75" y1="0.00" x2="+0.75" y2="1.0"/>
+
+                <leaf type="rectangle" x1="+0.75" y1="1.75"  x2="+1.50" y2="2.5"/>
+                <leaf type="rectangle" x1="+0.75" y1="1.0"  x2="+1.50" y2="1.75"/>
+                <leaf type="rectangle" x1="+0.75" y1="0.0"  x2="+1.50" y2="1.0"/>
+            </descendants>
         </node>
+
+        <node id="window">
+            <material id="metal"/>
+            <texture id="black_painted_metal"/>
+            <transformations>
+                <translation x="0.0" y="1.375" z="1.5"/>
+                <scale sx="1.5" sy="0.75" sz="1.0"/>
+            </transformations>
+            <descendants>
+                <noderef id="window_main_frame"/>
+                <noderef id="window_frame_1"/>
+                <noderef id="window_frame_2"/>
+            </descendants>
+        </node>
+
+        <node id="window_main_frame">
+            <material id="wood"/>
+            <texture id="pine-wood"/>
+            <transformations>
+                
+            </transformations>
+            <descendants>
+                <noderef id="window_frame"/>
+            </descendants>
+        </node>
+
+        <node id="window_frame_1">
+            <material id="null"/>
+            <texture id="null"/>
+            <transformations>
+                <translation x="0.235" y="0.0" z="0.008"/>
+                <scale sx="0.485" sy="0.95" sz="0.2"/>
+            </transformations>
+            <descendants>
+                <noderef id="window_frame"/>
+            </descendants>
+        </node>
+
+        <node id="window_frame_2">
+            <material id="null"/>
+            <texture id="null"/>
+            <transformations>
+                <translation x="-0.235" y="0.0" z="-0.008"/>
+                <scale sx="0.485" sy="0.95" sz="0.2"/>
+            </transformations>
+            <descendants>
+                <noderef id="window_frame"/>
+            </descendants>
+        </node>
+
+        <node id="window_frame">
+            <material id="null"/>
+            <texture id="null"/>
+            <transformations/>
+            <descendants>
+                <noderef id="window_frame_bottom"/>
+                <noderef id="window_frame_top"/>
+                <noderef id="window_frame_left"/>
+                <noderef id="window_frame_right"/>
+            </descendants>
+        </node>
+
+        <node id="window_frame_bottom">
+            <material id="null"/>
+            <texture id="null"/>
+            <transformations>
+                <translation x="0.0" y="-0.5" z="0.0"/>
+                <scale sx="1.0" sy="0.025" sz="0.05"/>
+            </transformations>
+            <descendants>
+                <noderef id="cube"/>
+            </descendants>
+        </node>
+        <node id="window_frame_top">
+            <material id="null"/>
+            <texture id="null"/>
+            <transformations>
+                <translation x="0.0" y="0.5" z="0.0"/>
+                <scale sx="1.0" sy="0.025" sz="0.05"/>
+            </transformations>
+            <descendants>
+                <noderef id="cube"/>
+            </descendants>
+        </node>
+        <node id="window_frame_left">
+            <material id="null"/>
+            <texture id="null"/>
+            <transformations>
+                <translation x="-0.4875" y="0.0" z="0.0"/>
+                <scale sx="0.025" sy="0.9875" sz="0.05"/>
+            </transformations>
+            <descendants>
+                <noderef id="cube"/>
+            </descendants>
+        </node>
+        <node id="window_frame_right">
+            <material id="null"/>
+            <texture id="null"/>
+            <transformations>
+                <translation x="+0.4875" y="0.0" z="0.0"/>
+                <scale sx="0.025" sy="0.9875" sz="0.05"/>
+            </transformations>
+            <descendants>
+                <noderef id="cube"/>
+            </descendants>
+        </node>
+        
 
         <node id="walls">
             <material id="paint"/>
@@ -1939,6 +2068,20 @@
                 <rotation axis="zz" angle="180"/>
             </transformations>
             <descendants><noderef id="tv-border-box-lefrig"/></descendants>
+        </node>
+
+        <node id="skysphere">
+            <material id="landscape"/><texture id="skysphere-empirestate"/>
+            <transformations>
+                <rotation axis="yy" angle="180"/>
+                <rotation axis="yy" angle="+10"/> <!-- Adjustments -->
+                <rotation axis="zz" angle="3.3"/> <!-- Adjustments -->
+                <rotation axis="xx" angle="9"/> <!-- Adjustments -->
+                <rotation axis="zz" angle="-90"/>
+            </transformations>
+            <descendants>
+                <leaf type="sphere" radius="-400" slices="64" stacks="32"/>
+            </descendants>
         </node>
     </nodes>
 </lsf>

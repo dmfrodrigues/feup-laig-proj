@@ -594,7 +594,6 @@ class MySceneGraph {
             let afs = 1, aft = 1;
             for(let i = 0; i < texture.children.length; ++i){
                 let child = texture.children[i];
-                console.log(child);
                 switch(child.nodeName){
                     case "amplification":
                         afs = parseFloat(child.attributes.afs.value);
