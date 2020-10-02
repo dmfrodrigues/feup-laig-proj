@@ -209,8 +209,8 @@
             </texture>
             <transformations>
                 <translation x="-0.15" y="0.507" z="0.05"/>
-                <rotation axis="yy" angle="15"/>
-                <rotation axis="xx" angle="-90"/>
+                <rotation axis="y" angle="15"/>
+                <rotation axis="x" angle="-90"/>
             </transformations>
             <descendants>
                 <noderef id="book-cg"/>
@@ -223,7 +223,7 @@
             </texture>
             <transformations>
                 <translation x="0.99" y="0.0" z="-0.94"/>
-                <rotation axis="yy" angle="186"/>
+                <rotation axis="y" angle="186"/>
             </transformations>
             <descendants>
                 <noderef id="chair"/>
@@ -341,7 +341,7 @@
             </texture>
             <transformations>
                 <translation x="+0.0" y="+0.5" z="+0.0"/>
-                <rotation axis="xx" angle= "-90"/>
+                <rotation axis="x" angle= "-90"/>
             </transformations>
             <descendants>
                 <leaf type="rectangle" x1="-0.5" y1="-0.5" x2="0.5" y2="0.5"/>
@@ -353,7 +353,7 @@
             </texture>
             <transformations>
                 <translation x="+0.0" y="-0.5" z="+0.0"/>
-                <rotation axis="xx" angle= "+90"/>
+                <rotation axis="x" angle= "+90"/>
             </transformations>
             <descendants>
                 <leaf type="rectangle" x1="-0.5" y1="-0.5" x2="0.5" y2="0.5"/>
@@ -376,7 +376,7 @@
             </texture>
             <transformations>
                 <translation x="+0.0" y="+0.0" z="-0.5"/>
-                <rotation axis="xx" angle="+180"/>
+                <rotation axis="x" angle="+180"/>
             </transformations>
             <descendants>
                 <leaf type="rectangle" x1="-0.5" y1="-0.5" x2="0.5" y2="0.5"/>
@@ -388,7 +388,7 @@
             </texture>
             <transformations>
                 <translation x="+0.5" y="+0.0" z="+0.0"/>
-                <rotation axis="yy" angle= "+90"/>
+                <rotation axis="y" angle= "+90"/>
             </transformations>
             <descendants>
                 <leaf type="rectangle" x1="-0.5" y1="-0.5" x2="0.5" y2="0.5"/>
@@ -400,7 +400,7 @@
             </texture>
             <transformations>
                 <translation x="-0.5" y="+0.0" z="+0.0"/>
-                <rotation axis="yy" angle= "-90"/>
+                <rotation axis="y" angle= "-90"/>
             </transformations>
             <descendants>
                 <leaf type="rectangle" x1="-0.5" y1="-0.5" x2="0.5" y2="0.5"/>
@@ -475,7 +475,7 @@
             <texture id="null">
             </texture>
             <transformations>
-                <rotation axis="xx" angle="90"/>
+                <rotation axis="x" angle="90"/>
             </transformations>
             <descendants>
                 <leaf type="cylinder" bottomRadius="0.04" topRadius="0.04" height="0.5" slices="32" stacks="8"/>
@@ -518,7 +518,7 @@
             </texture>
             <transformations>
                 <translation x="0.00" y="0.22" z="0.00"/>
-                <rotation axis="xx" angle="-90"/>
+                <rotation axis="x" angle="-90"/>
             </transformations>
             <descendants>
                 <noderef id="globe_world"/>
@@ -530,7 +530,7 @@
             <texture id="null">
             </texture>
             <transformations>
-                <rotation axis="zz" angle="-23"/>
+                <rotation axis="z" angle="-23"/>
             </transformations>
             <descendants>
                 <noderef id="globe_world_axis"/>
@@ -554,7 +554,7 @@
             </texture>
             <transformations>
                 <translation x="0.000" y="-0.030" z="0.000"/>
-                <rotation axis="xx" angle="-90"/>
+                <rotation axis="x" angle="-90"/>
             </transformations>
             <descendants>
                 <leaf type="cylinder" height="0.03" topRadius="0.01" bottomRadius="0.01" stacks="4" slices="16"/>
@@ -566,7 +566,7 @@
             </texture>
             <transformations>
                 <translation x="+0.08596" y="-0.05" z="0.000"/>
-                <rotation axis="xx" angle="-90"/>
+                <rotation axis="x" angle="-90"/>
             </transformations>
             <descendants>
                 <leaf type="cylinder" height="0.02" topRadius="0.18" bottomRadius="0.20" stacks="2" slices="64"/>
@@ -644,8 +644,8 @@
             </texture>
             <transformations>
                 <translation x="+0.0985" y="0" z="-0.001"/>
-                <rotation axis="yy" angle="90"/>
-                <rotation axis="zz" angle="90"/>
+                <rotation axis="y" angle="90"/>
+                <rotation axis="z" angle="90"/>
             </transformations>
             <descendants>
                 <leaf type="rectangle" x1="-0.12" y1="-0.001" x2="0.12" y2="0.001"/>
@@ -657,7 +657,7 @@
             </texture>
             <transformations>
                 <translation x="0.0" y="+0.12" z="-0.001"/>
-                <rotation axis="xx" angle="-90"/>
+                <rotation axis="x" angle="-90"/>
             </transformations>
             <descendants>
                 <leaf type="rectangle" x1="-0.0985" y1="-0.001" x2="0.0985" y2="0.001"/>
@@ -669,7 +669,7 @@
             </texture>
             <transformations>
                 <translation x="0.0" y="-0.12" z="-0.001"/>
-                <rotation axis="xx" angle="+90"/>
+                <rotation axis="x" angle="+90"/>
             </transformations>
             <descendants>
                 <leaf type="rectangle" x1="-0.0985" y1="-0.001" x2="0.0985" y2="0.001"/>
@@ -681,7 +681,7 @@
             </texture>
             <transformations>
                 <translation x="0" y="0" z="-0.002"/>
-                <rotation axis="yy" angle="+180"/>
+                <rotation axis="y" angle="+180"/>
             </transformations>
             <descendants>
                 <leaf type="rectangle" x1="-0.0985" y1="-0.12" x2="0.0965" y2="0.12"/>
@@ -693,7 +693,7 @@
             <texture id="null">
             </texture>
             <transformations>
-                <rotation axis="yy" angle= "180"/>
+                <rotation axis="y" angle= "180"/>
             </transformations>
             <descendants>
                 <noderef id="book-cg-back-cover"/>
@@ -717,8 +717,8 @@
             </texture>
             <transformations>
                 <translation x="-0.0985" y="0" z="-0.001"/>
-                <rotation axis="yy" angle="-90"/>
-                <rotation axis="zz" angle="90"/>
+                <rotation axis="y" angle="-90"/>
+                <rotation axis="z" angle="90"/>
             </transformations>
             <descendants>
                 <leaf type="rectangle" x1="-0.12" y1="-0.001" x2="0.12" y2="0.001"/>
@@ -730,7 +730,7 @@
             </texture>
             <transformations>
                 <translation x="0.0" y="+0.12" z="-0.001"/>
-                <rotation axis="xx" angle="-90"/>
+                <rotation axis="x" angle="-90"/>
             </transformations>
             <descendants>
                 <leaf type="rectangle" x1="-0.0985" y1="-0.001" x2="0.0985" y2="0.001"/>
@@ -742,7 +742,7 @@
             </texture>
             <transformations>
                 <translation x="0.0" y="-0.12" z="-0.001"/>
-                <rotation axis="xx" angle="+90"/>
+                <rotation axis="x" angle="+90"/>
             </transformations>
             <descendants>
                 <leaf type="rectangle" x1="-0.0985" y1="-0.001" x2="0.0985" y2="0.001"/>
@@ -754,7 +754,7 @@
             </texture>
             <transformations>
                 <translation x="0" y="0" z="-0.002"/>
-                <rotation axis="yy" angle="+180"/>
+                <rotation axis="y" angle="+180"/>
             </transformations>
             <descendants>
                 <leaf type="rectangle" x1="-0.0965" y1="-0.12" x2="0.0985" y2="0.12"/>
@@ -767,7 +767,7 @@
             </texture>
             <transformations>
                 <translation x="-0.0985" y="0" z="+0.0132"/> -->
-                <rotation axis="yy" angle="-90"/>
+                <rotation axis="y" angle="-90"/>
             </transformations>
             <descendants>
                 <noderef id="book-cg-spine-cover"/>
@@ -790,7 +790,7 @@
             </texture>
             <transformations>
                 <translation x="0" y="0.12" z="-0.001"/>
-                <rotation axis="xx" angle="-90"/>
+                <rotation axis="x" angle="-90"/>
             </transformations>
             <descendants>
                 <leaf type="rectangle" x1="-0.0132" y1="-0.001" x2="0.0132" y2="0.001"/>
@@ -802,7 +802,7 @@
             </texture>
             <transformations>
                 <translation x="0" y="-0.12" z="-0.001"/>
-                <rotation axis="xx" angle="+90"/>
+                <rotation axis="x" angle="+90"/>
             </transformations>
             <descendants>
                 <leaf type="rectangle" x1="-0.0132" y1="-0.001" x2="0.0132" y2="0.001"/>
@@ -814,7 +814,7 @@
             </texture>
             <transformations>
                 <translation x="0" y="0" z="-0.002"/>
-                <rotation axis="yy" angle="180"/>
+                <rotation axis="y" angle="180"/>
             </transformations>
             <descendants>
                 <leaf type="rectangle" x1="-0.0112" y1="-0.12" x2="0.0112" y2="0.12"/>
@@ -838,7 +838,7 @@
             </texture>
             <transformations>
                 <translation x="0.0945" y="0" z="0.0132"/>
-                <rotation axis="yy" angle="90"/>
+                <rotation axis="y" angle="90"/>
             </transformations>
             <descendants>
                 <leaf type="rectangle" x1="-0.0112" y1="-0.116" x2="0.0112" y2="0.116"/>
@@ -850,8 +850,8 @@
             </texture>
             <transformations>
                 <translation x="0" y="0.116" z="0.0132"/>
-                <rotation axis="yy" angle="+90"/>
-                <rotation axis="xx" angle="-90"/>
+                <rotation axis="y" angle="+90"/>
+                <rotation axis="x" angle="-90"/>
             </transformations>
             <descendants>
                 <leaf type="rectangle" x1="-0.0112" y1="-0.0945" x2="0.0112" y2="0.0965"/>
@@ -863,8 +863,8 @@
             </texture>
             <transformations>
                 <translation x="0" y="-0.116" z="0.0132"/>
-                <rotation axis="yy" angle="+90"/>
-                <rotation axis="xx" angle="+90"/>
+                <rotation axis="y" angle="+90"/>
+                <rotation axis="x" angle="+90"/>
             </transformations>
             <descendants>
                 <leaf type="rectangle" x1="-0.0112" y1="-0.0965" x2="0.0112" y2="0.0945"/>
@@ -873,32 +873,32 @@
 
         <node id="floor">
             <material id="null"/><texture id="floor"/>
-            <transformations><rotation axis="xx" angle="-90"/></transformations>
+            <transformations><rotation axis="x" angle="-90"/></transformations>
             <descendants><leaf type="rectangle" x1="-1.5" y1="-1.5" x2="1.5" y2="1.5"/></descendants>
         </node>
         <node id="ceil">
             <material id="null"/><texture id="ceil"/>
-            <transformations><translation x="0" y="2.5" z="0"/><rotation axis="xx" angle="90"/></transformations>
+            <transformations><translation x="0" y="2.5" z="0"/><rotation axis="x" angle="90"/></transformations>
             <descendants><leaf type="rectangle" x1="-1.5" y1="-1.5" x2="1.5" y2="1.5"/></descendants>
         </node>
         <node id="wall_x_pos">
             <material id="null"/><texture id="null"/>
-            <transformations><translation x="1.5" y="1.5" z="0"/><rotation axis="yy" angle="-90" /></transformations>
+            <transformations><translation x="1.5" y="1.5" z="0"/><rotation axis="y" angle="-90" /></transformations>
             <descendants><leaf type="rectangle" x1="-1.5" y1="-1.5" x2="1.5" y2="1.0"/></descendants>
         </node>
         <node id="wall_x_neg">
             <material id="null"/><texture id="null"/>
-            <transformations><translation x="-1.5" y="1.5" z="0"/><rotation axis="yy" angle="90" /></transformations>
+            <transformations><translation x="-1.5" y="1.5" z="0"/><rotation axis="y" angle="90" /></transformations>
             <descendants><leaf type="rectangle" x1="-1.5" y1="-1.5" x2="1.5" y2="1.0"/></descendants>
         </node>
         <node id="wall_z_neg">
             <material id="null"/><texture id="null"/>
-            <transformations><translation x="0" y="1.5" z="-1.5"/><rotation axis="xx" angle="0" /></transformations>
+            <transformations><translation x="0" y="1.5" z="-1.5"/><rotation axis="x" angle="0" /></transformations>
             <descendants><leaf type="rectangle" x1="-1.5" y1="-1.5" x2="1.5" y2="1.0"/></descendants>
         </node>
         <node id="wall_z_pos">
             <material id="null"/><texture id="null"/>
-            <transformations><translation x="0" y="0" z="1.5"/><rotation axis="yy" angle="180" /></transformations>
+            <transformations><translation x="0" y="0" z="1.5"/><rotation axis="y" angle="180" /></transformations>
             <descendants>
                 <leaf type="rectangle" x1="-1.50" y1="1.75" x2="-0.75" y2="2.5"/>
                 <leaf type="rectangle" x1="-1.50" y1="1.0"  x2="-0.75" y2="1.75"/>
@@ -1038,7 +1038,7 @@
             <material id="null"/><texture id="null"/>
             <transformations>
                 <translation x="0.41" y="0" z="0.96"/>
-                <rotation axis="yy" angle="-90"/>
+                <rotation axis="y" angle="-90"/>
             </transformations>
             <descendants>
                 <noderef id="bed"/>
@@ -1110,34 +1110,34 @@
         </node>
         <node id="beam_back">
             <material id="null"/><texture id="null"/>
-            <transformations><rotation axis="yy" angle="180"/><translation x="0" y="0" z="0.03"/></transformations>
+            <transformations><rotation axis="y" angle="180"/><translation x="0" y="0" z="0.03"/></transformations>
             <descendants><noderef id="beam_side"/></descendants>
         </node>
         <node id="beam_right">
             <material id="null"/><texture id="null"/>
-            <transformations><rotation axis="yy" angle="90"/><translation x="0" y="0" z="0.03"/></transformations>
+            <transformations><rotation axis="y" angle="90"/><translation x="0" y="0" z="0.03"/></transformations>
             <descendants><noderef id="beam_side"/></descendants>
         </node>
         <node id="beam_left">
             <material id="null"/><texture id="null"/>
-            <transformations><rotation axis="yy" angle="270"/><translation x="0" y="0" z="0.03"/></transformations>
+            <transformations><rotation axis="y" angle="270"/><translation x="0" y="0" z="0.03"/></transformations>
             <descendants><noderef id="beam_side"/></descendants>
         </node>
         <node id="beam_side">
             <material id="null"/><texture id="null"/>
-            <transformations><rotation axis="zz" angle="90"/></transformations>
+            <transformations><rotation axis="z" angle="90"/></transformations>
             <descendants>
                 <leaf type="rectangle" x1="0" x2 = "0.30" y1="-0.03" y2="0.03"/>
             </descendants>
         </node>
         <node id="beam_top">
             <material id="null"/><texture id="null"/>
-            <transformations><translation x="0" y="0.3" z="0"/><rotation axis="xx" angle="-90"/></transformations>
+            <transformations><translation x="0" y="0.3" z="0"/><rotation axis="x" angle="-90"/></transformations>
             <descendants><noderef id="beam_base"/></descendants>
         </node>
         <node id="beam_bot">
             <material id="null"/><texture id="null"/>
-            <transformations>                                  <rotation axis="xx" angle="+90"/></transformations>
+            <transformations>                                  <rotation axis="x" angle="+90"/></transformations>
             <descendants><noderef id="beam_base"/></descendants>
         </node>
         <node id="beam_base">
@@ -1147,7 +1147,7 @@
 
         <node id="bed_headboard">
             <material id="null"/><texture id="null"/>
-            <transformations><translation x="0" y="0.05" z="-1"/><scale sx="0.45" sy="0.60" sz="1"/><rotation axis="yy" angle="180"/></transformations>
+            <transformations><translation x="0" y="0.05" z="-1"/><scale sx="0.45" sy="0.60" sz="1"/><rotation axis="y" angle="180"/></transformations>
             <descendants><noderef id="bed_board"/></descendants>
         </node>
         <node id="bed_footboard">
@@ -1157,12 +1157,12 @@
         </node>
         <node id="bed_rightboard">
             <material id="null"/><texture id="null"/>
-            <transformations><translation x="0.45" y="0.05" z="0"/><rotation axis="yy" angle="90"/><scale sx="1" sy="0.20" sz="1"/></transformations>
+            <transformations><translation x="0.45" y="0.05" z="0"/><rotation axis="y" angle="90"/><scale sx="1" sy="0.20" sz="1"/></transformations>
             <descendants><noderef id="bed_board"/></descendants>
         </node>
         <node id="bed_leftboard">
             <material id="null"/><texture id="null"/>
-            <transformations><translation x="-0.45" y="0.05" z="0"/><rotation axis="yy" angle="-90"/><scale sx="1" sy="0.20" sz="1"/></transformations>
+            <transformations><translation x="-0.45" y="0.05" z="0"/><rotation axis="y" angle="-90"/><scale sx="1" sy="0.20" sz="1"/></transformations>
             <descendants><noderef id="bed_board"/></descendants>
         </node>
         <node id="bed_board">
@@ -1183,37 +1183,37 @@
         </node>
         <node id="bed_board_back">
             <material id="null"/><texture id="null"/>
-            <transformations><rotation axis="yy" angle="180"/></transformations>
+            <transformations><rotation axis="y" angle="180"/></transformations>
             <descendants><leaf type="rectangle" x1="-1" x2="+1" y1="0" y2="1"/></descendants>
         </node>
         <node id="bed_board_right">
             <material id="null"/><texture id="null"/>
-            <transformations><translation x="1" y="0" z="0.01"/><rotation axis="yy" angle="90"/><rotation axis="zz" angle="90"/></transformations>
+            <transformations><translation x="1" y="0" z="0.01"/><rotation axis="y" angle="90"/><rotation axis="z" angle="90"/></transformations>
             <descendants><leaf type="rectangle" x1="0" x2="1" y1="-0.01" y2="+0.01"/></descendants>
         </node>
         <node id="bed_board_left">
             <material id="null"/><texture id="null"/>
-            <transformations><translation x="-1" y="0" z="0.01"/><rotation axis="yy" angle="-90"/><rotation axis="zz" angle="90"/></transformations>
+            <transformations><translation x="-1" y="0" z="0.01"/><rotation axis="y" angle="-90"/><rotation axis="z" angle="90"/></transformations>
             <descendants><leaf type="rectangle" x1="0" x2="1" y1="-0.01" y2="+0.01"/></descendants>
         </node>
         <node id="bed_board_top">
             <material id="null"/><texture id="null"/>
-            <transformations><translation x="0" y="1" z="0.01"/><rotation axis="xx" angle="-90"/></transformations>
+            <transformations><translation x="0" y="1" z="0.01"/><rotation axis="x" angle="-90"/></transformations>
             <descendants><leaf type="rectangle" x1="-1" x2="1" y1="-0.01" y2="+0.01"/></descendants>
         </node>
         <node id="bed_board_bot">
             <material id="null"/><texture id="null"/>
-            <transformations><translation x="0" y="0" z="0.01"/><rotation axis="xx" angle="+90"/></transformations>
+            <transformations><translation x="0" y="0" z="0.01"/><rotation axis="x" angle="+90"/></transformations>
             <descendants><leaf type="rectangle" x1="-1" x2="1" y1="-0.01" y2="+0.01"/></descendants>
         </node>
         <node id="bed_leftsupport">
             <material id="null"/><texture id="null"/>
-            <transformations><translation x="0.435" y="0.12" z="+1"/><rotation axis="xx" angle="-90"/><scale sx="0.5" sy="6.66" sz="0.5"/></transformations>
+            <transformations><translation x="0.435" y="0.12" z="+1"/><rotation axis="x" angle="-90"/><scale sx="0.5" sy="6.66" sz="0.5"/></transformations>
             <descendants><noderef id="beam"/></descendants>
         </node>
         <node id="bed_rightsupport">
             <material id="null"/><texture id="null"/>
-            <transformations><translation x="-0.435" y="0.12" z="+1"/><rotation axis="xx" angle="-90"/><scale sx="0.5" sy="6.66" sz="0.5"/></transformations>
+            <transformations><translation x="-0.435" y="0.12" z="+1"/><rotation axis="x" angle="-90"/><scale sx="0.5" sy="6.66" sz="0.5"/></transformations>
             <descendants><noderef id="beam"/></descendants>
         </node>
 
@@ -1249,27 +1249,27 @@
         </node>
         <node id="bed_base_metal_right">
             <material id="null"/><texture id="null"/>
-            <transformations><translation x="0.43" y="0" z="+0.99"/><rotation axis="xx" angle="-90"/><scale sx="0.333" sy="6.6" sz="0.333"/></transformations>
+            <transformations><translation x="0.43" y="0" z="+0.99"/><rotation axis="x" angle="-90"/><scale sx="0.333" sy="6.6" sz="0.333"/></transformations>
             <descendants><noderef id="beam"/></descendants>
         </node>
         <node id="bed_base_metal_left">
             <material id="null"/><texture id="null"/>
-            <transformations><translation x="-0.43" y="0" z="+0.99"/><rotation axis="xx" angle="-90"/><scale sx="0.333" sy="6.6" sz="0.333"/></transformations>
+            <transformations><translation x="-0.43" y="0" z="+0.99"/><rotation axis="x" angle="-90"/><scale sx="0.333" sy="6.6" sz="0.333"/></transformations>
             <descendants><noderef id="beam"/></descendants>
         </node>
         <node id="bed_base_metal_mid">
             <material id="null"/><texture id="null"/>
-            <transformations><translation x="0" y="-0.005" z="+0.99"/><rotation axis="xx" angle="-90"/><scale sx="0.333" sy="6.6" sz="0.1666"/></transformations>
+            <transformations><translation x="0" y="-0.005" z="+0.99"/><rotation axis="x" angle="-90"/><scale sx="0.333" sy="6.6" sz="0.1666"/></transformations>
             <descendants><noderef id="beam"/></descendants>
         </node>
         <node id="bed_base_metal_head">
             <material id="null"/><texture id="null"/>
-            <transformations><translation x="+0.44" y="0" z="-0.98"/><rotation axis="yy" angle="90"/><rotation axis="xx" angle="-90"/><scale sx="0.333" sy="2.9333" sz="0.333"/></transformations>
+            <transformations><translation x="+0.44" y="0" z="-0.98"/><rotation axis="y" angle="90"/><rotation axis="x" angle="-90"/><scale sx="0.333" sy="2.9333" sz="0.333"/></transformations>
             <descendants><noderef id="beam"/></descendants>
         </node>
         <node id="bed_base_metal_foot">
             <material id="null"/><texture id="null"/>
-            <transformations><translation x="+0.44" y="0" z="+0.98"/><rotation axis="yy" angle="90"/><rotation axis="xx" angle="-90"/><scale sx="0.333" sy="2.9333" sz="0.333"/></transformations>
+            <transformations><translation x="+0.44" y="0" z="+0.98"/><rotation axis="y" angle="90"/><rotation axis="x" angle="-90"/><scale sx="0.333" sy="2.9333" sz="0.333"/></transformations>
             <descendants><noderef id="beam"/></descendants>
         </node>
 
@@ -1360,8 +1360,8 @@
             <material id="null"/><texture id="null"/>
             <transformations>
                 <translation x="+0.42" y="+0.0025" z="+0.00"/>
-                <rotation axis="yy" angle="90"/>
-                <rotation axis="xx" angle="-90"/>
+                <rotation axis="y" angle="90"/>
+                <rotation axis="x" angle="-90"/>
             <scale sx="1.3333" sy="2.8" sz="0.08333"/></transformations>
             <descendants><noderef id="beam"/></descendants>
         </node>
@@ -1394,13 +1394,13 @@
         <node id="bed_mattress_top">
             <material id="null"/>
             <texture id="null"><amplification afs="3" aft="9"/></texture>
-            <transformations><translation x="0" y="0.20" z="0"/><rotation axis="xx" angle="-90"/></transformations>
+            <transformations><translation x="0" y="0.20" z="0"/><rotation axis="x" angle="-90"/></transformations>
             <descendants><leaf type="rectangle" x1="-0.42" x2="+0.42" y1="-0.97" y2="+0.97"/></descendants>
         </node>
         <node id="bed_mattress_bot">
             <material id="null"/>
             <texture id="null"><amplification afs="3" aft="9"/></texture>
-            <transformations><rotation axis="xx" angle="-90"/><rotation axis="yy" angle="180"/></transformations>
+            <transformations><rotation axis="x" angle="-90"/><rotation axis="y" angle="180"/></transformations>
             <descendants><leaf type="rectangle" x1="-0.42" x2="+0.42" y1="-0.97" y2="+0.97"/></descendants>
         </node>
         <node id="bed_mattress_fro">
@@ -1412,25 +1412,25 @@
         <node id="bed_mattress_bac">
             <material id="null"/>
             <texture id="null"><amplification afs="3" aft="1"/></texture>
-            <transformations><translation x="0" y="0" z="-0.97"/><rotation axis="xx" angle="180"/></transformations>
+            <transformations><translation x="0" y="0" z="-0.97"/><rotation axis="x" angle="180"/></transformations>
             <descendants><leaf type="rectangle" x1="-0.42" x2="+0.42" y1="-0.20" y2="0"/></descendants>
         </node>
         <node id="bed_mattress_lef">
             <material id="null"/>
             <texture id="null"><amplification afs="1" aft="9"/></texture>
-            <transformations><translation x="-0.42" y="0" z="0"/><rotation axis="zz" angle="90"/><rotation axis="xx" angle="-90"/></transformations>
+            <transformations><translation x="-0.42" y="0" z="0"/><rotation axis="z" angle="90"/><rotation axis="x" angle="-90"/></transformations>
             <descendants><leaf type="rectangle" x1="0" x2="0.20" y1="-0.97" y2="+0.97"/></descendants>
         </node>
         <node id="bed_mattress_rig">
             <material id="null"/>
             <texture id="null"><amplification afs="1" aft="9"/></texture>
-            <transformations><translation x="+0.42" y="0" z="0"/><rotation axis="zz" angle="-90"/><rotation axis="xx" angle="-90"/></transformations>
+            <transformations><translation x="+0.42" y="0" z="0"/><rotation axis="z" angle="-90"/><rotation axis="x" angle="-90"/></transformations>
             <descendants><leaf type="rectangle" x1="-0.20" x2="0" y1="-0.97" y2="+0.97"/></descendants>
         </node>
         <node id="door">
             <material id="plastic-white"/>
             <texture id="dark_wood"/>
-            <transformations><translation x="-1.5" y="0.0" z="0"/><rotation axis="yy" angle="90" /></transformations>
+            <transformations><translation x="-1.5" y="0.0" z="0"/><rotation axis="y" angle="90" /></transformations>
             <descendants>
                 <noderef id="door_front"/>
                 <noderef id="door_arc"/>
@@ -1478,7 +1478,7 @@
         <node id="door_handle_plate_bottom">
             <material id="metal"/>
             <texture id="steel"/>
-            <transformations><translation x="0.0" y="-0.08" z="0.00015"/><rotation axis="xx" angle= "90"/></transformations>
+            <transformations><translation x="0.0" y="-0.08" z="0.00015"/><rotation axis="x" angle= "90"/></transformations>
             <descendants>
                 <leaf type="rectangle" x1="-0.03" y1="-0.003" x2="0.03" y2="0.003"/>
             </descendants>
@@ -1486,7 +1486,7 @@
         <node id="door_handle_plate_top">
             <material id="metal"/>
             <texture id="steel"/>
-            <transformations><translation x="0.0" y="0.08" z="0.00015"/><rotation axis="xx" angle="-90"/></transformations>
+            <transformations><translation x="0.0" y="0.08" z="0.00015"/><rotation axis="x" angle="-90"/></transformations>
             <descendants>
                 <leaf type="rectangle" x1="-0.03" y1="-0.003" x2="0.03" y2="0.003"/>
             </descendants>
@@ -1494,7 +1494,7 @@
         <node id="door_handle_plate_left">
             <material id="metal"/>
             <texture id="steel"/>
-            <transformations><translation x="-0.03" y="0.00" z="0.00015"/><rotation axis="yy" angle="-90"/>
+            <transformations><translation x="-0.03" y="0.00" z="0.00015"/><rotation axis="y" angle="-90"/>
             </transformations>
             <descendants>
                 <leaf type="rectangle" x1="-0.003" y1="-0.08" x2="0.003" y2="0.08"/>
@@ -1503,7 +1503,7 @@
         <node id="door_handle_plate_right">
             <material id="metal"/>
             <texture id="steel"/>
-            <transformations><translation x="0.03" y="0.00" z="0.00015"/><rotation axis="yy" angle="90"/></transformations>
+            <transformations><translation x="0.03" y="0.00" z="0.00015"/><rotation axis="y" angle="90"/></transformations>
             <descendants>
                 <leaf type="rectangle" x1="-0.003" y1="-0.08" x2="0.003" y2="0.08"/>
             </descendants>
@@ -1642,7 +1642,7 @@
             <material id="paper-lamp"/>
             <texture id="crepe-paper"/>
             <transformations>
-                <rotation axis="xx" angle="-90"/>
+                <rotation axis="x" angle="-90"/>
             </transformations>
             <descendants>
                 <leaf type="torus" innerRadius="0.12" outerRadius="0.19" slices="64" loops="10"/>
@@ -1678,47 +1678,47 @@
         </node>
         <node id="lampshade-wire2">
             <material id="null"/><texture id="null"/>
-            <transformations><rotation axis="yy" angle="36"/></transformations>
+            <transformations><rotation axis="y" angle="36"/></transformations>
             <descendants><noderef id="lampshade-wire"/></descendants>
         </node>
         <node id="lampshade-wire3">
             <material id="null"/><texture id="null"/>
-            <transformations><rotation axis="yy" angle="72"/></transformations>
+            <transformations><rotation axis="y" angle="72"/></transformations>
             <descendants><noderef id="lampshade-wire"/></descendants>
         </node>
         <node id="lampshade-wire4">
             <material id="null"/><texture id="null"/>
-            <transformations><rotation axis="yy" angle="108"/></transformations>
+            <transformations><rotation axis="y" angle="108"/></transformations>
             <descendants><noderef id="lampshade-wire"/></descendants>
         </node>
         <node id="lampshade-wire5">
             <material id="null"/><texture id="null"/>
-            <transformations><rotation axis="yy" angle="144"/></transformations>
+            <transformations><rotation axis="y" angle="144"/></transformations>
             <descendants><noderef id="lampshade-wire"/></descendants>
         </node>
         <node id="lampshade-wire6">
             <material id="null"/><texture id="null"/>
-            <transformations><rotation axis="yy" angle="180"/></transformations>
+            <transformations><rotation axis="y" angle="180"/></transformations>
             <descendants><noderef id="lampshade-wire"/></descendants>
         </node>
         <node id="lampshade-wire7">
             <material id="null"/><texture id="null"/>
-            <transformations><rotation axis="yy" angle="216"/></transformations>
+            <transformations><rotation axis="y" angle="216"/></transformations>
             <descendants><noderef id="lampshade-wire"/></descendants>
         </node>
         <node id="lampshade-wire8">
             <material id="null"/><texture id="null"/>
-            <transformations><rotation axis="yy" angle="252"/></transformations>
+            <transformations><rotation axis="y" angle="252"/></transformations>
             <descendants><noderef id="lampshade-wire"/></descendants>
         </node>
         <node id="lampshade-wire9">
             <material id="null"/><texture id="null"/>
-            <transformations><rotation axis="yy" angle="288"/></transformations>
+            <transformations><rotation axis="y" angle="288"/></transformations>
             <descendants><noderef id="lampshade-wire"/></descendants>
         </node>
         <node id="lampshade-wire10">
             <material id="null"/><texture id="null"/>
-            <transformations><rotation axis="yy" angle="324"/></transformations>
+            <transformations><rotation axis="y" angle="324"/></transformations>
             <descendants><noderef id="lampshade-wire"/></descendants>
         </node>
 
@@ -1909,8 +1909,8 @@
             <material id="null"/><texture id="null"/>
             <transformations>
                 <translation x="-1.1" y="1.7" z="-1.3"/>
-                <rotation axis="yy" angle="30"/>
-                <rotation axis="xx" angle="10"/>
+                <rotation axis="y" angle="30"/>
+                <rotation axis="x" angle="10"/>
             </transformations>
             <descendants><noderef id="tv"/></descendants>
         </node>
@@ -1956,48 +1956,48 @@
         </node>
         <node id="tv-border-front-top">
             <material id="null"/><texture id="null"/>
-            <transformations><translation x="0" y="+0.20" z="0"/><rotation axis="xx" angle="90"/></transformations>
+            <transformations><translation x="0" y="+0.20" z="0"/><rotation axis="x" angle="90"/></transformations>
             <descendants><leaf type="rectangle" x1="-0.35" x2="+0.35" y1="-0.005" y2="0"/></descendants>
         </node>
         <node id="tv-border-front-bot">
             <material id="null"/><texture id="null"/>
-            <transformations><translation x="0" y="-0.20" z="0"/><rotation axis="xx" angle="-90"/></transformations>
+            <transformations><translation x="0" y="-0.20" z="0"/><rotation axis="x" angle="-90"/></transformations>
             <descendants><leaf type="rectangle" x1="-0.35" x2="+0.35" y1="0" y2="+0.005"/></descendants>
         </node>
         <node id="tv-border-front-lef">
             <material id="null"/><texture id="null"/>
-            <transformations><translation x="-0.35" y="0" z="0"/><rotation axis="yy" angle="90"/></transformations>
+            <transformations><translation x="-0.35" y="0" z="0"/><rotation axis="y" angle="90"/></transformations>
             <descendants><leaf type="rectangle" x1="0" x2="0.005" y1="-0.20" y2="+0.20"/></descendants>
         </node>
         <node id="tv-border-front-rig">
             <material id="null"/><texture id="null"/>
-            <transformations><translation x="+0.35" y="0" z="0"/><rotation axis="yy" angle="-90"/></transformations>
+            <transformations><translation x="+0.35" y="0" z="0"/><rotation axis="y" angle="-90"/></transformations>
             <descendants><leaf type="rectangle" x1="-0.005" x2="0" y1="-0.20" y2="+0.20"/></descendants>
         </node>
 
         <node id="tv-border-bac">
             <material id="null"/><texture id="null"/>
-            <transformations><translation x="0" y="0" z="-0.03"/><rotation axis="yy" angle="180"/></transformations>
+            <transformations><translation x="0" y="0" z="-0.03"/><rotation axis="y" angle="180"/></transformations>
             <descendants><leaf type="rectangle" x1="-0.37" x2="+0.37" y1="-0.24" y2="+0.22"/></descendants>
         </node>
         <node id="tv-border-lef">
             <material id="null"/><texture id="null"/>
-            <transformations><translation x="-0.37" y="0" z="0"/><rotation axis="yy" angle="-90"/></transformations>
+            <transformations><translation x="-0.37" y="0" z="0"/><rotation axis="y" angle="-90"/></transformations>
             <descendants><leaf type="rectangle" x1="-0.03" x2="0" y1="-0.24" y2="+0.22"/></descendants>
         </node>
         <node id="tv-border-rig">
             <material id="null"/><texture id="null"/>
-            <transformations><translation x="+0.37" y="0" z="0"/><rotation axis="yy" angle="+90"/></transformations>
+            <transformations><translation x="+0.37" y="0" z="0"/><rotation axis="y" angle="+90"/></transformations>
             <descendants><leaf type="rectangle" x1="0" x2="+0.03" y1="-0.24" y2="+0.22"/></descendants>
         </node>
         <node id="tv-border-top">
             <material id="null"/><texture id="null"/>
-            <transformations><translation x="0" y="0.22" z="0"/><rotation axis="xx" angle="-90"/></transformations>
+            <transformations><translation x="0" y="0.22" z="0"/><rotation axis="x" angle="-90"/></transformations>
             <descendants><leaf type="rectangle" x1="-0.37" x2="+0.37" y1="0" y2="0.03"/></descendants>
         </node>
         <node id="tv-border-bot">
             <material id="null"/><texture id="null"/>
-            <transformations><translation x="0" y="-0.24" z="0"/><rotation axis="xx" angle="+90"/></transformations>
+            <transformations><translation x="0" y="-0.24" z="0"/><rotation axis="x" angle="+90"/></transformations>
             <descendants><leaf type="rectangle" x1="-0.37" x2="+0.37" y1="-0.03" y2="0"/></descendants>
         </node>
         <node id="tv-border-box-in-tv">
@@ -2017,7 +2017,7 @@
         </node>
         <node id="tv-border-box-bac">
             <material id="null"/><texture id="null"/>
-            <transformations><translation x="0" y="0" z="-0.05"/><rotation axis="yy" angle="180"/></transformations>
+            <transformations><translation x="0" y="0" z="-0.05"/><rotation axis="y" angle="180"/></transformations>
             <descendants><leaf type="rectangle" x1="-0.20" x2="+0.20" y1="-0.12" y2="+0.12"/></descendants>
         </node>
         <node id="tv-border-box-topbot">
@@ -2031,7 +2031,7 @@
             <material id="null"/><texture id="null"/>
             <transformations>
                 <translation x="0" y="+0.12" z="-0.05"/>
-                <rotation axis="xx" angle="-120"/>
+                <rotation axis="x" angle="-120"/>
             </transformations>
             <descendants><noderef id="tv-border-box-topbot"/></descendants>
         </node>
@@ -2039,14 +2039,14 @@
             <material id="null"/><texture id="null"/>
             <transformations>
                 <translation x="0" y="-0.12" z="-0.05"/>
-                <rotation axis="xx" angle="120"/>
-                <rotation axis="zz" angle="180"/>
+                <rotation axis="x" angle="120"/>
+                <rotation axis="z" angle="180"/>
             </transformations>
             <descendants><noderef id="tv-border-box-topbot"/></descendants>
         </node>
         <node id="tv-border-box-lefrig">
             <material id="null"/><texture id="null"/>
-            <transformations><rotation axis="zz" angle="90"/></transformations>
+            <transformations><rotation axis="z" angle="90"/></transformations>
             <descendants>
                 <leaf type="triangle" x1="+0.12" y1="0" x2="-0.12" y2="0" x3="-0.1489" y3="-0.0577"/>
                 <leaf type="triangle" x1="-0.1489" y1="-0.0577" x2="+0.1489" y2="-0.0577" x3="+0.12" y3="0"/>
@@ -2056,7 +2056,7 @@
             <material id="null"/><texture id="null"/>
             <transformations>
                 <translation x="-0.20" y="0" z="-0.05"/>
-                <rotation axis="yy" angle="-120"/>
+                <rotation axis="y" angle="-120"/>
             </transformations>
             <descendants><noderef id="tv-border-box-lefrig"/></descendants>
         </node>
@@ -2064,8 +2064,8 @@
             <material id="null"/><texture id="null"/>
             <transformations>
                 <translation x="+0.20" y="0" z="-0.05"/>
-                <rotation axis="yy" angle="120"/>
-                <rotation axis="zz" angle="180"/>
+                <rotation axis="y" angle="120"/>
+                <rotation axis="z" angle="180"/>
             </transformations>
             <descendants><noderef id="tv-border-box-lefrig"/></descendants>
         </node>
@@ -2073,11 +2073,11 @@
         <node id="skysphere">
             <material id="landscape"/><texture id="skysphere-empirestate"/>
             <transformations>
-                <rotation axis="yy" angle="180"/>
-                <rotation axis="yy" angle="+10"/> <!-- Adjustments -->
-                <rotation axis="zz" angle="3.3"/> <!-- Adjustments -->
-                <rotation axis="xx" angle="9"/> <!-- Adjustments -->
-                <rotation axis="zz" angle="-90"/>
+                <rotation axis="y" angle="180"/>
+                <rotation axis="y" angle="+10"/> <!-- Adjustments -->
+                <rotation axis="z" angle="3.3"/> <!-- Adjustments -->
+                <rotation axis="x" angle="9"/> <!-- Adjustments -->
+                <rotation axis="z" angle="-90"/>
             </transformations>
             <descendants>
                 <leaf type="sphere" radius="-400" slices="64" stacks="32"/>
