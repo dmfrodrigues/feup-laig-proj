@@ -653,8 +653,8 @@ class MySceneGraph {
                         case "torus":
                             leaf = new MyTorus(
                                 this.scene,
-                                parseFloat(descendant.attributes.innerRadius.value),
-                                parseFloat(descendant.attributes.outerRadius.value),
+                                parseFloat(descendant.attributes.inner.value),
+                                parseFloat(descendant.attributes.outer.value),
                                 parseFloat(descendant.attributes.slices.value),
                                 parseFloat(descendant.attributes.loops.value)
                             );

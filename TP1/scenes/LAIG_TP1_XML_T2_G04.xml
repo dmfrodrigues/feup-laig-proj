@@ -1645,7 +1645,7 @@
                 <rotation axis="x" angle="-90"/>
             </transformations>
             <descendants>
-                <leaf type="torus" innerRadius="0.12" outerRadius="0.19" slices="64" loops="10"/>
+                <leaf type="torus" inner="0.12" outer="0.19" slices="64" loops="10"/>
             </descendants>
         </node>
 
@@ -1669,7 +1669,7 @@
             <material id="null"/><texture id="null"/>
             <transformations><translation x="0.19" y="0" z="0" /></transformations>
             <descendants>
-                <leaf type="torus" innerRadius="0.001" outerRadius="0.12" slices="10" loops="128"/>
+                <leaf type="torus" inner="0.001" outer="0.12" slices="10" loops="128"/>
             </descendants>
         </node>
         <node id="lampshade-wire1">
