@@ -18,13 +18,13 @@ A nossa cena consiste em:
 
 ## Imagens
 
-| Almost-complete perspective          | Detail on table and objects          |
+| Perspetiva quase-completa            | Detalhe da mesa e objetos            |
 |--------------------------------------|--------------------------------------|
 | ![](https://i.imgur.com/RpgHm7W.jpg) | ![](https://i.imgur.com/pEPflE7.jpg) |
 
-| Complete perspective w/ bed and window | Window on close-up, view over NYC    |
-|----------------------------------------|--------------------------------------|
-| ![](https://i.imgur.com/xOV5okT.jpg)   | ![](https://i.imgur.com/2QnzhBo.jpg) |
+| Perspetiva completa c/ cama e janela | Detalhe da janela, vista sobre NYC   |
+|--------------------------------------|--------------------------------------|
+| ![](https://i.imgur.com/xOV5okT.jpg) | ![](https://i.imgur.com/2QnzhBo.jpg) |
 
 ## Anexos
 
