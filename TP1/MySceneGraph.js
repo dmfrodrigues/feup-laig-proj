@@ -285,8 +285,7 @@ class MySceneGraph {
             }
         }
 
-        this.scene.camera = this.views.list[this.views.default];
-        this.scene.interface.setActiveCamera(this.scene.camera);
+        this.views.current = this.views.default;
 
         this.log("Parsed views");
         
@@ -545,6 +544,9 @@ class MySceneGraph {
                     let trans = transformations[i];
                     switch(trans.nodeName){
                         case "translation":
+                            if(typeof trans.attributes.x == 'undefined') return `translation of node "${nodeID}" is missing x`;
+                            if(typeof trans.attributes.y == 'undefined') return `translation of node "${nodeID}" is missing y`;
+                            if(typeof trans.attributes.z == 'undefined') return `translation of node "${nodeID}" is missing z`;
                             let x = parseFloat(trans.attributes.x.value);
                             let y = parseFloat(trans.attributes.y.value);
                             let z = parseFloat(trans.attributes.z.value);
@@ -552,6 +554,8 @@ class MySceneGraph {
                             mat4.translate(M, M, vec3.fromValues(x, y, z));
                             break;
                         case "rotation":
+                            if(typeof trans.attributes.angle == 'undefined') return `rotation of node "${nodeID}" is missing angle`;
+                            if(typeof trans.attributes.axis  == 'undefined') return `rotation of node "${nodeID}" is missing axis`;
                             let angle = parseFloat(trans.attributes.angle.value)*DEGREE_TO_RAD;
                             if(angle == NaN) return "rotation has missing attributes"
                             switch(trans.attributes.axis.value){
@@ -562,6 +566,9 @@ class MySceneGraph {
                             }
                             break;
                         case "scale":
+                            if(typeof trans.attributes.sx == 'undefined') return `scaling of node "${nodeID}" is missing sx`;
+                            if(typeof trans.attributes.sy == 'undefined') return `scaling of node "${nodeID}" is missing sy`;
+                            if(typeof trans.attributes.sz == 'undefined') return `scaling of node "${nodeID}" is missing sz`;
                             let sx = parseFloat(trans.attributes.sx.value);
                             let sy = parseFloat(trans.attributes.sy.value);
                             let sz = parseFloat(trans.attributes.sz.value);
@@ -683,6 +690,9 @@ class MySceneGraph {
         }
 
         this.log("Parsed nodes");
+
+        if(typeof this.nodes[this.idRoot] == 'undefined')
+            return `No such root node "${this.idRoot}"`;
     }
 
 
