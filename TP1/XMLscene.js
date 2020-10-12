@@ -87,6 +87,17 @@ class XMLscene extends CGFscene {
         }
     }
 
+    completeCameras(){
+        this.interface.gui.add(this.graph.views, 'current', Object.keys(this.graph.views.list)).name('View').onChange(this.updateViews.bind(this));
+    
+        this.updateViews();
+    }
+
+    updateViews() {
+        this.camera = this.graph.views.list[this.graph.views.current];
+        this.interface.setActiveCamera(this.camera);
+    }
+
     /** Handler called when the graph is finally loaded. 
      * As loading is asynchronous, this may be called already after the application has started the run loop
      */
@@ -98,6 +109,8 @@ class XMLscene extends CGFscene {
         this.setGlobalAmbientLight(...this.graph.ambient);
 
         this.initLights();
+
+        this.completeCameras();
 
         this.sceneInited = true;
     }

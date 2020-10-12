@@ -285,8 +285,7 @@ class MySceneGraph {
             }
         }
 
-        this.scene.camera = this.views.list[this.views.default];
-        this.scene.interface.setActiveCamera(this.scene.camera);
+        this.views.current = this.views.default;
 
         this.log("Parsed views");
         
