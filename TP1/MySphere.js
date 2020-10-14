@@ -1,3 +1,11 @@
+/**
+ * MySphere
+ * @constructor
+ * @param scene  - Reference to MyScene object
+ * @param radius - Radius of sphere
+ * @param slices - Number of slices around z axis
+ * @param stacks - Number of stacks around z axis, from the middle of the sphere, to one of its poles
+ */
 class MySphere extends ObjectAmp {
 	constructor(scene, radius, slices, stacks) {
 		super(scene);

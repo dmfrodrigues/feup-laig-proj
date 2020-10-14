@@ -1,4 +1,9 @@
-
+/**
+ * Node
+ * @constructor
+ * @param scene - Reference to MyScene object
+ * @param id    - Node id
+ */
 class Node extends CGFobject {
 	constructor(scene, id) {
         super(scene);

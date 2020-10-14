@@ -1,3 +1,12 @@
+/**
+ * MyTorus
+ * @constructor
+ * @param scene  		- Reference to MyScene object
+ * @param innerRadius 	- Inner radius, torus thickness
+ * @param outerRadius 	- Outer radius around z axis
+ * @param slices 		- Number of slices around inner radius
+ * @param loops 		- Number of loops around the circular axis
+ */
 class MyTorus extends ObjectAmp {
 	constructor(scene, innerRadius, outerRadius, slices, loops) {
 		super(scene);
