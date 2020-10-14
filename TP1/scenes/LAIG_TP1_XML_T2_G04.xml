@@ -38,6 +38,10 @@
             <from x="0.7" y="1.3" z="0.7"/>
             <to   x="0" y="2" z="0"/>
         </perspective>
+        <perspective id="table_view" near="0.1" far="500" angle="45">
+            <from x="0.3" y="1.0" z="-0.5"/>
+            <to   x="1.0" y="0.5" z="-1.5"/>
+        </perspective>
     </views>
     <illumination>
         <ambient    r="0.2" g="0.2" b="0.2" a="1.0"/>
@@ -77,6 +81,8 @@
         <texture id="white_wood"          path="./scenes/images/white_wood.jpg"         />
 
         <texture id="crepe-paper"         path="./scenes/images/crepe-paper.jpg"        />
+
+        <texture id="marble"         path="./scenes/images/marble.jpg"        />
 
         <texture id="skysphere-empirestate" path="./scenes/images/skysphere/empirestate-day/skysphere-empirestate-small.jpg"/>
     </textures>
@@ -188,6 +194,7 @@
                 <noderef id="bed_in_room"/>
                 <noderef id="ceiling-light"/>
                 <noderef id="shelf"/>
+                <noderef id="tetrahedron"/>
                 <noderef id="tv-in-room"/>
                 <noderef id="skysphere"/>
                 <noderef id="window"/>
@@ -2088,6 +2095,66 @@
                 <rotation axis="z" angle="180"/>
             </transformations>
             <descendants><noderef id="tv-border-box-lefrig"/></descendants>
+        </node>
+
+        <node id="tetrahedron">
+            <material id="wood"/><texture id="marble"/>
+            <transformations>
+                <translation x="+0.65" y="0.5" z="-1.43"/>
+                <scale sx="0.1" sy="0.1" sz="0.1"/>
+            </transformations>
+            <descendants>
+                <noderef id="base"/>
+                <noderef id="tetrahedron_face1"/>
+                <noderef id="tetrahedron_face2"/>
+                <noderef id="tetrahedron_face3"/>
+            </descendants>
+        </node>
+
+        <node id="base">
+            <material id="null"/><texture id="null"/>
+            <transformations>
+                <rotation axis="z" angle="180"/>
+                <rotation axis="x" angle="90"/>
+            </transformations>
+            <descendants>
+                <leaf type="triangle" x1="-0.5" y1="0.0" x2="0.0" y2="0.866" x3="0.5" y3="0.0"/>
+            </descendants>
+        </node>
+
+        <node id="tetrahedron_face1">
+            <material id="null"/><texture id="null"/>
+            <transformations>
+                <translation x="+0.247" y="0.0" z="0.43"/>
+                <rotation axis="y" angle="-120"/>
+                <rotation axis="x" angle="19.25"/>
+                
+            </transformations>
+            <descendants>
+                <leaf type="triangle" x1="-0.5" y1="0.0" x2="0.0" y2="0.866" x3="0.5" y3="0.0"/>
+            </descendants>
+        </node>
+
+        <node id="tetrahedron_face2">
+            <material id="null"/><texture id="null"/>
+            <transformations>
+                <rotation axis="x" angle="19.25"/>
+            </transformations>
+            <descendants>
+                <leaf type="triangle" x1="-0.5" y1="0.0" x2="0.0" y2="0.866" x3="0.5" y3="0.0"/>
+            </descendants>
+        </node>
+
+        <node id="tetrahedron_face3">
+            <material id="null"/><texture id="null"/>
+            <transformations>
+                <translation x="-0.247" y="0.0" z="0.43"/>
+                <rotation axis="y" angle="120"/>
+                <rotation axis="x" angle="19.25"/>
+            </transformations>
+            <descendants>
+                <leaf type="triangle" x1="-0.5" y1="0.0" x2="0.0" y2="0.866" x3="0.5" y3="0.0"/>
+            </descendants>
         </node>
 
         <node id="skysphere">
