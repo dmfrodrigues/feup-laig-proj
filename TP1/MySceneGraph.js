@@ -625,7 +625,9 @@ class MySceneGraph {
                                 parseFloat(descendant.attributes.x1.value),
                                 parseFloat(descendant.attributes.y1.value),
                                 parseFloat(descendant.attributes.x2.value),
-                                parseFloat(descendant.attributes.y2.value)
+                                parseFloat(descendant.attributes.y2.value),
+                                afs,
+                                aft
                             );
                             break;
                         case "triangle":
@@ -636,7 +638,9 @@ class MySceneGraph {
                                 parseFloat(descendant.attributes.x2.value),
                                 parseFloat(descendant.attributes.y2.value),
                                 parseFloat(descendant.attributes.x3.value),
-                                parseFloat(descendant.attributes.y3.value)
+                                parseFloat(descendant.attributes.y3.value),
+                                afs,
+                                aft
                             );
                             break;
                         case "cylinder":
@@ -669,7 +673,6 @@ class MySceneGraph {
                         default:
                             return `no such leaf type "${descendant.attributes.type}"`;
                     }
-                    if(afs != 1 || aft != 1) leaf.setAmplification(afs, aft);
                     node.addChild(leaf);
                 } else return `no such descendant type "${descendant.nodeName}"`;
             }
