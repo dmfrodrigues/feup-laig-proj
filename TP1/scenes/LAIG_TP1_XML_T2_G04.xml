@@ -696,6 +696,7 @@
         <node id="book-cg-front-cover">
             <material id="null"/>
             <texture id="intro-cg-front">
+                <amplification afs="0.197" aft="0.24"/>
             </texture>
             <descendants>
                 <leaf type="rectangle" x1="-0.0985" y1="-0.12" x2="0.0985" y2="0.12"/>
@@ -774,6 +775,7 @@
         <node id="book-cg-back-cover">
             <material id="null"/>
             <texture id="intro-cg-back">
+                <amplification afs="0.197" aft="0.24"/>
             </texture>
             <descendants>
                 <leaf type="rectangle" x1="-0.0985" y1="-0.12" x2="0.0985" y2="0.12"/>
@@ -852,6 +854,7 @@
         <node id="book-cg-spine-cover">
             <material id="null"/>
             <texture id="intro-cg-spine">
+                <amplification afs="0.0264" aft="0.24"/>
             </texture>
             <descendants>
                 <leaf type="rectangle" x1="-0.0132" y1="-0.12" x2="0.0132" y2="0.12"/>
