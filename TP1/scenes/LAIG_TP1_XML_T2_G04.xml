@@ -1543,7 +1543,7 @@
         </node>
         <node id="door_handle_plate_front">
             <material id="metal"/>
-            <texture id="handle_plate"/>
+            <texture id="handle_plate"><amplification afs="0.06" aft="0.16"/></texture>
             <transformations><translation x="0.0" y="0.0" z="0.003"/></transformations>
             <descendants>
                 <leaf type="rectangle" x1="-0.03" y1="-0.08" x2="0.03" y2="0.08"/>
@@ -1551,7 +1551,7 @@
         </node>
         <node id="door_handle_plate_bottom">
             <material id="metal"/>
-            <texture id="steel"/>
+            <texture id="steel"><amplification afs="0.1" aft="0.1"/></texture>
             <transformations><translation x="0.0" y="-0.08" z="0.00015"/><rotation axis="x" angle= "90"/></transformations>
             <descendants>
                 <leaf type="rectangle" x1="-0.03" y1="-0.003" x2="0.03" y2="0.003"/>
@@ -1559,7 +1559,7 @@
         </node>
         <node id="door_handle_plate_top">
             <material id="metal"/>
-            <texture id="steel"/>
+            <texture id="steel"><amplification afs="0.1" aft="0.1"/></texture>
             <transformations><translation x="0.0" y="0.08" z="0.00015"/><rotation axis="x" angle="-90"/></transformations>
             <descendants>
                 <leaf type="rectangle" x1="-0.03" y1="-0.003" x2="0.03" y2="0.003"/>
@@ -1567,7 +1567,7 @@
         </node>
         <node id="door_handle_plate_left">
             <material id="metal"/>
-            <texture id="steel"/>
+            <texture id="steel"><amplification afs="0.1" aft="0.1"/></texture>
             <transformations><translation x="-0.03" y="0.00" z="0.00015"/><rotation axis="y" angle="-90"/>
             </transformations>
             <descendants>
@@ -1576,7 +1576,7 @@
         </node>
         <node id="door_handle_plate_right">
             <material id="metal"/>
-            <texture id="steel"/>
+            <texture id="steel"><amplification afs="0.1" aft="0.1"/></texture>
             <transformations><translation x="0.03" y="0.00" z="0.00015"/><rotation axis="y" angle="90"/></transformations>
             <descendants>
                 <leaf type="rectangle" x1="-0.003" y1="-0.08" x2="0.003" y2="0.08"/>
