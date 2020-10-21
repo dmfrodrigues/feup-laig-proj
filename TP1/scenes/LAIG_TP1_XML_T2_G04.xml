@@ -698,6 +698,7 @@
         <node id="book-cg-front-edge-right">
             <material id="null"/>
             <texture id="intro-cg-stripe">
+                <amplification afs="0.197" aft="0.010593"/>
             </texture>
             <transformations>
                 <translation x="+0.0985" y="0" z="-0.001"/>
@@ -711,6 +712,7 @@
         <node id="book-cg-front-edge-top">
             <material id="null"/>
             <texture id="intro-cg-stripe">
+                <amplification afs="0.197" aft="0.010593"/>
             </texture>
             <transformations>
                 <translation x="0.0" y="+0.12" z="-0.001"/>
@@ -723,6 +725,7 @@
         <node id="book-cg-front-edge-bot">
             <material id="null"/>
             <texture id="intro-cg-stripe">
+                <amplification afs="0.197" aft="0.010593"/>
             </texture>
             <transformations>
                 <translation x="0.0" y="-0.12" z="-0.001"/>
@@ -735,6 +738,7 @@
         <node id="book-cg-front-inside">
             <material id="null"/>
             <texture id="intro-cg-stripe">
+                <amplification afs="0.197" aft="0.010593"/>
             </texture>
             <transformations>
                 <translation x="0" y="0" z="-0.002"/>
@@ -772,6 +776,7 @@
         <node id="book-cg-back-edge-left">
             <material id="null"/>
             <texture id="intro-cg-stripe">
+                <amplification afs="0.197" aft="0.010593"/>
             </texture>
             <transformations>
                 <translation x="-0.0985" y="0" z="-0.001"/>
@@ -785,6 +790,7 @@
         <node id="book-cg-back-edge-top">
             <material id="null"/>
             <texture id="intro-cg-stripe">
+                <amplification afs="0.197" aft="0.010593"/>
             </texture>
             <transformations>
                 <translation x="0.0" y="+0.12" z="-0.001"/>
@@ -797,6 +803,7 @@
         <node id="book-cg-back-edge-bot">
             <material id="null"/>
             <texture id="intro-cg-stripe">
+                <amplification afs="0.197" aft="0.010593"/>
             </texture>
             <transformations>
                 <translation x="0.0" y="-0.12" z="-0.001"/>
@@ -809,6 +816,7 @@
         <node id="book-cg-back-inside">
             <material id="null"/>
             <texture id="intro-cg-stripe">
+                <amplification afs="0.197" aft="0.010593"/>
             </texture>
             <transformations>
                 <translation x="0" y="0" z="-0.002"/>
@@ -846,6 +854,7 @@
         <node id="book-cg-spine-top">
             <material id="null"/>
             <texture id="intro-cg-stripe">
+                <amplification afs="0.197" aft="0.010593"/>
             </texture>
             <transformations>
                 <translation x="0" y="0.12" z="-0.001"/>
@@ -858,6 +867,7 @@
         <node id="book-cg-spine-bot">
             <material id="null"/>
             <texture id="intro-cg-stripe">
+                <amplification afs="0.197" aft="0.010593"/>
             </texture>
             <transformations>
                 <translation x="0" y="-0.12" z="-0.001"/>
@@ -870,6 +880,7 @@
         <node id="book-cg-spine-inside">
             <material id="null"/>
             <texture id="intro-cg-stripe">
+                <amplification afs="0.197" aft="0.010593"/>
             </texture>
             <transformations>
                 <translation x="0" y="0" z="-0.002"/>
