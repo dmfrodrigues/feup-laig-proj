@@ -906,6 +906,7 @@
         <node id="book-cg-pages-right">
             <material id="null"/>
             <texture id="null">
+                <amplification afs="0.0224" aft="0.232"/>
             </texture>
             <transformations>
                 <translation x="0.0945" y="0" z="0.0132"/>
@@ -918,6 +919,7 @@
         <node id="book-cg-pages-top">
             <material id="null"/>
             <texture id="null">
+                <amplification afs="0.0224" aft="0.191"/>
             </texture>
             <transformations>
                 <translation x="0" y="0.116" z="0.0132"/>
@@ -931,6 +933,7 @@
         <node id="book-cg-pages-bot">
             <material id="null"/>
             <texture id="null">
+                <amplification afs="0.0224" aft="0.191"/>
             </texture>
             <transformations>
                 <translation x="0" y="-0.116" z="0.0132"/>
