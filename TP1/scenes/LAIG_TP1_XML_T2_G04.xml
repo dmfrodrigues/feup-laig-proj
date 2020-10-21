@@ -366,15 +366,15 @@
                 <scale       sx="0.05" sy="0.30" sz="0.05"/>
             </transformations>
             <descendants>
-                <noderef id="chair_leg_top"/>
-                <noderef id="chair_leg_bot"/>
-                <noderef id="chair_leg_lef"/>
-                <noderef id="chair_leg_rig"/>
-                <noderef id="chair_leg_fro"/>
-                <noderef id="chair_leg_bac"/>
+                <noderef id="cube_top"/>
+                <noderef id="cube_bot"/>
+                <noderef id="cube_lef"/>
+                <noderef id="cube_rig"/>
+                <noderef id="cube_fro"/>
+                <noderef id="cube_bac"/>
             </descendants>
         </node>
-        <node id="chair_leg_top">
+        <node id="cube_top">
             <material id="null"/>
             <texture id="null">
                 <amplification afs="1" aft="1"/>
@@ -387,7 +387,7 @@
                 <leaf type="rectangle" x1="-0.5" y1="-0.5" x2="0.5" y2="0.5"/>
             </descendants>
         </node>
-        <node id="chair_leg_bot">
+        <node id="cube_bot">
             <material id="null"/>
             <texture id="null">
                 <amplification afs="1" aft="1"/>
@@ -400,7 +400,7 @@
                 <leaf type="rectangle" x1="-0.5" y1="-0.5" x2="0.5" y2="0.5"/>
             </descendants>
         </node>
-        <node id="chair_leg_fro">
+        <node id="cube_fro">
             <material id="null"/>
             <texture id="null">
                 <amplification afs="1" aft="1"/>
@@ -412,7 +412,7 @@
                 <leaf type="rectangle" x1="-0.5" y1="-0.5" x2="0.5" y2="0.5"/>
             </descendants>
         </node>
-        <node id="chair_leg_bac">
+        <node id="cube_bac">
             <material id="null"/>
             <texture id="null">
                 <amplification afs="1" aft="1"/>
@@ -425,7 +425,7 @@
                 <leaf type="rectangle" x1="-0.5" y1="-0.5" x2="0.5" y2="0.5"/>
             </descendants>
         </node>
-        <node id="chair_leg_rig">
+        <node id="cube_rig">
             <material id="null"/>
             <texture id="null">
                 <amplification afs="1" aft="1"/>
@@ -438,7 +438,7 @@
                 <leaf type="rectangle" x1="-0.5" y1="-0.5" x2="0.5" y2="0.5"/>
             </descendants>
         </node>
-        <node id="chair_leg_lef">
+        <node id="cube_lef">
             <material id="null"/>
             <texture id="null">
                 <amplification afs="1" aft="1"/>
