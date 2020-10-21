@@ -193,6 +193,7 @@
         <node id="root">
             <material id="null"/>
             <texture id="null">
+                <amplification afs="1" aft="1"/>
             </texture>
             <descendants>
                 <noderef id="table_with_stuff_in_room"/>
@@ -210,7 +211,7 @@
         </node>
 
         <node id="table_with_stuff_in_room">
-            <material id="null"/><texture id="null"/>
+            <material id="null"/><texture id="null"><amplification afs="1" aft="1"/></texture>
             <transformations>
                 <translation x="0.99" y="0" z="-1.24"/>
             </transformations>
@@ -220,6 +221,7 @@
         <node id="table_with_stuff">
             <material id="null"/>
             <texture id="null">
+                <amplification afs="1" aft="1"/>
             </texture>
             <descendants>
                 <noderef id="table"/>
@@ -230,6 +232,7 @@
         <node id="globe_on_table">
             <material id="null"/>
             <texture id="null">
+                <amplification afs="1" aft="1"/>
             </texture>
             <transformations>
                 <translation x="0.2" y="0.507" z="-0.04"/>
@@ -241,6 +244,7 @@
         <node id="book_on_table">
             <material id="null"/>
             <texture id="null">
+                <amplification afs="1" aft="1"/>
             </texture>
             <transformations>
                 <translation x="-0.15" y="0.507" z="0.05"/>
@@ -255,6 +259,7 @@
         <node id="chair_in_room">
             <material id="null"/>
             <texture id="null">
+                <amplification afs="1" aft="1"/>
             </texture>
             <transformations>
                 <translation x="0.99" y="0.0" z="-0.94"/>
@@ -267,7 +272,7 @@
 
         <node id="chair">
             <material id="plastic-pink"/>
-            <texture id="plastic-rugged"/>
+            <texture id="plastic-rugged"><amplification afs="1" aft="1"/></texture>
             <descendants>
                 <noderef id="chair_leg1"/>
                 <noderef id="chair_leg2"/>
@@ -280,6 +285,7 @@
         <node id="chair_seat">
             <material id="null"/>
             <texture id="null">
+                <amplification afs="1" aft="1"/>
             </texture>
             <transformations>
                 <translation x="0.0" y="0.325" z="0.0"/>
@@ -292,6 +298,7 @@
         <node id="chair_back">
             <material id="null"/>
             <texture id="null">
+                <amplification afs="1" aft="1"/>
             </texture>
             <transformations>
                 <translation x="0.0" y="0.50" z="-0.125"/>
@@ -304,6 +311,7 @@
         <node id="chair_leg1">
             <material id="null"/>
             <texture id="null">
+                <amplification afs="1" aft="1"/>
             </texture>
             <transformations>
                 <translation x="+0.100" y="0.000" z="+0.125"/>
@@ -315,6 +323,7 @@
         <node id="chair_leg2">
             <material id="null"/>
             <texture id="null">
+                <amplification afs="1" aft="1"/>
             </texture>
             <transformations>
                 <translation x="-0.100" y="0.000" z="+0.125"/>
@@ -326,6 +335,7 @@
         <node id="chair_leg3">
             <material id="null"/>
             <texture id="null">
+                <amplification afs="1" aft="1"/>
             </texture>
             <transformations>
                 <translation x="+0.100" y="0.000" z="-0.125"/>
@@ -337,6 +347,7 @@
         <node id="chair_leg4">
             <material id="null"/>
             <texture id="null">
+                <amplification afs="1" aft="1"/>
             </texture>
             <transformations>
                 <translation x="-0.100" y="0.000" z="-0.125"/>
@@ -348,6 +359,7 @@
         <node id="chair_leg">
             <material id="null"/>
             <texture id="null">
+                <amplification afs="1" aft="1"/>
             </texture>
             <transformations>
                 <translation  x="0.00"  y="0.15"  z="0.00"/>
@@ -436,7 +448,7 @@
     
         <node id="table">
             <material id="metal"/>
-            <texture id="black_painted_metal"/>
+            <texture id="black_painted_metal"><amplification afs="1" aft="1"/></texture>
 
             <!-- geom. transf. are optional and may be repeated, in any order, as necessary: -->
             <transformations>
@@ -455,6 +467,7 @@
         <node id="table_leg1">
             <material id="null"/>
             <texture id="null">
+                <amplification afs="1" aft="1"/>
             </texture>
             <transformations>
                 <translation x="-0.4" y="+0.5" z="+0.2"/>
@@ -466,6 +479,7 @@
         <node id="table_leg2">
             <material id="null"/>
             <texture id="null">
+                <amplification afs="1" aft="1"/>
             </texture>
             <transformations>
                 <translation x="-0.4" y="+0.5" z="-0.2"/>
@@ -477,6 +491,7 @@
         <node id="table_leg3">
             <material id="null"/>
             <texture id="null">
+                <amplification afs="1" aft="1"/>
             </texture>
             <transformations>
                 <translation x="+0.4" y="+0.5" z="-0.2"/>
@@ -488,6 +503,7 @@
         <node id="table_leg4">
             <material id="null"/>
             <texture id="null">
+                <amplification afs="1" aft="1"/>
             </texture>
             <transformations>
                 <translation x="+0.4" y="+0.5" z="+0.2"/>
@@ -500,6 +516,7 @@
         <node id="table_leg">
             <material id="null"/>
             <texture id="null">
+                <amplification afs="1" aft="1"/>
             </texture>
             <transformations>
                 <rotation axis="x" angle="90"/>
@@ -511,7 +528,7 @@
         
         <node id="table_top">
             <material id="plastic-white"/>
-            <texture id="tabletop"/>
+            <texture id="tabletop"><amplification afs="1" aft="1"/></texture>
             <transformations>
                 <translation x="0.0" y="0.5035" z="0.0"/>
                 <scale sx="1.0" sy="0.007" sz="0.5"/>
@@ -523,7 +540,9 @@
 
         <node id="globe_world">
             <material id="plastic-white"/>
-            <texture id="world_map"/>
+            <texture id="world_map">
+                <amplification afs="1" aft="1"/>
+            </texture>
             <descendants>
                 <!-- slices should be a multiple of 24, and stacks a multiple of 6 -->
                 <leaf type="sphere" radius="0.18" slices="72" stacks="24"/>
@@ -531,7 +550,9 @@
         </node>
         <node id="globe_axis">
             <material id="plastic-yellow"/>
-            <texture id="plastic-rugged"/>
+            <texture id="plastic-rugged">
+                <amplification afs="1" aft="1"/>
+            </texture>
             <transformations>
                 <translation x="0.00" y="0.00" z="-0.23"/>
             </transformations>
@@ -542,6 +563,7 @@
         <node id="globe_world_axis">
             <material id="null"/>
             <texture id="null">
+                <amplification afs="1" aft="1"/>
             </texture>
             <transformations>
                 <translation x="0.00" y="0.22" z="0.00"/>
@@ -555,6 +577,7 @@
         <node id="globe_world_axis_tilted">
             <material id="null"/>
             <texture id="null">
+                <amplification afs="1" aft="1"/>
             </texture>
             <transformations>
                 <rotation axis="z" angle="-23"/>
@@ -567,6 +590,7 @@
         <node id="globe_wheel">
             <material id="null"/>
             <texture id="null">
+                <amplification afs="1" aft="1"/>
             </texture>
             <transformations>
                 <translation x="0.0000" y="0.0000" z="-0.0125"/>
@@ -578,6 +602,7 @@
         <node id="globe_support">
             <material id="null"/>
             <texture id="null">
+                <amplification afs="1" aft="1"/>
             </texture>
             <transformations>
                 <translation x="0.000" y="-0.030" z="0.000"/>
@@ -590,6 +615,7 @@
         <node id="globe_base">
             <material id="null"/>
             <texture id="null">
+                <amplification afs="1" aft="1"/>
             </texture>
             <transformations>
                 <translation x="+0.08596" y="-0.05" z="0.000"/>
@@ -602,7 +628,7 @@
 
         <node id="globe_plastic">
             <material id="plastic-yellow"/>
-            <texture id="plastic-rugged"/>
+            <texture id="plastic-rugged"><amplification afs="1" aft="1"/></texture>
             <descendants>
                 <noderef id="globe_wheel"/>
                 <noderef id="globe_support"/>
@@ -612,6 +638,7 @@
         <node id="globe">
             <material id="null"/>
             <texture id="null">
+                <amplification afs="1" aft="1"/>
             </texture>
             <transformations>
                 <translation x="-0.08596" y="+0.05" z="0.0"/>
@@ -625,6 +652,7 @@
         <node id="book-cg">
             <material id="null"/>
             <texture id="null">
+                <amplification afs="1" aft="1"/>
             </texture>
             <descendants>
                 <noderef id="book-cg-cover"/>
@@ -634,6 +662,7 @@
         <node id="book-cg-cover">
             <material id="book-cover"/>
             <texture id="null">
+                <amplification afs="1" aft="1"/>
             </texture>
             <descendants>
                 <noderef id="book-cg-back"/>
@@ -645,6 +674,7 @@
         <node id="book-cg-front">
             <material id="null"/>
             <texture id="null">
+                <amplification afs="1" aft="1"/>
             </texture>
             <transformations>
                 <translation x="0" y="0" z="+0.0264"/>
@@ -718,6 +748,7 @@
         <node id="book-cg-back">
             <material id="null"/>
             <texture id="null">
+                <amplification afs="1" aft="1"/>
             </texture>
             <transformations>
                 <rotation axis="y" angle= "180"/>
@@ -791,6 +822,7 @@
         <node id="book-cg-spine">
             <material id="null"/>
             <texture id="null">
+                <amplification afs="1" aft="1"/>
             </texture>
             <transformations>
                 <translation x="-0.0985" y="0" z="+0.0132"/> -->
@@ -851,6 +883,7 @@
         <node id="book-cg-pages">
             <material id="paper"/>
             <texture id="book-pages">
+                <amplification afs="1" aft="1"/>
             </texture>
             <descendants>
                 <noderef id="book-cg-pages-right"/>
@@ -942,7 +975,7 @@
 
         <node id="window">
             <material id="metal"/>
-            <texture id="black_painted_metal"/>
+            <texture id="black_painted_metal"><amplification afs="1" aft="1"/></texture>
             <transformations>
                 <translation x="0.0" y="1.375" z="1.5"/>
                 <scale sx="1.5" sy="0.75" sz="1.0"/>
@@ -956,7 +989,7 @@
 
         <node id="window_main_frame">
             <material id="wood"/>
-            <texture id="pine-wood"/>
+            <texture id="pine-wood"><amplification afs="1" aft="1"/></texture>
             <transformations>
                 
             </transformations>
@@ -967,7 +1000,7 @@
 
         <node id="window_frame_1">
             <material id="null"/>
-            <texture id="null"/>
+            <texture id="null"><amplification afs="1" aft="1"/></texture>
             <transformations>
                 <translation x="0.235" y="0.0" z="0.008"/>
                 <scale sx="0.485" sy="0.95" sz="0.2"/>
@@ -979,7 +1012,7 @@
 
         <node id="window_frame_2">
             <material id="null"/>
-            <texture id="null"/>
+            <texture id="null"><amplification afs="1" aft="1"/></texture>
             <transformations>
                 <translation x="-0.235" y="0.0" z="-0.008"/>
                 <scale sx="0.485" sy="0.95" sz="0.2"/>
@@ -991,7 +1024,7 @@
 
         <node id="window_frame">
             <material id="null"/>
-            <texture id="null"/>
+            <texture id="null"><amplification afs="1" aft="1"/></texture>
             <transformations/>
             <descendants>
                 <noderef id="window_frame_bottom"/>
@@ -1003,7 +1036,7 @@
 
         <node id="window_frame_bottom">
             <material id="null"/>
-            <texture id="null"/>
+            <texture id="null"><amplification afs="1" aft="1"/></texture>
             <transformations>
                 <translation x="0.0" y="-0.5" z="0.0"/>
                 <scale sx="1.0" sy="0.025" sz="0.05"/>
@@ -1014,7 +1047,7 @@
         </node>
         <node id="window_frame_top">
             <material id="null"/>
-            <texture id="null"/>
+            <texture id="null"><amplification afs="1" aft="1"/></texture>
             <transformations>
                 <translation x="0.0" y="0.5" z="0.0"/>
                 <scale sx="1.0" sy="0.025" sz="0.05"/>
@@ -1025,7 +1058,7 @@
         </node>
         <node id="window_frame_left">
             <material id="null"/>
-            <texture id="null"/>
+            <texture id="null"><amplification afs="1" aft="1"/></texture>
             <transformations>
                 <translation x="-0.4875" y="0.0" z="0.0"/>
                 <scale sx="0.025" sy="0.9875" sz="0.05"/>
@@ -1036,7 +1069,7 @@
         </node>
         <node id="window_frame_right">
             <material id="null"/>
-            <texture id="null"/>
+            <texture id="null"><amplification afs="1" aft="1"/></texture>
             <transformations>
                 <translation x="+0.4875" y="0.0" z="0.0"/>
                 <scale sx="0.025" sy="0.9875" sz="0.05"/>
@@ -1049,7 +1082,7 @@
 
         <node id="walls">
             <material id="paint"/>
-            <texture id="wall"/>
+            <texture id="wall"><amplification afs="1" aft="1"/></texture>
             <descendants>
                 <noderef id="baseboard"/>
                 <noderef id="floor"/>
@@ -1062,7 +1095,7 @@
         </node>
 
         <node id="bed_in_room">
-            <material id="null"/><texture id="null"/>
+            <material id="null"/><texture id="null"><amplification afs="1" aft="1"/></texture>
             <transformations>
                 <translation x="0.41" y="0" z="0.96"/>
                 <rotation axis="y" angle="-90"/>
@@ -1073,14 +1106,14 @@
         </node>
 
         <node id="bed">
-            <material id="null"/><texture id="null"/>
+            <material id="null"/><texture id="null"><amplification afs="1" aft="1"/></texture>
             <descendants>
                 <noderef id="bed_frame"/>
                 <noderef id="bed_base_mattress_blanket_in_frame"/>
             </descendants>
         </node>
         <node id="bed_frame">
-            <material id="wood"/><texture id="pine-wood"/>
+            <material id="wood"/><texture id="pine-wood"><amplification afs="1" aft="1"/></texture>
             <descendants>
                 <noderef id="bed_leg1"/>
                 <noderef id="bed_leg2"/>
@@ -1095,32 +1128,32 @@
             </descendants>
         </node>
         <node id="bed_leg1">
-            <material id="null"/><texture id="null"/>
+            <material id="null"/><texture id="null"><amplification afs="1" aft="1"/></texture>
             <transformations><translation x="0.48" y="0" z="1.03"/></transformations>
             <descendants><noderef id="beam"/></descendants>
         </node>
         <node id="bed_leg2">
-            <material id="null"/><texture id="null"/>
+            <material id="null"/><texture id="null"><amplification afs="1" aft="1"/></texture>
             <transformations><translation x="-0.48" y="0" z="1.03"/></transformations>
             <descendants><noderef id="beam"/></descendants>
         </node>
         <node id="bed_leg3">
-            <material id="null"/><texture id="null"/>
+            <material id="null"/><texture id="null"><amplification afs="1" aft="1"/></texture>
             <transformations><translation x="0.48" y="0" z="-1.03"/></transformations>
             <descendants><noderef id="beam_long"/></descendants>
         </node>
         <node id="bed_leg4">
-            <material id="null"/><texture id="null"/>
+            <material id="null"/><texture id="null"><amplification afs="1" aft="1"/></texture>
             <transformations><translation x="-0.48" y="0" z="-1.03"/></transformations>
             <descendants><noderef id="beam_long"/></descendants>
         </node>
         <node id="beam_long">
-            <material id="null"/><texture id="null"/>
+            <material id="null"/><texture id="null"><amplification afs="1" aft="1"/></texture>
             <transformations><scale sx="1" sy="2.5" sz="1"/></transformations>
             <descendants><noderef id="beam"/></descendants>
         </node>
         <node id="beam">
-            <material id="null"/><texture id="null"/>
+            <material id="null"/><texture id="null"><amplification afs="1" aft="1"/></texture>
             <descendants>
                 <noderef id="beam_front"/>
                 <noderef id="beam_back"/>
@@ -1131,22 +1164,22 @@
             </descendants>
         </node>
         <node id="beam_front">
-            <material id="null"/><texture id="null"/>
+            <material id="null"/><texture id="null"><amplification afs="1" aft="1"/></texture>
             <transformations>                                 <translation x="0" y="0" z="0.03"/></transformations>
             <descendants><noderef id="beam_side"/></descendants>
         </node>
         <node id="beam_back">
-            <material id="null"/><texture id="null"/>
+            <material id="null"/><texture id="null"><amplification afs="1" aft="1"/></texture>
             <transformations><rotation axis="y" angle="180"/><translation x="0" y="0" z="0.03"/></transformations>
             <descendants><noderef id="beam_side"/></descendants>
         </node>
         <node id="beam_right">
-            <material id="null"/><texture id="null"/>
+            <material id="null"/><texture id="null"><amplification afs="1" aft="1"/></texture>
             <transformations><rotation axis="y" angle="90"/><translation x="0" y="0" z="0.03"/></transformations>
             <descendants><noderef id="beam_side"/></descendants>
         </node>
         <node id="beam_left">
-            <material id="null"/><texture id="null"/>
+            <material id="null"/><texture id="null"><amplification afs="1" aft="1"/></texture>
             <transformations><rotation axis="y" angle="270"/><translation x="0" y="0" z="0.03"/></transformations>
             <descendants><noderef id="beam_side"/></descendants>
         </node>
@@ -1158,12 +1191,12 @@
             </descendants>
         </node>
         <node id="beam_top">
-            <material id="null"/><texture id="null"/>
+            <material id="null"/><texture id="null"><amplification afs="1" aft="1"/></texture>
             <transformations><translation x="0" y="0.3" z="0"/><rotation axis="x" angle="-90"/></transformations>
             <descendants><noderef id="beam_base"/></descendants>
         </node>
         <node id="beam_bot">
-            <material id="null"/><texture id="null"/>
+            <material id="null"/><texture id="null"><amplification afs="1" aft="1"/></texture>
             <transformations>                                  <rotation axis="x" angle="+90"/></transformations>
             <descendants><noderef id="beam_base"/></descendants>
         </node>
@@ -1173,27 +1206,27 @@
         </node>
 
         <node id="bed_headboard">
-            <material id="null"/><texture id="null"/>
+            <material id="null"/><texture id="null"><amplification afs="1" aft="1"/></texture>
             <transformations><translation x="0" y="0.05" z="-1"/><scale sx="0.45" sy="0.60" sz="1"/><rotation axis="y" angle="180"/></transformations>
             <descendants><noderef id="bed_board"/></descendants>
         </node>
         <node id="bed_footboard">
-            <material id="null"/><texture id="null"/>
+            <material id="null"/><texture id="null"><amplification afs="1" aft="1"/></texture>
             <transformations><translation x="0" y="0.05" z="+1"/><scale sx="0.45" sy="0.20" sz="1"/></transformations>
             <descendants><noderef id="bed_board"/></descendants>
         </node>
         <node id="bed_rightboard">
-            <material id="null"/><texture id="null"/>
+            <material id="null"/><texture id="null"><amplification afs="1" aft="1"/></texture>
             <transformations><translation x="0.45" y="0.05" z="0"/><rotation axis="y" angle="90"/><scale sx="1" sy="0.20" sz="1"/></transformations>
             <descendants><noderef id="bed_board"/></descendants>
         </node>
         <node id="bed_leftboard">
-            <material id="null"/><texture id="null"/>
+            <material id="null"/><texture id="null"><amplification afs="1" aft="1"/></texture>
             <transformations><translation x="-0.45" y="0.05" z="0"/><rotation axis="y" angle="-90"/><scale sx="1" sy="0.20" sz="1"/></transformations>
             <descendants><noderef id="bed_board"/></descendants>
         </node>
         <node id="bed_board">
-            <material id="null"/><texture id="null"/>
+            <material id="null"/><texture id="null"><amplification afs="1" aft="1"/></texture>
             <descendants>
                 <noderef id="bed_board_front"/>
                 <noderef id="bed_board_back"/>
@@ -1234,30 +1267,30 @@
             <descendants><leaf type="rectangle" x1="-1" x2="1" y1="-0.01" y2="+0.01"/></descendants>
         </node>
         <node id="bed_leftsupport">
-            <material id="null"/><texture id="null"/>
+            <material id="null"/><texture id="null"><amplification afs="1" aft="1"/></texture>
             <transformations><translation x="0.435" y="0.12" z="+1"/><rotation axis="x" angle="-90"/><scale sx="0.5" sy="6.66" sz="0.5"/></transformations>
             <descendants><noderef id="beam"/></descendants>
         </node>
         <node id="bed_rightsupport">
-            <material id="null"/><texture id="null"/>
+            <material id="null"/><texture id="null"><amplification afs="1" aft="1"/></texture>
             <transformations><translation x="-0.435" y="0.12" z="+1"/><rotation axis="x" angle="-90"/><scale sx="0.5" sy="6.66" sz="0.5"/></transformations>
             <descendants><noderef id="beam"/></descendants>
         </node>
 
         <node id="bed_base_mattress_blanket_in_frame">
-            <material id="null"/><texture id="null"/>
+            <material id="null"/><texture id="null"><amplification afs="1" aft="1"/></texture>
             <transformations><translation x="0" y="0.15" z="0"/></transformations>
             <descendants><noderef id="bed_base_mattress_blanket"/></descendants>
         </node>
         <node id="bed_base_mattress_blanket">
-            <material id="null"/><texture id="null"/>
+            <material id="null"/><texture id="null"><amplification afs="1" aft="1"/></texture>
             <descendants>
                 <noderef id="bed_base"/>
                 <noderef id="bed_mattress_blanket_in_base"/>
             </descendants>
         </node>
         <node id="bed_base">
-            <material id="null"/><texture id="null"/>
+            <material id="null"/><texture id="null"><amplification afs="1" aft="1"/></texture>
             <transformations><translation x="0" y="0.015" z="0"/></transformations>
             <descendants>
                 <noderef id="bed_base_metal"/>
@@ -1265,7 +1298,7 @@
             </descendants>
         </node>
         <node id="bed_base_metal">
-            <material id="metal"/><texture id="black_painted_metal"/>
+            <material id="metal"/><texture id="black_painted_metal"><amplification afs="1" aft="1"/></texture>
             <descendants>
                 <noderef id="bed_base_metal_right"/>
                 <noderef id="bed_base_metal_left"/>
@@ -1275,33 +1308,33 @@
             </descendants>
         </node>
         <node id="bed_base_metal_right">
-            <material id="null"/><texture id="null"/>
+            <material id="null"/><texture id="null"><amplification afs="1" aft="1"/></texture>
             <transformations><translation x="0.43" y="0" z="+0.99"/><rotation axis="x" angle="-90"/><scale sx="0.333" sy="6.6" sz="0.333"/></transformations>
             <descendants><noderef id="beam"/></descendants>
         </node>
         <node id="bed_base_metal_left">
-            <material id="null"/><texture id="null"/>
+            <material id="null"/><texture id="null"><amplification afs="1" aft="1"/></texture>
             <transformations><translation x="-0.43" y="0" z="+0.99"/><rotation axis="x" angle="-90"/><scale sx="0.333" sy="6.6" sz="0.333"/></transformations>
             <descendants><noderef id="beam"/></descendants>
         </node>
         <node id="bed_base_metal_mid">
-            <material id="null"/><texture id="null"/>
+            <material id="null"/><texture id="null"><amplification afs="1" aft="1"/></texture>
             <transformations><translation x="0" y="-0.005" z="+0.99"/><rotation axis="x" angle="-90"/><scale sx="0.333" sy="6.6" sz="0.1666"/></transformations>
             <descendants><noderef id="beam"/></descendants>
         </node>
         <node id="bed_base_metal_head">
-            <material id="null"/><texture id="null"/>
+            <material id="null"/><texture id="null"><amplification afs="1" aft="1"/></texture>
             <transformations><translation x="+0.44" y="0" z="-0.98"/><rotation axis="y" angle="90"/><rotation axis="x" angle="-90"/><scale sx="0.333" sy="2.9333" sz="0.333"/></transformations>
             <descendants><noderef id="beam"/></descendants>
         </node>
         <node id="bed_base_metal_foot">
-            <material id="null"/><texture id="null"/>
+            <material id="null"/><texture id="null"><amplification afs="1" aft="1"/></texture>
             <transformations><translation x="+0.44" y="0" z="+0.98"/><rotation axis="y" angle="90"/><rotation axis="x" angle="-90"/><scale sx="0.333" sy="2.9333" sz="0.333"/></transformations>
             <descendants><noderef id="beam"/></descendants>
         </node>
 
         <node id="bed_base_wood">
-            <material id="wood"/><texture id="pine-wood"/>
+            <material id="wood"/><texture id="pine-wood"><amplification afs="1" aft="1"/></texture>
             <descendants>
                 <noderef id="bed_base_wood1"/>
                 <noderef id="bed_base_wood2"/>
@@ -1319,72 +1352,72 @@
             </descendants>
         </node>
         <node id="bed_base_wood1">
-            <material id="null"/><texture id="null"/>
+            <material id="null"/><texture id="null"><amplification afs="1" aft="1"/></texture>
             <transformations><translation x="0" y="0" z="-0.90"/></transformations>
             <descendants><noderef id="bed_base_woodbeam"/></descendants>
         </node>
         <node id="bed_base_wood2">
-            <material id="null"/><texture id="null"/>
+            <material id="null"/><texture id="null"><amplification afs="1" aft="1"/></texture>
             <transformations><translation x="0" y="0" z="-0.75"/></transformations>
             <descendants><noderef id="bed_base_woodbeam"/></descendants>
         </node>
         <node id="bed_base_wood3">
-            <material id="null"/><texture id="null"/>
+            <material id="null"/><texture id="null"><amplification afs="1" aft="1"/></texture>
             <transformations><translation x="0" y="0" z="-0.60"/></transformations>
             <descendants><noderef id="bed_base_woodbeam"/></descendants>
         </node>
         <node id="bed_base_wood4">
-            <material id="null"/><texture id="null"/>
+            <material id="null"/><texture id="null"><amplification afs="1" aft="1"/></texture>
             <transformations><translation x="0" y="0" z="-0.45"/></transformations>
             <descendants><noderef id="bed_base_woodbeam"/></descendants>
         </node>
         <node id="bed_base_wood5">
-            <material id="null"/><texture id="null"/>
+            <material id="null"/><texture id="null"><amplification afs="1" aft="1"/></texture>
             <transformations><translation x="0" y="0" z="-0.30"/></transformations>
             <descendants><noderef id="bed_base_woodbeam"/></descendants>
         </node>
         <node id="bed_base_wood6">
-            <material id="null"/><texture id="null"/>
+            <material id="null"/><texture id="null"><amplification afs="1" aft="1"/></texture>
             <transformations><translation x="0" y="0" z="-0.15"/></transformations>
             <descendants><noderef id="bed_base_woodbeam"/></descendants>
         </node>
         <node id="bed_base_wood7">
-            <material id="null"/><texture id="null"/>
+            <material id="null"/><texture id="null"><amplification afs="1" aft="1"/></texture>
             <transformations><translation x="0" y="0" z="+0.00"/></transformations>
             <descendants><noderef id="bed_base_woodbeam"/></descendants>
         </node>
         <node id="bed_base_wood8">
-            <material id="null"/><texture id="null"/>
+            <material id="null"/><texture id="null"><amplification afs="1" aft="1"/></texture>
             <transformations><translation x="0" y="0" z="+0.15"/></transformations>
             <descendants><noderef id="bed_base_woodbeam"/></descendants>
         </node>
         <node id="bed_base_wood9">
-            <material id="null"/><texture id="null"/>
+            <material id="null"/><texture id="null"><amplification afs="1" aft="1"/></texture>
             <transformations><translation x="0" y="0" z="+0.30"/></transformations>
             <descendants><noderef id="bed_base_woodbeam"/></descendants>
         </node>
         <node id="bed_base_wood10">
-            <material id="null"/><texture id="null"/>
+            <material id="null"/><texture id="null"><amplification afs="1" aft="1"/></texture>
             <transformations><translation x="0" y="0" z="+0.45"/></transformations>
             <descendants><noderef id="bed_base_woodbeam"/></descendants>
         </node>
         <node id="bed_base_wood11">
-            <material id="null"/><texture id="null"/>
+            <material id="null"/><texture id="null"><amplification afs="1" aft="1"/></texture>
             <transformations><translation x="0" y="0" z="+0.60"/></transformations>
             <descendants><noderef id="bed_base_woodbeam"/></descendants>
         </node>
         <node id="bed_base_wood12">
-            <material id="null"/><texture id="null"/>
+            <material id="null"/><texture id="null"><amplification afs="1" aft="1"/></texture>
             <transformations><translation x="0" y="0" z="+0.75"/></transformations>
             <descendants><noderef id="bed_base_woodbeam"/></descendants>
         </node>
         <node id="bed_base_wood13">
-            <material id="null"/><texture id="null"/>
+            <material id="null"/><texture id="null"><amplification afs="1" aft="1"/></texture>
             <transformations><translation x="0" y="0" z="+0.90"/></transformations>
             <descendants><noderef id="bed_base_woodbeam"/></descendants>
         </node>
         <node id="bed_base_woodbeam">
-            <material id="null"/><texture id="null"/>
+            <material id="null"/><texture id="null"><amplification afs="1" aft="1"/></texture>
             <transformations>
                 <translation x="+0.42" y="+0.0025" z="+0.00"/>
                 <rotation axis="y" angle="90"/>
@@ -1394,21 +1427,21 @@
         </node>
 
         <node id="bed_mattress_blanket_in_base">
-            <material id="null"/><texture id="null"/>
+            <material id="null"/><texture id="null"><amplification afs="1" aft="1"/></texture>
             <transformations><translation x="0" y="0.020" z="0"/></transformations>
             <descendants>
                 <noderef id="bed_mattress_blanket"/>
             </descendants>
         </node>
         <node id="bed_mattress_blanket">
-            <material id="null"/><texture id="null"/>
+            <material id="null"/><texture id="null"><amplification afs="1" aft="1"/></texture>
             <descendants>
                 <noderef id="bed_mattress"/>
                 <!-- <noderef id="bed_blanket_in_mattress"/> -->
             </descendants>
         </node>
         <node id="bed_mattress">
-            <material id="bed-sheets"/><texture id="bed-sheets"/>
+            <material id="bed-sheets"/><texture id="bed-sheets"><amplification afs="1" aft="1"/></texture>
             <descendants>
                 <noderef id="bed_mattress_top"/>
                 <noderef id="bed_mattress_bot"/>
@@ -1456,7 +1489,7 @@
         </node>
         <node id="door">
             <material id="plastic-white"/>
-            <texture id="dark_wood"/>
+            <texture id="dark_wood"><amplification afs="1" aft="1"/></texture>
             <transformations><translation x="-1.5" y="0.0" z="0"/><rotation axis="y" angle="90" /></transformations>
             <descendants>
                 <noderef id="door_front"/>
@@ -1466,7 +1499,7 @@
         </node>
         <node id="door_front">
             <material id="null"/>
-            <texture id="white_wood"/>
+            <texture id="white_wood"><amplification afs="1" aft="1"/></texture>
             <transformations><translation x="0" y="0.9" z="0.0"/><scale sx="0.7" sy="1.8" sz="0.02"/></transformations>
             <descendants>
                 <noderef id="cube"/>  
@@ -1474,7 +1507,7 @@
         </node>
         <node id="door_handle">
             <material id="metal"/>
-            <texture id="steel"/>
+            <texture id="steel"><amplification afs="1" aft="1"/></texture>
             <transformations><translation x="0.25" y="1.0" z="0.01"/></transformations>
             <descendants>
                 <noderef id="door_handle_part1"/>
@@ -1484,7 +1517,7 @@
         </node>
         <node id="door_handle_plate">
             <material id="metal"/>
-            <texture id="steel"/>
+            <texture id="steel"><amplification afs="1" aft="1"/></texture>
             <transformations><translation x="0.0" y="0.0" z="0.005"/></transformations>
             <descendants>
                 <noderef id="door_handle_plate_front"/>
@@ -1537,7 +1570,7 @@
         </node>
         <node id="door_handle_part1">
             <material id="null"/>
-            <texture id="null"/>
+            <texture id="null"><amplification afs="1" aft="1"/></texture>
             <transformations><translation x="0" y="0.028" z="0.005"/></transformations>
             <descendants>
                 <leaf type="cylinder" bottomRadius="0.008" topRadius="0.008" height="0.02" slices="16" stacks="2"/>
@@ -1545,7 +1578,7 @@
         </node>
         <node id="door_handle_part2">
             <material id="null"/>
-            <texture id="null"/>
+            <texture id="null"><amplification afs="1" aft="1"/></texture>
             <transformations><translation x="0" y="0.028" z="0.025"/></transformations>
             <descendants>
                 <leaf type="cylinder" bottomRadius="0.02" topRadius="0.025" height="0.03" slices="32" stacks="8"/>
@@ -1553,7 +1586,7 @@
         </node>
         <node id="door_arc">
             <material id="null"/>
-            <texture id="null"/>
+            <texture id="null"><amplification afs="1" aft="1"/></texture>
             <descendants>
                 <noderef id="door_arc_left"/>
                 <noderef id="door_arc_right"/>
@@ -1562,26 +1595,26 @@
         </node>
         <node id="door_arc_left">
             <material id="null"/>
-            <texture id="null"/>
+            <texture id="null"><amplification afs="1" aft="1"/></texture>
             <transformations><translation x="-0.4" y="0.9" z="0.0"/><scale sx="0.10" sy="1.8" sz="0.05"/></transformations>
             <descendants><noderef id="cube"/></descendants>
         </node>
             <node id="door_arc_right">
             <material id="null"/>
-            <texture id="null"/>
+            <texture id="null"><amplification afs="1" aft="1"/></texture>
             <transformations><translation x="0.4" y="0.9" z="0.0"/><scale sx="0.10" sy="1.8" sz="0.05"/></transformations>
             <descendants><noderef id="cube"/></descendants>
         </node>
         <node id="door_arc_top">
             <material id="null"/>
-            <texture id="null"/>
+            <texture id="null"><amplification afs="1" aft="1"/></texture>
             <transformations><translation x="0.0" y="1.85" z="0.0"/><scale sx="0.9" sy="0.1" sz="0.05"/></transformations>
             <descendants><noderef id="cube"/></descendants>
         </node>
 
         <node id="baseboard">
             <material id="wood"/>
-            <texture id="dark_wood"/>
+            <texture id="dark_wood"><amplification afs="1" aft="1"/></texture>
             <descendants>
                 <noderef id="baseboard_x_neg_left" />
                 <noderef id="baseboard_x_neg_right"/>
@@ -1592,7 +1625,7 @@
         </node>
         <node id="baseboard_x_neg_left">
             <material id="null"/>
-            <texture id="null"/>
+            <texture id="null"><amplification afs="1" aft="1"/></texture>
             <transformations>
                 <translation x="-1.49" y="0.02" z="0.975"/>
                 <scale sx="0.02" sy="0.04" sz="1.05"/>
@@ -1603,7 +1636,7 @@
         </node>
         <node id="baseboard_x_neg_right">
             <material id="null"/>
-            <texture id="null"/>
+            <texture id="null"><amplification afs="1" aft="1"/></texture>
             <transformations>
                 <translation x="-1.49" y="0.02" z="-0.975"/>
                 <scale sx="0.02" sy="0.04" sz="1.05"/>
@@ -1614,7 +1647,7 @@
         </node>
         <node id="baseboard_z_pos">
             <material id="null"/>
-            <texture id="null"/>
+            <texture id="null"><amplification afs="1" aft="1"/></texture>
             <transformations>
                 <translation x="0.01" y="0.02" z="1.49"/>
                 <scale sx="2.98" sy="0.04" sz="0.02"/>
@@ -1625,7 +1658,7 @@
         </node>
         <node id="baseboard_z_neg">
             <material id="null"/>
-            <texture id="null"/>
+            <texture id="null"><amplification afs="1" aft="1"/></texture>
             <transformations>
                 <translation x="0.01" y="0.02" z="-1.49"/>
                 <scale sx="2.98" sy="0.04" sz="0.02"/>
@@ -1636,7 +1669,7 @@
         </node>
         <node id="baseboard_x_pos">
             <material id="null"/>
-            <texture id="null"/>
+            <texture id="null"><amplification afs="1" aft="1"/></texture>
             <transformations>
                 <translation x="1.49" y="0.02" z="0"/>
                 <scale sx="0.02" sy="0.04" sz="2.96"/>
@@ -1647,7 +1680,7 @@
         </node>
 
         <node id="ceiling-light">
-            <material id="null"/><texture id="null"/>
+            <material id="null"/><texture id="null"><amplification afs="1" aft="1"/></texture>
             <transformations>
                 <translation x="0" y="2" z="0"/>
             </transformations>
@@ -1658,7 +1691,7 @@
         </node>
 
         <node id="lampshade">
-            <material id="null"/><texture id="null"/>
+            <material id="null"/><texture id="null"><amplification afs="1" aft="1"/></texture>
             <descendants>
                 <noderef id="lampshade-paper"/>
                 <noderef id="lampshade-wires"/>
@@ -1667,7 +1700,7 @@
 
         <node id="lampshade-paper">
             <material id="paper-lamp"/>
-            <texture id="crepe-paper"/>
+            <texture id="crepe-paper"><amplification afs="1" aft="1"/></texture>
             <transformations>
                 <rotation axis="x" angle="-90"/>
             </transformations>
@@ -1678,7 +1711,7 @@
 
         <node id="lampshade-wires">
             <material id="metal"/>
-            <texture id="steel"/>
+            <texture id="steel"><amplification afs="1" aft="1"/></texture>
             <descendants>
                 <noderef id="lampshade-wire1"/>
                 <noderef id="lampshade-wire2"/>
@@ -1693,58 +1726,58 @@
             </descendants>
         </node>
         <node id="lampshade-wire">
-            <material id="null"/><texture id="null"/>
+            <material id="null"/><texture id="null"><amplification afs="1" aft="1"/></texture>
             <transformations><translation x="0.19" y="0" z="0" /></transformations>
             <descendants>
                 <leaf type="torus" inner="0.001" outer="0.12" slices="10" loops="128"/>
             </descendants>
         </node>
         <node id="lampshade-wire1">
-            <material id="null"/><texture id="null"/>
+            <material id="null"/><texture id="null"><amplification afs="1" aft="1"/></texture>
             <descendants><noderef id="lampshade-wire"/></descendants>
         </node>
         <node id="lampshade-wire2">
-            <material id="null"/><texture id="null"/>
+            <material id="null"/><texture id="null"><amplification afs="1" aft="1"/></texture>
             <transformations><rotation axis="y" angle="36"/></transformations>
             <descendants><noderef id="lampshade-wire"/></descendants>
         </node>
         <node id="lampshade-wire3">
-            <material id="null"/><texture id="null"/>
+            <material id="null"/><texture id="null"><amplification afs="1" aft="1"/></texture>
             <transformations><rotation axis="y" angle="72"/></transformations>
             <descendants><noderef id="lampshade-wire"/></descendants>
         </node>
         <node id="lampshade-wire4">
-            <material id="null"/><texture id="null"/>
+            <material id="null"/><texture id="null"><amplification afs="1" aft="1"/></texture>
             <transformations><rotation axis="y" angle="108"/></transformations>
             <descendants><noderef id="lampshade-wire"/></descendants>
         </node>
         <node id="lampshade-wire5">
-            <material id="null"/><texture id="null"/>
+            <material id="null"/><texture id="null"><amplification afs="1" aft="1"/></texture>
             <transformations><rotation axis="y" angle="144"/></transformations>
             <descendants><noderef id="lampshade-wire"/></descendants>
         </node>
         <node id="lampshade-wire6">
-            <material id="null"/><texture id="null"/>
+            <material id="null"/><texture id="null"><amplification afs="1" aft="1"/></texture>
             <transformations><rotation axis="y" angle="180"/></transformations>
             <descendants><noderef id="lampshade-wire"/></descendants>
         </node>
         <node id="lampshade-wire7">
-            <material id="null"/><texture id="null"/>
+            <material id="null"/><texture id="null"><amplification afs="1" aft="1"/></texture>
             <transformations><rotation axis="y" angle="216"/></transformations>
             <descendants><noderef id="lampshade-wire"/></descendants>
         </node>
         <node id="lampshade-wire8">
-            <material id="null"/><texture id="null"/>
+            <material id="null"/><texture id="null"><amplification afs="1" aft="1"/></texture>
             <transformations><rotation axis="y" angle="252"/></transformations>
             <descendants><noderef id="lampshade-wire"/></descendants>
         </node>
         <node id="lampshade-wire9">
-            <material id="null"/><texture id="null"/>
+            <material id="null"/><texture id="null"><amplification afs="1" aft="1"/></texture>
             <transformations><rotation axis="y" angle="288"/></transformations>
             <descendants><noderef id="lampshade-wire"/></descendants>
         </node>
         <node id="lampshade-wire10">
-            <material id="null"/><texture id="null"/>
+            <material id="null"/><texture id="null"><amplification afs="1" aft="1"/></texture>
             <transformations><rotation axis="y" angle="324"/></transformations>
             <descendants><noderef id="lampshade-wire"/></descendants>
         </node>
@@ -1752,7 +1785,7 @@
 
         <node id="shelf">
             <material id="metal"/>
-            <texture id="black_painted_metal"/>
+            <texture id="black_painted_metal"><amplification afs="1" aft="1"/></texture>
             <transformations>
                 <translation x="-0.6" y="0.5" z="-1.35"/>
             </transformations>
@@ -1772,7 +1805,7 @@
 
         <node id="shelf_metal_front1">
             <material id="null"/>
-            <texture id="null"/>
+            <texture id="null"><amplification afs="1" aft="1"/></texture>
             <transformations>
                 <translation x="-0.5" y="0.0" z="0.1"/>
                 <scale sx="0.025" sy="1.0" sz="0.025"/>
@@ -1783,7 +1816,7 @@
         </node>
         <node id="shelf_metal_front2">
             <material id="null"/>
-            <texture id="null"/>
+            <texture id="null"><amplification afs="1" aft="1"/></texture>
             <transformations>
                 <translation x="+0.5" y="0.0" z="0.1"/>
                 <scale sx="0.025" sy="1.0" sz="0.025"/>
@@ -1795,7 +1828,7 @@
 
         <node id="shelf_metal_back1">
             <material id="null"/>
-            <texture id="null"/>
+            <texture id="null"><amplification afs="1" aft="1"/></texture>
             <transformations>
                 <translation x="-0.5" y="0.0" z="-0.1"/>
                 <scale sx="0.025" sy="1.0" sz="0.025"/>
@@ -1806,7 +1839,7 @@
         </node>
         <node id="shelf_metal_back2">
             <material id="null"/>
-            <texture id="null"/>
+            <texture id="null"><amplification afs="1" aft="1"/></texture>
             <transformations>
                 <translation x="+0.5" y="0.0" z="-0.1"/>
                 <scale sx="0.025" sy="1.0" sz="0.025"/>
@@ -1818,7 +1851,7 @@
 
         <node id="shelf_wood_support1">
             <material id="wood"/>
-            <texture id="pine-wood"/>
+            <texture id="pine-wood"><amplification afs="1" aft="1"/></texture>
             <transformations>
                 <translation x="0" y="0.0" z="0"/>
                 <scale sx="0.975" sy="0.025" sz="0.175"/>
@@ -1830,7 +1863,7 @@
 
         <node id="shelf_wood_support2">
             <material id="wood"/>
-            <texture id="pine-wood"/>
+            <texture id="pine-wood"><amplification afs="1" aft="1"/></texture>
             <transformations>
                 <translation x="0" y="0.25" z="0"/>
                 <scale sx="0.975" sy="0.025" sz="0.175"/>
@@ -1841,7 +1874,7 @@
         </node>
         <node id="shelf_wood_support3">
             <material id="wood"/>
-            <texture id="pine-wood"/>
+            <texture id="pine-wood"><amplification afs="1" aft="1"/></texture>
             <transformations>
                 <translation x="0" y="0.4875" z="0"/>
                 <scale sx="0.975" sy="0.025" sz="0.175"/>
@@ -1853,7 +1886,7 @@
 
         <node id="shelf_metal_support1">
             <material id="null"/>
-            <texture id="null"/>
+            <texture id="null"><amplification afs="1" aft="1"/></texture>
             <transformations><translation x="0" y="0.4875" z="0"/></transformations>
             <descendants>
                 <noderef id="shelf_metal_support_p1"/>
@@ -1865,7 +1898,7 @@
 
         <node id="shelf_metal_support2">
             <material id="metal"/>
-            <texture id="black_painted_metal"/>
+            <texture id="black_painted_metal"><amplification afs="1" aft="1"/></texture>
             <transformations><translation x="0" y="0.25" z="0"/></transformations>
             <descendants>
                 <noderef id="shelf_metal_support_p1"/>
@@ -1877,7 +1910,7 @@
 
         <node id="shelf_metal_support3">
             <material id="metal"/>
-            <texture id="black_painted_metal"/>
+            <texture id="black_painted_metal"><amplification afs="1" aft="1"/></texture>
             <transformations><translation x="0" y="0.0" z="0"/></transformations>
             <descendants>
                 <noderef id="shelf_metal_support_p1"/>
@@ -1889,7 +1922,7 @@
 
         <node id="shelf_metal_support_p1">
             <material id="null"/>
-            <texture id="null"/>
+            <texture id="null"><amplification afs="1" aft="1"/></texture>
             <transformations>
                 <translation x="0" y="0.0" z="+0.095"/>
                 <scale sx="0.975" sy="0.025" sz="0.015"/>
@@ -1900,7 +1933,7 @@
         </node>
         <node id="shelf_metal_support_p2">
             <material id="null"/>
-            <texture id="null"/>
+            <texture id="null"><amplification afs="1" aft="1"/></texture>
             <transformations>
                 <translation x="0" y="0.0" z="-0.095"/>
                 <scale sx="0.975" sy="0.025" sz="0.015"/>
@@ -1911,7 +1944,7 @@
         </node>
         <node id="shelf_metal_support_p3">
             <material id="null"/>
-            <texture id="null"/>
+            <texture id="null"><amplification afs="1" aft="1"/></texture>
             <transformations>
                 <translation x="-0.5" y="0.0" z="0"/>
                 <scale sx="0.025" sy="0.025" sz="0.175"/>
@@ -1922,7 +1955,7 @@
         </node>
         <node id="shelf_metal_support_p4">
             <material id="null"/>
-            <texture id="null"/>
+            <texture id="null"><amplification afs="1" aft="1"/></texture>
             <transformations>
                 <translation x="+0.5" y="0.0" z="0"/>
                 <scale sx="0.025" sy="0.025" sz="0.175"/>
@@ -1933,7 +1966,7 @@
         </node>
 
         <node id="tv-in-room">
-            <material id="null"/><texture id="null"/>
+            <material id="null"/><texture id="null"><amplification afs="1" aft="1"/></texture>
             <transformations>
                 <translation x="-1.1" y="1.7" z="-1.3"/>
                 <rotation axis="y" angle="30"/>
@@ -1942,7 +1975,7 @@
             <descendants><noderef id="tv"/></descendants>
         </node>
         <node id="tv">
-            <material id="null"/><texture id="null"/>
+            <material id="null"/><texture id="null"><amplification afs="1" aft="1"/></texture>
             <transformations><translation x="0" y="0" z="0.08"/></transformations>
             <descendants>
                 <noderef id="tv-screen"/>
@@ -2028,12 +2061,12 @@
             <descendants><leaf type="rectangle" x1="-0.37" x2="+0.37" y1="-0.03" y2="0"/></descendants>
         </node>
         <node id="tv-border-box-in-tv">
-            <material id="null"/><texture id="null"/>
+            <material id="null"/><texture id="null"><amplification afs="1" aft="1"/></texture>
             <transformations><translation x="0" y="0" z="-0.03"/></transformations>
             <descendants><noderef id="tv-border-box"/></descendants>
         </node>
         <node id="tv-border-box">
-            <material id="null"/><texture id="null"/>
+            <material id="null"/><texture id="null"><amplification afs="1" aft="1"/></texture>
             <descendants>
                 <noderef id="tv-border-box-bac"/>
                 <noderef id="tv-border-box-top"/>
@@ -2048,14 +2081,14 @@
             <descendants><leaf type="rectangle" x1="-0.20" x2="+0.20" y1="-0.12" y2="+0.12"/></descendants>
         </node>
         <node id="tv-border-box-topbot">
-            <material id="null"/><texture id="null"/>
+            <material id="null"/><texture id="null"><amplification afs="1" aft="1"/></texture>
             <descendants>
                 <leaf type="triangle" x1="+0.20" y1="0" x2="-0.20" y2="0" x3="-0.2289" y3="-0.0577"/>
                 <leaf type="triangle" x1="-0.2289" y1="-0.0577" x2="+0.2289" y2="-0.0577" x3="+0.20" y3="0"/>
             </descendants>
         </node>
         <node id="tv-border-box-top">
-            <material id="null"/><texture id="null"/>
+            <material id="null"/><texture id="null"><amplification afs="1" aft="1"/></texture>
             <transformations>
                 <translation x="0" y="+0.12" z="-0.05"/>
                 <rotation axis="x" angle="-120"/>
@@ -2063,7 +2096,7 @@
             <descendants><noderef id="tv-border-box-topbot"/></descendants>
         </node>
         <node id="tv-border-box-bot">
-            <material id="null"/><texture id="null"/>
+            <material id="null"/><texture id="null"><amplification afs="1" aft="1"/></texture>
             <transformations>
                 <translation x="0" y="-0.12" z="-0.05"/>
                 <rotation axis="x" angle="120"/>
@@ -2072,7 +2105,7 @@
             <descendants><noderef id="tv-border-box-topbot"/></descendants>
         </node>
         <node id="tv-border-box-lefrig">
-            <material id="null"/><texture id="null"/>
+            <material id="null"/><texture id="null"><amplification afs="1" aft="1"/></texture>
             <transformations><rotation axis="z" angle="90"/></transformations>
             <descendants>
                 <leaf type="triangle" x1="+0.12" y1="0" x2="-0.12" y2="0" x3="-0.1489" y3="-0.0577"/>
@@ -2080,7 +2113,7 @@
             </descendants>
         </node>
         <node id="tv-border-box-lef">
-            <material id="null"/><texture id="null"/>
+            <material id="null"/><texture id="null"><amplification afs="1" aft="1"/></texture>
             <transformations>
                 <translation x="-0.20" y="0" z="-0.05"/>
                 <rotation axis="y" angle="-120"/>
@@ -2088,7 +2121,7 @@
             <descendants><noderef id="tv-border-box-lefrig"/></descendants>
         </node>
         <node id="tv-border-box-rig">
-            <material id="null"/><texture id="null"/>
+            <material id="null"/><texture id="null"><amplification afs="1" aft="1"/></texture>
             <transformations>
                 <translation x="+0.20" y="0" z="-0.05"/>
                 <rotation axis="y" angle="120"/>
@@ -2098,7 +2131,7 @@
         </node>
 
         <node id="tetrahedron">
-            <material id="wood"/><texture id="marble"/>
+            <material id="wood"/><texture id="marble"><amplification afs="1" aft="1"/></texture>
             <transformations>
                 <translation x="+0.65" y="0.5" z="-1.43"/>
                 <scale sx="0.1" sy="0.1" sz="0.1"/>
@@ -2112,7 +2145,7 @@
         </node>
 
         <node id="base">
-            <material id="null"/><texture id="null"/>
+            <material id="null"/><texture id="null"><amplification afs="1" aft="1"/></texture>
             <transformations>
                 <rotation axis="z" angle="180"/>
                 <rotation axis="x" angle="90"/>
@@ -2123,7 +2156,7 @@
         </node>
 
         <node id="tetrahedron_face1">
-            <material id="null"/><texture id="null"/>
+            <material id="null"/><texture id="null"><amplification afs="1" aft="1"/></texture>
             <transformations>
                 <translation x="+0.247" y="0.0" z="0.43"/>
                 <rotation axis="y" angle="-120"/>
@@ -2136,7 +2169,7 @@
         </node>
 
         <node id="tetrahedron_face2">
-            <material id="null"/><texture id="null"/>
+            <material id="null"/><texture id="null"><amplification afs="1" aft="1"/></texture>
             <transformations>
                 <rotation axis="x" angle="19.25"/>
             </transformations>
@@ -2146,7 +2179,7 @@
         </node>
 
         <node id="tetrahedron_face3">
-            <material id="null"/><texture id="null"/>
+            <material id="null"/><texture id="null"><amplification afs="1" aft="1"/></texture>
             <transformations>
                 <translation x="-0.247" y="0.0" z="0.43"/>
                 <rotation axis="y" angle="120"/>
@@ -2158,7 +2191,7 @@
         </node>
 
         <node id="skysphere">
-            <material id="landscape"/><texture id="skysphere-empirestate"/>
+            <material id="landscape"/><texture id="skysphere-empirestate"><amplification afs="1" aft="1"/></texture>
             <transformations>
                 <rotation axis="y" angle="180"/>
                 <rotation axis="y" angle="+10"/> <!-- Adjustments -->
