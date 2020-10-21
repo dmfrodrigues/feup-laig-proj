@@ -6,7 +6,7 @@
  * @param slices - Number of slices around z axis
  * @param stacks - Number of stacks around z axis, from the middle of the sphere, to one of its poles
  */
-class MySphere extends ObjectAmp {
+class MySphere extends CGFobject {
 	constructor(scene, radius, slices, stacks) {
 		super(scene);
 		this.radius = radius;
@@ -19,7 +19,7 @@ class MySphere extends ObjectAmp {
 	initBuffers() {
 		// Vertices and texCoordsOriginal
 		this.vertices  = [];
-		this.texCoordsOriginal = [];
+		this.texCoords = [];
 
 		for(let i = 0; i <= 2*this.stacks; ++i){
 			let theta = 0.5*Math.PI - 0.5*Math.PI*i/this.stacks; //elevation
@@ -33,12 +33,10 @@ class MySphere extends ObjectAmp {
 				this.vertices.push(x, y, z);
 
 				let s = j/this.slices;
-				this.texCoordsOriginal.push(s, t);
+				this.texCoords.push(s, t);
 			}
 		}
 		for(let i = 0; i < this.vertices.length; ++i) this.vertices[i] *= this.radius;
-
-        this.updateTexCoords(this.texCoordsOriginal);
 
 		// Indices
 		this.indices   = [];

@@ -669,7 +669,7 @@ class MySceneGraph {
                         default:
                             return `no such leaf type "${descendant.attributes.type}"`;
                     }
-                    leaf.setAmplification(afs, aft);
+                    if(afs != 1 || aft != 1) leaf.setAmplification(afs, aft);
                     node.addChild(leaf);
                 } else return `no such descendant type "${descendant.nodeName}"`;
             }
