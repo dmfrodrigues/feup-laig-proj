@@ -2016,7 +2016,7 @@
             </descendants>
         </node>
         <node id="tv-border-front">
-            <material id="null"/><texture id="null"/>
+            <material id="null"/><texture id="null"><amplification afs="1" aft="1"/></texture>
             <descendants>
                 <leaf type="rectangle" x1="-0.37" x2="+0.37" y1="0.20" y2="0.22"/>
                 <leaf type="rectangle" x1="-0.37" x2="+0.37" y1="-0.24" y2="-0.20"/>
@@ -2029,48 +2029,48 @@
             </descendants>
         </node>
         <node id="tv-border-front-top">
-            <material id="null"/><texture id="null"/>
+            <material id="null"/><texture id="null"><amplification afs="1" aft="1"/></texture>
             <transformations><translation x="0" y="+0.20" z="0"/><rotation axis="x" angle="90"/></transformations>
             <descendants><leaf type="rectangle" x1="-0.35" x2="+0.35" y1="-0.005" y2="0"/></descendants>
         </node>
         <node id="tv-border-front-bot">
-            <material id="null"/><texture id="null"/>
+            <material id="null"/><texture id="null"><amplification afs="1" aft="1"/></texture>
             <transformations><translation x="0" y="-0.20" z="0"/><rotation axis="x" angle="-90"/></transformations>
             <descendants><leaf type="rectangle" x1="-0.35" x2="+0.35" y1="0" y2="+0.005"/></descendants>
         </node>
         <node id="tv-border-front-lef">
-            <material id="null"/><texture id="null"/>
+            <material id="null"/><texture id="null"><amplification afs="1" aft="1"/></texture>
             <transformations><translation x="-0.35" y="0" z="0"/><rotation axis="y" angle="90"/></transformations>
             <descendants><leaf type="rectangle" x1="0" x2="0.005" y1="-0.20" y2="+0.20"/></descendants>
         </node>
         <node id="tv-border-front-rig">
-            <material id="null"/><texture id="null"/>
+            <material id="null"/><texture id="null"><amplification afs="1" aft="1"/></texture>
             <transformations><translation x="+0.35" y="0" z="0"/><rotation axis="y" angle="-90"/></transformations>
             <descendants><leaf type="rectangle" x1="-0.005" x2="0" y1="-0.20" y2="+0.20"/></descendants>
         </node>
 
         <node id="tv-border-bac">
-            <material id="null"/><texture id="null"/>
+            <material id="null"/><texture id="null"><amplification afs="1" aft="1"/></texture>
             <transformations><translation x="0" y="0" z="-0.03"/><rotation axis="y" angle="180"/></transformations>
             <descendants><leaf type="rectangle" x1="-0.37" x2="+0.37" y1="-0.24" y2="+0.22"/></descendants>
         </node>
         <node id="tv-border-lef">
-            <material id="null"/><texture id="null"/>
+            <material id="null"/><texture id="null"><amplification afs="1" aft="1"/></texture>
             <transformations><translation x="-0.37" y="0" z="0"/><rotation axis="y" angle="-90"/></transformations>
             <descendants><leaf type="rectangle" x1="-0.03" x2="0" y1="-0.24" y2="+0.22"/></descendants>
         </node>
         <node id="tv-border-rig">
-            <material id="null"/><texture id="null"/>
+            <material id="null"/><texture id="null"><amplification afs="1" aft="1"/></texture>
             <transformations><translation x="+0.37" y="0" z="0"/><rotation axis="y" angle="+90"/></transformations>
             <descendants><leaf type="rectangle" x1="0" x2="+0.03" y1="-0.24" y2="+0.22"/></descendants>
         </node>
         <node id="tv-border-top">
-            <material id="null"/><texture id="null"/>
+            <material id="null"/><texture id="null"><amplification afs="1" aft="1"/></texture>
             <transformations><translation x="0" y="0.22" z="0"/><rotation axis="x" angle="-90"/></transformations>
             <descendants><leaf type="rectangle" x1="-0.37" x2="+0.37" y1="0" y2="0.03"/></descendants>
         </node>
         <node id="tv-border-bot">
-            <material id="null"/><texture id="null"/>
+            <material id="null"/><texture id="null"><amplification afs="1" aft="1"/></texture>
             <transformations><translation x="0" y="-0.24" z="0"/><rotation axis="x" angle="+90"/></transformations>
             <descendants><leaf type="rectangle" x1="-0.37" x2="+0.37" y1="-0.03" y2="0"/></descendants>
         </node>
@@ -2090,7 +2090,7 @@
             </descendants>
         </node>
         <node id="tv-border-box-bac">
-            <material id="null"/><texture id="null"/>
+            <material id="null"/><texture id="null"><amplification afs="1" aft="1"/></texture>
             <transformations><translation x="0" y="0" z="-0.05"/><rotation axis="y" angle="180"/></transformations>
             <descendants><leaf type="rectangle" x1="-0.20" x2="+0.20" y1="-0.12" y2="+0.12"/></descendants>
         </node>
