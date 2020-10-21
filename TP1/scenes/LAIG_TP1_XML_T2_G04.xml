@@ -1198,7 +1198,7 @@
             <descendants><noderef id="beam_side"/></descendants>
         </node>
         <node id="beam_side">
-            <material id="null"/><texture id="null"/>
+            <material id="null"/><texture id="null"><amplification afs="2" aft="2"/></texture>
             <transformations><rotation axis="z" angle="90"/></transformations>
             <descendants>
                 <leaf type="rectangle" x1="0" x2 = "0.30" y1="-0.03" y2="0.03"/>
@@ -1215,7 +1215,7 @@
             <descendants><noderef id="beam_base"/></descendants>
         </node>
         <node id="beam_base">
-            <material id="null"/><texture id="null"/>
+            <material id="null"/><texture id="null"><amplification afs="2" aft="2"/></texture>
             <descendants><leaf type="rectangle" x1="-0.03" x2="0.03" y1="-0.03" y2="0.03"/></descendants>
         </node>
 
