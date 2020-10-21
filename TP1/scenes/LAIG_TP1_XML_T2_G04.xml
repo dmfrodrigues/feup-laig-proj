@@ -1467,37 +1467,37 @@
         </node>
         <node id="bed_mattress_top">
             <material id="null"/>
-            <texture id="null"><amplification afs="3" aft="9"/></texture>
+            <texture id="null"><amplification afs="0.28" aft="0.21"/></texture>
             <transformations><translation x="0" y="0.20" z="0"/><rotation axis="x" angle="-90"/></transformations>
             <descendants><leaf type="rectangle" x1="-0.42" x2="+0.42" y1="-0.97" y2="+0.97"/></descendants>
         </node>
         <node id="bed_mattress_bot">
             <material id="null"/>
-            <texture id="null"><amplification afs="3" aft="9"/></texture>
+            <texture id="null"><amplification afs="0.28" aft="0.21"/></texture>
             <transformations><rotation axis="x" angle="-90"/><rotation axis="y" angle="180"/></transformations>
             <descendants><leaf type="rectangle" x1="-0.42" x2="+0.42" y1="-0.97" y2="+0.97"/></descendants>
         </node>
         <node id="bed_mattress_fro">
             <material id="null"/>
-            <texture id="null"><amplification afs="3" aft="1"/></texture>
+            <texture id="null"><amplification afs="0.28" aft="0.21"/></texture>
             <transformations><translation x="0" y="0" z="0.97"/></transformations>
             <descendants><leaf type="rectangle" x1="-0.42" x2="+0.42" y1="0" y2="0.20"/></descendants>
         </node>
         <node id="bed_mattress_bac">
             <material id="null"/>
-            <texture id="null"><amplification afs="3" aft="1"/></texture>
+            <texture id="null"><amplification afs="0.28" aft="0.21"/></texture>
             <transformations><translation x="0" y="0" z="-0.97"/><rotation axis="x" angle="180"/></transformations>
             <descendants><leaf type="rectangle" x1="-0.42" x2="+0.42" y1="-0.20" y2="0"/></descendants>
         </node>
         <node id="bed_mattress_lef">
             <material id="null"/>
-            <texture id="null"><amplification afs="1" aft="9"/></texture>
+            <texture id="null"><amplification afs="0.28" aft="0.21"/></texture>
             <transformations><translation x="-0.42" y="0" z="0"/><rotation axis="z" angle="90"/><rotation axis="x" angle="-90"/></transformations>
             <descendants><leaf type="rectangle" x1="0" x2="0.20" y1="-0.97" y2="+0.97"/></descendants>
         </node>
         <node id="bed_mattress_rig">
             <material id="null"/>
-            <texture id="null"><amplification afs="1" aft="9"/></texture>
+            <texture id="null"><amplification afs="0.28" aft="0.21"/></texture>
             <transformations><translation x="+0.42" y="0" z="0"/><rotation axis="z" angle="-90"/><rotation axis="x" angle="-90"/></transformations>
             <descendants><leaf type="rectangle" x1="-0.20" x2="0" y1="-0.97" y2="+0.97"/></descendants>
         </node>
