@@ -377,6 +377,7 @@
         <node id="chair_leg_top">
             <material id="null"/>
             <texture id="null">
+                <amplification afs="1" aft="1"/>
             </texture>
             <transformations>
                 <translation x="+0.0" y="+0.5" z="+0.0"/>
@@ -389,6 +390,7 @@
         <node id="chair_leg_bot">
             <material id="null"/>
             <texture id="null">
+                <amplification afs="1" aft="1"/>
             </texture>
             <transformations>
                 <translation x="+0.0" y="-0.5" z="+0.0"/>
@@ -401,6 +403,7 @@
         <node id="chair_leg_fro">
             <material id="null"/>
             <texture id="null">
+                <amplification afs="1" aft="1"/>
             </texture>
             <transformations>
                 <translation x="+0.0" y="+0.0" z="+0.5"/>
@@ -412,6 +415,7 @@
         <node id="chair_leg_bac">
             <material id="null"/>
             <texture id="null">
+                <amplification afs="1" aft="1"/>
             </texture>
             <transformations>
                 <translation x="+0.0" y="+0.0" z="-0.5"/>
@@ -424,6 +428,7 @@
         <node id="chair_leg_rig">
             <material id="null"/>
             <texture id="null">
+                <amplification afs="1" aft="1"/>
             </texture>
             <transformations>
                 <translation x="+0.5" y="+0.0" z="+0.0"/>
@@ -436,6 +441,7 @@
         <node id="chair_leg_lef">
             <material id="null"/>
             <texture id="null">
+                <amplification afs="1" aft="1"/>
             </texture>
             <transformations>
                 <translation x="-0.5" y="+0.0" z="+0.0"/>
