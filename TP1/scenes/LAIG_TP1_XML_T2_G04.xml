@@ -969,27 +969,27 @@
             <descendants><leaf type="rectangle" x1="-1.5" y1="-1.5" x2="1.5" y2="1.5"/></descendants>
         </node>
         <node id="ceil">
-            <material id="null"/><texture id="ceil"><amplification afs="3" aft="3"/></texture>
+            <material id="null"/><texture id="ceil"><amplification afs="1" aft="1"/></texture>
             <transformations><translation x="0" y="2.5" z="0"/><rotation axis="x" angle="90"/></transformations>
             <descendants><leaf type="rectangle" x1="-1.5" y1="-1.5" x2="1.5" y2="1.5"/></descendants>
         </node>
         <node id="wall_x_pos">
-            <material id="null"/><texture id="null"><amplification afs="3" aft="2.5"/></texture>
+            <material id="null"/><texture id="null"><amplification afs="1" aft="1"/></texture>
             <transformations><translation x="1.5" y="1.5" z="0"/><rotation axis="y" angle="-90" /></transformations>
             <descendants><leaf type="rectangle" x1="-1.5" y1="-1.5" x2="1.5" y2="1.0"/></descendants>
         </node>
         <node id="wall_x_neg">
-            <material id="null"/><texture id="null"><amplification afs="3" aft="2.5"/></texture>
+            <material id="null"/><texture id="null"><amplification afs="1" aft="1"/></texture>
             <transformations><translation x="-1.5" y="1.5" z="0"/><rotation axis="y" angle="90" /></transformations>
             <descendants><leaf type="rectangle" x1="-1.5" y1="-1.5" x2="1.5" y2="1.0"/></descendants>
         </node>
         <node id="wall_z_neg">
-            <material id="null"/><texture id="null"><amplification afs="3" aft="2.5"/></texture>
+            <material id="null"/><texture id="null"><amplification afs="1" aft="1"/></texture>
             <transformations><translation x="0" y="1.5" z="-1.5"/><rotation axis="x" angle="0" /></transformations>
             <descendants><leaf type="rectangle" x1="-1.5" y1="-1.5" x2="1.5" y2="1.0"/></descendants>
         </node>
         <node id="wall_z_pos">
-            <material id="null"/><texture id="null"><amplification afs="3" aft="2.5"/></texture>
+            <material id="null"/><texture id="null"><amplification afs="1" aft="1"/></texture>
             <transformations><translation x="0" y="0" z="1.5"/><rotation axis="y" angle="180" /></transformations>
             <descendants>
                 <leaf type="rectangle" x1="-1.50" y1="1.75" x2="-0.75" y2="2.5"/>
