@@ -2165,7 +2165,7 @@
         <node id="tetrahedron">
             <material id="wood"/><texture id="marble"><amplification afs="1" aft="1"/></texture>
             <transformations>
-                <translation x="+0.65" y="0.5" z="-1.43"/>
+                <translation x="+0.65" y="0.505" z="-1.43"/>
                 <scale sx="0.1" sy="0.1" sz="0.1"/>
             </transformations>
             <descendants>
