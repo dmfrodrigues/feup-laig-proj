@@ -598,7 +598,7 @@ class MySceneGraph {
             }
             if(typeof tex == "undefined") return `no such texture "${texture.id}"`;
             node.setTexture (tex);
-            let afs = 1, aft = 1;
+            let afs = undefined, aft = undefined;
             for(let i = 0; i < texture.children.length; ++i){
                 let child = texture.children[i];
                 switch(child.nodeName){
@@ -608,6 +608,12 @@ class MySceneGraph {
                         break;
                     default: return `block with tag "${child.nodeName}" not allowed inside <texture> block`;
                 }
+            }
+            if(typeof afs === "undefined" || typeof aft === "undefined"){
+                if(texture.id != "clear") console.warn(`node "${nodeID}": Undefined amplification, using defaults`);
+                afs = 1; aft = 1;
+            } else {
+                if(texture.id == "clear") console.warn(`node "${nodeID}": Texture "clear" does not require amplification`);
             }
             // Descendants
             let descendants = grandChildren[descendantsIndex].children;
@@ -625,7 +631,9 @@ class MySceneGraph {
                                 parseFloat(descendant.attributes.x1.value),
                                 parseFloat(descendant.attributes.y1.value),
                                 parseFloat(descendant.attributes.x2.value),
-                                parseFloat(descendant.attributes.y2.value)
+                                parseFloat(descendant.attributes.y2.value),
+                                afs,
+                                aft
                             );
                             break;
                         case "triangle":
@@ -636,7 +644,9 @@ class MySceneGraph {
                                 parseFloat(descendant.attributes.x2.value),
                                 parseFloat(descendant.attributes.y2.value),
                                 parseFloat(descendant.attributes.x3.value),
-                                parseFloat(descendant.attributes.y3.value)
+                                parseFloat(descendant.attributes.y3.value),
+                                afs,
+                                aft
                             );
                             break;
                         case "cylinder":
@@ -669,7 +679,6 @@ class MySceneGraph {
                         default:
                             return `no such leaf type "${descendant.attributes.type}"`;
                     }
-                    leaf.setAmplification(afs, aft);
                     node.addChild(leaf);
                 } else return `no such descendant type "${descendant.nodeName}"`;
             }

@@ -9,15 +9,17 @@
  * @param x3 - x coordinate 3
  * @param y3 - y coordinate 3
  */
-class MyTriangle extends ObjectAmp {
-	constructor(scene, x1, y1, x2, y2, x3, y3) {
+class MyTriangle extends CGFobject {
+	constructor(scene, x1, y1, x2, y2, x3, y3, afs, aft) {
 		super(scene);
 		this.x1 = x1;
         this.x2 = x2;
         this.x3 = x3;
 		this.y1 = y1;
         this.y2 = y2;
-        this.y3 = y3;
+		this.y3 = y3;
+		this.afs = afs;
+		this.aft = aft;
 
 		this.initBuffers();
 	}
@@ -51,13 +53,12 @@ class MyTriangle extends ObjectAmp {
 		let cos_alpha = (a*a - b*b +c*c)/(2*a*c);
 		let sin_alpha = Math.sqrt(1-cos_alpha*cos_alpha);
 
-		this.texCoordsOriginal = [
+		this.texCoords = [
 			0, 0,
 			a/this.afs, 0,
 			c*cos_alpha/this.afs, c*sin_alpha/this.aft
 		]
 
-		this.updateTexCoords(this.texCoordsOriginal);
 		this.primitiveType = this.scene.gl.TRIANGLES;
 		this.initGLBuffers();
 	}
