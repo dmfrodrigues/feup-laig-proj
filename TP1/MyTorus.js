@@ -7,7 +7,7 @@
  * @param slices 		- Number of slices around inner radius
  * @param loops 		- Number of loops around the circular axis
  */
-class MyTorus extends ObjectAmp {
+class MyTorus extends CGFobject {
 	constructor(scene, innerRadius, outerRadius, slices, loops) {
 		super(scene);
 		this.innerRadius = innerRadius;
@@ -22,9 +22,9 @@ class MyTorus extends ObjectAmp {
 		let r = this.innerRadius;
 		let R = this.outerRadius;
 
-		// Vertices, texCoordsOriginal and normals
+		// Vertices, texCoords and normals
 		this.vertices  = [];
-		this.texCoordsOriginal = [];
+		this.texCoords = [];
 		this.normals   = [];
 
 		for(let i = 0; i <= this.loops; ++i){
@@ -41,7 +41,7 @@ class MyTorus extends ObjectAmp {
 				this.vertices.push(x, y, z);
 
 				let t = j/this.slices;
-				this.texCoordsOriginal.push(s, t);
+				this.texCoords.push(s, t);
 
 				let Nx = -Math.cos(phi)*( r*Math.cos(phi)*Math.cos(theta) + R*Math.cos(theta));
 				let Ny =  Math.cos(phi)*(-r*Math.cos(phi)*Math.sin(theta) - R*Math.sin(theta));
@@ -52,8 +52,6 @@ class MyTorus extends ObjectAmp {
 				this.normals.push(-Nx/Nr, -Ny/Nr, -Nz/Nr);
 			}
 		}
-
-        this.updateTexCoords(this.texCoordsOriginal);
 
 		// Indices
 		this.indices = [];

@@ -8,7 +8,7 @@
  * @param slices - Number of slices in z axis
  * @param stacks - Number of stacks in height
  */
-class MyCylinder extends ObjectAmp {
+class MyCylinder extends CGFobject {
     constructor(scene, bottomRadius, topRadius, height, slices, stacks) {
         super(scene);
         this.bottomRadius = bottomRadius;
@@ -24,7 +24,7 @@ class MyCylinder extends ObjectAmp {
         this.vertices = [];
         this.indices = [];
         this.normals = [];
-        this.texCoordsOriginal = [];
+        this.texCoords = [];
 
         for (let stack = 0; stack <= this.stacks; stack++) {
 
@@ -43,7 +43,7 @@ class MyCylinder extends ObjectAmp {
                 let R = Math.sqrt(Nx*Nx + Ny*Ny + Nz*Nz);
                 this.normals.push(Nx/R, Ny/R, Nz/R);
                 
-                this.texCoordsOriginal.push(
+                this.texCoords.push(
                     slice / this.slices,
                     1.0 - 0.5*stack / this.stacks
                 );
@@ -66,7 +66,7 @@ class MyCylinder extends ObjectAmp {
         
         this.vertices.push(0, 0, this.height);
         this.normals.push(0, 0, 1);
-        this.texCoordsOriginal.push(0.5/Math.PI, 0.25);
+        this.texCoords.push(0.5/Math.PI, 0.25);
 
         let top_center_index = this.vertices.length/3 - 1;
         for(let slice = 0; slice <= this.slices; slice++){
@@ -77,7 +77,7 @@ class MyCylinder extends ObjectAmp {
                 this.height
             );
             this.normals.push(0, 0, 1);
-            this.texCoordsOriginal.push(
+            this.texCoords.push(
                 0.5/Math.PI + (0.5/Math.PI) * Math.cos(theta),
                 0.25-0.25*Math.sin(theta)
             );
@@ -94,7 +94,7 @@ class MyCylinder extends ObjectAmp {
         // bottom cover
         this.vertices.push(0, 0, 0);
         this.normals.push(0, 0, -1);
-        this.texCoordsOriginal.push(1.5/Math.PI, 0.25);
+        this.texCoords.push(1.5/Math.PI, 0.25);
 
         let bottom_center_index = this.vertices.length/3 - 1;
         for(let slice = 0; slice <= this.slices; slice++){
@@ -105,7 +105,7 @@ class MyCylinder extends ObjectAmp {
                 0
             );
             this.normals.push(0, 0, -1);
-            this.texCoordsOriginal.push(
+            this.texCoords.push(
                 1.5/Math.PI + (0.5/Math.PI) * Math.cos(-theta),
                 0.25-0.25*Math.sin(-theta)
             );
@@ -117,9 +117,7 @@ class MyCylinder extends ObjectAmp {
                 bottom_center_index + 2 + slice,
                 bottom_center_index + 1 + slice
             );
-        }
-
-        this.updateTexCoords(this.texCoordsOriginal);        
+        }    
 
         this.primitiveType = this.scene.gl.TRIANGLES;
         this.initGLBuffers();

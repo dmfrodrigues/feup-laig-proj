@@ -17,7 +17,6 @@ serialInclude(
         'XMLscene.js',
         'MySceneGraph.js',
         'MyInterface.js',
-        'ObjectAmp.js',
         'MyTriangle.js',
         'MyRectangle.js',
         'MyCylinder.js',
