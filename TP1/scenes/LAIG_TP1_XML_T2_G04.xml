@@ -366,6 +366,15 @@
                 <scale       sx="0.05" sy="0.30" sz="0.05"/>
             </transformations>
             <descendants>
+                <noderef id="cube"/>
+            </descendants>
+        </node>
+        <node id="cube">
+            <material id="null"/>
+            <texture id="null">
+                <amplification afs="1" aft="1"/>
+            </texture>
+            <descendants>
                 <noderef id="cube_top"/>
                 <noderef id="cube_bot"/>
                 <noderef id="cube_lef"/>
