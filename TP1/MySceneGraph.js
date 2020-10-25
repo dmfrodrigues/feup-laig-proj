@@ -232,8 +232,9 @@ class MySceneGraph {
         var axis_length = this.parseFloat(refNode, 'length', "<initials>");
         if (typeof axis_length === "string"){
             this.onXMLMinorError("no axis_length defined for scene; assuming 'length = 1'");
-            this.referenceLength = 1;
+            axis_length = 1;
         }
+        this.referenceLength = axis_length;
 
         this.log("Parsed initials");
 
