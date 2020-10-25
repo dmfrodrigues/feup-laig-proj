@@ -653,60 +653,15 @@ class MySceneGraph {
                 } else if(descendant.nodeName == 'leaf'){
                     let leaf = {};
                     switch(descendant.attributes.type.value){
-                        case "rectangle":
-                            leaf = new MyRectangle(
-                                this.scene,
-                                parseFloat(descendant.attributes.x1.value),
-                                parseFloat(descendant.attributes.y1.value),
-                                parseFloat(descendant.attributes.x2.value),
-                                parseFloat(descendant.attributes.y2.value),
-                                afs,
-                                aft
-                            );
-                            break;
-                        case "triangle":
-                            leaf = new MyTriangle(
-                                this.scene,
-                                parseFloat(descendant.attributes.x1.value),
-                                parseFloat(descendant.attributes.y1.value),
-                                parseFloat(descendant.attributes.x2.value),
-                                parseFloat(descendant.attributes.y2.value),
-                                parseFloat(descendant.attributes.x3.value),
-                                parseFloat(descendant.attributes.y3.value),
-                                afs,
-                                aft
-                            );
-                            break;
-                        case "cylinder":
-                            leaf = new MyCylinder(
-                                this.scene,
-                                parseFloat(descendant.attributes.bottomRadius.value),
-                                parseFloat(descendant.attributes.topRadius   .value),
-                                parseFloat(descendant.attributes.height      .value),
-                                parseFloat(descendant.attributes.slices      .value),
-                                parseFloat(descendant.attributes.stacks      .value)
-                            );
-                            break;
-                        case "sphere":
-                            leaf = new MySphere(
-                                this.scene,
-                                parseFloat(descendant.attributes.radius.value),
-                                parseInt(descendant.attributes.slices.value),
-                                parseInt(descendant.attributes.stacks.value)
-                            );
-                            break;
-                        case "torus":
-                            leaf = new MyTorus(
-                                this.scene,
-                                parseFloat(descendant.attributes.inner.value),
-                                parseFloat(descendant.attributes.outer.value),
-                                parseFloat(descendant.attributes.slices.value),
-                                parseFloat(descendant.attributes.loops.value)
-                            );
-                            break;
+                        case "rectangle": leaf = this.parseRectangle(descendant, afs, aft, descendant.id); break;
+                        case "triangle" : leaf = this.parseTriangle (descendant, afs, aft, descendant.id); break;
+                        case "cylinder" : leaf = this.parseCylinder (descendant,           descendant.id); break;
+                        case "sphere"   : leaf = this.parseSphere   (descendant,           descendant.id); break;
+                        case "torus"    : leaf = this.parseTorus    (descendant,           descendant.id); break;
                         default:
                             return `no such leaf type "${descendant.attributes.type}"`;
                     }
+                    if(typeof leaf === "string") return leaf;
                     node.addChild(leaf);
                 } else return `no such descendant type "${descendant.nodeName}"`;
             }
@@ -748,6 +703,19 @@ class MySceneGraph {
         }
         return boolVal;
     }
+
+    parseFloat(node, name, messageError){
+        let ret = this.reader.getFloat(node, name);
+        if(ret == null || isNaN(ret)) return `unable to parse ${name}: ${messageError}`;
+        return ret;
+    }
+
+    parseInt(node, name, messageError){
+        let ret = this.reader.getInteger(node, name);
+        if(ret == null || isNaN(ret)) return `unable to parse ${name}: ${messageError}`;
+        return ret;
+    }
+
     /**
      * Parse the coordinates from a node with ID = id
      * @param {block element} node
@@ -884,6 +852,48 @@ class MySceneGraph {
             vec3.fromValues(toAttr  .x.value, toAttr  .y.value, toAttr  .z.value),
             vec3.fromValues(upAttr  .x.value, upAttr  .y.value, upAttr  .z.value)
         );
+    }
+
+    parseRectangle(node, afs, aft, messageError){
+        let x1 = this.parseFloat(node, 'x1', messageError); if(typeof x1 === "string") return x1;
+        let y1 = this.parseFloat(node, 'y1', messageError); if(typeof y1 === "string") return y1;
+        let x2 = this.parseFloat(node, 'x2', messageError); if(typeof x2 === "string") return x2;
+        let y2 = this.parseFloat(node, 'y2', messageError); if(typeof y2 === "string") return y2;
+        return new MyRectangle(this.scene, x1, y1, x2, y2, afs, aft);
+    }
+
+    parseTriangle(node, afs, aft, messageError){
+        let x1 = this.parseFloat(node, 'x1', messageError); if(typeof x1 === "string") return x1;
+        let y1 = this.parseFloat(node, 'y1', messageError); if(typeof y1 === "string") return y1;
+        let x2 = this.parseFloat(node, 'x2', messageError); if(typeof x2 === "string") return x2;
+        let y2 = this.parseFloat(node, 'y2', messageError); if(typeof y2 === "string") return y2;
+        let x3 = this.parseFloat(node, 'x3', messageError); if(typeof x3 === "string") return x3;
+        let y3 = this.parseFloat(node, 'y3', messageError); if(typeof y3 === "string") return y3;
+        return new MyTriangle(this.scene, x1, y1, x2, y2, x3, y3, afs, aft);
+    }
+
+    parseCylinder(node, messageError){
+        let bottomRadius = this.parseFloat(node, 'bottomRadius', messageError); if(typeof bottomRadius === "string") return bottomRadius;
+        let topRadius    = this.parseFloat(node, 'topRadius'   , messageError); if(typeof topRadius    === "string") return topRadius   ;
+        let height       = this.parseFloat(node, 'height'      , messageError); if(typeof height       === "string") return height      ;
+        let slices       = this.parseFloat(node, 'slices'      , messageError); if(typeof slices       === "string") return slices      ;
+        let stacks       = this.parseFloat(node, 'stacks'      , messageError); if(typeof stacks       === "string") return stacks      ;
+        return new MyCylinder(this.scene, bottomRadius, topRadius, height, slices, stacks);
+    }
+
+    parseSphere(node, messageError){
+        let radius = this.parseFloat(node, 'radius', messageError); if(typeof radius === "string") return radius;
+        let slices = this.parseInt  (node, 'slices', messageError); if(typeof slices === "string") return slices;
+        let stacks = this.parseInt  (node, 'stacks', messageError); if(typeof stacks === "string") return stacks;
+        return new MySphere(this.scene, radius, slices, stacks);
+    }
+
+    parseTorus(node, messageError){
+        let inner  = this.parseFloat(node, 'inner' , messageError); if(typeof inner  === "string") return inner ;
+        let outer  = this.parseFloat(node, 'outer' , messageError); if(typeof outer  === "string") return outer ;
+        let slices = this.parseFloat(node, 'slices', messageError); if(typeof slices === "string") return slices;
+        let loops  = this.parseFloat(node, 'loops' , messageError); if(typeof loops  === "string") return loops ;
+        return new MyTorus(this.scene, inner, outer, slices, loops);
     }
 
     /**
