@@ -569,14 +569,9 @@ class MySceneGraph {
                     let trans = transformations[i];
                     switch(trans.nodeName){
                         case "translation":
-                            if(trans.attributes.x == null) return `translation of node "${nodeID}" is missing x`;
-                            if(trans.attributes.y == null) return `translation of node "${nodeID}" is missing y`;
-                            if(trans.attributes.z == null) return `translation of node "${nodeID}" is missing z`;
-                            let x = parseFloat(trans.attributes.x.value);
-                            let y = parseFloat(trans.attributes.y.value);
-                            let z = parseFloat(trans.attributes.z.value);
-                            if(x == NaN || y == NaN || z == NaN) return "translation has missing attributes";
-                            mat4.translate(M, M, vec3.fromValues(x, y, z));
+                            let T = this.parseCoordinates3D(trans);
+                            if(typeof T === "string") return T;
+                            mat4.translate(M, M, vec3.fromValues(...T));
                             break;
                         case "rotation":
                             if(trans.attributes.angle == null) return `rotation of node "${nodeID}" is missing angle`;
