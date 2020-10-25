@@ -426,9 +426,16 @@ class MySceneGraph {
             numLights++;
         }
 
-        if (numLights == 0)
-            return "at least one light must be defined";
-        else if (numLights > 8)
+        if (numLights == 0){
+            this.lights["default"] = [
+                true,
+                [0, 1, 0, 1],
+                [1, 1, 1, 1],
+                [1, 1, 1, 1],
+                [1, 1, 1, 1]
+            ];
+            this.onXMLMinorError("at least one light must be defined; using default light");
+        } else if (numLights > 8)
             this.onXMLMinorError("too many lights defined; WebGL imposes a limit of 8 lights");
 
         this.log("Parsed lights");
