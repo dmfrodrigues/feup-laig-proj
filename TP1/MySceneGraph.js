@@ -330,13 +330,21 @@ class MySceneGraph {
         var ambientIndex = nodeNames.indexOf("ambient");
         var backgroundIndex = nodeNames.indexOf("background");
 
-        var color = this.parseColor(children[ambientIndex], "ambient");
+        if(ambientIndex >= 0) var color = this.parseColor(children[ambientIndex], "ambient");
+        else{
+            var color = [1, 1, 1, 1];
+            this.onXMLMinorError(`no ambient color; using default ${color}`);
+        }
         if (!Array.isArray(color))
             return color;
         else
             this.ambient = color;
 
-        color = this.parseColor(children[backgroundIndex], "background");
+        if(backgroundIndex >= 0) color = this.parseColor(children[backgroundIndex], "background");
+        else{
+            color = [1, 1, 1, 1];
+            this.onXMLMinorError(`no background color; using default ${color}`);
+        }
         if (!Array.isArray(color))
             return color;
         else
