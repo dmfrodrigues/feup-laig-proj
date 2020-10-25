@@ -751,7 +751,12 @@ class MySceneGraph {
         this.log("Parsed nodes");
     }
 
-
+    /**
+     * Parses a boolean
+     * @param {XMLnode} node XML node
+     * @param {string} name Name
+     * @param {string} messageError String to print in case of error
+     */
     parseBoolean(node, name, messageError){
         var boolVal;
         boolVal = this.reader.getBoolean(node, name);
