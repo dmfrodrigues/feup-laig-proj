@@ -515,6 +515,53 @@ class MySceneGraph {
         return null;
     }
 
+    parseTransformations(transformations){
+        let M = mat4.create();
+            if(transformations != null){
+                transformations = transformations.children;
+                for(let i = 0; i < transformations.length; ++i){
+                    let trans = transformations[i];
+                    switch(trans.nodeName){
+                        case "translation":
+                            if(trans.attributes.x == null) return `translation of node "${nodeID}" is missing x`;
+                            if(trans.attributes.y == null) return `translation of node "${nodeID}" is missing y`;
+                            if(trans.attributes.z == null) return `translation of node "${nodeID}" is missing z`;
+                            let x = parseFloat(trans.attributes.x.value);
+                            let y = parseFloat(trans.attributes.y.value);
+                            let z = parseFloat(trans.attributes.z.value);
+                            if(x == NaN || y == NaN || z == NaN) return "translation has missing attributes";
+                            mat4.translate(M, M, vec3.fromValues(x, y, z));
+                            break;
+                        case "rotation":
+                            if(trans.attributes.angle == null) return `rotation of node "${nodeID}" is missing angle`;
+                            if(trans.attributes.axis  == null) return `rotation of node "${nodeID}" is missing axis`;
+                            let angle = parseFloat(trans.attributes.angle.value)*DEGREE_TO_RAD;
+                            if(angle == NaN) return "rotation has missing attributes"
+                            switch(trans.attributes.axis.value){
+                                case "x": mat4.rotateX(M, M, angle); break;
+                                case "y": mat4.rotateY(M, M, angle); break;
+                                case "z": mat4.rotateZ(M, M, angle); break;
+                                default: return `no such rotation axis "${trans.attributes.axis.value}"`;
+                            }
+                            break;
+                        case "scale":
+                            if(trans.attributes.sx == null) return `scaling of node "${nodeID}" is missing sx`;
+                            if(trans.attributes.sy == null) return `scaling of node "${nodeID}" is missing sy`;
+                            if(trans.attributes.sz == null) return `scaling of node "${nodeID}" is missing sz`;
+                            let sx = parseFloat(trans.attributes.sx.value);
+                            let sy = parseFloat(trans.attributes.sy.value);
+                            let sz = parseFloat(trans.attributes.sz.value);
+                            if(sx == NaN || sy == NaN || sz == NaN) return "scale has missing attributes";
+                            mat4.scale(M, M, vec3.fromValues(sx, sy, sz));
+                            break;
+                        default:
+                            return `no such transformation "${trans.nodeName}"`;
+                    }
+                }
+            }
+        return M;
+    }
+
     /**
      * Parses the <nodes> block.
      * @param {nodes block element} nodesNode
@@ -561,50 +608,8 @@ class MySceneGraph {
             let node = new Node(this.scene, nodeID);
             // Transformations
             let transformations = grandChildren[transformationsIndex];
-            let M = mat4.create();
-            if(transformations != null){
-                transformations = transformations.children;
-                for(let i = 0; i < transformations.length; ++i){
-                    let trans = transformations[i];
-                    switch(trans.nodeName){
-                        case "translation":
-                            if(trans.attributes.x == null) return `translation of node "${nodeID}" is missing x`;
-                            if(trans.attributes.y == null) return `translation of node "${nodeID}" is missing y`;
-                            if(trans.attributes.z == null) return `translation of node "${nodeID}" is missing z`;
-                            let x = parseFloat(trans.attributes.x.value);
-                            let y = parseFloat(trans.attributes.y.value);
-                            let z = parseFloat(trans.attributes.z.value);
-                            if(x == NaN || y == NaN || z == NaN) return "translation has missing attributes";
-                            mat4.translate(M, M, vec3.fromValues(x, y, z));
-                            break;
-                        case "rotation":
-                            if(trans.attributes.angle == null) return `rotation of node "${nodeID}" is missing angle`;
-                            if(trans.attributes.axis  == null) return `rotation of node "${nodeID}" is missing axis`;
-                            let angle = parseFloat(trans.attributes.angle.value)*DEGREE_TO_RAD;
-                            if(angle == NaN) return "rotation has missing attributes"
-                            switch(trans.attributes.axis.value){
-                                case "x": mat4.rotateX(M, M, angle); break;
-                                case "y": mat4.rotateY(M, M, angle); break;
-                                case "z": mat4.rotateZ(M, M, angle); break;
-                                default: return `no such rotation axis "${trans.attributes.axis.value}"`;
-                            }
-                            break;
-                        case "scale":
-                            if(trans.attributes.sx == null) return `scaling of node "${nodeID}" is missing sx`;
-                            if(trans.attributes.sy == null) return `scaling of node "${nodeID}" is missing sy`;
-                            if(trans.attributes.sz == null) return `scaling of node "${nodeID}" is missing sz`;
-                            let sx = parseFloat(trans.attributes.sx.value);
-                            let sy = parseFloat(trans.attributes.sy.value);
-                            let sz = parseFloat(trans.attributes.sz.value);
-                            if(sx == NaN || sy == NaN || sz == NaN) return "scale has missing attributes";
-                            mat4.scale(M, M, vec3.fromValues(sx, sy, sz));
-                            break;
-                        default:
-                            return `no such transformation "${trans.nodeName}"`;
-                    }
-                }
-            }
-            node.setTransformation(M);
+            // here
+            node.setTransformation(this.parseTransformations(transformations));
             // Material
             let material = grandChildren[materialIndex];
             if(material == null) return `<material> block is mandatory (node "${nodeID}")`;
