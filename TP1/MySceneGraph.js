@@ -520,38 +520,38 @@ class MySceneGraph {
      * @param {transformations array} transformations
      * @param {matrix} M
      */
-    parseTransformations(transformations, M){
-            if(transformations != null){
-                transformations = transformations.children;
-                for(let i = 0; i < transformations.length; ++i){
-                    let trans = transformations[i];
-                    switch(trans.nodeName){
-                        case "translation":
-                            let T = this.parseCoordinates3D(trans); if(typeof T === "string") return T;
-                            mat4.translate(M, M, vec3.fromValues(...T));
-                            break;
-                        case "rotation":
-                            let angle = this.parseFloat(trans, 'angle', `<transformations>, node ${nodeID}`); if(typeof angle === "string") return angle;
-                            angle *= DEGREE_TO_RAD;
-                            if(trans.attributes.axis  == null) return `rotation of node ${nodeID} is missing axis`;
-                            switch(trans.attributes.axis.value){
-                                case "x": mat4.rotateX(M, M, angle); break;
-                                case "y": mat4.rotateY(M, M, angle); break;
-                                case "z": mat4.rotateZ(M, M, angle); break;
-                                default: return `no such rotation axis "${trans.attributes.axis.value}"`;
-                            }
-                            break;
-                        case "scale":
-                            let sx = this.parseFloat(trans, 'sx', `<transformations>, node ${nodeID}`); if(typeof sx === "string") return sx;
-                            let sy = this.parseFloat(trans, 'sy', `<transformations>, node ${nodeID}`); if(typeof sy === "string") return sy;
-                            let sz = this.parseFloat(trans, 'sz', `<transformations>, node ${nodeID}`); if(typeof sz === "string") return sz;
-                            mat4.scale(M, M, vec3.fromValues(sx, sy, sz));
-                            break;
-                        default:
-                            return `no such transformation "${trans.nodeName}"`;
-                    }
+    parseTransformations(transformations, M, nodeID){
+        if(transformations != null){
+            transformations = transformations.children;
+            for(let i = 0; i < transformations.length; ++i){
+                let trans = transformations[i];
+                switch(trans.nodeName){
+                    case "translation":
+                        let T = this.parseCoordinates3D(trans); if(typeof T === "string") return T;
+                        mat4.translate(M, M, vec3.fromValues(...T));
+                        break;
+                    case "rotation":
+                        let angle = this.parseFloat(trans, 'angle', `<transformations>, node ${nodeID}`); if(typeof angle === "string") return angle;
+                        angle *= DEGREE_TO_RAD;
+                        if(trans.attributes.axis  == null) return `rotation of node ${nodeID} is missing axis`;
+                        switch(trans.attributes.axis.value){
+                            case "x": mat4.rotateX(M, M, angle); break;
+                            case "y": mat4.rotateY(M, M, angle); break;
+                            case "z": mat4.rotateZ(M, M, angle); break;
+                            default: return `no such rotation axis "${trans.attributes.axis.value}"`;
+                        }
+                        break;
+                    case "scale":
+                        let sx = this.parseFloat(trans, 'sx', `<transformations>, node ${nodeID}`); if(typeof sx === "string") return sx;
+                        let sy = this.parseFloat(trans, 'sy', `<transformations>, node ${nodeID}`); if(typeof sy === "string") return sy;
+                        let sz = this.parseFloat(trans, 'sz', `<transformations>, node ${nodeID}`); if(typeof sz === "string") return sz;
+                        mat4.scale(M, M, vec3.fromValues(sx, sy, sz));
+                        break;
+                    default:
+                        return `no such transformation "${trans.nodeName}"`;
                 }
             }
+        }
         return null;
     }
 
@@ -603,7 +603,7 @@ class MySceneGraph {
             let transformations = grandChildren[transformationsIndex];
             let M = mat4.create();
             let error;
-            if((error = this.parseTransformations(transformations, M)) != null) return error;
+            if((error = this.parseTransformations(transformations, M, nodeID)) != null) return error;
             node.setTransformation(M);
             // Material
             let material = grandChildren[materialIndex];
