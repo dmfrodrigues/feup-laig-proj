@@ -282,7 +282,26 @@ class MySceneGraph {
                     vec3.fromValues(toAttr  .x.value, toAttr  .y.value, toAttr  .z.value),
                     vec3.fromValues(upAttr  .x.value, upAttr  .y.value, upAttr  .z.value)
                 );
+            } else {
+                this.onXMLMinorError(`no such camera type "${camera.nodeName}"; ignored`);
+                continue;
             }
+        }
+
+        if(Object.keys(this.views.list).length == 0){
+            this.views.list["default"] = new CGFcamera(
+                45.0*DEGREE_TO_RAD,
+                0.1,
+                500,
+                vec3.fromValues(1, 1, 1),
+                vec3.fromValues(0, 0, 0)
+            );
+            this.onXMLError(`no views were read; default view being used`);
+        }
+
+        if(typeof this.views.list[this.views.default] === "undefined"){
+            this.views.default = Object.keys(this.views.list)[0];
+            this.onXMLError(`no such view "${this.views.default}" to use as default; using "${this.views.default}"`);
         }
 
         this.views.current = this.views.default;
