@@ -502,16 +502,20 @@ class MySceneGraph {
                 nodeNames.push(grandChildren[j].nodeName);
             }
 
-            let ambientIndex = nodeNames.indexOf("ambient");
-            let diffuseIndex = nodeNames.indexOf("diffuse");
-            let emissionIndex = nodeNames.indexOf("emissive");
-            let specularIndex = nodeNames.indexOf("specular");
+            let ambientIndex   = nodeNames.indexOf("ambient"  );
+            let diffuseIndex   = nodeNames.indexOf("diffuse"  );
+            let emissionIndex  = nodeNames.indexOf("emissive" );
+            let specularIndex  = nodeNames.indexOf("specular" );
             let shininessIndex = nodeNames.indexOf("shininess");
 
-            this.materials[materialID].ambient = this.parseColor(grandChildren[ambientIndex], "ambient");
-            this.materials[materialID].diffuse = this.parseColor(grandChildren[diffuseIndex], "diffuse");
-            this.materials[materialID].emission = this.parseColor(grandChildren[emissionIndex], "emissive");
-            this.materials[materialID].specular = this.parseColor(grandChildren[specularIndex], "specular");
+            if(ambientIndex  >= 0) this.materials[materialID].ambient  = this.parseColor(grandChildren[ambientIndex ], "ambient" );
+            else{ this.onXMLMinorError("missing "+"ambient" +" component, using default value"); this.materials[materialID].ambient  = [0, 0, 0, 1]; }
+            if(diffuseIndex  >= 0) this.materials[materialID].diffuse  = this.parseColor(grandChildren[diffuseIndex ], "diffuse" );
+            else{ this.onXMLMinorError("missing "+"diffuse" +" component, using default value"); this.materials[materialID].diffuse  = [1, 1, 1, 1]; }
+            if(emissionIndex >= 0) this.materials[materialID].emission = this.parseColor(grandChildren[emissionIndex], "emissive");
+            else{ this.onXMLMinorError("missing "+"emissive"+" component, using default value"); this.materials[materialID].emission = [0, 0, 0, 1]; }
+            if(specularIndex >= 0) this.materials[materialID].specular = this.parseColor(grandChildren[specularIndex], "specular");
+            else{ this.onXMLMinorError("missing "+"specular"+" component, using default value"); this.materials[materialID].specular =           1 ; }
             
             this.materials[materialID].shininess = this.reader.getFloat(grandChildren[shininessIndex], "value");
 
@@ -732,10 +736,10 @@ class MySceneGraph {
             }
         }
 
-        this.log("Parsed nodes");
-
-        if(typeof this.nodes[this.idRoot] == 'undefined')
+        if(this.nodes[this.idRoot] == null)
             return `No such root node "${this.idRoot}"`;
+        
+        this.log("Parsed nodes");
     }
 
 
