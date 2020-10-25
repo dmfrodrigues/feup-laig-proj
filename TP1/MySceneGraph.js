@@ -722,26 +722,11 @@ class MySceneGraph {
      * @param {message to be displayed in case of error} messageError
      */
     parseCoordinates3D(node, messageError) {
-        var position = [];
+        let x = this.parseFloat(node, 'x', messageError); if (typeof x === "string") return x;
+        let y = this.parseFloat(node, 'y', messageError); if (typeof y === "string") return y;
+        let z = this.parseFloat(node, 'z', messageError); if (typeof z === "string") return z;
 
-        // x
-        var x = this.reader.getFloat(node, 'x');
-        if (!(x != null && !isNaN(x)))
-            return "unable to parse x-coordinate of the " + messageError;
-
-        // y
-        var y = this.reader.getFloat(node, 'y');
-        if (!(y != null && !isNaN(y)))
-            return "unable to parse y-coordinate of the " + messageError;
-
-        // z
-        var z = this.reader.getFloat(node, 'z');
-        if (!(z != null && !isNaN(z)))
-            return "unable to parse z-coordinate of the " + messageError;
-
-        position.push(...[x, y, z]);
-
-        return position;
+        return [x,y,z];
     }
 
     /**
@@ -750,20 +735,11 @@ class MySceneGraph {
      * @param {message to be displayed in case of error} messageError
      */
     parseCoordinates4D(node, messageError) {
-        var position = [];
-
-        //Get x, y, z
-        position = this.parseCoordinates3D(node, messageError);
-
+        let position = this.parseCoordinates3D(node, messageError);
         if (!Array.isArray(position))
             return position;
 
-
-        // w
-        var w = this.reader.getFloat(node, 'w');
-        if (!(w != null && !isNaN(w)))
-            return "unable to parse w-coordinate of the " + messageError;
-
+        let w = this.parseFloat(node, 'w', messageError); if(typeof w === "string") return w;
         position.push(w);
 
         return position;
