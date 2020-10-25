@@ -229,11 +229,11 @@ class MySceneGraph {
             this.onXMLMinorError("no axis_length defined for scene; assuming 'length = 1'");
 
         var refNode = children[referenceIndex];
-        var axis_length = this.reader.getFloat(refNode, 'length');
-        if (axis_length == null)
+        var axis_length = this.parseFloat(refNode, 'length', "<initials>");
+        if (typeof axis_length === "string"){
             this.onXMLMinorError("no axis_length defined for scene; assuming 'length = 1'");
-
-        this.referenceLength = axis_length || 1;
+            this.referenceLength = 1;
+        }
 
         this.log("Parsed initials");
 
@@ -481,29 +481,31 @@ class MySceneGraph {
             
             nodeNames = [];
 
-            this.materials[materialID] = new CGFappearance(this.scene);
+            var mat = new CGFappearance(this.scene);
             
-            for (var j = 0; j < grandChildren.length; j++) {
+            for (let j = 0; j < grandChildren.length; j++) {
                 nodeNames.push(grandChildren[j].nodeName);
             }
 
-            let ambientIndex   = nodeNames.indexOf("ambient"  );
-            let diffuseIndex   = nodeNames.indexOf("diffuse"  );
-            let emissionIndex  = nodeNames.indexOf("emissive" );
-            let specularIndex  = nodeNames.indexOf("specular" );
+            let ambientIndex   = nodeNames.indexOf("ambient"  ); 
+            let diffuseIndex   = nodeNames.indexOf("diffuse"  ); 
+            let emissionIndex  = nodeNames.indexOf("emissive" ); 
+            let specularIndex  = nodeNames.indexOf("specular" ); 
             let shininessIndex = nodeNames.indexOf("shininess");
 
-            if(ambientIndex  >= 0) this.materials[materialID].ambient  = this.parseColor(grandChildren[ambientIndex ], "ambient" );
-            else{ this.onXMLMinorError("missing "+"ambient" +" component, using default value"); this.materials[materialID].ambient  = [0, 0, 0, 1]; }
-            if(diffuseIndex  >= 0) this.materials[materialID].diffuse  = this.parseColor(grandChildren[diffuseIndex ], "diffuse" );
-            else{ this.onXMLMinorError("missing "+"diffuse" +" component, using default value"); this.materials[materialID].diffuse  = [1, 1, 1, 1]; }
-            if(emissionIndex >= 0) this.materials[materialID].emission = this.parseColor(grandChildren[emissionIndex], "emissive");
-            else{ this.onXMLMinorError("missing "+"emissive"+" component, using default value"); this.materials[materialID].emission = [0, 0, 0, 1]; }
-            if(specularIndex >= 0) this.materials[materialID].specular = this.parseColor(grandChildren[specularIndex], "specular");
-            else{ this.onXMLMinorError("missing "+"specular"+" component, using default value"); this.materials[materialID].specular =           1 ; }
+            if(ambientIndex  >= 0){ mat.ambient  = this.parseColor(grandChildren[ambientIndex ], "ambient" ); if(typeof mat.ambient  === "string") return mat.ambient ; }
+            else { this.onXMLMinorError("missing "+"ambient" +" component, using default value"); mat.ambient  = [0, 0, 0, 1]; }
+            if(diffuseIndex  >= 0){ mat.diffuse  = this.parseColor(grandChildren[diffuseIndex ], "diffuse" ); if(typeof mat.diffuse  === "string") return mat.diffuse ; }
+            else { this.onXMLMinorError("missing "+"diffuse" +" component, using default value"); mat.diffuse  = [1, 1, 1, 1]; }
+            if(emissionIndex >= 0){ mat.emission = this.parseColor(grandChildren[emissionIndex], "emissive"); if(typeof mat.emission === "string") return mat.emission; }
+            else { this.onXMLMinorError("missing "+"emissive"+" component, using default value"); mat.emission = [0, 0, 0, 1]; }
+            if(specularIndex >= 0){ mat.specular = this.parseColor(grandChildren[specularIndex], "specular"); if(typeof mat.specular === "string") return mat.specular; }
+            else { this.onXMLMinorError("missing "+"specular"+" component, using default value"); mat.specular =           1 ; }
             
-            this.materials[materialID].shininess = this.reader.getFloat(grandChildren[shininessIndex], "value");
+            mat.shininess = this.parseFloat(grandChildren[shininessIndex], "value");
+            if(typeof mat.shininess === "string") return mat.shininess;
 
+            this.materials[materialID] = mat;
         }
 
         this.scene.materials = this.materials;
@@ -525,15 +527,13 @@ class MySceneGraph {
                     let trans = transformations[i];
                     switch(trans.nodeName){
                         case "translation":
-                            let T = this.parseCoordinates3D(trans);
-                            if(typeof T === "string") return T;
+                            let T = this.parseCoordinates3D(trans); if(typeof T === "string") return T;
                             mat4.translate(M, M, vec3.fromValues(...T));
                             break;
                         case "rotation":
-                            if(trans.attributes.angle == null) return `rotation of node "${nodeID}" is missing angle`;
-                            if(trans.attributes.axis  == null) return `rotation of node "${nodeID}" is missing axis`;
-                            let angle = parseFloat(trans.attributes.angle.value)*DEGREE_TO_RAD;
-                            if(angle == NaN) return "rotation has missing attributes"
+                            let angle = this.parseFloat(trans, 'angle', `<transformations>, node ${nodeID}`); if(typeof angle === "string") return angle;
+                            angle *= DEGREE_TO_RAD;
+                            if(trans.attributes.axis  == null) return `rotation of node ${nodeID} is missing axis`;
                             switch(trans.attributes.axis.value){
                                 case "x": mat4.rotateX(M, M, angle); break;
                                 case "y": mat4.rotateY(M, M, angle); break;
@@ -542,13 +542,9 @@ class MySceneGraph {
                             }
                             break;
                         case "scale":
-                            if(trans.attributes.sx == null) return `scaling of node "${nodeID}" is missing sx`;
-                            if(trans.attributes.sy == null) return `scaling of node "${nodeID}" is missing sy`;
-                            if(trans.attributes.sz == null) return `scaling of node "${nodeID}" is missing sz`;
-                            let sx = parseFloat(trans.attributes.sx.value);
-                            let sy = parseFloat(trans.attributes.sy.value);
-                            let sz = parseFloat(trans.attributes.sz.value);
-                            if(sx == NaN || sy == NaN || sz == NaN) return "scale has missing attributes";
+                            let sx = this.parseFloat(trans, 'sx', `<transformations>, node ${nodeID}`); if(typeof sx === "string") return sx;
+                            let sy = this.parseFloat(trans, 'sy', `<transformations>, node ${nodeID}`); if(typeof sy === "string") return sy;
+                            let sz = this.parseFloat(trans, 'sz', `<transformations>, node ${nodeID}`); if(typeof sz === "string") return sz;
                             mat4.scale(M, M, vec3.fromValues(sx, sy, sz));
                             break;
                         default:
@@ -631,8 +627,8 @@ class MySceneGraph {
                 let child = texture.children[i];
                 switch(child.nodeName){
                     case "amplification":
-                        afs = parseFloat(child.attributes.afs.value);
-                        aft = parseFloat(child.attributes.aft.value);
+                        afs = this.parseFloat(child, 'afs', `<texture>, node ${nodeID}`); if(typeof afs === "string") return afs;
+                        aft = this.parseFloat(child, 'aft', `<texture>, node ${nodeID}`); if(typeof aft === "string") return aft;
                         break;
                     default: return `block with tag "${child.nodeName}" not allowed inside <texture> block`;
                 }
