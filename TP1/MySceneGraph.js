@@ -256,40 +256,18 @@ class MySceneGraph {
             // Checks for repeated IDs.
             if (this.views.list[camera.id] != null)
                 return "ID must be unique for each view (conflict: ID = " + camera.id + ")";
-            
-            let fromAttr = null;
-            let toAttr   = null;
-            let upAttr   = null;
-            for(let j = 0; j < camera.children.length; ++j){
-                if(camera.children[j].nodeName == "from") fromAttr = camera.children[j].attributes;
-                if(camera.children[j].nodeName == "to"  ) toAttr   = camera.children[j].attributes;
-                if(camera.children[j].nodeName == "up"  ) upAttr   = camera.children[j].attributes;
-            }
 
+            let camera_obj;
             if(camera.nodeName == "perspective"){
-                this.views.list[camera.id] = new CGFcamera(
-                    parseFloat(camera.attributes.angle.value)*DEGREE_TO_RAD,
-                    parseFloat(camera.attributes.near.value),
-                    parseFloat(camera.attributes.far.value),
-                    vec3.fromValues(fromAttr.x.value, fromAttr.y.value, fromAttr.z.value),
-                    vec3.fromValues(toAttr  .x.value, toAttr  .y.value, toAttr  .z.value)
-                );
+                camera_obj = this.parsePerspectiveCamera(camera, camera.id);
             } else if(camera.nodeName == "ortho"){
-                this.views.list[camera.id] = new CGFcameraOrtho(
-                    parseFloat(camera.attributes.left  .value),
-                    parseFloat(camera.attributes.right .value),
-                    parseFloat(camera.attributes.bottom.value),
-                    parseFloat(camera.attributes.top   .value),
-                    parseFloat(camera.attributes.near  .value),
-                    parseFloat(camera.attributes.far   .value),
-                    vec3.fromValues(fromAttr.x.value, fromAttr.y.value, fromAttr.z.value),
-                    vec3.fromValues(toAttr  .x.value, toAttr  .y.value, toAttr  .z.value),
-                    vec3.fromValues(upAttr  .x.value, upAttr  .y.value, upAttr  .z.value)
-                );
+                camera_obj = this.parseOrthoCamera(camera, camera.id);
             } else {
                 this.onXMLMinorError(`no such camera type "${camera.nodeName}"; ignored`);
                 continue;
             }
+            if(typeof camera_obj === "string") return camera_obj;
+            this.views.list[camera.id] = camera_obj;
         }
 
         if(Object.keys(this.views.list).length == 0){
@@ -851,6 +829,58 @@ class MySceneGraph {
         color.push(...[r, g, b, a]);
 
         return color;
+    }
+
+    /**
+     * Parse the perspective camera from a node
+     * @param {block element} camera
+     * @param {message to be displayed in case of error} messageError
+     */
+    parsePerspectiveCamera(camera, messageError){
+        let fromAttr = null;
+        let toAttr   = null;
+        let upAttr   = null;
+        for(let j = 0; j < camera.children.length; ++j){
+            if(camera.children[j].nodeName == "from") fromAttr = camera.children[j].attributes;
+            if(camera.children[j].nodeName == "to"  ) toAttr   = camera.children[j].attributes;
+            if(camera.children[j].nodeName == "up"  ) upAttr   = camera.children[j].attributes;
+        }
+
+        return new CGFcamera(
+            parseFloat(camera.attributes.angle.value)*DEGREE_TO_RAD,
+            parseFloat(camera.attributes.near.value),
+            parseFloat(camera.attributes.far.value),
+            vec3.fromValues(fromAttr.x.value, fromAttr.y.value, fromAttr.z.value),
+            vec3.fromValues(toAttr  .x.value, toAttr  .y.value, toAttr  .z.value)
+        );
+    }
+
+    /**
+     * Parse the orthographic camera from a node
+     * @param {block element} camera
+     * @param {message to be displayed in case of error} messageError
+     */
+    parseOrthoCamera(camera, messageError){
+        let fromAttr = null;
+        let toAttr   = null;
+        let upAttr   = null;
+        for(let j = 0; j < camera.children.length; ++j){
+            if(camera.children[j].nodeName == "from") fromAttr = camera.children[j].attributes;
+            if(camera.children[j].nodeName == "to"  ) toAttr   = camera.children[j].attributes;
+            if(camera.children[j].nodeName == "up"  ) upAttr   = camera.children[j].attributes;
+        }
+
+        return new CGFcameraOrtho(
+            parseFloat(camera.attributes.left  .value),
+            parseFloat(camera.attributes.right .value),
+            parseFloat(camera.attributes.bottom.value),
+            parseFloat(camera.attributes.top   .value),
+            parseFloat(camera.attributes.near  .value),
+            parseFloat(camera.attributes.far   .value),
+            vec3.fromValues(fromAttr.x.value, fromAttr.y.value, fromAttr.z.value),
+            vec3.fromValues(toAttr  .x.value, toAttr  .y.value, toAttr  .z.value),
+            vec3.fromValues(upAttr  .x.value, upAttr  .y.value, upAttr  .z.value)
+        );
     }
 
     /**
