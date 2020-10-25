@@ -525,7 +525,6 @@ class MySceneGraph {
         this.nodes = [];
 
         var grandChildren = [];
-        var grandgrandChildren = [];
         var nodeNames = [];
 
         let nodeDescendants = {};
