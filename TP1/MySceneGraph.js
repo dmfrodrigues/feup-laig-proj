@@ -518,13 +518,13 @@ class MySceneGraph {
     /**
      * Parses transformations.
      * @param {transformations array} transformations
-     * @param {matrix} M
+     * @param {string} nodeID
      */
-    parseTransformations(transformations, M, nodeID){
+    parseTransformations(transformations, nodeID){
+        let M = mat4.create();
         if(transformations != null){
-            transformations = transformations.children;
-            for(let i = 0; i < transformations.length; ++i){
-                let trans = transformations[i];
+            for(let i = 0; i < transformations.children.length; ++i){
+                let trans = transformations.children[i];
                 switch(trans.nodeName){
                     case "translation":
                         let T = this.parseCoordinates3D(trans); if(typeof T === "string") return T;
@@ -552,7 +552,7 @@ class MySceneGraph {
                 }
             }
         }
-        return null;
+        return M;
     }
 
     /**
@@ -601,9 +601,7 @@ class MySceneGraph {
             let node = new Node(this.scene, nodeID);
             // Transformations
             let transformations = grandChildren[transformationsIndex];
-            let M = mat4.create();
-            let error;
-            if((error = this.parseTransformations(transformations, M, nodeID)) != null) return error;
+            let M = this.parseTransformations(transformations, nodeID); if(typeof M === "string") return M;
             node.setTransformation(M);
             // Material
             let material = grandChildren[materialIndex];
