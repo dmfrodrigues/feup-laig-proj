@@ -477,8 +477,6 @@ class MySceneGraph {
             if (this.materials[materialID] != null)
                 return "ID must be unique for each light (conflict: ID = " + materialID + ")";
 
-            //Continue here
-
             grandChildren = children[i].children;
             
             nodeNames = [];
@@ -515,8 +513,12 @@ class MySceneGraph {
         return null;
     }
 
-    parseTransformations(transformations){
-        let M = mat4.create();
+    /**
+     * Parses transformations.
+     * @param {transformations array} transformations
+     * @param {matrix} M
+     */
+    parseTransformations(transformations, M){
             if(transformations != null){
                 transformations = transformations.children;
                 for(let i = 0; i < transformations.length; ++i){
@@ -554,7 +556,7 @@ class MySceneGraph {
                     }
                 }
             }
-        return M;
+        return null;
     }
 
     /**
@@ -603,8 +605,10 @@ class MySceneGraph {
             let node = new Node(this.scene, nodeID);
             // Transformations
             let transformations = grandChildren[transformationsIndex];
-            // here
-            node.setTransformation(this.parseTransformations(transformations));
+            let M = mat4.create();
+            let error;
+            if((error = this.parseTransformations(transformations, M)) != null) return error;
+            node.setTransformation(M);
             // Material
             let material = grandChildren[materialIndex];
             if(material == null) return `<material> block is mandatory (node "${nodeID}")`;
