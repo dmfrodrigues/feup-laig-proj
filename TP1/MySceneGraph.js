@@ -299,7 +299,7 @@ class MySceneGraph {
             this.onXMLError(`no views were read; default view being used`);
         }
 
-        if(typeof this.views.list[this.views.default] === "undefined"){
+        if(this.views.list[this.views.default] == null){
             this.views.default = Object.keys(this.views.list)[0];
             this.onXMLError(`no such view "${this.views.default}" to use as default; using "${this.views.default}"`);
         }
@@ -576,15 +576,15 @@ class MySceneGraph {
             // Transformations
             let transformations = grandChildren[transformationsIndex];
             let M = mat4.create();
-            if(typeof transformations !== "undefined"){
+            if(transformations != null){
                 transformations = transformations.children;
                 for(let i = 0; i < transformations.length; ++i){
                     let trans = transformations[i];
                     switch(trans.nodeName){
                         case "translation":
-                            if(typeof trans.attributes.x == 'undefined') return `translation of node "${nodeID}" is missing x`;
-                            if(typeof trans.attributes.y == 'undefined') return `translation of node "${nodeID}" is missing y`;
-                            if(typeof trans.attributes.z == 'undefined') return `translation of node "${nodeID}" is missing z`;
+                            if(trans.attributes.x == null) return `translation of node "${nodeID}" is missing x`;
+                            if(trans.attributes.y == null) return `translation of node "${nodeID}" is missing y`;
+                            if(trans.attributes.z == null) return `translation of node "${nodeID}" is missing z`;
                             let x = parseFloat(trans.attributes.x.value);
                             let y = parseFloat(trans.attributes.y.value);
                             let z = parseFloat(trans.attributes.z.value);
@@ -592,8 +592,8 @@ class MySceneGraph {
                             mat4.translate(M, M, vec3.fromValues(x, y, z));
                             break;
                         case "rotation":
-                            if(typeof trans.attributes.angle == 'undefined') return `rotation of node "${nodeID}" is missing angle`;
-                            if(typeof trans.attributes.axis  == 'undefined') return `rotation of node "${nodeID}" is missing axis`;
+                            if(trans.attributes.angle == null) return `rotation of node "${nodeID}" is missing angle`;
+                            if(trans.attributes.axis  == null) return `rotation of node "${nodeID}" is missing axis`;
                             let angle = parseFloat(trans.attributes.angle.value)*DEGREE_TO_RAD;
                             if(angle == NaN) return "rotation has missing attributes"
                             switch(trans.attributes.axis.value){
@@ -604,9 +604,9 @@ class MySceneGraph {
                             }
                             break;
                         case "scale":
-                            if(typeof trans.attributes.sx == 'undefined') return `scaling of node "${nodeID}" is missing sx`;
-                            if(typeof trans.attributes.sy == 'undefined') return `scaling of node "${nodeID}" is missing sy`;
-                            if(typeof trans.attributes.sz == 'undefined') return `scaling of node "${nodeID}" is missing sz`;
+                            if(trans.attributes.sx == null) return `scaling of node "${nodeID}" is missing sx`;
+                            if(trans.attributes.sy == null) return `scaling of node "${nodeID}" is missing sy`;
+                            if(trans.attributes.sz == null) return `scaling of node "${nodeID}" is missing sz`;
                             let sx = parseFloat(trans.attributes.sx.value);
                             let sy = parseFloat(trans.attributes.sy.value);
                             let sz = parseFloat(trans.attributes.sz.value);
@@ -621,20 +621,20 @@ class MySceneGraph {
             node.setTransformation(M);
             // Material
             let material = grandChildren[materialIndex];
-            if(typeof material == "undefined") return `<material> block is mandatory (node "${nodeID}")`;
+            if(material != null) return `<material> block is mandatory (node "${nodeID}")`;
             let mat = (material.id == "null" ? "same" : this.materials[material.id]);
-            if(typeof mat == "undefined") return `no such material "${material.id}"`;
+            if(mat == null) return `no such material "${material.id}"`;
             node.setMaterial(mat);
             // Texture
             let texture = grandChildren[textureIndex];
-            if(typeof texture  == "undefined") return `<texture> block is mandatory (node "${nodeID}")`;
+            if(texture  == null) return `<texture> block is mandatory (node "${nodeID}")`;
             let tex;
             switch(texture.id){
                 case "null" : tex = "same"; break;
                 case "clear": tex = null; break;
                 default: tex = this.textures[texture.id]; break;
             }
-            if(typeof tex == "undefined") return `no such texture "${texture.id}"`;
+            if(tex == null) return `no such texture "${texture.id}"`;
             node.setTexture (tex);
             let afs = undefined, aft = undefined;
             for(let i = 0; i < texture.children.length; ++i){
@@ -647,7 +647,7 @@ class MySceneGraph {
                     default: return `block with tag "${child.nodeName}" not allowed inside <texture> block`;
                 }
             }
-            if(typeof afs === "undefined" || typeof aft === "undefined"){
+            if(afs == null || aft == null){
                 if(texture.id != "clear") console.warn(`node "${nodeID}": Undefined amplification, using defaults`);
                 afs = 1; aft = 1;
             } else {
@@ -721,7 +721,7 @@ class MySceneGraph {
                 } else return `no such descendant type "${descendant.nodeName}"`;
             }
 
-            if(typeof this.nodes[nodeID] != "undefined") return "node with same id already exists";
+            if(this.nodes[nodeID] != null) return "node with same id already exists";
             this.nodes[nodeID] = node;
         }
 
@@ -731,7 +731,7 @@ class MySceneGraph {
             for(let i = 0; i < descendants.length; ++i){
                 let childID = descendants[i];
                 let child = this.nodes[childID];
-                if(typeof child == "undefined") return `node "${nodeID}" has child "${childID}" which does not exist`;
+                if(child == null) return `node "${nodeID}" has child "${childID}" which does not exist`;
                 node.addChild(child);
             }
         }
