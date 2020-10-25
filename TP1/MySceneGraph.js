@@ -621,7 +621,7 @@ class MySceneGraph {
             node.setTransformation(M);
             // Material
             let material = grandChildren[materialIndex];
-            if(material != null) return `<material> block is mandatory (node "${nodeID}")`;
+            if(material == null) return `<material> block is mandatory (node "${nodeID}")`;
             let mat = (material.id == "null" ? "same" : this.materials[material.id]);
             if(mat == null) return `no such material "${material.id}"`;
             node.setMaterial(mat);
@@ -634,7 +634,7 @@ class MySceneGraph {
                 case "clear": tex = null; break;
                 default: tex = this.textures[texture.id]; break;
             }
-            if(tex == null) return `no such texture "${texture.id}"`;
+            if(typeof tex == "undefined") return `no such texture "${texture.id}"`;
             node.setTexture (tex);
             let afs = undefined, aft = undefined;
             for(let i = 0; i < texture.children.length; ++i){
