@@ -698,12 +698,24 @@ class MySceneGraph {
         return boolVal;
     }
 
+    /**
+     * Parses a float
+     * @param {XMLnode} node XML node
+     * @param {string} name Name
+     * @param {string} messageError String to print in case of error
+     */
     parseFloat(node, name, messageError){
         let ret = this.reader.getFloat(node, name);
         if(ret == null || isNaN(ret)) return `unable to parse ${name}: ${messageError}`;
         return ret;
     }
 
+    /**
+     * 
+     * @param {XMLnode} node XML node
+     * @param {string} name Name
+     * @param {string} messageError String to print in case of error
+     */
     parseInt(node, name, messageError){
         let ret = this.reader.getInteger(node, name);
         if(ret == null || isNaN(ret)) return `unable to parse ${name}: ${messageError}`;
@@ -811,6 +823,13 @@ class MySceneGraph {
         );
     }
 
+    /**
+     * Parses a rectangle
+     * @param {XMLnode} node XML node
+     * @param {float} afs Texture amplification factor in s-axis
+     * @param {float} aft Texture amplification factor in t-axis
+     * @param {string} messageError String to print in case of error
+     */
     parseRectangle(node, afs, aft, messageError){
         let x1 = this.parseFloat(node, 'x1', messageError); if(typeof x1 === "string") return x1;
         let y1 = this.parseFloat(node, 'y1', messageError); if(typeof y1 === "string") return y1;
@@ -819,6 +838,13 @@ class MySceneGraph {
         return new MyRectangle(this.scene, x1, y1, x2, y2, afs, aft);
     }
 
+    /**
+     * Parses a triangle
+     * @param {XMLnode} node XML node
+     * @param {float} afs Texture amplification factor in s-axis
+     * @param {float} aft Texture amplification factor in t-axis
+     * @param {string} messageError String to print in case of error
+     */
     parseTriangle(node, afs, aft, messageError){
         let x1 = this.parseFloat(node, 'x1', messageError); if(typeof x1 === "string") return x1;
         let y1 = this.parseFloat(node, 'y1', messageError); if(typeof y1 === "string") return y1;
@@ -829,6 +855,11 @@ class MySceneGraph {
         return new MyTriangle(this.scene, x1, y1, x2, y2, x3, y3, afs, aft);
     }
 
+    /**
+     * Parses a cylinder
+     * @param {XMLnode} node XML node
+     * @param {string} messageError String to print in case of error
+     */
     parseCylinder(node, messageError){
         let bottomRadius = this.parseFloat(node, 'bottomRadius', messageError); if(typeof bottomRadius === "string") return bottomRadius;
         let topRadius    = this.parseFloat(node, 'topRadius'   , messageError); if(typeof topRadius    === "string") return topRadius   ;
@@ -838,6 +869,11 @@ class MySceneGraph {
         return new MyCylinder(this.scene, bottomRadius, topRadius, height, slices, stacks);
     }
 
+    /**
+     * Parses a sphere
+     * @param {XMLnode} node XML node
+     * @param {string} messageError String to print in case of error
+     */
     parseSphere(node, messageError){
         let radius = this.parseFloat(node, 'radius', messageError); if(typeof radius === "string") return radius;
         let slices = this.parseInt  (node, 'slices', messageError); if(typeof slices === "string") return slices;
@@ -845,6 +881,11 @@ class MySceneGraph {
         return new MySphere(this.scene, radius, slices, stacks);
     }
 
+    /**
+     * Parses a torus
+     * @param {XMLnode} node XML node
+     * @param {string} messageError String to print in case of error
+     */
     parseTorus(node, messageError){
         let inner  = this.parseFloat(node, 'inner' , messageError); if(typeof inner  === "string") return inner ;
         let outer  = this.parseFloat(node, 'outer' , messageError); if(typeof outer  === "string") return outer ;
