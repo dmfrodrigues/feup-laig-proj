@@ -16,6 +16,9 @@ A nossa cena consiste em:
     <li>Uma janela para o mundo exterior</li>
     <li>Uma paisagem no exterior, representando a Cidade de Nova Iorque de dia</li>
 </ul>
+<h4>Alterações v02</h4>
+A cena possui os mesmos objetos, mas foram adicionadas mais câmaras e corrigidos alguns parâmetros internos. As imagens são iguais às da versão 1.
+
 <h4>Versão atual</h4>
 <table>
     <tbody>
@@ -40,4 +43,5 @@ A nossa cena consiste em:
 <h4>Anexos</h4>
 <ul>
     <li><strong>LAIG_TP1_XML_T2_G04_v01.zip</strong></li>
+    <li><strong>LAIG_TP1_XML_T2_G04_v02.zip</strong></li>
 </ul>
