@@ -229,11 +229,11 @@ class MySceneGraph {
             this.onXMLMinorError("no axis_length defined for scene; assuming 'length = 1'");
 
         var refNode = children[referenceIndex];
-        var axis_length = this.reader.getFloat(refNode, 'length');
-        if (axis_length == null)
+        var axis_length = this.parseFloat(refNode, 'length', "<initials>");
+        if (typeof axis_length === "string"){
             this.onXMLMinorError("no axis_length defined for scene; assuming 'length = 1'");
-
-        this.referenceLength = axis_length || 1;
+            this.referenceLength = 1;
+        }
 
         this.log("Parsed initials");
 
@@ -253,36 +253,37 @@ class MySceneGraph {
         for(let i = 0; i < viewsNode.children.length; ++i){
             let camera = viewsNode.children[i];
             
-            let fromAttr = null;
-            let toAttr   = null;
-            let upAttr   = null;
-            for(let j = 0; j < camera.children.length; ++j){
-                if(camera.children[j].nodeName == "from") fromAttr = camera.children[j].attributes;
-                if(camera.children[j].nodeName == "to"  ) toAttr   = camera.children[j].attributes;
-                if(camera.children[j].nodeName == "up"  ) upAttr   = camera.children[j].attributes;
-            }
+            // Checks for repeated IDs.
+            if (this.views.list[camera.id] != null)
+                return "ID must be unique for each view (conflict: ID = " + camera.id + ")";
 
+            let camera_obj;
             if(camera.nodeName == "perspective"){
-                this.views.list[camera.id] = new CGFcamera(
-                    parseFloat(camera.attributes.angle.value)*DEGREE_TO_RAD,
-                    parseFloat(camera.attributes.near.value),
-                    parseFloat(camera.attributes.far.value),
-                    vec3.fromValues(fromAttr.x.value, fromAttr.y.value, fromAttr.z.value),
-                    vec3.fromValues(toAttr  .x.value, toAttr  .y.value, toAttr  .z.value)
-                );
+                camera_obj = this.parsePerspectiveCamera(camera, camera.id);
             } else if(camera.nodeName == "ortho"){
-                this.views.list[camera.id] = new CGFcameraOrtho(
-                    parseFloat(camera.attributes.left  .value),
-                    parseFloat(camera.attributes.right .value),
-                    parseFloat(camera.attributes.bottom.value),
-                    parseFloat(camera.attributes.top   .value),
-                    parseFloat(camera.attributes.near  .value),
-                    parseFloat(camera.attributes.far   .value),
-                    vec3.fromValues(fromAttr.x.value, fromAttr.y.value, fromAttr.z.value),
-                    vec3.fromValues(toAttr  .x.value, toAttr  .y.value, toAttr  .z.value),
-                    vec3.fromValues(upAttr  .x.value, upAttr  .y.value, upAttr  .z.value)
-                );
+                camera_obj = this.parseOrthoCamera(camera, camera.id);
+            } else {
+                this.onXMLMinorError(`no such camera type "${camera.nodeName}"; ignored`);
+                continue;
             }
+            if(typeof camera_obj === "string") return camera_obj;
+            this.views.list[camera.id] = camera_obj;
+        }
+
+        if(Object.keys(this.views.list).length == 0){
+            this.views.list["default"] = new CGFcamera(
+                45.0*DEGREE_TO_RAD,
+                0.1,
+                500,
+                vec3.fromValues(1, 1, 1),
+                vec3.fromValues(0, 0, 0)
+            );
+            this.onXMLError(`no views were read; default view being used`);
+        }
+
+        if(this.views.list[this.views.default] == null){
+            this.views.default = Object.keys(this.views.list)[0];
+            this.onXMLError(`no such view "${this.views.default}" to use as default; using "${this.views.default}"`);
         }
 
         this.views.current = this.views.default;
@@ -311,13 +312,21 @@ class MySceneGraph {
         var ambientIndex = nodeNames.indexOf("ambient");
         var backgroundIndex = nodeNames.indexOf("background");
 
-        var color = this.parseColor(children[ambientIndex], "ambient");
+        if(ambientIndex >= 0) var color = this.parseColor(children[ambientIndex], "ambient");
+        else{
+            var color = [1, 1, 1, 1];
+            this.onXMLMinorError(`no ambient color; using default ${color}`);
+        }
         if (!Array.isArray(color))
             return color;
         else
             this.ambient = color;
 
-        color = this.parseColor(children[backgroundIndex], "background");
+        if(backgroundIndex >= 0) color = this.parseColor(children[backgroundIndex], "background");
+        else{
+            color = [1, 1, 1, 1];
+            this.onXMLMinorError(`no background color; using default ${color}`);
+        }
         if (!Array.isArray(color))
             return color;
         else
@@ -399,9 +408,16 @@ class MySceneGraph {
             numLights++;
         }
 
-        if (numLights == 0)
-            return "at least one light must be defined";
-        else if (numLights > 8)
+        if (numLights == 0){
+            this.lights["default"] = [
+                true,
+                [0, 1, 0, 1],
+                [1, 1, 1, 1],
+                [1, 1, 1, 1],
+                [1, 1, 1, 1]
+            ];
+            this.onXMLMinorError("at least one light must be defined; using default light");
+        } else if (numLights > 8)
             this.onXMLMinorError("too many lights defined; WebGL imposes a limit of 8 lights");
 
         this.log("Parsed lights");
@@ -416,6 +432,11 @@ class MySceneGraph {
         this.textures = {};
         for(let i = 0; i < texturesNode.children.length; ++i){
             let texture = texturesNode.children[i];
+
+        // Checks for repeated IDs.
+        if (this.textures[texture.id] != null)
+            return "ID must be unique for each texture (conflict: ID = " + texture.id + ")";
+
             this.textures[texture.id] = new CGFtexture(
                 this.scene,
                 texture.attributes.path.value
@@ -456,31 +477,35 @@ class MySceneGraph {
             if (this.materials[materialID] != null)
                 return "ID must be unique for each light (conflict: ID = " + materialID + ")";
 
-            //Continue here
-
             grandChildren = children[i].children;
             
             nodeNames = [];
 
-            this.materials[materialID] = new CGFappearance(this.scene);
+            var mat = new CGFappearance(this.scene);
             
-            for (var j = 0; j < grandChildren.length; j++) {
+            for (let j = 0; j < grandChildren.length; j++) {
                 nodeNames.push(grandChildren[j].nodeName);
             }
 
-            let ambientIndex = nodeNames.indexOf("ambient");
-            let diffuseIndex = nodeNames.indexOf("diffuse");
-            let emissionIndex = nodeNames.indexOf("emissive");
-            let specularIndex = nodeNames.indexOf("specular");
+            let ambientIndex   = nodeNames.indexOf("ambient"  ); 
+            let diffuseIndex   = nodeNames.indexOf("diffuse"  ); 
+            let emissionIndex  = nodeNames.indexOf("emissive" ); 
+            let specularIndex  = nodeNames.indexOf("specular" ); 
             let shininessIndex = nodeNames.indexOf("shininess");
 
-            this.materials[materialID].ambient = this.parseColor(grandChildren[ambientIndex], "ambient");
-            this.materials[materialID].diffuse = this.parseColor(grandChildren[diffuseIndex], "diffuse");
-            this.materials[materialID].emission = this.parseColor(grandChildren[emissionIndex], "emissive");
-            this.materials[materialID].specular = this.parseColor(grandChildren[specularIndex], "specular");
+            if(ambientIndex  >= 0){ mat.ambient  = this.parseColor(grandChildren[ambientIndex ], "ambient" ); if(typeof mat.ambient  === "string") return mat.ambient ; }
+            else { this.onXMLMinorError("missing "+"ambient" +" component, using default value"); mat.ambient  = [0, 0, 0, 1]; }
+            if(diffuseIndex  >= 0){ mat.diffuse  = this.parseColor(grandChildren[diffuseIndex ], "diffuse" ); if(typeof mat.diffuse  === "string") return mat.diffuse ; }
+            else { this.onXMLMinorError("missing "+"diffuse" +" component, using default value"); mat.diffuse  = [1, 1, 1, 1]; }
+            if(emissionIndex >= 0){ mat.emission = this.parseColor(grandChildren[emissionIndex], "emissive"); if(typeof mat.emission === "string") return mat.emission; }
+            else { this.onXMLMinorError("missing "+"emissive"+" component, using default value"); mat.emission = [0, 0, 0, 1]; }
+            if(specularIndex >= 0){ mat.specular = this.parseColor(grandChildren[specularIndex], "specular"); if(typeof mat.specular === "string") return mat.specular; }
+            else { this.onXMLMinorError("missing "+"specular"+" component, using default value"); mat.specular =           1 ; }
             
-            this.materials[materialID].shininess = this.reader.getFloat(grandChildren[shininessIndex], "value");
+            mat.shininess = this.parseFloat(grandChildren[shininessIndex], "value");
+            if(typeof mat.shininess === "string") return mat.shininess;
 
+            this.materials[materialID] = mat;
         }
 
         this.scene.materials = this.materials;
@@ -488,6 +513,46 @@ class MySceneGraph {
         this.log("Parsed materials");
 
         return null;
+    }
+
+    /**
+     * Parses transformations.
+     * @param {transformations array} transformations
+     * @param {string} nodeID
+     */
+    parseTransformations(transformations, nodeID){
+        let M = mat4.create();
+        if(transformations != null){
+            for(let i = 0; i < transformations.children.length; ++i){
+                let trans = transformations.children[i];
+                switch(trans.nodeName){
+                    case "translation":
+                        let T = this.parseCoordinates3D(trans); if(typeof T === "string") return T;
+                        mat4.translate(M, M, vec3.fromValues(...T));
+                        break;
+                    case "rotation":
+                        let angle = this.parseFloat(trans, 'angle', `<transformations>, node ${nodeID}`); if(typeof angle === "string") return angle;
+                        angle *= DEGREE_TO_RAD;
+                        if(trans.attributes.axis  == null) return `rotation of node ${nodeID} is missing axis`;
+                        switch(trans.attributes.axis.value){
+                            case "x": mat4.rotateX(M, M, angle); break;
+                            case "y": mat4.rotateY(M, M, angle); break;
+                            case "z": mat4.rotateZ(M, M, angle); break;
+                            default: return `no such rotation axis "${trans.attributes.axis.value}"`;
+                        }
+                        break;
+                    case "scale":
+                        let sx = this.parseFloat(trans, 'sx', `<transformations>, node ${nodeID}`); if(typeof sx === "string") return sx;
+                        let sy = this.parseFloat(trans, 'sy', `<transformations>, node ${nodeID}`); if(typeof sy === "string") return sy;
+                        let sz = this.parseFloat(trans, 'sz', `<transformations>, node ${nodeID}`); if(typeof sz === "string") return sz;
+                        mat4.scale(M, M, vec3.fromValues(sx, sy, sz));
+                        break;
+                    default:
+                        return `no such transformation "${trans.nodeName}"`;
+                }
+            }
+        }
+        return M;
     }
 
     /**
@@ -500,7 +565,6 @@ class MySceneGraph {
         this.nodes = [];
 
         var grandChildren = [];
-        var grandgrandChildren = [];
         var nodeNames = [];
 
         let nodeDescendants = {};
@@ -537,59 +601,17 @@ class MySceneGraph {
             let node = new Node(this.scene, nodeID);
             // Transformations
             let transformations = grandChildren[transformationsIndex];
-            let M = mat4.create();
-            if(typeof transformations !== "undefined"){
-                transformations = transformations.children;
-                for(let i = 0; i < transformations.length; ++i){
-                    let trans = transformations[i];
-                    switch(trans.nodeName){
-                        case "translation":
-                            if(typeof trans.attributes.x == 'undefined') return `translation of node "${nodeID}" is missing x`;
-                            if(typeof trans.attributes.y == 'undefined') return `translation of node "${nodeID}" is missing y`;
-                            if(typeof trans.attributes.z == 'undefined') return `translation of node "${nodeID}" is missing z`;
-                            let x = parseFloat(trans.attributes.x.value);
-                            let y = parseFloat(trans.attributes.y.value);
-                            let z = parseFloat(trans.attributes.z.value);
-                            if(x == NaN || y == NaN || z == NaN) return "translation has missing attributes";
-                            mat4.translate(M, M, vec3.fromValues(x, y, z));
-                            break;
-                        case "rotation":
-                            if(typeof trans.attributes.angle == 'undefined') return `rotation of node "${nodeID}" is missing angle`;
-                            if(typeof trans.attributes.axis  == 'undefined') return `rotation of node "${nodeID}" is missing axis`;
-                            let angle = parseFloat(trans.attributes.angle.value)*DEGREE_TO_RAD;
-                            if(angle == NaN) return "rotation has missing attributes"
-                            switch(trans.attributes.axis.value){
-                                case "x": mat4.rotateX(M, M, angle); break;
-                                case "y": mat4.rotateY(M, M, angle); break;
-                                case "z": mat4.rotateZ(M, M, angle); break;
-                                default: return `no such rotation axis "${trans.attributes.axis.value}"`;
-                            }
-                            break;
-                        case "scale":
-                            if(typeof trans.attributes.sx == 'undefined') return `scaling of node "${nodeID}" is missing sx`;
-                            if(typeof trans.attributes.sy == 'undefined') return `scaling of node "${nodeID}" is missing sy`;
-                            if(typeof trans.attributes.sz == 'undefined') return `scaling of node "${nodeID}" is missing sz`;
-                            let sx = parseFloat(trans.attributes.sx.value);
-                            let sy = parseFloat(trans.attributes.sy.value);
-                            let sz = parseFloat(trans.attributes.sz.value);
-                            if(sx == NaN || sy == NaN || sz == NaN) return "scale has missing attributes";
-                            mat4.scale(M, M, vec3.fromValues(sx, sy, sz));
-                            break;
-                        default:
-                            return `no such transformation "${trans.nodeName}"`;
-                    }
-                }
-            }
+            let M = this.parseTransformations(transformations, nodeID); if(typeof M === "string") return M;
             node.setTransformation(M);
             // Material
             let material = grandChildren[materialIndex];
-            if(typeof material == "undefined") return `<material> block is mandatory (node "${nodeID}")`;
+            if(material == null) return `<material> block is mandatory (node "${nodeID}")`;
             let mat = (material.id == "null" ? "same" : this.materials[material.id]);
-            if(typeof mat == "undefined") return `no such material "${material.id}"`;
+            if(mat == null) return `no such material "${material.id}"`;
             node.setMaterial(mat);
             // Texture
             let texture = grandChildren[textureIndex];
-            if(typeof texture  == "undefined") return `<texture> block is mandatory (node "${nodeID}")`;
+            if(texture  == null) return `<texture> block is mandatory (node "${nodeID}")`;
             let tex;
             switch(texture.id){
                 case "null" : tex = "same"; break;
@@ -603,13 +625,13 @@ class MySceneGraph {
                 let child = texture.children[i];
                 switch(child.nodeName){
                     case "amplification":
-                        afs = parseFloat(child.attributes.afs.value);
-                        aft = parseFloat(child.attributes.aft.value);
+                        afs = this.parseFloat(child, 'afs', `<texture>, node ${nodeID}`); if(typeof afs === "string") return afs;
+                        aft = this.parseFloat(child, 'aft', `<texture>, node ${nodeID}`); if(typeof aft === "string") return aft;
                         break;
                     default: return `block with tag "${child.nodeName}" not allowed inside <texture> block`;
                 }
             }
-            if(typeof afs === "undefined" || typeof aft === "undefined"){
+            if(afs == null || aft == null){
                 if(texture.id != "clear") console.warn(`node "${nodeID}": Undefined amplification, using defaults`);
                 afs = 1; aft = 1;
             } else {
@@ -625,65 +647,20 @@ class MySceneGraph {
                 } else if(descendant.nodeName == 'leaf'){
                     let leaf = {};
                     switch(descendant.attributes.type.value){
-                        case "rectangle":
-                            leaf = new MyRectangle(
-                                this.scene,
-                                parseFloat(descendant.attributes.x1.value),
-                                parseFloat(descendant.attributes.y1.value),
-                                parseFloat(descendant.attributes.x2.value),
-                                parseFloat(descendant.attributes.y2.value),
-                                afs,
-                                aft
-                            );
-                            break;
-                        case "triangle":
-                            leaf = new MyTriangle(
-                                this.scene,
-                                parseFloat(descendant.attributes.x1.value),
-                                parseFloat(descendant.attributes.y1.value),
-                                parseFloat(descendant.attributes.x2.value),
-                                parseFloat(descendant.attributes.y2.value),
-                                parseFloat(descendant.attributes.x3.value),
-                                parseFloat(descendant.attributes.y3.value),
-                                afs,
-                                aft
-                            );
-                            break;
-                        case "cylinder":
-                            leaf = new MyCylinder(
-                                this.scene,
-                                parseFloat(descendant.attributes.bottomRadius.value),
-                                parseFloat(descendant.attributes.topRadius   .value),
-                                parseFloat(descendant.attributes.height      .value),
-                                parseFloat(descendant.attributes.slices      .value),
-                                parseFloat(descendant.attributes.stacks      .value)
-                            );
-                            break;
-                        case "sphere":
-                            leaf = new MySphere(
-                                this.scene,
-                                parseFloat(descendant.attributes.radius.value),
-                                parseInt(descendant.attributes.slices.value),
-                                parseInt(descendant.attributes.stacks.value)
-                            );
-                            break;
-                        case "torus":
-                            leaf = new MyTorus(
-                                this.scene,
-                                parseFloat(descendant.attributes.inner.value),
-                                parseFloat(descendant.attributes.outer.value),
-                                parseFloat(descendant.attributes.slices.value),
-                                parseFloat(descendant.attributes.loops.value)
-                            );
-                            break;
+                        case "rectangle": leaf = this.parseRectangle(descendant, afs, aft, descendant.id); break;
+                        case "triangle" : leaf = this.parseTriangle (descendant, afs, aft, descendant.id); break;
+                        case "cylinder" : leaf = this.parseCylinder (descendant,           descendant.id); break;
+                        case "sphere"   : leaf = this.parseSphere   (descendant,           descendant.id); break;
+                        case "torus"    : leaf = this.parseTorus    (descendant,           descendant.id); break;
                         default:
                             return `no such leaf type "${descendant.attributes.type}"`;
                     }
+                    if(typeof leaf === "string") return leaf;
                     node.addChild(leaf);
                 } else return `no such descendant type "${descendant.nodeName}"`;
             }
 
-            if(typeof this.nodes[nodeID] != "undefined") return "node with same id already exists";
+            if(this.nodes[nodeID] != null) return "node with same id already exists";
             this.nodes[nodeID] = node;
         }
 
@@ -693,52 +670,69 @@ class MySceneGraph {
             for(let i = 0; i < descendants.length; ++i){
                 let childID = descendants[i];
                 let child = this.nodes[childID];
-                if(typeof child == "undefined") return `node "${nodeID}" has child "${childID}" which does not exist`;
+                if(child == null) return `node "${nodeID}" has child "${childID}" which does not exist`;
                 node.addChild(child);
             }
         }
 
-        this.log("Parsed nodes");
-
-        if(typeof this.nodes[this.idRoot] == 'undefined')
+        if(this.nodes[this.idRoot] == null)
             return `No such root node "${this.idRoot}"`;
+        
+        this.log("Parsed nodes");
     }
 
-
+    /**
+     * Parses a boolean
+     * @param {XMLnode} node XML node
+     * @param {string} name Name
+     * @param {string} messageError String to print in case of error
+     */
     parseBoolean(node, name, messageError){
-        var boolVal = true;
+        var boolVal;
         boolVal = this.reader.getBoolean(node, name);
         if (!(boolVal != null && !isNaN(boolVal) && (boolVal == true || boolVal == false)))
+        {
             this.onXMLMinorError("unable to parse value component " + messageError + "; assuming 'value = 1'");
-
-        return boolVal || 1;
+            return true;
+        }
+        return boolVal;
     }
+
+    /**
+     * Parses a float
+     * @param {XMLnode} node XML node
+     * @param {string} name Name
+     * @param {string} messageError String to print in case of error
+     */
+    parseFloat(node, name, messageError){
+        let ret = this.reader.getFloat(node, name);
+        if(ret == null || isNaN(ret)) return `unable to parse ${name}: ${messageError}`;
+        return ret;
+    }
+
+    /**
+     * 
+     * @param {XMLnode} node XML node
+     * @param {string} name Name
+     * @param {string} messageError String to print in case of error
+     */
+    parseInt(node, name, messageError){
+        let ret = this.reader.getInteger(node, name);
+        if(ret == null || isNaN(ret)) return `unable to parse ${name}: ${messageError}`;
+        return ret;
+    }
+
     /**
      * Parse the coordinates from a node with ID = id
      * @param {block element} node
      * @param {message to be displayed in case of error} messageError
      */
     parseCoordinates3D(node, messageError) {
-        var position = [];
+        let x = this.parseFloat(node, 'x', messageError); if (typeof x === "string") return x;
+        let y = this.parseFloat(node, 'y', messageError); if (typeof y === "string") return y;
+        let z = this.parseFloat(node, 'z', messageError); if (typeof z === "string") return z;
 
-        // x
-        var x = this.reader.getFloat(node, 'x');
-        if (!(x != null && !isNaN(x)))
-            return "unable to parse x-coordinate of the " + messageError;
-
-        // y
-        var y = this.reader.getFloat(node, 'y');
-        if (!(y != null && !isNaN(y)))
-            return "unable to parse y-coordinate of the " + messageError;
-
-        // z
-        var z = this.reader.getFloat(node, 'z');
-        if (!(z != null && !isNaN(z)))
-            return "unable to parse z-coordinate of the " + messageError;
-
-        position.push(...[x, y, z]);
-
-        return position;
+        return [x,y,z];
     }
 
     /**
@@ -747,20 +741,11 @@ class MySceneGraph {
      * @param {message to be displayed in case of error} messageError
      */
     parseCoordinates4D(node, messageError) {
-        var position = [];
-
-        //Get x, y, z
-        position = this.parseCoordinates3D(node, messageError);
-
+        let position = this.parseCoordinates3D(node, messageError);
         if (!Array.isArray(position))
             return position;
 
-
-        // w
-        var w = this.reader.getFloat(node, 'w');
-        if (!(w != null && !isNaN(w)))
-            return "unable to parse w-coordinate of the " + messageError;
-
+        let w = this.parseFloat(node, 'w', messageError); if(typeof w === "string") return w;
         position.push(w);
 
         return position;
@@ -772,31 +757,141 @@ class MySceneGraph {
      * @param {message to be displayed in case of error} messageError
      */
     parseColor(node, messageError) {
-        var color = [];
+        let r = this.parseFloat(node, 'r', messageError); if(typeof r === "string") return r; if(!(0 <= r && r <= 1)) return `r component outside range: ${messageError}`;
+        let g = this.parseFloat(node, 'g', messageError); if(typeof g === "string") return g; if(!(0 <= g && g <= 1)) return `g component outside range: ${messageError}`;
+        let b = this.parseFloat(node, 'b', messageError); if(typeof b === "string") return b; if(!(0 <= b && b <= 1)) return `b component outside range: ${messageError}`;
+        let a = this.parseFloat(node, 'a', messageError); if(typeof a === "string") return a; if(!(0 <= a && a <= 1)) return `a component outside range: ${messageError}`;
 
-        // R
-        var r = this.reader.getFloat(node, 'r');
-        if (!(r != null && !isNaN(r) && r >= 0 && r <= 1))
-            return "unable to parse R component of the " + messageError;
+        return [r,g,b,a];
+    }
 
-        // G
-        var g = this.reader.getFloat(node, 'g');
-        if (!(g != null && !isNaN(g) && g >= 0 && g <= 1))
-            return "unable to parse G component of the " + messageError;
+    /**
+     * Parse the perspective camera from a node
+     * @param {block element} camera
+     * @param {message to be displayed in case of error} messageError
+     */
+    parsePerspectiveCamera(camera, messageError){
+        let fromAttr = null;
+        let toAttr   = null;
+        for(let j = 0; j < camera.children.length; ++j){
+            if(camera.children[j].nodeName == "from") fromAttr = camera.children[j];
+            if(camera.children[j].nodeName == "to"  ) toAttr   = camera.children[j];
+        }
+        if(fromAttr === null) return `does not have fromAttr: ${messageError}`;
+        if(toAttr   === null) return `does not have toAttr  : ${messageError}`;
 
-        // B
-        var b = this.reader.getFloat(node, 'b');
-        if (!(b != null && !isNaN(b) && b >= 0 && b <= 1))
-            return "unable to parse B component of the " + messageError;
+        let angle  = this.parseFloat(camera, 'angle' , camera.id); if(typeof angle  === "string") return angle ;
+        let near   = this.parseFloat(camera, 'near'  , camera.id); if(typeof near   === "string") return near  ;
+        let far    = this.parseFloat(camera, 'far'   , camera.id); if(typeof far    === "string") return far   ;
+        let from   = this.parseCoordinates3D(fromAttr, camera.id); if(typeof from   === "string") return from  ;
+        let to     = this.parseCoordinates3D(toAttr  , camera.id); if(typeof to     === "string") return to    ;
 
-        // A
-        var a = this.reader.getFloat(node, 'a');
-        if (!(a != null && !isNaN(a) && a >= 0 && a <= 1))
-            return "unable to parse A component of the " + messageError;
+        return new CGFcamera(angle*DEGREE_TO_RAD, near, far, vec3.fromValues(...from), vec3.fromValues(...to));
+    }
 
-        color.push(...[r, g, b, a]);
+    /**
+     * Parse the orthographic camera from a node
+     * @param {block element} camera
+     * @param {message to be displayed in case of error} messageError
+     */
+    parseOrthoCamera(camera, messageError){
+        let fromAttr = null;
+        let toAttr   = null;
+        let upAttr   = null;
+        for(let j = 0; j < camera.children.length; ++j){
+            if(camera.children[j].nodeName == "from") fromAttr = camera.children[j];
+            if(camera.children[j].nodeName == "to"  ) toAttr   = camera.children[j];
+            if(camera.children[j].nodeName == "up"  ) upAttr   = camera.children[j];
+        }
+        if(fromAttr === null) return `does not have fromAttr: ${messageError}`;
+        if(toAttr   === null) return `does not have toAttr  : ${messageError}`;
+        if(upAttr   === null) return `does not have upAttr  : ${messageError}`;
 
-        return color;
+        let left   = this.parseFloat(camera, 'left'  , camera.id); if(typeof left   === "string") return left  ;
+        let right  = this.parseFloat(camera, 'right' , camera.id); if(typeof right  === "string") return right ;
+        let bottom = this.parseFloat(camera, 'bottom', camera.id); if(typeof bottom === "string") return bottom;
+        let top    = this.parseFloat(camera, 'top'   , camera.id); if(typeof top    === "string") return top   ;
+        let near   = this.parseFloat(camera, 'near'  , camera.id); if(typeof near   === "string") return near  ;
+        let far    = this.parseFloat(camera, 'far'   , camera.id); if(typeof far    === "string") return far   ;
+        let from   = this.parseCoordinates3D(fromAttr, camera.id); if(typeof from   === "string") return from  ;
+        let to     = this.parseCoordinates3D(toAttr  , camera.id); if(typeof to     === "string") return to    ;
+        let up     = this.parseCoordinates3D(upAttr  , camera.id); if(typeof up     === "string") return up    ;
+
+        return new CGFcameraOrtho(
+            left, right, bottom, top, near, far,
+            vec3.fromValues(...from), vec3.fromValues(...to), vec3.fromValues(...up)
+        );
+    }
+
+    /**
+     * Parses a rectangle
+     * @param {XMLnode} node XML node
+     * @param {float} afs Texture amplification factor in s-axis
+     * @param {float} aft Texture amplification factor in t-axis
+     * @param {string} messageError String to print in case of error
+     */
+    parseRectangle(node, afs, aft, messageError){
+        let x1 = this.parseFloat(node, 'x1', messageError); if(typeof x1 === "string") return x1;
+        let y1 = this.parseFloat(node, 'y1', messageError); if(typeof y1 === "string") return y1;
+        let x2 = this.parseFloat(node, 'x2', messageError); if(typeof x2 === "string") return x2;
+        let y2 = this.parseFloat(node, 'y2', messageError); if(typeof y2 === "string") return y2;
+        return new MyRectangle(this.scene, x1, y1, x2, y2, afs, aft);
+    }
+
+    /**
+     * Parses a triangle
+     * @param {XMLnode} node XML node
+     * @param {float} afs Texture amplification factor in s-axis
+     * @param {float} aft Texture amplification factor in t-axis
+     * @param {string} messageError String to print in case of error
+     */
+    parseTriangle(node, afs, aft, messageError){
+        let x1 = this.parseFloat(node, 'x1', messageError); if(typeof x1 === "string") return x1;
+        let y1 = this.parseFloat(node, 'y1', messageError); if(typeof y1 === "string") return y1;
+        let x2 = this.parseFloat(node, 'x2', messageError); if(typeof x2 === "string") return x2;
+        let y2 = this.parseFloat(node, 'y2', messageError); if(typeof y2 === "string") return y2;
+        let x3 = this.parseFloat(node, 'x3', messageError); if(typeof x3 === "string") return x3;
+        let y3 = this.parseFloat(node, 'y3', messageError); if(typeof y3 === "string") return y3;
+        return new MyTriangle(this.scene, x1, y1, x2, y2, x3, y3, afs, aft);
+    }
+
+    /**
+     * Parses a cylinder
+     * @param {XMLnode} node XML node
+     * @param {string} messageError String to print in case of error
+     */
+    parseCylinder(node, messageError){
+        let bottomRadius = this.parseFloat(node, 'bottomRadius', messageError); if(typeof bottomRadius === "string") return bottomRadius;
+        let topRadius    = this.parseFloat(node, 'topRadius'   , messageError); if(typeof topRadius    === "string") return topRadius   ;
+        let height       = this.parseFloat(node, 'height'      , messageError); if(typeof height       === "string") return height      ;
+        let slices       = this.parseFloat(node, 'slices'      , messageError); if(typeof slices       === "string") return slices      ;
+        let stacks       = this.parseFloat(node, 'stacks'      , messageError); if(typeof stacks       === "string") return stacks      ;
+        return new MyCylinder(this.scene, bottomRadius, topRadius, height, slices, stacks);
+    }
+
+    /**
+     * Parses a sphere
+     * @param {XMLnode} node XML node
+     * @param {string} messageError String to print in case of error
+     */
+    parseSphere(node, messageError){
+        let radius = this.parseFloat(node, 'radius', messageError); if(typeof radius === "string") return radius;
+        let slices = this.parseInt  (node, 'slices', messageError); if(typeof slices === "string") return slices;
+        let stacks = this.parseInt  (node, 'stacks', messageError); if(typeof stacks === "string") return stacks;
+        return new MySphere(this.scene, radius, slices, stacks);
+    }
+
+    /**
+     * Parses a torus
+     * @param {XMLnode} node XML node
+     * @param {string} messageError String to print in case of error
+     */
+    parseTorus(node, messageError){
+        let inner  = this.parseFloat(node, 'inner' , messageError); if(typeof inner  === "string") return inner ;
+        let outer  = this.parseFloat(node, 'outer' , messageError); if(typeof outer  === "string") return outer ;
+        let slices = this.parseFloat(node, 'slices', messageError); if(typeof slices === "string") return slices;
+        let loops  = this.parseFloat(node, 'loops' , messageError); if(typeof loops  === "string") return loops ;
+        return new MyTorus(this.scene, inner, outer, slices, loops);
     }
 
     /**
