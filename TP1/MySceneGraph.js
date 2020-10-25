@@ -810,20 +810,20 @@ class MySceneGraph {
     parsePerspectiveCamera(camera, messageError){
         let fromAttr = null;
         let toAttr   = null;
-        let upAttr   = null;
         for(let j = 0; j < camera.children.length; ++j){
-            if(camera.children[j].nodeName == "from") fromAttr = camera.children[j].attributes;
-            if(camera.children[j].nodeName == "to"  ) toAttr   = camera.children[j].attributes;
-            if(camera.children[j].nodeName == "up"  ) upAttr   = camera.children[j].attributes;
+            if(camera.children[j].nodeName == "from") fromAttr = camera.children[j];
+            if(camera.children[j].nodeName == "to"  ) toAttr   = camera.children[j];
         }
+        if(fromAttr === null) return `does not have fromAttr: ${messageError}`;
+        if(toAttr   === null) return `does not have toAttr  : ${messageError}`;
 
-        return new CGFcamera(
-            parseFloat(camera.attributes.angle.value)*DEGREE_TO_RAD,
-            parseFloat(camera.attributes.near.value),
-            parseFloat(camera.attributes.far.value),
-            vec3.fromValues(fromAttr.x.value, fromAttr.y.value, fromAttr.z.value),
-            vec3.fromValues(toAttr  .x.value, toAttr  .y.value, toAttr  .z.value)
-        );
+        let angle  = this.parseFloat(camera, 'angle' , camera.id); if(typeof angle  === "string") return angle ;
+        let near   = this.parseFloat(camera, 'near'  , camera.id); if(typeof near   === "string") return near  ;
+        let far    = this.parseFloat(camera, 'far'   , camera.id); if(typeof far    === "string") return far   ;
+        let from   = this.parseCoordinates3D(fromAttr, camera.id); if(typeof from   === "string") return from  ;
+        let to     = this.parseCoordinates3D(toAttr  , camera.id); if(typeof to     === "string") return to    ;
+
+        return new CGFcamera(angle*DEGREE_TO_RAD, near, far, vec3.fromValues(...from), vec3.fromValues(...to));
     }
 
     /**
@@ -836,21 +836,27 @@ class MySceneGraph {
         let toAttr   = null;
         let upAttr   = null;
         for(let j = 0; j < camera.children.length; ++j){
-            if(camera.children[j].nodeName == "from") fromAttr = camera.children[j].attributes;
-            if(camera.children[j].nodeName == "to"  ) toAttr   = camera.children[j].attributes;
-            if(camera.children[j].nodeName == "up"  ) upAttr   = camera.children[j].attributes;
+            if(camera.children[j].nodeName == "from") fromAttr = camera.children[j];
+            if(camera.children[j].nodeName == "to"  ) toAttr   = camera.children[j];
+            if(camera.children[j].nodeName == "up"  ) upAttr   = camera.children[j];
         }
+        if(fromAttr === null) return `does not have fromAttr: ${messageError}`;
+        if(toAttr   === null) return `does not have toAttr  : ${messageError}`;
+        if(upAttr   === null) return `does not have upAttr  : ${messageError}`;
+
+        let left   = this.parseFloat(camera, 'left'  , camera.id); if(typeof left   === "string") return left  ;
+        let right  = this.parseFloat(camera, 'right' , camera.id); if(typeof right  === "string") return right ;
+        let bottom = this.parseFloat(camera, 'bottom', camera.id); if(typeof bottom === "string") return bottom;
+        let top    = this.parseFloat(camera, 'top'   , camera.id); if(typeof top    === "string") return top   ;
+        let near   = this.parseFloat(camera, 'near'  , camera.id); if(typeof near   === "string") return near  ;
+        let far    = this.parseFloat(camera, 'far'   , camera.id); if(typeof far    === "string") return far   ;
+        let from   = this.parseCoordinates3D(fromAttr, camera.id); if(typeof from   === "string") return from  ;
+        let to     = this.parseCoordinates3D(toAttr  , camera.id); if(typeof to     === "string") return to    ;
+        let up     = this.parseCoordinates3D(upAttr  , camera.id); if(typeof up     === "string") return up    ;
 
         return new CGFcameraOrtho(
-            parseFloat(camera.attributes.left  .value),
-            parseFloat(camera.attributes.right .value),
-            parseFloat(camera.attributes.bottom.value),
-            parseFloat(camera.attributes.top   .value),
-            parseFloat(camera.attributes.near  .value),
-            parseFloat(camera.attributes.far   .value),
-            vec3.fromValues(fromAttr.x.value, fromAttr.y.value, fromAttr.z.value),
-            vec3.fromValues(toAttr  .x.value, toAttr  .y.value, toAttr  .z.value),
-            vec3.fromValues(upAttr  .x.value, upAttr  .y.value, upAttr  .z.value)
+            left, right, bottom, top, near, far,
+            vec3.fromValues(...from), vec3.fromValues(...to), vec3.fromValues(...up)
         );
     }
 
