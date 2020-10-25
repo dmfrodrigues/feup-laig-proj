@@ -775,31 +775,12 @@ class MySceneGraph {
      * @param {message to be displayed in case of error} messageError
      */
     parseColor(node, messageError) {
-        var color = [];
+        let r = this.parseFloat(node, 'r', messageError); if(typeof r === "string") return r; if(!(0 <= r && r <= 1)) return `r component outside range: ${messageError}`;
+        let g = this.parseFloat(node, 'g', messageError); if(typeof g === "string") return g; if(!(0 <= g && g <= 1)) return `g component outside range: ${messageError}`;
+        let b = this.parseFloat(node, 'b', messageError); if(typeof b === "string") return b; if(!(0 <= b && b <= 1)) return `b component outside range: ${messageError}`;
+        let a = this.parseFloat(node, 'a', messageError); if(typeof a === "string") return a; if(!(0 <= a && a <= 1)) return `a component outside range: ${messageError}`;
 
-        // R
-        var r = this.reader.getFloat(node, 'r');
-        if (!(r != null && !isNaN(r) && r >= 0 && r <= 1))
-            return "unable to parse R component of the " + messageError;
-
-        // G
-        var g = this.reader.getFloat(node, 'g');
-        if (!(g != null && !isNaN(g) && g >= 0 && g <= 1))
-            return "unable to parse G component of the " + messageError;
-
-        // B
-        var b = this.reader.getFloat(node, 'b');
-        if (!(b != null && !isNaN(b) && b >= 0 && b <= 1))
-            return "unable to parse B component of the " + messageError;
-
-        // A
-        var a = this.reader.getFloat(node, 'a');
-        if (!(a != null && !isNaN(a) && a >= 0 && a <= 1))
-            return "unable to parse A component of the " + messageError;
-
-        color.push(...[r, g, b, a]);
-
-        return color;
+        return [r,g,b,a];
     }
 
     /**
