@@ -253,6 +253,10 @@ class MySceneGraph {
         for(let i = 0; i < viewsNode.children.length; ++i){
             let camera = viewsNode.children[i];
             
+            // Checks for repeated IDs.
+            if (this.views.list[camera.id] != null)
+                return "ID must be unique for each view (conflict: ID = " + camera.id + ")";
+            
             let fromAttr = null;
             let toAttr   = null;
             let upAttr   = null;
@@ -450,6 +454,11 @@ class MySceneGraph {
         this.textures = {};
         for(let i = 0; i < texturesNode.children.length; ++i){
             let texture = texturesNode.children[i];
+
+        // Checks for repeated IDs.
+        if (this.textures[texture.id] != null)
+            return "ID must be unique for each texture (conflict: ID = " + texture.id + ")";
+
             this.textures[texture.id] = new CGFtexture(
                 this.scene,
                 texture.attributes.path.value
