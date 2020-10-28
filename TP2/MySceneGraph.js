@@ -519,6 +519,8 @@ class MySceneGraph {
             mat.shininess = this.parseFloat(grandChildren[shininessIndex], "value");
             if(typeof mat.shininess === "string") return mat.shininess;
 
+            mat.setTextureWrap('REPEAT', 'REPEAT');
+
             this.materials[materialID] = mat;
         }
 
