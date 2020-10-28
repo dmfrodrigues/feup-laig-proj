@@ -41,6 +41,7 @@ class MyCylinder extends CGFobject {
                 let Ny = Math.sin(theta);
                 let Nz = (this.bottomRadius-this.topRadius)/this.height;
                 let R = Math.sqrt(Nx*Nx + Ny*Ny + Nz*Nz);
+                if(this.height < 0) R = -R;
                 this.normals.push(Nx/R, Ny/R, Nz/R);
                 
                 this.texCoords.push(
