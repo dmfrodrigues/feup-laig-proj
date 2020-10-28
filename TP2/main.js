@@ -26,6 +26,7 @@ serialInclude(
         'Keyframe.js',
         'Animation.js',
         'KeyframeAnimation.js',
+        'Plane.js',
 
 main=function()
 {
