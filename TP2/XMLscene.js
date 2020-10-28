@@ -1,3 +1,5 @@
+SECONDS_TO_MILLIS = 1000;
+
 /**
  * XMLscene class, representing the scene that is to be rendered.
  */
@@ -31,7 +33,7 @@ class XMLscene extends CGFscene {
         this.gl.depthFunc(this.gl.LEQUAL);
 
         this.axis = new CGFaxis(this);
-        this.setUpdatePeriod(100);
+        this.setUpdatePeriod(20);
 
         this.loadingProgressObject=new MyRectangle(this, -1, -.1, 1, .1);
         this.loadingProgress=0;
@@ -98,6 +100,21 @@ class XMLscene extends CGFscene {
         this.interface.setActiveCamera(this.camera);
     }
 
+    /**
+     * Update scene stuff that is time-dependent (e.g. animations)
+     * 
+     * @param {int} time Time since epoch, in milliseconds
+     */
+    update(time){
+        if (typeof this.update.t0 === 'undefined'){
+            this.update.t0 = time;
+        }
+        let t = (time-this.update.t0)/SECONDS_TO_MILLIS;
+        for (var key in this.graph.animations){
+            this.graph.animations[key].update(t);
+        }
+    }
+
     /** Handler called when the graph is finally loaded. 
      * As loading is asynchronous, this may be called already after the application has started the run loop
      */
@@ -124,21 +141,10 @@ class XMLscene extends CGFscene {
         this.texture = this.texture_stack.pop();
         this.appearance.apply();
     }
-    clone_material(material){
-        if(material == "same") return "same";
-        var ret = new CGFappearance(material.scene);
-        ret.setAmbient  (material.ambient  [0], material.ambient  [1], material.ambient  [2], material.ambient  [3]);
-        ret.setDiffuse  (material.diffuse  [0], material.diffuse  [1], material.diffuse  [2], material.diffuse  [3]);
-        ret.setEmission (material.emission [0], material.emission [1], material.emission [2], material.emission [3]);
-        ret.setShininess(material.shininess);
-        ret.setSpecular (material.specular [0], material.specular [1], material.specular [2], material.specular [3]);
-        ret.setTextureWrap('REPEAT', 'REPEAT');
-        return ret;
-    }
     setAppearance(material, tex){
         // material
-        if(material == "same") this.appearance = this.clone_material(this.appearance_stack[this.appearance_stack.length-1]);
-        else                   this.appearance = this.clone_material(material);
+        if(material == "same") this.appearance = this.appearance_stack[this.appearance_stack.length-1];
+        else                   this.appearance = material;
         // texture
         if(tex == "same") this.texture = this.texture_stack[this.texture_stack.length-1];
         else              this.texture = tex;
@@ -151,6 +157,8 @@ class XMLscene extends CGFscene {
      * Displays the scene.
      */
     display() {
+        //this.update();
+
         // ---- BEGIN Background, camera and axis setup
 
         // Clear image and depth buffer everytime we update the scene

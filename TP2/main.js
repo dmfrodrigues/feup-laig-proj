@@ -23,6 +23,9 @@ serialInclude(
         'MySphere.js',
         'MyTorus.js',
         'Node.js',
+        'Keyframe.js',
+        'Animation.js',
+        'KeyframeAnimation.js',
 
 main=function()
 {
