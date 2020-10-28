@@ -79,19 +79,14 @@
         <texture id="floor"               path="./scenes/images/floor.jpg"              />
         <texture id="wall"                path="./scenes/images/wall.jpg"               />
         <texture id="ceil"                path="./scenes/images/ceil.jpg"               />
-
         <texture id="pine-wood"           path="./scenes/images/pine-wood.jpg"          />
         <texture id="bed-sheets"          path="./scenes/images/bed-sheets.jpg"         />
-
         <texture id="dark_wood"           path="./scenes/images/door_wood.jpg"          />
         <texture id="handle_plate"        path="./scenes/images/handle_plate.jpg"       />
         <texture id="steel"               path="./scenes/images/steel.jpg"              />               
         <texture id="white_wood"          path="./scenes/images/white_wood.jpg"         />
-
         <texture id="crepe-paper"         path="./scenes/images/crepe-paper.jpg"        />
-
         <texture id="marble"              path="./scenes/images/marble.jpg"             />
-
         <texture id="skysphere-empirestate" path="./scenes/images/skysphere/empirestate-day/skysphere-empirestate-small.jpg"/>
     </textures>
     <materials>

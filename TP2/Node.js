@@ -41,6 +41,9 @@ class Node extends CGFobject {
         this.scene.pushAppearance();
         {
             this.scene.setAppearance(this.material, this.texture);
+            
+            if(this.animation != null)
+                this.animation.apply();
 
             this.scene.multMatrix(this.transformation);
 

@@ -724,7 +724,7 @@ class MySceneGraph {
             // AnimationRef
             let animationref = grandChildren[animationRefIndex];
             if(animationref != null){
-                let animation = (animationref.id == "null" ? "same" : this.animations[animationref.id]);
+                let animation = this.animations[animationref.id];
                 if(animation == null) return `no such animation "${animationref.id}"`;
                 node.setAnimation(animation);
             }
