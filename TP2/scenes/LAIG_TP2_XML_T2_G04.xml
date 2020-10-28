@@ -190,12 +190,23 @@
     </materials>
 
     <animations>
-        <animation id="globe">
+        <animation id="globe_world">
             <keyframe instant="0.0">
                 <rotation axis="y" angle="0" />
             </keyframe>
             <keyframe instant="10.0">
                 <rotation axis="y" angle="360" />
+            </keyframe>
+        </animation>
+        <animation id="globe_world_axis_tilted">
+            <keyframe instant="0.0">
+                <rotation axis="y" angle="0" />
+            </keyframe>
+            <keyframe instant="5.0">
+                <rotation axis="y" angle="90" />
+            </keyframe>
+            <keyframe instant="10.0">
+                <rotation axis="y" angle="-90" />
             </keyframe>
         </animation>
     </animations>
