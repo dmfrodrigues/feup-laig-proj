@@ -538,9 +538,9 @@ class MySceneGraph {
             if (this.animations[animation.id] != null)
                 return "ID must be unique for each animation (conflict: ID = " + animation.id + ")";
             
-            let loop = this.parseBoolean(animation, "loop", animation.id, false);
+            let loop = (animation.attributes.loop == null ? false : Number(animation.attributes.loop.value));
 
-            let anim = new KeyframeAnimation(this.scene);
+            let anim = new KeyframeAnimation(this.scene, loop);
             for(let i = 0; i < animation.children.length; ++i){
                 let keyframe = animation.children[i];
                 let instant = this.parseFloat(keyframe, "instant");

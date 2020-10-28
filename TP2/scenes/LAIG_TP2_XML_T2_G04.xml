@@ -186,7 +186,7 @@
 
     <animations>
         <!-- Globe animations -->
-        <animation id="globe_rotation">
+        <animation id="globe_rotation" loop="1">
             <keyframe instant="0.0">
                 <translation x="0.0" y="0.0" z="0.0" />
                 <rotation axis="x" angle="0" />
