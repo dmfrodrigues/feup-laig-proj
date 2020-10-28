@@ -191,7 +191,7 @@ class MySceneGraph {
             this.onXMLMinorError("tag <animations> missing");
         else {
             if (index != ANIMATIONS_INDEX)
-                this.onXMLMinorError("tag <materials> out of order");
+                this.onXMLMinorError("tag <animations> out of order");
 
             //Parse animations block
             if ((error = this.parseAnimations(nodes[index])) != null)
@@ -567,9 +567,9 @@ class MySceneGraph {
                             break;
                         case "scale":
                             if(sx != undefined || sy != undefined || sz != undefined) return `translation already defined for this keyframe`;
-                            sx = this.parseFloat(trans, "x"); if(typeof sx === "string") return sx;
-                            sy = this.parseFloat(trans, "y"); if(typeof sy === "string") return sy;
-                            sz = this.parseFloat(trans, "z"); if(typeof sz === "string") return sz;
+                            sx = this.parseFloat(trans, "sx"); if(typeof sx === "string") return sx;
+                            sy = this.parseFloat(trans, "sy"); if(typeof sy === "string") return sy;
+                            sz = this.parseFloat(trans, "sz"); if(typeof sz === "string") return sz;
                             break;
                         default: return `no such transformation type "${trans.nodeName}"`;
                     }
@@ -679,6 +679,7 @@ class MySceneGraph {
             var materialIndex = nodeNames.indexOf("material");
             var textureIndex = nodeNames.indexOf("texture");
             var descendantsIndex = nodeNames.indexOf("descendants");
+            var animationRefIndex = nodeNames.indexOf("animationref");
 
             let node = new Node(this.scene, nodeID);
             // Transformations
@@ -719,6 +720,15 @@ class MySceneGraph {
             } else {
                 if(texture.id == "clear") console.warn(`node "${nodeID}": Texture "clear" does not require amplification`);
             }
+
+            // AnimationRef
+            let animationref = grandChildren[animationRefIndex];
+            if(animationref != null){
+                let animation = (animationref.id == "null" ? "same" : this.animations[animationref.id]);
+                if(animation == null) return `no such animation "${animationref.id}"`;
+                node.setAnimation(animation);
+            }
+
             // Descendants
             let descendants = grandChildren[descendantsIndex].children;
             nodeDescendants[nodeID] = [];

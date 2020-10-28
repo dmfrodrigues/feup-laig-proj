@@ -261,23 +261,6 @@
                 <scale sx="1" sy="1" sz="1" />
             </keyframe>
         </animation>
-        <!-- Close window -->
-        <animation id="close_window">
-            <keyframe instant="0.0">
-                <translation x="0.0" y="0.0" z="0.0" />
-                <rotation axis="x" angle="0" />
-                <rotation axis="y" angle="0" />
-                <rotation axis="z" angle="0" />
-                <scale sx="1" sy="1" sz="1" />
-            </keyframe>
-            <keyframe instant="3.0">
-                <translation x="0.5" y="0.0" z="0.0" />
-                <rotation axis="x" angle="0" />
-                <rotation axis="y" angle="0" />
-                <rotation axis="z" angle="0" />
-                <scale sx="1" sy="1" sz="1" />
-            </keyframe>
-        </animation>
     </animations>
 
     <nodes>
