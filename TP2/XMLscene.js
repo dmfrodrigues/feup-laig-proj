@@ -1,3 +1,5 @@
+SECONDS_TO_MILLIS = 1000;
+
 /**
  * XMLscene class, representing the scene that is to be rendered.
  */
@@ -98,9 +100,17 @@ class XMLscene extends CGFscene {
         this.interface.setActiveCamera(this.camera);
     }
 
+    /**
+     * Update scene stuff that is time-dependent (e.g. animations)
+     * 
+     * @param {int} time Time since epoch, in milliseconds
+     */
     update(time){
+        if (typeof this.update.t0 === 'undefined'){
+            this.update.t0 = time;
+        }
         for (var key in this.graph.animations){
-            this.graph.animations[key].update(time);
+            this.graph.animations[key].update((time-this.update.t0)/SECONDS_TO_MILLIS);
         }
     }
 

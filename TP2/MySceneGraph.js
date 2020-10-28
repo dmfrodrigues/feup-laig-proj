@@ -558,6 +558,7 @@ class MySceneGraph {
                         case "rotation":
                             let axis = trans.attributes.axis.value; if(axis === undefined) return `undefined axis in keyframe rotation`;
                             let angle = this.parseFloat(trans, "angle"); if(typeof angle === "string") return angle;
+                            angle *= DEGREE_TO_RAD;
                             switch(axis){
                                 case "x": if(rx != undefined) return `rotation in axis ${axis} already defined for this keyframe`; rx = angle; break;
                                 case "y": if(ry != undefined) return `rotation in axis ${axis} already defined for this keyframe`; ry = angle; break;
