@@ -98,6 +98,12 @@ class XMLscene extends CGFscene {
         this.interface.setActiveCamera(this.camera);
     }
 
+    update(time){
+        for (var key in this.graph.animations){
+            this.graph.animations[key].update(time);
+        }
+    }
+
     /** Handler called when the graph is finally loaded. 
      * As loading is asynchronous, this may be called already after the application has started the run loop
      */
@@ -151,6 +157,8 @@ class XMLscene extends CGFscene {
      * Displays the scene.
      */
     display() {
+        //this.update();
+
         // ---- BEGIN Background, camera and axis setup
 
         // Clear image and depth buffer everytime we update the scene

@@ -60,7 +60,7 @@ class Keyframe {
 	 * @return {mat4}	Transformation matrix of keyframe
 	 */
 	getMatrix(){
-		return M;
+		return this.M;
 	}
 }
 
