@@ -7,7 +7,8 @@ var ILLUMINATION_INDEX = 2;
 var LIGHTS_INDEX = 3;
 var TEXTURES_INDEX = 4;
 var MATERIALS_INDEX = 5;
-var NODES_INDEX = 6;
+var ANIMATIONS_INDEX = 6;
+var NODES_INDEX = 7;
 
 /**
  * MySceneGraph class, representing the scene graph.
@@ -185,11 +186,23 @@ class MySceneGraph {
                 return error;
         }
 
+        // <animations>
+        if ((index = nodeNames.indexOf("animations")) == -1)
+            this.onXMLMinorError("tag <animations> missing");
+        else {
+            if (index != ANIMATIONS_INDEX)
+                this.onXMLMinorError("tag <materials> out of order");
+
+            //Parse animations block
+            if ((error = this.parseAnimations(nodes[index])) != null)
+                return error;
+        }
+
         // <nodes>
         if ((index = nodeNames.indexOf("nodes")) == -1)
             return "tag <nodes> missing";
         else {
-            if (index != NODES_INDEX)
+            if (index != NODES_INDEX && index != NODES_INDEX-1)
                 this.onXMLMinorError("tag <nodes> out of order");
 
             //Parse nodes block
@@ -512,6 +525,74 @@ class MySceneGraph {
         this.scene.materials = this.materials;
 
         this.log("Parsed materials");
+
+        return null;
+    }
+
+    parseAnimations(animationsNode) {
+        this.animations = {};
+        for(let i = 0; i < animationsNode.children.length; ++i){
+            let animation = animationsNode.children[i];
+
+            // Checks for repeated IDs.
+            if (this.animations[animation.id] != null)
+                return "ID must be unique for each animation (conflict: ID = " + animation.id + ")";
+            
+            let anim = new KeyframeAnimation(this.scene);
+            for(let i = 0; i < animation.children.length; ++i){
+                let keyframe = animation.children[i];
+                let instant = this.parseFloat(keyframe, "instant");
+
+                let x, y, z, rx, ry, rz, sx, sy, sz;
+
+                for(let j = 0; j < keyframe.children.length; ++j){
+                    let trans = keyframe.children[j];
+
+                    switch(trans.nodeName){
+                        case "translation":
+                            if(x != undefined || y != undefined || z != undefined) return `translation already defined for this keyframe`;
+                            x = this.parseFloat(trans, "x"); if(typeof x === "string") return x;
+                            y = this.parseFloat(trans, "y"); if(typeof y === "string") return y;
+                            z = this.parseFloat(trans, "z"); if(typeof z === "string") return z;
+                            break;
+                        case "rotation":
+                            let axis = trans.attributes.axis.value; if(axis === undefined) return `undefined axis in keyframe rotation`;
+                            let angle = this.parseFloat(trans, "angle"); if(typeof angle === "string") return angle;
+                            switch(axis){
+                                case "x": if(rx != undefined) return `rotation in axis ${axis} already defined for this keyframe`; rx = angle; break;
+                                case "y": if(ry != undefined) return `rotation in axis ${axis} already defined for this keyframe`; ry = angle; break;
+                                case "z": if(rz != undefined) return `rotation in axis ${axis} already defined for this keyframe`; rz = angle; break;
+                                default: return `no such axis "${axis}"`;
+                            }
+                            break;
+                        case "scale":
+                            if(sx != undefined || sy != undefined || sz != undefined) return `translation already defined for this keyframe`;
+                            sx = this.parseFloat(trans, "x"); if(typeof sx === "string") return sx;
+                            sy = this.parseFloat(trans, "y"); if(typeof sy === "string") return sy;
+                            sz = this.parseFloat(trans, "z"); if(typeof sz === "string") return sz;
+                            break;
+                        default: return `no such transformation type "${trans.nodeName}"`;
+                    }
+                }
+
+                if( x === undefined)  x = 0;
+                if( y === undefined)  y = 0;
+                if( z === undefined)  z = 0;
+                if(rx === undefined) rx = 0;
+                if(ry === undefined) ry = 0;
+                if(rz === undefined) rz = 0;
+                if(sx === undefined) sx = 1;
+                if(sy === undefined) sy = 1;
+                if(sz === undefined) sz = 1;
+
+                let kf = new Keyframe(x, y, z, rx, ry, rz, sx, sy, sz);
+                anim.addKeyframe(instant, kf);
+            }
+
+            this.animations[animation.id] = anim;
+        }
+
+        this.log("Parsed animations");
 
         return null;
     }

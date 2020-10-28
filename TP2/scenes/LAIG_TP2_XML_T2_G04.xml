@@ -220,7 +220,7 @@
             </keyframe>
         </animation>
         <!-- Close window -->
-        <animation id="window_frame_1">
+        <animation id="window_frame_2">
             <keyframe instant="0.0">
                 <translation x="0.0" y="0.0" z="0.0" />
             </keyframe>
