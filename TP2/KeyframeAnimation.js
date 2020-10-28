@@ -16,9 +16,9 @@ class KeyframeAnimation extends Animation {
     }
     update(t){
         let keys = Object.keys(this.keyframes).sort();
-        if(keys[keys.length] <= t){
+        if(keys[keys.length-1] <= t){
             this.visible = false;
-            this.M = this.keyframes[keys[keys.length]].getMatrix();
+            this.M = this.keyframes[keys[keys.length-1]].getMatrix();
         } else if(t <= keys[0]) {
             this.visible = false;
             this.M = this.keyframes[keys[0]].getMatrix();

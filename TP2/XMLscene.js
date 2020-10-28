@@ -33,7 +33,7 @@ class XMLscene extends CGFscene {
         this.gl.depthFunc(this.gl.LEQUAL);
 
         this.axis = new CGFaxis(this);
-        this.setUpdatePeriod(100);
+        this.setUpdatePeriod(20);
 
         this.loadingProgressObject=new MyRectangle(this, -1, -.1, 1, .1);
         this.loadingProgress=0;
@@ -109,8 +109,9 @@ class XMLscene extends CGFscene {
         if (typeof this.update.t0 === 'undefined'){
             this.update.t0 = time;
         }
+        let t = (time-this.update.t0)/SECONDS_TO_MILLIS;
         for (var key in this.graph.animations){
-            this.graph.animations[key].update((time-this.update.t0)/SECONDS_TO_MILLIS);
+            this.graph.animations[key].update(t);
         }
     }
 
