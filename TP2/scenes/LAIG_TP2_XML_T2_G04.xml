@@ -189,6 +189,17 @@
         </material>
     </materials>
 
+    <animations>
+        <animation id="globe">
+            <keyframe instant="0.0">
+                <rotation axis="y" angle="0" />
+            </keyframe>
+            <keyframe instant="10.0">
+                <rotation axis="y" angle="360" />
+            </keyframe>
+        </animation>
+    </animations>
+
     <nodes>
         <node id="root">
             <material id="null"/>
