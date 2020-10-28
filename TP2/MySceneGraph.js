@@ -404,7 +404,7 @@ class MySceneGraph {
 
                 if (attributeIndex != -1) {
                     if (attributeTypes[j] == "boolean")
-                        var aux = this.parseBoolean(grandChildren[attributeIndex], "value", "enabled attribute for light of ID" + lightId);
+                        var aux = this.parseBoolean(grandChildren[attributeIndex], "value", "enabled attribute for light of ID" + lightId, true);
                     else if (attributeTypes[j] == "position")
                         var aux = this.parseCoordinates4D(grandChildren[attributeIndex], "light position for ID" + lightId);
                     else
@@ -780,13 +780,14 @@ class MySceneGraph {
      * @param {string} name Name
      * @param {string} messageError String to print in case of error
      */
-    parseBoolean(node, name, messageError){
+    parseBoolean(node, name, messageError, default_val){
         var boolVal;
         boolVal = this.reader.getBoolean(node, name);
-        if (!(boolVal != null && !isNaN(boolVal) && (boolVal == true || boolVal == false)))
-        {
-            this.onXMLMinorError("unable to parse value component " + messageError + "; assuming 'value = 1'");
-            return true;
+        if (!(boolVal != null &&
+              !isNaN(boolVal) &&
+              (boolVal == true || boolVal == false))){
+            if(default_val != null) return default_val;
+            return `unable to parse value component "${messageError}"`;
         }
         return boolVal;
     }
