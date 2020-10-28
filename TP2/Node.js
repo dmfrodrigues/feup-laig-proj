@@ -42,14 +42,16 @@ class Node extends CGFobject {
         {
             this.scene.setAppearance(this.material, this.texture);
             
+            this.scene.multMatrix(this.transformation);
+
             if(this.animation != null)
                 this.animation.apply();
 
-            this.scene.multMatrix(this.transformation);
-
-            for(let i = 0; i < this.children.length; ++i){
-                let child = this.children[i];
-                child.display();
+            if(this.animation == null || this.animation.isVisible()){
+                for(let i = 0; i < this.children.length; ++i){
+                    let child = this.children[i];
+                    child.display();
+                }
             }
         }
         this.scene.popAppearance();

@@ -20,7 +20,7 @@ class KeyframeAnimation extends Animation {
         let keys = Object.keys(this.keyframes).map(Number).sort(function (a,b){ return a-b; });
         if(this.loop && t > 0) t %= keys[keys.length-1];
         if(keys[keys.length-1] <= t){
-            this.visible = false;
+            this.visible = true;
             this.M = this.keyframes[keys[keys.length-1]].getMatrix();
         } else if(t <= keys[0]) {
             this.visible = false;
