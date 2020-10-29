@@ -141,21 +141,10 @@ class XMLscene extends CGFscene {
         this.texture = this.texture_stack.pop();
         this.appearance.apply();
     }
-    clone_material(material){
-        if(material == "same") return "same";
-        var ret = new CGFappearance(material.scene);
-        ret.setAmbient  (material.ambient  [0], material.ambient  [1], material.ambient  [2], material.ambient  [3]);
-        ret.setDiffuse  (material.diffuse  [0], material.diffuse  [1], material.diffuse  [2], material.diffuse  [3]);
-        ret.setEmission (material.emission [0], material.emission [1], material.emission [2], material.emission [3]);
-        ret.setShininess(material.shininess);
-        ret.setSpecular (material.specular [0], material.specular [1], material.specular [2], material.specular [3]);
-        ret.setTextureWrap('REPEAT', 'REPEAT');
-        return ret;
-    }
     setAppearance(material, tex){
         // material
-        if(material == "same") this.appearance = this.clone_material(this.appearance_stack[this.appearance_stack.length-1]);
-        else                   this.appearance = this.clone_material(material);
+        if(material == "same") this.appearance = this.appearance_stack[this.appearance_stack.length-1];
+        else                   this.appearance = material;
         // texture
         if(tex == "same") this.texture = this.texture_stack[this.texture_stack.length-1];
         else              this.texture = tex;
