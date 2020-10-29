@@ -2848,7 +2848,7 @@
         <node id="lavalamp-blob-oscillator2"><material id="null"/><texture id="clear"/><transformations><translation x="+0.009" y="+0.010" z="+0.009"/><scale sx="1.5" sy="0.7" sz="1.5"/></transformations><animationref id="lavalamp-blob-oscillator2"/><descendants><noderef id="lavalamp-blob"/></descendants></node>
         <node id="lavalamp-blob-oscillator3"><material id="null"/><texture id="clear"/><transformations><translation x="+0.007" y="+0.010" z="+0.003"/><scale sx="1.9" sy="0.9" sz="1.9"/></transformations><animationref id="lavalamp-blob-oscillator3"/><descendants><noderef id="lavalamp-blob"/></descendants></node>
         <node id="lavalamp-blob-oscillator4"><material id="null"/><texture id="clear"/><transformations><translation x="+0.001" y="+0.010" z="-0.005"/><scale sx="1.7" sy="0.8" sz="1.7"/></transformations><animationref id="lavalamp-blob-oscillator4"/><descendants><noderef id="lavalamp-blob"/></descendants></node>
-        <node id="lavalamp-blob-oscillator5"><material id="null"/><texture id="clear"/><transformations><translation x="+0.001" y="+0.010" z="+0.005"/><scale sx="1.0" sy="0.6" sz="1.0"/></transformations><animationref id="lavalamp-blob-oscillator4"/><descendants><noderef id="lavalamp-blob"/></descendants></node>
+        <node id="lavalamp-blob-oscillator5"><material id="null"/><texture id="clear"/><transformations><translation x="-0.003" y="+0.010" z="-0.005"/><scale sx="1.0" sy="0.6" sz="1.0"/></transformations><animationref id="lavalamp-blob-oscillator4"/><descendants><noderef id="lavalamp-blob"/></descendants></node>
         
         <node id="lavalamp-blob">
             <material id="lamp-wax"/>
