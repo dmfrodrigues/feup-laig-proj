@@ -747,6 +747,7 @@ class MySceneGraph {
                         case "cylinder" : leaf = this.parseCylinder (descendant,           descendant.id); break;
                         case "sphere"   : leaf = this.parseSphere   (descendant,           descendant.id); break;
                         case "torus"    : leaf = this.parseTorus    (descendant,           descendant.id); break;
+                        case "plane"    : leaf = this.parsePlane    (descendant,           descendant.id); break;
                         default:
                             return `no such leaf type "${descendant.attributes.type}"`;
                     }
@@ -989,6 +990,18 @@ class MySceneGraph {
         let loops  = this.parseFloat(node, 'loops' , messageError); if(typeof loops  === "string") return loops ;
         return new MyTorus(this.scene, inner, outer, slices, loops);
     }
+
+    /**
+     * Parses a plane
+     * @param {XMLnode} node XML node
+     * @param {string} messageError String to print in case of error
+     */
+    parsePlane(node, messageError){
+        let npartsU = this.parseInt(node, 'npartsU', messageError); if(typeof npartsU === "string") return npartsU;
+        let npartsV = this.parseInt(node, 'npartsV', messageError); if(typeof npartsV === "string") return npartsV;
+        return new Plane(this.scene, npartsU, npartsV);
+    }
+
 
     /**
      * Displays the scene, processing each node, starting in the root node.
