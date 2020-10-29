@@ -43,7 +43,7 @@ class KeyframeAnimation extends Animation {
             this.visible = true;
             this.M = this.keyframes[this.tmax].getMatrix();
         } else if(t <= this.tmin) {
-            if(t < tmin) this.visible = false;
+            if(t < this.tmin) this.visible = false;
             this.M = this.keyframes[this.tmin].getMatrix();
         } else {
             this.visible = true;

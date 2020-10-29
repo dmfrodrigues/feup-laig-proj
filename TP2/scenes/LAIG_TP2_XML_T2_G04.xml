@@ -2852,9 +2852,7 @@
         
         <node id="lavalamp-blob">
             <material id="lamp-wax"/>
-            <texture id="clear">
-                <amplification afs="1" aft="1"/>
-            </texture>
+            <texture id="clear"/>
             <transformations>
                 <rotation axis="x" angle="-90"/>
             </transformations>
