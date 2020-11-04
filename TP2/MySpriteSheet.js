@@ -12,8 +12,8 @@ class MySpriteSheet {
         this.sizeM = sizeM;
         this.sizeN = sizeN;
         this.texture = new CGFtexture(this.scene, texture);
-        let frag = "scene/shaders/" + texture.replace(/\.[^/.]+$/, "") + ".frag";
-        let vert = "scene/shaders/" + texture.replace(/\.[^/.]+$/, "") + ".vert";
+        let frag = texture.replace(/\.[^/.]+$/, "") + ".frag";
+        let vert = texture.replace(/\.[^/.]+$/, "") + ".vert";
         this.shader = new CGFshader(this.scene.gl, vert, frag);
     }
     activateCellMN(m, n){

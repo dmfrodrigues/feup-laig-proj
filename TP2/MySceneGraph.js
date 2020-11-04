@@ -744,12 +744,13 @@ class MySceneGraph {
                 } else if(descendant.nodeName == 'leaf'){
                     let leaf = {};
                     switch(descendant.attributes.type.value){
-                        case "rectangle": leaf = this.parseRectangle(descendant, afs, aft, descendant.id); break;
-                        case "triangle" : leaf = this.parseTriangle (descendant, afs, aft, descendant.id); break;
-                        case "cylinder" : leaf = this.parseCylinder (descendant,           descendant.id); break;
-                        case "sphere"   : leaf = this.parseSphere   (descendant,           descendant.id); break;
-                        case "torus"    : leaf = this.parseTorus    (descendant,           descendant.id); break;
-                        case "plane"    : leaf = this.parsePlane    (descendant,           descendant.id); break;
+                        case "rectangle" : leaf = this.parseRectangle (descendant, afs, aft, descendant.id); break;
+                        case "triangle"  : leaf = this.parseTriangle  (descendant, afs, aft, descendant.id); break;
+                        case "cylinder"  : leaf = this.parseCylinder  (descendant,           descendant.id); break;
+                        case "sphere"    : leaf = this.parseSphere    (descendant,           descendant.id); break;
+                        case "torus"     : leaf = this.parseTorus     (descendant,           descendant.id); break;
+                        case "plane"     : leaf = this.parsePlane     (descendant,           descendant.id); break;
+                        case "spritetext": leaf = this.parseSpriteText(descendant,           descendant.id); break;
                         default:
                             return `no such leaf type "${descendant.attributes.type}"`;
                     }
@@ -818,6 +819,18 @@ class MySceneGraph {
     parseInt(node, name, messageError){
         let ret = this.reader.getInteger(node, name);
         if(ret == null || isNaN(ret)) return `unable to parse ${name}: ${messageError}`;
+        return ret;
+    }
+
+    /**
+     * 
+     * @param {XMLnode} node XML node
+     * @param {string} name Name
+     * @param {string} messageError String to print in case of error
+     */
+    parseString(node, name, messageError){
+        let ret = this.reader.getString(node, name);
+        if(ret == null) return `unable to parse ${name}: ${messageError}`;
         return ret;
     }
 
@@ -1004,6 +1017,15 @@ class MySceneGraph {
         return new Plane(this.scene, npartsU, npartsV);
     }
 
+    /**
+     * Parses a sprite text
+     * @param {XMLnode} node XML node
+     * @param {string} messageError String to print in case of error
+     */
+    parseSpriteText(node, messageError){
+        let text = this.parseString(node, 'text', messageError);
+        return new MySpriteText(this.scene, text);
+    }
 
     /**
      * Displays the scene, processing each node, starting in the root node.

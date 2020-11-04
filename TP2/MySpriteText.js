@@ -21,6 +21,7 @@ class MySpriteText{
         for (var i = 0; i < this.text.length; i++) {
             this.spriteSheet.activateCellP(this.getCharacterPosition(this.text[i]));
         }
+        this.scene.setActiveShader(this.scene.defaultShader);
         this.geometry.display();
     }
 }
