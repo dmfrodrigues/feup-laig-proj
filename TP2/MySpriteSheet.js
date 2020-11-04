@@ -19,7 +19,7 @@ class MySpriteSheet {
     activateCellMN(m, n){
         this.shader.setUniformsValues({m: m, n: n});
         this.scene.setActiveShader(this.shader);
-        this.text.bind(0);
+        this.texture.bind(0);
     }
     activateCellP(p){
         let m = p % this.sizeM + 1;
