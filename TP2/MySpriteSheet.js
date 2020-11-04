@@ -17,13 +17,13 @@ class MySpriteSheet {
         this.shader = new CGFshader(this.scene.gl, vert, frag);
     }
     activateCellMN(m, n){
-        this.shader.setUniformsValues({m: m, n: n});
         this.scene.setActiveShader(this.shader);
+        this.shader.setUniformsValues({m: m, n: n});
         this.texture.bind(0);
     }
     activateCellP(p){
-        let m = p % this.sizeM + 1;
-        let n = Math.floor(p / this.sizeM) + 1;
+        let m = p % this.sizeM;
+        let n = Math.floor(p / this.sizeM);
         this.activateCellMN(m, n);
     }
 }

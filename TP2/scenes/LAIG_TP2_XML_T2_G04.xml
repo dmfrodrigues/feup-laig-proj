@@ -710,7 +710,13 @@
                 <noderef id="skysphere"/>
                 <noderef id="window"/>
                 <noderef id="lavalamp-in-room"/>
+                <noderef id="simple-text"/>
             </descendants>
+        </node>
+
+        <node id="simple-text">
+            <material id="null"/><texture id="null"><amplification afs="1" aft="1"/></texture>
+            <descendants><leaf type="spritetext" text="Hello"/></descendants>
         </node>
 
         <node id="table_with_stuff_in_room">
