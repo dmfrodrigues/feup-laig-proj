@@ -15,11 +15,13 @@ class MySpriteText{
         return character.charCodeAt();
     }
     display(){
+        this.scene.pushMatrix();
         for (var i = 0; i < this.text.length; i++) {
             this.spriteSheet.activateCellP(this.getCharacterPosition(this.text[i]));
             this.geometry.display();
             this.scene.translate(1, 0, 0);
         }
+        this.scene.popMatrix();
         this.scene.setActiveShader(this.scene.defaultShader);
     }
 }

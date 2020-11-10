@@ -196,6 +196,20 @@
             <specular r="0.10" g="0.10" b="0.10" a="1.0"/>
             <emissive r="0.85" g="0.23" b="0.23" a="1.0"/>
         </material>
+        <material id="clock-button">
+            <shininess value="2.0"/>
+            <ambient  r="0.40" g="0.15" b="0.15" a="1.0"/>
+            <diffuse  r="0.20" g="0.15" b="0.15" a="1.0"/>
+            <specular r="0.30" g="0.10" b="0.10" a="1.0"/>
+            <emissive r="1.0" g="0.25" b="0.25" a="1.0"/>
+        </material>
+        <material id="clock-plastic">
+            <shininess value="1.0"/>
+            <ambient  r="1.0" g="1.0" b="1.0" a="1.0"/>
+            <diffuse  r="1.0" g="1.0" b="1.0" a="1.0"/>
+            <specular r="1.0" g="1.0" b="1.0" a="1.0"/>
+            <emissive r="0.1" g="0.1" b="0.1" a="1.0"/>
+        </material>
     </materials>
 
     <animations>
@@ -710,13 +724,48 @@
                 <noderef id="skysphere"/>
                 <noderef id="window"/>
                 <noderef id="lavalamp-in-room"/>
-                <noderef id="simple-text"/>
+                <noderef id="clock"/>
             </descendants>
         </node>
 
-        <node id="simple-text">
+        <node id="clock">
             <material id="null"/><texture id="null"><amplification afs="1" aft="1"/></texture>
-            <descendants><leaf type="spritetext" text="Hello"/></descendants>
+            <transformations>
+                <translation x="-0.8" y="1.035" z="-1.32"/>
+                <rotation axis="y" angle="20"/>
+                <scale sx="0.06" sy="0.06" sz="0.06"/>
+            </transformations>
+            <descendants>
+                <noderef id="clock_display"/>
+                <noderef id="clock_box"/>
+                <noderef id="clock_button"/>
+            </descendants>
+        </node>
+
+        <node id="clock_button">
+            <material id="clock-button"/><texture id="null"><amplification afs="1" aft="1"/></texture>
+            <transformations>
+                <translation x="0.0" y="0.55" z="-0.5"/>
+                <rotation axis="x" angle="90"/>
+            </transformations>
+            <descendants><leaf type="torus" inner="0.015" outer="0.2" slices="32" loops="20"/></descendants>
+        </node>
+
+        <node id="clock_display">
+            <material id="null"/><texture id="null"><amplification afs="1" aft="1"/></texture>
+            <transformations>
+                <translation x="-2.0" y="0.0" z="0.0"/>
+            </transformations>
+            <descendants><leaf type="spritetext" text="12:00"/></descendants>
+        </node>
+
+        <node id="clock_box">
+            <material id="clock-plastic"/><texture id="plastic-rugged"><amplification afs="1" aft="1"/></texture>
+            <transformations>
+                <translation x="0.0" y="0.0" z="-0.51"/>
+                <scale sx="5.1" sy="1.1" sz="1.0"/>
+            </transformations>
+            <descendants><noderef id="cube"/></descendants>
         </node>
 
         <node id="table_with_stuff_in_room">
