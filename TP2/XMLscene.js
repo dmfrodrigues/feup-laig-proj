@@ -113,6 +113,9 @@ class XMLscene extends CGFscene {
         for (var key in this.graph.animations){
             this.graph.animations[key].update(t);
         }
+        for (let anim in this.graph.spriteAnimations){
+            this.graph.spriteAnimations[anim].update(t);
+        }        
     }
 
     /** Handler called when the graph is finally loaded. 

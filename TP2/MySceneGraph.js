@@ -6,9 +6,10 @@ var VIEWS_INDEX = 1;
 var ILLUMINATION_INDEX = 2;
 var LIGHTS_INDEX = 3;
 var TEXTURES_INDEX = 4;
-var MATERIALS_INDEX = 5;
-var ANIMATIONS_INDEX = 6;
-var NODES_INDEX = 7;
+var SPRITESHEETS_INDEX = 5;
+var MATERIALS_INDEX = 6;
+var ANIMATIONS_INDEX = 7;
+var NODES_INDEX = 8;
 
 /**
  * MySceneGraph class, representing the scene graph.
@@ -171,6 +172,17 @@ class MySceneGraph {
 
             //Parse textures block
             if ((error = this.parseTextures(nodes[index])) != null)
+                return error;
+        }
+
+        // <spritesheets>
+        if ((index = nodeNames.indexOf("spritesheets")) == -1)
+                return "tag <spritesheets> missing";
+        else {
+            if (index != SPRITESHEETS_INDEX)
+                this.onXMLMinorError("tag <spritesheets> out of order");
+            //Parse spritesheets block
+            if ((error = this.parseSpriteSheets(nodes[index])) != null)
                 return error;
         }
 
@@ -462,6 +474,35 @@ class MySceneGraph {
         return null;
     }
 
+        /**
+     * 
+     <spritesheets>
+        <!-- Semelhante à declaração de textura,  →
+        <!-- mas inclui a definição do nº de colunas e linhas -->
+        <spritesheet id=”ss” path=”ss” sizeM=”ii” sizeN=”ii” />
+        ...
+    </spritesheets>
+     */
+    parseSpriteSheets(spriteSheetNode){
+        this.spriteSheets = {};
+        for(let i = 0; i < spriteSheetNode.children.length; ++i){
+            let spriteSheet = spriteSheetNode.children[i];
+            // Checks for repeated IDs.
+            if (this.spriteSheets[spriteSheet.id] != null)
+                return "ID must be unique for each sprite sheet (conflict: ID = " + spriteSheet.id + ")";
+            this.spriteSheets[spriteSheet.id] = new MySpriteSheet(
+                this.scene,
+                spriteSheet.attributes.path.value,
+                spriteSheet.attributes.sizeM.value, 
+                spriteSheet.attributes.sizeN.value
+            );
+        }
+
+        this.log("Parsed sprite sheets");
+
+        return null;
+    }
+
     /**
      * Parses the <materials> node.
      * @param {materials block element} materialsNode
@@ -647,6 +688,8 @@ class MySceneGraph {
      * @param {nodes block element} nodesNode
      */
     parseNodes(nodesNode) {
+        this.spriteAnimations = [];
+
         var children = nodesNode.children;
 
         this.nodes = [];
@@ -744,17 +787,19 @@ class MySceneGraph {
                 } else if(descendant.nodeName == 'leaf'){
                     let leaf = {};
                     switch(descendant.attributes.type.value){
-                        case "rectangle" : leaf = this.parseRectangle (descendant, afs, aft, descendant.id); break;
-                        case "triangle"  : leaf = this.parseTriangle  (descendant, afs, aft, descendant.id); break;
-                        case "cylinder"  : leaf = this.parseCylinder  (descendant,           descendant.id); break;
-                        case "sphere"    : leaf = this.parseSphere    (descendant,           descendant.id); break;
-                        case "torus"     : leaf = this.parseTorus     (descendant,           descendant.id); break;
-                        case "plane"     : leaf = this.parsePlane     (descendant,           descendant.id); break;
-                        case "spritetext": leaf = this.parseSpriteText(descendant,           descendant.id); break;
+                        case "rectangle" : leaf = this.parseRectangle      (descendant, afs, aft, descendant.id); break;
+                        case "triangle"  : leaf = this.parseTriangle       (descendant, afs, aft, descendant.id); break;
+                        case "cylinder"  : leaf = this.parseCylinder       (descendant,           descendant.id); break;
+                        case "sphere"    : leaf = this.parseSphere         (descendant,           descendant.id); break;
+                        case "torus"     : leaf = this.parseTorus          (descendant,           descendant.id); break;
+                        case "plane"     : leaf = this.parsePlane          (descendant,           descendant.id); break;
+                        case "spritetext": leaf = this.parseSpriteText     (descendant,           descendant.id); break;
+                        case "spriteanim": leaf = this.parseSpriteAnimation(descendant,           descendant.id); break;
                         default:
                             return `no such leaf type "${descendant.attributes.type}"`;
                     }
                     if(typeof leaf === "string") return leaf;
+                    if(descendant.attributes.type.value === "spriteanim") this.spriteAnimations.push(leaf);
                     node.addChild(leaf);
                 } else return `no such descendant type "${descendant.nodeName}"`;
             }
@@ -1025,6 +1070,19 @@ class MySceneGraph {
     parseSpriteText(node, messageError){
         let text = this.parseString(node, 'text', messageError);
         return new MySpriteText(this.scene, text);
+    }
+
+    /**
+     * Parses a sprite animation
+     * @param {XMLnode} node XML node
+     * @param {string} messageError String to print in case of error 
+    */
+    parseSpriteAnimation(node, messageError){
+        let spritesheet = this.parseString(node, 'ssid'     , messageError);
+        let duration    = this.parseFloat (node, 'duration' , messageError); if(typeof duration  === "string") return duration;
+        let startCell   = this.parseInt   (node, 'startCell', messageError); if(typeof startCell === "string") return startCell;
+        let endCell     = this.parseInt   (node, 'endCell'  , messageError); if(typeof endCell   === "string") return endCell ;
+        return new MySpriteAnimation(this.scene, spritesheet, startCell, endCell, duration);
     }
 
     /**

@@ -12,13 +12,13 @@ class MySpriteSheet {
         this.sizeM = sizeM;
         this.sizeN = sizeN;
         this.texture = new CGFtexture(this.scene, texture);
-        let frag = texture.replace(/\.[^/.]+$/, "") + ".frag";
-        let vert = texture.replace(/\.[^/.]+$/, "") + ".vert";
-        this.shader = new CGFshader(this.scene.gl, vert, frag);
+        this.shader = new CGFshader(this.scene.gl, 
+        "scenes/spritesheets/spritesheet.vert", 
+        "scenes/spritesheets/spritesheet.frag");
     }
     activateCellMN(m, n){
         this.scene.setActiveShader(this.shader);
-        this.shader.setUniformsValues({m: m, n: n});
+        this.shader.setUniformsValues({m: m, n: n, sizeM: this.sizeM, sizeN: this.sizeN});
         this.texture.bind(0);
     }
     activateCellP(p){

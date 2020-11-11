@@ -28,6 +28,7 @@ serialInclude(
         'KeyframeAnimation.js',
         'MySpriteSheet.js',
         'MySpriteText.js',
+        'MySpriteAnimation.js',
         'Plane.js',
 
 main=function()

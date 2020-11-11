@@ -12,9 +12,11 @@ uniform mat4 uNMatrix;
 varying vec2 tex_coord;
 uniform float m;
 uniform float n;
+uniform float sizeM;
+uniform float sizeN;
 
 void main()
 {
-    tex_coord = aTextureCoord*vec2(1.0/16.0, 1.0/16.0);
+    tex_coord = aTextureCoord*vec2(1.0/sizeM, 1.0/sizeN);
     gl_Position = uPMatrix * uMVMatrix * vec4(aVertexPosition, 1.0);
 }
