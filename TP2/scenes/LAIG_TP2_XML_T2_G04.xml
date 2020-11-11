@@ -89,6 +89,11 @@
         <texture id="marble"              path="./scenes/images/marble.jpg"             />
         <texture id="skysphere-empirestate" path="./scenes/images/skysphere/empirestate-day/skysphere-empirestate-small.jpg"/>
     </textures>
+
+    <spritesheets>
+        <spritesheet id="trex" path="./scenes/spritesheets/offline-trex.png" sizeM="6" sizeN="1"/>
+    </spritesheets>
+
     <materials>
         <!-- At least one material should be present. -->
         <material id="plastic-white">
@@ -725,6 +730,20 @@
                 <noderef id="window"/>
                 <noderef id="lavalamp-in-room"/>
                 <noderef id="clock"/>
+                <noderef id="trex"/>
+            </descendants>
+        </node>
+
+        <node id="trex">
+            <material id="null"/><texture id="null"><amplification afs="1" aft="1"/></texture>
+            <transformations>
+                <translation x="-1.025" y="1.7" z="-1.2"/>
+                <rotation axis="y" angle="30"/>
+                <rotation axis="x" angle="10"/>
+                <scale sx="0.25" sy="0.25" sz="0.25"/>
+            </transformations>
+            <descendants>
+                <leaf type="spriteanim" ssid="trex" startCell="2" endCell="3" duration="0.25" />
             </descendants>
         </node>
 
