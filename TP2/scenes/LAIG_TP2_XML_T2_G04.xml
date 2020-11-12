@@ -225,6 +225,13 @@
             <specular r="0.0" g="0.0" b="0.0" a="1.0"/>
             <emissive r="0.0" g="0.0" b="0.0" a="1.0"/>
         </material>
+        <material id="black">
+            <shininess value="1.0"/>
+            <ambient  r="0.0" g="0.0" b="0.0" a="1.0"/>
+            <diffuse  r="0.0" g="0.0" b="0.0" a="1.0"/>
+            <specular r="0.0" g="0.0" b="0.0" a="1.0"/>
+            <emissive r="0.0" g="0.0" b="0.0" a="1.0"/>
+        </material>
     </materials>
 
     <animations>
@@ -772,19 +779,71 @@
         <node id="fireplace">
             <material id="null"/><texture id="null"><amplification afs="1" aft="1"/></texture>
             <descendants>
-                <noderef id="fireplace-fire"/>
+                <noderef id="fireplace-inside"/>
                 <noderef id="fireplace-brick"/>
+            </descendants>
+        </node>
+
+        <node id="fireplace-inside">
+            <material id="null"/><texture id="null"><amplification afs="1" aft="1"/></texture>
+            <transformations>
+                <translation x="0" y="0.325" z="0"/>
+            </transformations>
+            <descendants>
+                <noderef id="fireplace-fire"/>
+                <noderef id="fireplace-back"/>
             </descendants>
         </node>
 
         <node id="fireplace-fire">
             <material id="null"/><texture id="null"><amplification afs="1" aft="1"/></texture>
             <transformations>
-                <scale sx="0.55" sy="0.55" sz="1"/>
-                <translation x="0" y="0.5" z="0.025"/>
+                <translation x="0" y="0" z="0.05"/>
+            </transformations>
+            <descendants>
+                <noderef id="fireplace-fire1"/>
+                <noderef id="fireplace-fire2"/>
+                <noderef id="fireplace-fire3"/>
+            </descendants>
+        </node>
+        <node id="fireplace-fire1">
+            <material id="null"/><texture id="null"><amplification afs="1" aft="1"/></texture>
+            <transformations>
+                <translation x="0" y="0" z="+0.002"/>
+                <scale sx="0.4" sy="0.4" sz="1"/>
             </transformations>
             <descendants>
                 <leaf type="spriteanim" ssid="fire" startCell="0" endCell="59" duration="1"/>
+            </descendants>
+        </node>
+        <node id="fireplace-fire2">
+            <material id="null"/><texture id="null"><amplification afs="1" aft="1"/></texture>
+            <transformations>
+                <translation x="-0.05" y="-0.04" z="+0.003"/>
+                <scale sx="0.3" sy="0.3" sz="1"/>
+            </transformations>
+            <descendants>
+                <leaf type="spriteanim" ssid="fire" startCell="0" endCell="59" duration="1"/>
+            </descendants>
+        </node>
+        <node id="fireplace-fire3">
+            <material id="null"/><texture id="null"><amplification afs="1" aft="1"/></texture>
+            <transformations>
+                <translation x="+0.05" y="-0.08" z="+0.004"/>
+                <scale sx="0.15" sy="0.15" sz="1"/>
+            </transformations>
+            <descendants>
+                <leaf type="spriteanim" ssid="fire" startCell="0" endCell="59" duration="1"/>
+            </descendants>
+        </node>
+
+        <node id="fireplace-back">
+            <material id="black"/><texture id="clear"/>
+            <transformations>
+                <translation x="0" y="0" z="+0.001"/>
+            </transformations>
+            <descendants>
+                <leaf type="rectangle" x1="-0.275" x2="0.275" y1="-0.275" y2="0.275" />
             </descendants>
         </node>
 
@@ -794,12 +853,14 @@
                 <translation x="0" y="0" z="0.2"/>
             </transformations>
             <descendants>
-                <leaf type="rectangle" x1="-0.425" x2="+0.425" y1="+0.55" y2="+0.69"/>
-                <leaf type="rectangle" x1="-0.425" x2="-0.275" y1="+0.00" y2="+0.55"/>
-                <leaf type="rectangle" x1="+0.275" x2="+0.425" y1="+0.00" y2="+0.55"/>
+                <leaf type="rectangle" x1="-0.425" x2="+0.425" y1="+0.60" y2="+0.74"/>
+                <leaf type="rectangle" x1="-0.425" x2="-0.275" y1="+0.05" y2="+0.60"/>
+                <leaf type="rectangle" x1="+0.275" x2="+0.425" y1="+0.05" y2="+0.60"/>
+                <leaf type="rectangle" x1="-0.425" x2="+0.425" y1="+0.00" y2="+0.05"/>
                 <noderef id="fireplace-brick-left"/>
                 <noderef id="fireplace-brick-right"/>
                 <noderef id="fireplace-brick-inside-top"/>
+                <noderef id="fireplace-brick-inside-bottom"/>
                 <noderef id="fireplace-brick-inside-left"/>
                 <noderef id="fireplace-brick-inside-right"/>
                 <noderef id="fireplace-wood"/>
@@ -813,7 +874,7 @@
                 <rotation axis="y" angle="-90"/>
             </transformations>
             <descendants>
-                <leaf type="rectangle" x1="-0.2" x2="+0.0" y1="+0.00" y2="+0.69"/>
+                <leaf type="rectangle" x1="-0.2" x2="+0.0" y1="+0.00" y2="+0.74"/>
             </descendants>
         </node>
 
@@ -824,18 +885,29 @@
                 <rotation axis="y" angle="+90"/>
             </transformations>
             <descendants>
-                <leaf type="rectangle" x1="+0.0" x2="+0.2" y1="+0.00" y2="+0.69"/>
+                <leaf type="rectangle" x1="+0.0" x2="+0.2" y1="+0.00" y2="+0.74 "/>
             </descendants>
         </node>
 
         <node id="fireplace-brick-inside-top">
             <material id="null"/><texture id="brick"><amplification afs="0.5" aft="0.42"/></texture>
             <transformations>
-                <translation x="0" y="0.55" z="0"/>
+                <translation x="0" y="0.60" z="0"/>
                 <rotation axis="x" angle="+90"/>
             </transformations>
             <descendants>
                 <leaf type="rectangle" x1="-0.425" x2="+0.425" y1="-0.20" y2="+0.00"/>
+            </descendants>
+        </node>
+
+        <node id="fireplace-brick-inside-bottom">
+            <material id="null"/><texture id="brick"><amplification afs="0.5" aft="0.42"/></texture>
+            <transformations>
+                <translation x="0" y="0.05" z="0"/>
+                <rotation axis="x" angle="-90"/>
+            </transformations>
+            <descendants>
+                <leaf type="rectangle" x1="-0.425" x2="+0.425" y1="+0.00" y2="+0.20"/>
             </descendants>
         </node>
 
@@ -846,7 +918,7 @@
                 <rotation axis="y" angle="+90"/>
             </transformations>
             <descendants>
-                <leaf type="rectangle" x1="+0.00" x2="+0.20" y1="+0.00" y2="+0.55"/>
+                <leaf type="rectangle" x1="+0.00" x2="+0.20" y1="+0.05" y2="+0.60"/>
             </descendants>
         </node>
 
@@ -857,7 +929,7 @@
                 <rotation axis="y" angle="-90"/>
             </transformations>
             <descendants>
-                <leaf type="rectangle" x1="-0.20" x2="+0.00" y1="+0.00" y2="+0.55"/>
+                <leaf type="rectangle" x1="-0.20" x2="+0.00" y1="+0.05" y2="+0.60"/>
             </descendants>
         </node>
 
