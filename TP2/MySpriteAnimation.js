@@ -4,18 +4,14 @@ class MySpriteAnimation{
         this.activeCell = startCell;
         this.startCell = startCell;
         this.endCell = endCell;
-        this.interval = duration/(1 + endCell - startCell);
-        this.time = this.interval;
+        this.duration = duration;
+        this.factor = (this.endCell - this.startCell + 1) / this.duration;
         this.spriteSheet = this.scene.graph.spriteSheets[spriteSheet];
         this.geometry = new MyRectangle(this.scene, -0.5, -0.5, 0.5, 0.5, 1, 1);
     }
     update(t){
-        if(this.time <= t){
-            this.time += this.interval;
-            this.activeCell++;
-            if(this.activeCell > this.endCell)
-                this.activeCell = this.startCell;
-        }
+        t %= this.duration;
+        this.activeCell = this.startCell + Math.floor(t * this.factor);
     }
     display(){
         this.spriteSheet.activateCellP(this.activeCell);
