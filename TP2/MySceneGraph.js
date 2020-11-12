@@ -1091,7 +1091,16 @@ class MySceneGraph {
     displayScene() {
         
         //TODO: Create display loop for transversing the scene graph, calling the root node's display function
-        
+        if(typeof this.displayScene.numFrames === 'undefined'){
+            this.displayScene.numFrames = 0;
+            this.displayScene.startTime = new Date().getTime();
+        }
+
         this.nodes[this.idRoot].display();
+
+        this.displayScene.numFrames++;
+        let now = new Date().getTime();
+        let seconds_per_frame = ((now-this.displayScene.startTime)/1000)/this.displayScene.numFrames;
+        if(this.displayScene.numFrames % 10 === 0) console.log(1/seconds_per_frame);
     }
 }
