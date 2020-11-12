@@ -959,7 +959,7 @@
             <descendants>
                     <leaf type="spritetext" text="12:00" 
                         exp="let d = new Date(); 
-                        this.text = d.getHours() + ':' + d.getMinutes(); "
+                        this.text = ('0' + d.getHours()).slice(-2) + ':' + ('0' + d.getMinutes()).slice(-2); "
                     />
             </descendants>
         </node>
