@@ -4,7 +4,7 @@ class MySpriteAnimation{
         this.activeCell = startCell;
         this.startCell = startCell;
         this.endCell = endCell;
-        this.interval = duration/(endCell - startCell);
+        this.interval = duration/(1 + endCell - startCell);
         this.time = this.interval;
         this.spriteSheet = this.scene.graph.spriteSheets[spriteSheet];
         this.geometry = new MyRectangle(this.scene, -0.5, -0.5, 0.5, 0.5, 1, 1);
