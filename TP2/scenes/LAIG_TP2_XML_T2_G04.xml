@@ -92,6 +92,7 @@
 
     <spritesheets>
         <spritesheet id="trex" path="./scenes/spritesheets/offline-trex.png" sizeM="6" sizeN="1"/>
+        <spritesheet id="fire" path="./scenes/spritesheets/fire8_64.png" sizeM="10" sizeN="6"/>
     </spritesheets>
 
     <materials>
@@ -731,6 +732,7 @@
                 <noderef id="lavalamp-in-room"/>
                 <noderef id="clock"/>
                 <noderef id="trex"/>
+                <noderef id="fireplace-in-room"/>
             </descendants>
         </node>
 
@@ -744,6 +746,35 @@
             </transformations>
             <descendants>
                 <leaf type="spriteanim" ssid="trex" startCell="2" endCell="3" duration="0.25" />
+            </descendants>
+        </node>
+
+        <node id="fireplace-in-room">
+            <material id="null"/><texture id="null"><amplification afs="1" aft="1"/></texture>
+            <transformations>
+                <translation x="1.5" y="0" z="0"/>
+                <rotation axis="y" angle="-90"/>
+            </transformations>
+            <descendants>
+                <noderef id="fireplace"/>
+            </descendants>
+        </node>
+
+        <node id="fireplace">
+            <material id="null"/><texture id="null"><amplification afs="1" aft="1"/></texture>
+            <descendants>
+                <noderef id="fireplace-fire"/>
+            </descendants>
+        </node>
+
+        <node id="fireplace-fire">
+            <material id="null"/><texture id="null"><amplification afs="1" aft="1"/></texture>
+            <transformations>
+                <scale sx="0.6" sy="0.6" sz="1"/>
+                <translation x="0" y="0.5" z="0.1"/>
+            </transformations>
+            <descendants>
+                <leaf type="spriteanim" ssid="fire" startCell="0" endCell="59" duration="5"/>
             </descendants>
         </node>
 
