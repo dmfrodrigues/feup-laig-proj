@@ -74,7 +74,7 @@ class XMLscene extends CGFscene {
                 this.lights[i].setDiffuse(...graphLight[3]);
                 this.lights[i].setSpecular(...graphLight[4]);
 
-                this.lights[i].setVisible(true);
+                this.lights[i].setVisible(false);
                 if (graphLight[0])
                     this.lights[i].enable();
                 else
@@ -178,7 +178,6 @@ class XMLscene extends CGFscene {
         this.pushMatrix();
 
         for (var i = 0; i < this.lights.length; i++) {
-            this.lights[i].setVisible(false);
             this.lights[i].update();
         }
 

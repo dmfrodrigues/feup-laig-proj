@@ -59,7 +59,7 @@
 
         <light id="globe-light">
             <enable value="1"/>
-            <position x="0.2" y="0.55" z="-0.04" w="1.0"/>
+            <position x="1.2" y="0.75" z="-1.30" w="1.0"/>
             <ambient  r="0.0" g="0.0" b="0.0" a="1.0"/>
             <diffuse  r="0.25" g="0.25" b="0.3" a="1.0"/>
             <specular r="0.3" g="0.2" b="0.24" a="1.0"/>
@@ -129,10 +129,10 @@
             <emissive r="0.0" g="0.0" b="0.0" a="1.0"/>
         </material>
         <material id="television-screen">
-            <shininess value="3.0"/>
+            <shininess value="50.0"/>
             <ambient  r="0.10" g="0.10" b="0.10" a="1.0"/>
             <diffuse  r="0.10" g="0.10" b="0.10" a="1.0"/>
-            <specular r="0.50" g="0.50" b="0.50" a="1.0"/>
+            <specular r="0.70" g="0.70" b="0.70" a="1.0"/>
             <emissive r="0.0" g="0.0" b="0.0" a="1.0"/>
         </material>
         <material id="metal">
@@ -2931,9 +2931,13 @@
         </node>
         <node id="tv-screen">
             <material id="television-screen"/><texture id="clear"/>
-            <transformations><translation x="0" y="0" z="-0.005"/></transformations>
+            <transformations>
+                <translation x="0" y="0" z="-0.005"/>
+                <rotation axis="x" angle="90"/>
+                <scale sx="0.70" sy="1" sz="0.40"/>
+            </transformations>
             <descendants>
-                <leaf type="rectangle" x1="-0.35" x2="+0.35" y1="-0.20" y2="+0.20"/>
+                <leaf type="plane" npartsU="20" npartsV="20"/>
             </descendants>
         </node>
         <node id="tv-border">
