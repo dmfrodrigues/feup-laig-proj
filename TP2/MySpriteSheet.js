@@ -18,7 +18,6 @@ class MySpriteSheet {
         "scenes/spritesheets/spritesheet.frag");
     }
     activateCellMN(m, n){
-        this.scene.setActiveShaderSimple(this.shader);
         this.shader.setUniformsValues({m: m, n: n, sizeVec: this.sizeVec});
         this.texture.bind(0);
     }

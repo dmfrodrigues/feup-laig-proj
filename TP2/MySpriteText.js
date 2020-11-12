@@ -15,6 +15,7 @@ class MySpriteText{
         return character.charCodeAt();
     }
     display(){
+        this.scene.setActiveShaderSimple(this.spriteSheet.shader);
         this.scene.pushMatrix();
         for (var i = 0; i < this.text.length; i++) {
             this.spriteSheet.activateCellP(this.getCharacterPosition(this.text[i]));
