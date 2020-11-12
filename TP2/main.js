@@ -30,6 +30,7 @@ serialInclude(
         'MySpriteText.js',
         'MySpriteAnimation.js',
         'Plane.js',
+        'Patch.js',
 
 main=function()
 {

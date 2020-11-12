@@ -793,6 +793,7 @@ class MySceneGraph {
                         case "sphere"    : leaf = this.parseSphere         (descendant,           descendant.id); break;
                         case "torus"     : leaf = this.parseTorus          (descendant,           descendant.id); break;
                         case "plane"     : leaf = this.parsePlane          (descendant,           descendant.id); break;
+                        case "patch"     : leaf = this.parsePatch          (descendant,           descendant.id); break;
                         case "spritetext": leaf = this.parseSpriteText     (descendant,           descendant.id); break;
                         case "spriteanim": leaf = this.parseSpriteAnimation(descendant,           descendant.id); break;
                         default:
@@ -1060,6 +1061,45 @@ class MySceneGraph {
         let npartsU = this.parseInt(node, 'npartsU', messageError); if(typeof npartsU === "string") return npartsU;
         let npartsV = this.parseInt(node, 'npartsV', messageError); if(typeof npartsV === "string") return npartsV;
         return new Plane(this.scene, npartsU, npartsV);
+    }
+
+    /**
+     * Parses a patch
+     * @param {XMLnode} node XML node
+     * @param {string} messageError String to print in case of error
+     */
+    parsePatch(node, messageError){
+        let npartsU = this.parseInt(node, 'npartsU', messageError); if(typeof npartsU === "string") return npartsU;
+        let npartsV = this.parseInt(node, 'npartsV', messageError); if(typeof npartsV === "string") return npartsV;
+        
+        let npointsU = this.parseInt(node, 'npointsU', messageError); if(typeof npointsU === "string") return npointsU;
+        let npointsV = this.parseInt(node, 'npointsV', messageError); if(typeof npointsV === "string") return npointsV;
+        if(node.children.length != npointsU*npointsV) return "Invalid length";
+        let controlPoints = [];
+        for(let u = 0; u < npointsU; ++u){
+            controlPoints[u] = [];
+            for(let v = 0; v < npointsV; ++v){
+                let i = u*npointsV + v;
+                let controlPoint = this.parseControlPoint(node.children[i], messageError);
+                if(typeof controlPoint === "string") return controlPoint;
+                controlPoints[u][v] = controlPoint;
+            }
+        }
+        
+        return new Patch(this.scene, npartsU, npartsV, npointsU, npointsV, controlPoints);
+    }
+
+    /**
+     * Parses a control point
+     * @param {XMLnode} node XML node
+     * @param {string} messageError String to print in case of error
+     */
+    parseControlPoint(node, messageError){
+        let xx = this.parseFloat(node, 'xx', messageError); if(typeof xx === "string") return xx;
+        let yy = this.parseFloat(node, 'yy', messageError); if(typeof yy === "string") return yy;
+        let zz = this.parseFloat(node, 'zz', messageError); if(typeof zz === "string") return zz;
+        
+        return [xx, yy, zz];
     }
 
     /**

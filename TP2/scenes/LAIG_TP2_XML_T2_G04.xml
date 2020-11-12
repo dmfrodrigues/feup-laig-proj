@@ -753,6 +753,31 @@
             </descendants>
         </node>
 
+        <node id="pages-left">
+            <material id="paper"/>
+            <texture id="book-pages">
+                <amplification afs="1" aft="1"/>
+            </texture>
+            <descendants>
+                <leaf type="patch" npointsU="2" npointsV="5" npartsU="10" npartsV="30" >
+                    <controlpoint xx="-0.918" yy="0.082" zz="0"/><controlpoint xx="-0.604" yy="0.117" zz="0"/><controlpoint xx="-0.307" yy="0.187" zz="0"/><controlpoint xx="-0.130" yy="0.161" zz="0"/><controlpoint xx="-0.000" yy="0.00" zz="0"/>
+                    <controlpoint xx="-1.000" yy="0.000" zz="0"/><controlpoint xx="-0.639" yy="0.019" zz="0"/><controlpoint xx="-0.364" yy="0.038" zz="0"/><controlpoint xx="-0.199" yy="0.047" zz="0"/><controlpoint xx="-0.108" yy="0.00" zz="0"/>
+                </leaf>
+            </descendants>
+        </node>
+        <node id="pages-right">
+            <material id="paper"/>
+            <texture id="book-pages">
+                <amplification afs="1" aft="1"/>
+            </texture>
+            <descendants>
+                <leaf type="patch" npointsU="2" npointsV="5" npartsU="10" npartsV="30" >
+                    <controlpoint xx="+1.000" yy="0.000" zz="0"/><controlpoint xx="+0.639" yy="0.019" zz="0"/><controlpoint xx="+0.364" yy="0.038" zz="0"/><controlpoint xx="+0.199" yy="0.047" zz="0"/><controlpoint xx="+0.108" yy="0.00" zz="0"/>
+                    <controlpoint xx="+0.918" yy="0.082" zz="0"/><controlpoint xx="+0.604" yy="0.117" zz="0"/><controlpoint xx="+0.307" yy="0.187" zz="0"/><controlpoint xx="+0.130" yy="0.161" zz="0"/><controlpoint xx="+0.000" yy="0.00" zz="0"/>
+                </leaf>
+            </descendants>
+        </node>
+
         <node id="trex">
             <material id="null"/><texture id="null"><amplification afs="1" aft="1"/></texture>
             <transformations>
