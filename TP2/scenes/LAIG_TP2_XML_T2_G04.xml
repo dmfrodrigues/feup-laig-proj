@@ -89,6 +89,7 @@
         <texture id="marble"              path="./scenes/images/marble.jpg"             />
         <texture id="brick"               path="./scenes/images/brick.jpg"              />
         <texture id="rustic-wood"         path="./scenes/images/rustic-wood.jpg"        />
+        <texture id="wood-log"            path="./scenes/images/log.jpg"                />
         <texture id="skysphere-empirestate" path="./scenes/images/skysphere/empirestate-day/skysphere-empirestate-small.jpg"/>
     </textures>
 
@@ -787,11 +788,12 @@
         <node id="fireplace-inside">
             <material id="null"/><texture id="null"><amplification afs="1" aft="1"/></texture>
             <transformations>
-                <translation x="0" y="0.325" z="0"/>
+                <translation x="0" y="0.325" z="-0.15"/>
             </transformations>
             <descendants>
                 <noderef id="fireplace-fire"/>
                 <noderef id="fireplace-back"/>
+                <noderef id="fireplace-logs"/>
             </descendants>
         </node>
 
@@ -809,8 +811,8 @@
         <node id="fireplace-fire1">
             <material id="null"/><texture id="null"><amplification afs="1" aft="1"/></texture>
             <transformations>
-                <translation x="0" y="0" z="+0.002"/>
-                <scale sx="0.4" sy="0.4" sz="1"/>
+                <translation x="0" y="-0.05" z="+0.002"/>
+                <scale sx="0.5" sy="0.5" sz="1"/>
             </transformations>
             <descendants>
                 <leaf type="spriteanim" ssid="fire" startCell="0" endCell="59" duration="1"/>
@@ -819,7 +821,7 @@
         <node id="fireplace-fire2">
             <material id="null"/><texture id="null"><amplification afs="1" aft="1"/></texture>
             <transformations>
-                <translation x="-0.05" y="-0.04" z="+0.003"/>
+                <translation x="-0.10" y="-0.04" z="+0.020"/>
                 <scale sx="0.3" sy="0.3" sz="1"/>
             </transformations>
             <descendants>
@@ -829,7 +831,7 @@
         <node id="fireplace-fire3">
             <material id="null"/><texture id="null"><amplification afs="1" aft="1"/></texture>
             <transformations>
-                <translation x="+0.05" y="-0.08" z="+0.004"/>
+                <translation x="+0.13" y="-0.11" z="+0.040"/>
                 <scale sx="0.15" sy="0.15" sz="1"/>
             </transformations>
             <descendants>
@@ -844,6 +846,73 @@
             </transformations>
             <descendants>
                 <leaf type="rectangle" x1="-0.275" x2="0.275" y1="-0.275" y2="0.275" />
+            </descendants>
+        </node>
+
+        <node id="fireplace-logs">
+            <material id="null"/><texture id="null"><amplification afs="1" aft="1"/></texture>
+            <transformations>
+                <translation x="0" y="-0.275" z="0.04"/>
+            </transformations>
+            <descendants>
+                <noderef id="log1"/>
+                <noderef id="log2"/>
+                <noderef id="log3"/>
+                <noderef id="log4"/>
+            </descendants>
+        </node>
+
+        <node id="log1">
+            <material id="null"/><texture id="null"><amplification afs="1" aft="1"/></texture>
+            <transformations>
+                <translation x="-0.25" y="0" z="+0.07"/>
+                <rotation axis="y" angle="+10"/>
+                <rotation axis="z" angle="-60"/>
+            </transformations>
+            <descendants>
+                <noderef id="log"/>
+            </descendants>
+        </node>
+        <node id="log2">
+            <material id="null"/><texture id="null"><amplification afs="1" aft="1"/></texture>
+            <transformations>
+                <translation x="-0.05" y="0" z="+0.15"/>
+                <rotation axis="y" angle="-80"/>
+                <rotation axis="z" angle="+20"/>
+            </transformations>
+            <descendants>
+                <noderef id="log"/>
+            </descendants>
+        </node>
+        <node id="log3">
+            <material id="null"/><texture id="null"><amplification afs="1" aft="1"/></texture>
+            <transformations>
+                <translation x="+0.15" y="0.05" z="0"/>
+                <rotation axis="y" angle="+60"/>
+                <rotation axis="z" angle="+90"/>
+            </transformations>
+            <descendants>
+                <noderef id="log"/>
+            </descendants>
+        </node>
+        <node id="log4">
+            <material id="null"/><texture id="null"><amplification afs="1" aft="1"/></texture>
+            <transformations>
+                <translation x="+0.1" y="0.10" z="+0.08"/>
+                <rotation axis="y" angle="-30"/>
+                <rotation axis="z" angle="+30"/>
+            </transformations>
+            <descendants>
+                <noderef id="log"/>
+            </descendants>
+        </node>
+        <node id="log">
+            <material id="wood"/><texture id="wood-log"><amplification afs="1" aft="1"/></texture>
+            <transformations>
+                <rotation axis="x" angle="-90"/>
+            </transformations>
+            <descendants>
+                <leaf type="cylinder" bottomRadius="0.05" topRadius="0.05" height="0.25" slices="16" stacks="4"/>
             </descendants>
         </node>
 
@@ -896,7 +965,7 @@
                 <rotation axis="x" angle="+90"/>
             </transformations>
             <descendants>
-                <leaf type="rectangle" x1="-0.425" x2="+0.425" y1="-0.20" y2="+0.00"/>
+                <leaf type="rectangle" x1="-0.425" x2="+0.425" y1="-0.35" y2="+0.00"/>
             </descendants>
         </node>
 
@@ -907,7 +976,7 @@
                 <rotation axis="x" angle="-90"/>
             </transformations>
             <descendants>
-                <leaf type="rectangle" x1="-0.425" x2="+0.425" y1="+0.00" y2="+0.20"/>
+                <leaf type="rectangle" x1="-0.425" x2="+0.425" y1="+0.00" y2="+0.35"/>
             </descendants>
         </node>
 
@@ -918,7 +987,7 @@
                 <rotation axis="y" angle="+90"/>
             </transformations>
             <descendants>
-                <leaf type="rectangle" x1="+0.00" x2="+0.20" y1="+0.05" y2="+0.60"/>
+                <leaf type="rectangle" x1="+0.00" x2="+0.35" y1="+0.05" y2="+0.60"/>
             </descendants>
         </node>
 
@@ -929,7 +998,7 @@
                 <rotation axis="y" angle="-90"/>
             </transformations>
             <descendants>
-                <leaf type="rectangle" x1="-0.20" x2="+0.00" y1="+0.05" y2="+0.60"/>
+                <leaf type="rectangle" x1="-0.35" x2="+0.00" y1="+0.05" y2="+0.60"/>
             </descendants>
         </node>
 
@@ -1811,8 +1880,17 @@
         </node>
         <node id="wall_x_pos">
             <material id="null"/><texture id="null"><amplification afs="1" aft="1"/></texture>
-            <transformations><translation x="1.5" y="1.5" z="0"/><rotation axis="y" angle="-90" /></transformations>
-            <descendants><leaf type="rectangle" x1="-1.5" y1="-1.5" x2="1.5" y2="1.0"/></descendants>
+            <transformations>
+                <translation x="1.5" y="0" z="-1.5"/>
+                <rotation axis="y" angle="-90" />
+            </transformations>
+            <descendants>
+                <leaf type="rectangle" x1="0" x2="1" y1="0" y2="0.7"/>
+                <leaf type="rectangle" x1="0" x2="1" y1="0.7" y2="2.5"/>
+                <leaf type="rectangle" x1="1" x2="1.7" y1="0.7" y2="2.5"/>
+                <leaf type="rectangle" x1="1.7" x2="3" y1="0.7" y2="2.5"/>
+                <leaf type="rectangle" x1="1.7" x2="3" y1="0.0" y2="0.7"/>
+            </descendants>
         </node>
         <node id="wall_x_neg">
             <material id="null"/><texture id="null"><amplification afs="1" aft="1"/></texture>
