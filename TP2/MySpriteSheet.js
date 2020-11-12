@@ -11,6 +11,7 @@ class MySpriteSheet {
         this.scene = scene;
         this.sizeM = sizeM;
         this.sizeN = sizeN;
+        this.sizeVec = vec2.fromValues(1.0/sizeM, 1.0/sizeN);
         this.texture = new CGFtexture(this.scene, texture);
         this.shader = new CGFshader(this.scene.gl, 
         "scenes/spritesheets/spritesheet.vert", 
@@ -18,7 +19,7 @@ class MySpriteSheet {
     }
     activateCellMN(m, n){
         this.scene.setActiveShader(this.shader);
-        this.shader.setUniformsValues({m: m, n: n, sizeM: this.sizeM, sizeN: this.sizeN});
+        this.shader.setUniformsValues({m: m, n: n, sizeVec: this.sizeVec});
         this.texture.bind(0);
     }
     activateCellP(p){

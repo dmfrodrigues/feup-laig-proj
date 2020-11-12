@@ -9,14 +9,13 @@ uniform mat4 uMVMatrix;
 uniform mat4 uPMatrix;
 uniform mat4 uNMatrix;
 
-varying vec2 tex_coord;
 uniform float m;
 uniform float n;
-uniform float sizeM;
-uniform float sizeN;
+uniform vec2 sizeVec;
+varying vec2 fragColor_coord;
 
 void main()
 {
-    tex_coord = aTextureCoord*vec2(1.0/sizeM, 1.0/sizeN);
     gl_Position = uPMatrix * uMVMatrix * vec4(aVertexPosition, 1.0);
+    fragColor_coord = (aTextureCoord + vec2(m, n))*sizeVec;
 }

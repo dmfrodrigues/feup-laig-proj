@@ -2,13 +2,9 @@
 precision highp float;
 #endif
 
-varying vec2 tex_coord;
-uniform float m;
-uniform float n;
-uniform float sizeM;
-uniform float sizeN;
 uniform sampler2D tex;
+varying vec2 fragColor_coord;
 
 void main() {
-    gl_FragColor = texture2D(tex, tex_coord + vec2(m*(1.0/sizeM), n*(1.0/sizeN)));
+    gl_FragColor = texture2D(tex, fragColor_coord);
 }
