@@ -16,6 +16,6 @@ class MySpriteAnimation{
     display(){
         this.spriteSheet.activateCellP(this.activeCell);
         this.geometry.display();
-        this.scene.setActiveShader(this.scene.defaultShader);
+        this.scene.setActiveShaderSimple(this.scene.defaultShader);
     }
 }

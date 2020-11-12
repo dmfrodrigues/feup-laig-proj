@@ -784,7 +784,7 @@
                 <translation x="0" y="0.5" z="0.025"/>
             </transformations>
             <descendants>
-                <leaf type="spriteanim" ssid="fire" startCell="0" endCell="59" duration="5"/>
+                <leaf type="spriteanim" ssid="fire" startCell="0" endCell="59" duration="1"/>
             </descendants>
         </node>
 
