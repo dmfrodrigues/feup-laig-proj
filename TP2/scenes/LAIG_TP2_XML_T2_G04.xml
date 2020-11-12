@@ -956,7 +956,12 @@
             <transformations>
                 <translation x="-2.0" y="0.0" z="0.0"/>
             </transformations>
-            <descendants><leaf type="spritetext" text="12:00"/></descendants>
+            <descendants>
+                    <leaf type="spritetext" text="12:00" 
+                        exp="let d = new Date(); 
+                        this.text = d.getHours() + ':' + d.getMinutes(); "
+                    />
+            </descendants>
         </node>
 
         <node id="clock_box">
