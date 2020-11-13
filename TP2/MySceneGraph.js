@@ -1159,6 +1159,6 @@ class MySceneGraph {
         this.displayScene.numFrames++;
         let now = new Date().getTime();
         let seconds_per_frame = ((now-this.displayScene.startTime)/1000)/this.displayScene.numFrames;
-        if(this.displayScene.numFrames % 10 === 0) console.log(1/seconds_per_frame);
+        if(this.displayScene.numFrames % 100 === 0) console.log(1/seconds_per_frame);
     }
 }
