@@ -35,9 +35,9 @@ class KeyframeAnimation extends Animation {
         this.keyframes[t] = keyframe;
         this.tmin = Math.min(t, this.tmin);
         this.tmax = Math.max(t, this.tmax);
+        this.keyframeTimes = Object.keys(this.keyframes).map(Number).sort(function (a,b){ return a-b; });
     }
     update(t){
-        let keys = Object.keys(this.keyframes).map(Number).sort(function (a,b){ return a-b; });
         if(this.loop && t > 0) t %= this.tmax;
         if(this.tmax <= t){
             this.visible = true;
@@ -47,9 +47,9 @@ class KeyframeAnimation extends Animation {
             this.M = this.keyframes[this.tmin].getMatrix();
         } else {
             this.visible = true;
-            let idx = upper_bound(keys, t);
-            let t1 = keys[idx-1];
-            let t2 = keys[idx];
+            let idx = upper_bound(this.keyframeTimes, t);
+            let t1 = this.keyframeTimes[idx-1];
+            let t2 = this.keyframeTimes[idx];
             this.M = Keyframe.interpolate(
                 this.keyframes[t1],
                 this.keyframes[t2],
