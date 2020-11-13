@@ -25,8 +25,8 @@ class Patch extends CGFobject {
                 this.controlPoints[u][v].push(1);
             }
         }
-        let nurbsSurface  = new CGFnurbsSurface(this.degreeU, this.degreeV, this.controlPoints);
-        this.nurbsObject   = new CGFnurbsObject(this.scene, this.npartsU, this.npartsV, nurbsSurface);
+        let nurbsSurface = new CGFnurbsSurface(this.degreeU, this.degreeV, this.controlPoints);
+        this.nurbsObject = new CGFnurbsObject(this.scene, this.npartsU, this.npartsV, nurbsSurface);
     }
     display(){
         this.nurbsObject.display();

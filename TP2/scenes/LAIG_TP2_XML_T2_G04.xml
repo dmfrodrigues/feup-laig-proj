@@ -90,6 +90,7 @@
         <texture id="brick"               path="./scenes/images/brick.jpg"              />
         <texture id="rustic-wood"         path="./scenes/images/rustic-wood.jpg"        />
         <texture id="wood-log"            path="./scenes/images/log.jpg"                />
+        <texture id="porcelain-painted"   path="./scenes/images/porcelain-painted.jpg"  />
         <texture id="skysphere-empirestate" path="./scenes/images/skysphere/empirestate-day/skysphere-empirestate-small.jpg"/>
     </textures>
 
@@ -231,6 +232,13 @@
             <ambient  r="0.0" g="0.0" b="0.0" a="1.0"/>
             <diffuse  r="0.0" g="0.0" b="0.0" a="1.0"/>
             <specular r="0.0" g="0.0" b="0.0" a="1.0"/>
+            <emissive r="0.0" g="0.0" b="0.0" a="1.0"/>
+        </material>
+        <material id="porcelain">
+            <shininess value="50.0"/>
+            <ambient  r="0.9" g="0.9" b="0.9" a="1.0"/>
+            <diffuse  r="0.9" g="0.9" b="0.9" a="1.0"/>
+            <specular r="0.3" g="0.3" b="0.3" a="1.0"/>
             <emissive r="0.0" g="0.0" b="0.0" a="1.0"/>
         </material>
     </materials>
@@ -750,6 +758,7 @@
                 <noderef id="clock"/>
                 <noderef id="trex"/>
                 <noderef id="fireplace-in-room"/>
+                <noderef id="vase-in-room"/>
             </descendants>
         </node>
 
@@ -865,7 +874,7 @@
         </node>
 
         <node id="fireplace-back">
-            <material id="black"/><texture id="clear"/>
+            <material id="brick"/><texture id="brick"><amplification afs="0.5" aft="0.42"/></texture>
             <transformations>
                 <translation x="0" y="0" z="+0.001"/>
             </transformations>
@@ -3297,6 +3306,63 @@
             </transformations>
             <descendants>
                 <leaf type="sphere" radius="0.01" slices="32" stacks="8"/>
+            </descendants>
+        </node>
+
+        <node id="vase-in-room">
+            <material id="null"/><texture id="null"><amplification afs="1" aft="1"/></texture>
+            <transformations>
+                <translation x="1.4" y="0.76" z="-0.5"/>
+            </transformations>
+            <descendants>
+                <noderef id="vase"/>
+            </descendants>
+        </node>
+
+        <node id="vase">
+            <material id="porcelain"/>
+            <texture id="null"><amplification afs="1" aft="1"/></texture>
+            <transformations>
+                <translation x="0" y="0.001" z="0"/>
+            </transformations>
+            <descendants>
+                <noderef id="vase-outside"/>
+                <noderef id="vase-inside"/>
+                <noderef id="vase-bottom"/>
+            </descendants>
+        </node>
+        <node id="vase-outside">
+            <material id="null"/>
+            <texture id="porcelain-painted">
+                <amplification afs="1" aft="1"/>
+            </texture>
+            <transformations>
+                <translation x="0" y="0.15" z="0"/>
+            </transformations>
+            <descendants>
+                <leaf type="defbarrel" base="0.07" middle="0.02" height="+0.3" slices="32" stacks="16"/>
+            </descendants>
+        </node>
+        <node id="vase-inside">
+            <material id="null"/>
+            <texture id="clear">
+            </texture>
+            <transformations>
+                <translation x="0" y="0.15" z="0"/>
+            </transformations>
+            <descendants>
+                <leaf type="defbarrel" base="0.07" middle="0.02" height="-0.3" slices="32" stacks="16"/>
+            </descendants>
+        </node>
+        <node id="vase-bottom">
+            <material id="null"/>
+            <texture id="clear">
+            </texture>
+            <transformations>
+                <rotation axis="x" angle="-90"/>
+            </transformations>
+            <descendants>
+                <leaf type="cylinder" bottomRadius="0.0711" topRadius="0.0711" height="0" slices="32" stacks="1"/>
             </descendants>
         </node>
     </nodes>

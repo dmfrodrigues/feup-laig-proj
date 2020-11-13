@@ -31,6 +31,7 @@ serialInclude(
         'MySpriteAnimation.js',
         'Plane.js',
         'Patch.js',
+        'Barrel.js',
 
 main=function()
 {

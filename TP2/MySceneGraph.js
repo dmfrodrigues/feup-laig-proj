@@ -794,6 +794,7 @@ class MySceneGraph {
                         case "torus"     : leaf = this.parseTorus          (descendant,           descendant.id); break;
                         case "plane"     : leaf = this.parsePlane          (descendant,           descendant.id); break;
                         case "patch"     : leaf = this.parsePatch          (descendant,           descendant.id); break;
+                        case "defbarrel" : leaf = this.parseBarrel         (descendant,           descendant.id); break;
                         case "spritetext": leaf = this.parseSpriteText     (descendant,           descendant.id); break;
                         case "spriteanim": leaf = this.parseSpriteAnimation(descendant,           descendant.id); break;
                         default:
@@ -1100,6 +1101,20 @@ class MySceneGraph {
         let zz = this.parseFloat(node, 'zz', messageError); if(typeof zz === "string") return zz;
         
         return [xx, yy, zz];
+    }
+
+    /**
+     * Parses a barrel
+     * @param {XMLnode} node XML node
+     * @param {string} messageError String to print in case of error
+     */
+    parseBarrel(node, messageError){
+        let base   = this.parseFloat(node, 'base'  , messageError); if(typeof base   === "string") return base  ;
+        let middle = this.parseFloat(node, 'middle', messageError); if(typeof middle === "string") return middle;
+        let height = this.parseFloat(node, 'height', messageError); if(typeof height === "string") return height;
+        let slices = this.parseInt  (node, 'slices', messageError); if(typeof slices === "string") return slices;
+        let stacks = this.parseInt  (node, 'stacks', messageError); if(typeof stacks === "string") return stacks;
+        return new Barrel(this.scene, base, middle, height, slices, stacks);
     }
 
     /**

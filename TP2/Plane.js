@@ -14,7 +14,6 @@ class Plane extends CGFobject {
         this.initBuffers();
     }
 	initBuffers() {
-        // TODO
         let controlPoints = [
             [ // U = 0
                 [-0.5, 0.0, +0.5, 1], // V = 0
