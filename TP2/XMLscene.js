@@ -100,6 +100,41 @@ class XMLscene extends CGFscene {
         this.interface.setActiveCamera(this.camera);
     }
 
+    tvAnimations(){
+        let folder_tv_programs = this.interface.gui.addFolder("TV Channels");
+        let tv_channels = [];
+        
+        for(let anim in this.graph.spriteAnimations){
+            if(this.graph.spriteAnimations[anim].ssid.substr(0, 2) == "tv")
+                tv_channels.push(this.graph.spriteAnimations[anim]);
+        }
+        
+        let channels = {
+                0: true,
+                1: false,
+                2: false
+        }
+                
+        folder_tv_programs.add(channels, '0').name('1 News').listen().onChange(function(){setChecked("0")});
+        folder_tv_programs.add(channels, '1').name('2 Football').listen().onChange(function(){setChecked("1")});
+        folder_tv_programs.add(channels, '2').name('Off').listen().onChange(function(){setChecked("2")});
+              
+        function setChecked( prop ){
+            for (let param in channels){
+                channels[param] = false;
+            }
+            channels[prop] = true;
+            for(let param in channels){
+                if(param == 2) break;
+                if(channels[param]){
+                    tv_channels[param].enable();
+                }
+                else
+                    tv_channels[param].disable();
+            }    
+        }
+    }
+
     /**
      * Update scene stuff that is time-dependent (e.g. animations)
      * 
@@ -132,6 +167,8 @@ class XMLscene extends CGFscene {
 
         this.completeCameras();
 
+        this.tvAnimations();
+
         this.sceneInited = true;
     }
 
@@ -160,8 +197,6 @@ class XMLscene extends CGFscene {
      * Displays the scene.
      */
     display() {
-        //this.update();
-
         // ---- BEGIN Background, camera and axis setup
 
         // Clear image and depth buffer everytime we update the scene
