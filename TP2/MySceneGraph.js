@@ -474,14 +474,10 @@ class MySceneGraph {
         return null;
     }
 
-        /**
-     * 
-     <spritesheets>
-        <!-- Semelhante à declaração de textura,  →
-        <!-- mas inclui a definição do nº de colunas e linhas -->
-        <spritesheet id=”ss” path=”ss” sizeM=”ii” sizeN=”ii” />
-        ...
-    </spritesheets>
+
+    /**
+     * Parses the <spritesheets> block. 
+     * @param {spritesheets block element} spriteSheetNode
      */
     parseSpriteSheets(spriteSheetNode){
         this.spriteSheets = {};
