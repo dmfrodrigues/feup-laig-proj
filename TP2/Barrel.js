@@ -22,46 +22,46 @@ class Barrel extends CGFobject {
     initBuffers() {
         let controlPoints1 = [
             [
-                [+this.base  , -this.height / 2,                 0, 1],
-                [+this.middle,                0,                 0, 1],
-                [+this.base  , +this.height / 2,                 0, 1],
+                [+this.base  ,               0,                 0, 1],
+                [+this.middle, 0.5*this.height,                 0, 1],
+                [+this.base  ,     this.height,                 0, 1],
             ],
             [
-                [+this.base  , -this.height / 2, -this.base  /0.75, 1],
-                [+this.middle,                0, -this.middle/0.75, 1],
-                [+this.base  , +this.height / 2, -this.base  /0.75, 1],
+                [+this.base  ,               0, -this.base  /0.75, 1],
+                [+this.middle, 0.5*this.height, -this.middle/0.75, 1],
+                [+this.base  ,     this.height, -this.base  /0.75, 1],
             ],
             [
-                [-this.base  , -this.height / 2, -this.base  /0.75, 1],
-                [-this.middle,                0, -this.middle/0.75, 1],
-                [-this.base  , +this.height / 2, -this.base  /0.75, 1],
+                [-this.base  ,               0, -this.base  /0.75, 1],
+                [-this.middle, 0.5*this.height, -this.middle/0.75, 1],
+                [-this.base  ,     this.height, -this.base  /0.75, 1],
             ],
             [
-                [-this.base  , -this.height / 2,                 0, 1],
-                [-this.middle,                0,                 0, 1],
-                [-this.base  , +this.height / 2,                 0, 1],
+                [-this.base  ,               0,                 0, 1],
+                [-this.middle, 0.5*this.height,                 0, 1],
+                [-this.base  ,     this.height,                 0, 1],
             ],
         ];
         let controlPoints2 = [
             [
-                [-this.base  , -this.height / 2,                 0, 1],
-                [-this.middle,                0,                 0, 1],
-                [-this.base  , +this.height / 2,                 0, 1],
+                [-this.base  ,               0,                 0, 1],
+                [-this.middle, 0.5*this.height,                 0, 1],
+                [-this.base  ,     this.height,                 0, 1],
             ],
             [
-                [-this.base  , -this.height / 2, +this.base  /0.75, 1],
-                [-this.middle,                0, +this.middle/0.75, 1],
-                [-this.base  , +this.height / 2, +this.base  /0.75, 1],
+                [-this.base  ,               0, +this.base  /0.75, 1],
+                [-this.middle, 0.5*this.height, +this.middle/0.75, 1],
+                [-this.base  ,     this.height, +this.base  /0.75, 1],
             ],
             [
-                [+this.base  , -this.height / 2, +this.base  /0.75, 1],
-                [+this.middle,                0, +this.middle/0.75, 1],
-                [+this.base  , +this.height / 2, +this.base  /0.75, 1],
+                [+this.base  ,               0, +this.base  /0.75, 1],
+                [+this.middle, 0.5*this.height, +this.middle/0.75, 1],
+                [+this.base  ,     this.height, +this.base  /0.75, 1],
             ],
             [
-                [+this.base  , -this.height / 2,                 0, 1],
-                [+this.middle,                0,                 0, 1],
-                [+this.base  , +this.height / 2,                 0, 1],
+                [+this.base  ,               0,                 0, 1],
+                [+this.middle, 0.5*this.height,                 0, 1],
+                [+this.base  ,     this.height,                 0, 1],
             ],
         ];
         this.degreeU = controlPoints1.length - 1;
