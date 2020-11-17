@@ -3371,7 +3371,7 @@
                 <amplification afs="1" aft="1"/>
             </texture>
             <descendants>
-                <leaf type="defbarrel" base="0.07" middle="0.02" height="+0.3" slices="32" stacks="16"/>
+                <leaf type="defbarrel" base="0.07" middle="0.04" height="+0.3" slices="32" stacks="16" angle="-20"/>
             </descendants>
         </node>
         <node id="vase-inside">
@@ -3382,7 +3382,7 @@
                 <translation x="0" y="0.3" z="0"/>
             </transformations>
             <descendants>
-                <leaf type="defbarrel" base="0.07" middle="0.02" height="-0.3" slices="32" stacks="16"/>
+                <leaf type="defbarrel" base="0.07" middle="0.04" height="-0.3" slices="32" stacks="16" angle="+20"/>
             </descendants>
         </node>
         <node id="vase-bottom">

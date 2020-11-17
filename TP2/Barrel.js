@@ -1,3 +1,5 @@
+DEG_TO_RAD = Math.PI/180.0;
+
 /**
  * Barrel
  * @constructor
@@ -9,7 +11,7 @@
  * @param stacks - Number of stacks
  */
 class Barrel extends CGFobject {
-    constructor(scene, base, middle, height, slices, stacks) {
+    constructor(scene, base, middle, height, slices, stacks, angle = 45) {
         super(scene);
         this.scene = scene;
         this.base = base;
@@ -17,51 +19,67 @@ class Barrel extends CGFobject {
         this.height = height;
         this.slices = slices; this.npartsU = this.slices;
         this.stacks = stacks; this.npartsV = this.stacks;
+        this.angle = angle;
         this.initBuffers();
     }
     initBuffers() {
+        let r = this.base;
+        let R = this.middle;
+        let H = (R-r)*4.0/3.0;
+        let alpha = this.angle*DEG_TO_RAD;
+        let L = this.height;
+        let y1 =   H/Math.tan(alpha);
+        let y2 = L-H/Math.tan(alpha);
         let controlPoints1 = [
             [
-                [+this.base  ,               0,                 0, 1],
-                [+this.middle, 0.5*this.height,                 0, 1],
-                [+this.base  ,     this.height,                 0, 1],
+                [+r  ,  0,           0, 1],
+                [+r+H, y1,           0, 1],
+                [+r+H, y2,           0, 1],
+                [+r  ,  L,           0, 1],
             ],
             [
-                [+this.base  ,               0, -this.base  /0.75, 1],
-                [+this.middle, 0.5*this.height, -this.middle/0.75, 1],
-                [+this.base  ,     this.height, -this.base  /0.75, 1],
+                [+r  ,  0, (-r  )/0.75, 1],
+                [+r+H, y1, (-r-H)/0.75, 1],
+                [+r+H, y2, (-r-H)/0.75, 1],
+                [+r  ,  L, (-r  )/0.75, 1],
             ],
             [
-                [-this.base  ,               0, -this.base  /0.75, 1],
-                [-this.middle, 0.5*this.height, -this.middle/0.75, 1],
-                [-this.base  ,     this.height, -this.base  /0.75, 1],
+                [-r  ,  0, (-r  )/0.75, 1],
+                [-r-H, y1, (-r-H)/0.75, 1],
+                [-r-H, y2, (-r-H)/0.75, 1],
+                [-r  ,  L, (-r  )/0.75, 1],
             ],
             [
-                [-this.base  ,               0,                 0, 1],
-                [-this.middle, 0.5*this.height,                 0, 1],
-                [-this.base  ,     this.height,                 0, 1],
+                [-r  ,  0,           0, 1],
+                [-r-H, y1,           0, 1],
+                [-r-H, y2,           0, 1],
+                [-r  ,  L,           0, 1],
             ],
         ];
         let controlPoints2 = [
             [
-                [-this.base  ,               0,                 0, 1],
-                [-this.middle, 0.5*this.height,                 0, 1],
-                [-this.base  ,     this.height,                 0, 1],
+                [-r  ,  0,           0, 1],
+                [-r-H, y1,           0, 1],
+                [-r-H, y2,           0, 1],
+                [-r  ,  L,           0, 1],
             ],
             [
-                [-this.base  ,               0, +this.base  /0.75, 1],
-                [-this.middle, 0.5*this.height, +this.middle/0.75, 1],
-                [-this.base  ,     this.height, +this.base  /0.75, 1],
+                [-r  ,  0, (+r  )/0.75, 1],
+                [-r-H, y1, (+r+H)/0.75, 1],
+                [-r-H, y2, (+r+H)/0.75, 1],
+                [-r  ,  L, (+r  )/0.75, 1],
             ],
             [
-                [+this.base  ,               0, +this.base  /0.75, 1],
-                [+this.middle, 0.5*this.height, +this.middle/0.75, 1],
-                [+this.base  ,     this.height, +this.base  /0.75, 1],
+                [+r  ,  0, (+r  )/0.75, 1],
+                [+r+H, y1, (+r+H)/0.75, 1],
+                [+r+H, y2, (+r+H)/0.75, 1],
+                [+r  ,  L, (+r  )/0.75, 1],
             ],
             [
-                [+this.base  ,               0,                 0, 1],
-                [+this.middle, 0.5*this.height,                 0, 1],
-                [+this.base  ,     this.height,                 0, 1],
+                [+r  ,  0,           0, 1],
+                [+r+H, y1,           0, 1],
+                [+r+H, y2,           0, 1],
+                [+r  ,  L,           0, 1],
             ],
         ];
         this.degreeU = controlPoints1.length - 1;

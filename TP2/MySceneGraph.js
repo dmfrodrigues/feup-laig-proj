@@ -1110,7 +1110,12 @@ class MySceneGraph {
         let height = this.parseFloat(node, 'height', messageError); if(typeof height === "string") return height;
         let slices = this.parseInt  (node, 'slices', messageError); if(typeof slices === "string") return slices;
         let stacks = this.parseInt  (node, 'stacks', messageError); if(typeof stacks === "string") return stacks;
-        return new Barrel(this.scene, base, middle, height, slices, stacks);
+        if(typeof node.attributes.angle !== 'undefined'){
+            let angle  = this.parseFloat(node, 'angle' , messageError);
+            return new Barrel(this.scene, base, middle, height, slices, stacks, angle);
+        } else {
+            return new Barrel(this.scene, base, middle, height, slices, stacks       );
+        }                           
     }
 
     /**
