@@ -14,6 +14,14 @@ class Node extends CGFobject {
         this.texture        = null;
         this.animation      = null;
         this.children       = [];
+        this.dropbox        = null;
+        this.enabled = true;
+    }
+    enable(){
+        this.enabled = true;
+    }
+    disable(){
+        this.enabled = false;
     }
 
     setTransformation(M){
@@ -36,7 +44,12 @@ class Node extends CGFobject {
         this.children.push(child);
     }
 
+    setDropbox(dropbox){
+        this.dropbox = dropbox;
+    }
+
 	display(){
+        if(!this.enabled) return;
         this.scene.pushMatrix();
         this.scene.pushAppearance();
         {

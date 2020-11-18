@@ -708,6 +708,12 @@ class MySceneGraph {
             if (nodeID == null)
                 return "no ID defined for nodeID";
 
+            // Dropbox
+            let dropbox = null;
+            if(typeof children[i].attributes.dropbox !== 'undefined'){
+                dropbox = this.reader.getString(children[i], 'dropbox');
+            }
+
             // Checks for repeated IDs.
             if (this.nodes[nodeID] != null)
                 return "ID must be unique for each node (conflict: ID = " + nodeID + ")";
@@ -726,6 +732,7 @@ class MySceneGraph {
             var animationRefIndex = nodeNames.indexOf("animationref");
 
             let node = new Node(this.scene, nodeID);
+            node.setDropbox(dropbox);
             // Transformations
             let transformations = grandChildren[transformationsIndex];
             let M = this.parseTransformations(transformations, nodeID); if(typeof M === "string") return M;

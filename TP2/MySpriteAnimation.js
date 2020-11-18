@@ -9,24 +9,15 @@ class MySpriteAnimation{
         this.ssid = ssid;
         this.spriteSheet = this.scene.graph.spriteSheets[this.ssid];
         this.geometry = new MyRectangle(this.scene, -0.5, -0.5, 0.5, 0.5, 1, 1);
-        this.enabled = true;
-    }
-    enable(){
-        this.enabled = true;
-    }
-    disable(){
-        this.enabled = false;
     }
     update(t){
         t %= this.duration;
         this.activeCell = this.startCell + Math.floor(t * this.factor);
     }
     display(){
-        if(this.enabled){
-            this.scene.setActiveShaderSimple(this.spriteSheet.shader);
-            this.spriteSheet.activateCellP(this.activeCell);
-            this.geometry.display();
-            this.scene.setActiveShaderSimple(this.scene.defaultShader);
-        }
+        this.scene.setActiveShaderSimple(this.spriteSheet.shader);
+        this.spriteSheet.activateCellP(this.activeCell);
+        this.geometry.display();
+        this.scene.setActiveShaderSimple(this.scene.defaultShader);
     }
 }
