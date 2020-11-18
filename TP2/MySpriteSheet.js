@@ -3,8 +3,8 @@
  * @constructor
  * @param scene   - Reference to MyScene object
  * @param texture - Path of spritesheet texture
- * @param sizeM   - Columns
- * @param sizeN   - Rows
+ * @param sizeM   - Number of columns in texture
+ * @param sizeN   - Number of rows in texture
  */
 class MySpriteSheet {
     constructor(scene, texture, sizeM, sizeN){

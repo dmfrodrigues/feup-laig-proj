@@ -1,3 +1,12 @@
+/**
+ * MySpriteAnimation
+ * @constructor
+ * @param scene     - Reference to MyScene object
+ * @param ssid      - Sprite sheet ID
+ * @param startCell - Initial cell of the animation
+ * @param endCell   - Last cell of the animation
+ * @param duration  - Duration of one animation cycle
+ */
 class MySpriteAnimation{
     constructor(scene, ssid, startCell, endCell, duration){
         this.scene = scene;

@@ -3,6 +3,7 @@
  * @constructor
  * @param scene   - Reference to MyScene object
  * @param text    - String to be displayed
+ * @param exp     - Optional custom expression to change text
  */
 class MySpriteText{
     constructor(scene, text, exp){
