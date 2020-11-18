@@ -3370,6 +3370,9 @@
             <texture id="porcelain-painted">
                 <amplification afs="1" aft="1"/>
             </texture>
+            <transformations>
+                <rotation axis="x" angle="-90"/>
+            </transformations>
             <descendants>
                 <leaf type="defbarrel" base="0.07" middle="0.04" height="+0.3" slices="32" stacks="16" angle="-20"/>
             </descendants>
@@ -3380,6 +3383,7 @@
             </texture>
             <transformations>
                 <translation x="0" y="0.3" z="0"/>
+                <rotation axis="x" angle="-90"/>
             </transformations>
             <descendants>
                 <leaf type="defbarrel" base="0.07" middle="0.04" height="-0.3" slices="32" stacks="16" angle="+20"/>
