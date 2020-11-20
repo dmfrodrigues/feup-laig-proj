@@ -3,13 +3,13 @@
  * @constructor
  * @param scene   - Reference to MyScene object
  * @param text    - String to be displayed
- * @param exp     - Optional custom expression to change text
+ * @param eval    - Optional custom expression to evaluate
  */
 class MySpriteText{
-    constructor(scene, text, exp){
+    constructor(scene, text, eval){
         this.scene = scene;
         this.text = text;
-        this.exp = exp;
+        this.eval = eval;
         this.geometry = new MyRectangle(this.scene, -0.5, -0.5, 0.5, 0.5, 1, 1);
         this.spriteSheet = new MySpriteSheet(scene, "scenes/spritesheets/oolite-font.png", 16, 16);
     }
@@ -18,8 +18,8 @@ class MySpriteText{
     }
     display(){
         this.scene.setActiveShaderSimple(this.spriteSheet.shader);
-        if(this.exp != null)
-            eval(this.exp);
+        if(this.eval != null)
+            eval(this.eval);
         this.scene.pushMatrix();
         for (var i = 0; i < this.text.length; i++) {
             this.spriteSheet.activateCellP(this.getCharacterPosition(this.text[i]));
