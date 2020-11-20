@@ -3395,7 +3395,7 @@
                 <rotation axis="x" angle="-90"/>
             </transformations>
             <descendants>
-                <leaf type="defbarrel" base="0.07" middle="0.04" height="+0.3" slices="32" stacks="16" angle="-20"/>
+                <leaf type="defbarrel" base="0.07" middle="0.04" height="+0.3" slices="16" stacks="16" angle="-20"/>
             </descendants>
         </node>
         <node id="vase-inside">
@@ -3407,7 +3407,7 @@
                 <rotation axis="x" angle="-90"/>
             </transformations>
             <descendants>
-                <leaf type="defbarrel" base="0.07" middle="0.04" height="-0.3" slices="32" stacks="16" angle="+20"/>
+                <leaf type="defbarrel" base="0.07" middle="0.04" height="-0.3" slices="16" stacks="16" angle="+20"/>
             </descendants>
         </node>
         <node id="vase-bottom">
