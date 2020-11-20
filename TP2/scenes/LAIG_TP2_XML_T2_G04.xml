@@ -2016,7 +2016,7 @@
 
         <node id="window-glass">
             <material id="glass"/>
-            <texture id="dirty-glass"></texture>
+            <texture id="dirty-glass"><amplification afs="1" aft="1"/></texture>
             <descendants>
                 <leaf type="rectangle" x1="-0.5" x2="+0.5" y1="-0.5" y2="+0.5"/>
                 <leaf type="rectangle" x1="+0.5" x2="-0.5" y1="-0.5" y2="+0.5"/>
