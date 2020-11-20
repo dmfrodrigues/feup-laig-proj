@@ -1,5 +1,7 @@
 # LAIG 2020/2021 - TP2
 
+[Link to scene rendering](https://web.fe.up.pt/~up201806429/feup/3/1/laig-t02-g04/TP2/?file=LAIG_TP2_XML_T2_G04.xml)
+
 ## Group: T02G04
 
 | Name                             | Number    | E-Mail               |
