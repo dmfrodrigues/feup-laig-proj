@@ -1162,7 +1162,10 @@ class MySceneGraph {
             this.displayScene.startTime = new Date().getTime();
         }
 
+        this.scene.gl.enable(this.scene.gl.BLEND);
+        this.scene.gl.blendFunc(this.scene.gl.SRC_ALPHA, this.scene.gl.ONE_MINUS_SRC_ALPHA);
         this.nodes[this.idRoot].display();
+        this.scene.gl.disable(this.scene.gl.BLEND); 
 
         this.displayScene.numFrames++;
         let now = new Date().getTime();
