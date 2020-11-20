@@ -1157,19 +1157,19 @@ class MySceneGraph {
     displayScene() {
         
         //TODO: Create display loop for transversing the scene graph, calling the root node's display function
-        if(typeof this.displayScene.numFrames === 'undefined'){
-            this.displayScene.numFrames = 0;
-            this.displayScene.startTime = new Date().getTime();
-        }
+        // if(typeof this.displayScene.numFrames === 'undefined'){
+        //     this.displayScene.numFrames = 0;
+        //     this.displayScene.startTime = new Date().getTime();
+        // }
 
         this.scene.gl.enable(this.scene.gl.BLEND);
         this.scene.gl.blendFunc(this.scene.gl.SRC_ALPHA, this.scene.gl.ONE_MINUS_SRC_ALPHA);
         this.nodes[this.idRoot].display();
         this.scene.gl.disable(this.scene.gl.BLEND); 
 
-        this.displayScene.numFrames++;
-        let now = new Date().getTime();
-        let seconds_per_frame = ((now-this.displayScene.startTime)/1000)/this.displayScene.numFrames;
-        if(this.displayScene.numFrames % 100 === 0) console.log(1/seconds_per_frame);
+        // this.displayScene.numFrames++;
+        // let now = new Date().getTime();
+        // let seconds_per_frame = ((now-this.displayScene.startTime)/1000)/this.displayScene.numFrames;
+        // if(this.displayScene.numFrames % 100 === 0) console.log(1/seconds_per_frame);
     }
 }
