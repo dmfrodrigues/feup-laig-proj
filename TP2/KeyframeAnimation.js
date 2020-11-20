@@ -30,14 +30,32 @@ class KeyframeAnimation extends Animation {
         this.M = mat4.create();
         this.tmin = +1000000000;
         this.tmax = -1000000000;
+        
+        this.idx   = 1;
+        this.keyframe1 = {};
+        this.keyframe2 = {};
+        this.t1    = 0;
+        this.t2_t1 = 1;
     }
     addKeyframe(t, keyframe){
         this.keyframes[t] = keyframe;
         this.tmin = Math.min(t, this.tmin);
         this.tmax = Math.max(t, this.tmax);
+        // Recalculate keyframeTimes
+        this.keyframeTimes = Object.keys(this.keyframes).map(Number).sort(function (a,b){ return a-b; });
+        // Recalculate keyframeVals
+        this.keyframeVals = [];
+        for(let i = 0; i < this.keyframeTimes.length; ++i){
+            this.keyframeVals.push(this.keyframes[this.keyframeTimes[i]]);
+        }
+        if(this.keyframeTimes.length >= 2){
+            this.t1    = this.keyframeTimes[this.idx-1];
+            this.t2_t1 = this.keyframeTimes[this.idx] - this.t1;
+            this.keyframe1 = this.keyframeVals[this.idx-1];
+            this.keyframe2 = this.keyframeVals[this.idx  ];
+        }
     }
     update(t){
-        let keys = Object.keys(this.keyframes).map(Number).sort(function (a,b){ return a-b; });
         if(this.loop && t > 0) t %= this.tmax;
         if(this.tmax <= t){
             this.visible = true;
@@ -47,13 +65,19 @@ class KeyframeAnimation extends Animation {
             this.M = this.keyframes[this.tmin].getMatrix();
         } else {
             this.visible = true;
-            let idx = upper_bound(keys, t);
-            let t1 = keys[idx-1];
-            let t2 = keys[idx];
+            while(!(this.keyframeTimes[this.idx-1] <= t && t < this.keyframeTimes[this.idx])){
+                this.idx = this.idx+1;
+                if(this.idx >= this.keyframeTimes.length) this.idx = 1;
+
+                this.t1    = this.keyframeTimes[this.idx-1];
+                this.t2_t1 = this.keyframeTimes[this.idx] - this.t1;
+                this.keyframe1 = this.keyframeVals[this.idx-1];
+                this.keyframe2 = this.keyframeVals[this.idx  ];
+            }
             this.M = Keyframe.interpolate(
-                this.keyframes[t1],
-                this.keyframes[t2],
-                (t-t1)/(t2-t1)
+                this.keyframe1,
+                this.keyframe2,
+                (t-this.t1)/(this.t2_t1)
             ).getMatrix();
         }
     }

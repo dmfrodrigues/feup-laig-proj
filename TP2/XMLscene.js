@@ -74,7 +74,7 @@ class XMLscene extends CGFscene {
                 this.lights[i].setDiffuse(...graphLight[3]);
                 this.lights[i].setSpecular(...graphLight[4]);
 
-                this.lights[i].setVisible(true);
+                this.lights[i].setVisible(false);
                 if (graphLight[0])
                     this.lights[i].enable();
                 else
@@ -100,6 +100,37 @@ class XMLscene extends CGFscene {
         this.interface.setActiveCamera(this.camera);
     }
 
+    dropboxes(){
+        let nodes = this.graph.nodes;
+        function disableAll(options){
+            for(let option of options){
+                nodes[option].disable();
+            }
+        }
+        
+        let drops = {};
+        for(let nodeId in this.graph.nodes){
+            let node = this.graph.nodes[nodeId];
+            if(node.dropbox !== null){
+                if(typeof drops[node.dropbox] === 'undefined') drops[node.dropbox] = [];
+                drops[node.dropbox].push(nodeId);
+            }
+        }
+
+        let selected = {};
+
+        for(let dropbox in drops){
+            disableAll(drops[dropbox]);
+
+            selected[dropbox] = drops[dropbox][0];
+            nodes[selected[dropbox]].enable();
+
+            this.interface.gui.add(selected, dropbox, drops[dropbox]).name(dropbox).onChange(
+                function(){disableAll(drops[dropbox]); nodes[selected[dropbox]].enable(); }
+            );
+        }
+    }
+
     /**
      * Update scene stuff that is time-dependent (e.g. animations)
      * 
@@ -113,6 +144,9 @@ class XMLscene extends CGFscene {
         for (var key in this.graph.animations){
             this.graph.animations[key].update(t);
         }
+        for (let anim in this.graph.spriteAnimations){
+            this.graph.spriteAnimations[anim].update(t);
+        }        
     }
 
     /** Handler called when the graph is finally loaded. 
@@ -128,6 +162,8 @@ class XMLscene extends CGFscene {
         this.initLights();
 
         this.completeCameras();
+
+        this.dropboxes();
 
         this.sceneInited = true;
     }
@@ -157,8 +193,6 @@ class XMLscene extends CGFscene {
      * Displays the scene.
      */
     display() {
-        //this.update();
-
         // ---- BEGIN Background, camera and axis setup
 
         // Clear image and depth buffer everytime we update the scene
@@ -175,7 +209,6 @@ class XMLscene extends CGFscene {
         this.pushMatrix();
 
         for (var i = 0; i < this.lights.length; i++) {
-            this.lights[i].setVisible(false);
             this.lights[i].update();
         }
 

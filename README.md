@@ -30,3 +30,14 @@
 ### [TP3 - ...](TP3)
 - (items briefly describing main strong points)
 
+----
+
+# License
+
+© 2020 Diogo Rodrigues, Breno Pimentel
+
+All files are licensed under [GNU General Public License v3](LICENSE) by **© 2020 Diogo Rodrigues, Breno Pimentel**, to the exception of:
+- Library files under `lib` folders, which were authored by the lecturers;
+- Most images/textures, authored by various people and available over the internet.
+
+The files not authored by us are presented as a fundamental complement to this project, and are used and made available under *fair use for education*.

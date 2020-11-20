@@ -42,15 +42,15 @@ class Keyframe {
 	 */
 	static interpolate(frame1, frame2, r){
 		return new Keyframe(
-			frame1. x * (1-r) + frame2. x * r,
-			frame1. y * (1-r) + frame2. y * r,
-			frame1. z * (1-r) + frame2. z * r,
-			frame1.rx * (1-r) + frame2.rx * r,
-			frame1.ry * (1-r) + frame2.ry * r,
-			frame1.rz * (1-r) + frame2.rz * r,
-			frame1.sx * (1-r) + frame2.sx * r,
-			frame1.sy * (1-r) + frame2.sy * r,
-			frame1.sz * (1-r) + frame2.sz * r
+			frame1. x + r * (frame2. x - frame1. x),
+			frame1. y + r * (frame2. y - frame1. y),
+			frame1. z + r * (frame2. z - frame1. z),
+			frame1.rx + r * (frame2.rx - frame1.rx),
+			frame1.ry + r * (frame2.ry - frame1.ry),
+			frame1.rz + r * (frame2.rz - frame1.rz),
+			frame1.sx + r * (frame2.sx - frame1.sx),
+			frame1.sy + r * (frame2.sy - frame1.sy),
+			frame1.sz + r * (frame2.sz - frame1.sz)
 		);
 	}
 

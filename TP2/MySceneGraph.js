@@ -6,9 +6,10 @@ var VIEWS_INDEX = 1;
 var ILLUMINATION_INDEX = 2;
 var LIGHTS_INDEX = 3;
 var TEXTURES_INDEX = 4;
-var MATERIALS_INDEX = 5;
-var ANIMATIONS_INDEX = 6;
-var NODES_INDEX = 7;
+var SPRITESHEETS_INDEX = 5;
+var MATERIALS_INDEX = 6;
+var ANIMATIONS_INDEX = 7;
+var NODES_INDEX = 8;
 
 /**
  * MySceneGraph class, representing the scene graph.
@@ -171,6 +172,17 @@ class MySceneGraph {
 
             //Parse textures block
             if ((error = this.parseTextures(nodes[index])) != null)
+                return error;
+        }
+
+        // <spritesheets>
+        if ((index = nodeNames.indexOf("spritesheets")) == -1)
+                return "tag <spritesheets> missing";
+        else {
+            if (index != SPRITESHEETS_INDEX)
+                this.onXMLMinorError("tag <spritesheets> out of order");
+            //Parse spritesheets block
+            if ((error = this.parseSpriteSheets(nodes[index])) != null)
                 return error;
         }
 
@@ -462,6 +474,31 @@ class MySceneGraph {
         return null;
     }
 
+
+    /**
+     * Parses the <spritesheets> block. 
+     * @param {spritesheets block element} spriteSheetNode
+     */
+    parseSpriteSheets(spriteSheetNode){
+        this.spriteSheets = {};
+        for(let i = 0; i < spriteSheetNode.children.length; ++i){
+            let spriteSheet = spriteSheetNode.children[i];
+            // Checks for repeated IDs.
+            if (this.spriteSheets[spriteSheet.id] != null)
+                return "ID must be unique for each sprite sheet (conflict: ID = " + spriteSheet.id + ")";
+            this.spriteSheets[spriteSheet.id] = new MySpriteSheet(
+                this.scene,
+                spriteSheet.attributes.path.value,
+                spriteSheet.attributes.sizeM.value, 
+                spriteSheet.attributes.sizeN.value
+            );
+        }
+
+        this.log("Parsed sprite sheets");
+
+        return null;
+    }
+
     /**
      * Parses the <materials> node.
      * @param {materials block element} materialsNode
@@ -647,6 +684,8 @@ class MySceneGraph {
      * @param {nodes block element} nodesNode
      */
     parseNodes(nodesNode) {
+        this.spriteAnimations = [];
+
         var children = nodesNode.children;
 
         this.nodes = [];
@@ -669,6 +708,12 @@ class MySceneGraph {
             if (nodeID == null)
                 return "no ID defined for nodeID";
 
+            // Dropbox
+            let dropbox = null;
+            if(typeof children[i].attributes.dropbox !== 'undefined'){
+                dropbox = this.reader.getString(children[i], 'dropbox');
+            }
+
             // Checks for repeated IDs.
             if (this.nodes[nodeID] != null)
                 return "ID must be unique for each node (conflict: ID = " + nodeID + ")";
@@ -687,6 +732,7 @@ class MySceneGraph {
             var animationRefIndex = nodeNames.indexOf("animationref");
 
             let node = new Node(this.scene, nodeID);
+            node.setDropbox(dropbox);
             // Transformations
             let transformations = grandChildren[transformationsIndex];
             let M = this.parseTransformations(transformations, nodeID); if(typeof M === "string") return M;
@@ -744,16 +790,21 @@ class MySceneGraph {
                 } else if(descendant.nodeName == 'leaf'){
                     let leaf = {};
                     switch(descendant.attributes.type.value){
-                        case "rectangle": leaf = this.parseRectangle(descendant, afs, aft, descendant.id); break;
-                        case "triangle" : leaf = this.parseTriangle (descendant, afs, aft, descendant.id); break;
-                        case "cylinder" : leaf = this.parseCylinder (descendant,           descendant.id); break;
-                        case "sphere"   : leaf = this.parseSphere   (descendant,           descendant.id); break;
-                        case "torus"    : leaf = this.parseTorus    (descendant,           descendant.id); break;
-                        case "plane"    : leaf = this.parsePlane    (descendant,           descendant.id); break;
+                        case "rectangle" : leaf = this.parseRectangle      (descendant, afs, aft, descendant.id); break;
+                        case "triangle"  : leaf = this.parseTriangle       (descendant, afs, aft, descendant.id); break;
+                        case "cylinder"  : leaf = this.parseCylinder       (descendant,           descendant.id); break;
+                        case "sphere"    : leaf = this.parseSphere         (descendant,           descendant.id); break;
+                        case "torus"     : leaf = this.parseTorus          (descendant,           descendant.id); break;
+                        case "plane"     : leaf = this.parsePlane          (descendant,           descendant.id); break;
+                        case "patch"     : leaf = this.parsePatch          (descendant,           descendant.id); break;
+                        case "defbarrel" : leaf = this.parseBarrel         (descendant,           descendant.id); break;
+                        case "spritetext": leaf = this.parseSpriteText     (descendant,           descendant.id); break;
+                        case "spriteanim": leaf = this.parseSpriteAnimation(descendant,           descendant.id); break;
                         default:
                             return `no such leaf type "${descendant.attributes.type}"`;
                     }
                     if(typeof leaf === "string") return leaf;
+                    if(descendant.attributes.type.value === "spriteanim") this.spriteAnimations.push(leaf);
                     node.addChild(leaf);
                 } else return `no such descendant type "${descendant.nodeName}"`;
             }
@@ -818,6 +869,18 @@ class MySceneGraph {
     parseInt(node, name, messageError){
         let ret = this.reader.getInteger(node, name);
         if(ret == null || isNaN(ret)) return `unable to parse ${name}: ${messageError}`;
+        return ret;
+    }
+
+    /**
+     * 
+     * @param {XMLnode} node XML node
+     * @param {string} name Name
+     * @param {string} messageError String to print in case of error
+     */
+    parseString(node, name, messageError){
+        let ret = this.reader.getString(node, name);
+        if(ret == null) return `unable to parse ${name}: ${messageError}`;
         return ret;
     }
 
@@ -1004,6 +1067,89 @@ class MySceneGraph {
         return new Plane(this.scene, npartsU, npartsV);
     }
 
+    /**
+     * Parses a patch
+     * @param {XMLnode} node XML node
+     * @param {string} messageError String to print in case of error
+     */
+    parsePatch(node, messageError){
+        let npartsU = this.parseInt(node, 'npartsU', messageError); if(typeof npartsU === "string") return npartsU;
+        let npartsV = this.parseInt(node, 'npartsV', messageError); if(typeof npartsV === "string") return npartsV;
+        
+        let npointsU = this.parseInt(node, 'npointsU', messageError); if(typeof npointsU === "string") return npointsU;
+        let npointsV = this.parseInt(node, 'npointsV', messageError); if(typeof npointsV === "string") return npointsV;
+        if(node.children.length != npointsU*npointsV) return "Invalid length";
+        let controlPoints = [];
+        for(let u = 0; u < npointsU; ++u){
+            controlPoints[u] = [];
+            for(let v = 0; v < npointsV; ++v){
+                let i = u*npointsV + v;
+                let controlPoint = this.parseControlPoint(node.children[i], messageError);
+                if(typeof controlPoint === "string") return controlPoint;
+                controlPoints[u][v] = controlPoint;
+            }
+        }
+        
+        return new Patch(this.scene, npartsU, npartsV, npointsU, npointsV, controlPoints);
+    }
+
+    /**
+     * Parses a control point
+     * @param {XMLnode} node XML node
+     * @param {string} messageError String to print in case of error
+     */
+    parseControlPoint(node, messageError){
+        let x = this.parseFloat(node, 'x', messageError); if(typeof x === "string") return x;
+        let y = this.parseFloat(node, 'y', messageError); if(typeof y === "string") return y;
+        let z = this.parseFloat(node, 'z', messageError); if(typeof z === "string") return z;
+        
+        return [x, y, z];
+    }
+
+    /**
+     * Parses a barrel
+     * @param {XMLnode} node XML node
+     * @param {string} messageError String to print in case of error
+     */
+    parseBarrel(node, messageError){
+        let base   = this.parseFloat(node, 'base'  , messageError); if(typeof base   === "string") return base  ;
+        let middle = this.parseFloat(node, 'middle', messageError); if(typeof middle === "string") return middle;
+        let height = this.parseFloat(node, 'height', messageError); if(typeof height === "string") return height;
+        let slices = this.parseInt  (node, 'slices', messageError); if(typeof slices === "string") return slices;
+        let stacks = this.parseInt  (node, 'stacks', messageError); if(typeof stacks === "string") return stacks;
+        if(typeof node.attributes.angle !== 'undefined'){
+            let angle  = this.parseFloat(node, 'angle' , messageError);
+            return new Barrel(this.scene, base, middle, height, slices, stacks, angle);
+        } else {
+            return new Barrel(this.scene, base, middle, height, slices, stacks       );
+        }                           
+    }
+
+    /**
+     * Parses a sprite text
+     * @param {XMLnode} node XML node
+     * @param {string} messageError String to print in case of error
+     */
+    parseSpriteText(node, messageError){
+        let text = this.parseString(node, 'text', messageError);
+        let exp = null;
+        if(node.attributes.eval != null)
+            exp = this.parseString(node, 'eval', messageError);
+        return new MySpriteText(this.scene, text, exp);
+    }
+
+    /**
+     * Parses a sprite animation
+     * @param {XMLnode} node XML node
+     * @param {string} messageError String to print in case of error 
+    */
+    parseSpriteAnimation(node, messageError){
+        let spritesheet = this.parseString(node, 'ssid'     , messageError);
+        let duration    = this.parseFloat (node, 'duration' , messageError); if(typeof duration  === "string") return duration;
+        let startCell   = this.parseInt   (node, 'startCell', messageError); if(typeof startCell === "string") return startCell;
+        let endCell     = this.parseInt   (node, 'endCell'  , messageError); if(typeof endCell   === "string") return endCell ;
+        return new MySpriteAnimation(this.scene, spritesheet, startCell, endCell, duration);
+    }
 
     /**
      * Displays the scene, processing each node, starting in the root node.
@@ -1011,7 +1157,19 @@ class MySceneGraph {
     displayScene() {
         
         //TODO: Create display loop for transversing the scene graph, calling the root node's display function
-        
+        if(typeof this.displayScene.numFrames === 'undefined'){
+            this.displayScene.numFrames = 0;
+            this.displayScene.startTime = new Date().getTime();
+        }
+
+        this.scene.gl.enable(this.scene.gl.BLEND);
+        this.scene.gl.blendFunc(this.scene.gl.SRC_ALPHA, this.scene.gl.ONE_MINUS_SRC_ALPHA);
         this.nodes[this.idRoot].display();
+        this.scene.gl.disable(this.scene.gl.BLEND); 
+
+        this.displayScene.numFrames++;
+        let now = new Date().getTime();
+        let seconds_per_frame = ((now-this.displayScene.startTime)/1000)/this.displayScene.numFrames;
+        if(this.displayScene.numFrames % 100 === 0) console.log(1/seconds_per_frame);
     }
 }
