@@ -1099,11 +1099,11 @@ class MySceneGraph {
      * @param {string} messageError String to print in case of error
      */
     parseControlPoint(node, messageError){
-        let xx = this.parseFloat(node, 'xx', messageError); if(typeof xx === "string") return xx;
-        let yy = this.parseFloat(node, 'yy', messageError); if(typeof yy === "string") return yy;
-        let zz = this.parseFloat(node, 'zz', messageError); if(typeof zz === "string") return zz;
+        let x = this.parseFloat(node, 'x', messageError); if(typeof x === "string") return x;
+        let y = this.parseFloat(node, 'y', messageError); if(typeof y === "string") return y;
+        let z = this.parseFloat(node, 'z', messageError); if(typeof z === "string") return z;
         
-        return [xx, yy, zz];
+        return [x, y, z];
     }
 
     /**
