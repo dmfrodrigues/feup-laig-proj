@@ -1132,10 +1132,10 @@ class MySceneGraph {
      */
     parseSpriteText(node, messageError){
         let text = this.parseString(node, 'text', messageError);
-        let eval = null;
-        if(node.attributes.eval != null)
-            eval = this.parseString(node, 'eval', messageError);
-        return new MySpriteText(this.scene, text, eval);
+        let exp = null;
+        if(node.attributes.exp != null)
+            exp = this.parseString(node, 'eval', messageError);
+        return new MySpriteText(this.scene, text, exp);
     }
 
     /**
