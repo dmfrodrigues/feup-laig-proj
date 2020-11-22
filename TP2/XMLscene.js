@@ -146,7 +146,10 @@ class XMLscene extends CGFscene {
         }
         for (let anim in this.graph.spriteAnimations){
             this.graph.spriteAnimations[anim].update(t);
-        }        
+        }
+        for (let text in this.graph.spriteTexts){
+            this.graph.spriteTexts[text].update();
+        }
     }
 
     /** Handler called when the graph is finally loaded. 

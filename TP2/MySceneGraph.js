@@ -685,6 +685,7 @@ class MySceneGraph {
      */
     parseNodes(nodesNode) {
         this.spriteAnimations = [];
+        this.spriteTexts = [];
 
         var children = nodesNode.children;
 
@@ -805,6 +806,7 @@ class MySceneGraph {
                     }
                     if(typeof leaf === "string") return leaf;
                     if(descendant.attributes.type.value === "spriteanim") this.spriteAnimations.push(leaf);
+                    if(descendant.attributes.type.value === "spritetext") this.spriteTexts.push(leaf);
                     node.addChild(leaf);
                 } else return `no such descendant type "${descendant.nodeName}"`;
             }

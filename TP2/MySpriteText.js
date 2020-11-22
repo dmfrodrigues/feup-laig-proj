@@ -3,7 +3,7 @@
  * @constructor
  * @param scene   - Reference to MyScene object
  * @param text    - String to be displayed
- * @param exp    - Optional custom expression to evaluate
+ * @param exp     - Optional custom expression to evaluate
  */
 class MySpriteText{
     constructor(scene, text, exp){
@@ -22,10 +22,12 @@ class MySpriteText{
     getCharacterPosition(character){
         return character.charCodeAt();
     }
-    display(){
-        this.scene.setActiveShaderSimple(this.spriteSheet.shader);
+    update(){
         if(this.exp != null)
             this.text = this.func();
+    }
+    display(){
+        this.scene.setActiveShaderSimple(this.spriteSheet.shader);
         this.scene.pushMatrix();
         for (var i = 0; i < this.text.length; i++) {
             this.spriteSheet.activateCellP(this.getCharacterPosition(this.text[i]));
