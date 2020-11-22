@@ -763,7 +763,7 @@
                 <noderef id="tv-in-room"/>
                 <noderef id="skysphere"/>
                 <noderef id="lavalamp-in-room"/>
-                <noderef id="clock"/>
+                <noderef id="clock-in-room"/>
                 <noderef id="vase-in-room"/>
                 <noderef id="fireplace-in-room"/>
                 <noderef id="window"/>
@@ -1098,13 +1098,20 @@
             </descendants>
         </node>
 
-        <node id="clock">
+        <node id="clock-in-room">
             <material id="null"/><texture id="null"><amplification afs="1" aft="1"/></texture>
             <transformations>
                 <translation x="-0.8" y="1.035" z="-1.32"/>
                 <rotation axis="y" angle="20"/>
                 <scale sx="0.06" sy="0.06" sz="0.06"/>
             </transformations>
+            <descendants>
+                <noderef id="clock"/>
+            </descendants>
+        </node>
+
+        <node id="clock">
+            <material id="null"/><texture id="null"><amplification afs="1" aft="1"/></texture>
             <descendants>
                 <noderef id="clock_display"/>
                 <noderef id="clock_box"/>
@@ -1123,13 +1130,10 @@
 
         <node id="clock_display">
             <material id="null"/><texture id="null"><amplification afs="1" aft="1"/></texture>
-            <transformations>
-                <translation x="-2.0" y="0.0" z="0.0"/>
-            </transformations>
             <descendants>
                     <leaf type="spritetext" text="12:00" 
                         eval="let d = new Date(); 
-                        this.text = ('0' + d.getHours()).slice(-2) + ':' + ('0' + d.getMinutes()).slice(-2); "
+                        return ('0' + d.getHours()).slice(-2) + ':' + ('0' + d.getMinutes()).slice(-2); "
                     />
             </descendants>
         </node>
