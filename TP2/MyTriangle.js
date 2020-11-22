@@ -54,9 +54,9 @@ class MyTriangle extends CGFobject {
 		let sin_alpha = Math.sqrt(1-cos_alpha*cos_alpha);
 
 		this.texCoords = [
-			0, 0,
-			a/this.afs, 0,
-			c*cos_alpha/this.afs, c*sin_alpha/this.aft
+			0, 1,
+			a/this.afs, 1,
+			c*cos_alpha/this.afs, 1-c*sin_alpha/this.aft
 		]
 
 		this.primitiveType = this.scene.gl.TRIANGLES;
