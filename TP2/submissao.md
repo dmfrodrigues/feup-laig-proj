@@ -23,6 +23,9 @@ A nossa cena consiste em:
     <li>Uma paisagem no exterior, representando a Cidade de Nova Iorque de dia</li>
 </ul>
 
+<h4>Alterações v02</h4>
+O ficheiro ZIP seguiu com links simbólicos em vez das imagens. Os links simbólicos foram substituídos pelas imagens.
+
 <h4>Versão atual</h4>
 <table>
     <tbody>
@@ -47,4 +50,5 @@ A nossa cena consiste em:
 <h4>Anexos</h4>
 <ul>
     <li><strong>LAIG_TP2_XML_T2_G04_v01.zip</strong></li>
+    <li><strong>LAIG_TP2_XML_T2_G04_v02.zip</strong></li>
 </ul>
