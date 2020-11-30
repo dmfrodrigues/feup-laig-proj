@@ -89,7 +89,7 @@ class XMLscene extends CGFscene {
         }
     }
 
-    completeCameras(){
+    createCameraControls(){
         this.interface.gui.add(this.graph.views, 'current', Object.keys(this.graph.views.list)).name('View').onChange(this.updateViews.bind(this));
     
         this.updateViews();
@@ -125,7 +125,7 @@ class XMLscene extends CGFscene {
 
         this.initLights();
 
-        this.completeCameras();
+        this.createCameraControls();
 
         this.sceneInited = true;
     }
