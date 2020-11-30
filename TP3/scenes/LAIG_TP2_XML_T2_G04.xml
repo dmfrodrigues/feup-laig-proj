@@ -1,46 +1,23 @@
 <lsf>
     <initials>
-        <reference length="1.0"/>
+        <reference length="0.0"/>
         <root id="root"/>
+        <gameboard x="0" y="0" noderefid="gameboard">
+        </gameboard>
     </initials>
-    <views default="closer_camera">
+    <views default="player2_camera">
         <!-- at least one of the following type of cameras must be declared -->
-        <perspective id="perspective_camera" near="0.1" far="500" angle="45">
-            <from x="10.0" y="3.0" z="10.0"/>
-            <to   x= "0.0" y="1.0" z= "0.0"/>
-        </perspective>
-        <perspective id="closer_camera" near="0.1" far="500" angle="45">
+        <perspective id="default_camera" near="0.1" far="500" angle="45">
             <from x="1.6" y="1.4" z="1.6"/>
             <to   x="0.0" y="1.0" z="0.0"/>
         </perspective>
-        <ortho id="ortho_camera" near="0.2" far="500" left="-3" right="3" top="1.3" bottom="-1.3">
-            <from x="1.6" y="1.4" z="1.6"/>
-            <to x="0" y="1" z="0"/>
-            <up x="0" y="1" z="0"/><!-- optional, default 0,1,0 -->
-        </ortho>
-        <perspective id="view_rectangle" near="0.1" far="500" angle="45">
-            <from x="-1.5" y="1.0" z="-0.7"/>
-            <to   x="-0.5" y="0.5" z="0.5"/>
+        <perspective id="player1_camera" near="0.1" far="500" angle="60">
+            <from x="+0.5" y="1.0" z="0.0"/>
+            <to   x="+0.1" y="0.6" z="-0.2"/>
         </perspective>
-        <perspective id="view_triangle" near="0.1" far="500" angle="45">
-            <from x="-1.5" y="2.0" z="-1.0"/>
-            <to   x="-1" y="1.8" z="-1.2"/>
-        </perspective>
-        <perspective id="view_cylinder" near="0.1" far="500" angle="45">
-            <from x="0.9" y="0.7" z="-0.8"/>
-            <to   x="1.1" y="0.5" z="-1.2"/>
-        </perspective>
-        <perspective id="view_sphere" near="0.1" far="500" angle="45">
-            <from x="0.9" y="1.0" z="-0.8"/>
-            <to   x="1.1" y="0.8" z="-1.2"/>
-        </perspective>
-        <perspective id="view_torus" near="0.1" far="500" angle="45">
-            <from x="0.7" y="1.3" z="0.7"/>
-            <to   x="0" y="2" z="0"/>
-        </perspective>
-        <perspective id="table_view" near="0.1" far="500" angle="45">
-            <from x="0.3" y="1.0" z="-0.5"/>
-            <to   x="1.0" y="0.5" z="-1.5"/>
+        <perspective id="player2_camera" near="0.1" far="500" angle="60">
+            <from x="-0.5" y="1.0" z="0.0"/>
+            <to   x="-0.1" y="0.6" z="-0.2"/>
         </perspective>
     </views>
     <illumination>
@@ -68,6 +45,7 @@
     <textures>
         <!-- NOTE: this block "TEXTURE" must be repeated as necessary with different "id" -->
         <texture id="black_painted_metal" path="./scenes/images/black-painted-metal.jpg"/>
+        <texture id="grey_painted_metal"  path="./scenes/images/grey-painted-metal.jpg" />
         <texture id="plastic-rugged"      path="./scenes/images/plastic-edited.jpg"     />
         <texture id="tabletop"            path="./scenes/images/white-tabletop.jpg"     />
         <texture id="world_map"           path="./scenes/images/world-map.jpg"          />
@@ -81,10 +59,11 @@
         <texture id="ceil"                path="./scenes/images/ceil.jpg"               />
         <texture id="pine-wood"           path="./scenes/images/pine-wood.jpg"          />
         <texture id="bed-sheets"          path="./scenes/images/bed-sheets.jpg"         />
-        <texture id="dark_wood"           path="./scenes/images/door_wood.jpg"          />
+        <texture id="door_wood"           path="./scenes/images/door_wood.jpg"          />
         <texture id="handle_plate"        path="./scenes/images/handle_plate.jpg"       />
         <texture id="steel"               path="./scenes/images/steel.jpg"              />               
         <texture id="white_wood"          path="./scenes/images/white_wood.jpg"         />
+        <texture id="dark_wood"           path="./scenes/images/dark_wood.jpg"          />
         <texture id="crepe-paper"         path="./scenes/images/crepe-paper.jpg"        />
         <texture id="marble"              path="./scenes/images/marble.jpg"             />
         <texture id="brick"               path="./scenes/images/brick.jpg"              />
@@ -92,6 +71,7 @@
         <texture id="wood-log"            path="./scenes/images/log.jpg"                />
         <texture id="porcelain-painted"   path="./scenes/images/porcelain-painted.jpg"  />
         <texture id="dirty-glass"         path="./scenes/images/dirty-glass.jpg"        />
+        <texture id="gameboard"           path="./scenes/gameboard/gameboard.png"       />
         <texture id="skysphere-empirestate" path="./scenes/images/skysphere/empirestate-day/skysphere-empirestate-small.jpg"/>
     </textures>
 
@@ -178,6 +158,13 @@
             <ambient  r="1.0" g="1.0" b="1.0" a="1.0"/>
             <diffuse  r="1.0" g="1.0" b="1.0" a="1.0"/>
             <specular r="0.01" g="0.01" b="0.01" a="1.0"/>
+            <emissive r="0.0" g="0.0" b="0.0" a="1.0"/>
+        </material>
+        <material id="wood-brown">
+            <shininess value="10.0"/>
+            <ambient  r="0.39" g="0.24" b="0.15" a="1.0"/>
+            <diffuse  r="0.39" g="0.24" b="0.15" a="1.0"/>
+            <specular r="0.5" g="0.5" b="0.5" a="1.0"/>
             <emissive r="0.0" g="0.0" b="0.0" a="1.0"/>
         </material>
         <material id="bed-sheets">
@@ -765,8 +752,209 @@
                 <noderef id="lavalamp-in-room"/>
                 <noderef id="clock-in-room"/>
                 <noderef id="vase-in-room"/>
+                <noderef id="bench-1"/>
+                <noderef id="bench-2"/>
+                <noderef id="small-table-with-stuff-in-room"/>
                 <noderef id="fireplace-in-room"/>
                 <noderef id="window"/>
+            </descendants>
+        </node>
+
+        <node id="gameboard">
+            <material id="plastic-white"/>
+            <texture id="null">
+                <amplification afs="1" aft="1"/>
+            </texture>
+            <transformations>
+                <rotation axis="x" angle="-90"/>
+            </transformations>
+            <descendants>
+                <noderef id="gameboard-front"/>
+                <noderef id="gameboard-back"/>
+                <noderef id="gameboard-left"/>
+                <noderef id="gameboard-right"/>
+                <noderef id="gameboard-top"/>
+                <noderef id="gameboard-bottom"/>
+            </descendants>
+        </node>
+        <node id="gameboard-front">
+            <material id="null"/>
+            <texture id="gameboard">
+                <amplification afs="0.6" aft="0.45"/>
+            </texture>
+            <transformations>
+                <translation x="0" y="0" z="0.001"/>
+            </transformations>
+            <descendants>
+                <leaf type="rectangle" x1="-0.3" x2="+0.3" y1="-0.225" y2="+0.225"/>
+            </descendants>
+        </node>
+        <node id="gameboard-back">
+            <material id="null"/><texture id="clear"/><transformations><rotation axis="y" angle="180"/></transformations>
+            <descendants>
+                <leaf type="rectangle" x1="-0.3" x2="+0.3" y1="-0.225" y2="+0.225"/>
+            </descendants>
+        </node>
+        <node id="gameboard-left">
+            <material id="null"/><texture id="clear"/><transformations><translation x="-0.3" y="0" z="0"/><rotation axis="y" angle="-90"/></transformations>
+            <descendants>
+                <leaf type="rectangle" x1="0" x2="0.001" y1="-0.225" y2="+0.225"/>
+            </descendants>
+        </node>
+        <node id="gameboard-right">
+            <material id="null"/><texture id="clear"/><transformations><translation x="+0.3" y="0" z="0"/><rotation axis="y" angle="+90"/></transformations>
+            <descendants>
+                <leaf type="rectangle" x1="-0.001" x2="0" y1="-0.225" y2="+0.225"/>
+            </descendants>
+        </node>
+        <node id="gameboard-top">
+            <material id="null"/><texture id="clear"/><transformations><translation x="0" y="+0.225" z="0"/><rotation axis="x" angle="-90"/></transformations>
+            <descendants>
+                <leaf type="rectangle" x1="-0.3" x2="+0.3" y1="-0.001" y2="0"/>
+            </descendants>
+        </node>
+        <node id="gameboard-bottom">
+            <material id="null"/><texture id="clear"/><transformations><translation x="0" y="-0.225" z="0"/><rotation axis="x" angle="+90"/></transformations>
+            <descendants>
+                <leaf type="rectangle" x1="-0.3" x2="+0.3" y1="0" y2="+0.001"/>
+            </descendants>
+        </node>
+
+        <node id="bench">
+            <material id="wood-brown"/><texture id="null"><amplification afs="1" aft="1"/></texture>
+            <descendants>
+                <noderef id="bench-top"/>
+                <noderef id="bench-leg-1"/>
+                <noderef id="bench-leg-2"/>
+                <noderef id="bench-leg-3"/>
+                <noderef id="bench-leg-4"/>
+                <noderef id="bench-support-1"/>
+                <noderef id="bench-support-2"/>
+                <noderef id="bench-support-3"/>
+                <noderef id="bench-support-4"/>
+            </descendants>
+        </node>
+        <node id="bench-top">
+            <material id="null"/><texture id="dark_wood"><amplification afs="1" aft="1"/></texture>
+            <transformations>
+                <translation x="0" y="0.30" z="0"/>
+                <rotation axis="x" angle="-90"/>
+            </transformations>
+            <descendants>
+                <leaf type="cylinder" bottomRadius="0.15" topRadius="0.15" height="0.015" slices="64" stacks="2"/>
+            </descendants>
+        </node>
+        <node id="bench-leg-1"><material id="null"/><texture id="null"><amplification afs="1" aft="1"/></texture><transformations><translation x="+0.08" y="0" z="+0.08"/></transformations><descendants><noderef id="bench-leg"/></descendants></node>
+        <node id="bench-leg-2"><material id="null"/><texture id="null"><amplification afs="1" aft="1"/></texture><transformations><translation x="-0.08" y="0" z="+0.08"/></transformations><descendants><noderef id="bench-leg"/></descendants></node>
+        <node id="bench-leg-3"><material id="null"/><texture id="null"><amplification afs="1" aft="1"/></texture><transformations><translation x="-0.08" y="0" z="-0.08"/></transformations><descendants><noderef id="bench-leg"/></descendants></node>
+        <node id="bench-leg-4"><material id="null"/><texture id="null"><amplification afs="1" aft="1"/></texture><transformations><translation x="+0.08" y="0" z="-0.08"/></transformations><descendants><noderef id="bench-leg"/></descendants></node>
+        <node id="bench-leg">
+            <material id="null"/><texture id="dark_wood"><amplification afs="1" aft="1"/></texture>
+            <transformations>
+                <rotation axis="x" angle="-90"/>
+            </transformations>
+            <descendants>
+                <leaf type="defbarrel" base="0.02" middle="0.03" height="+0.3" slices="16" stacks="16" angle="5"/>
+            </descendants>
+        </node>
+        <node id="bench-support-1"><material id="null"/><texture id="dark_wood"><amplification afs="1" aft="1"/></texture><transformations><rotation axis="y" angle="000"/></transformations><descendants><noderef id="bench-support"/></descendants></node>
+        <node id="bench-support-2"><material id="null"/><texture id="dark_wood"><amplification afs="1" aft="1"/></texture><transformations><rotation axis="y" angle="090"/></transformations><descendants><noderef id="bench-support"/></descendants></node>
+        <node id="bench-support-3"><material id="null"/><texture id="dark_wood"><amplification afs="1" aft="1"/></texture><transformations><rotation axis="y" angle="180"/></transformations><descendants><noderef id="bench-support"/></descendants></node>
+        <node id="bench-support-4"><material id="null"/><texture id="dark_wood"><amplification afs="1" aft="1"/></texture><transformations><rotation axis="y" angle="270"/></transformations><descendants><noderef id="bench-support"/></descendants></node>
+        <node id="bench-support">
+            <material id="null"/><texture id="dark_wood"><amplification afs="1" aft="1"/></texture>
+            <transformations>
+                <translation x="+0.08" y="0.12" z="-0.08"/>
+            </transformations>
+            <descendants>
+                <leaf type="cylinder" bottomRadius="0.012" topRadius="0.012" height="0.16" slices="16" stacks="4"/>
+            </descendants>
+        </node>
+        <node id="bench-1">
+            <material id="null"/><texture id="null"><amplification afs="1" aft="1"/></texture>
+            <transformations>
+                <translation x="+0.4" y="0" z="-0.1"/>
+            </transformations>
+            <descendants>
+                <noderef id="bench"/>
+            </descendants>
+        </node>
+        <node id="bench-2">
+            <material id="null"/><texture id="null"><amplification afs="1" aft="1"/></texture>
+            <transformations>
+                <translation x="-0.4" y="0" z="-0.1"/>
+            </transformations>
+            <descendants>
+                <noderef id="bench"/>
+            </descendants>
+        </node>
+
+        <node id="small-table-with-stuff-in-room">
+            <material id="null"/><texture id="null"><amplification afs="1" aft="1"/></texture>
+            <transformations>
+                <translation x="0" y="0" z="-0.2"/>
+                <rotation axis="y" angle="90"/>
+            </transformations>
+            <descendants>
+                <noderef id="small-table-with-stuff"/>
+            </descendants>
+        </node>
+
+        <node id="small-table-with-stuff">
+            <material id="null"/><texture id="null"><amplification afs="1" aft="1"/></texture>
+            <descendants>
+                <noderef id="small-table"/>
+                <noderef id="gameboard-in-table"/>
+            </descendants>
+        </node>
+
+        <node id="small-table">
+            <material id="null"/><texture id="null"><amplification afs="1" aft="1"/></texture>
+            <descendants>
+                <noderef id="small-table-top"/>
+                <noderef id="small-table-support"/>
+                <noderef id="small-table-base"/>
+            </descendants>
+        </node>
+        <node id="small-table-top">
+            <material id="plastic-white"/>
+            <texture id="white_wood"><amplification afs="1" aft="1"/></texture>
+            <transformations>
+                <translation x="0" y="0.6" z="0"/>
+                <rotation axis="x" angle="-90"/>
+            </transformations>
+            <descendants>
+                <leaf type="cylinder" height="0.01" topRadius="0.40" bottomRadius="0.40" stacks="2" slices="64"/>
+            </descendants>
+        </node>
+        <node id="small-table-base">
+            <material id="metal"/>
+            <texture id="grey_painted_metal"><amplification afs="1" aft="1"/></texture>
+            <transformations>
+                <rotation axis="x" angle="-90"/>
+            </transformations>
+            <descendants>
+                <leaf type="cylinder" height="0.01" topRadius="0.25" bottomRadius="0.25" stacks="2" slices="64"/>
+            </descendants>
+        </node>
+        <node id="small-table-support">
+            <material id="metal"/>
+            <texture id="grey_painted_metal"><amplification afs="1" aft="1"/></texture>
+            <transformations>
+                <rotation axis="x" angle="-90"/>
+            </transformations>
+            <descendants>
+                <leaf type="cylinder" height="0.60" topRadius="0.03" bottomRadius="0.03" stacks="8" slices="16"/>
+            </descendants>
+        </node>
+
+        <node id="gameboard-in-table">
+            <material id="null"/><texture id="null"><amplification afs="1" aft="1"/></texture>
+            <transformations>
+                <translation x="0" y="0.61" z="0"/>
+            </transformations>
+            <descendants>
+                <noderef id="gameboard"/>
             </descendants>
         </node>
 
@@ -2482,7 +2670,7 @@
         </node>
         <node id="door">
             <material id="plastic-white"/>
-            <texture id="dark_wood"><amplification afs="1" aft="1"/></texture>
+            <texture id="door_wood"><amplification afs="1" aft="1"/></texture>
             <transformations><translation x="-1.5" y="0.0" z="0"/><rotation axis="y" angle="90" /></transformations>
             <descendants>
                 <noderef id="door_front"/>
@@ -2607,7 +2795,7 @@
 
         <node id="baseboard">
             <material id="wood"/>
-            <texture id="dark_wood"><amplification afs="1" aft="1"/></texture>
+            <texture id="door_wood"><amplification afs="1" aft="1"/></texture>
             <descendants>
                 <noderef id="baseboard_x_neg_left" />
                 <noderef id="baseboard_x_neg_right"/>
