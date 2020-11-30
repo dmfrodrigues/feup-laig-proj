@@ -2,22 +2,84 @@
     <initials>
         <reference length="0.0"/>
         <root id="root"/>
-        <gameboard x="0" y="0" noderefid="gameboard">
+        <gameboard>
+            <cell i="0" j="0" vertexrefid="cell-0-0"/>
+            <cell i="0" j="1" vertexrefid="cell-0-1"/>
+            <cell i="0" j="2" vertexrefid="cell-0-2"/>
+            <cell i="0" j="3" vertexrefid="cell-0-3"/>
+            <cell i="0" j="4" vertexrefid="cell-0-4"/>
+            <cell i="1" j="0" vertexrefid="cell-1-0"/>
+            <cell i="1" j="1" vertexrefid="cell-1-1"/>
+            <cell i="1" j="2" vertexrefid="cell-1-2"/>
+            <cell i="1" j="3" vertexrefid="cell-1-3"/>
+            <cell i="1" j="4" vertexrefid="cell-1-4"/>
+            <cell i="1" j="5" vertexrefid="cell-1-5"/>
+            <cell i="2" j="0" vertexrefid="cell-2-0"/>
+            <cell i="2" j="1" vertexrefid="cell-2-1"/>
+            <cell i="2" j="2" vertexrefid="cell-2-2"/>
+            <cell i="2" j="3" vertexrefid="cell-2-3"/>
+            <cell i="2" j="4" vertexrefid="cell-2-4"/>
+            <cell i="2" j="5" vertexrefid="cell-2-5"/>
+            <cell i="2" j="6" vertexrefid="cell-2-6"/>
+            <cell i="3" j="0" vertexrefid="cell-3-0"/>
+            <cell i="3" j="1" vertexrefid="cell-3-1"/>
+            <cell i="3" j="2" vertexrefid="cell-3-2"/>
+            <cell i="3" j="3" vertexrefid="cell-3-3"/>
+            <cell i="3" j="4" vertexrefid="cell-3-4"/>
+            <cell i="3" j="5" vertexrefid="cell-3-5"/>
+            <cell i="3" j="6" vertexrefid="cell-3-6"/>
+            <cell i="3" j="7" vertexrefid="cell-3-7"/>
+            <cell i="4" j="0" vertexrefid="cell-4-0"/>
+            <cell i="4" j="1" vertexrefid="cell-4-1"/>
+            <cell i="4" j="2" vertexrefid="cell-4-2"/>
+            <cell i="4" j="3" vertexrefid="cell-4-3"/>
+            <cell i="4" j="4" vertexrefid="cell-4-4"/>
+            <cell i="4" j="5" vertexrefid="cell-4-5"/>
+            <cell i="4" j="6" vertexrefid="cell-4-6"/>
+            <cell i="4" j="7" vertexrefid="cell-4-7"/>
+            <cell i="4" j="8" vertexrefid="cell-4-8"/>
+            <cell i="5" j="1" vertexrefid="cell-5-1"/>
+            <cell i="5" j="2" vertexrefid="cell-5-2"/>
+            <cell i="5" j="3" vertexrefid="cell-5-3"/>
+            <cell i="5" j="4" vertexrefid="cell-5-4"/>
+            <cell i="5" j="5" vertexrefid="cell-5-5"/>
+            <cell i="5" j="6" vertexrefid="cell-5-6"/>
+            <cell i="5" j="7" vertexrefid="cell-5-7"/>
+            <cell i="5" j="8" vertexrefid="cell-5-8"/>
+            <cell i="6" j="2" vertexrefid="cell-6-2"/>
+            <cell i="6" j="3" vertexrefid="cell-6-3"/>
+            <cell i="6" j="4" vertexrefid="cell-6-4"/>
+            <cell i="6" j="5" vertexrefid="cell-6-5"/>
+            <cell i="6" j="6" vertexrefid="cell-6-6"/>
+            <cell i="6" j="7" vertexrefid="cell-6-7"/>
+            <cell i="6" j="8" vertexrefid="cell-6-8"/>
+            <cell i="7" j="3" vertexrefid="cell-7-3"/>
+            <cell i="7" j="4" vertexrefid="cell-7-4"/>
+            <cell i="7" j="5" vertexrefid="cell-7-5"/>
+            <cell i="7" j="6" vertexrefid="cell-7-6"/>
+            <cell i="7" j="7" vertexrefid="cell-7-7"/>
+            <cell i="7" j="8" vertexrefid="cell-7-8"/>
+            <cell i="8" j="4" vertexrefid="cell-8-4"/>
+            <cell i="8" j="5" vertexrefid="cell-8-5"/>
+            <cell i="8" j="6" vertexrefid="cell-8-6"/>
+            <cell i="8" j="7" vertexrefid="cell-8-7"/>
+            <cell i="8" j="8" vertexrefid="cell-8-8"/>
         </gameboard>
+        <piece noderefid="piece"/>
     </initials>
-    <views default="player1_camera">
+    <views default="default_camera">
         <!-- at least one of the following type of cameras must be declared -->
         <perspective id="default_camera" near="0.1" far="500" angle="45">
             <from x="1.6" y="1.4" z="1.6"/>
             <to   x="0.0" y="1.0" z="0.0"/>
         </perspective>
-        <perspective id="player1_camera" near="0.1" far="500" angle="60">
-            <from x="+0.5" y="1.0" z="0.0"/>
-            <to   x="+0.1" y="0.6" z="-0.2"/>
+        <perspective id="player1_camera" near="0.1" far="500" angle="50">
+            <from x="+0.5" y="0.85" z="-0.1"/>
+            <to   x="+0.05" y="0.5" z="-0.17"/>
         </perspective>
-        <perspective id="player2_camera" near="0.1" far="500" angle="60">
-            <from x="-0.5" y="1.0" z="0.0"/>
-            <to   x="-0.1" y="0.6" z="-0.2"/>
+        <perspective id="player2_camera" near="0.1" far="500" angle="50">
+            <from x="-0.5" y="0.85" z="-0.1"/>
+            <to   x="-0.05" y="0.5" z="-0.17"/>
         </perspective>
     </views>
     <illumination>
@@ -90,6 +152,21 @@
             <specular r="0.9" g="0.9" b="0.9" a="1.0"/>
             <emissive r="0.0" g="0.0" b="0.0" a="1.0"/>
         </material>
+        <material id="plastic-red">
+            <shininess value="15.0"/>
+            <ambient  r="1.0" g="0.5" b="0.5" a="1.0"/>
+            <diffuse  r="1.0" g="0.5" b="0.5" a="1.0"/>
+            <specular r="0.3" g="0.3" b="0.3" a="1.0"/>
+            <emissive r="0.0" g="0.0" b="0.0" a="1.0"/>
+        </material>
+        <material id="plastic-yellow">
+            <shininess value="15.0"/>
+            <ambient  r="1.0" g="1.0" b="0.3" a="1.0"/>
+            <diffuse  r="1.0" g="1.0" b="0.3" a="1.0"/>
+            <specular r="0.3" g="0.3" b="0.3" a="1.0"/>
+            <emissive r="0.0" g="0.0" b="0.0" a="1.0"/>
+        </material>
+        
         <material id="plastic-pink">
             <shininess value="1.0"/>
             <ambient  r="0.15" g="0.11" b="0.23" a="1.0"/>
@@ -97,7 +174,7 @@
             <specular r="0.05" g="0.04" b="0.08" a="1.0"/>
             <emissive r="0.0" g="0.0" b="0.0" a="1.0"/>
         </material>
-        <material id="plastic-yellow">
+        <material id="plastic-old">
             <shininess value="1.0"/>
             <ambient  r="0.86" g="0.86" b="0.73" a="1.0"/>
             <diffuse  r="0.86" g="0.86" b="0.73" a="1.0"/>
@@ -780,113 +857,137 @@
         <node id="gameboard-front">
             <material id="null"/>
             <texture id="gameboard">
-                <amplification afs="0.6" aft="0.45"/>
+                <amplification afs="0.4" aft="0.3"/>
             </texture>
             <transformations>
                 <translation x="0" y="0" z="0.001"/>
             </transformations>
             <descendants>
-                <leaf type="rectangle" x1="-0.3" x2="+0.3" y1="-0.225" y2="+0.225"/>
+                <leaf type="rectangle" x1="-0.2" x2="+0.2" y1="-0.150" y2="+0.150"/>
+                <noderef id="piece"/>
 
-                <leaf type="vertex" id="cell-0-0" x="-0.104" y="+0.180" z="0"/>
-                <leaf type="vertex" id="cell-0-1" x="-0.052" y="+0.180" z="0"/>
-                <leaf type="vertex" id="cell-0-2" x="+0.000" y="+0.180" z="0"/>
-                <leaf type="vertex" id="cell-0-3" x="+0.052" y="+0.180" z="0"/>
-                <leaf type="vertex" id="cell-0-4" x="+0.104" y="+0.180" z="0"/>
+                <leaf type="vertex" id="cell-0-0" x="-0.0693" y="+0.12" z="0"/>
+                <leaf type="vertex" id="cell-0-1" x="-0.0347" y="+0.12" z="0"/>
+                <leaf type="vertex" id="cell-0-2" x="+0.0000" y="+0.12" z="0"/>
+                <leaf type="vertex" id="cell-0-3" x="+0.0347" y="+0.12" z="0"/>
+                <leaf type="vertex" id="cell-0-4" x="+0.0693" y="+0.12" z="0"/>
 
-                <leaf type="vertex" id="cell-1-0" x="-0.130" y="+0.135" z="0"/>
-                <leaf type="vertex" id="cell-1-1" x="-0.078" y="+0.135" z="0"/>
-                <leaf type="vertex" id="cell-1-2" x="-0.026" y="+0.135" z="0"/>
-                <leaf type="vertex" id="cell-1-3" x="+0.026" y="+0.135" z="0"/>
-                <leaf type="vertex" id="cell-1-4" x="+0.078" y="+0.135" z="0"/>
-                <leaf type="vertex" id="cell-1-5" x="+0.130" y="+0.135" z="0"/>
+                <leaf type="vertex" id="cell-1-0" x="-0.0867" y="+0.09" z="0"/>
+                <leaf type="vertex" id="cell-1-1" x="-0.0520" y="+0.09" z="0"/>
+                <leaf type="vertex" id="cell-1-2" x="-0.0173" y="+0.09" z="0"/>
+                <leaf type="vertex" id="cell-1-3" x="+0.0173" y="+0.09" z="0"/>
+                <leaf type="vertex" id="cell-1-4" x="+0.0520" y="+0.09" z="0"/>
+                <leaf type="vertex" id="cell-1-5" x="+0.0867" y="+0.09" z="0"/>
 
-                <leaf type="vertex" id="cell-2-0" x="-0.156" y="+0.090" z="0"/>
-                <leaf type="vertex" id="cell-2-1" x="-0.104" y="+0.090" z="0"/>
-                <leaf type="vertex" id="cell-2-2" x="-0.052" y="+0.090" z="0"/>
-                <leaf type="vertex" id="cell-2-3" x="+0.000" y="+0.090" z="0"/>
-                <leaf type="vertex" id="cell-2-4" x="+0.052" y="+0.090" z="0"/>
-                <leaf type="vertex" id="cell-2-5" x="+0.104" y="+0.090" z="0"/>
-                <leaf type="vertex" id="cell-2-6" x="+0.156" y="+0.090" z="0"/>
+                <leaf type="vertex" id="cell-2-0" x="-0.1040" y="+0.06" z="0"/>
+                <leaf type="vertex" id="cell-2-1" x="-0.0693" y="+0.06" z="0"/>
+                <leaf type="vertex" id="cell-2-2" x="-0.0347" y="+0.06" z="0"/>
+                <leaf type="vertex" id="cell-2-3" x="+0.0000" y="+0.06" z="0"/>
+                <leaf type="vertex" id="cell-2-4" x="+0.0347" y="+0.06" z="0"/>
+                <leaf type="vertex" id="cell-2-5" x="+0.0693" y="+0.06" z="0"/>
+                <leaf type="vertex" id="cell-2-6" x="+0.1040" y="+0.06" z="0"/>
 
-                <leaf type="vertex" id="cell-3-0" x="-0.182" y="+0.045" z="0"/>
-                <leaf type="vertex" id="cell-3-1" x="-0.130" y="+0.045" z="0"/>
-                <leaf type="vertex" id="cell-3-2" x="-0.078" y="+0.045" z="0"/>
-                <leaf type="vertex" id="cell-3-3" x="-0.026" y="+0.045" z="0"/>
-                <leaf type="vertex" id="cell-3-4" x="+0.026" y="+0.045" z="0"/>
-                <leaf type="vertex" id="cell-3-5" x="+0.078" y="+0.045" z="0"/>
-                <leaf type="vertex" id="cell-3-6" x="+0.130" y="+0.045" z="0"/>
-                <leaf type="vertex" id="cell-3-7" x="+0.182" y="+0.045" z="0"/>
+                <leaf type="vertex" id="cell-3-0" x="-0.1213" y="+0.03" z="0"/>
+                <leaf type="vertex" id="cell-3-1" x="-0.0867" y="+0.03" z="0"/>
+                <leaf type="vertex" id="cell-3-2" x="-0.0520" y="+0.03" z="0"/>
+                <leaf type="vertex" id="cell-3-3" x="-0.0173" y="+0.03" z="0"/>
+                <leaf type="vertex" id="cell-3-4" x="+0.0173" y="+0.03" z="0"/>
+                <leaf type="vertex" id="cell-3-5" x="+0.0520" y="+0.03" z="0"/>
+                <leaf type="vertex" id="cell-3-6" x="+0.0867" y="+0.03" z="0"/>
+                <leaf type="vertex" id="cell-3-7" x="+0.1213" y="+0.03" z="0"/>
 
-                <leaf type="vertex" id="cell-4-0" x="-0.208" y="+0.000" z="0"/>
-                <leaf type="vertex" id="cell-4-1" x="-0.156" y="+0.000" z="0"/>
-                <leaf type="vertex" id="cell-4-2" x="-0.104" y="+0.000" z="0"/>
-                <leaf type="vertex" id="cell-4-3" x="-0.052" y="+0.000" z="0"/>
-                <leaf type="vertex" id="cell-4-4" x="+0.000" y="+0.000" z="0"/>
-                <leaf type="vertex" id="cell-4-5" x="+0.052" y="+0.000" z="0"/>
-                <leaf type="vertex" id="cell-4-6" x="+0.104" y="+0.000" z="0"/>
-                <leaf type="vertex" id="cell-4-7" x="+0.156" y="+0.000" z="0"/>
-                <leaf type="vertex" id="cell-4-8" x="+0.208" y="+0.000" z="0"/>
+                <leaf type="vertex" id="cell-4-0" x="-0.208" y="+0.00" z="0"/>
+                <leaf type="vertex" id="cell-4-1" x="-0.1040" y="+0.00" z="0"/>
+                <leaf type="vertex" id="cell-4-2" x="-0.0693" y="+0.00" z="0"/>
+                <leaf type="vertex" id="cell-4-3" x="-0.0347" y="+0.00" z="0"/>
+                <leaf type="vertex" id="cell-4-4" x="+0.0000" y="+0.00" z="0"/>
+                <leaf type="vertex" id="cell-4-5" x="+0.0347" y="+0.00" z="0"/>
+                <leaf type="vertex" id="cell-4-6" x="+0.0693" y="+0.00" z="0"/>
+                <leaf type="vertex" id="cell-4-7" x="+0.1040" y="+0.00" z="0"/>
+                <leaf type="vertex" id="cell-4-8" x="+0.208" y="+0.00" z="0"/>
 
-                <leaf type="vertex" id="cell-5-1" x="-0.182" y="-0.045" z="0"/>
-                <leaf type="vertex" id="cell-5-2" x="-0.130" y="-0.045" z="0"/>
-                <leaf type="vertex" id="cell-5-3" x="-0.078" y="-0.045" z="0"/>
-                <leaf type="vertex" id="cell-5-4" x="-0.026" y="-0.045" z="0"/>
-                <leaf type="vertex" id="cell-5-5" x="+0.026" y="-0.045" z="0"/>
-                <leaf type="vertex" id="cell-5-6" x="+0.078" y="-0.045" z="0"/>
-                <leaf type="vertex" id="cell-5-7" x="+0.130" y="-0.045" z="0"/>
-                <leaf type="vertex" id="cell-5-8" x="+0.182" y="-0.045" z="0"/>
+                <leaf type="vertex" id="cell-5-1" x="-0.1213" y="-0.03" z="0"/>
+                <leaf type="vertex" id="cell-5-2" x="-0.0867" y="-0.03" z="0"/>
+                <leaf type="vertex" id="cell-5-3" x="-0.0520" y="-0.03" z="0"/>
+                <leaf type="vertex" id="cell-5-4" x="-0.0173" y="-0.03" z="0"/>
+                <leaf type="vertex" id="cell-5-5" x="+0.0173" y="-0.03" z="0"/>
+                <leaf type="vertex" id="cell-5-6" x="+0.0520" y="-0.03" z="0"/>
+                <leaf type="vertex" id="cell-5-7" x="+0.0867" y="-0.03" z="0"/>
+                <leaf type="vertex" id="cell-5-8" x="+0.1213" y="-0.03" z="0"/>
 
-                <leaf type="vertex" id="cell-6-2" x="-0.156" y="-0.090" z="0"/>
-                <leaf type="vertex" id="cell-6-3" x="-0.104" y="-0.090" z="0"/>
-                <leaf type="vertex" id="cell-6-4" x="-0.052" y="-0.090" z="0"/>
-                <leaf type="vertex" id="cell-6-5" x="+0.000" y="-0.090" z="0"/>
-                <leaf type="vertex" id="cell-6-6" x="+0.052" y="-0.090" z="0"/>
-                <leaf type="vertex" id="cell-6-7" x="+0.104" y="-0.090" z="0"/>
-                <leaf type="vertex" id="cell-6-8" x="+0.156" y="-0.090" z="0"/>
+                <leaf type="vertex" id="cell-6-2" x="-0.1040" y="-0.06" z="0"/>
+                <leaf type="vertex" id="cell-6-3" x="-0.0693" y="-0.06" z="0"/>
+                <leaf type="vertex" id="cell-6-4" x="-0.0347" y="-0.06" z="0"/>
+                <leaf type="vertex" id="cell-6-5" x="+0.0000" y="-0.06" z="0"/>
+                <leaf type="vertex" id="cell-6-6" x="+0.0347" y="-0.06" z="0"/>
+                <leaf type="vertex" id="cell-6-7" x="+0.0693" y="-0.06" z="0"/>
+                <leaf type="vertex" id="cell-6-8" x="+0.1040" y="-0.06" z="0"/>
 
-                <leaf type="vertex" id="cell-7-3" x="-0.130" y="-0.135" z="0"/>
-                <leaf type="vertex" id="cell-7-4" x="-0.078" y="-0.135" z="0"/>
-                <leaf type="vertex" id="cell-7-5" x="-0.026" y="-0.135" z="0"/>
-                <leaf type="vertex" id="cell-7-6" x="+0.026" y="-0.135" z="0"/>
-                <leaf type="vertex" id="cell-7-7" x="+0.078" y="-0.135" z="0"/>
-                <leaf type="vertex" id="cell-7-8" x="+0.130" y="-0.135" z="0"/>
+                <leaf type="vertex" id="cell-7-3" x="-0.0867" y="-0.09" z="0"/>
+                <leaf type="vertex" id="cell-7-4" x="-0.0520" y="-0.09" z="0"/>
+                <leaf type="vertex" id="cell-7-5" x="-0.0173" y="-0.09" z="0"/>
+                <leaf type="vertex" id="cell-7-6" x="+0.0173" y="-0.09" z="0"/>
+                <leaf type="vertex" id="cell-7-7" x="+0.0520" y="-0.09" z="0"/>
+                <leaf type="vertex" id="cell-7-8" x="+0.0867" y="-0.09" z="0"/>
 
-                <leaf type="vertex" id="cell-8-4" x="-0.104" y="-0.180" z="0"/>
-                <leaf type="vertex" id="cell-8-5" x="-0.052" y="-0.180" z="0"/>
-                <leaf type="vertex" id="cell-8-6" x="+0.000" y="-0.180" z="0"/>
-                <leaf type="vertex" id="cell-8-7" x="+0.052" y="-0.180" z="0"/>
-                <leaf type="vertex" id="cell-8-8" x="+0.104" y="-0.180" z="0"/>
+                <leaf type="vertex" id="cell-8-4" x="-0.0693" y="-0.12" z="0"/>
+                <leaf type="vertex" id="cell-8-5" x="-0.0347" y="-0.12" z="0"/>
+                <leaf type="vertex" id="cell-8-6" x="+0.0000" y="-0.12" z="0"/>
+                <leaf type="vertex" id="cell-8-7" x="+0.0347" y="-0.12" z="0"/>
+                <leaf type="vertex" id="cell-8-8" x="+0.0693" y="-0.12" z="0"/>
             </descendants>
         </node>
         <node id="gameboard-back">
             <material id="null"/><texture id="clear"/><transformations><rotation axis="y" angle="180"/></transformations>
             <descendants>
-                <leaf type="rectangle" x1="-0.3" x2="+0.3" y1="-0.225" y2="+0.225"/>
+                <leaf type="rectangle" x1="-0.2" x2="+0.2" y1="-0.15" y2="+0.15"/>
             </descendants>
         </node>
         <node id="gameboard-left">
-            <material id="null"/><texture id="clear"/><transformations><translation x="-0.3" y="0" z="0"/><rotation axis="y" angle="-90"/></transformations>
+            <material id="null"/><texture id="clear"/><transformations><translation x="-0.2" y="0" z="0"/><rotation axis="y" angle="-90"/></transformations>
             <descendants>
-                <leaf type="rectangle" x1="0" x2="0.001" y1="-0.225" y2="+0.225"/>
+                <leaf type="rectangle" x1="0" x2="0.001" y1="-0.15" y2="+0.15"/>
             </descendants>
         </node>
         <node id="gameboard-right">
-            <material id="null"/><texture id="clear"/><transformations><translation x="+0.3" y="0" z="0"/><rotation axis="y" angle="+90"/></transformations>
+            <material id="null"/><texture id="clear"/><transformations><translation x="+0.2" y="0" z="0"/><rotation axis="y" angle="+90"/></transformations>
             <descendants>
-                <leaf type="rectangle" x1="-0.001" x2="0" y1="-0.225" y2="+0.225"/>
+                <leaf type="rectangle" x1="-0.001" x2="0" y1="-0.15" y2="+0.15"/>
             </descendants>
         </node>
         <node id="gameboard-top">
-            <material id="null"/><texture id="clear"/><transformations><translation x="0" y="+0.225" z="0"/><rotation axis="x" angle="-90"/></transformations>
+            <material id="null"/><texture id="clear"/><transformations><translation x="0" y="+0.15" z="0"/><rotation axis="x" angle="-90"/></transformations>
             <descendants>
-                <leaf type="rectangle" x1="-0.3" x2="+0.3" y1="-0.001" y2="0"/>
+                <leaf type="rectangle" x1="-0.2" x2="+0.2" y1="-0.001" y2="0"/>
             </descendants>
         </node>
         <node id="gameboard-bottom">
-            <material id="null"/><texture id="clear"/><transformations><translation x="0" y="-0.225" z="0"/><rotation axis="x" angle="+90"/></transformations>
+            <material id="null"/><texture id="clear"/><transformations><translation x="0" y="-0.15" z="0"/><rotation axis="x" angle="+90"/></transformations>
             <descendants>
-                <leaf type="rectangle" x1="-0.3" x2="+0.3" y1="0" y2="+0.001"/>
+                <leaf type="rectangle" x1="-0.2" x2="+0.2" y1="0" y2="+0.001"/>
+            </descendants>
+        </node>
+
+        <node id="piece">
+            <material id="plastic-white"/><texture id="clear"/>
+            <descendants>
+                <noderef id="piece-top"/>
+                <noderef id="piece-bottom"/>
+            </descendants>
+        </node>
+        <node id="piece-top">
+            <material id="plastic-red"/><texture id="null"><amplification afs="1" aft="1"/></texture>
+            <transformations>
+                <translation x="0" y="0" z="0.001"/>
+            </transformations>
+            <descendants>
+                <leaf type="cylinder" bottomRadius="0.011" topRadius="0.0105" height="0.001" slices="32" stacks="2"/>
+            </descendants>
+        </node>
+        <node id="piece-bottom">
+            <material id="plastic-yellow"/><texture id="null"><amplification afs="1" aft="1"/></texture>
+            <descendants>
+                <leaf type="cylinder" bottomRadius="0.0105" topRadius="0.011" height="0.001" slices="32" stacks="2"/>
             </descendants>
         </node>
 
@@ -924,7 +1025,7 @@
                 <rotation axis="x" angle="-90"/>
             </transformations>
             <descendants>
-                <leaf type="defbarrel" base="0.02" middle="0.03" height="+0.3" slices="16" stacks="16" angle="5"/>
+                <leaf type="defbarrel" base="0.013" middle="0.022" height="+0.30" slices="16" stacks="16" angle="5"/>
             </descendants>
         </node>
         <node id="bench-support-1"><material id="null"/><texture id="dark_wood"><amplification afs="1" aft="1"/></texture><transformations><rotation axis="y" angle="000"/></transformations><descendants><noderef id="bench-support"/></descendants></node>
@@ -937,13 +1038,13 @@
                 <translation x="+0.08" y="0.12" z="-0.08"/>
             </transformations>
             <descendants>
-                <leaf type="cylinder" bottomRadius="0.012" topRadius="0.012" height="0.16" slices="16" stacks="4"/>
+                <leaf type="cylinder" bottomRadius="0.010" topRadius="0.010" height="0.16" slices="16" stacks="4"/>
             </descendants>
         </node>
         <node id="bench-1">
             <material id="null"/><texture id="null"><amplification afs="1" aft="1"/></texture>
             <transformations>
-                <translation x="+0.4" y="0" z="-0.1"/>
+                <translation x="+0.3" y="0" z="-0.1"/>
             </transformations>
             <descendants>
                 <noderef id="bench"/>
@@ -952,7 +1053,7 @@
         <node id="bench-2">
             <material id="null"/><texture id="null"><amplification afs="1" aft="1"/></texture>
             <transformations>
-                <translation x="-0.4" y="0" z="-0.1"/>
+                <translation x="-0.3" y="0" z="-0.1"/>
             </transformations>
             <descendants>
                 <noderef id="bench"/>
@@ -990,11 +1091,11 @@
             <material id="plastic-white"/>
             <texture id="white_wood"><amplification afs="1" aft="1"/></texture>
             <transformations>
-                <translation x="0" y="0.6" z="0"/>
+                <translation x="0" y="0.50" z="0"/>
                 <rotation axis="x" angle="-90"/>
             </transformations>
             <descendants>
-                <leaf type="cylinder" height="0.01" topRadius="0.40" bottomRadius="0.40" stacks="2" slices="128"/>
+                <leaf type="cylinder" height="0.01" topRadius="0.27" bottomRadius="0.27" stacks="2" slices="128"/>
             </descendants>
         </node>
         <node id="small-table-base">
@@ -1004,7 +1105,7 @@
                 <rotation axis="x" angle="-90"/>
             </transformations>
             <descendants>
-                <leaf type="cylinder" height="0.01" topRadius="0.25" bottomRadius="0.25" stacks="2" slices="64"/>
+                <leaf type="cylinder" height="0.01" topRadius="0.17" bottomRadius="0.17" stacks="2" slices="64"/>
             </descendants>
         </node>
         <node id="small-table-support">
@@ -1014,14 +1115,14 @@
                 <rotation axis="x" angle="-90"/>
             </transformations>
             <descendants>
-                <leaf type="cylinder" height="0.60" topRadius="0.03" bottomRadius="0.03" stacks="8" slices="16"/>
+                <leaf type="cylinder" height="0.50" topRadius="0.02" bottomRadius="0.02" stacks="8" slices="16"/>
             </descendants>
         </node>
 
         <node id="gameboard-in-table">
             <material id="null"/><texture id="null"><amplification afs="1" aft="1"/></texture>
             <transformations>
-                <translation x="0" y="0.61" z="0"/>
+                <translation x="0" y="0.51" z="0"/>
             </transformations>
             <descendants>
                 <noderef id="gameboard"/>
@@ -1759,7 +1860,7 @@
             </descendants>
         </node>
         <node id="globe_axis">
-            <material id="plastic-yellow"/>
+            <material id="plastic-old"/>
             <texture id="plastic-rugged">
                 <amplification afs="1" aft="1"/>
             </texture>
@@ -1838,7 +1939,7 @@
         </node>
 
         <node id="globe_plastic">
-            <material id="plastic-yellow"/>
+            <material id="plastic-old"/>
             <texture id="plastic-rugged"><amplification afs="1" aft="1"/></texture>
             <descendants>
                 <noderef id="globe_wheel"/>
