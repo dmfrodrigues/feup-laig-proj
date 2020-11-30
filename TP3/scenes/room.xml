@@ -3643,7 +3643,7 @@
                 <noderef id="tv-screen-off"/>
             </descendants>
         </node>
-        <node id="tv-screen-program-1" dropbox="tv-screen">
+        <node id="tv-screen-program-1">
             <material id="television-screen"/><texture id="null"><amplification afs="1" aft="1"/></texture>
             <transformations>
                 <translation x="0" y="0" z="0.0001"/>
@@ -3655,7 +3655,7 @@
                 <noderef id="tv-screen-news"/>
             </descendants>
         </node>
-        <node id="tv-screen-program-2" dropbox="tv-screen">
+        <node id="tv-screen-program-2">
             <material id="television-screen"/><texture id="null"><amplification afs="1" aft="1"/></texture>
             <transformations>
                 <translation x="0" y="0" z="0.00005"/>
@@ -3667,7 +3667,7 @@
                 <noderef id="tv-screen-football"/>
             </descendants>
         </node>
-        <node id="tv-screen-off" dropbox="tv-screen">
+        <node id="tv-screen-off">
             <material id="television-screen"/><texture id="null"><amplification afs="1" aft="1"/></texture>
             <transformations>
                 <rotation axis="x" angle="90"/>

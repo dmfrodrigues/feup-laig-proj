@@ -100,37 +100,6 @@ class XMLscene extends CGFscene {
         this.interface.setActiveCamera(this.camera);
     }
 
-    dropboxes(){
-        let nodes = this.graph.nodes;
-        function disableAll(options){
-            for(let option of options){
-                nodes[option].disable();
-            }
-        }
-        
-        let drops = {};
-        for(let nodeId in this.graph.nodes){
-            let node = this.graph.nodes[nodeId];
-            if(node.dropbox !== null){
-                if(typeof drops[node.dropbox] === 'undefined') drops[node.dropbox] = [];
-                drops[node.dropbox].push(nodeId);
-            }
-        }
-
-        let selected = {};
-
-        for(let dropbox in drops){
-            disableAll(drops[dropbox]);
-
-            selected[dropbox] = drops[dropbox][0];
-            nodes[selected[dropbox]].enable();
-
-            this.interface.gui.add(selected, dropbox, drops[dropbox]).name(dropbox).onChange(
-                function(){disableAll(drops[dropbox]); nodes[selected[dropbox]].enable(); }
-            );
-        }
-    }
-
     /**
      * Update scene stuff that is time-dependent (e.g. animations)
      * 
@@ -157,8 +126,6 @@ class XMLscene extends CGFscene {
         this.initLights();
 
         this.completeCameras();
-
-        this.dropboxes();
 
         this.sceneInited = true;
     }
