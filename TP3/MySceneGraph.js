@@ -801,6 +801,7 @@ class MySceneGraph {
                         case "defbarrel" : leaf = this.parseBarrel         (descendant,           descendant.id); break;
                         case "spritetext": leaf = this.parseSpriteText     (descendant,           descendant.id); break;
                         case "spriteanim": leaf = this.parseSpriteAnimation(descendant,           descendant.id); break;
+                        case "vertex"    : leaf = this.parseVertex         (descendant,           descendant.id); break;
                         default:
                             return `no such leaf type "${descendant.attributes.type}"`;
                     }
@@ -1151,6 +1152,19 @@ class MySceneGraph {
         let startCell   = this.parseInt   (node, 'startCell', messageError); if(typeof startCell === "string") return startCell;
         let endCell     = this.parseInt   (node, 'endCell'  , messageError); if(typeof endCell   === "string") return endCell ;
         return new MySpriteAnimation(this.scene, spritesheet, startCell, endCell, duration);
+    }
+
+    /**
+     * Parses a vertex
+     * @param {XMLnode} node XML node
+     * @param {string} messageError String to print in case of error
+     */
+    parseVertex(node, messageError){
+        let id = this.parseString(node, 'id', messageError);
+        let x = this.parseFloat(node, 'x', messageError); if(typeof x === "string") return x;
+        let y = this.parseFloat(node, 'y', messageError); if(typeof y === "string") return y;
+        let z = this.parseFloat(node, 'z', messageError); if(typeof z === "string") return z;
+        return new Vertex(this.scene, id, x, y, z);
     }
 
     /**

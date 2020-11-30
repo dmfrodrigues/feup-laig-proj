@@ -32,6 +32,7 @@ serialInclude(
         'Plane.js',
         'Patch.js',
         'Barrel.js',
+        'Vertex.js',
 
 main=function()
 {

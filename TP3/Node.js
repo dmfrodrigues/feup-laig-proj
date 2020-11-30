@@ -61,8 +61,7 @@ class Node extends CGFobject {
                 this.animation.apply();
 
             if(this.animation == null || this.animation.isVisible()){
-                for(let i = 0; i < this.children.length; ++i){
-                    let child = this.children[i];
+                for(let child of this.children){
                     child.display();
                 }
             }
