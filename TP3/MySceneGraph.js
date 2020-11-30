@@ -1167,10 +1167,22 @@ class MySceneGraph {
         return new Vertex(this.scene, id, x, y, z);
     }
 
+    update(t){
+        for (var key in this.animations){
+            this.animations[key].update(t);
+        }
+        for (let anim in this.spriteAnimations){
+            this.spriteAnimations[anim].update(t);
+        }
+        for (let text in this.spriteTexts){
+            this.spriteTexts[text].update();
+        }
+    }
+
     /**
      * Displays the scene, processing each node, starting in the root node.
      */
-    displayScene() {
+    display() {
         
         //TODO: Create display loop for transversing the scene graph, calling the root node's display function
         // if(typeof this.displayScene.numFrames === 'undefined'){

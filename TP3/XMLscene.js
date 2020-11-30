@@ -141,15 +141,7 @@ class XMLscene extends CGFscene {
             this.update.t0 = time;
         }
         let t = (time-this.update.t0)/SECONDS_TO_MILLIS;
-        for (var key in this.graph.animations){
-            this.graph.animations[key].update(t);
-        }
-        for (let anim in this.graph.spriteAnimations){
-            this.graph.spriteAnimations[anim].update(t);
-        }
-        for (let text in this.graph.spriteTexts){
-            this.graph.spriteTexts[text].update();
-        }
+        this.graph.update(t);
     }
 
     /** Handler called when the graph is finally loaded. 
