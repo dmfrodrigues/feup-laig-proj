@@ -9,15 +9,15 @@ class GameBoard extends CGFobject {
 
         this._obj = null;
         
-        /*
         this._cells = new Array(9);
+        console.log(this._cells);
         for(let i = 0; i <= 8; ++i){
+            this._cells[i] = [];
             for(let j = 0; j <= 8; ++j){
                 if(i-4 <= j && j <= 4+i) this._cells[i].push(new BoardCell(this.scene, this, i, j));
                 else                     this._cells[i].push(null);
             }
         }
-        */
     }
 
     setGameboard(obj){
@@ -35,12 +35,10 @@ class GameBoard extends CGFobject {
 
     display(){
         this._obj.display();
-        /*
         for(let i = 0; i <= 8; ++i){
-            for(let j = max(i-4, 0); j <= min(4+i,8); ++j){
+            for(let j = Math.max(i-4, 0); j <= Math.min(4+i,8); ++j){
                 this.getCell(i,j).display();
             }
         }
-        */
     }
 }
