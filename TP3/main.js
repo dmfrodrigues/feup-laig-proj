@@ -33,6 +33,7 @@ serialInclude(
         'Patch.js',
         'Barrel.js',
         'Vertex.js',
+        'GameBoard.js',
         'Orchestrator.js',
 
 main=function()

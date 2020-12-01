@@ -129,6 +129,8 @@ class XMLscene extends CGFscene {
 
         this.createCameraControls();
 
+        this.orchestrator.initialize();
+
         this.sceneInited = true;
     }
 

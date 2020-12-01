@@ -237,6 +237,7 @@ class MySceneGraph {
 
         var rootIndex = nodeNames.indexOf("root");
         var referenceIndex = nodeNames.indexOf("reference");
+        var gameboardIndex = nodeNames.indexOf("gameboard");
 
         // Get root of the scene.
         if(rootIndex == -1)
@@ -260,6 +261,17 @@ class MySceneGraph {
             axis_length = 1;
         }
         this.referenceLength = axis_length;
+
+        // Get gameboard
+        if(gameboardIndex == -1)
+            return "No gameboard defined for scene.";
+
+        var gameboardNode = children[gameboardIndex];
+        var idGameboard = this.reader.getString(gameboardNode, 'id');
+        if(idGameboard == null)
+            return "No gameboard ID defined for scene.";
+        
+        this.idGameboard = idGameboard;
 
         this.log("Parsed initials");
 
@@ -829,6 +841,9 @@ class MySceneGraph {
 
         if(this.nodes[this.idRoot] == null)
             return `No such root node "${this.idRoot}"`;
+
+        if(this.nodes[this.idGameboard] == null)
+            return `No such gameboard node "${this.idGameboard}"`;
         
         this.log("Parsed nodes");
     }
@@ -1165,6 +1180,10 @@ class MySceneGraph {
         let y = this.parseFloat(node, 'y', messageError); if(typeof y === "string") return y;
         let z = this.parseFloat(node, 'z', messageError); if(typeof z === "string") return z;
         return new Vertex(this.scene, id, x, y, z);
+    }
+
+    getGameboard(){
+        return this.nodes[this.idGameboard];
     }
 
     update(t){

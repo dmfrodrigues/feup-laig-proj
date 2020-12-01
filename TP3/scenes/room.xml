@@ -2,7 +2,7 @@
     <initials>
         <reference length="0.0"/>
         <root id="root"/>
-        <gameboard>
+        <gameboard id="gameboard-in-room">
             <cell i="0" j="0" vertexrefid="cell-0-0"/>
             <cell i="0" j="1" vertexrefid="cell-0-1"/>
             <cell i="0" j="2" vertexrefid="cell-0-2"/>
@@ -65,7 +65,7 @@
             <cell i="8" j="7" vertexrefid="cell-8-7"/>
             <cell i="8" j="8" vertexrefid="cell-8-8"/>
         </gameboard>
-        <piece noderefid="piece"/>
+        <piece id="piece"/>
     </initials>
     <views default="default_camera">
         <!-- at least one of the following type of cameras must be declared -->
@@ -1372,7 +1372,6 @@
             <material id="null"/><texture id="null"><amplification afs="1" aft="1"/></texture>
             <descendants>
                 <noderef id="small-table"/>
-                <noderef id="gameboard-in-table"/>
                 <noderef id="wood-box-in-table"/>
             </descendants>
         </node>
@@ -1417,9 +1416,11 @@
             </descendants>
         </node>
 
-        <node id="gameboard-in-table">
+        <node id="gameboard-in-room">
             <material id="null"/><texture id="null"><amplification afs="1" aft="1"/></texture>
             <transformations>
+                <translation x="0" y="0" z="-0.2"/>
+                <rotation axis="y" angle="90"/>
                 <translation x="0.05" y="0.51" z="0"/>
             </transformations>
             <descendants>

@@ -11,9 +11,13 @@ class Orchestrator extends CGFobject {
         
         // this.gameSequence = new GameSequence();
         // this.animator     = new Animator(this.scene, this, this.gameSequence);
-        // this.gameBoard    = new GameBoard(this.scene);
         this.theme        = new MySceneGraph(theme, this.scene);
+        this.gameBoard    = new GameBoard(this.scene);
         // this.prolog       = new PrologInterface();
+    }
+
+    initialize(){
+        this.gameBoard.setGameboard(this.theme.getGameboard());
     }
 
     update(t){
@@ -24,7 +28,7 @@ class Orchestrator extends CGFobject {
     display(){
         // ...
         this.theme.display();
-        // this.gameBoard.display();
+        this.gameBoard.display();
         // this.animator.display();
         // ...
     }
