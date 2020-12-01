@@ -10,7 +10,6 @@ class GameBoard extends CGFobject {
         this._obj = null;
         
         this._cells = new Array(9);
-        console.log(this._cells);
         for(let i = 0; i <= 8; ++i){
             this._cells[i] = [];
             for(let j = 0; j <= 8; ++j){
