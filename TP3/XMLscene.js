@@ -110,7 +110,7 @@ class XMLscene extends CGFscene {
             this.update.t0 = time;
         }
         let t = (time-this.update.t0)/SECONDS_TO_MILLIS;
-        this.graph.update(t);
+        this.orchestrator.update(t);
     }
 
     /** Handler called when the graph is finally loaded. 
@@ -182,8 +182,8 @@ class XMLscene extends CGFscene {
  
             this.defaultAppearance.apply();
 
-            // Displays the scene (MySceneGraph function).
-            this.graph.display();
+            // Displays everything
+            this.orchestrator.display();
         }
         else
         {

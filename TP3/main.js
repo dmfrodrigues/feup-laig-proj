@@ -33,6 +33,7 @@ serialInclude(
         'Patch.js',
         'Barrel.js',
         'Vertex.js',
+        'Orchestrator.js',
 
 main=function()
 {
@@ -48,14 +49,9 @@ main=function()
 
     myInterface.setActiveCamera(myScene.camera);
 
-	// get file name provided in URL, e.g. http://localhost/myproj/?file=myfile.xml 
-	// or use "demo.xml" as default (assumes files in subfolder "scenes", check MySceneGraph constructor) 
-	
-    var filename=getUrlVars()['file'] || "demo.xml";
-
 	// create and load graph, and associate it to scene. 
-	// Check console for loading errors
-	var myGraph = new MySceneGraph(filename, myScene);
+    // Check console for loading errors
+    var orchestrator = new Orchestrator(myScene, 'room.xml');
 	
 	// start
     app.run();

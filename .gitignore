@@ -1,3 +1,4 @@
 ssh-*
 *.zip
 *.7z
+*.code-workspace
