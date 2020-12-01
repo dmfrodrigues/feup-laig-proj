@@ -4,9 +4,9 @@
         <root id="root"/>
         <gameboard id="gameboard">
             <transformations>
-                <!-- <translation x="0" y="0" z="-0.2"/> -->
-                <!-- <rotation axis="y" angle="90"/> -->
-                <!-- <translation x="0.05" y="0.51" z="0"/> -->
+                <translation x="0" y="0" z="-0.2"/>
+                <rotation axis="y" angle="90"/>
+                <translation x="0.05" y="0.51" z="0"/>
             </transformations>
             <cell i="0" j="0" x="-0.0693" y="0.001" z="-0.12"/>
             <cell i="0" j="1" x="-0.0347" y="0.001" z="-0.12"/>
@@ -70,13 +70,14 @@
             <cell i="8" j="7" x="+0.0347" y="0.001" z="+0.12"/>
             <cell i="8" j="8" x="+0.0693" y="0.001" z="+0.12"/>
         </gameboard>
-        <piece id="piece"/>
+        <piece id="piece" height="0.002"/>
+        <pieceview classname="RoomPieceStackView"/>
     </initials>
-    <views default="default_camera">
+    <views default="player1_camera">
         <!-- at least one of the following type of cameras must be declared -->
         <perspective id="default_camera" near="0.1" far="500" angle="45">
-            <from x="0.2" y="0.4" z="0.6"/>
-            <to   x="0.0" y="0.0" z="0.0"/>
+            <from x="1.6" y="1.4" z="1.6"/>
+            <to   x="0.0" y="1.0" z="0.0"/>
         </perspective>
         <perspective id="player1_camera" near="0.1" far="500" angle="50">
             <from x="+0.5" y="0.85" z="-0.1"/>
@@ -829,7 +830,6 @@
                 <amplification afs="1" aft="1"/>
             </texture>
             <descendants>
-                <!--
                 <noderef id="table_with_stuff_in_room"/>
                 <noderef id="chair_in_room"/>
                 <noderef id="door"/>
@@ -848,7 +848,6 @@
                 <noderef id="small-table-with-stuff-in-room"/>
                 <noderef id="fireplace-in-room"/>
                 <noderef id="window"/>
-                -->
             </descendants>
         </node>
 
@@ -914,6 +913,9 @@
 
         <node id="piece">
             <material id="plastic-white"/><texture id="clear"/>
+            <transformations>
+                <rotation axis="x" angle="-90"/>
+            </transformations>
             <descendants>
                 <noderef id="piece-top"/>
                 <noderef id="piece-bottom"/>
@@ -948,19 +950,9 @@
                 <noderef id="wood-box-piece-3"/>
             </descendants>
         </node>
-        <node id="wood-box-piece-1"><material id="null"/><texture id="clear"/><transformations><translation x="-0.050" y="0.010" z="-0.025"/>                                </transformations><descendants><noderef id="piece-rotated"/></descendants></node>
-        <node id="wood-box-piece-2"><material id="null"/><texture id="clear"/><transformations><translation x="-0.045" y="0.014" z="-0.027"/><rotation axis="x" angle="180"/></transformations><descendants><noderef id="piece-rotated"/></descendants></node>
-        <node id="wood-box-piece-3"><material id="null"/><texture id="clear"/><transformations><translation x="-0.040" y="0.013" z="-0.015"/><rotation axis="x" angle="020"/></transformations><descendants><noderef id="piece-rotated"/></descendants></node>
-        <node id="piece-rotated">
-            <material id="null"/>
-            <texture id="null"><amplification afs="1" aft="1"/></texture>
-            <transformations>
-                <rotation axis="x" angle="-90"/>
-            </transformations>
-            <descendants>
-                <noderef id="piece"/>
-            </descendants>
-        </node>
+        <node id="wood-box-piece-1"><material id="null"/><texture id="clear"/><transformations><translation x="-0.050" y="0.010" z="-0.025"/>                                </transformations><descendants><noderef id="piece"/></descendants></node>
+        <node id="wood-box-piece-2"><material id="null"/><texture id="clear"/><transformations><translation x="-0.045" y="0.014" z="-0.027"/><rotation axis="x" angle="180"/></transformations><descendants><noderef id="piece"/></descendants></node>
+        <node id="wood-box-piece-3"><material id="null"/><texture id="clear"/><transformations><translation x="-0.040" y="0.013" z="-0.015"/><rotation axis="x" angle="020"/></transformations><descendants><noderef id="piece"/></descendants></node>
         <node id="wood-box">
             <material id="wood"/><texture id="door_wood"><amplification afs="1" aft="1"/></texture>
             <descendants>

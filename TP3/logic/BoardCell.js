@@ -16,8 +16,15 @@ class BoardCell extends CGFobject {
     /**
      * @param {PieceStack} stack
      */
-    set stack(stack){ this._stack = stack; }
+    set stack(stack){
+        this._stack = stack;
+        if(stack != null)
+            stack.cell = this;
+    }
     get stack(){ return this._stack; }
+
+    get i(){ return this._i; }
+    get j(){ return this._j; }
 
     display(){
         if(this._stack != null)

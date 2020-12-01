@@ -18,6 +18,8 @@ class Orchestrator extends CGFobject {
 
     initialize(){
         this.gameBoard.gameboardSetup = this.theme.gameboard;
+        PieceStack.pieceStackView = this.theme.pieces.view;
+        PieceStack.pieceStackView.initialize();
     }
 
     update(t){

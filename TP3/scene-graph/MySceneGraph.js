@@ -238,6 +238,8 @@ class MySceneGraph {
         var rootIndex = nodeNames.indexOf("root");
         var referenceIndex = nodeNames.indexOf("reference");
         var gameboardIndex = nodeNames.indexOf("gameboard");
+        var piecesIndex = nodeNames.indexOf("piece");
+        var piecesViewIndex = nodeNames.indexOf("pieceview");
 
         // Get root of the scene.
         if(rootIndex == -1)
@@ -263,24 +265,62 @@ class MySceneGraph {
         this.referenceLength = axis_length;
 
         // Get gameboard
-        this._gameboard = new GameboardSetup();
-
         if(gameboardIndex == -1)
             return "No gameboard defined for scene.";
-
         let gameboardNode = children[gameboardIndex];
+        let ret = this.parseGameboard(gameboardNode);
+        if(typeof ret === 'string') return ret;
+        
+        // Get pieces
+        if(piecesIndex == -1)
+            return "No pieces defined for scene.";
+        let piecesNode = children[piecesIndex];
+        let pieces = new PiecesSetup();
+        pieces.idObj = this.parseString(piecesNode, "id", "pieces");
+        let height = this.parseFloat(piecesNode, "height", "pieces"); if(typeof height === 'string') return height;
+        pieces.height = height;
 
-        let idGameboard = this.reader.getString(gameboardNode, 'id');
+        let piecesViewNode = children[piecesViewIndex];
+        let piecesView = this.parseString(piecesViewNode, "classname", "piecesView");
+        pieces.view = eval("new " + piecesView + "(this.scene)");
+        pieces.view.setGameboardSetup(this.gameboard);
+        pieces.view.setPieceSetup(pieces);
+
+        this._pieces = pieces;
+
+        this.log("Parsed initials");
+
+        return null;
+    }
+
+    /**
+     * Parses the <gameboard> block.
+     * @param {gameboard block element} node 
+     */
+    parseGameboard(node){
+        let gameboard = new GameboardSetup();
+
+        let idGameboard = this.reader.getString(node, 'id');
         if(idGameboard == null)
             return "No gameboard ID defined for scene.";
-        this._gameboard.idObj = idGameboard;
+        gameboard.idObj = idGameboard;
 
-        let gameboardChildren = [...gameboardNode.children];
-        let transformations = gameboardChildren.find(function (node){ return (node.nodeName === 'transformations'); });
+        let gameboardChildren = [...node.children];
+        let transformations = gameboardChildren.find(function (u){ return (u.nodeName === 'transformations'); });
         let M = this.parseTransformations(transformations, "gameboard"); if(typeof M === "string") return M;
-        this._gameboard.transformation = M;
-        
-        this.log("Parsed initials");
+        gameboard.transformation = M;
+
+        for(let u of gameboardChildren){
+            if(u.nodeName !== 'cell') continue;
+            let i = this.parseInt  (u, 'i', 'gameboard'); if(typeof i === 'string') return i;
+            let j = this.parseInt  (u, 'j', 'gameboard'); if(typeof j === 'string') return j;
+            let x = this.parseFloat(u, 'x', 'gameboard'); if(typeof x === 'string') return x;
+            let y = this.parseFloat(u, 'y', 'gameboard'); if(typeof y === 'string') return y;
+            let z = this.parseFloat(u, 'z', 'gameboard'); if(typeof z === 'string') return z;
+            gameboard.setCellPosition(i, j, vec3.fromValues(x, y, z));
+        }
+
+        this._gameboard = gameboard;
 
         return null;
     }
@@ -850,9 +890,14 @@ class MySceneGraph {
             return `No such root node "${this.idRoot}"`;
 
         if(this.nodes[this._gameboard.idObj] == null)
-            return `No such gameboard node "${this.idGameboard}"`;
+            return `No such gameboard node "${this._gameboard.idObj}"`;
         else
             this._gameboard.obj = this.nodes[this._gameboard.idObj];
+
+        if(this.nodes[this._pieces.idObj] == null)
+            return `No such piece node "${this._pieces.idObj}"`;
+        else
+            this._pieces.obj = this.nodes[this._pieces.idObj];
         
         this.log("Parsed nodes");
     }
@@ -1193,6 +1238,10 @@ class MySceneGraph {
 
     get gameboard(){
         return this._gameboard;
+    }
+
+    get pieces(){
+        return this._pieces;
     }
 
     update(t){

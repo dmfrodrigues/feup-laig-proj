@@ -31,12 +31,15 @@ serialInclude(
         'scene-graph/keyframes/MySpriteText.js',
         'scene-graph/keyframes/MySpriteAnimation.js',
         'scene-graph/GameboardSetup.js',
+        'scene-graph/PiecesSetup.js',
         'scene-graph/Node.js',
         'scene-graph/MySceneGraph.js',
         'logic/BoardCell.js',
         'logic/GameBoard.js',
         'logic/Orchestrator.js',
         'logic/PieceStack.js',
+        'logic/PieceStackView.js',
+        'logic/RoomPieceStackView.js',
 
 main=function()
 {
