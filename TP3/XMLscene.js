@@ -34,6 +34,8 @@ class XMLscene extends CGFscene {
 
         this.axis = new CGFaxis(this);
         this.setUpdatePeriod(20);
+        this.setPickEnabled(true);
+        this.selectEnabled = false;
 
         this.loadingProgressObject=new MyRectangle(this, -1, -.1, 1, .1);
         this.loadingProgress=0;
@@ -155,10 +157,16 @@ class XMLscene extends CGFscene {
         this.appearance.apply();
     }
 
+    selectEnable   (){ this.selectEnabled = true ; }
+    selectDisable  (){ this.selectEnabled = false; }
+    isSelectEnabled(){ return this.selectEnabled ; }
+
     /**
      * Displays the scene.
      */
     display() {
+        this.orchestrator.managePick(this.pickMode, this.pickResults);
+        this.clearPickRegistration();
         // ---- BEGIN Background, camera and axis setup
 
         // Clear image and depth buffer everytime we update the scene

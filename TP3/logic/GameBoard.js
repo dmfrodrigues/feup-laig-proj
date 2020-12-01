@@ -34,6 +34,14 @@ class GameBoard extends CGFobject {
         return this._cells[i][j];
     }
 
+    deselectAll(){
+        for(let i = 0; i <= 8; ++i){
+            for(let j = Math.max(i-4, 0); j <= Math.min(4+i,8); ++j){
+                this.getCell(i,j).deselectAll();
+            }
+        }
+    }
+
     /**
      * TODO
      */

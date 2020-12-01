@@ -11,6 +11,7 @@ class BoardCell extends CGFobject {
         this._stack = null;
         this._i = i;
         this._j = j;
+        this._selected = false;
     }
     
     /**
@@ -26,7 +27,22 @@ class BoardCell extends CGFobject {
     get i(){ return this._i; }
     get j(){ return this._j; }
 
+    select(){ this._selected = true; }
+    deselect(){ this._selected = false; }
+    deselectAll(){
+        this.deselect();
+        if(this._stack != null)
+            this._stack.deselect();
+    }
+
     display(){
+        if(this._selected){
+            this.scene.selectEnable();
+            // a display ...
+            this.scene.selectDisable();
+        } else {
+            // a display ...
+        }
         if(this._stack != null)
             this._stack.display();
     }

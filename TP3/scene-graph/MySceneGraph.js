@@ -803,6 +803,13 @@ class MySceneGraph {
             let mat = (material.id == "null" ? "same" : this.materials[material.id]);
             if(mat == null) return `no such material "${material.id}"`;
             node.setMaterial(mat);
+
+            let selectedid = material.attributes.selectedid;
+            if(selectedid != undefined){
+                selectedid = selectedid.value;
+                let selectedmat = (selectedid == "null" ? "same" : this.materials[selectedid]);
+                node.setSelectedMaterial(selectedmat);
+            }
             // Texture
             let texture = grandChildren[textureIndex];
             if(texture  == null) return `<texture> block is mandatory (node "${nodeID}")`;

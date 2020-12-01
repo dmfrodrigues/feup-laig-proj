@@ -11,6 +11,7 @@ class Node extends CGFobject {
         this.id    = id;
         this.transformation = mat4.create();
         this.material       = null;
+        this.selectedMaterial = null;
         this.texture        = null;
         this.animation      = null;
         this.children       = [];
@@ -30,6 +31,10 @@ class Node extends CGFobject {
 
     setMaterial(material){
         this.material = material;
+    }
+
+    setSelectedMaterial(material){
+        this.selectedMaterial = material;
     }
 
     setTexture(texture){
@@ -53,7 +58,10 @@ class Node extends CGFobject {
         this.scene.pushMatrix();
         this.scene.pushAppearance();
         {
-            this.scene.setAppearance(this.material, this.texture);
+            if(this.scene.isSelectEnabled() && this.selectedMaterial != null)
+                this.scene.setAppearance(this.selectedMaterial, this.texture);
+            else
+                this.scene.setAppearance(this.material        , this.texture);
             
             this.scene.multMatrix(this.transformation);
 
