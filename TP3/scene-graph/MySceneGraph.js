@@ -263,16 +263,23 @@ class MySceneGraph {
         this.referenceLength = axis_length;
 
         // Get gameboard
+        this._gameboard = new GameboardSetup();
+
         if(gameboardIndex == -1)
             return "No gameboard defined for scene.";
 
-        var gameboardNode = children[gameboardIndex];
-        var idGameboard = this.reader.getString(gameboardNode, 'id');
+        let gameboardNode = children[gameboardIndex];
+
+        let idGameboard = this.reader.getString(gameboardNode, 'id');
         if(idGameboard == null)
             return "No gameboard ID defined for scene.";
-        
-        this.idGameboard = idGameboard;
+        this._gameboard.idObj = idGameboard;
 
+        let gameboardChildren = [...gameboardNode.children];
+        let transformations = gameboardChildren.find(function (node){ return (node.nodeName === 'transformations'); });
+        let M = this.parseTransformations(transformations, "gameboard"); if(typeof M === "string") return M;
+        this._gameboard.transformation = M;
+        
         this.log("Parsed initials");
 
         return null;
@@ -842,8 +849,10 @@ class MySceneGraph {
         if(this.nodes[this.idRoot] == null)
             return `No such root node "${this.idRoot}"`;
 
-        if(this.nodes[this.idGameboard] == null)
+        if(this.nodes[this._gameboard.idObj] == null)
             return `No such gameboard node "${this.idGameboard}"`;
+        else
+            this._gameboard.obj = this.nodes[this._gameboard.idObj];
         
         this.log("Parsed nodes");
     }
@@ -1182,8 +1191,8 @@ class MySceneGraph {
         return new Vertex(this.scene, id, x, y, z);
     }
 
-    getGameboard(){
-        return this.nodes[this.idGameboard];
+    get gameboard(){
+        return this._gameboard;
     }
 
     update(t){

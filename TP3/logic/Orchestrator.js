@@ -17,7 +17,7 @@ class Orchestrator extends CGFobject {
     }
 
     initialize(){
-        this.gameBoard.setGameboard(this.theme.getGameboard());
+        this.gameBoard.gameboardSetup = this.theme.gameboard;
     }
 
     update(t){
