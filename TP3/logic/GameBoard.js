@@ -107,7 +107,7 @@ class GameBoard extends CGFobject {
         this.gameboardSetup.obj.display();
         for(let i = 0; i <= 8; ++i){
             for(let j = Math.max(i-4, 0); j <= Math.min(4+i,8); ++j){
-                this.getCell(i, j).display();
+                this.getCell(i,j).display();
             }
         }
 
