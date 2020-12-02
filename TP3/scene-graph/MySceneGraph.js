@@ -310,7 +310,10 @@ class MySceneGraph {
         let M = this.parseTransformations(transformations, "gameboard"); if(typeof M === "string") return M;
         gameboard.transformation = M;
 
-        for(let u of gameboardChildren){
+        let cells = gameboardChildren.find(function (u){ return (u.nodeName === 'cells'); });
+        gameboard.idObjCell = this.parseString(cells, 'id');
+        let cellsChildren = cells.children;
+        for(let u of cellsChildren){
             if(u.nodeName !== 'cell') continue;
             let i = this.parseInt  (u, 'i', 'gameboard'); if(typeof i === 'string') return i;
             let j = this.parseInt  (u, 'j', 'gameboard'); if(typeof j === 'string') return j;
@@ -900,6 +903,11 @@ class MySceneGraph {
             return `No such gameboard node "${this._gameboard.idObj}"`;
         else
             this._gameboard.obj = this.nodes[this._gameboard.idObj];
+
+        if(this.nodes[this._gameboard.idObjCell] == null)
+            return `No such cell node "${this._gameboard.idObjCell}"`;
+        else
+            this._gameboard.objCell = this.nodes[this._gameboard.idObjCell];
 
         if(this.nodes[this._pieces.idObj] == null)
             return `No such piece node "${this._pieces.idObj}"`;
