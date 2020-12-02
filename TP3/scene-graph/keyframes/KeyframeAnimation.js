@@ -30,54 +30,59 @@ class KeyframeAnimation extends Animation {
         this.M = mat4.create();
         this.tmin = +1000000000;
         this.tmax = -1000000000;
+        this.xmin = this.tmin/this.tmax;
         
         this.idx   = 1;
         this.keyframe1 = {};
         this.keyframe2 = {};
-        this.t1    = 0;
-        this.t2_t1 = 1;
+        this.x1    = 0;
+        this.x2_x1 = 1;
     }
     addKeyframe(t, keyframe){
         this.keyframes[t] = keyframe;
         this.tmin = Math.min(t, this.tmin);
         this.tmax = Math.max(t, this.tmax);
         // Recalculate keyframeTimes
-        this.keyframeTimes = Object.keys(this.keyframes).map(Number).sort(function (a,b){ return a-b; });
+        let keyframeTimes = Object.keys(this.keyframes).map(Number).sort(function (a,b){ return a-b; });
         // Recalculate keyframeVals
         this.keyframeVals = [];
-        for(let i = 0; i < this.keyframeTimes.length; ++i){
-            this.keyframeVals.push(this.keyframes[this.keyframeTimes[i]]);
+        for(let i = 0; i < keyframeTimes.length; ++i){
+            this.keyframeVals.push(this.keyframes[keyframeTimes[i]]);
         }
-        if(this.keyframeTimes.length >= 2){
-            this.t1    = this.keyframeTimes[this.idx-1];
-            this.t2_t1 = this.keyframeTimes[this.idx] - this.t1;
+        // Recalculate keyframeX
+        this.keyframeX = keyframeTimes.map((t) => t/this.tmax);
+        // Recalculate some numbers
+        if(keyframeTimes.length >= 2){
+            this.x1    = this.keyframeX[this.idx-1];
+            this.x2_x1 = this.keyframeX[this.idx] - this.x1;
             this.keyframe1 = this.keyframeVals[this.idx-1];
             this.keyframe2 = this.keyframeVals[this.idx  ];
         }
     }
     update(t){
         if(this.loop && t > 0) t %= this.tmax;
-        if(this.tmax <= t){
+        let x = t/this.tmax;
+        if(1 <= x){
             this.visible = true;
             this.M = this.keyframes[this.tmax].getMatrix();
-        } else if(t <= this.tmin) {
-            if(t < this.tmin) this.visible = false;
+        } else if(x <= this.xmin) {
+            if(x < this.xmin) this.visible = false;
             this.M = this.keyframes[this.tmin].getMatrix();
         } else {
             this.visible = true;
-            while(!(this.keyframeTimes[this.idx-1] <= t && t < this.keyframeTimes[this.idx])){
+            while(!(this.keyframeX[this.idx-1] <= x && x < this.keyframeX[this.idx])){
                 this.idx = this.idx+1;
-                if(this.idx >= this.keyframeTimes.length) this.idx = 1;
+                if(this.idx >= this.keyframeX.length) this.idx = 1;
 
-                this.t1    = this.keyframeTimes[this.idx-1];
-                this.t2_t1 = this.keyframeTimes[this.idx] - this.t1;
+                this.x1    = this.keyframeX[this.idx-1];
+                this.x2_x1 = this.keyframeX[this.idx] - this.x1;
                 this.keyframe1 = this.keyframeVals[this.idx-1];
                 this.keyframe2 = this.keyframeVals[this.idx  ];
             }
             this.M = Keyframe.interpolate(
                 this.keyframe1,
                 this.keyframe2,
-                (t-this.t1)/(this.t2_t1)
+                (x-this.x1)/(this.x2_x1)
             ).getMatrix();
         }
     }
