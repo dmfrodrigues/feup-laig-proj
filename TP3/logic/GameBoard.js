@@ -27,17 +27,17 @@ class GameBoard extends CGFobject {
         this.getCell(8,7).stack = new PieceStack(this.scene, -6);
     }
 
-    set gameboardSetup(setup) { this._gameboardSetup = setup; }
-    get gameboardSetup() { return this._gameboardSetup; }
+    set gameboardSetup(setup){ this._gameboardSetup = setup; }
+    get gameboardSetup(){ return this._gameboardSetup; }
 
-    getCell(i, j) {
+    getCell(i, j){
         return this._cells[i][j];
     }
 
-    deselectAll() {
-        for (let i = 0; i <= 8; ++i) {
-            for (let j = Math.max(i - 4, 0); j <= Math.min(4 + i, 8); ++j) {
-                this.getCell(i, j).deselectAll();
+    deselectAll(){
+        for(let i = 0; i <= 8; ++i){
+            for(let j = Math.max(i-4, 0); j <= Math.min(4+i,8); ++j){
+                this.getCell(i,j).deselectAll();
             }
         }
     }
@@ -105,8 +105,8 @@ class GameBoard extends CGFobject {
         this.scene.multMatrix(this.gameboardSetup.transformation);
 
         this.gameboardSetup.obj.display();
-        for (let i = 0; i <= 8; ++i) {
-            for (let j = Math.max(i - 4, 0); j <= Math.min(4 + i, 8); ++j) {
+        for(let i = 0; i <= 8; ++i){
+            for(let j = Math.max(i-4, 0); j <= Math.min(4+i,8); ++j){
                 this.getCell(i, j).display();
             }
         }
