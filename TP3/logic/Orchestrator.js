@@ -9,7 +9,7 @@ class Orchestrator extends CGFobject {
 
         this.scene.orchestrator = this;
         
-        // this.gameSequence = new GameSequence();
+        this.gameSequence = new GameSequence();
         // this.animator     = new Animator(this.scene, this, this.gameSequence);
         this.theme        = new MySceneGraph(theme, this.scene);
         this.gameBoard    = new GameBoard(this.scene);
