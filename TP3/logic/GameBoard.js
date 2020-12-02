@@ -46,7 +46,8 @@ class GameBoard extends CGFobject {
         let gameMove = new GameMove(this.scene, originCell, substacks, direction, newPieceCell, this);
         this.scene.orchestrator.gameSequence.addGameMove(gameMove);
 
-        direction;
+        if (newPieceCell.stack != null) return false;
+        
         for (let k = 0; k < substacks.length; k++) {
             let substack_i;
             let substack_j;
@@ -78,7 +79,17 @@ class GameBoard extends CGFobject {
                 default:
                     break;
             }
-            this.getCell(substack_i, substack_j).stack = new PieceStack(this.scene, substacks[k]);
+
+            if(substack_i > 8 || substack_i < 0 || substack_j > 8 || substack_j < 0)
+                return false;
+
+            let stack = this.getCell(substack_i, substack_j).stack;
+            
+            if(stack == null)
+                this.getCell(substack_i, substack_j).stack = new PieceStack(this.scene, substacks[k]);
+            else{
+                this.getCell(substack_i, substack_j).stack = new PieceStack(this.scene, substacks[k] + Math.abs(stack.height));
+            }
         }
 
         originCell.stack = null;
@@ -86,6 +97,7 @@ class GameBoard extends CGFobject {
         newPieceCell.stack = new PieceStack(this.scene, +1);
 
         // gameMove.animate();
+        return true;
     }
 
     display() {
