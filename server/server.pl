@@ -3,19 +3,26 @@
 % Inspired by the work of Luis Reis (ei12085@fe.up.pt) for LAIG course at FEUP.
 
 % To use this server, start sicstus, load this file and call goal `server.`, using for instance
-% `sicstus -l server.pl --goal "server."`.
+%
+% sicstus -l server.pl --goal "server."
 %
 % To test, issue a request using for instance curl:
 %
-% curl -d '{"command":["hello"]}' -H "Content-Type: application/json" -X POST "localhost:8081"
+% curl -d '{"command":"hello","args":{}}' -H "Content-Type: application/json" -X POST "localhost:8081"
 %
 % and the server will cordially answer with `{"response":"hello"}`.
 %
 % To turn off the server, send command quit by calling
 %
-% curl -d '{"command":["quit"]}' -H "Content-Type: application/json" -X POST "localhost:8081"
+% curl -d '{"command":"quit","args":{}}' -H "Content-Type: application/json" -X POST "localhost:8081"
 %
 % to which the server will answer with `{"response":"ok"}`.
+%
+% You can also try moving a piece in the board, by calling 
+% 
+% curl -d '{"command": "move", "args": { "board": [[  0,  6,  0,  0,  0,"nan","nan","nan","nan"],[  0,  0,  0,  0,  0, -6,"nan","nan","nan"],[  0,  0,  0,  0,  0,  0,  0,"nan","nan"],[ -6,  0,  0,  0,  0,  0,  0,  0,"nan"],[  0,  0,  0,  0,  0,  0,  0,  0,  0],["nan",  0,  0,  0,  0,  0,  0,  0,  6],["nan","nan",  0,  0,  0,  0,  0,  0,  0],["nan","nan","nan",  6,  0,  0,  0,  0,  0],["nan","nan","nan","nan",  0,  0,  0, -6,  0]], "playermove": { "player": 1, "pos": [0,1], "substacks": [1,2,3], "dir": 6, "newpos": [0,0]}}}' -H "Content-Type: application/json" -X POST "localhost:8081"
+%
+% to which the server will answer with the new game board.
 
 :-use_module(library(sockets)).
 :-use_module(library(lists)).
@@ -65,7 +72,7 @@ server_loop(Socket) :-
 
 		write('Finished Connection'),nl,nl,
 		close_stream(Stream),
-	(Request = json([command=[quit]])), !.
+	(Request = json([command=quit,args=json([])])), !.
 	
 close_stream(Stream) :-
 	flush_output(Stream),
@@ -86,16 +93,21 @@ read_request(Stream, Request) :-
 % Handles parsed HTTP requests
 % Returns 200 OK on successful aplication of parse_input on request
 % Returns 400 Bad Request on syntax error (received from parser) or on failure of parse_input
-handle_request(json(Members), json([response=Reply]), '200 OK') :-
-	findall(Command, member(command=Command, Members), Commands),
-	Commands = [Command|_],
+handle_request(json([command=Command,args=json(Args)]), json([response=Reply]), '200 OK') :-
 	format('COMMAND:~n', []),
 	write(Command),nl,
-	handle_command(Command, Reply),
+	format('ARGS:~n', []),
+	write(Args),nl,
+	handle_command(Command, Args, Reply),
 	format('DONE WITH COMMAND~n', []),
 	!.
-handle_request(_, '', '400 Bad Request').
+handle_request(Command, '', '400 Bad Request') :-
+	format('Refused command "~q"~n', [Command]).
 
 % COMMANDS
-handle_command([hello], hello).
-handle_command([quit], ok).
+:-reconsult('feup-plog-tp1/src/move.pl').
+
+handle_command(hello, [], hello).
+handle_command(quit, [], ok).
+handle_command(move, [board=Board, playermove=json([player=Player,pos=[PosI,PosJ],substacks=Substacks,dir=Dir,newpos=[NewPosI,NewPosJ]])], NewBoard) :-
+	move(Board, playermove(Player, PosI-PosJ, Substacks, Dir, NewPosI-NewPosJ), NewBoard).

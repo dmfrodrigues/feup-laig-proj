@@ -1,0 +1,3 @@
+[submodule "server/feup-plog-tp1"]
+	path = server/feup-plog-tp1
+	url = https://github.com/dmfrodrigues/feup-plog-tp1.git
