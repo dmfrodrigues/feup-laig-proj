@@ -35,13 +35,17 @@ class PlayerMoveState {
                     this.stackSelected = obj;
                     this.gameBoard.deselectAll();
                     this.moveState = 1;
+                    console.log("Stack selected");
                     obj.select();
                 }
                 break;
             case 1:
                 if(this.isCellId(id)){
                     this.direction = this.getDirection(obj, this.stackSelected.cell);
-                    this.manageMove(obj);
+                    if(this.direction != 0)
+                        this.manageMove(obj);
+                    else break;
+                    console.log("Added substack", this.moveState);
                     this.moveState = 2;
                 }
                 else if(this.isStackId(id)){
@@ -61,10 +65,13 @@ class PlayerMoveState {
                         this.manageMove(obj);
                         let sum = 0;
                         for(let i=0;i<this.substacks.length;i++){
+                            console.log("Added substack", this.moveState);
                             sum += this.substacks[i];
                         }
-                        if(sum == this.stackSelected.height)
+                        if(sum == Math.abs(this.stackSelected.height)){
+                            console.log("All substacks in place - Yellow to continue");
                             this.moveState = 3;
+                        }
                     }
                 }
                 else{
@@ -90,8 +97,10 @@ class PlayerMoveState {
                 break;
             case 4:
                 if(this.isCellId(id)){
+                    console.log("Final Move");
                     this.gameBoard.move(this.stackSelected.cell, this.substacks, this.direction, obj);
                     this.initialState();
+                    this.gameBoard.deselectAll();
                 }
                 // submit move
                 break;
@@ -104,10 +113,12 @@ class PlayerMoveState {
     getDirection(cell1, cell2){
         if(cell1.i == cell2.i && cell1.j < cell2.j)      return 1;
         else if(cell1.i < cell2.i && cell1.j == cell2.j) return 2;
-        else if(cell1.i < cell2.i && cell1.j < cell2.j)  return 3;
+        else if(cell1.i < cell2.i && cell1.j < cell2.j
+            && (cell1.i - cell2.i == cell1.j - cell2.j)) return 3;
         else if(cell1.i == cell2.i && cell1.j > cell2.j) return 4;
         else if(cell1.i > cell2.i && cell1.j == cell2.j) return 5;
-        else if(cell1.i > cell2.i && cell1.j > cell2.j)  return 6;
+        else if(cell1.i > cell2.i && cell1.j > cell2.j 
+            && (cell1.i - cell2.i == cell1.j - cell2.j)) return 6;
         else                                             return 0;
     }
 
@@ -119,20 +130,20 @@ class PlayerMoveState {
     }
 
     manageMove(obj){
-        let diff = this.distance(this.direction, obj, this.stackSelected.cell);
+        let dist = this.distance(this.direction, obj, this.stackSelected.cell);
         // substacks total 
-        let sum = diff;
+        let sum = dist;
         for(let i=0;i<this.substacks.length;i++){
             sum += this.substacks[i];
         }
         // validate
-        if(!this.substacks.includes(diff)){
-            if(sum <= Math.abs(this.stackSelected.height) && diff != 0)
-                this.substacks.push(diff);
+        if(!this.substacks.includes(dist)){
+            if(sum <= Math.abs(this.stackSelected.height) && dist != 0)
+                this.substacks.push(dist);
             else return;
         }
         if(obj.isSelected()){
-            let index = this.substacks.indexOf(diff);
+            let index = this.substacks.indexOf(dist);
             // remove stack from selection
             if (index !== -1) {
                 this.substacks.splice(index, 1);
