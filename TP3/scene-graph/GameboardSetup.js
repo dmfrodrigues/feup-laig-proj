@@ -2,6 +2,8 @@ class GameboardSetup {
     constructor(){
         this._idObj = null;
         this._obj = null;
+        this._idObjCell = null;
+        this._objCell = null;
         this._transformation = null;
         this._cells        = new Array(9);
         this._cells_matrix = new Array(9);
@@ -18,6 +20,10 @@ class GameboardSetup {
     get idObj(){ return this._idObj; }
     set obj(obj){ this._obj = obj; }
     get obj(){ return this._obj; }
+    set idObjCell(id){ this._idObjCell = id; }
+    get idObjCell(){ return this._idObjCell; }
+    set objCell(obj){ this._objCell = obj; }
+    get objCell(){ return this._objCell; }
     set transformation(transformation){ this._transformation = transformation; }
     get transformation(){ return this._transformation; }
     setCellPosition(i, j, v){
