@@ -240,6 +240,7 @@ class MySceneGraph {
         var gameboardIndex = nodeNames.indexOf("gameboard");
         var piecesIndex = nodeNames.indexOf("piece");
         var piecesViewIndex = nodeNames.indexOf("pieceview");
+        var uiIndex = nodeNames.indexOf("ui");
 
         // Get root of the scene.
         if(rootIndex == -1)
@@ -288,6 +289,15 @@ class MySceneGraph {
 
         this._pieces = pieces;
 
+        // Get UI
+
+        if(uiIndex == -1)
+            return "No ui defined for scene.";
+            
+        let uiNode = children[uiIndex];
+        ret = this.parseUI(uiNode);
+        if(typeof ret === 'string') return ret;
+        
         this.log("Parsed initials");
 
         return null;
@@ -324,6 +334,40 @@ class MySceneGraph {
         }
 
         this._gameboard = gameboard;
+
+        return null;
+    }
+
+    /**
+     * Parses the <ui> block.
+     * @param {ui block element} node 
+     */
+    parseUI(node){
+        let ui= new UserInterface(this.scene);
+
+        let idUI = this.reader.getString(node, 'id');
+        if(idUI == null)
+            return "No UI ID defined for scene.";
+        ui.idObj = idUI;
+
+        let uiChildren = [...node.children];
+        let transformations = uiChildren.find(function (u){ return (u.nodeName === 'transformations'); });
+        let M = this.parseTransformations(transformations, "ui"); if(typeof M === "string") return M;
+        ui.transformation = M;
+
+        let panelID = uiChildren.find(function (u){ return (u.nodeName === 'panel'); });
+        ui.panelID = this.parseString(panelID, 'id');
+
+        let buttons = uiChildren.find(function (u){ return (u.nodeName === 'buttons'); });
+        
+        let buttonsChildren = buttons.children;
+        for(let u of buttonsChildren){
+            if(u.nodeName !== 'button') continue;
+            let button_id = this.parseString  (u, 'id', 'ui');
+            ui.addButtonID(button_id);
+        }
+
+        this._ui = ui;
 
         return null;
     }
@@ -913,6 +957,22 @@ class MySceneGraph {
             return `No such piece node "${this._pieces.idObj}"`;
         else
             this._pieces.obj = this.nodes[this._pieces.idObj];
+
+        if(this.nodes[this._ui.panelID] == null)
+            return `No such panel node "${this._ui.panelID}"`;
+        else
+            this._ui.panel = this.nodes[this._ui.panelID];
+
+        for(let i=0; i<this._ui.buttonsIDs.length;i++){
+            if(this.nodes[this._ui.buttonsIDs[i]] == null)
+                return `No such button node "${this._ui.buttonsIDs[i]}"`;
+            else{
+                let button = new Button(this.scene);
+                button.obj = this.nodes[this._ui.buttonsIDs[i]];
+                button.idObj = this._ui.buttonsIDs[i];
+                this._ui.buttons.push(button);
+            }
+        }
         
         this.log("Parsed nodes");
     }
@@ -1257,6 +1317,10 @@ class MySceneGraph {
 
     get pieces(){
         return this._pieces;
+    }
+
+    get ui(){
+        return this._ui;
     }
 
     update(t){

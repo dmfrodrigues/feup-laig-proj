@@ -40,6 +40,7 @@ class Orchestrator extends CGFobject {
 
     onObjectSelected(obj, id){
         this.gameBoard.moveState.updateMoveState(obj, id);
+        console.log(obj);
         /*
         if(obj.isSelected())
             obj.deselect();
@@ -58,6 +59,7 @@ class Orchestrator extends CGFobject {
         this.theme.display();
         this.gameBoard.display();
         // this.animator.display();
+        this.theme.ui.display();
         // ...
     }
 }

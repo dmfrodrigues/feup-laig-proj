@@ -12,19 +12,26 @@ class PlayerMoveState {
         this.stackSelected = null;
         this.substacks = [];
         this.direction = 0;
+        this.newPiece = null;
     }
 
-    init(){
+    initialState(){
         this.moveState = 0;
+        this.stackSelected = null;
         this.substacks = [];
         this.direction = 0;
+        this.newPiece = null;
     }
+
+    isCellId(id){ return id < 100;}
+    isStackId(id){ return id > 100 && id < 200;}
+    isButtonId(id){ return id  > 200;}
 
     updateMoveState(obj, id){
         switch (this.moveState) {
             case 0:
-                if(id > 100){
-                    this.init();
+                if(this.isStackId(id)){
+                    this.initialState();
                     this.stackSelected = obj;
                     this.gameBoard.deselectAll();
                     this.moveState = 1;
@@ -32,21 +39,21 @@ class PlayerMoveState {
                 }
                 break;
             case 1:
-                if(id < 100){
+                if(this.isCellId(id)){
                     this.direction = this.getDirection(obj, this.stackSelected.cell);
                     this.manageMove(obj);
                     this.moveState = 2;
                 }
-                else{
-                    this.init();
+                else if(this.isStackId(id)){
+                    this.initialState();
                     this.stackSelected = obj;
                     this.gameBoard.deselectAll();
                 }
                 break;
             case 2:
-                if(id < 100){
+                if(this.isCellId(id)){
                     if(this.getDirection(obj, this.stackSelected.cell) != this.direction){
-                        this.init();
+                        this.initialState();
                         this.stackSelected = null;
                         this.gameBoard.deselectAll();
                     }
@@ -61,19 +68,32 @@ class PlayerMoveState {
                     }
                 }
                 else{
-                    this.init();
+                    this.initialState();
                     this.gameBoard.deselectAll();
                 }
                 break;
             case 3:
-                if(id < 100){
-                    this.manageMove(obj);
+                if(this.isCellId(id)){
+                    if(this.getDirection(obj, this.stackSelected.cell) == this.direction)
+                        this.manageMove(obj);
                 }
-                else if(id > 100){
-                    this.init();
+                else if(this.isStackId(id)){
+                    this.initialState();
                     this.stackSelected = obj;
                     this.gameBoard.deselectAll();
                 }
+                else{
+                    // submit stack
+                    this.moveState = 4;
+                    console.log("Submitted substacks :" , this.substacks);
+                }
+                break;
+            case 4:
+                if(this.isCellId(id)){
+                    this.gameBoard.move(this.stackSelected.cell, this.substacks, this.direction, obj);
+                    this.initialState();
+                }
+                // submit move
                 break;
             default:
                 break;
@@ -107,12 +127,13 @@ class PlayerMoveState {
         }
         // validate
         if(!this.substacks.includes(diff)){
-            if(sum <= Math.abs(this.stackSelected.height))
+            if(sum <= Math.abs(this.stackSelected.height) && diff != 0)
                 this.substacks.push(diff);
             else return;
         }
         if(obj.isSelected()){
             let index = this.substacks.indexOf(diff);
+            // remove stack from selection
             if (index !== -1) {
                 this.substacks.splice(index, 1);
             }
