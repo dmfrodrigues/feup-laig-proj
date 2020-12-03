@@ -43,7 +43,7 @@ class GameBoard extends CGFobject {
             }
         }
     }
-
+    // 1-5, [2, 4], 5, 2-5
     move(originCell, substacks, direction, newPieceCell) {
         console.log(originCell, substacks, direction, newPieceCell);
 
@@ -55,24 +55,24 @@ class GameBoard extends CGFobject {
             let substack_j;
             switch (direction) {
                 case 1:
-                    substack_i = originCell.i + 0;
+                    substack_i = originCell.i;
                     substack_j = originCell.j - substacks[k];
                     break;
                 case 2:
                     substack_i = originCell.i - substacks[k];
-                    substack_j = originCell.j + 0;
+                    substack_j = originCell.j;
                     break;
                 case 3:
                     substack_i = originCell.i - substacks[k];
                     substack_j = originCell.j - substacks[k];
                     break;
                 case 4:
-                    substack_i = originCell.i + 0;
+                    substack_i = originCell.i;
                     substack_j = originCell.j + substacks[k];
                     break;
                 case 5:
                     substack_i = originCell.i + substacks[k];
-                    substack_j = originCell.j - substacks[k];
+                    substack_j = originCell.j;
                     break;
                 case 6:
                     substack_i = originCell.i + substacks[k];
