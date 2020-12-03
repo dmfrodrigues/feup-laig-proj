@@ -25,6 +25,8 @@ class GameBoard extends CGFobject {
         this.getCell(1,5).stack = new PieceStack(this.scene, -6);
         this.getCell(3,0).stack = new PieceStack(this.scene, -6);
         this.getCell(8,7).stack = new PieceStack(this.scene, -6);
+
+        this.moveState = new PlayerMoveState(this); 
     }
 
     set gameboardSetup(setup){ this._gameboardSetup = setup; }

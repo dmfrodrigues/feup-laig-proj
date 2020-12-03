@@ -39,8 +39,13 @@ class Orchestrator extends CGFobject {
     }
 
     onObjectSelected(obj, id){
-        this.gameBoard.deselectAll();
-        obj.select();
+        this.gameBoard.moveState.updateMoveState(obj, id);
+        /*
+        if(obj.isSelected())
+            obj.deselect();
+        else
+            obj.select();
+        */
     }
 
     update(t){
