@@ -436,11 +436,9 @@
             <keyframe instant='02.5'><translation x='0' y='0' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='0.86' sy='1.14' sz='0.86'/></keyframe>
             <keyframe instant='05.0'><translation x='0' y='0' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1.00' sy='1.00' sz='1.00'/></keyframe>
         </animation>
-        <animation id="wood-box-lid-animation" loop="1">
+        <animation id="wood-box-lid-animation" loop="1" easing="easeInMidOutSine">
             <keyframe instant='00.0'><translation x='0' y='0' z='0'/><rotation axis='x' angle='0'  /><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='03.0'><translation x='0' y='0' z='0'/><rotation axis='x' angle='-90'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
             <keyframe instant='05.0'><translation x='0' y='0' z='0'/><rotation axis='x' angle='-90'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='08.0'><translation x='0' y='0' z='0'/><rotation axis='x' angle='0'  /><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
             <keyframe instant='10.0'><translation x='0' y='0' z='0'/><rotation axis='x' angle='0'  /><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
         </animation>
     </animations>
