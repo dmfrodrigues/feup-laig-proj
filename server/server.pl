@@ -1,16 +1,26 @@
+% (C) 2020-2021 Diogo Rodrigues, Breno Pimentel
+% Distributed under the terms of the GNU General Public License, version 3
+% Inspired by the work of Luis Reis (ei12085@fe.up.pt) for LAIG course at FEUP.
+
+% To use this server, start sicstus, load this file and call goal `server.`, using for instance
+% `sicstus -l server.pl --goal "server."`.
+%
+% To test, issue a request using for instance curl:
+%
+% curl -d '{"command":["hello"]}' -H "Content-Type: application/json" -X POST "localhost:8081"
+%
+% and the server will cordially answer with `{"response":"hello"}`.
+%
+% To turn off the server, send command quit by calling
+%
+% curl -d '{"command":["quit"]}' -H "Content-Type: application/json" -X POST "localhost:8081"
+%
+% to which the server will answer with `{"response":"ok"}`.
+
 :-use_module(library(sockets)).
 :-use_module(library(lists)).
 :-use_module(library(codesio)).
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%                                        Server                                                   %%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-% To run, enter 'server.' on sicstus command line after consulting this file.
-% You can test requests to this server by going to http://localhost:8081/<request>.
-% Go to http://localhost:8081/quit to close server.
-
-% Made by Luis Reis (ei12085@fe.up.pt) for LAIG course at FEUP.
+:-use_module(library(json)).
 
 port(8081).
 
@@ -21,20 +31,22 @@ server :-
 	socket_server_open(Port, Socket),
 	server_loop(Socket),
 	socket_server_close(Socket),
-	write('Closed Server'),nl.
+	write('Closed Server'),nl,
+	halt.
 
 % Server Loop 
 % Uncomment writes for more information on incomming connections
 server_loop(Socket) :-
 	repeat,
-	socket_server_accept(Socket, _Client, Stream, [type(text)]),
-		% write('Accepted connection'), nl,
-	    % Parse Request
+		socket_server_accept(Socket, _Client, Stream, [type(text)]),
+		write('Accepted connection'), nl,
+	    
+		% Parse Request
 		catch((
-			read_request(Stream, Request),
-			read_header(Stream)
+			read_header(Stream),
+			read_request(Stream, Request)
 		),_Exception,(
-			% write('Error parsing request.'),nl,
+			write('Error parsing request.'),nl,
 			close_stream(Stream),
 			fail
 		)),
@@ -43,70 +55,47 @@ server_loop(Socket) :-
 		handle_request(Request, MyReply, Status),
 		format('Request: ~q~n',[Request]),
 		format('Reply: ~q~n', [MyReply]),
+		format('Status: ~q~n', [Status]),
 		
 		% Output Response
 		format(Stream, 'HTTP/1.0 ~p~n', [Status]),
 		format(Stream, 'Access-Control-Allow-Origin: *~n', []),
-		format(Stream, 'Content-Type: text/plain~n~n', []),
-		format(Stream, '~p', [MyReply]),
-	
-		% write('Finnished Connection'),nl,nl,
+		format(Stream, 'Content-Type: application/json~n~n', []),
+		json_write(Stream, MyReply, [width(10)]),
+
+		write('Finished Connection'),nl,nl,
 		close_stream(Stream),
-	(Request = quit), !.
+	(Request = json([command=[quit]])), !.
 	
-close_stream(Stream) :- flush_output(Stream), close(Stream).
+close_stream(Stream) :-
+	flush_output(Stream),
+	close(Stream).
+
+read_header(Stream) :-
+	format('HEADER:~n', []),
+	repeat,
+		read_line(Stream, Line),
+		format('~s~n', [Line]),
+	Line = [], !.
+
+read_request(Stream, Request) :-
+	format('REQUEST:~n', []),
+	json_read(Stream, Request),
+	write(Request),nl.
 
 % Handles parsed HTTP requests
 % Returns 200 OK on successful aplication of parse_input on request
 % Returns 400 Bad Request on syntax error (received from parser) or on failure of parse_input
-handle_request(Request, MyReply, '200 OK') :- catch(parse_input(Request, MyReply),error(_,_),fail), !.
-handle_request(syntax_error, 'Syntax Error', '400 Bad Request') :- !.
-handle_request(_, 'Bad Request', '400 Bad Request').
+handle_request(json(Members), json([response=Reply]), '200 OK') :-
+	findall(Command, member(command=Command, Members), Commands),
+	Commands = [Command|_],
+	format('COMMAND:~n', []),
+	write(Command),nl,
+	handle_command(Command, Reply),
+	format('DONE WITH COMMAND~n', []),
+	!.
+handle_request(_, '', '400 Bad Request').
 
-% Reads first Line of HTTP Header and parses request
-% Returns term parsed from Request-URI
-% Returns syntax_error in case of failure in parsing
-read_request(Stream, Request) :-
-	read_line(Stream, LineCodes),
-	print_header_line(LineCodes),
-	
-	% Parse Request
-	atom_codes('GET /',Get),
-	append(Get,RL,LineCodes),
-	read_request_aux(RL,RL2),	
-	
-	catch(read_from_codes(RL2, Request), error(syntax_error(_),_), fail), !.
-read_request(_,syntax_error).
-	
-read_request_aux([32|_],[46]) :- !.
-read_request_aux([C|Cs],[C|RCs]) :- read_request_aux(Cs, RCs).
-
-
-% Reads and Ignores the rest of the lines of the HTTP Header
-read_header(Stream) :-
-	repeat,
-	read_line(Stream, Line),
-	print_header_line(Line),
-	(Line = []; Line = end_of_file),!.
-
-check_end_of_header([]) :- !, fail.
-check_end_of_header(end_of_file) :- !,fail.
-check_end_of_header(_).
-
-% Function to Output Request Lines (uncomment the line bellow to see more information on received HTTP Requests)
-% print_header_line(LineCodes) :- catch((atom_codes(Line,LineCodes),write(Line),nl),_,fail), !.
-print_header_line(_).
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%                                       Commands                                                  %%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-% Require your Prolog Files here
-
-parse_input(handshake, handshake).
-parse_input(test(C,N), Res) :- test(C,Res,N).
-parse_input(quit, goodbye).
-
-test(_,[],N) :- N =< 0.
-test(A,[A|Bs],N) :- N1 is N-1, test(A,Bs,N1).
-	
+% COMMANDS
+handle_command([hello], hello).
+handle_command([quit], ok).
