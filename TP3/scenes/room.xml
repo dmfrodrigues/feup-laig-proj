@@ -395,454 +395,60 @@
                 <scale sx="1" sy="1" sz="1" />
             </keyframe>
         </animation>
-        <animation id="lavalamp-blob-updown0" loop="1">
-            <keyframe instant='00.0000'><translation x='0' y='0.0191' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='01.0000'><translation x='0' y='0.0248' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='02.0000'><translation x='0' y='0.0316' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='03.0000'><translation x='0' y='0.0397' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='04.0000'><translation x='0' y='0.0489' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='05.0000'><translation x='0' y='0.0592' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='06.0000'><translation x='0' y='0.0700' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='07.0000'><translation x='0' y='0.0808' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='08.0000'><translation x='0' y='0.0911' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='09.0000'><translation x='0' y='0.1003' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='10.0000'><translation x='0' y='0.1084' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='11.0000'><translation x='0' y='0.1152' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='12.0000'><translation x='0' y='0.1209' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='13.0000'><translation x='0' y='0.1256' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='14.0000'><translation x='0' y='0.1294' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='15.0000'><translation x='0' y='0.1325' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='16.0000'><translation x='0' y='0.1350' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='17.0000'><translation x='0' y='0.1369' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='18.0000'><translation x='0' y='0.1383' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='19.0000'><translation x='0' y='0.1392' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='20.0000'><translation x='0' y='0.1398' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='21.0000'><translation x='0' y='0.1400' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='22.0000'><translation x='0' y='0.1398' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='23.0000'><translation x='0' y='0.1392' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='24.0000'><translation x='0' y='0.1383' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='25.0000'><translation x='0' y='0.1369' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='26.0000'><translation x='0' y='0.1350' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='27.0000'><translation x='0' y='0.1325' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='28.0000'><translation x='0' y='0.1294' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='29.0000'><translation x='0' y='0.1256' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='30.0000'><translation x='0' y='0.1209' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='31.0000'><translation x='0' y='0.1152' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='32.0000'><translation x='0' y='0.1084' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='33.0000'><translation x='0' y='0.1003' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='34.0000'><translation x='0' y='0.0911' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='35.0000'><translation x='0' y='0.0808' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='36.0000'><translation x='0' y='0.0700' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='37.0000'><translation x='0' y='0.0592' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='38.0000'><translation x='0' y='0.0489' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='39.0000'><translation x='0' y='0.0397' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='40.0000'><translation x='0' y='0.0316' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='41.0000'><translation x='0' y='0.0248' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='42.0000'><translation x='0' y='0.0191' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='43.0000'><translation x='0' y='0.0144' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='44.0000'><translation x='0' y='0.0106' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='45.0000'><translation x='0' y='0.0075' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='46.0000'><translation x='0' y='0.0050' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='47.0000'><translation x='0' y='0.0031' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='48.0000'><translation x='0' y='0.0017' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='49.0000'><translation x='0' y='0.0008' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='50.0000'><translation x='0' y='0.0002' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='51.0000'><translation x='0' y='0.0000' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='52.0000'><translation x='0' y='0.0002' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='53.0000'><translation x='0' y='0.0008' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='54.0000'><translation x='0' y='0.0017' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='55.0000'><translation x='0' y='0.0031' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='56.0000'><translation x='0' y='0.0050' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='57.0000'><translation x='0' y='0.0075' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='58.0000'><translation x='0' y='0.0106' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='59.0000'><translation x='0' y='0.0144' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='60.0000'><translation x='0' y='0.0191' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
+        <animation id="lavalamp-blob-updown0" loop="1" easing="(10.0+x-0.85-0.079577471545948*Math.sin(12.5663706144*(x-0.85)))%1.0">
+            <keyframe instant='00.0'><translation x='0' y='0.00' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
+            <keyframe instant='30.0'><translation x='0' y='0.14' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
+            <keyframe instant='60.0'><translation x='0' y='0.00' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
         </animation>
-        <animation id="lavalamp-blob-updown1" loop="1">
-            <keyframe instant='00.0000'><translation x='0' y='0.0000' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='01.0000'><translation x='0' y='0.0003' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='02.0000'><translation x='0' y='0.0011' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='03.0000'><translation x='0' y='0.0025' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='04.0000'><translation x='0' y='0.0046' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='05.0000'><translation x='0' y='0.0075' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='06.0000'><translation x='0' y='0.0113' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='07.0000'><translation x='0' y='0.0161' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='08.0000'><translation x='0' y='0.0224' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='09.0000'><translation x='0' y='0.0302' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='10.0000'><translation x='0' y='0.0397' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='11.0000'><translation x='0' y='0.0509' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='12.0000'><translation x='0' y='0.0635' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='13.0000'><translation x='0' y='0.0765' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='14.0000'><translation x='0' y='0.0891' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='15.0000'><translation x='0' y='0.1003' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='16.0000'><translation x='0' y='0.1098' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='17.0000'><translation x='0' y='0.1176' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='18.0000'><translation x='0' y='0.1239' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='19.0000'><translation x='0' y='0.1287' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='20.0000'><translation x='0' y='0.1325' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='21.0000'><translation x='0' y='0.1354' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='22.0000'><translation x='0' y='0.1375' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='23.0000'><translation x='0' y='0.1389' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='24.0000'><translation x='0' y='0.1397' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='25.0000'><translation x='0' y='0.1400' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='26.0000'><translation x='0' y='0.1397' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='27.0000'><translation x='0' y='0.1389' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='28.0000'><translation x='0' y='0.1375' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='29.0000'><translation x='0' y='0.1354' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='30.0000'><translation x='0' y='0.1325' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='31.0000'><translation x='0' y='0.1287' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='32.0000'><translation x='0' y='0.1239' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='33.0000'><translation x='0' y='0.1176' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='34.0000'><translation x='0' y='0.1098' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='35.0000'><translation x='0' y='0.1003' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='36.0000'><translation x='0' y='0.0891' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='37.0000'><translation x='0' y='0.0765' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='38.0000'><translation x='0' y='0.0635' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='39.0000'><translation x='0' y='0.0509' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='40.0000'><translation x='0' y='0.0397' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='41.0000'><translation x='0' y='0.0302' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='42.0000'><translation x='0' y='0.0224' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='43.0000'><translation x='0' y='0.0161' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='44.0000'><translation x='0' y='0.0113' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='45.0000'><translation x='0' y='0.0075' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='46.0000'><translation x='0' y='0.0046' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='47.0000'><translation x='0' y='0.0025' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='48.0000'><translation x='0' y='0.0011' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='49.0000'><translation x='0' y='0.0003' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='50.0000'><translation x='0' y='0.0000' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
+        <animation id="lavalamp-blob-updown1" loop="1" easing="x-0.079577471545948*Math.sin(12.5663706144*x)">
+            <keyframe instant='00.0'><translation x='0' y='0.00' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
+            <keyframe instant='25.0'><translation x='0' y='0.14' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
+            <keyframe instant='50.0'><translation x='0' y='0.00' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
         </animation>
-        <animation id="lavalamp-blob-updown2" loop="1">
-            <keyframe instant='00.0000'><translation x='0' y='0.0700' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='01.0000'><translation x='0' y='0.0860' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='02.0000'><translation x='0' y='0.1003' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='03.0000'><translation x='0' y='0.1120' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='04.0000'><translation x='0' y='0.1209' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='05.0000'><translation x='0' y='0.1276' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='06.0000'><translation x='0' y='0.1325' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='07.0000'><translation x='0' y='0.1360' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='08.0000'><translation x='0' y='0.1383' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='09.0000'><translation x='0' y='0.1396' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='10.0000'><translation x='0' y='0.1400' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='11.0000'><translation x='0' y='0.1396' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='12.0000'><translation x='0' y='0.1383' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='13.0000'><translation x='0' y='0.1360' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='14.0000'><translation x='0' y='0.1325' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='15.0000'><translation x='0' y='0.1276' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='16.0000'><translation x='0' y='0.1209' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='17.0000'><translation x='0' y='0.1120' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='18.0000'><translation x='0' y='0.1003' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='19.0000'><translation x='0' y='0.0860' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='20.0000'><translation x='0' y='0.0700' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='21.0000'><translation x='0' y='0.0540' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='22.0000'><translation x='0' y='0.0397' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='23.0000'><translation x='0' y='0.0280' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='24.0000'><translation x='0' y='0.0191' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='25.0000'><translation x='0' y='0.0124' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='26.0000'><translation x='0' y='0.0075' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='27.0000'><translation x='0' y='0.0040' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='28.0000'><translation x='0' y='0.0017' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='29.0000'><translation x='0' y='0.0004' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='30.0000'><translation x='0' y='0.0000' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='31.0000'><translation x='0' y='0.0004' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='32.0000'><translation x='0' y='0.0017' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='33.0000'><translation x='0' y='0.0040' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='34.0000'><translation x='0' y='0.0075' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='35.0000'><translation x='0' y='0.0124' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='36.0000'><translation x='0' y='0.0191' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='37.0000'><translation x='0' y='0.0280' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='38.0000'><translation x='0' y='0.0397' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='39.0000'><translation x='0' y='0.0540' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='40.0000'><translation x='0' y='0.0700' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
+        <animation id="lavalamp-blob-updown2" loop="1" easing="(10.0+x-0.75-0.079577471545948*Math.sin(12.5663706144*(x-0.75)))%1.0">
+            <keyframe instant='00.0'><translation x='0' y='0.00' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
+            <keyframe instant='20.0'><translation x='0' y='0.14' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
+            <keyframe instant='40.0'><translation x='0' y='0.00' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
         </animation>
-        <animation id="lavalamp-blob-updown3" loop="1">
-            <keyframe instant='00.0000'><translation x='0' y='0.1000' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='01.0000'><translation x='0' y='0.0995' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='02.0000'><translation x='0' y='0.0978' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='03.0000'><translation x='0' y='0.0947' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='04.0000'><translation x='0' y='0.0897' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='05.0000'><translation x='0' y='0.0823' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='06.0000'><translation x='0' y='0.0717' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='07.0000'><translation x='0' y='0.0577' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='08.0000'><translation x='0' y='0.0423' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='09.0000'><translation x='0' y='0.0283' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='10.0000'><translation x='0' y='0.0177' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='11.0000'><translation x='0' y='0.0103' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='12.0000'><translation x='0' y='0.0053' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='13.0000'><translation x='0' y='0.0022' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='14.0000'><translation x='0' y='0.0005' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='15.0000'><translation x='0' y='0.0000' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='16.0000'><translation x='0' y='0.0005' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='17.0000'><translation x='0' y='0.0022' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='18.0000'><translation x='0' y='0.0053' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='19.0000'><translation x='0' y='0.0103' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='20.0000'><translation x='0' y='0.0177' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='21.0000'><translation x='0' y='0.0283' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='22.0000'><translation x='0' y='0.0423' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='23.0000'><translation x='0' y='0.0577' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='24.0000'><translation x='0' y='0.0717' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='25.0000'><translation x='0' y='0.0823' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='26.0000'><translation x='0' y='0.0897' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='27.0000'><translation x='0' y='0.0947' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='28.0000'><translation x='0' y='0.0978' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='29.0000'><translation x='0' y='0.0995' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='30.0000'><translation x='0' y='0.1000' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
+        <animation id="lavalamp-blob-updown3" loop="1" easing="x-0.079577471545948*Math.sin(12.5663706144*x)">
+            <keyframe instant='00.0'><translation x='0' y='0.10' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
+            <keyframe instant='15.0'><translation x='0' y='0.00' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
+            <keyframe instant='30.0'><translation x='0' y='0.10' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
         </animation>
-        <animation id="lavalamp-blob-updown4" loop="1">
-            <keyframe instant='00.0000'><translation x='0' y='0.0700' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='01.0000'><translation x='0' y='0.0540' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='02.0000'><translation x='0' y='0.0397' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='03.0000'><translation x='0' y='0.0280' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='04.0000'><translation x='0' y='0.0191' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='05.0000'><translation x='0' y='0.0124' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='06.0000'><translation x='0' y='0.0075' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='07.0000'><translation x='0' y='0.0040' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='08.0000'><translation x='0' y='0.0017' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='09.0000'><translation x='0' y='0.0004' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='10.0000'><translation x='0' y='0.0000' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='11.0000'><translation x='0' y='0.0004' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='12.0000'><translation x='0' y='0.0017' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='13.0000'><translation x='0' y='0.0040' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='14.0000'><translation x='0' y='0.0075' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='15.0000'><translation x='0' y='0.0124' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='16.0000'><translation x='0' y='0.0191' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='17.0000'><translation x='0' y='0.0280' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='18.0000'><translation x='0' y='0.0397' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='19.0000'><translation x='0' y='0.0540' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='20.0000'><translation x='0' y='0.0700' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='21.0000'><translation x='0' y='0.0860' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='22.0000'><translation x='0' y='0.1003' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='23.0000'><translation x='0' y='0.1120' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='24.0000'><translation x='0' y='0.1209' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='25.0000'><translation x='0' y='0.1276' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='26.0000'><translation x='0' y='0.1325' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='27.0000'><translation x='0' y='0.1360' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='28.0000'><translation x='0' y='0.1383' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='29.0000'><translation x='0' y='0.1396' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='30.0000'><translation x='0' y='0.1400' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='31.0000'><translation x='0' y='0.1396' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='32.0000'><translation x='0' y='0.1383' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='33.0000'><translation x='0' y='0.1360' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='34.0000'><translation x='0' y='0.1325' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='35.0000'><translation x='0' y='0.1276' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='36.0000'><translation x='0' y='0.1209' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='37.0000'><translation x='0' y='0.1120' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='38.0000'><translation x='0' y='0.1003' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='39.0000'><translation x='0' y='0.0860' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='40.0000'><translation x='0' y='0.0700' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
+        <animation id="lavalamp-blob-updown4" loop="1" easing="(10.0+x-0.25-0.079577471545948*Math.sin(12.5663706144*(x-0.25)))%1.0">
+            <keyframe instant='00.0'><translation x='0' y='0.00' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
+            <keyframe instant='20.0'><translation x='0' y='0.14' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
+            <keyframe instant='40.0'><translation x='0' y='0.00' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
         </animation>
-        <animation id="lavalamp-blob-updown5" loop="1">
-            <keyframe instant='00.0000'><translation x='0' y='0.0947' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='01.0000'><translation x='0' y='0.0988' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='02.0000'><translation x='0' y='0.1000' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='03.0000'><translation x='0' y='0.0988' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='04.0000'><translation x='0' y='0.0947' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='05.0000'><translation x='0' y='0.0864' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='06.0000'><translation x='0' y='0.0717' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='07.0000'><translation x='0' y='0.0500' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='08.0000'><translation x='0' y='0.0283' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='09.0000'><translation x='0' y='0.0136' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='10.0000'><translation x='0' y='0.0053' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='11.0000'><translation x='0' y='0.0012' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='12.0000'><translation x='0' y='0.0000' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='13.0000'><translation x='0' y='0.0012' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='14.0000'><translation x='0' y='0.0053' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='15.0000'><translation x='0' y='0.0136' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='16.0000'><translation x='0' y='0.0283' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='17.0000'><translation x='0' y='0.0500' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='18.0000'><translation x='0' y='0.0717' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='19.0000'><translation x='0' y='0.0864' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='20.0000'><translation x='0' y='0.0947' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
+        <animation id="lavalamp-blob-updown5" loop="1" easing="(10.0+x-0.6-0.079577471545948*Math.sin(12.5663706144*(x-0.6)))%1.0">
+            <keyframe instant='00.0'><translation x='0' y='0.00' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
+            <keyframe instant='10.0'><translation x='0' y='0.10' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
+            <keyframe instant='20.0'><translation x='0' y='0.00' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
         </animation>
-        <animation id="lavalamp-blob-oscillator1" loop="1">
-            <keyframe instant='00.000'>
-                <translation x='0' y='0' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/>
-                <scale sx='1.0000' sy='1.0000' sz='1.0000'/>
-            </keyframe>
-            <keyframe instant='00.500'>
-                <translation x='0' y='0' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/>
-                <scale sx='0.9866' sy='1.0134' sz='0.9866'/>
-            </keyframe>
-            <keyframe instant='01.000'>
-                <translation x='0' y='0' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/>
-                <scale sx='0.9516' sy='1.0484' sz='0.9516'/>
-            </keyframe>
-            <keyframe instant='01.500'>
-                <translation x='0' y='0' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/>
-                <scale sx='0.9084' sy='1.0916' sz='0.9084'/>
-            </keyframe>
-            <keyframe instant='02.000'>
-                <translation x='0' y='0' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/>
-                <scale sx='0.8734' sy='1.1266' sz='0.8734'/>
-            </keyframe>
-            <keyframe instant='02.500'>
-                <translation x='0' y='0' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/>
-                <scale sx='0.8600' sy='1.1400' sz='0.8600'/>
-            </keyframe>
-            <keyframe instant='03.000'>
-                <translation x='0' y='0' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/>
-                <scale sx='0.8734' sy='1.1266' sz='0.8734'/>
-            </keyframe>
-            <keyframe instant='03.500'>
-                <translation x='0' y='0' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/>
-                <scale sx='0.9084' sy='1.0916' sz='0.9084'/>
-            </keyframe>
-            <keyframe instant='04.000'>
-                <translation x='0' y='0' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/>
-                <scale sx='0.9516' sy='1.0484' sz='0.9516'/>
-            </keyframe>
-            <keyframe instant='04.500'>
-                <translation x='0' y='0' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/>
-                <scale sx='0.9866' sy='1.0134' sz='0.9866'/>
-            </keyframe>
-            <keyframe instant='05.000'>
-                <translation x='0' y='0' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/>
-                <scale sx='1.0000' sy='1.0000' sz='1.0000'/>
-            </keyframe>
+        <animation id="lavalamp-blob-oscillator1" loop="1" easing="x-0.079577471545948*Math.sin(12.5663706144*x)">
+            <keyframe instant='00.0'><translation x='0' y='0' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1.00' sy='1.00' sz='1.00'/></keyframe>
+            <keyframe instant='02.5'><translation x='0' y='0' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='0.86' sy='1.14' sz='0.86'/></keyframe>
+            <keyframe instant='05.0'><translation x='0' y='0' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1.00' sy='1.00' sz='1.00'/></keyframe>
         </animation>
-        <animation id="lavalamp-blob-oscillator2" loop="1">
-            <keyframe instant='00.000'>
-                <translation x='0' y='0' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/>
-                <scale sx='0.9300' sy='1.0700' sz='0.9300'/>
-            </keyframe>
-            <keyframe instant='00.500'>
-                <translation x='0' y='0' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/>
-                <scale sx='0.8889' sy='1.1111' sz='0.8889'/>
-            </keyframe>
-            <keyframe instant='01.000'>
-                <translation x='0' y='0' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/>
-                <scale sx='0.8634' sy='1.1366' sz='0.8634'/>
-            </keyframe>
-            <keyframe instant='01.500'>
-                <translation x='0' y='0' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/>
-                <scale sx='0.8634' sy='1.1366' sz='0.8634'/>
-            </keyframe>
-            <keyframe instant='02.000'>
-                <translation x='0' y='0' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/>
-                <scale sx='0.8889' sy='1.1111' sz='0.8889'/>
-            </keyframe>
-            <keyframe instant='02.500'>
-                <translation x='0' y='0' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/>
-                <scale sx='0.9300' sy='1.0700' sz='0.9300'/>
-            </keyframe>
-            <keyframe instant='03.000'>
-                <translation x='0' y='0' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/>
-                <scale sx='0.9711' sy='1.0289' sz='0.9711'/>
-            </keyframe>
-            <keyframe instant='03.500'>
-                <translation x='0' y='0' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/>
-                <scale sx='0.9966' sy='1.0034' sz='0.9966'/>
-            </keyframe>
-            <keyframe instant='04.000'>
-                <translation x='0' y='0' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/>
-                <scale sx='0.9966' sy='1.0034' sz='0.9966'/>
-            </keyframe>
-            <keyframe instant='04.500'>
-                <translation x='0' y='0' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/>
-                <scale sx='0.9711' sy='1.0289' sz='0.9711'/>
-            </keyframe>
-            <keyframe instant='05.000'>
-                <translation x='0' y='0' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/>
-                <scale sx='0.9300' sy='1.0700' sz='0.9300'/>
-            </keyframe>
+        <animation id="lavalamp-blob-oscillator2" loop="1" easing="(10.0+x-0.75-0.079577471545948*Math.sin(12.5663706144*(x-0.75)))%1.0">
+            <keyframe instant='00.0'><translation x='0' y='0' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1.00' sy='1.00' sz='1.00'/></keyframe>
+            <keyframe instant='02.5'><translation x='0' y='0' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='0.86' sy='1.14' sz='0.86'/></keyframe>
+            <keyframe instant='05.0'><translation x='0' y='0' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1.00' sy='1.00' sz='1.00'/></keyframe>
         </animation>
-        <animation id="lavalamp-blob-oscillator3" loop="1">
-            <keyframe instant='00.000'>
-                <translation x='0' y='0' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/>
-                <scale sx='0.8600' sy='1.1400' sz='0.8600'/>
-            </keyframe>
-            <keyframe instant='00.500'>
-                <translation x='0' y='0' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/>
-                <scale sx='0.8734' sy='1.1266' sz='0.8734'/>
-            </keyframe>
-            <keyframe instant='01.000'>
-                <translation x='0' y='0' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/>
-                <scale sx='0.9084' sy='1.0916' sz='0.9084'/>
-            </keyframe>
-            <keyframe instant='01.500'>
-                <translation x='0' y='0' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/>
-                <scale sx='0.9516' sy='1.0484' sz='0.9516'/>
-            </keyframe>
-            <keyframe instant='02.000'>
-                <translation x='0' y='0' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/>
-                <scale sx='0.9866' sy='1.0134' sz='0.9866'/>
-            </keyframe>
-            <keyframe instant='02.500'>
-                <translation x='0' y='0' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/>
-                <scale sx='1.0000' sy='1.0000' sz='1.0000'/>
-            </keyframe>
-            <keyframe instant='03.000'>
-                <translation x='0' y='0' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/>
-                <scale sx='0.9866' sy='1.0134' sz='0.9866'/>
-            </keyframe>
-            <keyframe instant='03.500'>
-                <translation x='0' y='0' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/>
-                <scale sx='0.9516' sy='1.0484' sz='0.9516'/>
-            </keyframe>
-            <keyframe instant='04.000'>
-                <translation x='0' y='0' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/>
-                <scale sx='0.9084' sy='1.0916' sz='0.9084'/>
-            </keyframe>
-            <keyframe instant='04.500'>
-                <translation x='0' y='0' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/>
-                <scale sx='0.8734' sy='1.1266' sz='0.8734'/>
-            </keyframe>
-            <keyframe instant='05.000'>
-                <translation x='0' y='0' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/>
-                <scale sx='0.8600' sy='1.1400' sz='0.8600'/>
-            </keyframe>
+        <animation id="lavalamp-blob-oscillator3" loop="1" easing="(10.0+x-0.25-0.079577471545948*Math.sin(12.5663706144*(x-0.50)))%1.0">
+            <keyframe instant='00.0'><translation x='0' y='0' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1.00' sy='1.00' sz='1.00'/></keyframe>
+            <keyframe instant='02.5'><translation x='0' y='0' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='0.86' sy='1.14' sz='0.86'/></keyframe>
+            <keyframe instant='05.0'><translation x='0' y='0' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1.00' sy='1.00' sz='1.00'/></keyframe>
         </animation>
-        <animation id="lavalamp-blob-oscillator4" loop="1">
-            <keyframe instant='00.000'>
-                <translation x='0' y='0' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/>
-                <scale sx='0.9300' sy='1.0700' sz='0.9300'/>
-            </keyframe>
-            <keyframe instant='00.500'>
-                <translation x='0' y='0' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/>
-                <scale sx='0.9711' sy='1.0289' sz='0.9711'/>
-            </keyframe>
-            <keyframe instant='01.000'>
-                <translation x='0' y='0' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/>
-                <scale sx='0.9966' sy='1.0034' sz='0.9966'/>
-            </keyframe>
-            <keyframe instant='01.500'>
-                <translation x='0' y='0' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/>
-                <scale sx='0.9966' sy='1.0034' sz='0.9966'/>
-            </keyframe>
-            <keyframe instant='02.000'>
-                <translation x='0' y='0' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/>
-                <scale sx='0.9711' sy='1.0289' sz='0.9711'/>
-            </keyframe>
-            <keyframe instant='02.500'>
-                <translation x='0' y='0' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/>
-                <scale sx='0.9300' sy='1.0700' sz='0.9300'/>
-            </keyframe>
-            <keyframe instant='03.000'>
-                <translation x='0' y='0' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/>
-                <scale sx='0.8889' sy='1.1111' sz='0.8889'/>
-            </keyframe>
-            <keyframe instant='03.500'>
-                <translation x='0' y='0' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/>
-                <scale sx='0.8634' sy='1.1366' sz='0.8634'/>
-            </keyframe>
-            <keyframe instant='04.000'>
-                <translation x='0' y='0' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/>
-                <scale sx='0.8634' sy='1.1366' sz='0.8634'/>
-            </keyframe>
-            <keyframe instant='04.500'>
-                <translation x='0' y='0' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/>
-                <scale sx='0.8889' sy='1.1111' sz='0.8889'/>
-            </keyframe>
-            <keyframe instant='05.000'>
-                <translation x='0' y='0' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/>
-                <scale sx='0.9300' sy='1.0700' sz='0.9300'/>
-            </keyframe>
+        <animation id="lavalamp-blob-oscillator4" loop="1" easing="(10.0+x-0.25-0.079577471545948*Math.sin(12.5663706144*(x-0.25)))%1.0">
+            <keyframe instant='00.0'><translation x='0' y='0' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1.00' sy='1.00' sz='1.00'/></keyframe>
+            <keyframe instant='02.5'><translation x='0' y='0' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='0.86' sy='1.14' sz='0.86'/></keyframe>
+            <keyframe instant='05.0'><translation x='0' y='0' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1.00' sy='1.00' sz='1.00'/></keyframe>
         </animation>
-        <animation id="wood-box-lid-animation" loop="1">
-            <keyframe instant='00.000'><translation x='0' y='0' z='0'/><rotation axis='x' angle='0'  /><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='03.000'><translation x='0' y='0' z='0'/><rotation axis='x' angle='-90'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='05.000'><translation x='0' y='0' z='0'/><rotation axis='x' angle='-90'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='08.000'><translation x='0' y='0' z='0'/><rotation axis='x' angle='0'  /><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='10.000'><translation x='0' y='0' z='0'/><rotation axis='x' angle='0'  /><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
+        <animation id="wood-box-lid-animation" loop="1" easing="easeInMidOutSine">
+            <keyframe instant='00.0'><translation x='0' y='0' z='0'/><rotation axis='x' angle='0'  /><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
+            <keyframe instant='05.0'><translation x='0' y='0' z='0'/><rotation axis='x' angle='-90'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
+            <keyframe instant='10.0'><translation x='0' y='0' z='0'/><rotation axis='x' angle='0'  /><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
         </animation>
     </animations>
 

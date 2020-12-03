@@ -21,6 +21,13 @@ function upper_bound(v, x){
  * @param   {bool}      loop    Loop scene (or not)
  */
 class KeyframeAnimation extends Animation {
+    static easings = {
+        easeInSine:       (x) => 1-Math.cos((Math.PI*x)/2),
+        easeOutSine:      (x) =>   Math.sin((Math.PI*x)/2),
+        easeInOutSine:    (x) => -(Math.cos(Math.PI*x)-1)/2,
+        easeInMidOutSine: (x) => x-Math.sin(4*Math.PI*x)/(4*Math.PI)
+    };
+
 	constructor(scene, loop) {
         super(scene);
         this.scene = scene;
@@ -37,6 +44,8 @@ class KeyframeAnimation extends Animation {
         this.keyframe2 = {};
         this.x1    = 0;
         this.x2_x1 = 1;
+
+        this._easing = function (x) { return x; }
     }
     addKeyframe(t, keyframe){
         this.keyframes[t] = keyframe;
@@ -59,9 +68,15 @@ class KeyframeAnimation extends Animation {
             this.keyframe2 = this.keyframeVals[this.idx  ];
         }
     }
+    setEasing(easing){
+        if(KeyframeAnimation.easings[easing] != undefined)
+            this._easing = KeyframeAnimation.easings[easing];
+        else
+            eval('this._easing = function(x){ return (' + easing + '); }');
+    }
     update(t){
         if(this.loop && t > 0) t %= this.tmax;
-        let x = t/this.tmax;
+        let x = this._easing(t/this.tmax);
         if(1 <= x){
             this.visible = true;
             this.M = this.keyframes[this.tmax].getMatrix();
