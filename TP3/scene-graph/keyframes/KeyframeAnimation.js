@@ -37,6 +37,8 @@ class KeyframeAnimation extends Animation {
         this.keyframe2 = {};
         this.x1    = 0;
         this.x2_x1 = 1;
+
+        this._easing = function (x) { return x; }
     }
     addKeyframe(t, keyframe){
         this.keyframes[t] = keyframe;
@@ -59,9 +61,12 @@ class KeyframeAnimation extends Animation {
             this.keyframe2 = this.keyframeVals[this.idx  ];
         }
     }
+    setEasing(easing){
+        eval('this._easing = function(x){ return (' + easing +'); }');
+    }
     update(t){
         if(this.loop && t > 0) t %= this.tmax;
-        let x = t/this.tmax;
+        let x = this._easing(t/this.tmax);
         if(1 <= x){
             this.visible = true;
             this.M = this.keyframes[this.tmax].getMatrix();

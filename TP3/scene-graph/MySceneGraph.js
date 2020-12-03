@@ -639,6 +639,10 @@ class MySceneGraph {
             let loop = (animation.attributes.loop == null ? false : Number(animation.attributes.loop.value));
 
             let anim = new KeyframeAnimation(this.scene, loop);
+
+            if(animation.attributes.easing != null)
+                anim.setEasing(animation.attributes.easing.value);
+
             for(let i = 0; i < animation.children.length; ++i){
                 let keyframe = animation.children[i];
                 let instant = this.parseFloat(keyframe, "instant");
