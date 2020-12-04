@@ -24,6 +24,8 @@
 %
 % to which the server will answer with the new game board.
 %
+% To call the autonomous player:
+%
 % curl -d '{"command": "choose_move", "args": { "gamestate": { "board": [[  0,  6,  0,  0,  0,"nan","nan","nan","nan"],[  0,  0,  0,  0,  0, -6,"nan","nan","nan"],[  0,  0,  0,  0,  0,  0,  0,"nan","nan"],[ -6,  0,  0,  0,  0,  0,  0,  0,"nan"],[  0,  0,  0,  0,  0,  0,  0,  0,  0],["nan",  0,  0,  0,  0,  0,  0,  0,  6],["nan","nan",  0,  0,  0,  0,  0,  0,  0],["nan","nan","nan",  6,  0,  0,  0,  0,  0],["nan","nan","nan","nan",  0,  0,  0, -6,  0]], "turn": 1 }, "turn": 1, "level": 3, "n": 7}}' -H "Content-Type: application/json" -X POST "localhost:8081"
 
 :-use_module(library(sockets)).
@@ -95,7 +97,7 @@ read_request(Stream, Request) :-
 % Handles parsed HTTP requests
 % Returns 200 OK on successful aplication of parse_input on request
 % Returns 400 Bad Request on syntax error (received from parser) or on failure of parse_input
-handle_request(json([command=Command,args=json(Args)]), json([response=Reply]), '200 OK') :-
+handle_request(json([command=Command,args=Args]), json([response=Reply]), '200 OK') :-
 	format('COMMAND:~n', []),
 	write(Command),nl,
 	format('ARGS:~n', []),
@@ -116,13 +118,16 @@ handle_request(Command, '', '400 Bad Request') :-
 	atom_concat(CWD, 'feup-plog-tp1/', BASE),
 	assert(base_directory(BASE)).
 
-handle_command(hello, [], hello).
-handle_command(quit, [], ok).
-handle_command(move, [board=Board, playermove=json([player=Player,pos=[PosI,PosJ],substacks=Substacks,dir=Dir,newpos=[NewPosI,NewPosJ]])], NewBoard) :-
+handle_command(hello, json([]), hello).
+handle_command(quit, json([]), ok).
+handle_command(
+	move,
+	json([board=Board, playermove=json([player=Player,pos=[PosI,PosJ],substacks=Substacks,dir=Dir,newpos=[NewPosI,NewPosJ]])]),
+	NewBoard) :-
 	move(Board, playermove(Player, PosI-PosJ, Substacks, Dir, NewPosI-NewPosJ), NewBoard).
 handle_command(
 	choose_move,
-	[gamestate=json([board=Board,turn=Turn]),turn=Turn,level=Level,n=N],
+	json([gamestate=json([board=Board,turn=Turn]),turn=Turn,level=Level,n=N]),
 	json([player=Player,pos=[PosI,PosJ],substacks=Substacks,dir=Dir,newpos=[NewPosI,NewPosJ]])
 ) :-
 	format("Starting choose_move~n", []),
