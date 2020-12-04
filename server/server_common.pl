@@ -33,3 +33,9 @@ handle_command(
 	GameState = gamestate(Board, Turn),
 	Move = playermove(Player,PosI-PosJ,Substacks,Dir,NewPosI-NewPosJ),
 	choose_move(GameState, Turn, Level, N, Move). 
+handle_command(
+	value,
+	json([gamestate=json([board=Board,turn=Turn]),turn=Turn]),
+	Value
+) :-
+	value(gamestate(Board,Turn),Turn,Value).
