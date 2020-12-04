@@ -25,6 +25,7 @@ class PieceStack extends CGFobject {
 	}
 	get cell(){ return this._cell; }
 
+	isSelected(){ return this._selected; }
 	select(){ this._selected = true; }
     deselect(){ this._selected = false; }
     deselectAll(){

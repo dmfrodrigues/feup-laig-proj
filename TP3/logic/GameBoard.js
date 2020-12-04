@@ -4,7 +4,7 @@
  * @param scene  		- Reference to MyScene object
  */
 class GameBoard extends CGFobject {
-	constructor(scene) {
+    constructor(scene) {
         super(scene);
 
         this._gameboardSetup = null;
@@ -25,6 +25,8 @@ class GameBoard extends CGFobject {
         this.getCell(1,5).stack = new PieceStack(this.scene, -6);
         this.getCell(3,0).stack = new PieceStack(this.scene, -6);
         this.getCell(8,7).stack = new PieceStack(this.scene, -6);
+
+        this.moveState = new PlayerMoveState(this);
     }
 
     set gameboardSetup(setup){ this._gameboardSetup = setup; }
@@ -42,12 +44,70 @@ class GameBoard extends CGFobject {
         }
     }
 
-    /**
-     * TODO
-     */
-    move(){}
+    move(originCell, substacks, direction, newPieceCell) {
 
-    display(){
+        if (newPieceCell.stack != null) return false;
+        
+        for (let k = 0; k < substacks.length; k++) {
+            console.log("teste :" + k);
+            let substack_i;
+            let substack_j;
+            switch (direction) {
+                case 1:
+                    substack_i = originCell.i;
+                    substack_j = originCell.j - substacks[k];
+                    break;
+                case 2:
+                    substack_i = originCell.i - substacks[k];
+                    substack_j = originCell.j;
+                    break;
+                case 3:
+                    substack_i = originCell.i - substacks[k];
+                    substack_j = originCell.j - substacks[k];
+                    break;
+                case 4:
+                    substack_i = originCell.i;
+                    substack_j = originCell.j + substacks[k];
+                    break;
+                case 5:
+                    substack_i = originCell.i + substacks[k];
+                    substack_j = originCell.j;
+                    break;
+                case 6:
+                    substack_i = originCell.i + substacks[k];
+                    substack_j = originCell.j + substacks[k];
+                    break;
+                default:
+                    break;
+            }
+
+            if(substack_i > 8 || substack_i < 0 || substack_j > 8 || substack_j < 0)
+                return false;
+
+            let stack = this.getCell(substack_i, substack_j).stack;
+            
+            if(stack == null){
+                this.getCell(substack_i, substack_j).stack
+                = new PieceStack(this.scene, substacks[k] * (Math.sign(originCell.stack.height)));
+            }
+            else{
+                this.getCell(substack_i, substack_j).stack
+                = new PieceStack(this.scene, (substacks[k] + Math.abs(stack.height)) * (Math.sign(originCell.stack.height)));
+            }
+        }
+        
+        newPieceCell.stack = new PieceStack(this.scene, 1 * (Math.sign(originCell.stack.height)));
+
+        let gameMove = new GameMove(this.scene, originCell, substacks, direction, newPieceCell, this);
+        this.scene.orchestrator.gameSequence.addGameMove(gameMove);
+        
+        originCell.stack = null;
+        
+        // gameMove.animate();
+        return true;
+    }
+
+    display() {
         this.scene.pushMatrix();
         this.scene.multMatrix(this.gameboardSetup.transformation);
 

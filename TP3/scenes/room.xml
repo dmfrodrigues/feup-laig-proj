@@ -74,6 +74,17 @@
         </gameboard>
         <piece id="piece" height="0.002"/>
         <pieceview classname="RoomPieceStackView"/>
+        <ui id="ui">
+            <transformations>
+                <translation x="0.25" y="0.53" z="-0.2"/>
+                <rotation axis="y" angle="90"/>
+            </transformations>
+            <panel id="ui-panel"/>
+            <buttons>
+                <button id="submit"/>
+                <button id="undo"/>
+            </buttons>
+        </ui>
     </initials>
     <views default="player1_camera">
         <!-- at least one of the following type of cameras must be declared -->
@@ -875,6 +886,40 @@
             </transformations>
             <descendants>
                 <leaf type="cylinder" bottomRadius="0.001" topRadius="0.001" height="0.006" slices="32" stacks="4"/>
+            </descendants>
+        </node>
+
+        <node id="ui-panel">
+            <material id="plastic-white"/><texture id="null"><amplification afs="1" aft="1"/></texture>
+            <transformations>
+                <rotation axis="x" angle="-45"/>
+                <scale sx="0.1" sy="0.05" sz="0.005"/>
+            </transformations>
+            <descendants>
+                <noderef id="cube"/>
+            </descendants>
+        </node>
+
+        <node id="submit">
+            <material id="plastic-red"/><texture id="null"><amplification afs="1" aft="1"/></texture>
+            <transformations>
+                <translation x="0.02" y="0.005" z="0.0"/>
+                <rotation axis="x" angle="45"/>
+                <scale sx="0.025" sy="0.002" sz="0.025"/>
+            </transformations>
+            <descendants>
+                <noderef id="cube"/>
+            </descendants>
+        </node>
+        <node id="undo">
+            <material id="plastic-yellow"/><texture id="null"><amplification afs="1" aft="1"/></texture>
+            <transformations>
+                <translation x="-0.02" y="0.005" z="0.0"/>
+                <rotation axis="x" angle="45"/>
+                <scale sx="0.025" sy="0.002" sz="0.025"/>
+            </transformations>
+            <descendants>
+                <noderef id="cube"/>
             </descendants>
         </node>
 
