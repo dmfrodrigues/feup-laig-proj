@@ -151,6 +151,7 @@ class PlayerMoveState {
             // remove stack from selection
             if (index !== -1) {
                 this.substacks.splice(index, 1);
+                this.moveState--;
             }
             obj.deselect();
         }else{
