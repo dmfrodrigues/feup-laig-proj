@@ -3,7 +3,6 @@
  * @constructor
  * @param	{CGFscene}	scene	Scene
  */
-
 class PlayerMoveState {
     constructor(gameBoard){
         this.gameBoard = gameBoard;
@@ -27,6 +26,13 @@ class PlayerMoveState {
     isStackId(id){ return id > 100 && id < 200;}
     isButtonId(id){ return id  > 200;}
 
+    substacksLength(){
+        let sum = 0;
+        for(let i=0;i<this.substacks.length;i++)
+            sum += this.substacks[i];
+        return sum;
+    }
+
     updateMoveState(obj, id){
         switch (this.moveState) {
             case 0:
@@ -46,7 +52,10 @@ class PlayerMoveState {
                         this.manageMove(obj);
                     else break;
                     console.log("Added substack", this.moveState);
-                    this.moveState = 2;
+                    if(this.substacksLength() == Math.abs(this.stackSelected.height))
+                        this.moveState = 3;
+                    else
+                        this.moveState = 2;
                 }
                 else if(this.isStackId(id)){
                     this.initialState();
@@ -63,11 +72,8 @@ class PlayerMoveState {
                     }
                     else{
                         this.manageMove(obj);
-                        let sum = 0;
-                        for(let i=0;i<this.substacks.length;i++){
-                            console.log("Added substack", this.moveState);
-                            sum += this.substacks[i];
-                        }
+                        console.log("Added substack", this.moveState);
+                        let sum = this.substacksLength();
                         if(sum == Math.abs(this.stackSelected.height)){
                             console.log("All substacks in place - Yellow to continue");
                             this.moveState = 3;
@@ -90,19 +96,20 @@ class PlayerMoveState {
                     this.gameBoard.deselectAll();
                 }
                 else{
-                    // submit stack
+                    // submit substacks
                     this.moveState = 4;
                     console.log("Submitted substacks :" , this.substacks);
                 }
                 break;
             case 4:
                 if(this.isCellId(id)){
+                    // submit new piece
                     console.log("Final Move");
                     this.gameBoard.move(this.stackSelected.cell, this.substacks, this.direction, obj);
                     this.initialState();
                     this.gameBoard.deselectAll();
+                    // submit move
                 }
-                // submit move
                 break;
             default:
                 break;
@@ -132,10 +139,7 @@ class PlayerMoveState {
     manageMove(obj){
         let dist = this.distance(this.direction, obj, this.stackSelected.cell);
         // substacks total 
-        let sum = dist;
-        for(let i=0;i<this.substacks.length;i++){
-            sum += this.substacks[i];
-        }
+        let sum = dist + this.substacksLength();
         // validate
         if(!this.substacks.includes(dist)){
             if(sum <= Math.abs(this.stackSelected.height) && dist != 0)
