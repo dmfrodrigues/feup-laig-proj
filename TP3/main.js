@@ -64,6 +64,20 @@ main=function()
 
     startGame(gameMode, level);
     });
+
+    document.getElementById('info').addEventListener('click', ()=>{
+        let display = document.getElementById('info-text').style.display;
+        if(display == '' || display == "none"){
+            document.getElementById('info').style.color = 'darkslategray';
+            document.getElementById('info').style.backgroundColor = 'lightgray';
+            this.document.getElementById('info-text').style.display = 'block';
+        }
+        else{
+            document.getElementById('info').style.color = 'white';
+            document.getElementById('info').style.backgroundColor = 'darkslategray';
+            this.document.getElementById('info-text').style.display = 'none';
+        }
+    });
 }
 
 ]);
