@@ -23,6 +23,8 @@
 % curl -d '{"command": "move", "args": { "board": [[  0,  6,  0,  0,  0,"nan","nan","nan","nan"],[  0,  0,  0,  0,  0, -6,"nan","nan","nan"],[  0,  0,  0,  0,  0,  0,  0,"nan","nan"],[ -6,  0,  0,  0,  0,  0,  0,  0,"nan"],[  0,  0,  0,  0,  0,  0,  0,  0,  0],["nan",  0,  0,  0,  0,  0,  0,  0,  6],["nan","nan",  0,  0,  0,  0,  0,  0,  0],["nan","nan","nan",  6,  0,  0,  0,  0,  0],["nan","nan","nan","nan",  0,  0,  0, -6,  0]], "playermove": { "player": 1, "pos": [0,1], "substacks": [1,2,3], "dir": 6, "newpos": [0,0]}}}' -H "Content-Type: application/json" -X POST "localhost:8081"
 %
 % to which the server will answer with the new game board.
+%
+% curl -d '{"command": "choose_move", "args": { "gamestate": { "board": [[  0,  6,  0,  0,  0,"nan","nan","nan","nan"],[  0,  0,  0,  0,  0, -6,"nan","nan","nan"],[  0,  0,  0,  0,  0,  0,  0,"nan","nan"],[ -6,  0,  0,  0,  0,  0,  0,  0,"nan"],[  0,  0,  0,  0,  0,  0,  0,  0,  0],["nan",  0,  0,  0,  0,  0,  0,  0,  6],["nan","nan",  0,  0,  0,  0,  0,  0,  0],["nan","nan","nan",  6,  0,  0,  0,  0,  0],["nan","nan","nan","nan",  0,  0,  0, -6,  0]], "turn": 1 }, "turn": 1, "level": 3, "n": 7}}' -H "Content-Type: application/json" -X POST "localhost:8081"
 
 :-use_module(library(sockets)).
 :-use_module(library(lists)).
@@ -106,8 +108,31 @@ handle_request(Command, '', '400 Bad Request') :-
 
 % COMMANDS
 :-reconsult('feup-plog-tp1/src/move.pl').
+:-reconsult('feup-plog-tp1/src/choose_move.pl').
+
+:-
+	retract(base_directory(_)),
+	current_working_directory(CWD),
+	atom_concat(CWD, 'feup-plog-tp1/', BASE),
+	assert(base_directory(BASE)).
 
 handle_command(hello, [], hello).
 handle_command(quit, [], ok).
 handle_command(move, [board=Board, playermove=json([player=Player,pos=[PosI,PosJ],substacks=Substacks,dir=Dir,newpos=[NewPosI,NewPosJ]])], NewBoard) :-
 	move(Board, playermove(Player, PosI-PosJ, Substacks, Dir, NewPosI-NewPosJ), NewBoard).
+handle_command(
+	choose_move,
+	[gamestate=json([board=Board,turn=Turn]),turn=Turn,level=Level,n=N],
+	json([player=Player,pos=[PosI,PosJ],substacks=Substacks,dir=Dir,newpos=[NewPosI,NewPosJ]])
+) :-
+	format("Starting choose_move~n", []),
+	T = choose_move(
+		gamestate(Board, Turn),
+		Turn,
+		Level,
+		N,
+		playermove(Player,PosI-PosJ,Substacks,Dir,NewPosI-NewPosJ)
+	),
+	format("~q~n", [T]),
+	T,
+	format("Done with choose_move~n", []).
