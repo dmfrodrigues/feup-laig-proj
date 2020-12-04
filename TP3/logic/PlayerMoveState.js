@@ -46,10 +46,15 @@ class PlayerMoveState {
                 }
                 break;
             case 1:
-                if(this.isCellId(id)){
+                if(this.isCellId(id) || this.isStackId(id)){
+                    if(this.isStackId(id)) obj = obj.cell;
                     this.direction = this.getDirection(obj, this.stackSelected.cell);
+                    let distance = this.distance(this.direction, obj, this.stackSelected.cell);
                     if(this.direction != 0)
-                        this.manageMove(obj);
+                        if(obj.stack == null)
+                            this.manageMove(obj);
+                        else if(Math.abs(obj.stack.height) <= distance)
+                            this.manageMove(obj);
                     else break;
                     console.log("Added substack", this.moveState);
                     if(this.substacksLength() == Math.abs(this.stackSelected.height))
@@ -64,14 +69,20 @@ class PlayerMoveState {
                 }
                 break;
             case 2:
-                if(this.isCellId(id)){
+                if(this.isCellId(id) || this.isStackId(id)){
+                    if(this.isStackId(id)) obj = obj.cell;
                     if(this.getDirection(obj, this.stackSelected.cell) != this.direction){
                         this.initialState();
                         this.stackSelected = null;
                         this.gameBoard.deselectAll();
                     }
                     else{
-                        this.manageMove(obj);
+                        let distance = this.distance(this.direction, obj, this.stackSelected.cell);
+                        if(obj.stack == null)
+                            this.manageMove(obj);
+                        else if(Math.abs(obj.stack.height) <= distance)
+                            this.manageMove(obj);
+                        else break;
                         console.log("Added substack", this.moveState);
                         let sum = this.substacksLength();
                         if(sum == Math.abs(this.stackSelected.height)){
@@ -86,14 +97,10 @@ class PlayerMoveState {
                 }
                 break;
             case 3:
-                if(this.isCellId(id)){
+                if(this.isCellId(id) || this.isStackId(id)){
+                    if(this.isStackId(id)) obj = obj.cell;
                     if(this.getDirection(obj, this.stackSelected.cell) == this.direction)
                         this.manageMove(obj);
-                }
-                else if(this.isStackId(id)){
-                    this.initialState();
-                    this.stackSelected = obj;
-                    this.gameBoard.deselectAll();
                 }
                 else{
                     // submit substacks
