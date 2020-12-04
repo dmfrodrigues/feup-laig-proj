@@ -28,6 +28,7 @@ class BoardCell extends CGFobject {
     get i(){ return this._i; }
     get j(){ return this._j; }
 
+    isSelected(){ return this._selected; }
     select(){ this._selected = true; }
     deselect(){ this._selected = false; }
     deselectAll(){

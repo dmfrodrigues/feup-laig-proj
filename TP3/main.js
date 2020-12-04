@@ -40,6 +40,11 @@ serialInclude(
         'logic/PieceStack.js',
         'logic/PieceStackView.js',
         'logic/RoomPieceStackView.js',
+        'logic/GameMove.js',
+        'logic/GameSequence.js',
+        'logic/PlayerMoveState.js',
+        'logic/Button.js',
+        'logic/UserInterface.js',
 
 main=function()
 {

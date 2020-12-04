@@ -9,7 +9,7 @@ class Orchestrator extends CGFobject {
 
         this.scene.orchestrator = this;
         
-        // this.gameSequence = new GameSequence();
+        this.gameSequence = new GameSequence();
         // this.animator     = new Animator(this.scene, this, this.gameSequence);
         this.theme        = new MySceneGraph(theme, this.scene);
         this.gameBoard    = new GameBoard(this.scene);
@@ -39,8 +39,13 @@ class Orchestrator extends CGFobject {
     }
 
     onObjectSelected(obj, id){
-        this.gameBoard.deselectAll();
-        obj.select();
+        this.gameBoard.moveState.updateMoveState(obj, id);
+        /*
+        if(obj.isSelected())
+            obj.deselect();
+        else
+            obj.select();
+        */
     }
 
     update(t){
@@ -53,6 +58,7 @@ class Orchestrator extends CGFobject {
         this.theme.display();
         this.gameBoard.display();
         // this.animator.display();
+        this.theme.ui.display();
         // ...
     }
 }
