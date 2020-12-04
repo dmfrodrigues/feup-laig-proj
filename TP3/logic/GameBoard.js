@@ -43,9 +43,8 @@ class GameBoard extends CGFobject {
             }
         }
     }
-    // 1-5, [2, 4], 5, 2-5
+
     move(originCell, substacks, direction, newPieceCell) {
-        console.log(originCell, substacks, direction, newPieceCell);
 
         if (newPieceCell.stack != null) return false;
         
@@ -98,7 +97,6 @@ class GameBoard extends CGFobject {
         }
         
         newPieceCell.stack = new PieceStack(this.scene, 1 * (Math.sign(originCell.stack.height)));
-
 
         let gameMove = new GameMove(this.scene, originCell, substacks, direction, newPieceCell, this);
         this.scene.orchestrator.gameSequence.addGameMove(gameMove);

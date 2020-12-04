@@ -3,11 +3,20 @@
  * @constructor
  * @param	{CGFscene}	scene	Scene
  */
+
+const State = {
+    INITIAL: 0,
+    FIRST_SELECTION: 1,
+    BUILD_SUBSTACKS: 2,
+    COMPLETE_STACKS: 3,
+    FINAL: 4
+ };
+
 class PlayerMoveState {
     constructor(gameBoard){
         this.gameBoard = gameBoard;
         
-        this.moveState = 0; // 0 to 4
+        this.moveState = State.INITIAL;
         this.stackSelected = null;
         this.substacks = [];
         this.direction = 0;
@@ -15,16 +24,18 @@ class PlayerMoveState {
     }
 
     initialState(){
-        this.moveState = 0;
+        this.moveState = State.INITIAL;
         this.stackSelected = null;
         this.substacks = [];
         this.direction = 0;
         this.newPiece = null;
+        this.gameBoard.deselectAll();
     }
 
     isCellId(id){ return id < 100;}
     isStackId(id){ return id > 100 && id < 200;}
-    isButtonId(id){ return id  > 200;}
+    isSubmitId(id){ return id == 201;}
+    isUndoId(id){ return id == 202;}
 
     substacksLength(){
         let sum = 0;
@@ -35,17 +46,15 @@ class PlayerMoveState {
 
     updateMoveState(obj, id){
         switch (this.moveState) {
-            case 0:
+            case State.INITIAL:
                 if(this.isStackId(id)){
                     this.initialState();
                     this.stackSelected = obj;
-                    this.gameBoard.deselectAll();
-                    this.moveState = 1;
-                    console.log("Stack selected");
+                    this.moveState = State.FIRST_SELECTION;
                     obj.select();
                 }
                 break;
-            case 1:
+            case State.FIRST_SELECTION:
                 if(this.isCellId(id) || this.isStackId(id)){
                     if(this.isStackId(id)) obj = obj.cell;
                     this.direction = this.getDirection(obj, this.stackSelected.cell);
@@ -53,75 +62,71 @@ class PlayerMoveState {
                     if(this.direction != 0)
                         if(obj.stack == null)
                             this.manageMove(obj);
-                        else if(Math.abs(obj.stack.height) <= distance)
+                        else if(Math.sign(obj.stack.height) ==  Math.sign(this.stackSelected.height)
+                        || Math.abs(obj.stack.height) <= distance)
                             this.manageMove(obj);
                     else break;
-                    console.log("Added substack", this.moveState);
                     if(this.substacksLength() == Math.abs(this.stackSelected.height))
-                        this.moveState = 3;
+                        this.moveState = State.COMPLETE_STACKS;
                     else
-                        this.moveState = 2;
+                        this.moveState = State.BUILD_SUBSTACKS;
                 }
-                else if(this.isStackId(id)){
+                else if(this.isUndoId(id)){
                     this.initialState();
-                    this.stackSelected = obj;
-                    this.gameBoard.deselectAll();
                 }
                 break;
-            case 2:
+            case State.BUILD_SUBSTACKS:
                 if(this.isCellId(id) || this.isStackId(id)){
                     if(this.isStackId(id)) obj = obj.cell;
                     if(this.getDirection(obj, this.stackSelected.cell) != this.direction){
                         this.initialState();
-                        this.stackSelected = null;
                         this.gameBoard.deselectAll();
                     }
                     else{
                         let distance = this.distance(this.direction, obj, this.stackSelected.cell);
                         if(obj.stack == null)
                             this.manageMove(obj);
-                        else if(Math.abs(obj.stack.height) <= distance)
+                        else if(Math.sign(obj.stack.height) == Math.sign(this.stackSelected.height)
+                        || Math.abs(obj.stack.height) <= distance)
                             this.manageMove(obj);
                         else break;
-                        console.log("Added substack", this.moveState);
                         let sum = this.substacksLength();
                         if(sum == Math.abs(this.stackSelected.height)){
-                            console.log("All substacks in place - Yellow to continue");
-                            this.moveState = 3;
+                            this.moveState = State.COMPLETE_STACKS;
                         }
                     }
                 }
-                else{
+                else if(this.isUndoId(id)){
                     this.initialState();
-                    this.gameBoard.deselectAll();
                 }
                 break;
-            case 3:
+            case State.COMPLETE_STACKS:
                 if(this.isCellId(id) || this.isStackId(id)){
                     if(this.isStackId(id)) obj = obj.cell;
                     if(this.getDirection(obj, this.stackSelected.cell) == this.direction)
                         this.manageMove(obj);
                 }
-                else{
+                else if(this.isSubmitId(id)){
                     // submit substacks
-                    this.moveState = 4;
-                    console.log("Submitted substacks :" , this.substacks);
+                    this.moveState = State.FINAL;
+                }
+                else if(this.isUndoId(id)){
+                    this.initialState();
                 }
                 break;
-            case 4:
+            case State.FINAL:
                 if(this.isCellId(id)){
-                    // submit new piece
-                    console.log("Final Move");
+                    // submit new piece and move
                     this.gameBoard.move(this.stackSelected.cell, this.substacks, this.direction, obj);
                     this.initialState();
-                    this.gameBoard.deselectAll();
-                    // submit move
+                }
+                else if(this.isUndoId(id)){
+                    this.initialState();
                 }
                 break;
             default:
                 break;
         }
-        console.log("Game state " + this.moveState, this.direction);
     }
     
     getDirection(cell1, cell2){
@@ -158,7 +163,8 @@ class PlayerMoveState {
             // remove stack from selection
             if (index !== -1) {
                 this.substacks.splice(index, 1);
-                this.moveState--;
+                if(!(this.moveState == 2 && this.substacks.length == 2))
+                    this.moveState--;
             }
             obj.deselect();
         }else{
