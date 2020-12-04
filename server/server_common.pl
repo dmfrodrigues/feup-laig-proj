@@ -9,6 +9,8 @@ handle_request(_, '', '400 Bad Request').
 % COMMANDS
 :-reconsult('feup-plog-tp1/src/move.pl').
 :-reconsult('feup-plog-tp1/src/choose_move.pl').
+:-reconsult('feup-plog-tp1/src/value.pl').
+:-reconsult('feup-plog-tp1/src/game_over.pl').
 
 :-
 	retract(base_directory(_)),
@@ -39,3 +41,12 @@ handle_command(
 	Value
 ) :-
 	value(gamestate(Board,Turn),Turn,Value).
+handle_command(
+	game_over,
+	json([gamestate=json([board=Board,turn=Turn])]),
+	json([isgameover=IsGameOver,winner=Winner])
+) :-
+	(game_over(gamestate(Board,Turn),W) ->
+		(IsGameOver = 1, Winner = W);
+		(IsGameOver = 0, Winner = 0)
+	).
