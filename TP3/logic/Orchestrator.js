@@ -4,7 +4,7 @@
  * @param scene  		- Reference to MyScene object
  */
 class Orchestrator extends CGFobject {
-	constructor(scene, theme) {
+	constructor(scene, theme, gameMove, level) {
         super(scene);
 
         this.scene.orchestrator = this;

@@ -48,6 +48,27 @@ serialInclude(
 
 main=function()
 {
+    document.getElementById('play-button').addEventListener('click', () => {
+    let gameMode;
+    if(document.getElementById('PvP').checked){
+        gameMode = document.getElementById('PvP').value;
+    }else if(document.getElementById('PvC').checked){
+        gameMode = document.getElementById('PvC').value;
+    }else if(document.getElementById('CvC').checked){
+        gameMode = document.getElementById('CvC').value;
+    }
+    
+    let level = document.getElementById('level').value;
+
+    this.document.getElementById('menu').style.display = 'none';
+
+    startGame(gameMode, level);
+    });
+}
+
+]);
+
+function startGame(gameMode, level){
 	// Standard application, scene and interface setup
     var app = new CGFapplication(document.body);
     var myInterface = new MyInterface();
@@ -62,10 +83,8 @@ main=function()
 
 	// create and load graph, and associate it to scene. 
     // Check console for loading errors
-    var orchestrator = new Orchestrator(myScene, 'room.xml');
+    var orchestrator = new Orchestrator(myScene, 'room.xml', gameMode, level);
 	
 	// start
     app.run();
-}
-
-]);
+  }

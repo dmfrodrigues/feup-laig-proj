@@ -2,7 +2,7 @@
 <html>
 <head lang="en">
     <meta charset="UTF-8">
-    <title>LAIG - Parser Example</title>
+    <title>LAIG - GLAISHER</title>
     <link rel="icon" href="data:,">
 
 <style>
@@ -11,17 +11,81 @@ body, html {
     padding: 0;
     margin: 0;
     overflow: hidden;
+    background-color:  darkslategray;
 }
 
 canvas {
     width: 100%;
     height: 100%;
 }
+
+#menu {
+    display: block;
+    margin: auto;
+    margin-top: 15em;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    background-color: whitesmoke;
+    width: 33em;
+    padding: 2em;
+}
+
+#levels {
+    text-align: center;
+}
+
+h1 {
+    color: darkslategray;
+    font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    text-align: center;
+}
+
+#inputs div label{
+    display: block;
+    text-align: center;
+    margin: 0.5em;
+}
+
+#play-button {
+    margin: 1em;
+    text-align: center;
+}
+
 </style>
 </head>
 <body>
-
-<script src="main.js"></script>
-
+    <script src="main.js"></script>
+    <div id="menu">
+      <div>
+        <h1>GLAISHER</h1>
+      </div>
+      <article id="inputs">
+        <div id="game-modes">
+            <label>
+                Player vs Player
+                <input id="PvP" type="radio" name="gamemode" value="PvP" checked>
+            </label>
+            <label>
+                Player vs Computer
+                <input id="PvC" type="radio" name="gamemode" value="PvC" >
+            </label>
+            <label>
+                Computer vs Computer
+                <input id="CvC" type="radio" name="gamemode" value="CvC" >
+            </label>
+        </div>
+        <div id="levels">
+          <select id="level">
+            <option value="1">Level 1</option>
+            <option value="2">Level 2</option>
+            <option value="3">Level 3</option>
+          </select>
+        </div>
+      </article>
+      <div id="play-button">
+        <input type="submit" value="Play Game">
+      </div>
+    </div>
 </body>
 </html>
