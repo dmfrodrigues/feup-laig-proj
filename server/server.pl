@@ -123,21 +123,15 @@ handle_command(quit, json([]), ok).
 handle_command(
 	move,
 	json([board=Board, playermove=json([player=Player,pos=[PosI,PosJ],substacks=Substacks,dir=Dir,newpos=[NewPosI,NewPosJ]])]),
-	NewBoard) :-
-	move(Board, playermove(Player, PosI-PosJ, Substacks, Dir, NewPosI-NewPosJ), NewBoard).
+	NewBoard
+) :-
+	Move = playermove(Player, PosI-PosJ, Substacks, Dir, NewPosI-NewPosJ),
+	move(Board, Move, NewBoard).
 handle_command(
 	choose_move,
 	json([gamestate=json([board=Board,turn=Turn]),turn=Turn,level=Level,n=N]),
 	json([player=Player,pos=[PosI,PosJ],substacks=Substacks,dir=Dir,newpos=[NewPosI,NewPosJ]])
 ) :-
-	format("Starting choose_move~n", []),
-	T = choose_move(
-		gamestate(Board, Turn),
-		Turn,
-		Level,
-		N,
-		playermove(Player,PosI-PosJ,Substacks,Dir,NewPosI-NewPosJ)
-	),
-	format("~q~n", [T]),
-	T,
-	format("Done with choose_move~n", []).
+	GameState = gamestate(Board, Turn),
+	Move = playermove(Player,PosI-PosJ,Substacks,Dir,NewPosI-NewPosJ),
+	choose_move(GameState, Turn, Level, N, Move). 
