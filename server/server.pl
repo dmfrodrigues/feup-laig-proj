@@ -76,7 +76,9 @@ server_loop(Socket) :-
 
 		write('Finished Connection'),nl,nl,
 		close_stream(Stream),
-	(Request = json([command=quit,args=json([])])), !.
+	% (Request = json([command=quit,args=json([])])),
+	fail,
+	!.
 	
 close_stream(Stream) :-
 	flush_output(Stream),
@@ -119,7 +121,7 @@ handle_request(Command, '', '400 Bad Request') :-
 	assert(base_directory(BASE)).
 
 handle_command(hello, json([]), hello).
-handle_command(quit, json([]), ok).
+% handle_command(quit, json([]), ok).
 handle_command(
 	move,
 	json([board=Board, playermove=json([player=Player,pos=[PosI,PosJ],substacks=Substacks,dir=Dir,newpos=[NewPosI,NewPosJ]])]),
