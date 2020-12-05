@@ -60,24 +60,20 @@ main=function()
     
     let level = document.getElementById('level').value;
 
-    this.document.getElementById('menu').style.display = 'none';
+    this.document.getElementById('main').style.display = 'none';
 
     startGame(gameMode, level);
     });
 
-    document.getElementById('info').addEventListener('click', ()=>{
-        let display = document.getElementById('info-text').style.display;
-        if(display == '' || display == "none"){
-            document.getElementById('info').style.color = 'darkslategray';
-            document.getElementById('info').style.backgroundColor = 'lightgray';
-            this.document.getElementById('info-text').style.display = 'block';
-        }
-        else{
-            document.getElementById('info').style.color = 'white';
-            document.getElementById('info').style.backgroundColor = 'darkslategray';
-            this.document.getElementById('info-text').style.display = 'none';
-        }
+    document.getElementById('info-button').addEventListener('click', ()=>{
+        document.getElementById('menu').style.display = 'none';
+        document.getElementById('info-text').style.display = 'block';
     });
+    document.getElementById('exit-info').addEventListener('click', ()=>{
+        document.getElementById('menu').style.display = 'block';
+        document.getElementById('info-text').style.display = 'none';
+    });
+
 }
 
 ]);

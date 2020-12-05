@@ -24,7 +24,7 @@ canvas {
 #menu {
     display: block;
     margin: auto;
-    margin-top: 15em;
+    margin-top: 8em;
     justify-content: center;
     align-items: center;
     align-content: center;
@@ -55,7 +55,8 @@ h1 {
 #info-wrapper{
     padding: 1em;
 }
-#info {
+
+.info-button {
     cursor: pointer;
     border: none;
     background-color: darkslategray;
@@ -67,8 +68,6 @@ h1 {
     float: right;
 }
 
-
-
 #info-text {
     display: none;
     width: 50em;
@@ -76,7 +75,7 @@ h1 {
     left: 0;
     margin-left: auto;
     margin-right: auto;
-    margin-top: 1em; 
+    margin-top: 8em; 
     text-align: justify;
     color: darkslategray;
     background-color: white;
@@ -87,6 +86,7 @@ h1 {
 </head>
 <body>
     <script src="main.js"></script>
+    <div id="main">
     <div id="menu">
       <div>
         <h1>
@@ -123,15 +123,17 @@ h1 {
         <input type="submit" value="Play Game">
       </div>
       <div id="info-wrapper">
-        <button id="info"><span>&#63;</span></button>
+        <button id="info-button" class="info-button"><span>&#63;</span></button>
       </div>
     </div>
     <div id="info-text">
+            <button id="exit-info" class="info-button">X</button>
             <p>Players take turns in doing two consecutive, mandatory actions:</p>
             <p>1) Separate and move a stack: a stack can be separated into many substacks (it can also be 'separated' into a single substack), under the condition that all substacks must have different heights. 
             After separating the stack, all substacks must move in the same direction, and each stack travels as many hexes as it is tall (e.g., a 2-substack must travel 2 hexes), including over adversary stacks.</p>
             <p>2) Place a new piece: grab a new piece from the reserve, and place it in any empty hex with your color facing up (thus creating a 1-stack).</p>
             <p>The objective is to connect any pair of opposite sides of the board with a contiguous chain of stacks with your color. A player can also lose when he has no legal moves in item 1.</p>
+    </div>
     </div>
 </body>
 </html>
