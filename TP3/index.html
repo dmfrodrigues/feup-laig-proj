@@ -12,7 +12,8 @@ body, html {
     margin: 0;
     overflow: hidden;
     background-color:  darkslategray;
-    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-family: sans-serif;
+    display: block;
 }
 
 canvas {
@@ -66,15 +67,16 @@ h1 {
     float: right;
 }
 
+
+
 #info-text {
     display: none;
     width: 50em;
     right: 0;
     left: 0;
     margin-left: auto;
-    margin-right: auto; 
-    bottom: 5em;
-    position: absolute;
+    margin-right: auto;
+    margin-top: 1em; 
     text-align: justify;
     color: darkslategray;
     background-color: white;
@@ -118,13 +120,13 @@ h1 {
       <div id="info-wrapper">
         <button id="info"><span>&#63;</span></button>
       </div>
-      <div id="info-text">
-        <p>Players take turns in doing two consecutive, mandatory actions:</p>
-        <p>1) Separate and move a stack: a stack can be separated into many substacks (it can also be 'separated' into a single substack), under the condition that all substacks must have different heights. 
+    </div>
+    <div id="info-text">
+            <p>Players take turns in doing two consecutive, mandatory actions:</p>
+            <p>1) Separate and move a stack: a stack can be separated into many substacks (it can also be 'separated' into a single substack), under the condition that all substacks must have different heights. 
             After separating the stack, all substacks must move in the same direction, and each stack travels as many hexes as it is tall (e.g., a 2-substack must travel 2 hexes), including over adversary stacks.</p>
-        <p>2) Place a new piece: grab a new piece from the reserve, and place it in any empty hex with your color facing up (thus creating a 1-stack).</p>
-        <p>The objective is to connect any pair of opposite sides of the board with a contiguous chain of stacks with your color. A player can also lose when he has no legal moves in item 1.</p>
-      </div>
+            <p>2) Place a new piece: grab a new piece from the reserve, and place it in any empty hex with your color facing up (thus creating a 1-stack).</p>
+            <p>The objective is to connect any pair of opposite sides of the board with a contiguous chain of stacks with your color. A player can also lose when he has no legal moves in item 1.</p>
     </div>
 </body>
 </html>
