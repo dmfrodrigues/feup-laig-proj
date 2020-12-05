@@ -1,5 +1,3 @@
-SHELL := /bin/bash
-
 GROUP	=T2_G04
 
 PROLOG=swipl
