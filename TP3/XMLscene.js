@@ -148,19 +148,11 @@ class XMLscene extends CGFscene {
         this.appearance.apply();
     }
     setAppearance(material, tex){
-        // material
-        if(material == "same") {
-            // texture
-            if(tex == "same") return;
-            else              this.texture = tex;
-            this.appearance.setTexture(this.texture);
-            // finally
-            this.appearance.apply();
-        } else {
-            // texture
-            if(tex == "same") {}
-            else              this.texture = tex;
+        if(material == "same") material = this.appearance_stack.top();
+        if(tex      == "same") tex      = this.texture_stack   .top();
+        if(!Object.is(this.appearance, material) || !Object.is(this.texture, tex)){
             this.appearance = material;
+            this.texture    = tex;
             this.appearance.setTexture(this.texture);
             // finally
             this.appearance.apply();
