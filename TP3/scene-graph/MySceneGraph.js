@@ -904,7 +904,7 @@ class MySceneGraph {
             for(let j = 0; j < descendants.length; ++j){
                 let descendant = descendants[j];
                 if(descendant.nodeName == 'noderef'){
-                    nodeDescendants[nodeID].push(descendant.id);
+                    node.addChild(descendant.id);
                 } else if(descendant.nodeName == 'leaf'){
                     let leaf = {};
                     switch(descendant.attributes.type.value){
@@ -933,15 +933,8 @@ class MySceneGraph {
             this.nodes[nodeID] = node;
         }
 
-        for(let nodeID in nodeDescendants){
-            let node = this.nodes[nodeID];
-            let descendants = nodeDescendants[nodeID];
-            for(let i = 0; i < descendants.length; ++i){
-                let childID = descendants[i];
-                let child = this.nodes[childID];
-                if(child == null) return `node "${nodeID}" has child "${childID}" which does not exist`;
-                node.addChild(child);
-            }
+        for(let nodeID in this.nodes){
+            this.nodes[nodeID].resolveChildren((ID) => this.nodes[ID]);
         }
 
         if(this.nodes[this.idRoot] == null)

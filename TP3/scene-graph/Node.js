@@ -48,6 +48,13 @@ class Node extends CGFobject {
     addChild(child){
         this.children.push(child);
     }
+    resolveChildren(resolver){
+        for(let i = 0; i < this.children.length; ++i){
+            if(typeof this.children[i] === 'string'){
+                this.children[i] = resolver(this.children[i]);
+            }
+        }
+    }
 
     setDropbox(dropbox){
         this.dropbox = dropbox;

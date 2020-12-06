@@ -17,7 +17,7 @@ class MySpriteText{
             let x2 = x1+1;
             this.geometries.push(new MyRectangle(this.scene, x1, -0.5, x2, +0.5, 1, 1));
         }
-        this.spriteSheet = new MySpriteSheet(scene, "scenes/spritesheets/oolite-font.png", 16, 16);
+        this.spriteSheet = new MySpriteSheet(scene, "scenes/spritesheets/oolite-font-transparent.png", 16, 16);
     }
     getCharacterPosition(character){
         return character.charCodeAt();
