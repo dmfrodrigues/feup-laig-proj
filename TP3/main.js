@@ -14,6 +14,7 @@ function getUrlVars() {
 serialInclude(
     [
         '../lib/CGF.js',
+        'Stack.js',
         'XMLscene.js',
         'MyInterface.js',
         'scene-graph/primitives/MyTriangle.js',
@@ -37,6 +38,7 @@ serialInclude(
         'logic/BoardCell.js',
         'logic/GameBoard.js',
         'logic/Orchestrator.js',
+        'logic/PassiveOrchestrator.js',
         'logic/PieceStack.js',
         'logic/PieceStackView.js',
         'logic/RoomPieceStackView.js',
@@ -46,23 +48,32 @@ serialInclude(
         'logic/Button.js',
         'logic/UserInterface.js',
 
-main=function()
-{
+main=function(){
+    // var bg_app = new CGFapplication(document.getElementById('background'));
+    // var bg_scene = new XMLscene(null);
+    // bg_app.init();
+    // bg_app.setScene(bg_scene);
+    // var bg_orchestrator = new PassiveOrchestrator(bg_scene, 'space.xml');
+    // bg_app.run();
+
     document.getElementById('play-button').addEventListener('click', () => {
-    let gameMode;
-    if(document.getElementById('PvP').checked){
-        gameMode = document.getElementById('PvP').value;
-    }else if(document.getElementById('PvC').checked){
-        gameMode = document.getElementById('PvC').value;
-    }else if(document.getElementById('CvC').checked){
-        gameMode = document.getElementById('CvC').value;
-    }
-    
-    let level = document.getElementById('level').value;
+        // bg_app.setScene(null);
 
-    this.document.getElementById('main').style.display = 'none';
+        let gameMode;
+        if(document.getElementById('PvP').checked){
+            gameMode = document.getElementById('PvP').value;
+        }else if(document.getElementById('PvC').checked){
+            gameMode = document.getElementById('PvC').value;
+        }else if(document.getElementById('CvC').checked){
+            gameMode = document.getElementById('CvC').value;
+        }
+        
+        let level = document.getElementById('level').value;
 
-    startGame(gameMode, level);
+        this.document.getElementById('menu').style.display = 'none';
+        this.document.getElementById('background').style.display = 'none';
+
+        startGame(gameMode, level);
     });
 
     document.getElementById('info-button').addEventListener('click', ()=>{

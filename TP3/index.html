@@ -11,9 +11,21 @@ body, html {
     padding: 0;
     margin: 0;
     overflow: hidden;
-    background-color:  darkslategray;
     font-family: sans-serif;
     display: block;
+}
+
+#background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color:  darkslategray;
+}
+
+.content {
+  position: relative;
 }
 
 canvas {
@@ -87,7 +99,9 @@ h1 {
 <body>
     <script src="main.js"></script>
     <div id="main">
-    <div id="menu">
+    <div id="background">
+    </div>
+    <div class="content" id="menu">
       <div>
         <h1>
             <!-- <img id="title" src="scenes/gameboard/title.svg" alt="GLAISHER"> -->
@@ -126,7 +140,7 @@ h1 {
         <button id="info-button" class="info-button"><span>&#63;</span></button>
       </div>
     </div>
-    <div id="info-text">
+    <div class="content" id="info-text">
             <button id="exit-info" class="info-button">X</button>
             <p>Players take turns in doing two consecutive, mandatory actions:</p>
             <p>1) Separate and move a stack: a stack can be separated into many substacks (it can also be 'separated' into a single substack), under the condition that all substacks must have different heights. 

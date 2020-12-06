@@ -266,38 +266,43 @@ class MySceneGraph {
         this.referenceLength = axis_length;
 
         // Get gameboard
-        if(gameboardIndex == -1)
-            return "No gameboard defined for scene.";
-        let gameboardNode = children[gameboardIndex];
-        let ret = this.parseGameboard(gameboardNode);
-        if(typeof ret === 'string') return ret;
+        if(gameboardIndex == -1){
+            this.onXMLMinorError("No gameboard defined for scene.");
+        } else {
+            let gameboardNode = children[gameboardIndex];
+            let ret = this.parseGameboard(gameboardNode);
+            if(typeof ret === 'string') return ret;
+        }
         
         // Get pieces
-        if(piecesIndex == -1)
-            return "No pieces defined for scene.";
-        let piecesNode = children[piecesIndex];
-        let pieces = new PiecesSetup();
-        pieces.idObj = this.parseString(piecesNode, "id", "pieces");
-        let height = this.parseFloat(piecesNode, "height", "pieces"); if(typeof height === 'string') return height;
-        pieces.height = height;
+        if(piecesIndex == -1){
+            this.onXMLMinorError("No pieces defined for scene.");
+        } else {
+            let piecesNode = children[piecesIndex];
+            let pieces = new PiecesSetup();
+            pieces.idObj = this.parseString(piecesNode, "id", "pieces");
+            let height = this.parseFloat(piecesNode, "height", "pieces"); if(typeof height === 'string') return height;
+            pieces.height = height;
 
-        let piecesViewNode = children[piecesViewIndex];
-        let piecesView = this.parseString(piecesViewNode, "classname", "piecesView");
-        pieces.view = eval("new " + piecesView + "(this.scene)");
-        pieces.view.setGameboardSetup(this.gameboard);
-        pieces.view.setPieceSetup(pieces);
+            let piecesViewNode = children[piecesViewIndex];
+            let piecesView = this.parseString(piecesViewNode, "classname", "piecesView");
+            pieces.view = eval("new " + piecesView + "(this.scene)");
+            pieces.view.setGameboardSetup(this.gameboard);
+            pieces.view.setPieceSetup(pieces);
 
-        this._pieces = pieces;
+            this._pieces = pieces;
+        }
 
         // Get UI
 
-        if(uiIndex == -1)
-            return "No ui defined for scene.";
-            
-        let uiNode = children[uiIndex];
-        ret = this.parseUI(uiNode);
-        if(typeof ret === 'string') return ret;
-        
+        if(uiIndex == -1){
+            this.onXMLMinorError("No ui defined for scene.");
+        } else {
+            let uiNode = children[uiIndex];
+            let ret = this.parseUI(uiNode);
+            if(typeof ret === 'string') return ret;
+        }
+
         this.log("Parsed initials");
 
         return null;
@@ -947,34 +952,40 @@ class MySceneGraph {
         if(this.nodes[this.idRoot] == null)
             return `No such root node "${this.idRoot}"`;
 
-        if(this.nodes[this._gameboard.idObj] == null)
-            return `No such gameboard node "${this._gameboard.idObj}"`;
-        else
-            this._gameboard.obj = this.nodes[this._gameboard.idObj];
+        if(this._gameboard){
+            if(this.nodes[this._gameboard.idObj] == null)
+                return `No such gameboard node "${this._gameboard.idObj}"`;
+            else
+                this._gameboard.obj = this.nodes[this._gameboard.idObj];
 
-        if(this.nodes[this._gameboard.idObjCell] == null)
-            return `No such cell node "${this._gameboard.idObjCell}"`;
-        else
-            this._gameboard.objCell = this.nodes[this._gameboard.idObjCell];
+            if(this.nodes[this._gameboard.idObjCell] == null)
+                return `No such cell node "${this._gameboard.idObjCell}"`;
+            else
+                this._gameboard.objCell = this.nodes[this._gameboard.idObjCell];
+        }
 
-        if(this.nodes[this._pieces.idObj] == null)
-            return `No such piece node "${this._pieces.idObj}"`;
-        else
-            this._pieces.obj = this.nodes[this._pieces.idObj];
+        if(this._pieces){
+            if(this.nodes[this._pieces.idObj] == null)
+                return `No such piece node "${this._pieces.idObj}"`;
+            else
+                this._pieces.obj = this.nodes[this._pieces.idObj];
+        }
 
-        if(this.nodes[this._ui.panelID] == null)
-            return `No such panel node "${this._ui.panelID}"`;
-        else
-            this._ui.panel = this.nodes[this._ui.panelID];
+        if(this._ui){
+            if(this.nodes[this._ui.panelID] == null)
+                return `No such panel node "${this._ui.panelID}"`;
+            else
+                this._ui.panel = this.nodes[this._ui.panelID];
 
-        for(let i=0; i<this._ui.buttonsIDs.length;i++){
-            if(this.nodes[this._ui.buttonsIDs[i]] == null)
-                return `No such button node "${this._ui.buttonsIDs[i]}"`;
-            else{
-                let button = new Button(this.scene);
-                button.obj = this.nodes[this._ui.buttonsIDs[i]];
-                button.idObj = this._ui.buttonsIDs[i];
-                this._ui.buttons.push(button);
+            for(let i=0; i<this._ui.buttonsIDs.length;i++){
+                if(this.nodes[this._ui.buttonsIDs[i]] == null)
+                    return `No such button node "${this._ui.buttonsIDs[i]}"`;
+                else{
+                    let button = new Button(this.scene);
+                    button.obj = this.nodes[this._ui.buttonsIDs[i]];
+                    button.idObj = this._ui.buttonsIDs[i];
+                    this._ui.buttons.push(button);
+                }
             }
         }
         
@@ -1343,21 +1354,19 @@ class MySceneGraph {
      * Displays the scene, processing each node, starting in the root node.
      */
     display() {
-        
-        //TODO: Create display loop for transversing the scene graph, calling the root node's display function
-        // if(typeof this.displayScene.numFrames === 'undefined'){
-        //     this.displayScene.numFrames = 0;
-        //     this.displayScene.startTime = new Date().getTime();
-        // }
+        if(typeof this.display.numFrames === 'undefined'){
+            this.display.numFrames = 0;
+            this.display.startTime = new Date().getTime();
+        }
 
         this.scene.gl.enable(this.scene.gl.BLEND);
         this.scene.gl.blendFunc(this.scene.gl.SRC_ALPHA, this.scene.gl.ONE_MINUS_SRC_ALPHA);
         this.nodes[this.idRoot].display();
         this.scene.gl.disable(this.scene.gl.BLEND); 
 
-        // this.displayScene.numFrames++;
-        // let now = new Date().getTime();
-        // let seconds_per_frame = ((now-this.displayScene.startTime)/1000)/this.displayScene.numFrames;
-        // if(this.displayScene.numFrames % 100 === 0) console.log(1/seconds_per_frame);
+        this.display.numFrames++;
+        let now = new Date().getTime();
+        let seconds_per_frame = ((now-this.display.startTime)/1000)/this.display.numFrames;
+        if(this.display.numFrames % 500 === 0) console.log(1/seconds_per_frame);
     }
 }
