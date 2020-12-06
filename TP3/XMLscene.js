@@ -144,6 +144,7 @@ class XMLscene extends CGFscene {
     popAppearance(){
         this.appearance = this.appearance_stack.pop();
         this.texture = this.texture_stack.pop();
+        this.appearance.setTexture(this.texture);
         this.appearance.apply();
     }
     setAppearance(material, tex){
