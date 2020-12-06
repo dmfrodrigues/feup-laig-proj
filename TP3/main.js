@@ -9,7 +9,10 @@ function getUrlVars() {
       vars[decodeURIComponent(key)] = decodeURIComponent(value);
     });
     return vars;
-}	 
+}  
+
+var app = {};
+
 //Include additional files here
 serialInclude(
     [
@@ -49,15 +52,11 @@ serialInclude(
         'logic/UserInterface.js',
 
 main=function(){
-    // var bg_app = new CGFapplication(document.getElementById('background'));
-    // var bg_scene = new XMLscene(null);
-    // bg_app.init();
-    // bg_app.setScene(bg_scene);
-    // var bg_orchestrator = new PassiveOrchestrator(bg_scene, 'space.xml');
-    // bg_app.run();
+    app = new CGFapplication(document.getElementById('drawingBoard'));
+    app.init();
+    startMenu();
 
     document.getElementById('play-button').addEventListener('click', () => {
-        // bg_app.setScene(null);
 
         let gameMode;
         if(document.getElementById('PvP').checked){
@@ -71,7 +70,6 @@ main=function(){
         let level = document.getElementById('level').value;
 
         this.document.getElementById('menu').style.display = 'none';
-        this.document.getElementById('background').style.display = 'none';
 
         startGame(gameMode, level);
     });
@@ -89,23 +87,24 @@ main=function(){
 
 ]);
 
+function startMenu(){
+    var backgroundScene = new XMLscene(null);
+    app.setScene(backgroundScene);
+    var backgroundOrchestrator = new PassiveOrchestrator(backgroundScene, 'space.xml');
+    app.run();
+}
+
 function startGame(gameMode, level){
 	// Standard application, scene and interface setup
-    var app = new CGFapplication(document.body);
-    var myInterface = new MyInterface();
-    var myScene = new XMLscene(myInterface);
+    var gameInterface = new MyInterface();
+    var gameScene = new XMLscene(gameInterface);
 
-    app.init();
+    app.setScene(gameScene);
+    app.setInterface(gameInterface);
 
-    app.setScene(myScene);
-    app.setInterface(myInterface);
-
-    myInterface.setActiveCamera(myScene.camera);
+    gameInterface.setActiveCamera(gameScene.camera);
 
 	// create and load graph, and associate it to scene. 
     // Check console for loading errors
-    var orchestrator = new Orchestrator(myScene, 'room.xml', gameMode, level);
-	
-	// start
-    app.run();
-  }
+    var orchestrator = new Orchestrator(gameScene, 'room.xml', gameMode, level);
+}
