@@ -193,7 +193,10 @@ class XMLscene extends CGFscene {
             this.defaultAppearance.apply();
 
             // Displays everything
+            this.gl.enable(this.gl.BLEND);
+            this.gl.blendFunc(this.gl.SRC_ALPHA, this.gl.ONE_MINUS_SRC_ALPHA);
             this.orchestrator.display();
+            this.gl.disable(this.gl.BLEND); 
         }
         else
         {
