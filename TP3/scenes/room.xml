@@ -76,10 +76,10 @@
         <pieceview classname="RoomPieceStackView"/>
         <ui id="ui">
             <transformations>
-                <translation x="0.25" y="0.53" z="-0.2"/>
+                <translation x="0.24" y="0.54" z="-0.2"/>
                 <rotation axis="y" angle="90"/>
             </transformations>
-            <panel id="ui-panel"/>
+            <panel id="ui-panel-with-value"/>
             <buttons>
                 <button id="submit"/>
                 <button id="undo"/>
@@ -159,6 +159,8 @@
     </textures>
 
     <spritesheets>
+        <spritesheet id="consolas" path="./scenes/spritesheets/consolas.png" sizeM="16" sizeN="16"/>
+        <spritesheet id="lcd" path="./scenes/spritesheets/lcd.png" sizeM="16" sizeN="16"/>
         <spritesheet id="fire" path="./scenes/spritesheets/fire8_64.png" sizeM="10" sizeN="6"/>
         <spritesheet id="tv-news" path="./scenes/spritesheets/news.jpg" sizeM="8" sizeN="18"/>
         <spritesheet id="tv-football" path="./scenes/spritesheets/football.jpg" sizeM="8" sizeN="18"/>
@@ -917,17 +919,39 @@
             </descendants>
         </node>
 
+        <node id="ui-panel-with-value">
+            <material id="null"/><texture id="null"><amplification afs="1" aft="1"/></texture>
+            <transformations>
+                <rotation axis="x" angle="-45"/>
+            </transformations>
+            <descendants>
+                <noderef id="ui-panel"/>
+                <noderef id="ui-panel-value"/>
+            </descendants>
+        </node>
+
+
         <node id="ui-panel">
             <material id="plastic-white"/><texture id="null"><amplification afs="1" aft="1"/></texture>
             <transformations>
-                <rotation axis="x" angle="-45"/>
-                <scale sx="0.1" sy="0.05" sz="0.005"/>
+                <scale sx="0.1" sy="0.07" sz="0.005"/>
             </transformations>
             <descendants>
                 <noderef id="cube"/>
             </descendants>
         </node>
-
+        <node id="ui-panel-value">
+            <material id="clock-plastic-black-emissive"/>
+            <texture id="null"><amplification afs="1" aft="1"/></texture>
+            <transformations>
+                <translation x="0" y="0.025" z="0.00251"/>
+                <scale sx="0.57142857142" sy="1" sz="1"/>
+                <scale sx="0.008" sy="0.008" sz="0.008"/>
+            </transformations>
+            <descendants>
+                <leaf type="spritetext" font="consolas" text="Value: 0.0"/>
+            </descendants>
+        </node>
         <node id="submit">
             <material id="plastic-red"/><texture id="null"><amplification afs="1" aft="1"/></texture>
             <transformations>

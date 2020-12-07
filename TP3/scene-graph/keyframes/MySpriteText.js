@@ -6,7 +6,7 @@
  * @param exp     - Optional custom expression to evaluate
  */
 class MySpriteText{
-    constructor(scene, text, exp){
+    constructor(scene, font, text, exp){
         this.scene = scene;
         this.text = text;
         this.exp = exp;
@@ -17,7 +17,7 @@ class MySpriteText{
             let x2 = x1+1;
             this.geometries.push(new MyRectangle(this.scene, x1, -0.5, x2, +0.5, 1, 1));
         }
-        this.spriteSheet = new MySpriteSheet(scene, "scenes/spritesheets/oolite-font-transparent.png", 16, 16);
+        this.spriteSheet = font;
     }
     getCharacterPosition(character){
         return character.charCodeAt();

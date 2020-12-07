@@ -1275,11 +1275,12 @@ class MySceneGraph {
      * @param {string} messageError String to print in case of error
      */
     parseSpriteText(node, messageError){
+        let font = this.parseString(node, 'font', messageError);
         let text = this.parseString(node, 'text', messageError);
         let exp = null;
         if(node.attributes.eval != null)
             exp = this.parseString(node, 'eval', messageError);
-        return new MySpriteText(this.scene, text, exp);
+        return new MySpriteText(this.scene, this.spriteSheets[font],  text, exp);
     }
 
     /**
