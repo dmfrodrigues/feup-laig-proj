@@ -236,6 +236,13 @@
             <specular r="0.70" g="0.70" b="0.70" a="1.0"/>
             <emissive r="0.0" g="0.0" b="0.0" a="1.0"/>
         </material>
+        <material id="television-screen-on">
+            <shininess value="50.0"/>
+            <ambient  r="0.10" g="0.10" b="0.10" a="1.0"/>
+            <diffuse  r="0.10" g="0.10" b="0.10" a="1.0"/>
+            <specular r="0.70" g="0.70" b="0.70" a="1.0"/>
+            <emissive r="0.80" g="0.80" b="0.80" a="1.0"/>
+        </material>
         <material id="metal">
             <shininess value="50.0"/>
             <ambient  r="1.0" g="1.0" b="1.0" a="1.0"/>
@@ -327,12 +334,19 @@
             <specular r="1.0" g="1.0" b="1.0" a="1.0"/>
             <emissive r="0.1" g="0.1" b="0.1" a="1.0"/>
         </material>
-        <material id="clock-plastic-black">
+        <material id="clock-plastic-black-emissive">
             <shininess value="1.0"/>
             <ambient  r="0.0" g="0.0" b="0.0" a="1.0"/>
             <diffuse  r="0.0" g="0.0" b="0.0" a="1.0"/>
             <specular r="0.0" g="0.0" b="0.0" a="1.0"/>
             <emissive r="0.1" g="0.1" b="0.1" a="1.0"/>
+        </material>
+        <material id="clock-plastic-red-emissive">
+            <shininess value="1.0"/>
+            <ambient  r="0.0" g="0.0" b="0.0" a="1.0"/>
+            <diffuse  r="0.0" g="0.0" b="0.0" a="1.0"/>
+            <specular r="0.0" g="0.0" b="0.0" a="1.0"/>
+            <emissive r="0.9" g="0.0" b="0.0" a="1.0"/>
         </material>
         <material id="brick">
             <shininess value="1.0"/>
@@ -361,6 +375,13 @@
             <diffuse  r="0.514" g="0.680" b="0.660" a="0.10"/>
             <specular r="0.514" g="0.680" b="0.660" a="0.10"/>
             <emissive r="0.000" g="0.000" b="0.000" a="0.10"/>
+        </material>
+        <material id="fire">
+            <shininess value="1.0"/>
+            <ambient  r="0.0" g="0.0" b="0.0" a="1.0"/>
+            <diffuse  r="0.0" g="0.0" b="0.0" a="1.0"/>
+            <specular r="0.0" g="0.0" b="0.0" a="1.0"/>
+            <emissive r="1.0" g="1.0" b="1.0" a="1.0"/>
         </material>
     </materials>
 
@@ -1115,7 +1136,7 @@
         </node>
 
         <node id="fireplace-fire">
-            <material id="null"/><texture id="null"><amplification afs="1" aft="1"/></texture>
+            <material id="fire"/><texture id="null"><amplification afs="1" aft="1"/></texture>
             <transformations>
                 <translation x="0" y="0" z="0.05"/>
             </transformations>
@@ -1391,7 +1412,6 @@
             <transformations>
                 <translation x="-0.8" y="1.035" z="-1.32"/>
                 <rotation axis="y" angle="20"/>
-                <scale sx="0.06" sy="0.06" sz="0.06"/>
             </transformations>
             <descendants>
                 <noderef id="clock"/>
@@ -1400,6 +1420,9 @@
 
         <node id="clock">
             <material id="null"/><texture id="null"><amplification afs="1" aft="1"/></texture>
+            <transformations>
+                <scale sx="0.06" sy="0.06" sz="0.06"/>
+            </transformations>
             <descendants>
                 <noderef id="clock_box"/>
                 <noderef id="clock_button"/>
@@ -1420,14 +1443,23 @@
             <material id="null"/><texture id="null"><amplification afs="1" aft="1"/></texture>
             <descendants>
                 <noderef id="clock_display_background"/>
-                    <leaf type="spritetext" text="12:00" 
+                <noderef id="clock_display_text"/>
+            </descendants>
+        </node>
+        <node id="clock_display_text">
+            <material id="clock-plastic-red-emissive"/><texture id="null"><amplification afs="1" aft="1"/></texture>
+            <transformations>
+                <scale sx="0.65" sy="0.9" sz="1"/>
+            </transformations>
+            <descendants>
+                    <leaf type="spritetext" font="lcd" text="12:00" 
                         eval="let d = new Date(); 
                         return ('0' + d.getHours()).slice(-2) + ':' + ('0' + d.getMinutes()).slice(-2); "
                     />
             </descendants>
         </node>
         <node id="clock_display_background">
-            <material id="clock-plastic-black"/><texture id="null"><amplification afs="1" aft="1"/></texture>
+            <material id="clock-plastic-black-emissive"/><texture id="null"><amplification afs="1" aft="1"/></texture>
             <transformations>
                 <translation x="0" y="0" z="-0.001"/>
             </transformations>
@@ -3274,7 +3306,7 @@
             </descendants>
         </node>
         <node id="tv-screen">
-            <material id="television-screen"/><texture id="clear"/>
+            <material id="null"/><texture id="clear"/>
             <transformations>
                 <translation x="0" y="0" z="-0.005"/>
             </transformations>
@@ -3285,7 +3317,7 @@
             </descendants>
         </node>
         <node id="tv-screen-program-1">
-            <material id="television-screen"/><texture id="null"><amplification afs="1" aft="1"/></texture>
+            <material id="television-screen-on"/><texture id="null"><amplification afs="1" aft="1"/></texture>
             <transformations>
                 <translation x="0" y="0" z="0.0001"/>
                 <rotation axis="x" angle="90"/>
@@ -3297,7 +3329,7 @@
             </descendants>
         </node>
         <node id="tv-screen-program-2">
-            <material id="television-screen"/><texture id="null"><amplification afs="1" aft="1"/></texture>
+            <material id="television-screen-on"/><texture id="null"><amplification afs="1" aft="1"/></texture>
             <transformations>
                 <translation x="0" y="0" z="0.00005"/>
                 <rotation axis="x" angle="90"/>
@@ -3319,13 +3351,13 @@
             </descendants>
         </node>
         <node id="tv-screen-news">
-            <material id="television-screen"/><texture id="null"><amplification afs="1" aft="1"/></texture>
+            <material id="null"/><texture id="null"><amplification afs="1" aft="1"/></texture>
             <descendants>
                 <leaf type="spriteanim" ssid="tv-news" startCell="1" endCell="136" duration="15" />
             </descendants>
         </node>
         <node id="tv-screen-football">
-            <material id="television-screen"/><texture id="null"><amplification afs="1" aft="1"/></texture>
+            <material id="null"/><texture id="null"><amplification afs="1" aft="1"/></texture>
             <descendants>
                 <leaf type="spriteanim" ssid="tv-football" startCell="1" endCell="141" duration="20" />
             </descendants>

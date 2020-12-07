@@ -30,7 +30,13 @@ class MySpriteText{
         this.scene.setActiveShaderSimple(this.spriteSheet.shader);
         this.scene.pushMatrix();
         for (var i = 0; i < this.text.length; i++) {
+            this.spriteSheet.shader.clearUniforms();
+            this.spriteSheet.shader.addUniformsValues({
+                ambient : this.scene.appearance.ambient,
+                emission: this.scene.appearance.emission
+            });
             this.spriteSheet.activateCellP(this.getCharacterPosition(this.text[i]));
+            this.spriteSheet.shader.updateUniforms();
             this.geometries[i].display();
         }
         this.scene.popMatrix();

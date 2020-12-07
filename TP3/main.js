@@ -24,6 +24,7 @@ serialInclude(
         'scene-graph/primitives/Plane.js',
         'scene-graph/primitives/Patch.js',
         'scene-graph/primitives/Barrel.js',
+        'scene-graph/keyframes/MyShader.js',
         'scene-graph/keyframes/Keyframe.js',
         'scene-graph/keyframes/Animation.js',
         'scene-graph/keyframes/KeyframeAnimation.js',
