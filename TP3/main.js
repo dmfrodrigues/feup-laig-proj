@@ -9,11 +9,15 @@ function getUrlVars() {
       vars[decodeURIComponent(key)] = decodeURIComponent(value);
     });
     return vars;
-}	 
+}  
+
+var app = {};
+
 //Include additional files here
 serialInclude(
     [
         '../lib/CGF.js',
+        'Stack.js',
         'XMLscene.js',
         'MyInterface.js',
         'scene-graph/primitives/MyTriangle.js',
@@ -38,6 +42,7 @@ serialInclude(
         'logic/BoardCell.js',
         'logic/GameBoard.js',
         'logic/Orchestrator.js',
+        'logic/PassiveOrchestrator.js',
         'logic/PieceStack.js',
         'logic/PieceStackView.js',
         'logic/RoomPieceStackView.js',
@@ -47,26 +52,60 @@ serialInclude(
         'logic/Button.js',
         'logic/UserInterface.js',
 
-main=function()
-{
-	// Standard application, scene and interface setup
-    var app = new CGFapplication(document.body);
-    var myInterface = new MyInterface();
-    var myScene = new XMLscene(myInterface);
-
+main=function(){
+    app = new CGFapplication(document.getElementById('drawingBoard'));
     app.init();
+    startMenu();
 
-    app.setScene(myScene);
-    app.setInterface(myInterface);
+    document.getElementById('play-button').addEventListener('click', () => {
 
-    myInterface.setActiveCamera(myScene.camera);
+        let gameMode;
+        if(document.getElementById('PvP').checked){
+            gameMode = document.getElementById('PvP').value;
+        }else if(document.getElementById('PvC').checked){
+            gameMode = document.getElementById('PvC').value;
+        }else if(document.getElementById('CvC').checked){
+            gameMode = document.getElementById('CvC').value;
+        }
+        
+        let level = document.getElementById('level').value;
 
-	// create and load graph, and associate it to scene. 
-    // Check console for loading errors
-    var orchestrator = new Orchestrator(myScene, 'room.xml');
-	
-	// start
-    app.run();
+        this.document.getElementById('menu').style.display = 'none';
+
+        startGame(gameMode, level);
+    });
+
+    document.getElementById('info-button').addEventListener('click', ()=>{
+        document.getElementById('menu').style.display = 'none';
+        document.getElementById('info-text').style.display = 'block';
+    });
+    document.getElementById('exit-info').addEventListener('click', ()=>{
+        document.getElementById('menu').style.display = 'block';
+        document.getElementById('info-text').style.display = 'none';
+    });
+
 }
 
 ]);
+
+function startMenu(){
+    var backgroundScene = new XMLscene(null);
+    app.setScene(backgroundScene);
+    var backgroundOrchestrator = new PassiveOrchestrator(backgroundScene, 'space.xml');
+    app.run();
+}
+
+function startGame(gameMode, level){
+	// Standard application, scene and interface setup
+    var gameInterface = new MyInterface();
+    var gameScene = new XMLscene(gameInterface);
+
+    app.setScene(gameScene);
+    app.setInterface(gameInterface);
+
+    gameInterface.setActiveCamera(gameScene.camera);
+
+	// create and load graph, and associate it to scene. 
+    // Check console for loading errors
+    var orchestrator = new Orchestrator(gameScene, 'room.xml', gameMode, level);
+}

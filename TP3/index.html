@@ -2,7 +2,7 @@
 <html>
 <head lang="en">
     <meta charset="UTF-8">
-    <title>LAIG - Parser Example</title>
+    <title>LAIG - GLAISHER</title>
     <link rel="icon" href="data:,">
 
 <style>
@@ -11,17 +11,148 @@ body, html {
     padding: 0;
     margin: 0;
     overflow: hidden;
+    font-family: sans-serif;
+    display: block;
+}
+
+#drawingBoard {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color:  black;
+}
+
+.content {
+  position: relative;
 }
 
 canvas {
     width: 100%;
     height: 100%;
 }
+
+#menu {
+    display: block;
+    margin: auto;
+    align-items: center;
+    background-color: whitesmoke;
+    width: 33em;
+    height: 20em;
+    padding: 2em;
+    position: absolute;
+	top:0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+}
+
+#levels {
+    text-align: center;
+}
+
+h1 {
+    color: darkslategray;
+    text-align: center;
+}
+
+#inputs div label{
+    display: block;
+    text-align: center;
+    margin: 0.5em;
+}
+
+#play-button {
+    margin: 1em;
+    text-align: center;
+}
+#info-wrapper{
+    padding: 1em;
+}
+
+.info-button {
+    cursor: pointer;
+    border: none;
+    background-color: darkslategray;
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+    padding: 0.5em 0.8em 0.5em 0.8em;
+    border-radius: 30%;
+    float: right;
+}
+
+#info-text {
+    display: none;
+    width: 50em;
+    height: 15em; 
+    text-align: justify;
+    color: darkslategray;
+    background-color: white;
+    padding: 1em;  
+    margin: auto;  
+    position: absolute;
+	top:0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+}
+
 </style>
 </head>
 <body>
-
-<script src="main.js"></script>
-
+    <script src="main.js"></script>
+    <div id="main">
+    <div id="drawingBoard">
+    </div>
+    <div class="content" id="menu">
+      <div>
+        <h1>
+            <!-- <img id="title" src="scenes/gameboard/title.svg" alt="GLAISHER"> -->
+            <object id="title" type="image/svg+xml" data="scenes/gameboard/title.svg">
+            
+            </object>
+        </h1>
+      </div>
+      <article id="inputs">
+        <div id="game-modes">
+            <label>
+                Player vs Player
+                <input id="PvP" type="radio" name="gamemode" value="PvP" checked>
+            </label>
+            <label>
+                Player vs Computer
+                <input id="PvC" type="radio" name="gamemode" value="PvC" >
+            </label>
+            <label>
+                Computer vs Computer
+                <input id="CvC" type="radio" name="gamemode" value="CvC" >
+            </label>
+        </div>
+        <div id="levels">
+          <select id="level">
+            <option value="1">Level 1</option>
+            <option value="2">Level 2</option>
+            <option value="3">Level 3</option>
+          </select>
+        </div>
+      </article>
+      <div id="play-button">
+        <input type="submit" value="Play Game">
+      </div>
+      <div id="info-wrapper">
+        <button id="info-button" class="info-button"><span>&#63;</span></button>
+      </div>
+    </div>
+    <div class="content" id="info-text">
+            <button id="exit-info" class="info-button">X</button>
+            <p>Players take turns in doing two consecutive, mandatory actions:</p>
+            <p>1) Separate and move a stack: a stack can be separated into many substacks (it can also be 'separated' into a single substack), under the condition that all substacks must have different heights. 
+            After separating the stack, all substacks must move in the same direction, and each stack travels as many hexes as it is tall (e.g., a 2-substack must travel 2 hexes), including over adversary stacks.</p>
+            <p>2) Place a new piece: grab a new piece from the reserve, and place it in any empty hex with your color facing up (thus creating a 1-stack).</p>
+            <p>The objective is to connect any pair of opposite sides of the board with a contiguous chain of stacks with your color. A player can also lose when he has no legal moves in item 1.</p>
+    </div>
+    </div>
 </body>
 </html>

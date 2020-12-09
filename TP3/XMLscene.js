@@ -42,8 +42,8 @@ class XMLscene extends CGFscene {
 
         this.defaultAppearance=new CGFappearance(this);
 
-        this.appearance_stack = [];
-        this.texture_stack = [];
+        this.appearance_stack = new Stack();
+        this.texture_stack = new Stack();
         this.appearance = this.defaultAppearance;
     }
 
@@ -57,7 +57,7 @@ class XMLscene extends CGFscene {
      * Initializes the scene lights with the values read from the XML file.
      */
     initLights() {
-        var folder_lights = this.interface.gui.addFolder("Lights");
+        if(this.interface) var folder_lights = this.interface.gui.addFolder("Lights");
 
         var i = 0;
         // Lights index.
@@ -84,7 +84,7 @@ class XMLscene extends CGFscene {
 
                 this.lights[i].update();
 
-                folder_lights.add(this.lights[i], 'enabled').name(key);
+                if(folder_lights) folder_lights.add(this.lights[i], 'enabled').name(key);
 
                 i++;
             }
@@ -92,14 +92,15 @@ class XMLscene extends CGFscene {
     }
 
     createCameraControls(){
-        this.interface.gui.add(this.graph.views, 'current', Object.keys(this.graph.views.list)).name('View').onChange(this.updateViews.bind(this));
+        if(this.interface)
+            this.interface.gui.add(this.graph.views, 'current', Object.keys(this.graph.views.list)).name('View').onChange(this.updateViews.bind(this));
     
         this.updateViews();
     }
 
     updateViews() {
         this.camera = this.graph.views.list[this.graph.views.current];
-        this.interface.setActiveCamera(this.camera);
+        if(this.interface) this.interface.setActiveCamera(this.camera);
     }
 
     /**
@@ -143,18 +144,19 @@ class XMLscene extends CGFscene {
     popAppearance(){
         this.appearance = this.appearance_stack.pop();
         this.texture = this.texture_stack.pop();
+        this.appearance.setTexture(this.texture);
         this.appearance.apply();
     }
     setAppearance(material, tex){
-        // material
-        if(material == "same") this.appearance = this.appearance_stack[this.appearance_stack.length-1];
-        else                   this.appearance = material;
-        // texture
-        if(tex == "same") this.texture = this.texture_stack[this.texture_stack.length-1];
-        else              this.texture = tex;
-        this.appearance.setTexture(this.texture);
-        // finally
-        this.appearance.apply();
+        if(material == "same") material = this.appearance_stack.top();
+        if(tex      == "same") tex      = this.texture_stack   .top();
+        if(!Object.is(this.appearance, material) || !Object.is(this.texture, tex)){
+            this.appearance = material;
+            this.texture    = tex;
+            this.appearance.setTexture(this.texture);
+            // finally
+            this.appearance.apply();
+        }
     }
 
     selectEnable   (){ this.selectEnabled = true ; }
