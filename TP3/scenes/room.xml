@@ -209,6 +209,20 @@
             <specular r="0.3" g="0.3" b="0.3" a="1.0"/>
             <emissive r="0.3" g="0.3" b="0.3" a="1.0"/>
         </material>
+        <material id="plastic-green">
+            <shininess value="15.0"/>
+            <ambient  r="0.5" g="1.0" b="0.5" a="1.0"/>
+            <diffuse  r="0.5" g="1.0" b="0.5" a="1.0"/>
+            <specular r="0.3" g="0.3" b="0.3" a="1.0"/>
+            <emissive r="0.0" g="0.0" b="0.0" a="1.0"/>
+        </material>
+        <material id="plastic-orange">
+            <shininess value="15.0"/>
+            <ambient  r="1.0" g="0.75" b="0.5" a="1.0"/>
+            <diffuse  r="1.0" g="0.75" b="0.5" a="1.0"/>
+            <specular r="0.3" g="0.3" b="0.3" a="1.0"/>
+            <emissive r="0.0" g="0.0" b="0.0" a="1.0"/>
+        </material>
         
         <material id="plastic-pink">
             <shininess value="1.0"/>
@@ -953,25 +967,67 @@
             </descendants>
         </node>
         <node id="submit">
-            <material id="plastic-red"/><texture id="null"><amplification afs="1" aft="1"/></texture>
+            <material id="null"/><texture id="null"><amplification afs="1" aft="1"/></texture>
             <transformations>
                 <translation x="0.02" y="0.005" z="0.0"/>
                 <rotation axis="x" angle="45"/>
-                <scale sx="0.025" sy="0.002" sz="0.025"/>
+            </transformations>
+            <descendants>
+                <noderef id="submit-button"/>
+                <noderef id="submit-text"/>
+            </descendants>
+        </node>
+        <node id="submit-button">
+            <material id="plastic-green"/><texture id="null"><amplification afs="1" aft="1"/></texture>
+            <transformations>
+                <scale sx="0.030" sy="0.002" sz="0.020"/>
             </transformations>
             <descendants>
                 <noderef id="cube"/>
             </descendants>
         </node>
+        <node id="submit-text">
+            <material id="plastic-white"/><texture id="null"><amplification afs="1" aft="1"/></texture>
+            <transformations>
+                <translation x="0" y="0.00101" z="0"/>
+                <rotation axis="x" angle="-90"/>
+                <scale sx="0.57142857142" sy="1" sz="1"/>
+                <scale sx="0.007" sy="0.007" sz="0.007"/>
+            </transformations>
+            <descendants>
+                <leaf type="spritetext" font="consolas" text="Submit"/>
+            </descendants>
+        </node>
         <node id="undo">
-            <material id="plastic-yellow"/><texture id="null"><amplification afs="1" aft="1"/></texture>
+            <material id="null"/><texture id="null"><amplification afs="1" aft="1"/></texture>
             <transformations>
                 <translation x="-0.02" y="0.005" z="0.0"/>
                 <rotation axis="x" angle="45"/>
-                <scale sx="0.025" sy="0.002" sz="0.025"/>
+            </transformations>
+            <descendants>
+                <noderef id="undo-button"/>
+                <noderef id="undo-text"/>
+            </descendants>
+        </node>
+        <node id="undo-button">
+            <material id="plastic-orange"/><texture id="null"><amplification afs="1" aft="1"/></texture>
+            <transformations>
+                <scale sx="0.030" sy="0.002" sz="0.020"/>
             </transformations>
             <descendants>
                 <noderef id="cube"/>
+            </descendants>
+        </node>
+        <node id="undo-text">
+            <material id="plastic-white"/><texture id="null"><amplification afs="1" aft="1"/></texture>
+            <transformations>
+                <translation x="0" y="0.00101" z="0"/>
+                <rotation axis="x" angle="-90"/>
+                <scale sx="0.57142857142" sy="1" sz="1"/>
+                <scale sx="0.007" sy="0.007" sz="0.007"/>
+            </transformations>
+            <descendants>
+                <leaf type="spritetext" font="consolas" text="Undo"/>
             </descendants>
         </node>
 

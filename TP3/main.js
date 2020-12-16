@@ -39,6 +39,7 @@ serialInclude(
         'scene-graph/PiecesSetup.js',
         'scene-graph/Node.js',
         'scene-graph/MySceneGraph.js',
+        'server/Server.js',
         'logic/BoardCell.js',
         'logic/GameBoard.js',
         'logic/GameState.js',

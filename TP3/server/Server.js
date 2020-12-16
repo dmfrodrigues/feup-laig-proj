@@ -22,6 +22,7 @@ class Server {
             {
                 method: 'POST',
                 headers: {
+                    'Content-Type': 'application/json',
                     'Accept': 'application/json'
                 },
                 body: {
@@ -41,12 +42,14 @@ class Server {
      * @param {GameState} gamestate Game state
      */
     value(gamestate){
-        gamestate_json = JSON.stringify(gamestate);
+        let gamestate_json = gamestate.toJSON();
+        console.log(gamestate_json);
         return fetch(
             this._url,
             {
                 method: 'POST',
                 headers: {
+                    'Content-Type': 'application/json',
                     'Accept': 'application/json'
                 },
                 body: {
@@ -56,6 +59,8 @@ class Server {
                     }
                 }
             }
-        );
+        ).then((response) => response.json());
     }
 }
+
+var server = new Server('https://feup-plog-tp1-staging.herokuapp.com/');
