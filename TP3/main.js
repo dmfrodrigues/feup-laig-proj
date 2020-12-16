@@ -41,6 +41,7 @@ serialInclude(
         'scene-graph/MySceneGraph.js',
         'logic/BoardCell.js',
         'logic/GameBoard.js',
+        'logic/GameState.js',
         'logic/Orchestrator.js',
         'logic/PassiveOrchestrator.js',
         'logic/PieceStack.js',

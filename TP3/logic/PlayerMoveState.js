@@ -13,8 +13,8 @@ const State = {
  };
 
 class PlayerMoveState {
-    constructor(gameBoard){
-        this.gameBoard = gameBoard;
+    constructor(gameState){
+        this.gameState = gameState;
         
         this.moveState = State.INITIAL;
         this.stackSelected = null;
@@ -29,7 +29,7 @@ class PlayerMoveState {
         this.substacks = [];
         this.direction = 0;
         this.newPiece = null;
-        this.gameBoard.deselectAll();
+        this.gameState.gameboard.deselectAll();
     }
 
     isCellId(id){ return id < 100;}
@@ -80,7 +80,7 @@ class PlayerMoveState {
                     if(this.isStackId(id)) obj = obj.cell;
                     if(this.getDirection(obj, this.stackSelected.cell) != this.direction){
                         this.initialState();
-                        this.gameBoard.deselectAll();
+                        this.gameState.gameboard.deselectAll();
                     }
                     else{
                         let distance = this.distance(this.direction, obj, this.stackSelected.cell);
@@ -117,7 +117,8 @@ class PlayerMoveState {
             case State.FINAL:
                 if(this.isCellId(id)){
                     // submit new piece and move
-                    this.gameBoard.move(this.stackSelected.cell, this.substacks, this.direction, obj);
+                    this.gameState.gameboard.move(this.stackSelected.cell, this.substacks, this.direction, obj);
+                    this.gameState.nextTurn();
                     this.initialState();
                 }
                 else if(this.isUndoId(id)){

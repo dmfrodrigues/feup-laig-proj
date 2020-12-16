@@ -14,10 +14,20 @@ class PieceStack extends CGFobject {
 		this._height = height;
 		this._cell = null;
 		this._id = null;
+		this._selectable = false;
 		this._selected = false;
 	}
 	
 	get height(){ return this._height; }
+	getPlayer(){
+		if(this.height > 0) return 1;
+		if(this.height < 0) return 2;
+		throw new RangeError('Stack height can not be zero.')
+	}
+
+	setTurn(turn){
+		this._selectable = (this.getPlayer() === turn);
+	}
 
 	set cell(cell){
 		this._cell = cell;
@@ -33,7 +43,7 @@ class PieceStack extends CGFobject {
     }
 
 	display(){
-		this.scene.registerForPick(this._id, this);
+		if(this._selectable) this.scene.registerForPick(this._id, this);
 		if(PieceStack.pieceStackView != null){
 			if(this._selected){
 				this.scene.selectEnable();

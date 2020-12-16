@@ -12,6 +12,7 @@ class BoardCell extends CGFobject {
         this._i = i;
         this._j = j;
         this._id = 10*(i+1) + (j+1);
+        this._selectable = false;
         this._selected = false;
     }
     
@@ -27,6 +28,14 @@ class BoardCell extends CGFobject {
 
     get i(){ return this._i; }
     get j(){ return this._j; }
+
+    setTurn(turn){
+        this._selectable = (
+            (this.stack === null) ||
+            (this.stack.getPlayer() !== turn)
+        );
+        if(this.stack !== null) this.stack.setTurn(turn);
+    }
 
     isSelected(){ return this._selected; }
     select(){ this._selected = true; }
@@ -44,7 +53,7 @@ class BoardCell extends CGFobject {
         );
         this.scene.pushMatrix();{
             this.scene.multMatrix(M);
-            this.scene.registerForPick(this._id, this);
+            if(this._selectable) this.scene.registerForPick(this._id, this);
             if(this._selected){
                 this.scene.selectEnable();
                 this._board.gameboardSetup.objCell.display();

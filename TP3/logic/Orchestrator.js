@@ -12,12 +12,12 @@ class Orchestrator extends CGFobject {
         this.gameSequence = new GameSequence();
         // this.animator     = new Animator(this.scene, this, this.gameSequence);
         this.theme        = new MySceneGraph(theme, this.scene);
-        this.gameBoard    = new GameBoard(this.scene);
+        this.gameState    = new GameState(this.scene);
         // this.prolog       = new PrologInterface();
     }
 
     initialize(){
-        this.gameBoard.gameboardSetup = this.theme.gameboard;
+        this.gameState.gameboard.gameboardSetup = this.theme.gameboard;
         PieceStack.pieceStackView = this.theme.pieces.view;
         PieceStack.pieceStackView.initialize();
     }
@@ -39,7 +39,7 @@ class Orchestrator extends CGFobject {
     }
 
     onObjectSelected(obj, id){
-        this.gameBoard.moveState.updateMoveState(obj, id);
+        this.gameState.moveState.updateMoveState(obj, id);
         /*
         if(obj.isSelected())
             obj.deselect();
@@ -56,7 +56,7 @@ class Orchestrator extends CGFobject {
     display(){
         // ...
         this.theme.display();
-        this.gameBoard.display();
+        this.gameState.gameboard.display();
         // this.animator.display();
         this.theme.ui.display();
         // ...
