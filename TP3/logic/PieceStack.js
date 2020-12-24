@@ -26,7 +26,7 @@ class PieceStack extends CGFobject {
 	}
 
 	setTurn(turn){
-		this._selectable = (this.getPlayer() === turn);
+		this._selectable = (turn !== null && this.getPlayer() === turn);
 	}
 
 	set cell(cell){

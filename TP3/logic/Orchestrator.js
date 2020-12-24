@@ -4,7 +4,7 @@
  * @param scene  		- Reference to MyScene object
  */
 class Orchestrator extends CGFobject {
-	constructor(scene, theme, gameMove, level) {
+	constructor(scene, theme, gameMode, level) {
         super(scene);
 
         this.scene.orchestrator = this;
@@ -13,7 +13,16 @@ class Orchestrator extends CGFobject {
         // this.animator     = new Animator(this.scene, this, this.gameSequence);
         this.theme        = new MySceneGraph(theme, this.scene);
         this.gameState    = new GameState(this.scene, this);
-        // this.prolog       = new PrologInterface();
+        
+        this.gameMode = gameMode;
+    }
+
+    isComputer(player){
+        switch(this.gameMode){
+            case 'PvP': return false;
+            case 'PvC': return (player === 2);
+            case 'CvC': return true;
+        }
     }
 
     initialize(){

@@ -32,7 +32,7 @@ class BoardCell extends CGFobject {
     setTurn(turn){
         this._selectable = (
             (this.stack === null) ||
-            (this.stack.getPlayer() !== turn)
+            (turn !== null && this.stack.getPlayer() !== turn)
         );
         if(this.stack !== null) this.stack.setTurn(turn);
     }

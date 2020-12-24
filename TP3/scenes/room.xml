@@ -161,9 +161,9 @@
     </textures>
 
     <spritesheets>
-        <spritesheet id="consolas" path="./scenes/spritesheets/consolas.png" sizeM="16" sizeN="16"/>
-        <spritesheet id="lcd" path="./scenes/spritesheets/lcd.png" sizeM="16" sizeN="16"/>
-        <spritesheet id="calc" path="./scenes/spritesheets/calc.png" sizeM="16" sizeN="16"/>
+        <spritesheet id="consolas" path="./scenes/spritesheets/consolas.svg" sizeM="16" sizeN="16"/>
+        <spritesheet id="lcd" path="./scenes/spritesheets/lcd.svg" sizeM="16" sizeN="16"/>
+        <spritesheet id="calc" path="./scenes/spritesheets/calc.svg" sizeM="16" sizeN="16"/>
         <spritesheet id="fire" path="./scenes/spritesheets/fire8_64.png" sizeM="10" sizeN="6"/>
         <spritesheet id="tv-news" path="./scenes/spritesheets/news.jpg" sizeM="8" sizeN="18"/>
         <spritesheet id="tv-football" path="./scenes/spritesheets/football.jpg" sizeM="8" sizeN="18"/>
@@ -979,7 +979,7 @@
             <material id="clock-plastic-black-emissive"/>
             <texture id="null"><amplification afs="1" aft="1"/></texture>
             <transformations>
-                <translation x="-0.022" y="0.015" z="0.002501"/>
+                <translation x="-0.025" y="0.015" z="0.002501"/>
                 <scale sx="0.010" sy="0.010" sz="0.010"/>
                 <scale sx="0.57142857142" sy="1" sz="1"/>
             </transformations>
@@ -991,7 +991,7 @@
             <material id="null"/><texture id="null"><amplification afs="1" aft="1"/></texture>
             <transformations>
                 <translation x="0" y="0" z="0.00001"/>
-                <translation x="0.020" y="0.015" z="0.0025"/>
+                <translation x="0.019" y="0.015" z="0.0025"/>
             </transformations>
             <descendants>
                 <noderef id="ui-panel-value-background"/>
@@ -1007,7 +1007,7 @@
                 <scale sx="0.60" sy="1" sz="1"/>
             </transformations>
             <descendants>
-                <leaf type="rectangle" x1="-2.5" x2="+2.5" y1="-0.5" y2="+0.5"/>
+                <leaf type="rectangle" x1="-3.0" x2="+3.0" y1="-0.5" y2="+0.5"/>
             </descendants>
         </node>
         <node id="ui-panel-value">
@@ -1019,7 +1019,7 @@
                 <scale sx="0.60" sy="1" sz="1"/>
             </transformations>
             <descendants>
-                <leaf type="spritetext" font="calc" text="  0.0" format="return arguments[0].padStart(5,' ');"/>
+                <leaf type="spritetext" font="calc" text="   0.0" format="return arguments[0].padStart(6,' ');"/>
             </descendants>
         </node>
         <node id="submit">

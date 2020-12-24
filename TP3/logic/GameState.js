@@ -16,7 +16,8 @@ class GameState extends CGFobject {
     get turn     (){ return this._turn     ; }
     set turn(turn){
         this._turn = turn;
-        this._gameboard.setTurn(turn);
+        if(this._orchestrator.isComputer(this._turn)) this._gameboard.setTurn(null);
+        else                                          this._gameboard.setTurn(turn);
     }
 
     nextTurn(){
