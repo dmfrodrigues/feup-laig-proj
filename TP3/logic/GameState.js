@@ -1,7 +1,8 @@
 class GameState extends CGFobject {
-    constructor(scene){
+    constructor(scene, orchestrator){
         super(scene);
         this._scene = scene;
+        this._orchestrator = orchestrator;
 
         this._gameboard = new GameBoard(this._scene);
         this.turn = 1;
@@ -24,8 +25,8 @@ class GameState extends CGFobject {
     }
 
     async updateValue(){
-        let response = await server.value(this);
-        console.log(response);
+        let value = await server.value(this);
+        this._orchestrator.setValue(value);
     }
 
     toJSON(){

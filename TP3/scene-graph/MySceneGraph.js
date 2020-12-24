@@ -363,6 +363,9 @@ class MySceneGraph {
         let panelID = uiChildren.find(function (u){ return (u.nodeName === 'panel'); });
         ui.panelID = this.parseString(panelID, 'id');
 
+        let valueID = uiChildren.find(function (u){ return (u.nodeName === 'value') });
+        ui.valueID = this.parseString(valueID, 'id');
+
         let buttons = uiChildren.find(function (u){ return (u.nodeName === 'buttons'); });
         
         let buttonsChildren = buttons.children;
@@ -970,6 +973,13 @@ class MySceneGraph {
             else
                 this._ui.panel = this.nodes[this._ui.panelID];
 
+            if(this.nodes[this._ui.valueID] == null)
+                return `No such value node "${this._ui.valueID}"`;
+            else
+                this._ui.valueNode =
+                    this.nodes[this._ui.valueID].children
+                    .find(function (u){ return (u instanceof MySpriteText); });
+
             for(let i=0; i<this._ui.buttonsIDs.length;i++){
                 if(this.nodes[this._ui.buttonsIDs[i]] == null)
                     return `No such button node "${this._ui.buttonsIDs[i]}"`;
@@ -1289,9 +1299,12 @@ class MySceneGraph {
         let font = this.parseString(node, 'font', messageError);
         let text = this.parseString(node, 'text', messageError);
         let exp = null;
+        let format = null;
         if(node.attributes.eval != null)
             exp = this.parseString(node, 'eval', messageError);
-        return new MySpriteText(this.scene, this.spriteSheets[font],  text, exp);
+        if(node.attributes.format != null)
+            format = this.parseString(node, 'format', messageError);
+        return new MySpriteText(this.scene, this.spriteSheets[font],  text, exp, format);
     }
 
     /**

@@ -12,7 +12,7 @@ class Orchestrator extends CGFobject {
         this.gameSequence = new GameSequence();
         // this.animator     = new Animator(this.scene, this, this.gameSequence);
         this.theme        = new MySceneGraph(theme, this.scene);
-        this.gameState    = new GameState(this.scene);
+        this.gameState    = new GameState(this.scene, this);
         // this.prolog       = new PrologInterface();
     }
 
@@ -51,6 +51,10 @@ class Orchestrator extends CGFobject {
     update(t){
         this.theme.update(t);
         // this.animator.update(t);
+    }
+
+    setValue(value){
+        this.theme.ui.setValue(value);
     }
 
     display(){

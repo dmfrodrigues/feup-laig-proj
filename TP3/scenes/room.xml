@@ -78,8 +78,10 @@
             <transformations>
                 <translation x="0.24" y="0.54" z="-0.2"/>
                 <rotation axis="y" angle="90"/>
+                <rotation axis="x" angle="-45"/>
             </transformations>
             <panel id="ui-panel-with-value"/>
+            <value id="ui-panel-value"/>
             <buttons>
                 <button id="submit"/>
                 <button id="undo"/>
@@ -161,6 +163,7 @@
     <spritesheets>
         <spritesheet id="consolas" path="./scenes/spritesheets/consolas.png" sizeM="16" sizeN="16"/>
         <spritesheet id="lcd" path="./scenes/spritesheets/lcd.png" sizeM="16" sizeN="16"/>
+        <spritesheet id="calc" path="./scenes/spritesheets/calc.png" sizeM="16" sizeN="16"/>
         <spritesheet id="fire" path="./scenes/spritesheets/fire8_64.png" sizeM="10" sizeN="6"/>
         <spritesheet id="tv-news" path="./scenes/spritesheets/news.jpg" sizeM="8" sizeN="18"/>
         <spritesheet id="tv-football" path="./scenes/spritesheets/football.jpg" sizeM="8" sizeN="18"/>
@@ -398,6 +401,20 @@
             <diffuse  r="0.0" g="0.0" b="0.0" a="1.0"/>
             <specular r="0.0" g="0.0" b="0.0" a="1.0"/>
             <emissive r="1.0" g="1.0" b="1.0" a="1.0"/>
+        </material>
+        <material id="calculator-digit">
+            <shininess value="2.0"/>
+            <ambient  r="0.19" g="0.21" b="0.17" a="1.0"/>
+            <diffuse  r="0.19" g="0.21" b="0.17" a="1.0"/>
+            <specular r="0.50" g="0.50" b="0.50" a="1.0"/>
+            <emissive r="0.00" g="0.00" b="0.00" a="1.0"/>
+        </material>
+        <material id="calculator-background">
+            <shininess value="2.0"/>
+            <ambient  r="0.73" g="0.79" b="0.72" a="1.0"/>
+            <diffuse  r="0.73" g="0.79" b="0.72" a="1.0"/>
+            <specular r="0.20" g="0.20" b="0.20" a="1.0"/>
+            <emissive r="0.00" g="0.00" b="0.00" a="1.0"/>
         </material>
     </materials>
 
@@ -935,12 +952,9 @@
 
         <node id="ui-panel-with-value">
             <material id="null"/><texture id="null"><amplification afs="1" aft="1"/></texture>
-            <transformations>
-                <rotation axis="x" angle="-45"/>
-            </transformations>
             <descendants>
                 <noderef id="ui-panel"/>
-                <noderef id="ui-panel-value"/>
+                <noderef id="ui-panel-value-all"/>
             </descendants>
         </node>
 
@@ -954,23 +968,65 @@
                 <noderef id="cube"/>
             </descendants>
         </node>
-        <node id="ui-panel-value">
+        <node id="ui-panel-value-all">
+            <material id="null"/><texture id="null"><amplification afs="1" aft="1"/></texture>
+            <descendants>
+                <noderef id="ui-panel-value-label"/>
+                <noderef id="ui-panel-value-display"/>
+            </descendants>
+        </node>
+        <node id="ui-panel-value-label">
             <material id="clock-plastic-black-emissive"/>
             <texture id="null"><amplification afs="1" aft="1"/></texture>
             <transformations>
-                <translation x="0" y="0.025" z="0.00251"/>
+                <translation x="-0.022" y="0.015" z="0.002501"/>
+                <scale sx="0.010" sy="0.010" sz="0.010"/>
                 <scale sx="0.57142857142" sy="1" sz="1"/>
-                <scale sx="0.008" sy="0.008" sz="0.008"/>
             </transformations>
             <descendants>
-                <leaf type="spritetext" font="consolas" text="Value: 0.0"/>
+                <leaf type="spritetext" font="consolas" text="Value:"/>
+            </descendants>
+        </node>
+        <node id="ui-panel-value-display">
+            <material id="null"/><texture id="null"><amplification afs="1" aft="1"/></texture>
+            <transformations>
+                <translation x="0" y="0" z="0.00001"/>
+                <translation x="0.020" y="0.015" z="0.0025"/>
+            </transformations>
+            <descendants>
+                <noderef id="ui-panel-value-background"/>
+                <noderef id="ui-panel-value"/>
+            </descendants>
+        </node>
+        <node id="ui-panel-value-background">
+            <material id="calculator-background"/>
+            <texture id="null"><amplification afs="1" aft="1"/></texture>
+            <transformations>
+                <scale sx="1.15" sy="1.1" sz="1"/>
+                <scale sx="0.012" sy="0.012" sz="0.012"/>
+                <scale sx="0.60" sy="1" sz="1"/>
+            </transformations>
+            <descendants>
+                <leaf type="rectangle" x1="-2.5" x2="+2.5" y1="-0.5" y2="+0.5"/>
+            </descendants>
+        </node>
+        <node id="ui-panel-value">
+            <material id="calculator-digit"/>
+            <texture id="null"><amplification afs="1" aft="1"/></texture>
+            <transformations>
+                <translation x="0" y="0" z="0.00001"/>
+                <scale sx="0.012" sy="0.012" sz="0.012"/>
+                <scale sx="0.60" sy="1" sz="1"/>
+            </transformations>
+            <descendants>
+                <leaf type="spritetext" font="calc" text="  0.0" format="return arguments[0].padStart(5,' ');"/>
             </descendants>
         </node>
         <node id="submit">
             <material id="null"/><texture id="null"><amplification afs="1" aft="1"/></texture>
             <transformations>
-                <translation x="0.02" y="0.005" z="0.0"/>
-                <rotation axis="x" angle="45"/>
+                <translation x="0.02" y="-0.015" z="0.0035"/>
+                <rotation axis="x" angle="90"/>
             </transformations>
             <descendants>
                 <noderef id="submit-button"/>
@@ -1001,8 +1057,8 @@
         <node id="undo">
             <material id="null"/><texture id="null"><amplification afs="1" aft="1"/></texture>
             <transformations>
-                <translation x="-0.02" y="0.005" z="0.0"/>
-                <rotation axis="x" angle="45"/>
+                <translation x="-0.02" y="-0.015" z="0.0035"/>
+                <rotation axis="x" angle="90"/>
             </transformations>
             <descendants>
                 <noderef id="undo-button"/>
@@ -1529,7 +1585,8 @@
         <node id="clock_display_text">
             <material id="clock-plastic-red-emissive"/><texture id="null"><amplification afs="1" aft="1"/></texture>
             <transformations>
-                <scale sx="0.65" sy="0.9" sz="1"/>
+                <scale sx="0.9" sy="0.9" sz="0.9"/>
+                <scale sx="0.72" sy="1" sz="1"/>
             </transformations>
             <descendants>
                     <leaf type="spritetext" font="lcd" text="12:00" 

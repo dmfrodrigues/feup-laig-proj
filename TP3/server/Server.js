@@ -43,7 +43,13 @@ class Server {
      */
     value(gamestate){
         let gamestate_json = gamestate.toJSON();
-        console.log(gamestate_json);
+        let params = {
+            command: 'value',
+            args: {
+                gamestate: gamestate_json,
+                turn: gamestate.turn
+            }
+        };
         return fetch(
             this._url,
             {
@@ -52,14 +58,11 @@ class Server {
                     'Content-Type': 'application/json',
                     'Accept': 'application/json'
                 },
-                body: {
-                    command: 'value',
-                    args: {
-                        gamestate: gamestate_json
-                    }
-                }
+                body: JSON.stringify(params)
             }
-        ).then((response) => response.json());
+        )
+        .then((response) => response.json())
+        .then((response) => response.response);
     }
 }
 
