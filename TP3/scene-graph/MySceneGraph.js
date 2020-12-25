@@ -2,10 +2,10 @@ const DEGREE_TO_RAD = Math.PI / 180;
 
 // Order of the groups in the XML document.
 var INITIALS_INDEX = 0;
-var VIEWS_INDEX = 1;
-var ILLUMINATION_INDEX = 2;
-var LIGHTS_INDEX = 3;
-var BINDINGS_INDEX = 4;
+var BINDINGS_INDEX = 1;
+var VIEWS_INDEX = 2;
+var ILLUMINATION_INDEX = 3;
+var LIGHTS_INDEX = 4;
 var TEXTURES_INDEX = 5;
 var SPRITESHEETS_INDEX = 6;
 var MATERIALS_INDEX = 7;
@@ -595,6 +595,14 @@ class MySceneGraph {
      * @param {bindings block element} bindingsNode
      */
     parseBindings(bindingsNode) {
+        this.bindings = {};
+        for(let i = 0; i < bindingsNode.children.length; ++i){
+            let binding = bindingsNode.children[i];
+
+            this.bindings[binding.id] = {
+            };
+        }
+
 
         return null;
     }
@@ -608,9 +616,9 @@ class MySceneGraph {
         for(let i = 0; i < texturesNode.children.length; ++i){
             let texture = texturesNode.children[i];
 
-        // Checks for repeated IDs.
-        if (this.textures[texture.id] != null)
-            return "ID must be unique for each texture (conflict: ID = " + texture.id + ")";
+            // Checks for repeated IDs.
+            if (this.textures[texture.id] != null)
+                return "ID must be unique for each texture (conflict: ID = " + texture.id + ")";
 
             this.textures[texture.id] = new CGFtexture(
                 this.scene,

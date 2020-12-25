@@ -88,6 +88,14 @@
             </buttons>
         </ui>
     </initials>
+    <bindings>
+        <binding id="ceiling-light-var">
+            <representation type="anim" t="1" noderef="light-switch" animationref="turn-light-switch"/>
+            <!-- <representation type="discrete">
+                <
+            </representation> -->
+        </binding>
+    </bindings>
     <views default="player2_camera">
         <!-- at least one of the following type of cameras must be declared -->
         <perspective id="default_camera" near="0.1" far="500" angle="45">
@@ -125,15 +133,6 @@
             <specular r="0.10" g="0.08" b="0.09" a="1.0"/>
         </light>
     </lights>
-
-    <bindings>
-        <binding id="ceiling-light-var" type="bool">
-            <representation type="anim" t="1" noderef="light-switch" animationref="turn-light-switch"/>
-            <!-- <representation type="discrete">
-                <
-            </representation> -->
-        </binding>
-    </bindings>
 
     <textures>
         <!-- NOTE: this block "TEXTURE" must be repeated as necessary with different "id" -->
