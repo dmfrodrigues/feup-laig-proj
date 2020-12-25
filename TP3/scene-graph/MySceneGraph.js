@@ -504,6 +504,8 @@ class MySceneGraph {
 
         // Any number of lights.
         for (var i = 0; i < children.length; i++) {
+            if (i >= 8)
+                break;              // Only eight lights allowed by WebCGF on default shaders.
 
             // Storing light information
             var global = [];
@@ -556,7 +558,19 @@ class MySceneGraph {
                 else
                     return "light " + attributeNames[i] + " undefined for ID = " + lightId;
             }
-            this.lights[lightId] = global;
+
+            // build light
+            let light = this.scene.lights[i];
+            this.lights[lightId] = light;
+            light.setPosition(...global[1]);
+            light.setAmbient (...global[2]);
+            light.setDiffuse (...global[3]);
+            light.setSpecular(...global[4]);
+            light.setVisible(false);
+            if(global[0]) light.enable();
+            else          light.disable();
+            light.update();
+
             numLights++;
         }
 
