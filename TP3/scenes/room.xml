@@ -88,19 +88,19 @@
             </buttons>
         </ui>
     </initials>
-    <views default="player1_camera">
+    <views default="player2_camera">
         <!-- at least one of the following type of cameras must be declared -->
         <perspective id="default_camera" near="0.1" far="500" angle="45">
             <from x="1.6" y="1.4" z="1.6"/>
             <to   x="0.0" y="1.0" z="0.0"/>
         </perspective>
         <perspective id="player1_camera" near="0.1" far="500" angle="50">
-            <from x="+0.5" y="0.85" z="-0.1"/>
-            <to   x="+0.05" y="0.5" z="-0.17"/>
+            <from x="+0.60" y="0.90" z="-0.1"/>
+            <to   x="+0.00" y="0.5" z="-0.17"/>
         </perspective>
         <perspective id="player2_camera" near="0.1" far="500" angle="50">
-            <from x="-0.5" y="0.85" z="-0.1"/>
-            <to   x="-0.05" y="0.5" z="-0.17"/>
+            <from x="-0.60" y="0.90" z="-0.10"/>
+            <to   x="-0.00" y="0.5" z="-0.17"/>
         </perspective>
     </views>
     <illumination>
@@ -110,7 +110,7 @@
     <lights>
         <!-- NOTE: at least one light should be present, and a maximum of eight lights is accepted. -->
         <light id="ceiling-light">
-            <enable value="1"/>
+            <enable value="1" bind="ceiling-light-var"/>
             <position x="0.0" y="2.0" z="0.0" w="1.0"/>
             <ambient  r="0.50" g="0.48" b="0.45" a="1.0"/>
             <diffuse  r="0.75" g="0.72" b="0.67" a="1.0"/>
@@ -125,6 +125,16 @@
             <specular r="0.10" g="0.08" b="0.09" a="1.0"/>
         </light>
     </lights>
+
+    <bindings>
+        <binding id="ceiling-light-var" type="bool">
+            <representation type="anim" t="1" noderef="light-switch" animationref="turn-light-switch"/>
+            <!-- <representation type="discrete">
+                <
+            </representation> -->
+        </binding>
+    </bindings>
+
     <textures>
         <!-- NOTE: this block "TEXTURE" must be repeated as necessary with different "id" -->
         <texture id="black_painted_metal" path="./scenes/images/black-painted-metal.jpg"/>
@@ -174,6 +184,13 @@
             <shininess value="5.0"/>
             <ambient  r="1.0" g="1.0" b="1.0" a="1.0"/>
             <diffuse  r="1.0" g="1.0" b="1.0" a="1.0"/>
+            <specular r="0.9" g="0.9" b="0.9" a="1.0"/>
+            <emissive r="0.0" g="0.0" b="0.0" a="1.0"/>
+        </material>
+        <material id="plastic-lightgray">
+            <shininess value="5.0"/>
+            <ambient  r="0.9" g="0.9" b="0.9" a="1.0"/>
+            <diffuse  r="0.9" g="0.9" b="0.9" a="1.0"/>
             <specular r="0.9" g="0.9" b="0.9" a="1.0"/>
             <emissive r="0.0" g="0.0" b="0.0" a="1.0"/>
         </material>
@@ -549,6 +566,7 @@
                 <noderef id="small-table-with-stuff-in-room"/>
                 <noderef id="fireplace-in-room"/>
                 <noderef id="window"/>
+                <noderef id="light-switch-in-room-1"/>
             </descendants>
         </node>
 
@@ -3892,5 +3910,181 @@
                 <leaf type="cylinder" bottomRadius="0.0711" topRadius="0.0711" height="0" slices="32" stacks="1"/>
             </descendants>
         </node>
+
+        <node id="light-switch-in-room-1">
+            <material id="null"/>
+            <texture id="null">
+                <amplification afs="1" aft="1"/>
+            </texture>
+            <transformations>
+                <translation x="+1.50" y="0.50" z="+0.35"/>
+                <rotation axis="y" angle="-90"/>
+            </transformations>
+            <descendants>
+                <noderef id="light-switch-framed-1"/>
+            </descendants>
+        </node>
+
+        <node id="light-switch-framed-1">
+            <material id="plastic-white"/>
+            <texture id="plastic-rugged">
+                <amplification afs="1" aft="1"/>
+            </texture>
+            <transformations>
+                <scale sx="2" sy="2" sz="2"/>
+                <translation x="0" y="0" z="-0.0020"/>
+            </transformations>
+            <descendants>
+                <noderef id="light-switch-old-frame"/>
+                <noderef id="light-switch-old-1"/>
+                <!-- <noderef id="light-switch-new-frame"/> -->
+                <!-- <noderef id="light-switch-new-1"/> -->
+            </descendants>
+        </node>
+        <node id="light-switch-old-frame">
+            <material id="null"/>
+            <texture id="null">
+                <amplification afs="1" aft="1"/>
+            </texture>
+            <transformations>
+                <translation x="0" y="0" z="+0.003"/>
+            </transformations>
+            <descendants>
+                <noderef id="light-switch-old-frame-n"/>
+                <noderef id="light-switch-old-frame-s"/>
+                <noderef id="light-switch-old-frame-w"/>
+                <noderef id="light-switch-old-frame-e"/>
+                <noderef id="light-switch-old-frame-ne"/>
+                <noderef id="light-switch-old-frame-nw"/>
+                <noderef id="light-switch-old-frame-se"/>
+                <noderef id="light-switch-old-frame-sw"/>
+                <noderef id="light-switch-old-frame-background"/>
+            </descendants>
+        </node>
+        <node id="light-switch-old-frame-n" ><material id="null"/><texture id="null"><amplification afs="1" aft="1"/></texture><transformations><translation x="0"   y="+0.017" z="0"/><scale sx="0.007" sy="0.016" sz="0.003"/></transformations><descendants><noderef id="cube"/></descendants></node>
+        <node id="light-switch-old-frame-s" ><material id="null"/><texture id="null"><amplification afs="1" aft="1"/></texture><transformations><translation x="0"   y="-0.017" z="0"/><scale sx="0.007" sy="0.016" sz="0.003"/></transformations><descendants><noderef id="cube"/></descendants></node>
+        <node id="light-switch-old-frame-w" ><material id="null"/><texture id="null"><amplification afs="1" aft="1"/></texture><transformations><translation x="-0.00925" y="0" z="0"/><scale sx="0.0115" sy="0.018" sz="0.003"/></transformations><descendants><noderef id="cube"/></descendants></node>
+        <node id="light-switch-old-frame-e" ><material id="null"/><texture id="null"><amplification afs="1" aft="1"/></texture><transformations><translation x="+0.00925" y="0" z="0"/><scale sx="0.0115" sy="0.018" sz="0.003"/></transformations><descendants><noderef id="cube"/></descendants></node>
+        <node id="light-switch-old-frame-ne"><material id="null"/><texture id="null"><amplification afs="1" aft="1"/></texture><transformations><translation x="+0.00925" y="+0.017" z="0"/><scale sx="0.0115" sy="0.016" sz="0.003"/></transformations><descendants><noderef id="cube"/></descendants></node>
+        <node id="light-switch-old-frame-nw"><material id="null"/><texture id="null"><amplification afs="1" aft="1"/></texture><transformations><translation x="-0.00925" y="+0.017" z="0"/><scale sx="0.0115" sy="0.016" sz="0.003"/></transformations><descendants><noderef id="cube"/></descendants></node>
+        <node id="light-switch-old-frame-se"><material id="null"/><texture id="null"><amplification afs="1" aft="1"/></texture><transformations><translation x="+0.00925" y="-0.017" z="0"/><scale sx="0.0115" sy="0.016" sz="0.003"/></transformations><descendants><noderef id="cube"/></descendants></node>
+        <node id="light-switch-old-frame-sw"><material id="null"/><texture id="null"><amplification afs="1" aft="1"/></texture><transformations><translation x="-0.00925" y="-0.017" z="0"/><scale sx="0.0115" sy="0.016" sz="0.003"/></transformations><descendants><noderef id="cube"/></descendants></node>
+        <node id="light-switch-old-frame-background">
+            <material id="black"/>
+            <texture id="clear"/>
+            <transformations>
+            </transformations>
+            <descendants>
+                <leaf type="rectangle" x1="-0.01" x2="+0.01" y1="-0.02" y2="+0.02"/>
+            </descendants>
+        </node>
+
+        <node id="light-switch-old-1">
+            <material id="null"/>
+            <texture id="null">
+                <amplification afs="1" aft="1"/>
+            </texture>
+            <descendants>
+                <noderef id="light-switch-old"/>
+            </descendants>
+        </node>
+        <node id="light-switch-old">
+            <material id="plastic-lightgray"/>
+            <texture id="plastic-rugged">
+                <amplification afs="1" aft="1"/>
+            </texture>
+            <transformations>
+                <rotation axis="x" angle="-20"/>
+            </transformations>
+            <descendants>
+                <noderef id="light-switch-old-cylinder"/>
+                <noderef id="light-switch-old-cube"/>
+            </descendants>
+        </node>
+        <node id="light-switch-old-cylinder">
+            <material id="null"/>
+            <texture id="null">
+                <amplification afs="1" aft="1"/>
+            </texture>
+            <transformations>
+                <translation x="-0.0032" y="0" z="0"/>
+                <rotation axis="y" angle="90"/>
+            </transformations>
+            <descendants>
+                <leaf type="cylinder" bottomRadius="0.0092" topRadius="0.0092" height="0.0064" slices="16" stacks="2"/>
+            </descendants>
+        </node>
+        <node id="light-switch-old-cube">
+            <material id="null"/>
+            <texture id="null">
+                <amplification afs="1" aft="1"/>
+            </texture>
+            <transformations>
+                <translation x="0" y="0" z="0.01"/>
+                <scale sx="0.006399" sy="0.006" sz="0.02"/>
+            </transformations>
+            <descendants>
+                <noderef id="cube"/>
+            </descendants>
+        </node>
+
+        <!--
+        <node id="light-switch-new-frame">
+            <material id="null"/>
+            <texture id="null">
+                <amplification afs="1" aft="1"/>
+            </texture>
+            <transformations>
+                <rotation axis="x" angle="-5"/>
+            </transformations>
+            <descendants>
+                <noderef id="light-switch-new-frame-top"/>
+                <noderef id="light-switch-new-frame-bot"/>
+                <noderef id="light-switch-new-frame-lef"/>
+                <noderef id="light-switch-new-frame-rig"/>
+                <noderef id="light-switch-new-frame-background"/>
+            </descendants>
+        </node>
+        <node id="light-switch-new-frame-top"><material id="null"/><texture id="null"><amplification afs="1" aft="1"/></texture><transformations><translation x="0" y="+0.021" z="0"/><scale sx="0.044" sy="0.002" sz="0.003"/></transformations><descendants><noderef id="cube"/></descendants></node>
+        <node id="light-switch-new-frame-bot"><material id="null"/><texture id="null"><amplification afs="1" aft="1"/></texture><transformations><translation x="0" y="-0.021" z="0"/><scale sx="0.044" sy="0.002" sz="0.003"/></transformations><descendants><noderef id="cube"/></descendants></node>
+        <node id="light-switch-new-frame-lef"><material id="null"/><texture id="null"><amplification afs="1" aft="1"/></texture><transformations><translation x="-0.021" y="0" z="0"/><scale sx="0.002" sy="0.040" sz="0.003"/></transformations><descendants><noderef id="cube"/></descendants></node>
+        <node id="light-switch-new-frame-rig"><material id="null"/><texture id="null"><amplification afs="1" aft="1"/></texture><transformations><translation x="+0.021" y="0" z="0"/><scale sx="0.002" sy="0.040" sz="0.003"/></transformations><descendants><noderef id="cube"/></descendants></node>
+        <node id="light-switch-new-frame-background">
+            <material id="black"/>
+            <texture id="clear"/>
+            <transformations>
+            </transformations>
+            <descendants>
+                <leaf type="rectangle" x1="-0.02" x2="+0.02" y1="-0.02" y2="+0.02"/>
+            </descendants>
+        </node>
+
+        <node id="light-switch-new-1">
+            <material id="null"/>
+            <texture id="null">
+                <amplification afs="1" aft="1"/>
+            </texture>
+            <transformations>
+                <rotation axis="x" angle="-5"/>
+            </transformations>
+            <descendants>
+                <noderef id="light-switch-new"/>
+            </descendants>
+        </node>
+
+        <node id="light-switch-new">
+            <material id="null"/>
+            <texture id="null">
+                <amplification afs="1" aft="1"/>
+            </texture>
+            <transformations>
+                <rotation axis="x" angle="-3"/>
+                <scale sx="0.039" sy="0.039" sz="0.005"/>
+            </transformations>
+            <descendants>
+                <noderef id="cube"/>
+            </descendants>
+        </node>
+        -->
     </nodes>
 </lsf>

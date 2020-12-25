@@ -5,11 +5,12 @@ var INITIALS_INDEX = 0;
 var VIEWS_INDEX = 1;
 var ILLUMINATION_INDEX = 2;
 var LIGHTS_INDEX = 3;
-var TEXTURES_INDEX = 4;
-var SPRITESHEETS_INDEX = 5;
-var MATERIALS_INDEX = 6;
-var ANIMATIONS_INDEX = 7;
-var NODES_INDEX = 8;
+var BINDINGS_INDEX = 4;
+var TEXTURES_INDEX = 5;
+var SPRITESHEETS_INDEX = 6;
+var MATERIALS_INDEX = 7;
+var ANIMATIONS_INDEX = 8;
+var NODES_INDEX = 9;
 
 /**
  * MySceneGraph class, representing the scene graph.
@@ -161,6 +162,17 @@ class MySceneGraph {
 
             //Parse lights block
             if ((error = this.parseLights(nodes[index])) != null)
+                return error;
+        }
+        // <bindings>
+        if ((index = nodeNames.indexOf("bindings")) == -1)
+            return "tag <bindings> missing";
+        else {
+            if (index != BINDINGS_INDEX)
+                this.onXMLMinorError("tag <bindings> out of order");
+
+            //Parse bindings block
+            if ((error = this.parseBindings(nodes[index])) != null)
                 return error;
         }
         // <textures>
@@ -561,6 +573,15 @@ class MySceneGraph {
             this.onXMLMinorError("too many lights defined; WebGL imposes a limit of 8 lights");
 
         this.log("Parsed lights");
+        return null;
+    }
+
+    /**
+     * Parses the <bindings> node.
+     * @param {bindings block element} bindingsNode
+     */
+    parseBindings(bindingsNode) {
+
         return null;
     }
 

@@ -24,6 +24,8 @@
             <specular r="0.00" g="0.00" b="0.00" a="1.0"/>
         </light>
     </lights>
+    <bindings>
+    </bindings>
     <textures>
     </textures>
 
