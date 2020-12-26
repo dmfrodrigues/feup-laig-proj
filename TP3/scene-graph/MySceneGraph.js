@@ -2,14 +2,14 @@ const DEGREE_TO_RAD = Math.PI / 180;
 
 // Order of the groups in the XML document.
 var INITIALS_INDEX = 0;
-var BINDINGS_INDEX = 1;
-var VIEWS_INDEX = 2;
-var ILLUMINATION_INDEX = 3;
-var LIGHTS_INDEX = 4;
-var TEXTURES_INDEX = 5;
-var SPRITESHEETS_INDEX = 6;
-var MATERIALS_INDEX = 7;
-var ANIMATIONS_INDEX = 8;
+var ANIMATIONS_INDEX = 1;
+var BINDINGS_INDEX = 2;
+var VIEWS_INDEX = 3;
+var ILLUMINATION_INDEX = 4;
+var LIGHTS_INDEX = 5;
+var TEXTURES_INDEX = 6;
+var SPRITESHEETS_INDEX = 7;
+var MATERIALS_INDEX = 8;
 var NODES_INDEX = 9;
 
 /**
@@ -129,6 +129,18 @@ class MySceneGraph {
                 return error;
         }
 
+        // <animations>
+        if ((index = nodeNames.indexOf("animations")) == -1)
+            this.onXMLMinorError("tag <animations> missing");
+        else {
+            if (index != ANIMATIONS_INDEX)
+                this.onXMLMinorError("tag <animations> out of order");
+
+            //Parse animations block
+            if ((error = this.parseAnimations(nodes[index])) != null)
+                return error;
+        }
+
         // <bindings>
         if ((index = nodeNames.indexOf("bindings")) == -1)
             return "tag <bindings> missing";
@@ -208,18 +220,6 @@ class MySceneGraph {
 
             //Parse materials block
             if ((error = this.parseMaterials(nodes[index])) != null)
-                return error;
-        }
-
-        // <animations>
-        if ((index = nodeNames.indexOf("animations")) == -1)
-            this.onXMLMinorError("tag <animations> missing");
-        else {
-            if (index != ANIMATIONS_INDEX)
-                this.onXMLMinorError("tag <animations> out of order");
-
-            //Parse animations block
-            if ((error = this.parseAnimations(nodes[index])) != null)
                 return error;
         }
 
@@ -574,14 +574,18 @@ class MySceneGraph {
 
             let enableNode = [...children[i].children].find((node) => (node.nodeName === 'enable'));
             if(typeof enableNode.attributes.bind !== 'undefined'){
-                let binding = enableNode.attributes.bind.value;
-                if(this.bindings[binding] !== null){
-                    this.bindings[binding] = {
-                        set value(value){ light.enabled = value; },
-                        get value(     ){ return light.enabled;  }
-                    };
+                let bindingref = enableNode.attributes.bind.value;
+                if(this.bindings[bindingref] !== null){
+                    let binding = this.bindings[bindingref];
+                    Object.defineProperty(binding, 'value',
+                        {
+                            set: function (value){ light.enabled = value; binding.changed_value(); },
+                            get: function (     ){ return light.enabled;                           }
+                        }
+                    );
+                    binding.changed_value();
                 } else {
-                    this.onXMLMinorError(`Unknown binding '${binding}'`);
+                    this.onXMLMinorError(`Unknown binding '${bindingref}'`);
                 }
             }
 
@@ -612,8 +616,20 @@ class MySceneGraph {
         this.bindings = {};
         for(let i = 0; i < bindingsNode.children.length; ++i){
             let binding = bindingsNode.children[i];
-
+            let id = binding.id;
+            let representation = [...binding.children].find((node) => (node.nodeName === 'representation'));
+            let animationref = this.parseString(representation, "animationref", id);
+            let animation = this.animations[animationref];
+            let t = this.parseFloat(representation, "t", id);
+            
             this.bindings[binding.id] = {
+                representation: {
+                    animation: animation,
+                    t: t
+                },
+                changed_value: function(){
+                    animation.update(this.value);
+                }
             };
         }
 
@@ -806,6 +822,11 @@ class MySceneGraph {
                 anim.addKeyframe(instant, kf);
             }
 
+            if(typeof animation.attributes.timeupdate !== 'undefined'){
+                let timeupdate = this.parseBoolean(animation, "timeupdate", animation.id, true);
+                if(!timeupdate) anim.timeupdate = false;
+            }
+
             this.animations[animation.id] = anim;
         }
 
@@ -918,7 +939,6 @@ class MySceneGraph {
             if(onclick !== null){
                 let onclick_func = new Function(onclick);
                 node.onclick = onclick_func.bind(this);
-                node.onclick();
             }
             // Transformations
             let transformations = grandChildren[transformationsIndex];
@@ -1415,7 +1435,9 @@ class MySceneGraph {
 
     update(t){
         for (var key in this.animations){
-            this.animations[key].update(t);
+            let animation = this.animations[key];
+            if(animation.timeupdate)
+                animation.update(t);
         }
         for (let anim in this.spriteAnimations){
             this.spriteAnimations[anim].update(t);

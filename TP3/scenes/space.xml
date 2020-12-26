@@ -3,46 +3,6 @@
         <reference length="1.0"/>
         <root id="root"/>
     </initials>
-    <bindings>
-    </bindings>
-    <views default="camera">
-        <!-- at least one of the following type of cameras must be declared -->
-        <perspective id="camera" near="0.1" far="500" angle="30">
-            <from x="0.0" y="0.0" z="00.0"/>
-            <to x="0.0" y="0.0" z="-10.0"/>
-        </perspective>
-    </views>
-    <illumination>
-        <ambient r="0.1" g="0.1" b="0.1" a="1.0"/>
-        <background r="0.0" g="0.0" b="0.0" a="1.0"/>
-    </illumination>
-    <lights>
-        <!-- NOTE: at least one light should be present, and a maximum of eight lights is accepted. -->
-        <light id="light">
-            <enable value="1"/>
-            <position x="0.0" y="0.0" z="0.0" w="1.0"/>
-            <ambient r="0.00" g="0.00" b="0.00" a="1.0"/>
-            <diffuse r="0.00" g="0.00" b="0.00" a="1.0"/>
-            <specular r="0.00" g="0.00" b="0.00" a="1.0"/>
-        </light>
-    </lights>
-    <textures>
-    </textures>
-
-    <spritesheets>
-    </spritesheets>
-
-    <materials>
-        <!-- At least one material should be present. -->
-        <material id="star">
-            <shininess value="5.0"/>
-            <ambient r="0.0" g="0.0" b="0.0" a="1.0"/>
-            <diffuse r="0.0" g="0.0" b="0.0" a="1.0"/>
-            <specular r="0.0" g="0.0" b="0.0" a="1.0"/>
-            <emissive r="1.0" g="1.0" b="1.0" a="1.0"/>
-        </material>
-    </materials>
-
     <animations>
         <animation id='star-000' loop='1'><keyframe instant='0'><translation x='0' y='0' z='-000.7'/></keyframe><keyframe instant='0.1360'><translation x='0' y='0' z='0'/></keyframe><keyframe instant='0.1361'><translation x='0' y='0' z='-100'/></keyframe><keyframe instant='20'><translation x='0' y='0' z='-000.7'/></keyframe></animation>
         <animation id='star-001' loop='1'><keyframe instant='0'><translation x='0' y='0' z='-057.7'/></keyframe><keyframe instant='11.5329'><translation x='0' y='0' z='0'/></keyframe><keyframe instant='11.5330'><translation x='0' y='0' z='-100'/></keyframe><keyframe instant='20'><translation x='0' y='0' z='-057.7'/></keyframe></animation>
@@ -145,6 +105,45 @@
         <animation id='star-098' loop='1'><keyframe instant='0'><translation x='0' y='0' z='-065.3'/></keyframe><keyframe instant='13.0683'><translation x='0' y='0' z='0'/></keyframe><keyframe instant='13.0684'><translation x='0' y='0' z='-100'/></keyframe><keyframe instant='20'><translation x='0' y='0' z='-065.3'/></keyframe></animation>
         <animation id='star-099' loop='1'><keyframe instant='0'><translation x='0' y='0' z='-018.4'/></keyframe><keyframe instant='3.6842'><translation x='0' y='0' z='0'/></keyframe><keyframe instant='3.6843'><translation x='0' y='0' z='-100'/></keyframe><keyframe instant='20'><translation x='0' y='0' z='-018.4'/></keyframe></animation>
     </animations>
+    <bindings>
+    </bindings>
+    <views default="camera">
+        <!-- at least one of the following type of cameras must be declared -->
+        <perspective id="camera" near="0.1" far="500" angle="30">
+            <from x="0.0" y="0.0" z="00.0"/>
+            <to x="0.0" y="0.0" z="-10.0"/>
+        </perspective>
+    </views>
+    <illumination>
+        <ambient r="0.1" g="0.1" b="0.1" a="1.0"/>
+        <background r="0.0" g="0.0" b="0.0" a="1.0"/>
+    </illumination>
+    <lights>
+        <!-- NOTE: at least one light should be present, and a maximum of eight lights is accepted. -->
+        <light id="light">
+            <enable value="1"/>
+            <position x="0.0" y="0.0" z="0.0" w="1.0"/>
+            <ambient r="0.00" g="0.00" b="0.00" a="1.0"/>
+            <diffuse r="0.00" g="0.00" b="0.00" a="1.0"/>
+            <specular r="0.00" g="0.00" b="0.00" a="1.0"/>
+        </light>
+    </lights>
+    <textures>
+    </textures>
+
+    <spritesheets>
+    </spritesheets>
+
+    <materials>
+        <!-- At least one material should be present. -->
+        <material id="star">
+            <shininess value="5.0"/>
+            <ambient r="0.0" g="0.0" b="0.0" a="1.0"/>
+            <diffuse r="0.0" g="0.0" b="0.0" a="1.0"/>
+            <specular r="0.0" g="0.0" b="0.0" a="1.0"/>
+            <emissive r="1.0" g="1.0" b="1.0" a="1.0"/>
+        </material>
+    </materials>
 
     <nodes>
         <node id="root">
