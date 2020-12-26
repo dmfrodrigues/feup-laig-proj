@@ -2,14 +2,15 @@ const DEGREE_TO_RAD = Math.PI / 180;
 
 // Order of the groups in the XML document.
 var INITIALS_INDEX = 0;
-var VIEWS_INDEX = 1;
-var ILLUMINATION_INDEX = 2;
-var LIGHTS_INDEX = 3;
-var TEXTURES_INDEX = 4;
-var SPRITESHEETS_INDEX = 5;
-var MATERIALS_INDEX = 6;
-var ANIMATIONS_INDEX = 7;
-var NODES_INDEX = 8;
+var BINDINGS_INDEX = 1;
+var VIEWS_INDEX = 2;
+var ILLUMINATION_INDEX = 3;
+var LIGHTS_INDEX = 4;
+var TEXTURES_INDEX = 5;
+var SPRITESHEETS_INDEX = 6;
+var MATERIALS_INDEX = 7;
+var ANIMATIONS_INDEX = 8;
+var NODES_INDEX = 9;
 
 /**
  * MySceneGraph class, representing the scene graph.
@@ -125,6 +126,18 @@ class MySceneGraph {
 
             //Parse initials block
             if ((error = this.parseInitials(nodes[index])) != null)
+                return error;
+        }
+
+        // <bindings>
+        if ((index = nodeNames.indexOf("bindings")) == -1)
+            return "tag <bindings> missing";
+        else {
+            if (index != BINDINGS_INDEX)
+                this.onXMLMinorError("tag <bindings> out of order");
+
+            //Parse bindings block
+            if ((error = this.parseBindings(nodes[index])) != null)
                 return error;
         }
 
@@ -492,6 +505,8 @@ class MySceneGraph {
 
         // Any number of lights.
         for (var i = 0; i < children.length; i++) {
+            if (i >= 8)
+                break;              // Only eight lights allowed by WebCGF on default shaders.
 
             // Storing light information
             var global = [];
@@ -544,7 +559,32 @@ class MySceneGraph {
                 else
                     return "light " + attributeNames[i] + " undefined for ID = " + lightId;
             }
-            this.lights[lightId] = global;
+
+            // build light
+            let light = this.scene.lights[i];
+            this.lights[lightId] = light;
+            light.setPosition(...global[1]);
+            light.setAmbient (...global[2]);
+            light.setDiffuse (...global[3]);
+            light.setSpecular(...global[4]);
+            light.setVisible(false);
+            if(global[0]) light.enable();
+            else          light.disable();
+            light.update();
+
+            let enableNode = [...children[i].children].find((node) => (node.nodeName === 'enable'));
+            if(typeof enableNode.attributes.bind !== 'undefined'){
+                let binding = enableNode.attributes.bind.value;
+                if(this.bindings[binding] !== null){
+                    this.bindings[binding] = {
+                        set value(value){ light.enabled = value; },
+                        get value(     ){ return light.enabled;  }
+                    };
+                } else {
+                    this.onXMLMinorError(`Unknown binding '${binding}'`);
+                }
+            }
+
             numLights++;
         }
 
@@ -565,6 +605,23 @@ class MySceneGraph {
     }
 
     /**
+     * Parses the <bindings> node.
+     * @param {bindings block element} bindingsNode
+     */
+    parseBindings(bindingsNode) {
+        this.bindings = {};
+        for(let i = 0; i < bindingsNode.children.length; ++i){
+            let binding = bindingsNode.children[i];
+
+            this.bindings[binding.id] = {
+            };
+        }
+
+
+        return null;
+    }
+
+    /**
      * Parses the <textures> block. 
      * @param {textures block element} texturesNode
      */
@@ -573,9 +630,9 @@ class MySceneGraph {
         for(let i = 0; i < texturesNode.children.length; ++i){
             let texture = texturesNode.children[i];
 
-        // Checks for repeated IDs.
-        if (this.textures[texture.id] != null)
-            return "ID must be unique for each texture (conflict: ID = " + texture.id + ")";
+            // Checks for repeated IDs.
+            if (this.textures[texture.id] != null)
+                return "ID must be unique for each texture (conflict: ID = " + texture.id + ")";
 
             this.textures[texture.id] = new CGFtexture(
                 this.scene,
@@ -837,6 +894,12 @@ class MySceneGraph {
             if (this.nodes[nodeID] != null)
                 return "ID must be unique for each node (conflict: ID = " + nodeID + ")";
 
+            // On click
+            let onclick = null;
+            if (typeof children[i].attributes.onclick !== 'undefined'){
+                onclick = this.reader.getString(children[i], 'onclick');
+            }
+
             grandChildren = children[i].children;
 
             nodeNames = [];
@@ -852,6 +915,11 @@ class MySceneGraph {
 
             let node = new Node(this.scene, nodeID);
             node.setDropbox(dropbox);
+            if(onclick !== null){
+                let onclick_func = new Function(onclick);
+                node.onclick = onclick_func.bind(this);
+                node.onclick();
+            }
             // Transformations
             let transformations = grandChildren[transformationsIndex];
             let M = this.parseTransformations(transformations, nodeID); if(typeof M === "string") return M;

@@ -3,6 +3,8 @@
         <reference length="1.0"/>
         <root id="root"/>
     </initials>
+    <bindings>
+    </bindings>
     <views default="camera">
         <!-- at least one of the following type of cameras must be declared -->
         <perspective id="camera" near="0.1" far="500" angle="30">

@@ -68,22 +68,6 @@ class XMLscene extends CGFscene {
                 break;              // Only eight lights allowed by WebCGF on default shaders.
 
             if (this.graph.lights.hasOwnProperty(key)) {
-                var graphLight = this.graph.lights[key];
-
-                // this.lights[i] = new CGFlight(this, key);
-                this.lights[i].setPosition(...graphLight[1]);
-                this.lights[i].setAmbient(...graphLight[2]);
-                this.lights[i].setDiffuse(...graphLight[3]);
-                this.lights[i].setSpecular(...graphLight[4]);
-
-                this.lights[i].setVisible(false);
-                if (graphLight[0])
-                    this.lights[i].enable();
-                else
-                    this.lights[i].disable();
-
-                this.lights[i].update();
-
                 if(folder_lights) folder_lights.add(this.lights[i], 'enabled').name(key);
 
                 i++;
