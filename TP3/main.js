@@ -9,55 +9,105 @@ function getUrlVars() {
       vars[decodeURIComponent(key)] = decodeURIComponent(value);
     });
     return vars;
-}	 
+}  
+
+var app = {};
+
 //Include additional files here
 serialInclude(
     [
         '../lib/CGF.js',
+        'Stack.js',
         'XMLscene.js',
-        'MySceneGraph.js',
         'MyInterface.js',
-        'MyTriangle.js',
-        'MyRectangle.js',
-        'MyCylinder.js',
-        'MySphere.js',
-        'MyTorus.js',
-        'Node.js',
-        'Keyframe.js',
-        'Animation.js',
-        'KeyframeAnimation.js',
-        'MySpriteSheet.js',
-        'MySpriteText.js',
-        'MySpriteAnimation.js',
-        'Plane.js',
-        'Patch.js',
-        'Barrel.js',
+        'scene-graph/primitives/MyTriangle.js',
+        'scene-graph/primitives/MyRectangle.js',
+        'scene-graph/primitives/MyCylinder.js',
+        'scene-graph/primitives/MySphere.js',
+        'scene-graph/primitives/MyTorus.js',
+        'scene-graph/primitives/Plane.js',
+        'scene-graph/primitives/Patch.js',
+        'scene-graph/primitives/Barrel.js',
+        'scene-graph/keyframes/MyShader.js',
+        'scene-graph/keyframes/Keyframe.js',
+        'scene-graph/keyframes/Animation.js',
+        'scene-graph/keyframes/KeyframeAnimation.js',
+        'scene-graph/keyframes/MySpriteSheet.js',
+        'scene-graph/keyframes/MySpriteText.js',
+        'scene-graph/keyframes/MySpriteAnimation.js',
+        'scene-graph/GameboardSetup.js',
+        'scene-graph/PiecesSetup.js',
+        'scene-graph/Node.js',
+        'scene-graph/MySceneGraph.js',
+        'server/Server.js',
+        'logic/BoardCell.js',
+        'logic/GameBoard.js',
+        'logic/GameState.js',
+        'logic/Orchestrator.js',
+        'logic/PassiveOrchestrator.js',
+        'logic/PieceStack.js',
+        'logic/PieceStackView.js',
+        'logic/RoomPieceStackView.js',
+        'logic/GameMove.js',
+        'logic/GameSequence.js',
+        'logic/PlayerMoveState.js',
+        'logic/Button.js',
+        'logic/UserInterface.js',
 
-main=function()
-{
-	// Standard application, scene and interface setup
-    var app = new CGFapplication(document.body);
-    var myInterface = new MyInterface();
-    var myScene = new XMLscene(myInterface);
-
+main=function(){
+    app = new CGFapplication(document.getElementById('drawingBoard'));
     app.init();
+    startMenu();
 
-    app.setScene(myScene);
-    app.setInterface(myInterface);
+    document.getElementById('play-button').addEventListener('click', () => {
 
-    myInterface.setActiveCamera(myScene.camera);
+        let gameMode;
+        if(document.getElementById('PvP').checked){
+            gameMode = document.getElementById('PvP').value;
+        }else if(document.getElementById('PvC').checked){
+            gameMode = document.getElementById('PvC').value;
+        }else if(document.getElementById('CvC').checked){
+            gameMode = document.getElementById('CvC').value;
+        }
+        
+        let level = document.getElementById('level').value;
 
-	// get file name provided in URL, e.g. http://localhost/myproj/?file=myfile.xml 
-	// or use "demo.xml" as default (assumes files in subfolder "scenes", check MySceneGraph constructor) 
-	
-    var filename=getUrlVars()['file'] || "demo.xml";
+        this.document.getElementById('menu').style.display = 'none';
 
-	// create and load graph, and associate it to scene. 
-	// Check console for loading errors
-	var myGraph = new MySceneGraph(filename, myScene);
-	
-	// start
-    app.run();
+        startGame(gameMode, level);
+    });
+
+    document.getElementById('info-button').addEventListener('click', ()=>{
+        document.getElementById('menu').style.display = 'none';
+        document.getElementById('info-text').style.display = 'block';
+    });
+    document.getElementById('exit-info').addEventListener('click', ()=>{
+        document.getElementById('menu').style.display = 'block';
+        document.getElementById('info-text').style.display = 'none';
+    });
+
 }
 
 ]);
+
+function startMenu(){
+    var backgroundScene = new XMLscene(null);
+    app.setScene(backgroundScene);
+    var backgroundOrchestrator = new PassiveOrchestrator(backgroundScene, 'space.xml');
+    app.run();
+}
+
+function startGame(gameMode, level){
+	// Standard application, scene and interface setup
+    var gameInterface = new MyInterface();
+    var gameScene = new XMLscene(gameInterface);
+
+    app.setScene(gameScene);
+    app.setInterface(gameInterface);
+
+    gameInterface.setActiveCamera(gameScene.camera);
+
+	// create and load graph, and associate it to scene. 
+    // Check console for loading errors
+    var orchestrator = new Orchestrator(gameScene, 'room.xml', gameMode, level);
+}

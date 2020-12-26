@@ -11,10 +11,12 @@ class Node extends CGFobject {
         this.id    = id;
         this.transformation = mat4.create();
         this.material       = null;
+        this.selectedMaterial = null;
         this.texture        = null;
         this.animation      = null;
         this.children       = [];
         this.dropbox        = null;
+        this.onclick        = null;
         this.enabled = true;
     }
     enable(){
@@ -32,6 +34,10 @@ class Node extends CGFobject {
         this.material = material;
     }
 
+    setSelectedMaterial(material){
+        this.selectedMaterial = material;
+    }
+
     setTexture(texture){
         this.texture = texture;
     }
@@ -43,6 +49,13 @@ class Node extends CGFobject {
     addChild(child){
         this.children.push(child);
     }
+    resolveChildren(resolver){
+        for(let i = 0; i < this.children.length; ++i){
+            if(typeof this.children[i] === 'string'){
+                this.children[i] = resolver(this.children[i]);
+            }
+        }
+    }
 
     setDropbox(dropbox){
         this.dropbox = dropbox;
@@ -53,19 +66,23 @@ class Node extends CGFobject {
         this.scene.pushMatrix();
         this.scene.pushAppearance();
         {
-            this.scene.setAppearance(this.material, this.texture);
+            if(this.scene.isSelectEnabled() && this.selectedMaterial != null)
+                this.scene.setAppearance(this.selectedMaterial, this.texture);
+            else
+                this.scene.setAppearance(this.material        , this.texture);
             
             this.scene.multMatrix(this.transformation);
 
             if(this.animation != null)
                 this.animation.apply();
 
+            if(this.onclick !== null) this.scene.registerForPick(1, this);
             if(this.animation == null || this.animation.isVisible()){
-                for(let i = 0; i < this.children.length; ++i){
-                    let child = this.children[i];
+                for(let child of this.children){
                     child.display();
                 }
             }
+            if(this.onclick !== null) this.scene.clearPickRegistration();
         }
         this.scene.popAppearance();
         this.scene.popMatrix();

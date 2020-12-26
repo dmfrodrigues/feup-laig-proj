@@ -34,14 +34,16 @@ class XMLscene extends CGFscene {
 
         this.axis = new CGFaxis(this);
         this.setUpdatePeriod(20);
+        this.setPickEnabled(true);
+        this.selectEnabled = false;
 
         this.loadingProgressObject=new MyRectangle(this, -1, -.1, 1, .1);
         this.loadingProgress=0;
 
         this.defaultAppearance=new CGFappearance(this);
 
-        this.appearance_stack = [];
-        this.texture_stack = [];
+        this.appearance_stack = new Stack();
+        this.texture_stack = new Stack();
         this.appearance = this.defaultAppearance;
     }
 
@@ -55,7 +57,7 @@ class XMLscene extends CGFscene {
      * Initializes the scene lights with the values read from the XML file.
      */
     initLights() {
-        var folder_lights = this.interface.gui.addFolder("Lights");
+        if(this.interface) var folder_lights = this.interface.gui.addFolder("Lights");
 
         var i = 0;
         // Lights index.
@@ -66,69 +68,23 @@ class XMLscene extends CGFscene {
                 break;              // Only eight lights allowed by WebCGF on default shaders.
 
             if (this.graph.lights.hasOwnProperty(key)) {
-                var graphLight = this.graph.lights[key];
-
-                // this.lights[i] = new CGFlight(this, key);
-                this.lights[i].setPosition(...graphLight[1]);
-                this.lights[i].setAmbient(...graphLight[2]);
-                this.lights[i].setDiffuse(...graphLight[3]);
-                this.lights[i].setSpecular(...graphLight[4]);
-
-                this.lights[i].setVisible(false);
-                if (graphLight[0])
-                    this.lights[i].enable();
-                else
-                    this.lights[i].disable();
-
-                this.lights[i].update();
-
-                folder_lights.add(this.lights[i], 'enabled').name(key);
+                if(folder_lights) folder_lights.add(this.lights[i], 'enabled').name(key);
 
                 i++;
             }
         }
     }
 
-    completeCameras(){
-        this.interface.gui.add(this.graph.views, 'current', Object.keys(this.graph.views.list)).name('View').onChange(this.updateViews.bind(this));
+    createCameraControls(){
+        if(this.interface)
+            this.interface.gui.add(this.graph.views, 'current', Object.keys(this.graph.views.list)).name('View').onChange(this.updateViews.bind(this));
     
         this.updateViews();
     }
 
     updateViews() {
         this.camera = this.graph.views.list[this.graph.views.current];
-        this.interface.setActiveCamera(this.camera);
-    }
-
-    dropboxes(){
-        let nodes = this.graph.nodes;
-        function disableAll(options){
-            for(let option of options){
-                nodes[option].disable();
-            }
-        }
-        
-        let drops = {};
-        for(let nodeId in this.graph.nodes){
-            let node = this.graph.nodes[nodeId];
-            if(node.dropbox !== null){
-                if(typeof drops[node.dropbox] === 'undefined') drops[node.dropbox] = [];
-                drops[node.dropbox].push(nodeId);
-            }
-        }
-
-        let selected = {};
-
-        for(let dropbox in drops){
-            disableAll(drops[dropbox]);
-
-            selected[dropbox] = drops[dropbox][0];
-            nodes[selected[dropbox]].enable();
-
-            this.interface.gui.add(selected, dropbox, drops[dropbox]).name(dropbox).onChange(
-                function(){disableAll(drops[dropbox]); nodes[selected[dropbox]].enable(); }
-            );
-        }
+        if(this.interface) this.interface.setActiveCamera(this.camera);
     }
 
     /**
@@ -141,22 +97,16 @@ class XMLscene extends CGFscene {
             this.update.t0 = time;
         }
         let t = (time-this.update.t0)/SECONDS_TO_MILLIS;
-        for (var key in this.graph.animations){
-            this.graph.animations[key].update(t);
-        }
-        for (let anim in this.graph.spriteAnimations){
-            this.graph.spriteAnimations[anim].update(t);
-        }
-        for (let text in this.graph.spriteTexts){
-            this.graph.spriteTexts[text].update();
-        }
+        this.orchestrator.update(t);
     }
 
     /** Handler called when the graph is finally loaded. 
      * As loading is asynchronous, this may be called already after the application has started the run loop
      */
     onGraphLoaded() {
-        this.axis = new CGFaxis(this, this.graph.referenceLength);
+        this.axis = null;
+        if(this.graph.referenceLength > 0)
+            this.axis = new CGFaxis(this, this.graph.referenceLength);
 
         this.gl.clearColor(...this.graph.background);
 
@@ -164,9 +114,9 @@ class XMLscene extends CGFscene {
 
         this.initLights();
 
-        this.completeCameras();
+        this.createCameraControls();
 
-        this.dropboxes();
+        this.orchestrator.initialize();
 
         this.sceneInited = true;
     }
@@ -178,24 +128,31 @@ class XMLscene extends CGFscene {
     popAppearance(){
         this.appearance = this.appearance_stack.pop();
         this.texture = this.texture_stack.pop();
+        this.appearance.setTexture(this.texture);
         this.appearance.apply();
     }
     setAppearance(material, tex){
-        // material
-        if(material == "same") this.appearance = this.appearance_stack[this.appearance_stack.length-1];
-        else                   this.appearance = material;
-        // texture
-        if(tex == "same") this.texture = this.texture_stack[this.texture_stack.length-1];
-        else              this.texture = tex;
-        this.appearance.setTexture(this.texture);
-        // finally
-        this.appearance.apply();
+        if(material == "same") material = this.appearance_stack.top();
+        if(tex      == "same") tex      = this.texture_stack   .top();
+        if(!Object.is(this.appearance, material) || !Object.is(this.texture, tex)){
+            this.appearance = material;
+            this.texture    = tex;
+            this.appearance.setTexture(this.texture);
+            // finally
+            this.appearance.apply();
+        }
     }
+
+    selectEnable   (){ this.selectEnabled = true ; }
+    selectDisable  (){ this.selectEnabled = false; }
+    isSelectEnabled(){ return this.selectEnabled ; }
 
     /**
      * Displays the scene.
      */
     display() {
+        this.orchestrator.managePick(this.pickMode, this.pickResults);
+        this.clearPickRegistration();
         // ---- BEGIN Background, camera and axis setup
 
         // Clear image and depth buffer everytime we update the scene
@@ -217,12 +174,15 @@ class XMLscene extends CGFscene {
 
         if (this.sceneInited) {
             // Draw axis
-            this.axis.display();
+            if(this.axis != null) this.axis.display();
  
             this.defaultAppearance.apply();
 
-            // Displays the scene (MySceneGraph function).
-            this.graph.displayScene();
+            // Displays everything
+            this.gl.enable(this.gl.BLEND);
+            this.gl.blendFunc(this.gl.SRC_ALPHA, this.gl.ONE_MINUS_SRC_ALPHA);
+            this.orchestrator.display();
+            this.gl.disable(this.gl.BLEND); 
         }
         else
         {

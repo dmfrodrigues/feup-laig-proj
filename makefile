@@ -1,6 +1,9 @@
 GROUP	=T2_G04
 
-all: clean zip
+PROLOG=swipl
+
+all:
+	make -C server/feup-plog-tp1 PROLOG=$(PROLOG)
 
 zip: LAIG_TP1_$(GROUP).zip LAIG_TP2_$(GROUP).zip
 

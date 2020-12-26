@@ -2,22 +2,231 @@
     <initials>
         <reference length="0.0"/>
         <root id="root"/>
-        <gameboard x="0" y="0" noderefid="gameboard">
+        <gameboard id="gameboard">
+            <transformations>
+                <translation x="0" y="0" z="-0.2"/>
+                <rotation axis="y" angle="90"/>
+                <translation x="0.05" y="0.51" z="0"/>
+            </transformations>
+            <cells id="cell">
+                <cell i="0" j="0" x="-0.0693" y="0.001" z="-0.12"/>
+                <cell i="0" j="1" x="-0.0347" y="0.001" z="-0.12"/>
+                <cell i="0" j="2" x="+0.0000" y="0.001" z="-0.12"/>
+                <cell i="0" j="3" x="+0.0347" y="0.001" z="-0.12"/>
+                <cell i="0" j="4" x="+0.0693" y="0.001" z="-0.12"/>
+                <cell i="1" j="0" x="-0.0867" y="0.001" z="-0.09"/>
+                <cell i="1" j="1" x="-0.0520" y="0.001" z="-0.09"/>
+                <cell i="1" j="2" x="-0.0173" y="0.001" z="-0.09"/>
+                <cell i="1" j="3" x="+0.0173" y="0.001" z="-0.09"/>
+                <cell i="1" j="4" x="+0.0520" y="0.001" z="-0.09"/>
+                <cell i="1" j="5" x="+0.0867" y="0.001" z="-0.09"/>
+                <cell i="2" j="0" x="-0.1040" y="0.001" z="-0.06"/>
+                <cell i="2" j="1" x="-0.0693" y="0.001" z="-0.06"/>
+                <cell i="2" j="2" x="-0.0347" y="0.001" z="-0.06"/>
+                <cell i="2" j="3" x="+0.0000" y="0.001" z="-0.06"/>
+                <cell i="2" j="4" x="+0.0347" y="0.001" z="-0.06"/>
+                <cell i="2" j="5" x="+0.0693" y="0.001" z="-0.06"/>
+                <cell i="2" j="6" x="+0.1040" y="0.001" z="-0.06"/>
+                <cell i="3" j="0" x="-0.1213" y="0.001" z="-0.03"/>
+                <cell i="3" j="1" x="-0.0867" y="0.001" z="-0.03"/>
+                <cell i="3" j="2" x="-0.0520" y="0.001" z="-0.03"/>
+                <cell i="3" j="3" x="-0.0173" y="0.001" z="-0.03"/>
+                <cell i="3" j="4" x="+0.0173" y="0.001" z="-0.03"/>
+                <cell i="3" j="5" x="+0.0520" y="0.001" z="-0.03"/>
+                <cell i="3" j="6" x="+0.0867" y="0.001" z="-0.03"/>
+                <cell i="3" j="7" x="+0.1213" y="0.001" z="-0.03"/>
+                <cell i="4" j="0" x="-0.1386" y="0.001" z="+0.00"/>
+                <cell i="4" j="1" x="-0.1040" y="0.001" z="+0.00"/>
+                <cell i="4" j="2" x="-0.0693" y="0.001" z="+0.00"/>
+                <cell i="4" j="3" x="-0.0347" y="0.001" z="+0.00"/>
+                <cell i="4" j="4" x="+0.0000" y="0.001" z="+0.00"/>
+                <cell i="4" j="5" x="+0.0347" y="0.001" z="+0.00"/>
+                <cell i="4" j="6" x="+0.0693" y="0.001" z="+0.00"/>
+                <cell i="4" j="7" x="+0.1040" y="0.001" z="+0.00"/>
+                <cell i="4" j="8" x="+0.1386" y="0.001" z="+0.00"/>
+                <cell i="5" j="1" x="-0.1213" y="0.001" z="+0.03"/>
+                <cell i="5" j="2" x="-0.0867" y="0.001" z="+0.03"/>
+                <cell i="5" j="3" x="-0.0520" y="0.001" z="+0.03"/>
+                <cell i="5" j="4" x="-0.0173" y="0.001" z="+0.03"/>
+                <cell i="5" j="5" x="+0.0173" y="0.001" z="+0.03"/>
+                <cell i="5" j="6" x="+0.0520" y="0.001" z="+0.03"/>
+                <cell i="5" j="7" x="+0.0867" y="0.001" z="+0.03"/>
+                <cell i="5" j="8" x="+0.1213" y="0.001" z="+0.03"/>
+                <cell i="6" j="2" x="-0.1040" y="0.001" z="+0.06"/>
+                <cell i="6" j="3" x="-0.0693" y="0.001" z="+0.06"/>
+                <cell i="6" j="4" x="-0.0347" y="0.001" z="+0.06"/>
+                <cell i="6" j="5" x="+0.0000" y="0.001" z="+0.06"/>
+                <cell i="6" j="6" x="+0.0347" y="0.001" z="+0.06"/>
+                <cell i="6" j="7" x="+0.0693" y="0.001" z="+0.06"/>
+                <cell i="6" j="8" x="+0.1040" y="0.001" z="+0.06"/>
+                <cell i="7" j="3" x="-0.0867" y="0.001" z="+0.09"/>
+                <cell i="7" j="4" x="-0.0520" y="0.001" z="+0.09"/>
+                <cell i="7" j="5" x="-0.0173" y="0.001" z="+0.09"/>
+                <cell i="7" j="6" x="+0.0173" y="0.001" z="+0.09"/>
+                <cell i="7" j="7" x="+0.0520" y="0.001" z="+0.09"/>
+                <cell i="7" j="8" x="+0.0867" y="0.001" z="+0.09"/>
+                <cell i="8" j="4" x="-0.0693" y="0.001" z="+0.12"/>
+                <cell i="8" j="5" x="-0.0347" y="0.001" z="+0.12"/>
+                <cell i="8" j="6" x="+0.0000" y="0.001" z="+0.12"/>
+                <cell i="8" j="7" x="+0.0347" y="0.001" z="+0.12"/>
+                <cell i="8" j="8" x="+0.0693" y="0.001" z="+0.12"/>
+            </cells>
         </gameboard>
+        <piece id="piece" height="0.002"/>
+        <pieceview classname="RoomPieceStackView"/>
+        <ui id="ui">
+            <transformations>
+                <translation x="0.24" y="0.54" z="-0.2"/>
+                <rotation axis="y" angle="90"/>
+                <rotation axis="x" angle="-45"/>
+            </transformations>
+            <panel id="ui-panel-with-value"/>
+            <value id="ui-panel-value"/>
+            <buttons>
+                <button id="submit"/>
+                <button id="undo"/>
+            </buttons>
+        </ui>
     </initials>
-    <views default="player2_camera">
+    <animations>
+        <animation id="turn-light-switch" loop="0" timeupdate="0">
+            <keyframe instant="0.0">
+                <translation x="0.0" y="0.0" z="0.0" />
+                <rotation axis="x" angle="0" />
+                <rotation axis="y" angle="0" />
+                <rotation axis="z" angle="0" />
+                <scale sx="1" sy="1" sz="1" />
+            </keyframe>
+            <keyframe instant="1.0">
+                <translation x="0.0" y="0.0" z="0.0" />
+                <rotation axis="x" angle="-40" />
+                <rotation axis="y" angle="0" />
+                <rotation axis="z" angle="0" />
+                <scale sx="1" sy="1" sz="1" />
+            </keyframe>
+        </animation>
+        <!-- Globe animations -->
+        <animation id="globe_rotation" loop="1">
+            <keyframe instant="0.0">
+                <translation x="0.0" y="0.0" z="0.0" />
+                <rotation axis="x" angle="0" />
+                <rotation axis="y" angle="0" />
+                <rotation axis="z" angle="0" />
+                <scale sx="1" sy="1" sz="1" />
+            </keyframe>
+            <keyframe instant="20.0">
+                <translation x="0.0" y="0.0" z="0.0" />
+                <rotation axis="x" angle="0" />
+                <rotation axis="y" angle="0" />
+                <rotation axis="z" angle="360" />
+                <scale sx="1" sy="1" sz="1" />
+            </keyframe>
+        </animation>
+        <!-- Open & Close window -->
+        <animation id="open_close_window">
+            <keyframe instant="0.0">
+                <translation x="0.0" y="0.0" z="0.0" />
+                <rotation axis="x" angle="0" />
+                <rotation axis="y" angle="0" />
+                <rotation axis="z" angle="0" />
+                <scale sx="1" sy="1" sz="1" />
+            </keyframe>
+            <keyframe instant="3.0">
+                <translation x="-0.45" y="0.0" z="0.0" />
+                <rotation axis="x" angle="0" />
+                <rotation axis="y" angle="0" />
+                <rotation axis="z" angle="0" />
+                <scale sx="1" sy="1" sz="1" />
+            </keyframe>
+            <keyframe instant="7.0">
+                <translation x="-0.45" y="0.0" z="0.0" />
+                <rotation axis="x" angle="0" />
+                <rotation axis="y" angle="0" />
+                <rotation axis="z" angle="0" />
+                <scale sx="1" sy="1" sz="1" />
+            </keyframe>
+            <keyframe instant="10.0">
+                <translation x="0.0" y="0.0" z="0.0" />
+                <rotation axis="x" angle="0" />
+                <rotation axis="y" angle="0" />
+                <rotation axis="z" angle="0" />
+                <scale sx="1" sy="1" sz="1" />
+            </keyframe>
+        </animation>
+        <animation id="lavalamp-blob-updown0" loop="1" easing="(10.0+x-0.85-0.079577471545948*Math.sin(12.5663706144*(x-0.85)))%1.0">
+            <keyframe instant='00.0'><translation x='0' y='0.00' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
+            <keyframe instant='30.0'><translation x='0' y='0.14' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
+            <keyframe instant='60.0'><translation x='0' y='0.00' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
+        </animation>
+        <animation id="lavalamp-blob-updown1" loop="1" easing="x-0.079577471545948*Math.sin(12.5663706144*x)">
+            <keyframe instant='00.0'><translation x='0' y='0.00' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
+            <keyframe instant='25.0'><translation x='0' y='0.14' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
+            <keyframe instant='50.0'><translation x='0' y='0.00' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
+        </animation>
+        <animation id="lavalamp-blob-updown2" loop="1" easing="(10.0+x-0.75-0.079577471545948*Math.sin(12.5663706144*(x-0.75)))%1.0">
+            <keyframe instant='00.0'><translation x='0' y='0.00' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
+            <keyframe instant='20.0'><translation x='0' y='0.14' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
+            <keyframe instant='40.0'><translation x='0' y='0.00' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
+        </animation>
+        <animation id="lavalamp-blob-updown3" loop="1" easing="x-0.079577471545948*Math.sin(12.5663706144*x)">
+            <keyframe instant='00.0'><translation x='0' y='0.10' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
+            <keyframe instant='15.0'><translation x='0' y='0.00' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
+            <keyframe instant='30.0'><translation x='0' y='0.10' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
+        </animation>
+        <animation id="lavalamp-blob-updown4" loop="1" easing="(10.0+x-0.25-0.079577471545948*Math.sin(12.5663706144*(x-0.25)))%1.0">
+            <keyframe instant='00.0'><translation x='0' y='0.00' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
+            <keyframe instant='20.0'><translation x='0' y='0.14' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
+            <keyframe instant='40.0'><translation x='0' y='0.00' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
+        </animation>
+        <animation id="lavalamp-blob-updown5" loop="1" easing="(10.0+x-0.6-0.079577471545948*Math.sin(12.5663706144*(x-0.6)))%1.0">
+            <keyframe instant='00.0'><translation x='0' y='0.00' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
+            <keyframe instant='10.0'><translation x='0' y='0.10' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
+            <keyframe instant='20.0'><translation x='0' y='0.00' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
+        </animation>
+        <animation id="lavalamp-blob-oscillator1" loop="1" easing="x-0.079577471545948*Math.sin(12.5663706144*x)">
+            <keyframe instant='00.0'><translation x='0' y='0' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1.00' sy='1.00' sz='1.00'/></keyframe>
+            <keyframe instant='02.5'><translation x='0' y='0' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='0.86' sy='1.14' sz='0.86'/></keyframe>
+            <keyframe instant='05.0'><translation x='0' y='0' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1.00' sy='1.00' sz='1.00'/></keyframe>
+        </animation>
+        <animation id="lavalamp-blob-oscillator2" loop="1" easing="(10.0+x-0.75-0.079577471545948*Math.sin(12.5663706144*(x-0.75)))%1.0">
+            <keyframe instant='00.0'><translation x='0' y='0' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1.00' sy='1.00' sz='1.00'/></keyframe>
+            <keyframe instant='02.5'><translation x='0' y='0' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='0.86' sy='1.14' sz='0.86'/></keyframe>
+            <keyframe instant='05.0'><translation x='0' y='0' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1.00' sy='1.00' sz='1.00'/></keyframe>
+        </animation>
+        <animation id="lavalamp-blob-oscillator3" loop="1" easing="(10.0+x-0.25-0.079577471545948*Math.sin(12.5663706144*(x-0.50)))%1.0">
+            <keyframe instant='00.0'><translation x='0' y='0' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1.00' sy='1.00' sz='1.00'/></keyframe>
+            <keyframe instant='02.5'><translation x='0' y='0' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='0.86' sy='1.14' sz='0.86'/></keyframe>
+            <keyframe instant='05.0'><translation x='0' y='0' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1.00' sy='1.00' sz='1.00'/></keyframe>
+        </animation>
+        <animation id="lavalamp-blob-oscillator4" loop="1" easing="(10.0+x-0.25-0.079577471545948*Math.sin(12.5663706144*(x-0.25)))%1.0">
+            <keyframe instant='00.0'><translation x='0' y='0' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1.00' sy='1.00' sz='1.00'/></keyframe>
+            <keyframe instant='02.5'><translation x='0' y='0' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='0.86' sy='1.14' sz='0.86'/></keyframe>
+            <keyframe instant='05.0'><translation x='0' y='0' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1.00' sy='1.00' sz='1.00'/></keyframe>
+        </animation>
+        <animation id="wood-box-lid-animation" loop="1" easing="easeInMidOutSine">
+            <keyframe instant='00.0'><translation x='0' y='0' z='0'/><rotation axis='x' angle='0'  /><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
+            <keyframe instant='05.0'><translation x='0' y='0' z='0'/><rotation axis='x' angle='-90'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
+            <keyframe instant='10.0'><translation x='0' y='0' z='0'/><rotation axis='x' angle='0'  /><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
+        </animation>
+    </animations>
+    <bindings>
+        <binding id="ceiling-light-var">
+            <representation type="anim" t="1" animationref="turn-light-switch"/>
+        </binding>
+    </bindings>
+    <views default="player1_camera">
         <!-- at least one of the following type of cameras must be declared -->
         <perspective id="default_camera" near="0.1" far="500" angle="45">
             <from x="1.6" y="1.4" z="1.6"/>
             <to   x="0.0" y="1.0" z="0.0"/>
         </perspective>
-        <perspective id="player1_camera" near="0.1" far="500" angle="60">
-            <from x="+0.5" y="1.0" z="0.0"/>
-            <to   x="+0.1" y="0.6" z="-0.2"/>
+        <perspective id="player1_camera" near="0.1" far="500" angle="50">
+            <from x="+0.60" y="0.90" z="-0.1"/>
+            <to   x="+0.00" y="0.5" z="-0.17"/>
         </perspective>
-        <perspective id="player2_camera" near="0.1" far="500" angle="60">
-            <from x="-0.5" y="1.0" z="0.0"/>
-            <to   x="-0.1" y="0.6" z="-0.2"/>
+        <perspective id="player2_camera" near="0.1" far="500" angle="50">
+            <from x="-0.60" y="0.90" z="-0.10"/>
+            <to   x="-0.00" y="0.5" z="-0.17"/>
         </perspective>
     </views>
     <illumination>
@@ -27,21 +236,22 @@
     <lights>
         <!-- NOTE: at least one light should be present, and a maximum of eight lights is accepted. -->
         <light id="ceiling-light">
-            <enable value="1"/>
+            <enable value="1" bind="ceiling-light-var"/>
             <position x="0.0" y="2.0" z="0.0" w="1.0"/>
             <ambient  r="0.50" g="0.48" b="0.45" a="1.0"/>
-            <diffuse  r="1.00" g="0.96" b="0.90" a="1.0"/>
+            <diffuse  r="0.75" g="0.72" b="0.67" a="1.0"/>
             <specular r="0.50" g="0.48" b="0.45" a="1.0"/>
         </light>
 
         <light id="globe-light">
             <enable value="1"/>
             <position x="1.2" y="0.75" z="-1.30" w="1.0"/>
-            <ambient  r="0.0" g="0.0" b="0.0" a="1.0"/>
-            <diffuse  r="0.25" g="0.25" b="0.3" a="1.0"/>
-            <specular r="0.3" g="0.2" b="0.24" a="1.0"/>
+            <ambient  r="0.00" g="0.00" b="0.00" a="1.0"/>
+            <diffuse  r="0.10" g="0.10" b="0.15" a="1.0"/>
+            <specular r="0.10" g="0.08" b="0.09" a="1.0"/>
         </light>
     </lights>
+
     <textures>
         <!-- NOTE: this block "TEXTURE" must be repeated as necessary with different "id" -->
         <texture id="black_painted_metal" path="./scenes/images/black-painted-metal.jpg"/>
@@ -71,18 +281,22 @@
         <texture id="wood-log"            path="./scenes/images/log.jpg"                />
         <texture id="porcelain-painted"   path="./scenes/images/porcelain-painted.jpg"  />
         <texture id="dirty-glass"         path="./scenes/images/dirty-glass.jpg"        />
+        <texture id="brass"               path="./scenes/images/brass.jpg"              />
         <texture id="gameboard"           path="./scenes/gameboard/gameboard.png"       />
+        <texture id="cell"                path="./scenes/gameboard/cell.jpg"            />
         <texture id="skysphere-empirestate" path="./scenes/images/skysphere/empirestate-day/skysphere-empirestate-small.jpg"/>
     </textures>
 
     <spritesheets>
+        <spritesheet id="consolas" path="./scenes/spritesheets/consolas.svg" sizeM="16" sizeN="16"/>
+        <spritesheet id="lcd" path="./scenes/spritesheets/lcd.svg" sizeM="16" sizeN="16"/>
+        <spritesheet id="calc" path="./scenes/spritesheets/calc.svg" sizeM="16" sizeN="16"/>
         <spritesheet id="fire" path="./scenes/spritesheets/fire8_64.png" sizeM="10" sizeN="6"/>
         <spritesheet id="tv-news" path="./scenes/spritesheets/news.jpg" sizeM="8" sizeN="18"/>
         <spritesheet id="tv-football" path="./scenes/spritesheets/football.jpg" sizeM="8" sizeN="18"/>
     </spritesheets>
 
     <materials>
-        <!-- At least one material should be present. -->
         <material id="plastic-white">
             <shininess value="5.0"/>
             <ambient  r="1.0" g="1.0" b="1.0" a="1.0"/>
@@ -90,6 +304,63 @@
             <specular r="0.9" g="0.9" b="0.9" a="1.0"/>
             <emissive r="0.0" g="0.0" b="0.0" a="1.0"/>
         </material>
+        <material id="plastic-lightgray">
+            <shininess value="5.0"/>
+            <ambient  r="0.9" g="0.9" b="0.9" a="1.0"/>
+            <diffuse  r="0.9" g="0.9" b="0.9" a="1.0"/>
+            <specular r="0.9" g="0.9" b="0.9" a="1.0"/>
+            <emissive r="0.0" g="0.0" b="0.0" a="1.0"/>
+        </material>
+        <material id="plastic-dark">
+            <shininess value="5.0"/>
+            <ambient  r="0.40" g="0.40" b="0.40" a="1.0"/>
+            <diffuse  r="0.40" g="0.40" b="0.40" a="1.0"/>
+            <specular r="0.36" g="0.36" b="0.36" a="1.0"/>
+            <emissive r="0.35" g="0.35" b="0.35" a="1.0"/>
+        </material>
+        <material id="plastic-red">
+            <shininess value="15.0"/>
+            <ambient  r="1.0" g="0.5" b="0.5" a="1.0"/>
+            <diffuse  r="1.0" g="0.5" b="0.5" a="1.0"/>
+            <specular r="0.3" g="0.3" b="0.3" a="1.0"/>
+            <emissive r="0.0" g="0.0" b="0.0" a="1.0"/>
+        </material>
+        <material id="plastic-red-emissive">
+            <shininess value="15.0"/>
+            <ambient  r="1.0" g="0.5" b="0.5" a="1.0"/>
+            <diffuse  r="1.0" g="0.5" b="0.5" a="1.0"/>
+            <specular r="0.3" g="0.3" b="0.3" a="1.0"/>
+            <emissive r="0.3" g="0.3" b="0.3" a="1.0"/>
+        </material>
+        <material id="plastic-yellow">
+            <shininess value="15.0"/>
+            <ambient  r="1.0" g="1.0" b="0.3" a="1.0"/>
+            <diffuse  r="1.0" g="1.0" b="0.3" a="1.0"/>
+            <specular r="0.3" g="0.3" b="0.3" a="1.0"/>
+            <emissive r="0.0" g="0.0" b="0.0" a="1.0"/>
+        </material>
+        <material id="plastic-yellow-emissive">
+            <shininess value="15.0"/>
+            <ambient  r="1.0" g="1.0" b="0.3" a="1.0"/>
+            <diffuse  r="1.0" g="1.0" b="0.3" a="1.0"/>
+            <specular r="0.3" g="0.3" b="0.3" a="1.0"/>
+            <emissive r="0.3" g="0.3" b="0.3" a="1.0"/>
+        </material>
+        <material id="plastic-green">
+            <shininess value="15.0"/>
+            <ambient  r="0.5" g="1.0" b="0.5" a="1.0"/>
+            <diffuse  r="0.5" g="1.0" b="0.5" a="1.0"/>
+            <specular r="0.3" g="0.3" b="0.3" a="1.0"/>
+            <emissive r="0.0" g="0.0" b="0.0" a="1.0"/>
+        </material>
+        <material id="plastic-orange">
+            <shininess value="15.0"/>
+            <ambient  r="1.0" g="0.75" b="0.5" a="1.0"/>
+            <diffuse  r="1.0" g="0.75" b="0.5" a="1.0"/>
+            <specular r="0.3" g="0.3" b="0.3" a="1.0"/>
+            <emissive r="0.0" g="0.0" b="0.0" a="1.0"/>
+        </material>
+        
         <material id="plastic-pink">
             <shininess value="1.0"/>
             <ambient  r="0.15" g="0.11" b="0.23" a="1.0"/>
@@ -97,7 +368,7 @@
             <specular r="0.05" g="0.04" b="0.08" a="1.0"/>
             <emissive r="0.0" g="0.0" b="0.0" a="1.0"/>
         </material>
-        <material id="plastic-yellow">
+        <material id="plastic-old">
             <shininess value="1.0"/>
             <ambient  r="0.86" g="0.86" b="0.73" a="1.0"/>
             <diffuse  r="0.86" g="0.86" b="0.73" a="1.0"/>
@@ -117,6 +388,13 @@
             <diffuse  r="0.10" g="0.10" b="0.10" a="1.0"/>
             <specular r="0.70" g="0.70" b="0.70" a="1.0"/>
             <emissive r="0.0" g="0.0" b="0.0" a="1.0"/>
+        </material>
+        <material id="television-screen-on">
+            <shininess value="50.0"/>
+            <ambient  r="0.10" g="0.10" b="0.10" a="1.0"/>
+            <diffuse  r="0.10" g="0.10" b="0.10" a="1.0"/>
+            <specular r="0.70" g="0.70" b="0.70" a="1.0"/>
+            <emissive r="0.80" g="0.80" b="0.80" a="1.0"/>
         </material>
         <material id="metal">
             <shininess value="50.0"/>
@@ -209,6 +487,20 @@
             <specular r="1.0" g="1.0" b="1.0" a="1.0"/>
             <emissive r="0.1" g="0.1" b="0.1" a="1.0"/>
         </material>
+        <material id="clock-plastic-black-emissive">
+            <shininess value="1.0"/>
+            <ambient  r="0.0" g="0.0" b="0.0" a="1.0"/>
+            <diffuse  r="0.0" g="0.0" b="0.0" a="1.0"/>
+            <specular r="0.0" g="0.0" b="0.0" a="1.0"/>
+            <emissive r="0.1" g="0.1" b="0.1" a="1.0"/>
+        </material>
+        <material id="clock-plastic-red-emissive">
+            <shininess value="1.0"/>
+            <ambient  r="0.0" g="0.0" b="0.0" a="1.0"/>
+            <diffuse  r="0.0" g="0.0" b="0.0" a="1.0"/>
+            <specular r="0.0" g="0.0" b="0.0" a="1.0"/>
+            <emissive r="0.9" g="0.0" b="0.0" a="1.0"/>
+        </material>
         <material id="brick">
             <shininess value="1.0"/>
             <ambient  r="0.7" g="0.7" b="0.7" a="1.0"/>
@@ -237,500 +529,28 @@
             <specular r="0.514" g="0.680" b="0.660" a="0.10"/>
             <emissive r="0.000" g="0.000" b="0.000" a="0.10"/>
         </material>
+        <material id="fire">
+            <shininess value="1.0"/>
+            <ambient  r="0.0" g="0.0" b="0.0" a="1.0"/>
+            <diffuse  r="0.0" g="0.0" b="0.0" a="1.0"/>
+            <specular r="0.0" g="0.0" b="0.0" a="1.0"/>
+            <emissive r="1.0" g="1.0" b="1.0" a="1.0"/>
+        </material>
+        <material id="calculator-digit">
+            <shininess value="2.0"/>
+            <ambient  r="0.19" g="0.21" b="0.17" a="1.0"/>
+            <diffuse  r="0.19" g="0.21" b="0.17" a="1.0"/>
+            <specular r="0.50" g="0.50" b="0.50" a="1.0"/>
+            <emissive r="0.00" g="0.00" b="0.00" a="1.0"/>
+        </material>
+        <material id="calculator-background">
+            <shininess value="2.0"/>
+            <ambient  r="0.73" g="0.79" b="0.72" a="1.0"/>
+            <diffuse  r="0.73" g="0.79" b="0.72" a="1.0"/>
+            <specular r="0.20" g="0.20" b="0.20" a="1.0"/>
+            <emissive r="0.00" g="0.00" b="0.00" a="1.0"/>
+        </material>
     </materials>
-
-    <animations>
-        <!-- Globe animations -->
-        <animation id="globe_rotation" loop="1">
-            <keyframe instant="0.0">
-                <translation x="0.0" y="0.0" z="0.0" />
-                <rotation axis="x" angle="0" />
-                <rotation axis="y" angle="0" />
-                <rotation axis="z" angle="0" />
-                <scale sx="1" sy="1" sz="1" />
-            </keyframe>
-            <keyframe instant="20.0">
-                <translation x="0.0" y="0.0" z="0.0" />
-                <rotation axis="x" angle="0" />
-                <rotation axis="y" angle="0" />
-                <rotation axis="z" angle="360" />
-                <scale sx="1" sy="1" sz="1" />
-            </keyframe>
-        </animation>
-        <!-- Open & Close window -->
-        <animation id="open_close_window">
-            <keyframe instant="0.0">
-                <translation x="0.0" y="0.0" z="0.0" />
-                <rotation axis="x" angle="0" />
-                <rotation axis="y" angle="0" />
-                <rotation axis="z" angle="0" />
-                <scale sx="1" sy="1" sz="1" />
-            </keyframe>
-            <keyframe instant="3.0">
-                <translation x="-0.45" y="0.0" z="0.0" />
-                <rotation axis="x" angle="0" />
-                <rotation axis="y" angle="0" />
-                <rotation axis="z" angle="0" />
-                <scale sx="1" sy="1" sz="1" />
-            </keyframe>
-            <keyframe instant="7.0">
-                <translation x="-0.45" y="0.0" z="0.0" />
-                <rotation axis="x" angle="0" />
-                <rotation axis="y" angle="0" />
-                <rotation axis="z" angle="0" />
-                <scale sx="1" sy="1" sz="1" />
-            </keyframe>
-            <keyframe instant="10.0">
-                <translation x="0.0" y="0.0" z="0.0" />
-                <rotation axis="x" angle="0" />
-                <rotation axis="y" angle="0" />
-                <rotation axis="z" angle="0" />
-                <scale sx="1" sy="1" sz="1" />
-            </keyframe>
-        </animation>
-        <animation id="lavalamp-blob-updown0" loop="1">
-            <keyframe instant='00.0000'><translation x='0' y='0.0191' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='01.0000'><translation x='0' y='0.0248' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='02.0000'><translation x='0' y='0.0316' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='03.0000'><translation x='0' y='0.0397' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='04.0000'><translation x='0' y='0.0489' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='05.0000'><translation x='0' y='0.0592' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='06.0000'><translation x='0' y='0.0700' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='07.0000'><translation x='0' y='0.0808' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='08.0000'><translation x='0' y='0.0911' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='09.0000'><translation x='0' y='0.1003' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='10.0000'><translation x='0' y='0.1084' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='11.0000'><translation x='0' y='0.1152' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='12.0000'><translation x='0' y='0.1209' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='13.0000'><translation x='0' y='0.1256' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='14.0000'><translation x='0' y='0.1294' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='15.0000'><translation x='0' y='0.1325' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='16.0000'><translation x='0' y='0.1350' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='17.0000'><translation x='0' y='0.1369' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='18.0000'><translation x='0' y='0.1383' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='19.0000'><translation x='0' y='0.1392' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='20.0000'><translation x='0' y='0.1398' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='21.0000'><translation x='0' y='0.1400' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='22.0000'><translation x='0' y='0.1398' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='23.0000'><translation x='0' y='0.1392' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='24.0000'><translation x='0' y='0.1383' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='25.0000'><translation x='0' y='0.1369' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='26.0000'><translation x='0' y='0.1350' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='27.0000'><translation x='0' y='0.1325' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='28.0000'><translation x='0' y='0.1294' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='29.0000'><translation x='0' y='0.1256' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='30.0000'><translation x='0' y='0.1209' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='31.0000'><translation x='0' y='0.1152' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='32.0000'><translation x='0' y='0.1084' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='33.0000'><translation x='0' y='0.1003' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='34.0000'><translation x='0' y='0.0911' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='35.0000'><translation x='0' y='0.0808' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='36.0000'><translation x='0' y='0.0700' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='37.0000'><translation x='0' y='0.0592' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='38.0000'><translation x='0' y='0.0489' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='39.0000'><translation x='0' y='0.0397' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='40.0000'><translation x='0' y='0.0316' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='41.0000'><translation x='0' y='0.0248' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='42.0000'><translation x='0' y='0.0191' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='43.0000'><translation x='0' y='0.0144' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='44.0000'><translation x='0' y='0.0106' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='45.0000'><translation x='0' y='0.0075' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='46.0000'><translation x='0' y='0.0050' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='47.0000'><translation x='0' y='0.0031' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='48.0000'><translation x='0' y='0.0017' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='49.0000'><translation x='0' y='0.0008' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='50.0000'><translation x='0' y='0.0002' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='51.0000'><translation x='0' y='0.0000' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='52.0000'><translation x='0' y='0.0002' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='53.0000'><translation x='0' y='0.0008' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='54.0000'><translation x='0' y='0.0017' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='55.0000'><translation x='0' y='0.0031' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='56.0000'><translation x='0' y='0.0050' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='57.0000'><translation x='0' y='0.0075' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='58.0000'><translation x='0' y='0.0106' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='59.0000'><translation x='0' y='0.0144' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='60.0000'><translation x='0' y='0.0191' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-        </animation>
-        <animation id="lavalamp-blob-updown1" loop="1">
-            <keyframe instant='00.0000'><translation x='0' y='0.0000' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='01.0000'><translation x='0' y='0.0003' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='02.0000'><translation x='0' y='0.0011' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='03.0000'><translation x='0' y='0.0025' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='04.0000'><translation x='0' y='0.0046' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='05.0000'><translation x='0' y='0.0075' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='06.0000'><translation x='0' y='0.0113' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='07.0000'><translation x='0' y='0.0161' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='08.0000'><translation x='0' y='0.0224' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='09.0000'><translation x='0' y='0.0302' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='10.0000'><translation x='0' y='0.0397' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='11.0000'><translation x='0' y='0.0509' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='12.0000'><translation x='0' y='0.0635' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='13.0000'><translation x='0' y='0.0765' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='14.0000'><translation x='0' y='0.0891' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='15.0000'><translation x='0' y='0.1003' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='16.0000'><translation x='0' y='0.1098' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='17.0000'><translation x='0' y='0.1176' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='18.0000'><translation x='0' y='0.1239' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='19.0000'><translation x='0' y='0.1287' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='20.0000'><translation x='0' y='0.1325' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='21.0000'><translation x='0' y='0.1354' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='22.0000'><translation x='0' y='0.1375' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='23.0000'><translation x='0' y='0.1389' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='24.0000'><translation x='0' y='0.1397' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='25.0000'><translation x='0' y='0.1400' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='26.0000'><translation x='0' y='0.1397' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='27.0000'><translation x='0' y='0.1389' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='28.0000'><translation x='0' y='0.1375' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='29.0000'><translation x='0' y='0.1354' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='30.0000'><translation x='0' y='0.1325' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='31.0000'><translation x='0' y='0.1287' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='32.0000'><translation x='0' y='0.1239' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='33.0000'><translation x='0' y='0.1176' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='34.0000'><translation x='0' y='0.1098' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='35.0000'><translation x='0' y='0.1003' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='36.0000'><translation x='0' y='0.0891' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='37.0000'><translation x='0' y='0.0765' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='38.0000'><translation x='0' y='0.0635' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='39.0000'><translation x='0' y='0.0509' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='40.0000'><translation x='0' y='0.0397' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='41.0000'><translation x='0' y='0.0302' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='42.0000'><translation x='0' y='0.0224' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='43.0000'><translation x='0' y='0.0161' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='44.0000'><translation x='0' y='0.0113' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='45.0000'><translation x='0' y='0.0075' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='46.0000'><translation x='0' y='0.0046' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='47.0000'><translation x='0' y='0.0025' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='48.0000'><translation x='0' y='0.0011' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='49.0000'><translation x='0' y='0.0003' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='50.0000'><translation x='0' y='0.0000' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-        </animation>
-        <animation id="lavalamp-blob-updown2" loop="1">
-            <keyframe instant='00.0000'><translation x='0' y='0.0700' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='01.0000'><translation x='0' y='0.0860' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='02.0000'><translation x='0' y='0.1003' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='03.0000'><translation x='0' y='0.1120' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='04.0000'><translation x='0' y='0.1209' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='05.0000'><translation x='0' y='0.1276' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='06.0000'><translation x='0' y='0.1325' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='07.0000'><translation x='0' y='0.1360' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='08.0000'><translation x='0' y='0.1383' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='09.0000'><translation x='0' y='0.1396' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='10.0000'><translation x='0' y='0.1400' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='11.0000'><translation x='0' y='0.1396' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='12.0000'><translation x='0' y='0.1383' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='13.0000'><translation x='0' y='0.1360' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='14.0000'><translation x='0' y='0.1325' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='15.0000'><translation x='0' y='0.1276' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='16.0000'><translation x='0' y='0.1209' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='17.0000'><translation x='0' y='0.1120' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='18.0000'><translation x='0' y='0.1003' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='19.0000'><translation x='0' y='0.0860' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='20.0000'><translation x='0' y='0.0700' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='21.0000'><translation x='0' y='0.0540' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='22.0000'><translation x='0' y='0.0397' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='23.0000'><translation x='0' y='0.0280' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='24.0000'><translation x='0' y='0.0191' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='25.0000'><translation x='0' y='0.0124' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='26.0000'><translation x='0' y='0.0075' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='27.0000'><translation x='0' y='0.0040' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='28.0000'><translation x='0' y='0.0017' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='29.0000'><translation x='0' y='0.0004' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='30.0000'><translation x='0' y='0.0000' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='31.0000'><translation x='0' y='0.0004' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='32.0000'><translation x='0' y='0.0017' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='33.0000'><translation x='0' y='0.0040' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='34.0000'><translation x='0' y='0.0075' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='35.0000'><translation x='0' y='0.0124' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='36.0000'><translation x='0' y='0.0191' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='37.0000'><translation x='0' y='0.0280' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='38.0000'><translation x='0' y='0.0397' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='39.0000'><translation x='0' y='0.0540' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='40.0000'><translation x='0' y='0.0700' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-        </animation>
-        <animation id="lavalamp-blob-updown3" loop="1">
-            <keyframe instant='00.0000'><translation x='0' y='0.1000' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='01.0000'><translation x='0' y='0.0995' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='02.0000'><translation x='0' y='0.0978' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='03.0000'><translation x='0' y='0.0947' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='04.0000'><translation x='0' y='0.0897' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='05.0000'><translation x='0' y='0.0823' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='06.0000'><translation x='0' y='0.0717' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='07.0000'><translation x='0' y='0.0577' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='08.0000'><translation x='0' y='0.0423' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='09.0000'><translation x='0' y='0.0283' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='10.0000'><translation x='0' y='0.0177' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='11.0000'><translation x='0' y='0.0103' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='12.0000'><translation x='0' y='0.0053' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='13.0000'><translation x='0' y='0.0022' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='14.0000'><translation x='0' y='0.0005' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='15.0000'><translation x='0' y='0.0000' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='16.0000'><translation x='0' y='0.0005' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='17.0000'><translation x='0' y='0.0022' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='18.0000'><translation x='0' y='0.0053' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='19.0000'><translation x='0' y='0.0103' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='20.0000'><translation x='0' y='0.0177' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='21.0000'><translation x='0' y='0.0283' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='22.0000'><translation x='0' y='0.0423' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='23.0000'><translation x='0' y='0.0577' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='24.0000'><translation x='0' y='0.0717' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='25.0000'><translation x='0' y='0.0823' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='26.0000'><translation x='0' y='0.0897' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='27.0000'><translation x='0' y='0.0947' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='28.0000'><translation x='0' y='0.0978' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='29.0000'><translation x='0' y='0.0995' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='30.0000'><translation x='0' y='0.1000' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-        </animation>
-        <animation id="lavalamp-blob-updown4" loop="1">
-            <keyframe instant='00.0000'><translation x='0' y='0.0700' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='01.0000'><translation x='0' y='0.0540' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='02.0000'><translation x='0' y='0.0397' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='03.0000'><translation x='0' y='0.0280' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='04.0000'><translation x='0' y='0.0191' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='05.0000'><translation x='0' y='0.0124' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='06.0000'><translation x='0' y='0.0075' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='07.0000'><translation x='0' y='0.0040' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='08.0000'><translation x='0' y='0.0017' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='09.0000'><translation x='0' y='0.0004' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='10.0000'><translation x='0' y='0.0000' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='11.0000'><translation x='0' y='0.0004' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='12.0000'><translation x='0' y='0.0017' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='13.0000'><translation x='0' y='0.0040' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='14.0000'><translation x='0' y='0.0075' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='15.0000'><translation x='0' y='0.0124' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='16.0000'><translation x='0' y='0.0191' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='17.0000'><translation x='0' y='0.0280' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='18.0000'><translation x='0' y='0.0397' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='19.0000'><translation x='0' y='0.0540' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='20.0000'><translation x='0' y='0.0700' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='21.0000'><translation x='0' y='0.0860' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='22.0000'><translation x='0' y='0.1003' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='23.0000'><translation x='0' y='0.1120' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='24.0000'><translation x='0' y='0.1209' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='25.0000'><translation x='0' y='0.1276' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='26.0000'><translation x='0' y='0.1325' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='27.0000'><translation x='0' y='0.1360' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='28.0000'><translation x='0' y='0.1383' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='29.0000'><translation x='0' y='0.1396' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='30.0000'><translation x='0' y='0.1400' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='31.0000'><translation x='0' y='0.1396' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='32.0000'><translation x='0' y='0.1383' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='33.0000'><translation x='0' y='0.1360' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='34.0000'><translation x='0' y='0.1325' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='35.0000'><translation x='0' y='0.1276' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='36.0000'><translation x='0' y='0.1209' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='37.0000'><translation x='0' y='0.1120' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='38.0000'><translation x='0' y='0.1003' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='39.0000'><translation x='0' y='0.0860' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='40.0000'><translation x='0' y='0.0700' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-        </animation>
-        <animation id="lavalamp-blob-updown5" loop="1">
-            <keyframe instant='00.0000'><translation x='0' y='0.0947' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='01.0000'><translation x='0' y='0.0988' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='02.0000'><translation x='0' y='0.1000' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='03.0000'><translation x='0' y='0.0988' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='04.0000'><translation x='0' y='0.0947' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='05.0000'><translation x='0' y='0.0864' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='06.0000'><translation x='0' y='0.0717' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='07.0000'><translation x='0' y='0.0500' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='08.0000'><translation x='0' y='0.0283' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='09.0000'><translation x='0' y='0.0136' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='10.0000'><translation x='0' y='0.0053' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='11.0000'><translation x='0' y='0.0012' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='12.0000'><translation x='0' y='0.0000' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='13.0000'><translation x='0' y='0.0012' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='14.0000'><translation x='0' y='0.0053' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='15.0000'><translation x='0' y='0.0136' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='16.0000'><translation x='0' y='0.0283' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='17.0000'><translation x='0' y='0.0500' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='18.0000'><translation x='0' y='0.0717' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='19.0000'><translation x='0' y='0.0864' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='20.0000'><translation x='0' y='0.0947' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-        </animation>
-        <animation id="lavalamp-blob-oscillator1" loop="1">
-            <keyframe instant='00.000'>
-                <translation x='0' y='0' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/>
-                <scale sx='1.0000' sy='1.0000' sz='1.0000'/>
-            </keyframe>
-            <keyframe instant='00.500'>
-                <translation x='0' y='0' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/>
-                <scale sx='0.9866' sy='1.0134' sz='0.9866'/>
-            </keyframe>
-            <keyframe instant='01.000'>
-                <translation x='0' y='0' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/>
-                <scale sx='0.9516' sy='1.0484' sz='0.9516'/>
-            </keyframe>
-            <keyframe instant='01.500'>
-                <translation x='0' y='0' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/>
-                <scale sx='0.9084' sy='1.0916' sz='0.9084'/>
-            </keyframe>
-            <keyframe instant='02.000'>
-                <translation x='0' y='0' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/>
-                <scale sx='0.8734' sy='1.1266' sz='0.8734'/>
-            </keyframe>
-            <keyframe instant='02.500'>
-                <translation x='0' y='0' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/>
-                <scale sx='0.8600' sy='1.1400' sz='0.8600'/>
-            </keyframe>
-            <keyframe instant='03.000'>
-                <translation x='0' y='0' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/>
-                <scale sx='0.8734' sy='1.1266' sz='0.8734'/>
-            </keyframe>
-            <keyframe instant='03.500'>
-                <translation x='0' y='0' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/>
-                <scale sx='0.9084' sy='1.0916' sz='0.9084'/>
-            </keyframe>
-            <keyframe instant='04.000'>
-                <translation x='0' y='0' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/>
-                <scale sx='0.9516' sy='1.0484' sz='0.9516'/>
-            </keyframe>
-            <keyframe instant='04.500'>
-                <translation x='0' y='0' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/>
-                <scale sx='0.9866' sy='1.0134' sz='0.9866'/>
-            </keyframe>
-            <keyframe instant='05.000'>
-                <translation x='0' y='0' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/>
-                <scale sx='1.0000' sy='1.0000' sz='1.0000'/>
-            </keyframe>
-        </animation>
-        <animation id="lavalamp-blob-oscillator2" loop="1">
-            <keyframe instant='00.000'>
-                <translation x='0' y='0' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/>
-                <scale sx='0.9300' sy='1.0700' sz='0.9300'/>
-            </keyframe>
-            <keyframe instant='00.500'>
-                <translation x='0' y='0' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/>
-                <scale sx='0.8889' sy='1.1111' sz='0.8889'/>
-            </keyframe>
-            <keyframe instant='01.000'>
-                <translation x='0' y='0' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/>
-                <scale sx='0.8634' sy='1.1366' sz='0.8634'/>
-            </keyframe>
-            <keyframe instant='01.500'>
-                <translation x='0' y='0' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/>
-                <scale sx='0.8634' sy='1.1366' sz='0.8634'/>
-            </keyframe>
-            <keyframe instant='02.000'>
-                <translation x='0' y='0' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/>
-                <scale sx='0.8889' sy='1.1111' sz='0.8889'/>
-            </keyframe>
-            <keyframe instant='02.500'>
-                <translation x='0' y='0' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/>
-                <scale sx='0.9300' sy='1.0700' sz='0.9300'/>
-            </keyframe>
-            <keyframe instant='03.000'>
-                <translation x='0' y='0' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/>
-                <scale sx='0.9711' sy='1.0289' sz='0.9711'/>
-            </keyframe>
-            <keyframe instant='03.500'>
-                <translation x='0' y='0' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/>
-                <scale sx='0.9966' sy='1.0034' sz='0.9966'/>
-            </keyframe>
-            <keyframe instant='04.000'>
-                <translation x='0' y='0' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/>
-                <scale sx='0.9966' sy='1.0034' sz='0.9966'/>
-            </keyframe>
-            <keyframe instant='04.500'>
-                <translation x='0' y='0' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/>
-                <scale sx='0.9711' sy='1.0289' sz='0.9711'/>
-            </keyframe>
-            <keyframe instant='05.000'>
-                <translation x='0' y='0' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/>
-                <scale sx='0.9300' sy='1.0700' sz='0.9300'/>
-            </keyframe>
-        </animation>
-        <animation id="lavalamp-blob-oscillator3" loop="1">
-            <keyframe instant='00.000'>
-                <translation x='0' y='0' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/>
-                <scale sx='0.8600' sy='1.1400' sz='0.8600'/>
-            </keyframe>
-            <keyframe instant='00.500'>
-                <translation x='0' y='0' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/>
-                <scale sx='0.8734' sy='1.1266' sz='0.8734'/>
-            </keyframe>
-            <keyframe instant='01.000'>
-                <translation x='0' y='0' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/>
-                <scale sx='0.9084' sy='1.0916' sz='0.9084'/>
-            </keyframe>
-            <keyframe instant='01.500'>
-                <translation x='0' y='0' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/>
-                <scale sx='0.9516' sy='1.0484' sz='0.9516'/>
-            </keyframe>
-            <keyframe instant='02.000'>
-                <translation x='0' y='0' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/>
-                <scale sx='0.9866' sy='1.0134' sz='0.9866'/>
-            </keyframe>
-            <keyframe instant='02.500'>
-                <translation x='0' y='0' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/>
-                <scale sx='1.0000' sy='1.0000' sz='1.0000'/>
-            </keyframe>
-            <keyframe instant='03.000'>
-                <translation x='0' y='0' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/>
-                <scale sx='0.9866' sy='1.0134' sz='0.9866'/>
-            </keyframe>
-            <keyframe instant='03.500'>
-                <translation x='0' y='0' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/>
-                <scale sx='0.9516' sy='1.0484' sz='0.9516'/>
-            </keyframe>
-            <keyframe instant='04.000'>
-                <translation x='0' y='0' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/>
-                <scale sx='0.9084' sy='1.0916' sz='0.9084'/>
-            </keyframe>
-            <keyframe instant='04.500'>
-                <translation x='0' y='0' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/>
-                <scale sx='0.8734' sy='1.1266' sz='0.8734'/>
-            </keyframe>
-            <keyframe instant='05.000'>
-                <translation x='0' y='0' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/>
-                <scale sx='0.8600' sy='1.1400' sz='0.8600'/>
-            </keyframe>
-        </animation>
-        <animation id="lavalamp-blob-oscillator4" loop="1">
-            <keyframe instant='00.000'>
-                <translation x='0' y='0' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/>
-                <scale sx='0.9300' sy='1.0700' sz='0.9300'/>
-            </keyframe>
-            <keyframe instant='00.500'>
-                <translation x='0' y='0' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/>
-                <scale sx='0.9711' sy='1.0289' sz='0.9711'/>
-            </keyframe>
-            <keyframe instant='01.000'>
-                <translation x='0' y='0' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/>
-                <scale sx='0.9966' sy='1.0034' sz='0.9966'/>
-            </keyframe>
-            <keyframe instant='01.500'>
-                <translation x='0' y='0' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/>
-                <scale sx='0.9966' sy='1.0034' sz='0.9966'/>
-            </keyframe>
-            <keyframe instant='02.000'>
-                <translation x='0' y='0' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/>
-                <scale sx='0.9711' sy='1.0289' sz='0.9711'/>
-            </keyframe>
-            <keyframe instant='02.500'>
-                <translation x='0' y='0' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/>
-                <scale sx='0.9300' sy='1.0700' sz='0.9300'/>
-            </keyframe>
-            <keyframe instant='03.000'>
-                <translation x='0' y='0' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/>
-                <scale sx='0.8889' sy='1.1111' sz='0.8889'/>
-            </keyframe>
-            <keyframe instant='03.500'>
-                <translation x='0' y='0' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/>
-                <scale sx='0.8634' sy='1.1366' sz='0.8634'/>
-            </keyframe>
-            <keyframe instant='04.000'>
-                <translation x='0' y='0' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/>
-                <scale sx='0.8634' sy='1.1366' sz='0.8634'/>
-            </keyframe>
-            <keyframe instant='04.500'>
-                <translation x='0' y='0' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/>
-                <scale sx='0.8889' sy='1.1111' sz='0.8889'/>
-            </keyframe>
-            <keyframe instant='05.000'>
-                <translation x='0' y='0' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/>
-                <scale sx='0.9300' sy='1.0700' sz='0.9300'/>
-            </keyframe>
-        </animation>
-    </animations>
 
     <nodes>
         <node id="root">
@@ -757,6 +577,40 @@
                 <noderef id="small-table-with-stuff-in-room"/>
                 <noderef id="fireplace-in-room"/>
                 <noderef id="window"/>
+                <noderef id="light-switch-in-room-1"/>
+            </descendants>
+        </node>
+
+        <node id="cell">
+            <material id="plastic-white" selectedid="plastic-dark"/>
+            <texture id="cell">
+                <amplification afs="1" aft="1"/>
+            </texture>
+            <transformations>
+                <translation x="0" y="0.0001" z="0"/>
+                <scale sx="0.039" sy="0.039" sz="0.039"/>
+            </transformations>
+            <descendants>
+                <noderef id="hexagon"/>
+            </descendants>
+        </node>
+        <node id="hexagon">
+            <material id="null"/>
+            <texture id="null">
+                <amplification afs="1" aft="1"/>
+            </texture>
+            <transformations>
+                <rotation axis="x" angle="-90"/>
+                <scale sx="0.25" sy="0.25" sz="0.25"/>
+                <scale sx="0.86602540378" sy="1" sz="1"/>
+            </transformations>
+            <descendants>
+                <leaf type="triangle" x1="+2" y1="-1" x2="+2" y2="+1" x3="0" y3="0"/>
+                <leaf type="triangle" x1="+2" y1="+1" x2="00" y2="+2" x3="0" y3="0"/>
+                <leaf type="triangle" x1="00" y1="+2" x2="-2" y2="+1" x3="0" y3="0"/>
+                <leaf type="triangle" x1="-2" y1="+1" x2="-2" y2="-1" x3="0" y3="0"/>
+                <leaf type="triangle" x1="-2" y1="-1" x2="00" y2="-2" x3="0" y3="0"/>
+                <leaf type="triangle" x1="00" y1="-2" x2="+2" y2="-1" x3="0" y3="0"/>
             </descendants>
         </node>
 
@@ -780,43 +634,485 @@
         <node id="gameboard-front">
             <material id="null"/>
             <texture id="gameboard">
-                <amplification afs="0.6" aft="0.45"/>
+                <amplification afs="0.4" aft="0.3"/>
             </texture>
             <transformations>
                 <translation x="0" y="0" z="0.001"/>
             </transformations>
             <descendants>
-                <leaf type="rectangle" x1="-0.3" x2="+0.3" y1="-0.225" y2="+0.225"/>
+                <leaf type="rectangle" x1="-0.2" x2="+0.2" y1="-0.150" y2="+0.150"/>
             </descendants>
         </node>
         <node id="gameboard-back">
             <material id="null"/><texture id="clear"/><transformations><rotation axis="y" angle="180"/></transformations>
             <descendants>
-                <leaf type="rectangle" x1="-0.3" x2="+0.3" y1="-0.225" y2="+0.225"/>
+                <leaf type="rectangle" x1="-0.2" x2="+0.2" y1="-0.15" y2="+0.15"/>
             </descendants>
         </node>
         <node id="gameboard-left">
-            <material id="null"/><texture id="clear"/><transformations><translation x="-0.3" y="0" z="0"/><rotation axis="y" angle="-90"/></transformations>
+            <material id="null"/><texture id="clear"/><transformations><translation x="-0.2" y="0" z="0"/><rotation axis="y" angle="-90"/></transformations>
             <descendants>
-                <leaf type="rectangle" x1="0" x2="0.001" y1="-0.225" y2="+0.225"/>
+                <leaf type="rectangle" x1="0" x2="0.001" y1="-0.15" y2="+0.15"/>
             </descendants>
         </node>
         <node id="gameboard-right">
-            <material id="null"/><texture id="clear"/><transformations><translation x="+0.3" y="0" z="0"/><rotation axis="y" angle="+90"/></transformations>
+            <material id="null"/><texture id="clear"/><transformations><translation x="+0.2" y="0" z="0"/><rotation axis="y" angle="+90"/></transformations>
             <descendants>
-                <leaf type="rectangle" x1="-0.001" x2="0" y1="-0.225" y2="+0.225"/>
+                <leaf type="rectangle" x1="-0.001" x2="0" y1="-0.15" y2="+0.15"/>
             </descendants>
         </node>
         <node id="gameboard-top">
-            <material id="null"/><texture id="clear"/><transformations><translation x="0" y="+0.225" z="0"/><rotation axis="x" angle="-90"/></transformations>
+            <material id="null"/><texture id="clear"/><transformations><translation x="0" y="+0.15" z="0"/><rotation axis="x" angle="-90"/></transformations>
             <descendants>
-                <leaf type="rectangle" x1="-0.3" x2="+0.3" y1="-0.001" y2="0"/>
+                <leaf type="rectangle" x1="-0.2" x2="+0.2" y1="-0.001" y2="0"/>
             </descendants>
         </node>
         <node id="gameboard-bottom">
-            <material id="null"/><texture id="clear"/><transformations><translation x="0" y="-0.225" z="0"/><rotation axis="x" angle="+90"/></transformations>
+            <material id="null"/><texture id="clear"/><transformations><translation x="0" y="-0.15" z="0"/><rotation axis="x" angle="+90"/></transformations>
             <descendants>
-                <leaf type="rectangle" x1="-0.3" x2="+0.3" y1="0" y2="+0.001"/>
+                <leaf type="rectangle" x1="-0.2" x2="+0.2" y1="0" y2="+0.001"/>
+            </descendants>
+        </node>
+
+        <node id="piece">
+            <material id="plastic-white"/><texture id="clear"/>
+            <transformations>
+                <rotation axis="x" angle="-90"/>
+            </transformations>
+            <descendants>
+                <noderef id="piece-top"/>
+                <noderef id="piece-bottom"/>
+            </descendants>
+        </node>
+        <node id="piece-top">
+            <material id="plastic-red" selectedid="plastic-red-emissive"/><texture id="null"><amplification afs="1" aft="1"/></texture>
+            <transformations>
+                <translation x="0" y="0" z="0.001"/>
+            </transformations>
+            <descendants>
+                <leaf type="cylinder" bottomRadius="0.011" topRadius="0.0105" height="0.001" slices="32" stacks="2"/>
+            </descendants>
+        </node>
+        <node id="piece-bottom">
+            <material id="plastic-yellow" selectedid="plastic-yellow-emissive"/><texture id="null"><amplification afs="1" aft="1"/></texture>
+            <descendants>
+                <leaf type="cylinder" bottomRadius="0.0105" topRadius="0.011" height="0.001" slices="32" stacks="2"/>
+            </descendants>
+        </node>
+
+        <node id="wood-box-in-table">
+            <material id="null"/><texture id="null"><amplification afs="1" aft="1"/></texture>
+            <transformations>
+                <translation x="-0.22" y="0.51" z="0.01"/>
+                <rotation axis="y" angle="80"/>
+            </transformations>
+            <descendants>
+                <noderef id="wood-box"/>
+                <noderef id="wood-box-piece-1"/>
+                <noderef id="wood-box-piece-2"/>
+                <noderef id="wood-box-piece-3"/>
+            </descendants>
+        </node>
+        <node id="wood-box-piece-1"><material id="null"/><texture id="clear"/><transformations><translation x="-0.050" y="0.010" z="-0.025"/>                                </transformations><descendants><noderef id="piece"/></descendants></node>
+        <node id="wood-box-piece-2"><material id="null"/><texture id="clear"/><transformations><translation x="-0.045" y="0.014" z="-0.027"/><rotation axis="x" angle="180"/></transformations><descendants><noderef id="piece"/></descendants></node>
+        <node id="wood-box-piece-3"><material id="null"/><texture id="clear"/><transformations><translation x="-0.040" y="0.013" z="-0.015"/><rotation axis="x" angle="020"/></transformations><descendants><noderef id="piece"/></descendants></node>
+        <node id="wood-box">
+            <material id="wood"/><texture id="door_wood"><amplification afs="1" aft="1"/></texture>
+            <descendants>
+                <noderef id="wood-box-lid-animated"/>
+                <noderef id="wood-box-tray"/>
+            </descendants>
+        </node>
+        <node id="wood-box-tray">
+            <material id="null"/><texture id="null"><amplification afs="1" aft="1"/></texture>
+            <descendants>
+                <noderef id="wood-box-tray-outside-front"/>
+                <noderef id="wood-box-tray-outside-back"/>
+                <noderef id="wood-box-tray-outside-left"/>
+                <noderef id="wood-box-tray-outside-right"/>
+                <noderef id="wood-box-tray-outside-bottom"/>
+                <noderef id="wood-box-tray-border"/>
+                <noderef id="wood-box-tray-innerborder"/>
+                <noderef id="wood-box-tray-inside-front"/>
+                <noderef id="wood-box-tray-inside-back"/>
+                <noderef id="wood-box-tray-inside-left"/>
+                <noderef id="wood-box-tray-inside-right"/>
+                <noderef id="wood-box-tray-inside-bottom"/>
+                <noderef id="wood-box-tray-hinges"/>
+            </descendants>
+        </node>
+        <node id="wood-box-tray-outside-front" ><material id="null"/><texture id="null"><amplification afs="0.15" aft="0.05"/></texture><transformations><translation x="0"      y="0" z="+0.05"/>                                </transformations><descendants><leaf type="rectangle" x1="-0.075" x2="+0.075" y1="0" y2="0.05"/></descendants></node>
+        <node id="wood-box-tray-outside-back"  ><material id="null"/><texture id="null"><amplification afs="0.15" aft="0.05"/></texture><transformations><translation x="0"      y="0" z="-0.05"/><rotation axis="y" angle="180"/></transformations><descendants><leaf type="rectangle" x1="-0.075" x2="+0.075" y1="0" y2="0.05"/></descendants></node>
+        <node id="wood-box-tray-outside-left"  ><material id="null"/><texture id="null"><amplification afs="0.15" aft="0.05"/></texture><transformations><translation x="-0.075" y="0" z="0"    /><rotation axis="y" angle="-90"/></transformations><descendants><leaf type="rectangle" x1="-0.050" x2="+0.050" y1="0" y2="0.05"/></descendants></node>
+        <node id="wood-box-tray-outside-right" ><material id="null"/><texture id="null"><amplification afs="0.15" aft="0.05"/></texture><transformations><translation x="+0.075" y="0" z="0"    /><rotation axis="y" angle="+90"/></transformations><descendants><leaf type="rectangle" x1="-0.050" x2="+0.050" y1="0" y2="0.05"/></descendants></node>
+        <node id="wood-box-tray-outside-bottom"><material id="null"/><texture id="null"><amplification afs="0.15" aft="0.05"/></texture><transformations>                                         <rotation axis="x" angle="+90"/></transformations><descendants><leaf type="rectangle" x1="-0.075" x2="+0.075" y1="-0.05" y2="+0.05"/></descendants></node>
+        <node id="wood-box-tray-border"        >
+            <material id="null"/><texture id="null"><amplification afs="0.15" aft="0.05"/></texture>
+            <transformations>
+                <translation x="0" y="0.05" z="0"/>
+                <rotation axis="x" angle="-90"/>
+            </transformations>
+            <descendants>
+                <leaf type="rectangle" x1="-0.075" x2="+0.075" y1="-0.05" y2="-0.04"/>
+                <leaf type="rectangle" x1="-0.075" x2="+0.075" y1="+0.04" y2="+0.05"/>
+                <leaf type="rectangle" x1="-0.075" x2="-0.065" y1="-0.04" y2="+0.04"/>
+                <leaf type="rectangle" x1="+0.065" x2="+0.075" y1="-0.04" y2="+0.04"/>
+            </descendants>
+        </node>
+        <node id="wood-box-tray-innerborder">
+            <material id="null"/><texture id="null"><amplification afs="0.15" aft="0.05"/></texture>
+            <descendants>
+                <noderef id="wood-box-tray-innerborder-top"/>
+                <noderef id="wood-box-tray-innerborder-front"/>
+                <noderef id="wood-box-tray-innerborder-back"/>
+                <noderef id="wood-box-tray-innerborder-left"/>
+                <noderef id="wood-box-tray-innerborder-right"/>
+            </descendants>
+        </node>
+        <node id="wood-box-tray-innerborder-top">
+            <material id="null"/><texture id="null"><amplification afs="0.15" aft="0.05"/></texture>
+            <transformations>
+                <translation x="0" y="0.055" z="0"/>
+                <rotation axis="x" angle="-90"/>
+            </transformations>
+            <descendants>
+                <leaf type="rectangle" x1="-0.065" x2="+0.065" y1="-0.04" y2="-0.038"/>
+                <leaf type="rectangle" x1="-0.065" x2="+0.065" y1="+0.038" y2="+0.04"/>
+                <leaf type="rectangle" x1="-0.065" x2="-0.063" y1="-0.038" y2="+0.038"/>
+                <leaf type="rectangle" x1="+0.063" x2="+0.065" y1="-0.038" y2="+0.038"/>
+            </descendants>
+        </node>
+        <node id="wood-box-tray-innerborder-front" ><material id="null"/><texture id="null"><amplification afs="0.15" aft="0.05"/></texture><transformations><translation x="0"      y="0" z="+0.04"/>                                </transformations><descendants><leaf type="rectangle" x1="-0.065" x2="+0.065" y1="0.05" y2="0.055"/></descendants></node>
+        <node id="wood-box-tray-innerborder-back"  ><material id="null"/><texture id="null"><amplification afs="0.15" aft="0.05"/></texture><transformations><translation x="0"      y="0" z="-0.04"/><rotation axis="y" angle="180"/></transformations><descendants><leaf type="rectangle" x1="-0.065" x2="+0.065" y1="0.05" y2="0.055"/></descendants></node>
+        <node id="wood-box-tray-innerborder-left"  ><material id="null"/><texture id="null"><amplification afs="0.15" aft="0.05"/></texture><transformations><translation x="-0.065" y="0" z="0"    /><rotation axis="y" angle="-90"/></transformations><descendants><leaf type="rectangle" x1="-0.040" x2="+0.040" y1="0.05" y2="0.055"/></descendants></node>
+        <node id="wood-box-tray-innerborder-right" ><material id="null"/><texture id="null"><amplification afs="0.15" aft="0.05"/></texture><transformations><translation x="+0.065" y="0" z="0"    /><rotation axis="y" angle="+90"/></transformations><descendants><leaf type="rectangle" x1="-0.040" x2="+0.040" y1="0.05" y2="0.055"/></descendants></node>
+        
+        <node id="wood-box-tray-inside-front" ><material id="null"/><texture id="null"><amplification afs="0.15" aft="0.05"/></texture><transformations><translation x="0"      y="0"    z="+0.038"/>                                </transformations><descendants><leaf type="rectangle" x2="-0.063" x1="+0.063" y1="0.01" y2="0.055"/></descendants></node>
+        <node id="wood-box-tray-inside-back"  ><material id="null"/><texture id="null"><amplification afs="0.15" aft="0.05"/></texture><transformations><translation x="0"      y="0"    z="-0.038"/><rotation axis="y" angle="180"/></transformations><descendants><leaf type="rectangle" x2="-0.063" x1="+0.063" y1="0.01" y2="0.055"/></descendants></node>
+        <node id="wood-box-tray-inside-left"  ><material id="null"/><texture id="null"><amplification afs="0.15" aft="0.05"/></texture><transformations><translation x="-0.063" y="0"    z="0"    /><rotation axis="y" angle="-90"/></transformations><descendants><leaf type="rectangle" x2="-0.038" x1="+0.038" y1="0.01" y2="0.055"/></descendants></node>
+        <node id="wood-box-tray-inside-right" ><material id="null"/><texture id="null"><amplification afs="0.15" aft="0.05"/></texture><transformations><translation x="+0.063" y="0"    z="0"    /><rotation axis="y" angle="+90"/></transformations><descendants><leaf type="rectangle" x2="-0.038" x1="+0.038" y1="0.01" y2="0.055"/></descendants></node>
+        <node id="wood-box-tray-inside-bottom"><material id="null"/><texture id="null"><amplification afs="0.15" aft="0.05"/></texture><transformations><translation x="0"      y="0.01" z="0"    /><rotation axis="x" angle="+90"/></transformations><descendants><leaf type="rectangle" x2="-0.063" x1="+0.063" y1="-0.038" y2="+0.038"/></descendants></node>
+
+        <node id="wood-box-tray-hinges"       >
+            <material id="null"/>
+            <texture id="null"><amplification afs="1" aft="1"/></texture>
+            <transformations>
+                <translation x="0" y="0.051" z="-0.051"    />
+            </transformations>
+            <descendants>
+                <noderef id="wood-box-tray-hinge1"/>
+                <noderef id="wood-box-tray-hinge2"/>
+            </descendants>
+        </node>
+        <node id="wood-box-tray-hinge1">
+            <material id="null"/>
+            <texture id="null"><amplification afs="1" aft="1"/></texture>
+            <transformations>
+                <translation x="+0.035" y="0" z="0"/>
+            </transformations>
+            <descendants>
+                <noderef id="wood-box-tray-hinge-and-leaf"/>
+            </descendants>
+        </node>
+        <node id="wood-box-tray-hinge2">
+            <material id="null"/>
+            <texture id="null"><amplification afs="1" aft="1"/></texture>
+            <transformations>
+                <translation x="-0.035" y="0" z="0"/>
+            </transformations>
+            <descendants>
+                <noderef id="wood-box-tray-hinge-and-leaf"/>
+            </descendants>
+        </node>
+        <node id="wood-box-tray-hinge-and-leaf">
+            <material id="null"/>
+            <texture id="null"><amplification afs="1" aft="1"/></texture>
+            <descendants>
+                <noderef id="wood-box-tray-hinge"/>
+                <noderef id="wood-box-tray-hinge-leaf"/>
+            </descendants>
+        </node>
+        <node id="wood-box-tray-hinge">
+            <material id="metal"/>
+            <texture id="brass"><amplification afs="1" aft="1"/></texture>
+            <transformations>
+                <translation x="+0.005" y="0" z="0"/>
+                <rotation axis="y" angle="-90"/>
+            </transformations>
+            <descendants>
+                <leaf type="cylinder" bottomRadius="0.001" topRadius="0.001" height="0.010" slices="32" stacks="4"/>
+            </descendants>
+        </node>
+        <node id="wood-box-tray-hinge-leaf">
+            <material id="metal"/>
+            <texture id="brass"><amplification afs="1" aft="1"/></texture>
+            <descendants>
+                <noderef id="wood-box-tray-hinge-leaf-front"/>
+                <noderef id="wood-box-tray-hinge-leaf-back"/>
+                <noderef id="wood-box-tray-hinge-leaf-left"/>
+                <noderef id="wood-box-tray-hinge-leaf-right"/>
+                <noderef id="wood-box-tray-hinge-leaf-top"/>
+                <noderef id="wood-box-tray-hinge-leaf-bottom"/>
+            </descendants>
+        </node>
+        <node id="wood-box-tray-hinge-leaf-front" ><material id="null"/><texture id="null"><amplification afs="0.02" aft="0.02"/></texture><transformations><translation x="0" y="0" z="+0.006"/>                                 </transformations><descendants><leaf type="rectangle" x1="-0.0045" x2="+0.0045" y1="-0.001" y2="0"/></descendants></node>
+        <node id="wood-box-tray-hinge-leaf-back"  ><material id="null"/><texture id="null"><amplification afs="0.02" aft="0.02"/></texture><transformations>                                                                      </transformations><descendants><leaf type="rectangle" x2="-0.0045" x1="+0.0045" y1="-0.001" y2="0"/></descendants></node>
+        <node id="wood-box-tray-hinge-leaf-left"  ><material id="null"/><texture id="null"><amplification afs="0.02" aft="0.02"/></texture><transformations><translation x="-0.0045" y="0" z="0"/><rotation axis="y" angle="-90"/></transformations><descendants><leaf type="rectangle" x1="-0.0000" x2="+0.0060" y1="-0.001" y2="0"/></descendants></node>
+        <node id="wood-box-tray-hinge-leaf-right" ><material id="null"/><texture id="null"><amplification afs="0.02" aft="0.02"/></texture><transformations><translation x="+0.0045" y="0" z="0"/><rotation axis="y" angle="+90"/></transformations><descendants><leaf type="rectangle" x1="-0.0060" x2="+0.0000" y1="-0.001" y2="0"/></descendants></node>
+        <node id="wood-box-tray-hinge-leaf-top"   ><material id="null"/><texture id="null"><amplification afs="0.02" aft="0.02"/></texture><transformations>                                      <rotation axis="x" angle="-90"/></transformations><descendants><leaf type="rectangle" x1="-0.0045" x2="+0.0045" y1="-0.006" y2="0"/></descendants></node>
+        <node id="wood-box-tray-hinge-leaf-bottom"><material id="null"/><texture id="null"><amplification afs="0.02" aft="0.02"/></texture><transformations><translation x="0" y="-0.001" z="0"/> <rotation axis="x" angle="+90"/></transformations><descendants><leaf type="rectangle" x1="-0.0045" x2="+0.0045" y1="0" y2="+0.006"/></descendants></node>
+        
+
+        <node id="wood-box-lid-animated">
+            <material id="null"/><texture id="null"><amplification afs="1" aft="1"/></texture>
+            <transformations>
+                <translation x="0" y="0.051" z="-0.051"/>
+            </transformations>
+            <animationref id="wood-box-lid-animation"/>
+            <descendants>
+                <noderef id="wood-box-lid"/>
+            </descendants>
+        </node>
+        <node id="wood-box-lid">
+            <material id="null"/><texture id="null"><amplification afs="1" aft="1"/></texture>
+            <transformations>
+                <translation x="0" y="0" z="0.051"/>
+            </transformations>
+            <descendants>
+                <noderef id="wood-box-lid-outside-front"/>
+                <noderef id="wood-box-lid-outside-back"/>
+                <noderef id="wood-box-lid-outside-left"/>
+                <noderef id="wood-box-lid-outside-right"/>
+                <noderef id="wood-box-lid-outside-top"/>
+                <noderef id="wood-box-lid-border"/>
+                <noderef id="wood-box-lid-inside-front"/>
+                <noderef id="wood-box-lid-inside-back"/>
+                <noderef id="wood-box-lid-inside-left"/>
+                <noderef id="wood-box-lid-inside-right"/>
+                <noderef id="wood-box-lid-inside-top"/>
+                <noderef id="wood-box-lid-hinges"/>
+            </descendants>
+        </node>
+        <node id="wood-box-lid-outside-front" ><material id="null"/><texture id="null"><amplification afs="0.15" aft="0.05"/></texture><transformations><translation x="0"      y="0" z="+0.05"/>                                </transformations><descendants><leaf type="rectangle" x1="-0.075" x2="+0.075" y1="0" y2="0.025"/></descendants></node>
+        <node id="wood-box-lid-outside-back"  ><material id="null"/><texture id="null"><amplification afs="0.15" aft="0.05"/></texture><transformations><translation x="0"      y="0" z="-0.05"/><rotation axis="y" angle="180"/></transformations><descendants><leaf type="rectangle" x1="-0.075" x2="+0.075" y1="0" y2="0.025"/></descendants></node>
+        <node id="wood-box-lid-outside-left"  ><material id="null"/><texture id="null"><amplification afs="0.15" aft="0.05"/></texture><transformations><translation x="-0.075" y="0" z="0"    /><rotation axis="y" angle="-90"/></transformations><descendants><leaf type="rectangle" x1="-0.050" x2="+0.050" y1="0" y2="0.025"/></descendants></node>
+        <node id="wood-box-lid-outside-right" ><material id="null"/><texture id="null"><amplification afs="0.15" aft="0.05"/></texture><transformations><translation x="+0.075" y="0" z="0"    /><rotation axis="y" angle="+90"/></transformations><descendants><leaf type="rectangle" x1="-0.050" x2="+0.050" y1="0" y2="0.025"/></descendants></node>
+        <node id="wood-box-lid-outside-top"   ><material id="null"/><texture id="null"><amplification afs="0.15" aft="0.05"/></texture><transformations><translation x="0" y="+0.025" z="0"    /><rotation axis="x" angle="-90"/></transformations><descendants><leaf type="rectangle" x1="-0.075" x2="+0.075" y1="-0.05" y2="+0.05"/></descendants></node>
+        <node id="wood-box-lid-border"        >
+            <material id="null"/><texture id="null"><amplification afs="0.15" aft="0.05"/></texture>
+            <transformations>
+                <rotation axis="x" angle="+90"/>
+            </transformations>
+            <descendants>
+                <leaf type="rectangle" x1="-0.075" x2="+0.075" y1="-0.05" y2="-0.04"/>
+                <leaf type="rectangle" x1="-0.075" x2="+0.075" y1="+0.04" y2="+0.05"/>
+                <leaf type="rectangle" x1="-0.075" x2="-0.065" y1="-0.04" y2="+0.04"/>
+                <leaf type="rectangle" x1="+0.065" x2="+0.075" y1="-0.04" y2="+0.04"/>
+            </descendants>
+        </node>
+        <node id="wood-box-lid-inside-front" ><material id="null"/><texture id="null"><amplification afs="0.15" aft="0.05"/></texture><transformations><translation x="0"      y="0" z="+0.04"/>                                </transformations><descendants><leaf type="rectangle" x2="-0.065" x1="+0.065" y1="0" y2="0.015"/></descendants></node>
+        <node id="wood-box-lid-inside-back"  ><material id="null"/><texture id="null"><amplification afs="0.15" aft="0.05"/></texture><transformations><translation x="0"      y="0" z="-0.04"/><rotation axis="y" angle="180"/></transformations><descendants><leaf type="rectangle" x2="-0.065" x1="+0.065" y1="0" y2="0.015"/></descendants></node>
+        <node id="wood-box-lid-inside-left"  ><material id="null"/><texture id="null"><amplification afs="0.15" aft="0.05"/></texture><transformations><translation x="-0.065" y="0" z="0"    /><rotation axis="y" angle="-90"/></transformations><descendants><leaf type="rectangle" x2="-0.040" x1="+0.040" y1="0" y2="0.015"/></descendants></node>
+        <node id="wood-box-lid-inside-right" ><material id="null"/><texture id="null"><amplification afs="0.15" aft="0.05"/></texture><transformations><translation x="+0.065" y="0" z="0"    /><rotation axis="y" angle="+90"/></transformations><descendants><leaf type="rectangle" x2="-0.040" x1="+0.040" y1="0" y2="0.015"/></descendants></node>
+        <node id="wood-box-lid-inside-top"   ><material id="null"/><texture id="null"><amplification afs="0.15" aft="0.05"/></texture><transformations><translation x="0" y="+0.015" z="0"    /><rotation axis="x" angle="+90"/></transformations><descendants><leaf type="rectangle" x1="-0.075" x2="+0.075" y1="-0.05" y2="+0.05"/></descendants></node>
+        <node id="wood-box-lid-hinges"       >
+            <material id="null"/>
+            <texture id="null"><amplification afs="0.15" aft="0.05"/></texture>
+            <transformations>
+                <translation x="0" y="0" z="-0.051"    />
+            </transformations>
+            <descendants>
+                <noderef id="wood-box-lid-hinge1"/>
+                <noderef id="wood-box-lid-hinge2"/>
+            </descendants>
+        </node>
+        <node id="wood-box-lid-hinge1">
+            <material id="null"/>
+            <texture id="null"><amplification afs="1" aft="1"/></texture>
+            <transformations>
+                <translation x="+0.035" y="0" z="0"/>
+            </transformations>
+            <descendants>
+                <noderef id="wood-box-lid-hinge"/>
+            </descendants>
+        </node>
+        <node id="wood-box-lid-hinge2">
+            <material id="null"/>
+            <texture id="null"><amplification afs="1" aft="1"/></texture>
+            <transformations>
+                <translation x="-0.035" y="0" z="0"/>
+            </transformations>
+            <descendants>
+                <noderef id="wood-box-lid-hinge"/>
+            </descendants>
+        </node>
+        <node id="wood-box-lid-hinge">
+            <material id="null"/>
+            <texture id="null"><amplification afs="1" aft="1"/></texture>
+            <transformations>
+                <rotation axis="y" angle="-90"/>
+            </transformations>
+            <descendants>
+                <noderef id="wood-box-lid-hinge-left"/>
+                <noderef id="wood-box-lid-hinge-right"/>
+            </descendants>
+        </node>
+        <node id="wood-box-lid-hinge-left">
+            <material id="metal"/>
+            <texture id="brass"><amplification afs="1" aft="1"/></texture>
+            <transformations>
+                <translation x="0" y="0" z="0.005"/>
+            </transformations>
+            <descendants>
+                <leaf type="cylinder" bottomRadius="0.001" topRadius="0.001" height="0.006" slices="32" stacks="4"/>
+            </descendants>
+        </node>
+        <node id="wood-box-lid-hinge-right">
+            <material id="metal"/>
+            <texture id="brass"><amplification afs="1" aft="1"/></texture>
+            <transformations>
+                <rotation axis="y" angle="180"/>
+                <translation x="0" y="0" z="0.005"/>
+            </transformations>
+            <descendants>
+                <leaf type="cylinder" bottomRadius="0.001" topRadius="0.001" height="0.006" slices="32" stacks="4"/>
+            </descendants>
+        </node>
+
+        <node id="ui-panel-with-value">
+            <material id="null"/><texture id="null"><amplification afs="1" aft="1"/></texture>
+            <descendants>
+                <noderef id="ui-panel"/>
+                <noderef id="ui-panel-value-all"/>
+            </descendants>
+        </node>
+
+
+        <node id="ui-panel">
+            <material id="plastic-white"/><texture id="null"><amplification afs="1" aft="1"/></texture>
+            <transformations>
+                <scale sx="0.1" sy="0.07" sz="0.005"/>
+            </transformations>
+            <descendants>
+                <noderef id="cube"/>
+            </descendants>
+        </node>
+        <node id="ui-panel-value-all">
+            <material id="null"/><texture id="null"><amplification afs="1" aft="1"/></texture>
+            <descendants>
+                <noderef id="ui-panel-value-label"/>
+                <noderef id="ui-panel-value-display"/>
+            </descendants>
+        </node>
+        <node id="ui-panel-value-label">
+            <material id="clock-plastic-black-emissive"/>
+            <texture id="null"><amplification afs="1" aft="1"/></texture>
+            <transformations>
+                <translation x="-0.025" y="0.015" z="0.002501"/>
+                <scale sx="0.010" sy="0.010" sz="0.010"/>
+                <scale sx="0.57142857142" sy="1" sz="1"/>
+            </transformations>
+            <descendants>
+                <leaf type="spritetext" font="consolas" text="Value:"/>
+            </descendants>
+        </node>
+        <node id="ui-panel-value-display">
+            <material id="null"/><texture id="null"><amplification afs="1" aft="1"/></texture>
+            <transformations>
+                <translation x="0" y="0" z="0.00001"/>
+                <translation x="0.019" y="0.015" z="0.0025"/>
+            </transformations>
+            <descendants>
+                <noderef id="ui-panel-value-background"/>
+                <noderef id="ui-panel-value"/>
+            </descendants>
+        </node>
+        <node id="ui-panel-value-background">
+            <material id="calculator-background"/>
+            <texture id="null"><amplification afs="1" aft="1"/></texture>
+            <transformations>
+                <scale sx="1.15" sy="1.1" sz="1"/>
+                <scale sx="0.012" sy="0.012" sz="0.012"/>
+                <scale sx="0.60" sy="1" sz="1"/>
+            </transformations>
+            <descendants>
+                <leaf type="rectangle" x1="-3.0" x2="+3.0" y1="-0.5" y2="+0.5"/>
+            </descendants>
+        </node>
+        <node id="ui-panel-value">
+            <material id="calculator-digit"/>
+            <texture id="null"><amplification afs="1" aft="1"/></texture>
+            <transformations>
+                <translation x="0" y="0" z="0.00001"/>
+                <scale sx="0.012" sy="0.012" sz="0.012"/>
+                <scale sx="0.60" sy="1" sz="1"/>
+            </transformations>
+            <descendants>
+                <leaf type="spritetext" font="calc" text="   0.0" format="return arguments[0].padStart(6,' ');"/>
+            </descendants>
+        </node>
+        <node id="submit">
+            <material id="null"/><texture id="null"><amplification afs="1" aft="1"/></texture>
+            <transformations>
+                <translation x="0.02" y="-0.015" z="0.0035"/>
+                <rotation axis="x" angle="90"/>
+            </transformations>
+            <descendants>
+                <noderef id="submit-button"/>
+                <noderef id="submit-text"/>
+            </descendants>
+        </node>
+        <node id="submit-button">
+            <material id="plastic-green"/><texture id="null"><amplification afs="1" aft="1"/></texture>
+            <transformations>
+                <scale sx="0.030" sy="0.002" sz="0.020"/>
+            </transformations>
+            <descendants>
+                <noderef id="cube"/>
+            </descendants>
+        </node>
+        <node id="submit-text">
+            <material id="plastic-white"/><texture id="null"><amplification afs="1" aft="1"/></texture>
+            <transformations>
+                <translation x="0" y="0.00101" z="0"/>
+                <rotation axis="x" angle="-90"/>
+                <scale sx="0.57142857142" sy="1" sz="1"/>
+                <scale sx="0.007" sy="0.007" sz="0.007"/>
+            </transformations>
+            <descendants>
+                <leaf type="spritetext" font="consolas" text="Submit"/>
+            </descendants>
+        </node>
+        <node id="undo">
+            <material id="null"/><texture id="null"><amplification afs="1" aft="1"/></texture>
+            <transformations>
+                <translation x="-0.02" y="-0.015" z="0.0035"/>
+                <rotation axis="x" angle="90"/>
+            </transformations>
+            <descendants>
+                <noderef id="undo-button"/>
+                <noderef id="undo-text"/>
+            </descendants>
+        </node>
+        <node id="undo-button">
+            <material id="plastic-orange"/><texture id="null"><amplification afs="1" aft="1"/></texture>
+            <transformations>
+                <scale sx="0.030" sy="0.002" sz="0.020"/>
+            </transformations>
+            <descendants>
+                <noderef id="cube"/>
+            </descendants>
+        </node>
+        <node id="undo-text">
+            <material id="plastic-white"/><texture id="null"><amplification afs="1" aft="1"/></texture>
+            <transformations>
+                <translation x="0" y="0.00101" z="0"/>
+                <rotation axis="x" angle="-90"/>
+                <scale sx="0.57142857142" sy="1" sz="1"/>
+                <scale sx="0.007" sy="0.007" sz="0.007"/>
+            </transformations>
+            <descendants>
+                <leaf type="spritetext" font="consolas" text="Undo"/>
             </descendants>
         </node>
 
@@ -854,7 +1150,7 @@
                 <rotation axis="x" angle="-90"/>
             </transformations>
             <descendants>
-                <leaf type="defbarrel" base="0.02" middle="0.03" height="+0.3" slices="16" stacks="16" angle="5"/>
+                <leaf type="defbarrel" base="0.013" middle="0.022" height="+0.30" slices="16" stacks="16" angle="5"/>
             </descendants>
         </node>
         <node id="bench-support-1"><material id="null"/><texture id="dark_wood"><amplification afs="1" aft="1"/></texture><transformations><rotation axis="y" angle="000"/></transformations><descendants><noderef id="bench-support"/></descendants></node>
@@ -867,13 +1163,13 @@
                 <translation x="+0.08" y="0.12" z="-0.08"/>
             </transformations>
             <descendants>
-                <leaf type="cylinder" bottomRadius="0.012" topRadius="0.012" height="0.16" slices="16" stacks="4"/>
+                <leaf type="cylinder" bottomRadius="0.010" topRadius="0.010" height="0.16" slices="16" stacks="4"/>
             </descendants>
         </node>
         <node id="bench-1">
             <material id="null"/><texture id="null"><amplification afs="1" aft="1"/></texture>
             <transformations>
-                <translation x="+0.4" y="0" z="-0.1"/>
+                <translation x="+0.3" y="0" z="-0.1"/>
             </transformations>
             <descendants>
                 <noderef id="bench"/>
@@ -882,7 +1178,7 @@
         <node id="bench-2">
             <material id="null"/><texture id="null"><amplification afs="1" aft="1"/></texture>
             <transformations>
-                <translation x="-0.4" y="0" z="-0.1"/>
+                <translation x="-0.3" y="0" z="-0.1"/>
             </transformations>
             <descendants>
                 <noderef id="bench"/>
@@ -904,7 +1200,7 @@
             <material id="null"/><texture id="null"><amplification afs="1" aft="1"/></texture>
             <descendants>
                 <noderef id="small-table"/>
-                <noderef id="gameboard-in-table"/>
+                <noderef id="wood-box-in-table"/>
             </descendants>
         </node>
 
@@ -920,11 +1216,11 @@
             <material id="plastic-white"/>
             <texture id="white_wood"><amplification afs="1" aft="1"/></texture>
             <transformations>
-                <translation x="0" y="0.6" z="0"/>
+                <translation x="0" y="0.50" z="0"/>
                 <rotation axis="x" angle="-90"/>
             </transformations>
             <descendants>
-                <leaf type="cylinder" height="0.01" topRadius="0.40" bottomRadius="0.40" stacks="2" slices="64"/>
+                <leaf type="cylinder" height="0.01" topRadius="0.30" bottomRadius="0.30" stacks="2" slices="128"/>
             </descendants>
         </node>
         <node id="small-table-base">
@@ -934,7 +1230,7 @@
                 <rotation axis="x" angle="-90"/>
             </transformations>
             <descendants>
-                <leaf type="cylinder" height="0.01" topRadius="0.25" bottomRadius="0.25" stacks="2" slices="64"/>
+                <leaf type="cylinder" height="0.01" topRadius="0.17" bottomRadius="0.17" stacks="2" slices="64"/>
             </descendants>
         </node>
         <node id="small-table-support">
@@ -944,17 +1240,7 @@
                 <rotation axis="x" angle="-90"/>
             </transformations>
             <descendants>
-                <leaf type="cylinder" height="0.60" topRadius="0.03" bottomRadius="0.03" stacks="8" slices="16"/>
-            </descendants>
-        </node>
-
-        <node id="gameboard-in-table">
-            <material id="null"/><texture id="null"><amplification afs="1" aft="1"/></texture>
-            <transformations>
-                <translation x="0" y="0.61" z="0"/>
-            </transformations>
-            <descendants>
-                <noderef id="gameboard"/>
+                <leaf type="cylinder" height="0.50" topRadius="0.02" bottomRadius="0.02" stacks="8" slices="16"/>
             </descendants>
         </node>
 
@@ -1015,7 +1301,7 @@
         </node>
 
         <node id="fireplace-fire">
-            <material id="null"/><texture id="null"><amplification afs="1" aft="1"/></texture>
+            <material id="fire"/><texture id="null"><amplification afs="1" aft="1"/></texture>
             <transformations>
                 <translation x="0" y="0" z="0.05"/>
             </transformations>
@@ -1291,7 +1577,6 @@
             <transformations>
                 <translation x="-0.8" y="1.035" z="-1.32"/>
                 <rotation axis="y" angle="20"/>
-                <scale sx="0.06" sy="0.06" sz="0.06"/>
             </transformations>
             <descendants>
                 <noderef id="clock"/>
@@ -1300,10 +1585,13 @@
 
         <node id="clock">
             <material id="null"/><texture id="null"><amplification afs="1" aft="1"/></texture>
+            <transformations>
+                <scale sx="0.06" sy="0.06" sz="0.06"/>
+            </transformations>
             <descendants>
-                <noderef id="clock_display"/>
                 <noderef id="clock_box"/>
                 <noderef id="clock_button"/>
+                <noderef id="clock_display"/>
             </descendants>
         </node>
 
@@ -1319,10 +1607,30 @@
         <node id="clock_display">
             <material id="null"/><texture id="null"><amplification afs="1" aft="1"/></texture>
             <descendants>
-                    <leaf type="spritetext" text="12:00" 
+                <noderef id="clock_display_background"/>
+                <noderef id="clock_display_text"/>
+            </descendants>
+        </node>
+        <node id="clock_display_text">
+            <material id="clock-plastic-red-emissive"/><texture id="null"><amplification afs="1" aft="1"/></texture>
+            <transformations>
+                <scale sx="0.9" sy="0.9" sz="0.9"/>
+                <scale sx="0.72" sy="1" sz="1"/>
+            </transformations>
+            <descendants>
+                    <leaf type="spritetext" font="lcd" text="12:00" 
                         eval="let d = new Date(); 
                         return ('0' + d.getHours()).slice(-2) + ':' + ('0' + d.getMinutes()).slice(-2); "
                     />
+            </descendants>
+        </node>
+        <node id="clock_display_background">
+            <material id="clock-plastic-black-emissive"/><texture id="null"><amplification afs="1" aft="1"/></texture>
+            <transformations>
+                <translation x="0" y="0" z="-0.001"/>
+            </transformations>
+            <descendants>
+                <leaf type="rectangle" x1="-2.5" x2="+2.5" y1="-0.5" y2="+0.5"/>
             </descendants>
         </node>
 
@@ -1689,7 +1997,7 @@
             </descendants>
         </node>
         <node id="globe_axis">
-            <material id="plastic-yellow"/>
+            <material id="plastic-old"/>
             <texture id="plastic-rugged">
                 <amplification afs="1" aft="1"/>
             </texture>
@@ -1768,7 +2076,7 @@
         </node>
 
         <node id="globe_plastic">
-            <material id="plastic-yellow"/>
+            <material id="plastic-old"/>
             <texture id="plastic-rugged"><amplification afs="1" aft="1"/></texture>
             <descendants>
                 <noderef id="globe_wheel"/>
@@ -3164,7 +3472,7 @@
             </descendants>
         </node>
         <node id="tv-screen">
-            <material id="television-screen"/><texture id="clear"/>
+            <material id="null"/><texture id="clear"/>
             <transformations>
                 <translation x="0" y="0" z="-0.005"/>
             </transformations>
@@ -3174,8 +3482,8 @@
                 <noderef id="tv-screen-off"/>
             </descendants>
         </node>
-        <node id="tv-screen-program-1" dropbox="tv-screen">
-            <material id="television-screen"/><texture id="null"><amplification afs="1" aft="1"/></texture>
+        <node id="tv-screen-program-1">
+            <material id="television-screen-on"/><texture id="null"><amplification afs="1" aft="1"/></texture>
             <transformations>
                 <translation x="0" y="0" z="0.0001"/>
                 <rotation axis="x" angle="90"/>
@@ -3186,8 +3494,8 @@
                 <noderef id="tv-screen-news"/>
             </descendants>
         </node>
-        <node id="tv-screen-program-2" dropbox="tv-screen">
-            <material id="television-screen"/><texture id="null"><amplification afs="1" aft="1"/></texture>
+        <node id="tv-screen-program-2">
+            <material id="television-screen-on"/><texture id="null"><amplification afs="1" aft="1"/></texture>
             <transformations>
                 <translation x="0" y="0" z="0.00005"/>
                 <rotation axis="x" angle="90"/>
@@ -3198,7 +3506,7 @@
                 <noderef id="tv-screen-football"/>
             </descendants>
         </node>
-        <node id="tv-screen-off" dropbox="tv-screen">
+        <node id="tv-screen-off">
             <material id="television-screen"/><texture id="null"><amplification afs="1" aft="1"/></texture>
             <transformations>
                 <rotation axis="x" angle="90"/>
@@ -3209,13 +3517,13 @@
             </descendants>
         </node>
         <node id="tv-screen-news">
-            <material id="television-screen"/><texture id="null"><amplification afs="1" aft="1"/></texture>
+            <material id="null"/><texture id="null"><amplification afs="1" aft="1"/></texture>
             <descendants>
                 <leaf type="spriteanim" ssid="tv-news" startCell="1" endCell="136" duration="15" />
             </descendants>
         </node>
         <node id="tv-screen-football">
-            <material id="television-screen"/><texture id="null"><amplification afs="1" aft="1"/></texture>
+            <material id="null"/><texture id="null"><amplification afs="1" aft="1"/></texture>
             <descendants>
                 <leaf type="spriteanim" ssid="tv-football" startCell="1" endCell="141" duration="20" />
             </descendants>
@@ -3613,5 +3921,182 @@
                 <leaf type="cylinder" bottomRadius="0.0711" topRadius="0.0711" height="0" slices="32" stacks="1"/>
             </descendants>
         </node>
+
+        <node id="light-switch-in-room-1">
+            <material id="null"/>
+            <texture id="null">
+                <amplification afs="1" aft="1"/>
+            </texture>
+            <transformations>
+                <translation x="+1.50" y="0.50" z="+0.35"/>
+                <rotation axis="y" angle="-90"/>
+            </transformations>
+            <descendants>
+                <noderef id="light-switch-framed-1"/>
+            </descendants>
+        </node>
+
+        <node id="light-switch-framed-1">
+            <material id="plastic-white"/>
+            <texture id="plastic-rugged">
+                <amplification afs="1" aft="1"/>
+            </texture>
+            <transformations>
+                <scale sx="2" sy="2" sz="2"/>
+                <translation x="0" y="0" z="-0.0020"/>
+            </transformations>
+            <descendants>
+                <noderef id="light-switch-old-frame"/>
+                <noderef id="light-switch-old-1"/>
+                <!-- <noderef id="light-switch-new-frame"/> -->
+                <!-- <noderef id="light-switch-new-1"/> -->
+            </descendants>
+        </node>
+        <node id="light-switch-old-frame">
+            <material id="null"/>
+            <texture id="null">
+                <amplification afs="1" aft="1"/>
+            </texture>
+            <transformations>
+                <translation x="0" y="0" z="+0.003"/>
+            </transformations>
+            <descendants>
+                <noderef id="light-switch-old-frame-n"/>
+                <noderef id="light-switch-old-frame-s"/>
+                <noderef id="light-switch-old-frame-w"/>
+                <noderef id="light-switch-old-frame-e"/>
+                <noderef id="light-switch-old-frame-ne"/>
+                <noderef id="light-switch-old-frame-nw"/>
+                <noderef id="light-switch-old-frame-se"/>
+                <noderef id="light-switch-old-frame-sw"/>
+                <noderef id="light-switch-old-frame-background"/>
+            </descendants>
+        </node>
+        <node id="light-switch-old-frame-n" ><material id="null"/><texture id="null"><amplification afs="1" aft="1"/></texture><transformations><translation x="0"   y="+0.017" z="0"/><scale sx="0.007" sy="0.016" sz="0.003"/></transformations><descendants><noderef id="cube"/></descendants></node>
+        <node id="light-switch-old-frame-s" ><material id="null"/><texture id="null"><amplification afs="1" aft="1"/></texture><transformations><translation x="0"   y="-0.017" z="0"/><scale sx="0.007" sy="0.016" sz="0.003"/></transformations><descendants><noderef id="cube"/></descendants></node>
+        <node id="light-switch-old-frame-w" ><material id="null"/><texture id="null"><amplification afs="1" aft="1"/></texture><transformations><translation x="-0.00925" y="0" z="0"/><scale sx="0.0115" sy="0.018" sz="0.003"/></transformations><descendants><noderef id="cube"/></descendants></node>
+        <node id="light-switch-old-frame-e" ><material id="null"/><texture id="null"><amplification afs="1" aft="1"/></texture><transformations><translation x="+0.00925" y="0" z="0"/><scale sx="0.0115" sy="0.018" sz="0.003"/></transformations><descendants><noderef id="cube"/></descendants></node>
+        <node id="light-switch-old-frame-ne"><material id="null"/><texture id="null"><amplification afs="1" aft="1"/></texture><transformations><translation x="+0.00925" y="+0.017" z="0"/><scale sx="0.0115" sy="0.016" sz="0.003"/></transformations><descendants><noderef id="cube"/></descendants></node>
+        <node id="light-switch-old-frame-nw"><material id="null"/><texture id="null"><amplification afs="1" aft="1"/></texture><transformations><translation x="-0.00925" y="+0.017" z="0"/><scale sx="0.0115" sy="0.016" sz="0.003"/></transformations><descendants><noderef id="cube"/></descendants></node>
+        <node id="light-switch-old-frame-se"><material id="null"/><texture id="null"><amplification afs="1" aft="1"/></texture><transformations><translation x="+0.00925" y="-0.017" z="0"/><scale sx="0.0115" sy="0.016" sz="0.003"/></transformations><descendants><noderef id="cube"/></descendants></node>
+        <node id="light-switch-old-frame-sw"><material id="null"/><texture id="null"><amplification afs="1" aft="1"/></texture><transformations><translation x="-0.00925" y="-0.017" z="0"/><scale sx="0.0115" sy="0.016" sz="0.003"/></transformations><descendants><noderef id="cube"/></descendants></node>
+        <node id="light-switch-old-frame-background">
+            <material id="black"/>
+            <texture id="clear"/>
+            <transformations>
+            </transformations>
+            <descendants>
+                <leaf type="rectangle" x1="-0.01" x2="+0.01" y1="-0.02" y2="+0.02"/>
+            </descendants>
+        </node>
+
+        <node id="light-switch-old-1" onclick="console.log('hello!'); console.log(this); this.bindings['ceiling-light-var'].value = !this.bindings['ceiling-light-var'].value;">
+            <material id="null"/>
+            <texture id="null">
+                <amplification afs="1" aft="1"/>
+            </texture>
+            <animationref id="turn-light-switch"/>
+            <descendants>
+                <noderef id="light-switch-old"/>
+            </descendants>
+        </node>
+        <node id="light-switch-old">
+            <material id="plastic-lightgray"/>
+            <texture id="plastic-rugged">
+                <amplification afs="1" aft="1"/>
+            </texture>
+            <transformations>
+                <rotation axis="x" angle="+20"/>
+            </transformations>
+            <descendants>
+                <noderef id="light-switch-old-cylinder"/>
+                <noderef id="light-switch-old-cube"/>
+            </descendants>
+        </node>
+        <node id="light-switch-old-cylinder">
+            <material id="null"/>
+            <texture id="null">
+                <amplification afs="1" aft="1"/>
+            </texture>
+            <transformations>
+                <translation x="-0.0032" y="0" z="0"/>
+                <rotation axis="y" angle="90"/>
+            </transformations>
+            <descendants>
+                <leaf type="cylinder" bottomRadius="0.0092" topRadius="0.0092" height="0.0064" slices="16" stacks="2"/>
+            </descendants>
+        </node>
+        <node id="light-switch-old-cube">
+            <material id="null"/>
+            <texture id="null">
+                <amplification afs="1" aft="1"/>
+            </texture>
+            <transformations>
+                <translation x="0" y="0" z="0.01"/>
+                <scale sx="0.006399" sy="0.006" sz="0.02"/>
+            </transformations>
+            <descendants>
+                <noderef id="cube"/>
+            </descendants>
+        </node>
+
+        <!--
+        <node id="light-switch-new-frame">
+            <material id="null"/>
+            <texture id="null">
+                <amplification afs="1" aft="1"/>
+            </texture>
+            <transformations>
+                <rotation axis="x" angle="-5"/>
+            </transformations>
+            <descendants>
+                <noderef id="light-switch-new-frame-top"/>
+                <noderef id="light-switch-new-frame-bot"/>
+                <noderef id="light-switch-new-frame-lef"/>
+                <noderef id="light-switch-new-frame-rig"/>
+                <noderef id="light-switch-new-frame-background"/>
+            </descendants>
+        </node>
+        <node id="light-switch-new-frame-top"><material id="null"/><texture id="null"><amplification afs="1" aft="1"/></texture><transformations><translation x="0" y="+0.021" z="0"/><scale sx="0.044" sy="0.002" sz="0.003"/></transformations><descendants><noderef id="cube"/></descendants></node>
+        <node id="light-switch-new-frame-bot"><material id="null"/><texture id="null"><amplification afs="1" aft="1"/></texture><transformations><translation x="0" y="-0.021" z="0"/><scale sx="0.044" sy="0.002" sz="0.003"/></transformations><descendants><noderef id="cube"/></descendants></node>
+        <node id="light-switch-new-frame-lef"><material id="null"/><texture id="null"><amplification afs="1" aft="1"/></texture><transformations><translation x="-0.021" y="0" z="0"/><scale sx="0.002" sy="0.040" sz="0.003"/></transformations><descendants><noderef id="cube"/></descendants></node>
+        <node id="light-switch-new-frame-rig"><material id="null"/><texture id="null"><amplification afs="1" aft="1"/></texture><transformations><translation x="+0.021" y="0" z="0"/><scale sx="0.002" sy="0.040" sz="0.003"/></transformations><descendants><noderef id="cube"/></descendants></node>
+        <node id="light-switch-new-frame-background">
+            <material id="black"/>
+            <texture id="clear"/>
+            <transformations>
+            </transformations>
+            <descendants>
+                <leaf type="rectangle" x1="-0.02" x2="+0.02" y1="-0.02" y2="+0.02"/>
+            </descendants>
+        </node>
+
+        <node id="light-switch-new-1">
+            <material id="null"/>
+            <texture id="null">
+                <amplification afs="1" aft="1"/>
+            </texture>
+            <transformations>
+                <rotation axis="x" angle="-5"/>
+            </transformations>
+            <descendants>
+                <noderef id="light-switch-new"/>
+            </descendants>
+        </node>
+
+        <node id="light-switch-new">
+            <material id="null"/>
+            <texture id="null">
+                <amplification afs="1" aft="1"/>
+            </texture>
+            <transformations>
+                <rotation axis="x" angle="-3"/>
+                <scale sx="0.039" sy="0.039" sz="0.005"/>
+            </transformations>
+            <descendants>
+                <noderef id="cube"/>
+            </descendants>
+        </node>
+        -->
     </nodes>
 </lsf>
