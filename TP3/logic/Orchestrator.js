@@ -4,17 +4,17 @@
  * @param scene  		- Reference to MyScene object
  */
 class Orchestrator extends CGFobject {
-	constructor(scene, theme, gameMode, level) {
+	constructor(scene, themes, gameMode, level) {
         super(scene);
-
         this.scene.orchestrator = this;
-        
-        this.gameSequence = new GameSequence();
+        this.gameSequence  = new GameSequence();
         // this.animator     = new Animator(this.scene, this, this.gameSequence);
-        this.theme        = new MySceneGraph(theme, this.scene);
+        this.themeSelected = 0;
+        this.themeInited   = false;
+        this.themes       = themes;
+        this.theme        = new MySceneGraph(themes[0], this.scene);
         this.gameState    = new GameState(this.scene, this);
-        
-        this.gameMode = gameMode;
+        this.gameMode     = gameMode;
     }
 
     isComputer(player){
@@ -48,7 +48,10 @@ class Orchestrator extends CGFobject {
     }
 
     onObjectSelected(obj, id){
-        if(10 <= id && id < 300)
+        if(obj.idObj == 'change-theme'){
+            this.changeTheme();
+        }
+        else if(10 <= id && id < 300)
             this.gameState.moveState.updateMoveState(obj, id);
         else
             obj.onclick();
@@ -58,6 +61,13 @@ class Orchestrator extends CGFobject {
         else
             obj.select();
         */
+    }
+
+    changeTheme(){
+        this.themeInited = false;
+        button_id = 200;
+        this.themeSelected = (this.themeSelected+1)%(this.themes.length);
+        this.theme = new MySceneGraph(this.themes[this.themeSelected], this.scene);
     }
 
     update(t){
@@ -71,6 +81,7 @@ class Orchestrator extends CGFobject {
 
     display(){
         // ...
+        if(!this.themeInited) return;
         this.theme.display();
         this.gameState.gameboard.display();
         // this.animator.display();
