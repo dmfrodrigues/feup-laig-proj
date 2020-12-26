@@ -29,6 +29,27 @@ class Orchestrator extends CGFobject {
         this.gameState.gameboard.gameboardSetup = this.theme.gameboard;
         PieceStack.pieceStackView = this.theme.pieces.view;
         PieceStack.pieceStackView.initialize();
+
+        let orchestrator = this;
+        let gamestate = this.gameState;
+        if(this.isComputer(gamestate.turn)){
+            server.choose_move(
+                gamestate,
+                gamestate.turn,
+                3,
+                7
+            )
+            .then(function (response){
+                console.log(response);
+                gamestate.gameboard.move(
+                    gamestate.gameboard.getCell(response.pos[0], response.pos[1]),
+                    response.substacks,
+                    response.dir,
+                    gamestate.gameboard.getCell(response.newpos[0], response.newpos[1])
+                );
+                orchestrator.nextTurn();
+            });
+        }
     }
 
     managePick(mode, results){
@@ -48,10 +69,10 @@ class Orchestrator extends CGFobject {
     }
 
     nextTurn(){
+        let orchestrator = this;
         let gamestate = this.gameState;
         gamestate.nextTurn();
         if(this.isComputer(gamestate.turn)){
-            console.log("Is computer");
             server.choose_move(
                 gamestate,
                 gamestate.turn,
@@ -66,6 +87,7 @@ class Orchestrator extends CGFobject {
                     response.dir,
                     gamestate.gameboard.getCell(response.newpos[0], response.newpos[1])
                 );
+                orchestrator.nextTurn();
             });
         }
     }
