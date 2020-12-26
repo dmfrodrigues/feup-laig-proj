@@ -51,7 +51,9 @@ class GameBoard extends CGFobject {
     }
 
     move(originCell, substacks, direction, newPieceCell) {
-        if (newPieceCell.stack != null) return false;
+
+        if (newPieceCell.stack != null || ( 1 < direction && direction > 6 ))
+            return false;
         
         for (let k = 0; k < substacks.length; k++) {
             let absHeight = Math.abs(substacks[k]);
