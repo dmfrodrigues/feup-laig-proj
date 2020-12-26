@@ -51,7 +51,6 @@ class GameBoard extends CGFobject {
     }
 
     move(originCell, substacks, direction, newPieceCell) {
-        console.log('dir', direction);
         if (newPieceCell.stack != null || ( 1 < direction && direction > 6 ))
             return false;
         
