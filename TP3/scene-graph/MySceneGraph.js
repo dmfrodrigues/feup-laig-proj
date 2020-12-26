@@ -1439,16 +1439,23 @@ class MySceneGraph {
     }
 
     handleCameraAnimation(t) {
+        let animDuration = 2.0;
         if(this.cameraAnimation){
             if(this.cameraAnimStartTime == 0){
                 this.cameraAnimStartTime = t;
                 this.cameraAnimLastTime = t;
             }
-            if(t - this.cameraAnimStartTime <= 2){
-                this.scene.camera.orbit(CGFcameraAxis.y, Math.PI*(t - this.cameraAnimLastTime) /2.0);
+            if(t - this.cameraAnimStartTime < animDuration){
+                console.log(this.cameraAnimLastTime, t);
+                this.scene.camera.orbit(CGFcameraAxis.y, Math.PI*(t-this.cameraAnimLastTime)/animDuration);
                 this.cameraAnimLastTime = t;
             }
-            else{ 
+            else{
+                console.log(this.cameraAnimLastTime, t);
+                this.scene.camera.orbit(
+                    CGFcameraAxis.y, 
+                    Math.PI*(this.cameraAnimStartTime+animDuration-this.cameraAnimLastTime)/animDuration
+                );
                 this.cameraAnimation = false;
             }
         }

@@ -117,9 +117,10 @@ class PlayerMoveState {
             case State.FINAL:
                 if(this.isCellId(obj)){
                     // submit new piece and move
-                    this.gameState.gameboard.move(this.stackSelected.cell, this.substacks, this.direction, obj);
-                    this.gameState.nextTurn();
-                    this.initialState();
+                    if(this.gameState.gameboard.move(this.stackSelected.cell, this.substacks, this.direction, obj)){
+                        this.gameState.nextTurn();
+                        this.initialState();
+                    }
                 }
                 else if(this.isUndoId(obj)){
                     this.initialState();

@@ -238,8 +238,8 @@
             <to   x="0.0" y="1.0" z="0.0"/>
         </perspective>
         <perspective id="player1_camera" near="0.1" far="500" angle="50">
-            <from x="+0.60" y="0.90" z="-0.1"/>
-            <to   x="+0.00" y="0.5" z="-0.17"/>
+            <from x="+0.62" y="1.0" z="-0.15"/>
+            <to   x="+0.00" y="0.58" z="-0.2"/>
         </perspective>
         <perspective id="player2_camera" near="0.1" far="500" angle="50">
             <from x="-0.60" y="0.90" z="-0.10"/>
