@@ -129,6 +129,18 @@ class MySceneGraph {
                 return error;
         }
 
+        // <bindings>
+        if ((index = nodeNames.indexOf("bindings")) == -1)
+            return "tag <bindings> missing";
+        else {
+            if (index != BINDINGS_INDEX)
+                this.onXMLMinorError("tag <bindings> out of order");
+
+            //Parse bindings block
+            if ((error = this.parseBindings(nodes[index])) != null)
+                return error;
+        }
+
         // <views>
         if ((index = nodeNames.indexOf("views")) == -1)
             return "tag <views> missing";
@@ -162,17 +174,6 @@ class MySceneGraph {
 
             //Parse lights block
             if ((error = this.parseLights(nodes[index])) != null)
-                return error;
-        }
-        // <bindings>
-        if ((index = nodeNames.indexOf("bindings")) == -1)
-            return "tag <bindings> missing";
-        else {
-            if (index != BINDINGS_INDEX)
-                this.onXMLMinorError("tag <bindings> out of order");
-
-            //Parse bindings block
-            if ((error = this.parseBindings(nodes[index])) != null)
                 return error;
         }
         // <textures>
@@ -571,6 +572,19 @@ class MySceneGraph {
             else          light.disable();
             light.update();
 
+            let enableNode = [...children[i].children].find((node) => (node.nodeName === 'enable'));
+            if(typeof enableNode.attributes.bind !== 'undefined'){
+                let binding = enableNode.attributes.bind.value;
+                if(this.bindings[binding] !== null){
+                    this.bindings[binding] = {
+                        set value(value){ light.enabled = value; },
+                        get value(     ){ return light.enabled;  }
+                    };
+                } else {
+                    this.onXMLMinorError(`Unknown binding '${binding}'`);
+                }
+            }
+
             numLights++;
         }
 
@@ -880,6 +894,12 @@ class MySceneGraph {
             if (this.nodes[nodeID] != null)
                 return "ID must be unique for each node (conflict: ID = " + nodeID + ")";
 
+            // On click
+            let onclick = null;
+            if (typeof children[i].attributes.onclick !== 'undefined'){
+                onclick = this.reader.getString(children[i], 'onclick');
+            }
+
             grandChildren = children[i].children;
 
             nodeNames = [];
@@ -895,6 +915,11 @@ class MySceneGraph {
 
             let node = new Node(this.scene, nodeID);
             node.setDropbox(dropbox);
+            if(onclick !== null){
+                let onclick_func = new Function(onclick);
+                node.onclick = onclick_func.bind(this);
+                node.onclick();
+            }
             // Transformations
             let transformations = grandChildren[transformationsIndex];
             let M = this.parseTransformations(transformations, nodeID); if(typeof M === "string") return M;
