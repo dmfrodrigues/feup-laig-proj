@@ -74,20 +74,36 @@
         </gameboard>
         <piece id="piece" height="0.002"/>
         <pieceview classname="RoomPieceStackView"/>
-        <ui id="ui">
-            <transformations>
-                <translation x="0.24" y="0.54" z="-0.2"/>
-                <rotation axis="y" angle="90"/>
-                <rotation axis="x" angle="-45"/>
-            </transformations>
-            <panel id="ui-panel-with-value"/>
-            <value id="ui-panel-value"/>
-            <buttons>
-                <button id="submit"/>
-                <button id="undo"/>
-                <button id="change-theme"/>
-            </buttons>
-        </ui>
+        <uis>
+            <ui id="ui-1">
+                <transformations>
+                    <translation x="0.24" y="0.54" z="-0.2"/>
+                    <rotation axis="y" angle="90"/>
+                    <rotation axis="x" angle="-45"/>
+                </transformations>
+                <panel id="ui-panel-with-value"/>
+                <value id="ui-panel-value"/>
+                <buttons>
+                    <button id="submit"/>
+                    <button id="undo"/>
+                    <button id="change-theme"/>
+                </buttons>
+            </ui>
+            <ui id="ui-2">
+                <transformations>
+                    <translation x="-0.24" y="0.54" z="-0.2"/>
+                    <rotation axis="y" angle="-90"/>
+                    <rotation axis="x" angle="-45"/>
+                </transformations>
+                <panel id="ui-panel-with-value"/>
+                <value id="ui-panel-value"/>
+                <buttons>
+                    <button id="submit"/>
+                    <button id="undo"/>
+                    <button id="change-theme"/>
+                </buttons>
+            </ui>
+        </uis>
     </initials>
     <animations>
         <animation id="turn-light-switch" loop="0" timeupdate="0">

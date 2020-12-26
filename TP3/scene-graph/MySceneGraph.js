@@ -253,7 +253,7 @@ class MySceneGraph {
         var gameboardIndex = nodeNames.indexOf("gameboard");
         var piecesIndex = nodeNames.indexOf("piece");
         var piecesViewIndex = nodeNames.indexOf("pieceview");
-        var uiIndex = nodeNames.indexOf("ui");
+        var uisIndex = nodeNames.indexOf("uis");
 
         // Get root of the scene.
         if(rootIndex == -1)
@@ -306,13 +306,13 @@ class MySceneGraph {
             this._pieces = pieces;
         }
 
-        // Get UI
+        // Get UIs
 
-        if(uiIndex == -1){
-            this.onXMLMinorError("No ui defined for scene.");
+        if(uisIndex == -1){
+            this.onXMLMinorError("No uis defined for scene.");
         } else {
-            let uiNode = children[uiIndex];
-            let ret = this.parseUI(uiNode);
+            let uisNode = children[uisIndex];
+            let ret = this.parseUIs(uisNode);
             if(typeof ret === 'string') return ret;
         }
 
@@ -357,18 +357,24 @@ class MySceneGraph {
     }
 
     /**
-     * Parses the <ui> block.
-     * @param {ui block element} node 
+     * Parses the <uis> block.
+     * @param {uis block element} node 
      */
-    parseUI(node){
-        let ui= new UserInterface(this.scene);
+    parseUIs(node){
 
-        let idUI = this.reader.getString(node, 'id');
+        this.uis = {};
+
+        for(let i = 0; i < node.children.length; ++i){
+            let uiNode = node.children[i];
+            console.log(node, node.children[i]);
+        let ui = new UserInterface(this.scene);
+
+        let idUI = this.reader.getString(uiNode, 'id');
         if(idUI == null)
             return "No UI ID defined for scene.";
         ui.idObj = idUI;
 
-        let uiChildren = [...node.children];
+        let uiChildren = [...uiNode.children];
         let transformations = uiChildren.find(function (u){ return (u.nodeName === 'transformations'); });
         let M = this.parseTransformations(transformations, "ui"); if(typeof M === "string") return M;
         ui.transformation = M;
@@ -388,8 +394,9 @@ class MySceneGraph {
             ui.addButtonID(button_id);
         }
 
-        this._ui = ui;
-
+        this.uis[idUI] = ui;
+        }
+        console.log(this.uis);
         return null;
     }
 
@@ -1055,27 +1062,29 @@ class MySceneGraph {
                 this._pieces.obj = this.nodes[this._pieces.idObj];
         }
 
-        if(this._ui){
-            if(this.nodes[this._ui.panelID] == null)
-                return `No such panel node "${this._ui.panelID}"`;
+        for(let i in this.uis)
+        {
+            console.log(this.uis[i]);
+            if(this.nodes[this.uis[i].panelID] == null)
+                return `No such panel node "${this.uis[i].panelID}"`;
             else
-                this._ui.panel = this.nodes[this._ui.panelID];
+                this.uis[i].panel = this.nodes[this.uis[i].panelID];
 
-            if(this.nodes[this._ui.valueID] == null)
-                return `No such value node "${this._ui.valueID}"`;
+            if(this.nodes[this.uis[i].valueID] == null)
+                return `No such value node "${this.uis[i].valueID}"`;
             else
-                this._ui.valueNode =
-                    this.nodes[this._ui.valueID].children
+                this.uis[i].valueNode =
+                    this.nodes[this.uis[i].valueID].children
                     .find(function (u){ return (u instanceof MySpriteText); });
 
-            for(let i=0; i<this._ui.buttonsIDs.length;i++){
-                if(this.nodes[this._ui.buttonsIDs[i]] == null)
-                    return `No such button node "${this._ui.buttonsIDs[i]}"`;
+            for(let k=0; k<this.uis[i].buttonsIDs.length;k++){
+                if(this.nodes[this.uis[i].buttonsIDs[k]] == null)
+                    return `No such button node "${this.uis[i].buttonsIDs[k]}"`;
                 else{
                     let button = new Button(this.scene);
-                    button.obj = this.nodes[this._ui.buttonsIDs[i]];
-                    button.idObj = this._ui.buttonsIDs[i];
-                    this._ui.buttons.push(button);
+                    button.obj = this.nodes[this.uis[i].buttonsIDs[k]];
+                    button.idObj = this.uis[i].buttonsIDs[k];
+                    this.uis[i].buttons.push(button);
                 }
             }
         }
@@ -1429,8 +1438,20 @@ class MySceneGraph {
         return this._pieces;
     }
 
-    get ui(){
-        return this._ui;
+    handleCameraAnimation(t) {
+        if(this.cameraAnimation){
+            if(this.cameraAnimStartTime == 0){
+                this.cameraAnimStartTime = t;
+                this.cameraAnimLastTime = t;
+            }
+            if(t - this.cameraAnimStartTime <= 2){
+                this.scene.camera.orbit(CGFcameraAxis.y, Math.PI*(t - this.cameraAnimLastTime) /2.0);
+                this.cameraAnimLastTime = t;
+            }
+            else{ 
+                this.cameraAnimation = false;
+            }
+        }
     }
 
     update(t){
@@ -1445,6 +1466,8 @@ class MySceneGraph {
         for (let text in this.spriteTexts){
             this.spriteTexts[text].update();
         }
+
+        this.handleCameraAnimation(t);
     }
 
     /**
