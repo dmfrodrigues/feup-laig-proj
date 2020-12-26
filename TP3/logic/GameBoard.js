@@ -51,37 +51,36 @@ class GameBoard extends CGFobject {
     }
 
     move(originCell, substacks, direction, newPieceCell) {
-
         if (newPieceCell.stack != null) return false;
         
         for (let k = 0; k < substacks.length; k++) {
-            console.log("teste :" + k);
+            let absHeight = Math.abs(substacks[k]);
             let substack_i;
             let substack_j;
             switch (direction) {
                 case 1:
                     substack_i = originCell.i;
-                    substack_j = originCell.j - substacks[k];
+                    substack_j = originCell.j - absHeight;
                     break;
                 case 2:
-                    substack_i = originCell.i - substacks[k];
+                    substack_i = originCell.i - absHeight;
                     substack_j = originCell.j;
                     break;
                 case 3:
-                    substack_i = originCell.i - substacks[k];
-                    substack_j = originCell.j - substacks[k];
+                    substack_i = originCell.i - absHeight;
+                    substack_j = originCell.j - absHeight;
                     break;
                 case 4:
                     substack_i = originCell.i;
-                    substack_j = originCell.j + substacks[k];
+                    substack_j = originCell.j + absHeight;
                     break;
                 case 5:
-                    substack_i = originCell.i + substacks[k];
+                    substack_i = originCell.i + absHeight;
                     substack_j = originCell.j;
                     break;
                 case 6:
-                    substack_i = originCell.i + substacks[k];
-                    substack_j = originCell.j + substacks[k];
+                    substack_i = originCell.i + absHeight;
+                    substack_j = originCell.j + absHeight;
                     break;
                 default:
                     break;
@@ -94,11 +93,11 @@ class GameBoard extends CGFobject {
             
             if(stack == null){
                 this.getCell(substack_i, substack_j).stack
-                = new PieceStack(this.scene, substacks[k] * (Math.sign(originCell.stack.height)));
+                = new PieceStack(this.scene, absHeight * (Math.sign(originCell.stack.height)));
             }
             else{
                 this.getCell(substack_i, substack_j).stack
-                = new PieceStack(this.scene, (substacks[k] + Math.abs(stack.height)) * (Math.sign(originCell.stack.height)));
+                = new PieceStack(this.scene, (absHeight + Math.abs(stack.height)) * (Math.sign(originCell.stack.height)));
             }
         }
         
