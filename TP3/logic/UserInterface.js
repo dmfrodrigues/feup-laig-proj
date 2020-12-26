@@ -6,6 +6,8 @@ class UserInterface extends CGFobject {
         this._transformation = null;
         this._panelID = null;
         this._panel = null;
+        this._valueID = null;
+        this._value = null;
         this._buttonsIDs        = [];
         this._buttons           = [];
     }
@@ -27,6 +29,17 @@ class UserInterface extends CGFobject {
     get buttons(){ return this._buttons; }
     get buttonsIDs(){ return this._buttonsIDs; }
     addButtonID(button_id){this._buttonsIDs.push(button_id);}
+
+    set valueID(valueID){ this._valueID = valueID; }
+    get valueID(){ return this._valueID; }
+
+    set valueNode(valueNode){ this._value = valueNode; }
+    get valueNode(){ return this._value; }
+
+    setValue(value){
+        console.log({value: value});
+        this._value.text = (Math.round(value*10)/10).toFixed(1);
+    }
 
     display() {
         this.scene.pushMatrix();

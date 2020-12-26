@@ -573,13 +573,7 @@
       <g transform="translate(1960,0)">
         <g class="path" transform="translate(20,20)">
           <path unicode="." d=""/>
-          <path d="M 002 000 l 096 000 l -20 +20 l -56 +00 Z" />
-          <path d="M 000 002 l 000 86 l 10 10 l 10 -10 l 0 -66 Z" />
-          <path d="M 100 002 l 000 86 l -10 10 l -10 -10 l 0 -66 Z" />
-          <path d="M 012 100 l 10 -10 l 56 0 l 10 10 l -10 10 l -56 0 Z"/>
-          <path d="M 000 198 l 000 -86 l 10 -10 l 10 10 l 0 66 Z" />
-          <path d="M 100 198 l 000 -86 l -10 -10 l -10 10 l 0 66 Z" />
-          <path d="M 002 200 l 096 000 l -20 -20 l -56 +00 Z" />
+          <path d="M 040 200 l 020 000 l 0 -20 l -20 0 Z" class="enabled" />
         </g>
       </g>
       <g transform="translate(2100,0)">
@@ -597,7 +591,7 @@
     </g>
     <g transform="translate(0,720)">
       <g transform="translate(0,0)">
-        <g class="path" transform="translate(20,20)">
+        <g unicode="0" class="path" transform="translate(20,20)">
           <path d="M 002 000 l 096 000 l -20 +20 l -56 +00 Z" class="enabled"/>
           <path d="M 000 002 l 000 86 l 10 10 l 10 -10 l 0 -66 Z" class="enabled"/>
           <path d="M 100 002 l 000 86 l -10 10 l -10 -10 l 0 -66 Z" class="enabled"/>
@@ -608,7 +602,7 @@
         </g>
       </g>
       <g transform="translate(140,0)">
-        <g class="path" transform="translate(20,20)">
+        <g unicode="1" class="path" transform="translate(20,20)">
           <path d="M 002 000 l 096 000 l -20 +20 l -56 +00 Z" />
           <path d="M 000 002 l 000 86 l 10 10 l 10 -10 l 0 -66 Z" />
           <path d="M 100 002 l 000 86 l -10 10 l -10 -10 l 0 -66 Z" class="enabled"/>
@@ -619,7 +613,7 @@
         </g>
       </g>
       <g transform="translate(280,0)">
-        <g class="path" transform="translate(20,20)">
+        <g unicode="2" class="path" transform="translate(20,20)">
           <path d="M 002 000 l 096 000 l -20 +20 l -56 +00 Z" class="enabled"/>
           <path d="M 000 002 l 000 86 l 10 10 l 10 -10 l 0 -66 Z" />
           <path d="M 100 002 l 000 86 l -10 10 l -10 -10 l 0 -66 Z" class="enabled"/>
@@ -630,7 +624,7 @@
         </g>
       </g>
       <g transform="translate(420,0)">
-        <g class="path" transform="translate(20,20)">
+        <g unicode="3" class="path" transform="translate(20,20)">
           <path d="M 002 000 l 096 000 l -20 +20 l -56 +00 Z" class="enabled"/>
           <path d="M 000 002 l 000 86 l 10 10 l 10 -10 l 0 -66 Z" />
           <path d="M 100 002 l 000 86 l -10 10 l -10 -10 l 0 -66 Z" class="enabled"/>
@@ -641,7 +635,7 @@
         </g>
       </g>
       <g transform="translate(560,0)">
-        <g class="path" transform="translate(20,20)">
+        <g unicode="4" class="path" transform="translate(20,20)">
           <path d="M 002 000 l 096 000 l -20 +20 l -56 +00 Z" />
           <path d="M 000 002 l 000 86 l 10 10 l 10 -10 l 0 -66 Z" class="enabled"/>
           <path d="M 100 002 l 000 86 l -10 10 l -10 -10 l 0 -66 Z" class="enabled"/>
@@ -652,7 +646,7 @@
         </g>
       </g>
       <g transform="translate(700,0)">
-        <g class="path" transform="translate(20,20)">
+        <g unicode="5" class="path" transform="translate(20,20)">
           <path d="M 002 000 l 096 000 l -20 +20 l -56 +00 Z" class="enabled"/>
           <path d="M 000 002 l 000 86 l 10 10 l 10 -10 l 0 -66 Z" class="enabled"/>
           <path d="M 100 002 l 000 86 l -10 10 l -10 -10 l 0 -66 Z" />
@@ -663,7 +657,7 @@
         </g>
       </g>
       <g transform="translate(840,0)">
-        <g class="path" transform="translate(20,20)">
+        <g unicode="6" class="path" transform="translate(20,20)">
           <path d="M 002 000 l 096 000 l -20 +20 l -56 +00 Z" class="enabled"/>
           <path d="M 000 002 l 000 86 l 10 10 l 10 -10 l 0 -66 Z" class="enabled"/>
           <path d="M 100 002 l 000 86 l -10 10 l -10 -10 l 0 -66 Z" />
@@ -674,7 +668,7 @@
         </g>
       </g>
       <g transform="translate(980,0)">
-        <g class="path" transform="translate(20,20)">
+        <g unicode="7" class="path" transform="translate(20,20)">
           <path d="M 002 000 l 096 000 l -20 +20 l -56 +00 Z" class="enabled"/>
           <path d="M 000 002 l 000 86 l 10 10 l 10 -10 l 0 -66 Z" />
           <path d="M 100 002 l 000 86 l -10 10 l -10 -10 l 0 -66 Z" class="enabled"/>
@@ -685,7 +679,7 @@
         </g>
       </g>
       <g transform="translate(1120,0)">
-        <g class="path" transform="translate(20,20)">
+        <g unicode="8" class="path" transform="translate(20,20)">
           <path d="M 002 000 l 096 000 l -20 +20 l -56 +00 Z" class="enabled"/>
           <path d="M 000 002 l 000 86 l 10 10 l 10 -10 l 0 -66 Z" class="enabled"/>
           <path d="M 100 002 l 000 86 l -10 10 l -10 -10 l 0 -66 Z" class="enabled"/>
@@ -696,7 +690,7 @@
         </g>
       </g>
       <g transform="translate(1260,0)">
-        <g class="path" transform="translate(20,20)">
+        <g unicode="9" class="path" transform="translate(20,20)">
           <path d="M 002 000 l 096 000 l -20 +20 l -56 +00 Z" class="enabled"/>
           <path d="M 000 002 l 000 86 l 10 10 l 10 -10 l 0 -66 Z" class="enabled"/>
           <path d="M 100 002 l 000 86 l -10 10 l -10 -10 l 0 -66 Z" class="enabled"/>
@@ -707,8 +701,7 @@
         </g>
       </g>
       <g transform="translate(1400,0)">
-        <g class="path" transform="translate(20,20)">
-          <path unicode=":" d=""/>
+        <g unicode=":" class="path" transform="translate(20,20)">
           <path d="M 045 045 l +20 0 l 0 +20 l -20 +00 Z" class="enabled"/>
           <path d="M 045 145 l +20 0 l 0 +20 l -20 +00 Z" class="enabled"/>
         </g>

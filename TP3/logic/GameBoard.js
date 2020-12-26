@@ -25,8 +25,6 @@ class GameBoard extends CGFobject {
         this.getCell(1,5).stack = new PieceStack(this.scene, -6);
         this.getCell(3,0).stack = new PieceStack(this.scene, -6);
         this.getCell(8,7).stack = new PieceStack(this.scene, -6);
-
-        this.moveState = new PlayerMoveState(this);
     }
 
     set gameboardSetup(setup){ this._gameboardSetup = setup; }
@@ -34,6 +32,14 @@ class GameBoard extends CGFobject {
 
     getCell(i, j){
         return this._cells[i][j];
+    }
+
+    setTurn(turn){
+        for(let i = 0; i <= 8; ++i){
+            for(let j = Math.max(i-4, 0); j <= Math.min(4+i,8); ++j){
+                this.getCell(i,j).setTurn(turn);
+            }
+        }
     }
 
     deselectAll(){
@@ -105,6 +111,22 @@ class GameBoard extends CGFobject {
         
         // gameMove.animate();
         return true;
+    }
+
+    toJSON(){
+        let board = new Array(9);
+        for(let i = 0; i <= 8; ++i){
+            board[i] = [];
+            for(let j = 0; j <= 8; ++j){
+                if(i-4 <= j && j <= 4+i){
+                    let cell = this.getCell(i,j);
+                    if(cell.stack === null) board[i].push(0                );
+                    else                    board[i].push(cell.stack.height);
+                } else board[i].push('nan');
+            }
+        }
+
+        return board;
     }
 
     display() {

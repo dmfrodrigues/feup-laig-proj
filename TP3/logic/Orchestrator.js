@@ -4,20 +4,29 @@
  * @param scene  		- Reference to MyScene object
  */
 class Orchestrator extends CGFobject {
-	constructor(scene, theme, gameMove, level) {
+	constructor(scene, themes, gameMode, level) {
         super(scene);
-
         this.scene.orchestrator = this;
-        
-        this.gameSequence = new GameSequence();
+        this.gameSequence  = new GameSequence();
         // this.animator     = new Animator(this.scene, this, this.gameSequence);
-        this.theme        = new MySceneGraph(theme, this.scene);
-        this.gameBoard    = new GameBoard(this.scene);
-        // this.prolog       = new PrologInterface();
+        this.themeSelected = 0;
+        this.themeInited   = false;
+        this.themes       = themes;
+        this.theme        = new MySceneGraph(themes[0], this.scene);
+        this.gameState    = new GameState(this.scene, this);
+        this.gameMode     = gameMode;
+    }
+
+    isComputer(player){
+        switch(this.gameMode){
+            case 'PvP': return false;
+            case 'PvC': return (player === 2);
+            case 'CvC': return true;
+        }
     }
 
     initialize(){
-        this.gameBoard.gameboardSetup = this.theme.gameboard;
+        this.gameState.gameboard.gameboardSetup = this.theme.gameboard;
         PieceStack.pieceStackView = this.theme.pieces.view;
         PieceStack.pieceStackView.initialize();
     }
@@ -39,7 +48,13 @@ class Orchestrator extends CGFobject {
     }
 
     onObjectSelected(obj, id){
-        this.gameBoard.moveState.updateMoveState(obj, id);
+        if(obj.idObj == 'change-theme'){
+            this.changeTheme();
+        }
+        else if(10 <= id && id < 300)
+            this.gameState.moveState.updateMoveState(obj, id);
+        else
+            obj.onclick();
         /*
         if(obj.isSelected())
             obj.deselect();
@@ -48,15 +63,27 @@ class Orchestrator extends CGFobject {
         */
     }
 
+    changeTheme(){
+        this.themeInited = false;
+        button_id = 200;
+        this.themeSelected = (this.themeSelected+1)%(this.themes.length);
+        this.theme = new MySceneGraph(this.themes[this.themeSelected], this.scene);
+    }
+
     update(t){
         this.theme.update(t);
         // this.animator.update(t);
     }
 
+    setValue(value){
+        this.theme.ui.setValue(value);
+    }
+
     display(){
         // ...
+        if(!this.themeInited) return;
         this.theme.display();
-        this.gameBoard.display();
+        this.gameState.gameboard.display();
         // this.animator.display();
         this.theme.ui.display();
         // ...

@@ -89,133 +89,15 @@
             </buttons>
         </ui>
     </initials>
-    <animations>
-        <animation id="turn-light-switch" loop="0" timeupdate="0">
-            <keyframe instant="0.0">
-                <translation x="0.0" y="0.0" z="0.0" />
-                <rotation axis="x" angle="0" />
-                <rotation axis="y" angle="0" />
-                <rotation axis="z" angle="0" />
-                <scale sx="1" sy="1" sz="1" />
-            </keyframe>
-            <keyframe instant="1.0">
-                <translation x="0.0" y="0.0" z="0.0" />
-                <rotation axis="x" angle="-40" />
-                <rotation axis="y" angle="0" />
-                <rotation axis="z" angle="0" />
-                <scale sx="1" sy="1" sz="1" />
-            </keyframe>
-        </animation>
-        <!-- Globe animations -->
-        <animation id="globe_rotation" loop="1">
-            <keyframe instant="0.0">
-                <translation x="0.0" y="0.0" z="0.0" />
-                <rotation axis="x" angle="0" />
-                <rotation axis="y" angle="0" />
-                <rotation axis="z" angle="0" />
-                <scale sx="1" sy="1" sz="1" />
-            </keyframe>
-            <keyframe instant="20.0">
-                <translation x="0.0" y="0.0" z="0.0" />
-                <rotation axis="x" angle="0" />
-                <rotation axis="y" angle="0" />
-                <rotation axis="z" angle="360" />
-                <scale sx="1" sy="1" sz="1" />
-            </keyframe>
-        </animation>
-        <!-- Open & Close window -->
-        <animation id="open_close_window">
-            <keyframe instant="0.0">
-                <translation x="0.0" y="0.0" z="0.0" />
-                <rotation axis="x" angle="0" />
-                <rotation axis="y" angle="0" />
-                <rotation axis="z" angle="0" />
-                <scale sx="1" sy="1" sz="1" />
-            </keyframe>
-            <keyframe instant="3.0">
-                <translation x="-0.45" y="0.0" z="0.0" />
-                <rotation axis="x" angle="0" />
-                <rotation axis="y" angle="0" />
-                <rotation axis="z" angle="0" />
-                <scale sx="1" sy="1" sz="1" />
-            </keyframe>
-            <keyframe instant="7.0">
-                <translation x="-0.45" y="0.0" z="0.0" />
-                <rotation axis="x" angle="0" />
-                <rotation axis="y" angle="0" />
-                <rotation axis="z" angle="0" />
-                <scale sx="1" sy="1" sz="1" />
-            </keyframe>
-            <keyframe instant="10.0">
-                <translation x="0.0" y="0.0" z="0.0" />
-                <rotation axis="x" angle="0" />
-                <rotation axis="y" angle="0" />
-                <rotation axis="z" angle="0" />
-                <scale sx="1" sy="1" sz="1" />
-            </keyframe>
-        </animation>
-        <animation id="lavalamp-blob-updown0" loop="1" easing="(10.0+x-0.85-0.079577471545948*Math.sin(12.5663706144*(x-0.85)))%1.0">
-            <keyframe instant='00.0'><translation x='0' y='0.00' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='30.0'><translation x='0' y='0.14' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='60.0'><translation x='0' y='0.00' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-        </animation>
-        <animation id="lavalamp-blob-updown1" loop="1" easing="x-0.079577471545948*Math.sin(12.5663706144*x)">
-            <keyframe instant='00.0'><translation x='0' y='0.00' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='25.0'><translation x='0' y='0.14' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='50.0'><translation x='0' y='0.00' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-        </animation>
-        <animation id="lavalamp-blob-updown2" loop="1" easing="(10.0+x-0.75-0.079577471545948*Math.sin(12.5663706144*(x-0.75)))%1.0">
-            <keyframe instant='00.0'><translation x='0' y='0.00' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='20.0'><translation x='0' y='0.14' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='40.0'><translation x='0' y='0.00' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-        </animation>
-        <animation id="lavalamp-blob-updown3" loop="1" easing="x-0.079577471545948*Math.sin(12.5663706144*x)">
-            <keyframe instant='00.0'><translation x='0' y='0.10' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='15.0'><translation x='0' y='0.00' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='30.0'><translation x='0' y='0.10' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-        </animation>
-        <animation id="lavalamp-blob-updown4" loop="1" easing="(10.0+x-0.25-0.079577471545948*Math.sin(12.5663706144*(x-0.25)))%1.0">
-            <keyframe instant='00.0'><translation x='0' y='0.00' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='20.0'><translation x='0' y='0.14' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='40.0'><translation x='0' y='0.00' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-        </animation>
-        <animation id="lavalamp-blob-updown5" loop="1" easing="(10.0+x-0.6-0.079577471545948*Math.sin(12.5663706144*(x-0.6)))%1.0">
-            <keyframe instant='00.0'><translation x='0' y='0.00' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='10.0'><translation x='0' y='0.10' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='20.0'><translation x='0' y='0.00' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-        </animation>
-        <animation id="lavalamp-blob-oscillator1" loop="1" easing="x-0.079577471545948*Math.sin(12.5663706144*x)">
-            <keyframe instant='00.0'><translation x='0' y='0' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1.00' sy='1.00' sz='1.00'/></keyframe>
-            <keyframe instant='02.5'><translation x='0' y='0' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='0.86' sy='1.14' sz='0.86'/></keyframe>
-            <keyframe instant='05.0'><translation x='0' y='0' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1.00' sy='1.00' sz='1.00'/></keyframe>
-        </animation>
-        <animation id="lavalamp-blob-oscillator2" loop="1" easing="(10.0+x-0.75-0.079577471545948*Math.sin(12.5663706144*(x-0.75)))%1.0">
-            <keyframe instant='00.0'><translation x='0' y='0' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1.00' sy='1.00' sz='1.00'/></keyframe>
-            <keyframe instant='02.5'><translation x='0' y='0' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='0.86' sy='1.14' sz='0.86'/></keyframe>
-            <keyframe instant='05.0'><translation x='0' y='0' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1.00' sy='1.00' sz='1.00'/></keyframe>
-        </animation>
-        <animation id="lavalamp-blob-oscillator3" loop="1" easing="(10.0+x-0.25-0.079577471545948*Math.sin(12.5663706144*(x-0.50)))%1.0">
-            <keyframe instant='00.0'><translation x='0' y='0' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1.00' sy='1.00' sz='1.00'/></keyframe>
-            <keyframe instant='02.5'><translation x='0' y='0' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='0.86' sy='1.14' sz='0.86'/></keyframe>
-            <keyframe instant='05.0'><translation x='0' y='0' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1.00' sy='1.00' sz='1.00'/></keyframe>
-        </animation>
-        <animation id="lavalamp-blob-oscillator4" loop="1" easing="(10.0+x-0.25-0.079577471545948*Math.sin(12.5663706144*(x-0.25)))%1.0">
-            <keyframe instant='00.0'><translation x='0' y='0' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1.00' sy='1.00' sz='1.00'/></keyframe>
-            <keyframe instant='02.5'><translation x='0' y='0' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='0.86' sy='1.14' sz='0.86'/></keyframe>
-            <keyframe instant='05.0'><translation x='0' y='0' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1.00' sy='1.00' sz='1.00'/></keyframe>
-        </animation>
-        <animation id="wood-box-lid-animation" loop="1" easing="easeInMidOutSine">
-            <keyframe instant='00.0'><translation x='0' y='0' z='0'/><rotation axis='x' angle='0'  /><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='05.0'><translation x='0' y='0' z='0'/><rotation axis='x' angle='-90'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='10.0'><translation x='0' y='0' z='0'/><rotation axis='x' angle='0'  /><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-        </animation>
-    </animations>
     <bindings>
         <binding id="ceiling-light-var">
-            <representation type="anim" t="1" animationref="turn-light-switch"/>
+            <representation type="anim" t="1" noderef="light-switch" animationref="turn-light-switch"/>
+            <!-- <representation type="discrete">
+                <
+            </representation> -->
         </binding>
     </bindings>
-    <views default="player1_camera">
+    <views default="player2_camera">
         <!-- at least one of the following type of cameras must be declared -->
         <perspective id="default_camera" near="0.1" far="500" angle="45">
             <from x="1.6" y="1.4" z="1.6"/>
@@ -237,7 +119,7 @@
     <lights>
         <!-- NOTE: at least one light should be present, and a maximum of eight lights is accepted. -->
         <light id="ceiling-light">
-            <enable value="1" bind="ceiling-light-var"/>
+            <enable value="1"/>
             <position x="0.0" y="2.0" z="0.0" w="1.0"/>
             <ambient  r="0.50" g="0.48" b="0.45" a="1.0"/>
             <diffuse  r="0.75" g="0.72" b="0.67" a="1.0"/>
@@ -252,7 +134,6 @@
             <specular r="0.10" g="0.08" b="0.09" a="1.0"/>
         </light>
     </lights>
-
     <textures>
         <!-- NOTE: this block "TEXTURE" must be repeated as necessary with different "id" -->
         <texture id="black_painted_metal" path="./scenes/images/black-painted-metal.jpg"/>
@@ -302,13 +183,6 @@
             <shininess value="5.0"/>
             <ambient  r="1.0" g="1.0" b="1.0" a="1.0"/>
             <diffuse  r="1.0" g="1.0" b="1.0" a="1.0"/>
-            <specular r="0.9" g="0.9" b="0.9" a="1.0"/>
-            <emissive r="0.0" g="0.0" b="0.0" a="1.0"/>
-        </material>
-        <material id="plastic-lightgray">
-            <shininess value="5.0"/>
-            <ambient  r="0.9" g="0.9" b="0.9" a="1.0"/>
-            <diffuse  r="0.9" g="0.9" b="0.9" a="1.0"/>
             <specular r="0.9" g="0.9" b="0.9" a="1.0"/>
             <emissive r="0.0" g="0.0" b="0.0" a="1.0"/>
         </material>
@@ -560,6 +434,14 @@
         </material>
     </materials>
 
+    <animations>
+        <animation id="wood-box-lid-animation" loop="1" easing="easeInMidOutSine">
+            <keyframe instant='00.0'><translation x='0' y='0' z='0'/><rotation axis='x' angle='0'  /><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
+            <keyframe instant='05.0'><translation x='0' y='0' z='0'/><rotation axis='x' angle='-90'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
+            <keyframe instant='10.0'><translation x='0' y='0' z='0'/><rotation axis='x' angle='0'  /><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
+        </animation>
+    </animations>
+
     <nodes>
         <node id="root">
             <material id="null"/>
@@ -567,25 +449,10 @@
                 <amplification afs="1" aft="1"/>
             </texture>
             <descendants>
-                <noderef id="table_with_stuff_in_room"/>
-                <noderef id="chair_in_room"/>
-                <noderef id="door"/>
-                <noderef id="walls"/>
-                <noderef id="bed_in_room"/>
-                <noderef id="ceiling-light"/>
-                <noderef id="shelf"/>
-                <noderef id="tetrahedron"/>
-                <noderef id="tv-in-room"/>
                 <noderef id="skysphere"/>
-                <noderef id="lavalamp-in-room"/>
-                <noderef id="clock-in-room"/>
-                <noderef id="vase-in-room"/>
                 <noderef id="bench-1"/>
                 <noderef id="bench-2"/>
                 <noderef id="small-table-with-stuff-in-room"/>
-                <noderef id="fireplace-in-room"/>
-                <noderef id="window"/>
-                <noderef id="light-switch-in-room-1"/>
             </descendants>
         </node>
 
@@ -2070,7 +1937,6 @@
                 <translation x="0.00" y="0.22" z="0.00"/>
                 <rotation axis="x" angle="-90"/>
             </transformations>
-            <animationref id="globe_rotation"/>
             <descendants>
                 <noderef id="globe_world"/>
                 <noderef id="globe_axis"/>
@@ -2536,7 +2402,6 @@
                 <translation x="0.235" y="0.0" z="0.008"/>
                 <scale sx="0.485" sy="0.95" sz="0.2"/>
             </transformations>
-            <animationref id="open_close_window"/>
             <descendants>
                 <noderef id="window_frame"/>
             </descendants>
@@ -3723,66 +3588,6 @@
             <descendants><noderef id="tv-border-box-lefrig"/></descendants>
         </node>
 
-        <node id="tetrahedron">
-            <material id="wood"/><texture id="marble"><amplification afs="1" aft="1"/></texture>
-            <transformations>
-                <translation x="+0.65" y="0.505" z="-1.43"/>
-                <scale sx="0.1" sy="0.1" sz="0.1"/>
-            </transformations>
-            <descendants>
-                <noderef id="base"/>
-                <noderef id="tetrahedron_face1"/>
-                <noderef id="tetrahedron_face2"/>
-                <noderef id="tetrahedron_face3"/>
-            </descendants>
-        </node>
-
-        <node id="base">
-            <material id="null"/><texture id="null"><amplification afs="1" aft="1"/></texture>
-            <transformations>
-                <rotation axis="z" angle="180"/>
-                <rotation axis="x" angle="90"/>
-            </transformations>
-            <descendants>
-                <leaf type="triangle" x1="-0.5" y1="0.0" x2="0.0" y2="0.866" x3="0.5" y3="0.0"/>
-            </descendants>
-        </node>
-
-        <node id="tetrahedron_face1">
-            <material id="null"/><texture id="null"><amplification afs="1" aft="1"/></texture>
-            <transformations>
-                <translation x="+0.247" y="0.0" z="0.43"/>
-                <rotation axis="y" angle="-120"/>
-                <rotation axis="x" angle="19.25"/>
-                
-            </transformations>
-            <descendants>
-                <leaf type="triangle" x1="-0.5" y1="0.0" x2="0.0" y2="0.866" x3="0.5" y3="0.0"/>
-            </descendants>
-        </node>
-
-        <node id="tetrahedron_face2">
-            <material id="null"/><texture id="null"><amplification afs="1" aft="1"/></texture>
-            <transformations>
-                <rotation axis="x" angle="19.25"/>
-            </transformations>
-            <descendants>
-                <leaf type="triangle" x1="-0.5" y1="0.0" x2="0.0" y2="0.866" x3="0.5" y3="0.0"/>
-            </descendants>
-        </node>
-
-        <node id="tetrahedron_face3">
-            <material id="null"/><texture id="null"><amplification afs="1" aft="1"/></texture>
-            <transformations>
-                <translation x="-0.247" y="0.0" z="0.43"/>
-                <rotation axis="y" angle="120"/>
-                <rotation axis="x" angle="19.25"/>
-            </transformations>
-            <descendants>
-                <leaf type="triangle" x1="-0.5" y1="0.0" x2="0.0" y2="0.866" x3="0.5" y3="0.0"/>
-            </descendants>
-        </node>
-
         <node id="skysphere">
             <material id="landscape"/><texture id="skysphere-empirestate"><amplification afs="1" aft="1"/></texture>
             <transformations>
@@ -3796,360 +3601,5 @@
                 <leaf type="sphere" radius="-400" slices="64" stacks="32"/>
             </descendants>
         </node>
-
-        <node id="lavalamp-in-room">
-            <material id="null"/>
-            <texture id="null">
-                <amplification afs="1" aft="1"/>
-            </texture>
-            <transformations>
-                <translation x="-0.25" y="1.0" z="-1.37"/>
-            </transformations>
-            <descendants>
-                <noderef id="lavalamp"/>
-            </descendants>
-
-        </node>
-
-        <node id="lavalamp">
-            <material id="metal"/>
-            <texture id="steel">
-                <amplification afs="1" aft="1"/>
-            </texture>
-            <descendants>
-                <noderef id="lavalamp-top"/>
-                <noderef id="lavalamp-glass"/>
-                <noderef id="lavalamp-support"/>
-                <noderef id="lavalamp-base"/>
-                <noderef id="lavalamp-blobs"/>
-            </descendants>
-        </node>
-        <node id="lavalamp-top">
-            <material id="null"/>
-            <texture id="null">
-                <amplification afs="1" aft="1"/>
-            </texture>
-            <transformations>
-                <translation x="0" y="0.3401" z="0"/>
-                <rotation axis="x" angle="-90"/>
-            </transformations>
-            <descendants>
-                <leaf type="cylinder" bottomRadius="0.0276085" topRadius="0.02" height="0.0699" slices="32" stacks="8"/>
-            </descendants>
-        </node>
-        <node id="lavalamp-glass">
-            <material id="lavalamp-glass"/>
-            <texture id="clear"/>
-            <transformations>
-                <translation x="0" y="0.180" z="0"/>
-                <rotation axis="x" angle="+90"/>
-            </transformations>
-            <descendants>
-                <leaf type="cylinder" bottomRadius="0.045" topRadius="0.0276085" height="-0.16" slices="32" stacks="8"/>
-            </descendants>
-        </node>
-        <node id="lavalamp-support">
-            <material id="null"/>
-            <texture id="null">
-                <amplification afs="1" aft="1"/>
-            </texture>
-            <transformations>
-                <translation x="0" y="0.090" z="0"/>
-                <rotation axis="x" angle="-90"/>
-            </transformations>
-            <descendants>
-                <leaf type="cylinder" bottomRadius="0.0225" topRadius="0.045" height="0.0899" slices="32" stacks="8"/>
-            </descendants>
-        </node>
-        <node id="lavalamp-base">
-            <material id="null"/>
-            <texture id="null">
-                <amplification afs="1" aft="1"/>
-            </texture>
-            <transformations>
-                <rotation axis="x" angle="-90"/>
-            </transformations>
-            <descendants>
-                <leaf type="cylinder" bottomRadius="0.045" topRadius="0.0225" height="0.09" slices="32" stacks="8"/>
-            </descendants>
-        </node>
-
-        <node id="lavalamp-blobs">
-            <material id="null"/>
-            <texture id="null">
-                <amplification afs="1" aft="1"/>
-            </texture>
-            <transformations>
-                <translation x="0" y="0.180" z="0"/>
-            </transformations>
-            <descendants>
-                <noderef id="lavalamp-blob0"/>
-                <noderef id="lavalamp-blob1"/>
-                <noderef id="lavalamp-blob2"/>
-                <noderef id="lavalamp-blob3"/>
-                <noderef id="lavalamp-blob4"/>
-                <noderef id="lavalamp-blob5"/>
-            </descendants>
-        </node>
-
-        <node id="lavalamp-blob0"><material id="null"/><texture id="clear"/><animationref id="lavalamp-blob-updown0"/><descendants><noderef id="lavalamp-blob-oscillator4"/></descendants></node>
-        <node id="lavalamp-blob1"><material id="null"/><texture id="clear"/><animationref id="lavalamp-blob-updown1"/><descendants><noderef id="lavalamp-blob-oscillator1"/></descendants></node>
-        <node id="lavalamp-blob2"><material id="null"/><texture id="clear"/><animationref id="lavalamp-blob-updown2"/><descendants><noderef id="lavalamp-blob-oscillator2"/></descendants></node>
-        <node id="lavalamp-blob3"><material id="null"/><texture id="clear"/><animationref id="lavalamp-blob-updown3"/><descendants><noderef id="lavalamp-blob-oscillator3"/></descendants></node>
-        <node id="lavalamp-blob4"><material id="null"/><texture id="clear"/><animationref id="lavalamp-blob-updown4"/><descendants><noderef id="lavalamp-blob-oscillator4"/></descendants></node>
-        <node id="lavalamp-blob5"><material id="null"/><texture id="clear"/><animationref id="lavalamp-blob-updown5"/><descendants><noderef id="lavalamp-blob-oscillator2"/></descendants></node>
-        
-        <node id="lavalamp-blob-oscillator0"><material id="null"/><texture id="clear"/><transformations><translation x="+0.005" y="+0.010" z="-0.001"/><scale sx="2.1" sy="1.1" sz="2.1"/></transformations><animationref id="lavalamp-blob-oscillator1"/><descendants><noderef id="lavalamp-blob"/></descendants></node>
-        <node id="lavalamp-blob-oscillator1"><material id="null"/><texture id="clear"/><transformations><translation x="-0.009" y="+0.010" z="+0.000"/><scale sx="2.0" sy="1.0" sz="2.0"/></transformations><animationref id="lavalamp-blob-oscillator1"/><descendants><noderef id="lavalamp-blob"/></descendants></node>
-        <node id="lavalamp-blob-oscillator2"><material id="null"/><texture id="clear"/><transformations><translation x="+0.009" y="+0.010" z="+0.009"/><scale sx="1.5" sy="0.7" sz="1.5"/></transformations><animationref id="lavalamp-blob-oscillator2"/><descendants><noderef id="lavalamp-blob"/></descendants></node>
-        <node id="lavalamp-blob-oscillator3"><material id="null"/><texture id="clear"/><transformations><translation x="+0.007" y="+0.010" z="+0.003"/><scale sx="1.9" sy="0.9" sz="1.9"/></transformations><animationref id="lavalamp-blob-oscillator3"/><descendants><noderef id="lavalamp-blob"/></descendants></node>
-        <node id="lavalamp-blob-oscillator4"><material id="null"/><texture id="clear"/><transformations><translation x="+0.001" y="+0.010" z="-0.005"/><scale sx="1.7" sy="0.8" sz="1.7"/></transformations><animationref id="lavalamp-blob-oscillator4"/><descendants><noderef id="lavalamp-blob"/></descendants></node>
-        <node id="lavalamp-blob-oscillator5"><material id="null"/><texture id="clear"/><transformations><translation x="-0.003" y="+0.010" z="-0.005"/><scale sx="1.0" sy="0.6" sz="1.0"/></transformations><animationref id="lavalamp-blob-oscillator4"/><descendants><noderef id="lavalamp-blob"/></descendants></node>
-        
-        <node id="lavalamp-blob">
-            <material id="lamp-wax"/>
-            <texture id="clear"/>
-            <transformations>
-                <rotation axis="x" angle="-90"/>
-            </transformations>
-            <descendants>
-                <leaf type="sphere" radius="0.01" slices="32" stacks="8"/>
-            </descendants>
-        </node>
-
-        <node id="vase-in-room">
-            <material id="null"/><texture id="null"><amplification afs="1" aft="1"/></texture>
-            <transformations>
-                <translation x="1.4" y="0.76" z="-0.5"/>
-            </transformations>
-            <descendants>
-                <noderef id="vase"/>
-            </descendants>
-        </node>
-
-        <node id="vase">
-            <material id="porcelain"/>
-            <texture id="null"><amplification afs="1" aft="1"/></texture>
-            <transformations>
-                <translation x="0" y="0.001" z="0"/>
-            </transformations>
-            <descendants>
-                <noderef id="vase-outside"/>
-                <noderef id="vase-inside"/>
-                <noderef id="vase-bottom"/>
-            </descendants>
-        </node>
-        <node id="vase-outside">
-            <material id="null"/>
-            <texture id="porcelain-painted">
-                <amplification afs="1" aft="1"/>
-            </texture>
-            <transformations>
-                <rotation axis="x" angle="-90"/>
-            </transformations>
-            <descendants>
-                <leaf type="defbarrel" base="0.07" middle="0.04" height="+0.3" slices="16" stacks="16" angle="-20"/>
-            </descendants>
-        </node>
-        <node id="vase-inside">
-            <material id="null"/>
-            <texture id="clear">
-            </texture>
-            <transformations>
-                <translation x="0" y="0.3" z="0"/>
-                <rotation axis="x" angle="-90"/>
-            </transformations>
-            <descendants>
-                <leaf type="defbarrel" base="0.07" middle="0.04" height="-0.3" slices="16" stacks="16" angle="+20"/>
-            </descendants>
-        </node>
-        <node id="vase-bottom">
-            <material id="null"/>
-            <texture id="clear">
-            </texture>
-            <transformations>
-                <rotation axis="x" angle="-90"/>
-            </transformations>
-            <descendants>
-                <leaf type="cylinder" bottomRadius="0.0711" topRadius="0.0711" height="0" slices="32" stacks="1"/>
-            </descendants>
-        </node>
-
-        <node id="light-switch-in-room-1">
-            <material id="null"/>
-            <texture id="null">
-                <amplification afs="1" aft="1"/>
-            </texture>
-            <transformations>
-                <translation x="+1.50" y="0.50" z="+0.35"/>
-                <rotation axis="y" angle="-90"/>
-            </transformations>
-            <descendants>
-                <noderef id="light-switch-framed-1"/>
-            </descendants>
-        </node>
-
-        <node id="light-switch-framed-1">
-            <material id="plastic-white"/>
-            <texture id="plastic-rugged">
-                <amplification afs="1" aft="1"/>
-            </texture>
-            <transformations>
-                <scale sx="2" sy="2" sz="2"/>
-                <translation x="0" y="0" z="-0.0020"/>
-            </transformations>
-            <descendants>
-                <noderef id="light-switch-old-frame"/>
-                <noderef id="light-switch-old-1"/>
-                <!-- <noderef id="light-switch-new-frame"/> -->
-                <!-- <noderef id="light-switch-new-1"/> -->
-            </descendants>
-        </node>
-        <node id="light-switch-old-frame">
-            <material id="null"/>
-            <texture id="null">
-                <amplification afs="1" aft="1"/>
-            </texture>
-            <transformations>
-                <translation x="0" y="0" z="+0.003"/>
-            </transformations>
-            <descendants>
-                <noderef id="light-switch-old-frame-n"/>
-                <noderef id="light-switch-old-frame-s"/>
-                <noderef id="light-switch-old-frame-w"/>
-                <noderef id="light-switch-old-frame-e"/>
-                <noderef id="light-switch-old-frame-ne"/>
-                <noderef id="light-switch-old-frame-nw"/>
-                <noderef id="light-switch-old-frame-se"/>
-                <noderef id="light-switch-old-frame-sw"/>
-                <noderef id="light-switch-old-frame-background"/>
-            </descendants>
-        </node>
-        <node id="light-switch-old-frame-n" ><material id="null"/><texture id="null"><amplification afs="1" aft="1"/></texture><transformations><translation x="0"   y="+0.017" z="0"/><scale sx="0.007" sy="0.016" sz="0.003"/></transformations><descendants><noderef id="cube"/></descendants></node>
-        <node id="light-switch-old-frame-s" ><material id="null"/><texture id="null"><amplification afs="1" aft="1"/></texture><transformations><translation x="0"   y="-0.017" z="0"/><scale sx="0.007" sy="0.016" sz="0.003"/></transformations><descendants><noderef id="cube"/></descendants></node>
-        <node id="light-switch-old-frame-w" ><material id="null"/><texture id="null"><amplification afs="1" aft="1"/></texture><transformations><translation x="-0.00925" y="0" z="0"/><scale sx="0.0115" sy="0.018" sz="0.003"/></transformations><descendants><noderef id="cube"/></descendants></node>
-        <node id="light-switch-old-frame-e" ><material id="null"/><texture id="null"><amplification afs="1" aft="1"/></texture><transformations><translation x="+0.00925" y="0" z="0"/><scale sx="0.0115" sy="0.018" sz="0.003"/></transformations><descendants><noderef id="cube"/></descendants></node>
-        <node id="light-switch-old-frame-ne"><material id="null"/><texture id="null"><amplification afs="1" aft="1"/></texture><transformations><translation x="+0.00925" y="+0.017" z="0"/><scale sx="0.0115" sy="0.016" sz="0.003"/></transformations><descendants><noderef id="cube"/></descendants></node>
-        <node id="light-switch-old-frame-nw"><material id="null"/><texture id="null"><amplification afs="1" aft="1"/></texture><transformations><translation x="-0.00925" y="+0.017" z="0"/><scale sx="0.0115" sy="0.016" sz="0.003"/></transformations><descendants><noderef id="cube"/></descendants></node>
-        <node id="light-switch-old-frame-se"><material id="null"/><texture id="null"><amplification afs="1" aft="1"/></texture><transformations><translation x="+0.00925" y="-0.017" z="0"/><scale sx="0.0115" sy="0.016" sz="0.003"/></transformations><descendants><noderef id="cube"/></descendants></node>
-        <node id="light-switch-old-frame-sw"><material id="null"/><texture id="null"><amplification afs="1" aft="1"/></texture><transformations><translation x="-0.00925" y="-0.017" z="0"/><scale sx="0.0115" sy="0.016" sz="0.003"/></transformations><descendants><noderef id="cube"/></descendants></node>
-        <node id="light-switch-old-frame-background">
-            <material id="black"/>
-            <texture id="clear"/>
-            <transformations>
-            </transformations>
-            <descendants>
-                <leaf type="rectangle" x1="-0.01" x2="+0.01" y1="-0.02" y2="+0.02"/>
-            </descendants>
-        </node>
-
-        <node id="light-switch-old-1" onclick="console.log('hello!'); console.log(this); this.bindings['ceiling-light-var'].value = !this.bindings['ceiling-light-var'].value;">
-            <material id="null"/>
-            <texture id="null">
-                <amplification afs="1" aft="1"/>
-            </texture>
-            <animationref id="turn-light-switch"/>
-            <descendants>
-                <noderef id="light-switch-old"/>
-            </descendants>
-        </node>
-        <node id="light-switch-old">
-            <material id="plastic-lightgray"/>
-            <texture id="plastic-rugged">
-                <amplification afs="1" aft="1"/>
-            </texture>
-            <transformations>
-                <rotation axis="x" angle="+20"/>
-            </transformations>
-            <descendants>
-                <noderef id="light-switch-old-cylinder"/>
-                <noderef id="light-switch-old-cube"/>
-            </descendants>
-        </node>
-        <node id="light-switch-old-cylinder">
-            <material id="null"/>
-            <texture id="null">
-                <amplification afs="1" aft="1"/>
-            </texture>
-            <transformations>
-                <translation x="-0.0032" y="0" z="0"/>
-                <rotation axis="y" angle="90"/>
-            </transformations>
-            <descendants>
-                <leaf type="cylinder" bottomRadius="0.0092" topRadius="0.0092" height="0.0064" slices="16" stacks="2"/>
-            </descendants>
-        </node>
-        <node id="light-switch-old-cube">
-            <material id="null"/>
-            <texture id="null">
-                <amplification afs="1" aft="1"/>
-            </texture>
-            <transformations>
-                <translation x="0" y="0" z="0.01"/>
-                <scale sx="0.006399" sy="0.006" sz="0.02"/>
-            </transformations>
-            <descendants>
-                <noderef id="cube"/>
-            </descendants>
-        </node>
-
-        <!--
-        <node id="light-switch-new-frame">
-            <material id="null"/>
-            <texture id="null">
-                <amplification afs="1" aft="1"/>
-            </texture>
-            <transformations>
-                <rotation axis="x" angle="-5"/>
-            </transformations>
-            <descendants>
-                <noderef id="light-switch-new-frame-top"/>
-                <noderef id="light-switch-new-frame-bot"/>
-                <noderef id="light-switch-new-frame-lef"/>
-                <noderef id="light-switch-new-frame-rig"/>
-                <noderef id="light-switch-new-frame-background"/>
-            </descendants>
-        </node>
-        <node id="light-switch-new-frame-top"><material id="null"/><texture id="null"><amplification afs="1" aft="1"/></texture><transformations><translation x="0" y="+0.021" z="0"/><scale sx="0.044" sy="0.002" sz="0.003"/></transformations><descendants><noderef id="cube"/></descendants></node>
-        <node id="light-switch-new-frame-bot"><material id="null"/><texture id="null"><amplification afs="1" aft="1"/></texture><transformations><translation x="0" y="-0.021" z="0"/><scale sx="0.044" sy="0.002" sz="0.003"/></transformations><descendants><noderef id="cube"/></descendants></node>
-        <node id="light-switch-new-frame-lef"><material id="null"/><texture id="null"><amplification afs="1" aft="1"/></texture><transformations><translation x="-0.021" y="0" z="0"/><scale sx="0.002" sy="0.040" sz="0.003"/></transformations><descendants><noderef id="cube"/></descendants></node>
-        <node id="light-switch-new-frame-rig"><material id="null"/><texture id="null"><amplification afs="1" aft="1"/></texture><transformations><translation x="+0.021" y="0" z="0"/><scale sx="0.002" sy="0.040" sz="0.003"/></transformations><descendants><noderef id="cube"/></descendants></node>
-        <node id="light-switch-new-frame-background">
-            <material id="black"/>
-            <texture id="clear"/>
-            <transformations>
-            </transformations>
-            <descendants>
-                <leaf type="rectangle" x1="-0.02" x2="+0.02" y1="-0.02" y2="+0.02"/>
-            </descendants>
-        </node>
-
-        <node id="light-switch-new-1">
-            <material id="null"/>
-            <texture id="null">
-                <amplification afs="1" aft="1"/>
-            </texture>
-            <transformations>
-                <rotation axis="x" angle="-5"/>
-            </transformations>
-            <descendants>
-                <noderef id="light-switch-new"/>
-            </descendants>
-        </node>
-
-        <node id="light-switch-new">
-            <material id="null"/>
-            <texture id="null">
-                <amplification afs="1" aft="1"/>
-            </texture>
-            <transformations>
-                <rotation axis="x" angle="-3"/>
-                <scale sx="0.039" sy="0.039" sz="0.005"/>
-            </transformations>
-            <descendants>
-                <noderef id="cube"/>
-            </descendants>
-        </node>
-        -->
     </nodes>
 </lsf>

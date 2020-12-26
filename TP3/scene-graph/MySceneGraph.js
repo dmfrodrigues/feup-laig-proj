@@ -2,14 +2,15 @@ const DEGREE_TO_RAD = Math.PI / 180;
 
 // Order of the groups in the XML document.
 var INITIALS_INDEX = 0;
-var VIEWS_INDEX = 1;
-var ILLUMINATION_INDEX = 2;
-var LIGHTS_INDEX = 3;
-var TEXTURES_INDEX = 4;
-var SPRITESHEETS_INDEX = 5;
-var MATERIALS_INDEX = 6;
-var ANIMATIONS_INDEX = 7;
-var NODES_INDEX = 8;
+var ANIMATIONS_INDEX = 1;
+var BINDINGS_INDEX = 2;
+var VIEWS_INDEX = 3;
+var ILLUMINATION_INDEX = 4;
+var LIGHTS_INDEX = 5;
+var TEXTURES_INDEX = 6;
+var SPRITESHEETS_INDEX = 7;
+var MATERIALS_INDEX = 8;
+var NODES_INDEX = 9;
 
 /**
  * MySceneGraph class, representing the scene graph.
@@ -128,6 +129,30 @@ class MySceneGraph {
                 return error;
         }
 
+        // <animations>
+        if ((index = nodeNames.indexOf("animations")) == -1)
+            this.onXMLMinorError("tag <animations> missing");
+        else {
+            if (index != ANIMATIONS_INDEX)
+                this.onXMLMinorError("tag <animations> out of order");
+
+            //Parse animations block
+            if ((error = this.parseAnimations(nodes[index])) != null)
+                return error;
+        }
+
+        // <bindings>
+        if ((index = nodeNames.indexOf("bindings")) == -1)
+            return "tag <bindings> missing";
+        else {
+            if (index != BINDINGS_INDEX)
+                this.onXMLMinorError("tag <bindings> out of order");
+
+            //Parse bindings block
+            if ((error = this.parseBindings(nodes[index])) != null)
+                return error;
+        }
+
         // <views>
         if ((index = nodeNames.indexOf("views")) == -1)
             return "tag <views> missing";
@@ -195,18 +220,6 @@ class MySceneGraph {
 
             //Parse materials block
             if ((error = this.parseMaterials(nodes[index])) != null)
-                return error;
-        }
-
-        // <animations>
-        if ((index = nodeNames.indexOf("animations")) == -1)
-            this.onXMLMinorError("tag <animations> missing");
-        else {
-            if (index != ANIMATIONS_INDEX)
-                this.onXMLMinorError("tag <animations> out of order");
-
-            //Parse animations block
-            if ((error = this.parseAnimations(nodes[index])) != null)
                 return error;
         }
 
@@ -363,6 +376,9 @@ class MySceneGraph {
         let panelID = uiChildren.find(function (u){ return (u.nodeName === 'panel'); });
         ui.panelID = this.parseString(panelID, 'id');
 
+        let valueID = uiChildren.find(function (u){ return (u.nodeName === 'value') });
+        ui.valueID = this.parseString(valueID, 'id');
+
         let buttons = uiChildren.find(function (u){ return (u.nodeName === 'buttons'); });
         
         let buttonsChildren = buttons.children;
@@ -489,6 +505,8 @@ class MySceneGraph {
 
         // Any number of lights.
         for (var i = 0; i < children.length; i++) {
+            if (i >= 8)
+                break;              // Only eight lights allowed by WebCGF on default shaders.
 
             // Storing light information
             var global = [];
@@ -541,7 +559,36 @@ class MySceneGraph {
                 else
                     return "light " + attributeNames[i] + " undefined for ID = " + lightId;
             }
-            this.lights[lightId] = global;
+
+            // build light
+            let light = this.scene.lights[i];
+            this.lights[lightId] = light;
+            light.setPosition(...global[1]);
+            light.setAmbient (...global[2]);
+            light.setDiffuse (...global[3]);
+            light.setSpecular(...global[4]);
+            light.setVisible(false);
+            if(global[0]) light.enable();
+            else          light.disable();
+            light.update();
+
+            let enableNode = [...children[i].children].find((node) => (node.nodeName === 'enable'));
+            if(typeof enableNode.attributes.bind !== 'undefined'){
+                let bindingref = enableNode.attributes.bind.value;
+                if(this.bindings[bindingref] !== null){
+                    let binding = this.bindings[bindingref];
+                    Object.defineProperty(binding, 'value',
+                        {
+                            set: function (value){ light.enabled = value; binding.changed_value(); },
+                            get: function (     ){ return light.enabled;                           }
+                        }
+                    );
+                    binding.changed_value();
+                } else {
+                    this.onXMLMinorError(`Unknown binding '${bindingref}'`);
+                }
+            }
+
             numLights++;
         }
 
@@ -562,6 +609,35 @@ class MySceneGraph {
     }
 
     /**
+     * Parses the <bindings> node.
+     * @param {bindings block element} bindingsNode
+     */
+    parseBindings(bindingsNode) {
+        this.bindings = {};
+        for(let i = 0; i < bindingsNode.children.length; ++i){
+            let binding = bindingsNode.children[i];
+            let id = binding.id;
+            let representation = [...binding.children].find((node) => (node.nodeName === 'representation'));
+            let animationref = this.parseString(representation, "animationref", id);
+            let animation = this.animations[animationref];
+            let t = this.parseFloat(representation, "t", id);
+            
+            this.bindings[binding.id] = {
+                representation: {
+                    animation: animation,
+                    t: t
+                },
+                changed_value: function(){
+                    animation.update(this.value);
+                }
+            };
+        }
+
+
+        return null;
+    }
+
+    /**
      * Parses the <textures> block. 
      * @param {textures block element} texturesNode
      */
@@ -570,9 +646,9 @@ class MySceneGraph {
         for(let i = 0; i < texturesNode.children.length; ++i){
             let texture = texturesNode.children[i];
 
-        // Checks for repeated IDs.
-        if (this.textures[texture.id] != null)
-            return "ID must be unique for each texture (conflict: ID = " + texture.id + ")";
+            // Checks for repeated IDs.
+            if (this.textures[texture.id] != null)
+                return "ID must be unique for each texture (conflict: ID = " + texture.id + ")";
 
             this.textures[texture.id] = new CGFtexture(
                 this.scene,
@@ -746,6 +822,11 @@ class MySceneGraph {
                 anim.addKeyframe(instant, kf);
             }
 
+            if(typeof animation.attributes.timeupdate !== 'undefined'){
+                let timeupdate = this.parseBoolean(animation, "timeupdate", animation.id, true);
+                if(!timeupdate) anim.timeupdate = false;
+            }
+
             this.animations[animation.id] = anim;
         }
 
@@ -834,6 +915,12 @@ class MySceneGraph {
             if (this.nodes[nodeID] != null)
                 return "ID must be unique for each node (conflict: ID = " + nodeID + ")";
 
+            // On click
+            let onclick = null;
+            if (typeof children[i].attributes.onclick !== 'undefined'){
+                onclick = this.reader.getString(children[i], 'onclick');
+            }
+
             grandChildren = children[i].children;
 
             nodeNames = [];
@@ -849,6 +936,10 @@ class MySceneGraph {
 
             let node = new Node(this.scene, nodeID);
             node.setDropbox(dropbox);
+            if(onclick !== null){
+                let onclick_func = new Function(onclick);
+                node.onclick = onclick_func.bind(this);
+            }
             // Transformations
             let transformations = grandChildren[transformationsIndex];
             let M = this.parseTransformations(transformations, nodeID); if(typeof M === "string") return M;
@@ -969,6 +1060,13 @@ class MySceneGraph {
                 return `No such panel node "${this._ui.panelID}"`;
             else
                 this._ui.panel = this.nodes[this._ui.panelID];
+
+            if(this.nodes[this._ui.valueID] == null)
+                return `No such value node "${this._ui.valueID}"`;
+            else
+                this._ui.valueNode =
+                    this.nodes[this._ui.valueID].children
+                    .find(function (u){ return (u instanceof MySpriteText); });
 
             for(let i=0; i<this._ui.buttonsIDs.length;i++){
                 if(this.nodes[this._ui.buttonsIDs[i]] == null)
@@ -1289,9 +1387,12 @@ class MySceneGraph {
         let font = this.parseString(node, 'font', messageError);
         let text = this.parseString(node, 'text', messageError);
         let exp = null;
+        let format = null;
         if(node.attributes.eval != null)
             exp = this.parseString(node, 'eval', messageError);
-        return new MySpriteText(this.scene, this.spriteSheets[font],  text, exp);
+        if(node.attributes.format != null)
+            format = this.parseString(node, 'format', messageError);
+        return new MySpriteText(this.scene, this.spriteSheets[font],  text, exp, format);
     }
 
     /**
@@ -1334,7 +1435,9 @@ class MySceneGraph {
 
     update(t){
         for (var key in this.animations){
-            this.animations[key].update(t);
+            let animation = this.animations[key];
+            if(animation.timeupdate)
+                animation.update(t);
         }
         for (let anim in this.spriteAnimations){
             this.spriteAnimations[anim].update(t);

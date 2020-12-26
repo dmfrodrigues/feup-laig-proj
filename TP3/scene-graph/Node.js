@@ -16,6 +16,7 @@ class Node extends CGFobject {
         this.animation      = null;
         this.children       = [];
         this.dropbox        = null;
+        this.onclick        = null;
         this.enabled = true;
     }
     enable(){
@@ -75,11 +76,13 @@ class Node extends CGFobject {
             if(this.animation != null)
                 this.animation.apply();
 
+            if(this.onclick !== null) this.scene.registerForPick(1, this);
             if(this.animation == null || this.animation.isVisible()){
                 for(let child of this.children){
                     child.display();
                 }
             }
+            if(this.onclick !== null) this.scene.clearPickRegistration();
         }
         this.scene.popAppearance();
         this.scene.popMatrix();

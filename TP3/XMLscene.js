@@ -22,6 +22,7 @@ class XMLscene extends CGFscene {
         super.init(application);
 
         this.sceneInited = false;
+        this.camerasInited = false;
 
         this.initCameras();
 
@@ -57,7 +58,16 @@ class XMLscene extends CGFscene {
      * Initializes the scene lights with the values read from the XML file.
      */
     initLights() {
-        if(this.interface) var folder_lights = this.interface.gui.addFolder("Lights");
+        if(this.interface){  
+            var folder = this.interface.gui.__folders["Lights"];
+            if (folder) {
+                folder.close();
+                this.interface.gui.__ul.removeChild(folder.domElement.parentNode);
+                delete this.interface.gui.__folders["Lights"];
+                this.interface.gui.onResize();
+            }
+            var folder_lights = this.interface.gui.addFolder("Lights");
+        }
 
         var i = 0;
         // Lights index.
@@ -68,22 +78,6 @@ class XMLscene extends CGFscene {
                 break;              // Only eight lights allowed by WebCGF on default shaders.
 
             if (this.graph.lights.hasOwnProperty(key)) {
-                var graphLight = this.graph.lights[key];
-
-                // this.lights[i] = new CGFlight(this, key);
-                this.lights[i].setPosition(...graphLight[1]);
-                this.lights[i].setAmbient(...graphLight[2]);
-                this.lights[i].setDiffuse(...graphLight[3]);
-                this.lights[i].setSpecular(...graphLight[4]);
-
-                this.lights[i].setVisible(false);
-                if (graphLight[0])
-                    this.lights[i].enable();
-                else
-                    this.lights[i].disable();
-
-                this.lights[i].update();
-
                 if(folder_lights) folder_lights.add(this.lights[i], 'enabled').name(key);
 
                 i++;
@@ -128,13 +122,17 @@ class XMLscene extends CGFscene {
 
         this.setGlobalAmbientLight(...this.graph.ambient);
 
+        if(!this.camerasInited){
+            this.createCameraControls();
+        }
+
         this.initLights();
-
-        this.createCameraControls();
-
+        
         this.orchestrator.initialize();
 
         this.sceneInited = true;
+        this.camerasInited = true
+        this.orchestrator.themeInited=true;
     }
 
     pushAppearance(){

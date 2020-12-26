@@ -39,8 +39,10 @@ serialInclude(
         'scene-graph/PiecesSetup.js',
         'scene-graph/Node.js',
         'scene-graph/MySceneGraph.js',
+        'server/Server.js',
         'logic/BoardCell.js',
         'logic/GameBoard.js',
+        'logic/GameState.js',
         'logic/Orchestrator.js',
         'logic/PassiveOrchestrator.js',
         'logic/PieceStack.js',
@@ -107,5 +109,5 @@ function startGame(gameMode, level){
 
 	// create and load graph, and associate it to scene. 
     // Check console for loading errors
-    var orchestrator = new Orchestrator(gameScene, 'room.xml', gameMode, level);
+    var orchestrator = new Orchestrator(gameScene, ['room.xml', 'theme2.xml'], gameMode, level);
 }
