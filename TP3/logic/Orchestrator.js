@@ -47,6 +47,29 @@ class Orchestrator extends CGFobject {
         }
     }
 
+    nextTurn(){
+        let gamestate = this.gameState;
+        gamestate.nextTurn();
+        if(this.isComputer(gamestate.turn)){
+            console.log("Is computer");
+            server.choose_move(
+                gamestate,
+                gamestate.turn,
+                3,
+                7
+            )
+            .then(function (response){
+                console.log(response);
+                gamestate.gameboard.move(
+                    gamestate.gameboard.getCell(response.pos[0], response.pos[1]),
+                    response.substacks,
+                    response.direction,
+                    gamestate.gameboard.getCell(response.newpos[0], response.newpos[1])
+                );
+            });
+        }
+    }
+
     onObjectSelected(obj, id){
         if(obj.idObj == 'change-theme'){
             this.changeTheme();
