@@ -51,7 +51,7 @@ class GameBoard extends CGFobject {
     }
 
     move(originCell, substacks, direction, newPieceCell) {
-
+        console.log('dir', direction);
         if (newPieceCell.stack != null || ( 1 < direction && direction > 6 ))
             return false;
         
@@ -62,7 +62,7 @@ class GameBoard extends CGFobject {
             switch (direction) {
                 case 1:
                     substack_i = originCell.i;
-                    substack_j = originCell.j - absHeight;
+                    substack_j = originCell.j + absHeight;
                     break;
                 case 2:
                     substack_i = originCell.i - absHeight;
@@ -74,7 +74,7 @@ class GameBoard extends CGFobject {
                     break;
                 case 4:
                     substack_i = originCell.i;
-                    substack_j = originCell.j + absHeight;
+                    substack_j = originCell.j - absHeight;
                     break;
                 case 5:
                     substack_i = originCell.i + absHeight;

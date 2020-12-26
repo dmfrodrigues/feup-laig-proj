@@ -131,11 +131,11 @@ class PlayerMoveState {
     }
     
     getDirection(cell1, cell2){
-        if(cell1.i == cell2.i && cell1.j < cell2.j)      return 1;
+        if(cell1.i == cell2.i && cell1.j < cell2.j)      return 4;
         else if(cell1.i < cell2.i && cell1.j == cell2.j) return 2;
         else if(cell1.i < cell2.i && cell1.j < cell2.j
             && (cell1.i - cell2.i == cell1.j - cell2.j)) return 3;
-        else if(cell1.i == cell2.i && cell1.j > cell2.j) return 4;
+        else if(cell1.i == cell2.i && cell1.j > cell2.j) return 1;
         else if(cell1.i > cell2.i && cell1.j == cell2.j) return 5;
         else if(cell1.i > cell2.i && cell1.j > cell2.j 
             && (cell1.i - cell2.i == cell1.j - cell2.j)) return 6;
