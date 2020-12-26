@@ -18,5 +18,8 @@ class Animation {
             throw new TypeError('Extending class does not implement Animation.apply');
         }
         this.scene = scene;
+        this._timeupdate = true;
     }
+    get timeupdate(){ return this._timeupdate; }
+    set timeupdate(timeupdate){ this._timeupdate = timeupdate; }
 }
