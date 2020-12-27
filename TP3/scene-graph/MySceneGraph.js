@@ -1446,12 +1446,10 @@ class MySceneGraph {
                 this.cameraAnimLastTime = t;
             }
             if(t - this.cameraAnimStartTime < animDuration){
-                console.log(this.cameraAnimLastTime, t);
                 this.scene.camera.orbit(CGFcameraAxis.y, Math.PI*(t-this.cameraAnimLastTime)/animDuration);
                 this.cameraAnimLastTime = t;
             }
             else{
-                console.log(this.cameraAnimLastTime, t);
                 this.scene.camera.orbit(
                     CGFcameraAxis.y, 
                     Math.PI*(this.cameraAnimStartTime+animDuration-this.cameraAnimLastTime)/animDuration
