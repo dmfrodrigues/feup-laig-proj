@@ -93,19 +93,19 @@ class Orchestrator extends CGFobject {
     }
 
     onObjectSelected(obj, id){
+        if(this.isComputer(this.gameState.turn)) return;
+
         if(obj.idObj == 'change-theme'){
             this.changeTheme();
+        }
+        else if(obj.idObj == 'undo'){
+            this.gameState.moveState.initialState();
+            this.undo();
         }
         else if(10 <= id && id < 300)
             this.gameState.moveState.updateMoveState(obj);
         else
             obj.onclick();
-        /*
-        if(obj.isSelected())
-            obj.deselect();
-        else
-            obj.select();
-        */
     }
 
     changeTheme(){
@@ -113,6 +113,10 @@ class Orchestrator extends CGFobject {
         button_id = 200;
         this.themeSelected = (this.themeSelected+1)%(this.themes.length);
         this.theme = new MySceneGraph(this.themes[this.themeSelected], this.scene);
+    }
+
+    undo(){
+        this.gameSequence.manageUndo(this.gameState);
     }
 
     update(t){

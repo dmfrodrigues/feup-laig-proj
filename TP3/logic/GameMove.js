@@ -5,21 +5,19 @@
  */
 
 class GameMove {
-    constructor(scene, originCell, substacks, direction, newPieceCell, gameboard){
+    constructor(scene, originCell, substacks, direction, newPieceCell, turn, gameboard){
         this.scene = scene;
         this.originCell = originCell;
         this.substacks = substacks;
         this.direction = direction;
         this.newPieceCell = newPieceCell;
-        this.gameboard = gameboard;
+        this.turn = turn;
+        this.gameboard = gameboard.toJSON();
+        console.log(gameboard, this.gameboard);
     }
 
     animate(){
-        //console.log(this.newPieceCell.stack, PieceStack.pieceStackView);
-        //this.newPieceCell.stack.newPieceAnimation = true;
-        //this.scene.graph.nodes[].setAnimation(animation);
         //animate camera
-        this.scene.graph.cameraAnimation = true;
-        this.scene.graph.cameraAnimStartTime = 0;
+        this.scene.graph.startCameraAnimation();
     }
 }
