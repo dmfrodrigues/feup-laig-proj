@@ -35,7 +35,7 @@ class PlayerMoveState {
     isCellId(obj){ return obj.id < 100;}
     isStackId(obj){ return obj.id > 100 && obj.id < 200;}
     isSubmitId(obj){ return obj.idObj == 'submit';}
-    isUndoId(obj){ return obj.idObj == 'undo';}
+    isCancelId(obj){ return obj.idObj == 'cancel';}
 
     substacksLength(){
         let sum = 0;
@@ -71,7 +71,7 @@ class PlayerMoveState {
                     else
                         this.moveState = State.BUILD_SUBSTACKS;
                 }
-                else if(this.isUndoId(obj)){
+                else if(this.isCancelId(obj)){
                     this.initialState();
                 }
                 break;
@@ -96,7 +96,7 @@ class PlayerMoveState {
                         }
                     }
                 }
-                else if(this.isUndoId(obj)){
+                else if(this.isCancelId(obj)){
                     this.initialState();
                 }
                 break;
@@ -110,7 +110,7 @@ class PlayerMoveState {
                     // submit substacks
                     this.moveState = State.FINAL;
                 }
-                else if(this.isUndoId(obj)){
+                else if(this.isCancelId(obj)){
                     this.initialState();
                 }
                 break;
@@ -122,7 +122,7 @@ class PlayerMoveState {
                         this.initialState();
                     }
                 }
-                else if(this.isUndoId(obj)){
+                else if(this.isCancelId(obj)){
                     this.initialState();
                 }
                 break;
@@ -172,6 +172,5 @@ class PlayerMoveState {
         }else{
             obj.select();
         }
-        console.log(this.substacks);
     }
 }

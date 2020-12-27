@@ -15,6 +15,9 @@ class GameMove {
     }
 
     animate(){
+        //console.log(this.newPieceCell.stack, PieceStack.pieceStackView);
+        //this.newPieceCell.stack.newPieceAnimation = true;
+        //this.scene.graph.nodes[].setAnimation(animation);
         //animate camera
         this.scene.graph.cameraAnimation = true;
         this.scene.graph.cameraAnimStartTime = 0;
