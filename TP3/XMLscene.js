@@ -106,8 +106,8 @@ class XMLscene extends CGFscene {
         if (typeof this.update.t0 === 'undefined'){
             this.update.t0 = time;
         }
-        let t = (time-this.update.t0)/SECONDS_TO_MILLIS;
-        this.orchestrator.update(t);
+        this.time = (time-this.update.t0)/SECONDS_TO_MILLIS;
+        this.orchestrator.update(this.time);
     }
 
     /** Handler called when the graph is finally loaded. 
@@ -129,6 +129,9 @@ class XMLscene extends CGFscene {
         this.initLights();
         
         this.orchestrator.initialize();
+
+        if(!this.sceneInited)
+            this.time = 0;
 
         this.sceneInited = true;
         this.camerasInited = true
