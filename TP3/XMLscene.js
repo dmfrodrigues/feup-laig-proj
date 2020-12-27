@@ -23,6 +23,7 @@ class XMLscene extends CGFscene {
 
         this.sceneInited = false;
         this.camerasInited = false;
+        this.update.t0 = undefined;
 
         this.initCameras();
 

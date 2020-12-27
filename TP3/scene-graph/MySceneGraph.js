@@ -366,7 +366,6 @@ class MySceneGraph {
 
         for(let i = 0; i < node.children.length; ++i){
             let uiNode = node.children[i];
-            console.log(node, node.children[i]);
         let ui = new UserInterface(this.scene);
 
         let idUI = this.reader.getString(uiNode, 'id');
@@ -396,7 +395,6 @@ class MySceneGraph {
 
         this.uis[idUI] = ui;
         }
-        console.log(this.uis);
         return null;
     }
 
@@ -1064,7 +1062,6 @@ class MySceneGraph {
 
         for(let i in this.uis)
         {
-            console.log(this.uis[i]);
             if(this.nodes[this.uis[i].panelID] == null)
                 return `No such panel node "${this.uis[i].panelID}"`;
             else
