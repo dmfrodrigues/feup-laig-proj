@@ -32,10 +32,10 @@ class PlayerMoveState {
         this.gameState.gameboard.deselectAll();
     }
 
-    isCellId(id){ return id < 100;}
-    isStackId(id){ return id > 100 && id < 200;}
-    isSubmitId(id){ return id == 201;}
-    isUndoId(id){ return id == 202;}
+    isCellId(obj){ return obj.id < 100;}
+    isStackId(obj){ return obj.id > 100 && obj.id < 200;}
+    isSubmitId(obj){ return obj.idObj == 'submit';}
+    isUndoId(obj){ return obj.idObj == 'undo';}
 
     substacksLength(){
         let sum = 0;
@@ -44,10 +44,10 @@ class PlayerMoveState {
         return sum;
     }
 
-    updateMoveState(obj, id){
+    updateMoveState(obj){
         switch (this.moveState) {
             case State.INITIAL:
-                if(this.isStackId(id)){
+                if(this.isStackId(obj)){
                     this.initialState();
                     this.stackSelected = obj;
                     this.moveState = State.FIRST_SELECTION;
@@ -55,8 +55,8 @@ class PlayerMoveState {
                 }
                 break;
             case State.FIRST_SELECTION:
-                if(this.isCellId(id) || this.isStackId(id)){
-                    if(this.isStackId(id)) obj = obj.cell;
+                if(this.isCellId(obj) || this.isStackId(obj)){
+                    if(this.isStackId(obj)) obj = obj.cell;
                     this.direction = this.getDirection(obj, this.stackSelected.cell);
                     let distance = this.distance(this.direction, obj, this.stackSelected.cell);
                     if(this.direction != 0)
@@ -71,13 +71,13 @@ class PlayerMoveState {
                     else
                         this.moveState = State.BUILD_SUBSTACKS;
                 }
-                else if(this.isUndoId(id)){
+                else if(this.isUndoId(obj)){
                     this.initialState();
                 }
                 break;
             case State.BUILD_SUBSTACKS:
-                if(this.isCellId(id) || this.isStackId(id)){
-                    if(this.isStackId(id)) obj = obj.cell;
+                if(this.isCellId(obj) || this.isStackId(obj)){
+                    if(this.isStackId(obj)) obj = obj.cell;
                     if(this.getDirection(obj, this.stackSelected.cell) != this.direction){
                         this.initialState();
                         this.gameState.gameboard.deselectAll();
@@ -96,32 +96,33 @@ class PlayerMoveState {
                         }
                     }
                 }
-                else if(this.isUndoId(id)){
+                else if(this.isUndoId(obj)){
                     this.initialState();
                 }
                 break;
             case State.COMPLETE_STACKS:
-                if(this.isCellId(id) || this.isStackId(id)){
-                    if(this.isStackId(id)) obj = obj.cell;
+                if(this.isCellId(obj) || this.isStackId(obj)){
+                    if(this.isStackId(obj)) obj = obj.cell;
                     if(this.getDirection(obj, this.stackSelected.cell) == this.direction)
                         this.manageMove(obj);
                 }
-                else if(this.isSubmitId(id)){
+                else if(this.isSubmitId(obj)){
                     // submit substacks
                     this.moveState = State.FINAL;
                 }
-                else if(this.isUndoId(id)){
+                else if(this.isUndoId(obj)){
                     this.initialState();
                 }
                 break;
             case State.FINAL:
-                if(this.isCellId(id)){
+                if(this.isCellId(obj)){
                     // submit new piece and move
-                    this.gameState.gameboard.move(this.stackSelected.cell, this.substacks, this.direction, obj);
-                    this.gameState.orchestrator.nextTurn();
-                    this.initialState();
+                    if(this.gameState.gameboard.move(this.stackSelected.cell, this.substacks, this.direction, obj)){
+                        this.gameState.orchestrator.nextTurn();
+                        this.initialState();
+                    }
                 }
-                else if(this.isUndoId(id)){
+                else if(this.isUndoId(obj)){
                     this.initialState();
                 }
                 break;

@@ -109,7 +109,7 @@ class GameBoard extends CGFobject {
         
         originCell.stack = null;
         
-        // gameMove.animate();
+        gameMove.animate();
         return true;
     }
 

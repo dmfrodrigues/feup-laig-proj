@@ -23,6 +23,7 @@ class XMLscene extends CGFscene {
 
         this.sceneInited = false;
         this.camerasInited = false;
+        this.update.t0 = undefined;
 
         this.initCameras();
 
@@ -94,7 +95,7 @@ class XMLscene extends CGFscene {
 
     updateViews() {
         this.camera = this.graph.views.list[this.graph.views.current];
-        if(this.interface) this.interface.setActiveCamera(this.camera);
+        //if(this.interface) this.interface.setActiveCamera(this.camera);
     }
 
     /**
@@ -106,8 +107,8 @@ class XMLscene extends CGFscene {
         if (typeof this.update.t0 === 'undefined'){
             this.update.t0 = time;
         }
-        let t = (time-this.update.t0)/SECONDS_TO_MILLIS;
-        this.orchestrator.update(t);
+        this.time = (time-this.update.t0)/SECONDS_TO_MILLIS;
+        this.orchestrator.update(this.time);
     }
 
     /** Handler called when the graph is finally loaded. 
@@ -129,6 +130,9 @@ class XMLscene extends CGFscene {
         this.initLights();
         
         this.orchestrator.initialize();
+
+        if(!this.sceneInited)
+            this.time = 0;
 
         this.sceneInited = true;
         this.camerasInited = true

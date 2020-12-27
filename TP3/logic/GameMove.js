@@ -15,6 +15,8 @@ class GameMove {
     }
 
     animate(){
-        // TODO
+        //animate camera
+        this.scene.graph.cameraAnimation = true;
+        this.scene.graph.cameraAnimStartTime = 0;
     }
 }

@@ -74,20 +74,36 @@
         </gameboard>
         <piece id="piece" height="0.002"/>
         <pieceview classname="RoomPieceStackView"/>
-        <ui id="ui">
-            <transformations>
-                <translation x="0.24" y="0.54" z="-0.2"/>
-                <rotation axis="y" angle="90"/>
-                <rotation axis="x" angle="-45"/>
-            </transformations>
-            <panel id="ui-panel-with-value"/>
-            <value id="ui-panel-value"/>
-            <buttons>
-                <button id="submit"/>
-                <button id="undo"/>
-                <button id="change-theme"/>
-            </buttons>
-        </ui>
+        <uis>
+            <ui id="ui-1">
+                <transformations>
+                    <translation x="0.24" y="0.54" z="-0.2"/>
+                    <rotation axis="y" angle="90"/>
+                    <rotation axis="x" angle="-45"/>
+                </transformations>
+                <panel id="ui-panel-with-value"/>
+                <value id="ui-panel-value"/>
+                <buttons>
+                    <button id="submit"/>
+                    <button id="undo"/>
+                    <button id="change-theme"/>
+                </buttons>
+            </ui>
+            <ui id="ui-2">
+                <transformations>
+                    <translation x="-0.24" y="0.54" z="-0.2"/>
+                    <rotation axis="y" angle="-90"/>
+                    <rotation axis="x" angle="-45"/>
+                </transformations>
+                <panel id="ui-panel-with-value"/>
+                <value id="ui-panel-value"/>
+                <buttons>
+                    <button id="submit"/>
+                    <button id="undo"/>
+                    <button id="change-theme"/>
+                </buttons>
+            </ui>
+        </uis>
     </initials>
     <animations>
         <animation id="turn-light-switch" loop="0" timeupdate="0">
@@ -222,8 +238,8 @@
             <to   x="0.0" y="1.0" z="0.0"/>
         </perspective>
         <perspective id="player1_camera" near="0.1" far="500" angle="50">
-            <from x="+0.60" y="0.90" z="-0.1"/>
-            <to   x="+0.00" y="0.5" z="-0.17"/>
+            <from x="+0.60" y="0.9" z="-0.10"/>
+            <to   x="+0.00" y="0.58" z="-0.2"/>
         </perspective>
         <perspective id="player2_camera" near="0.1" far="500" angle="50">
             <from x="-0.60" y="0.90" z="-0.10"/>
@@ -991,10 +1007,10 @@
             <material id="null"/><texture id="null"><amplification afs="1" aft="1"/></texture>
             <descendants>
                 <noderef id="ui-panel"/>
+                <noderef id="ui-panel-timer-all"/>
                 <noderef id="ui-panel-value-all"/>
             </descendants>
         </node>
-
 
         <node id="ui-panel">
             <material id="plastic-white"/><texture id="null"><amplification afs="1" aft="1"/></texture>
@@ -1003,6 +1019,64 @@
             </transformations>
             <descendants>
                 <noderef id="cube"/>
+            </descendants>
+        </node>
+
+        <node id="ui-panel-timer-all">
+            <material id="null"/><texture id="null"><amplification afs="1" aft="1"/></texture>
+            <descendants>
+                <noderef id="ui-panel-timer-label"/>
+                <noderef id="ui-panel-timer-display"/>
+            </descendants>
+        </node>
+        <node id="ui-panel-timer-label">
+            <material id="clock-plastic-black-emissive"/>
+            <texture id="null"><amplification afs="1" aft="1"/></texture>
+            <transformations>
+                <translation x="-0.025" y="0.025" z="0.002501"/>
+                <scale sx="0.010" sy="0.010" sz="0.010"/>
+                <scale sx="0.57142857142" sy="1" sz="1"/>
+            </transformations>
+            <descendants>
+                <leaf type="spritetext" font="consolas" text="Time:"/>
+            </descendants>
+        </node>
+        <node id="ui-panel-timer-display">
+            <material id="null"/><texture id="null"><amplification afs="1" aft="1"/></texture>
+            <transformations>
+                <translation x="0" y="0" z="0.00001"/>
+                <translation x="0.019" y="0.025" z="0.0025"/>
+            </transformations>
+            <descendants>
+                <noderef id="ui-panel-timer-background"/>
+                <noderef id="ui-panel-timer"/>
+            </descendants>
+        </node>
+        <node id="ui-panel-timer-background">
+            <material id="calculator-background"/>
+            <texture id="null"><amplification afs="1" aft="1"/></texture>
+            <transformations>
+                <scale sx="1.15" sy="1.1" sz="1"/>
+                <scale sx="0.012" sy="0.012" sz="0.012"/>
+                <scale sx="0.60" sy="1" sz="1"/>
+            </transformations>
+            <descendants>
+                <leaf type="rectangle" x1="-3.0" x2="+3.0" y1="-0.5" y2="+0.5"/>
+            </descendants>
+        </node>
+        <node id="ui-panel-timer">
+            <material id="calculator-digit"/>
+            <texture id="null"><amplification afs="1" aft="1"/></texture>
+            <transformations>
+                <translation x="0" y="0" z="0.00001"/>
+                <scale sx="0.012" sy="0.012" sz="0.012"/>
+                <scale sx="0.60" sy="1" sz="1"/>
+            </transformations>
+            <descendants>
+                <leaf type="spritetext" font="calc" text="00:00"
+                    eval="return ('0' + Math.floor(this.scene.time/60)).slice(-2) + ':' + ('0' + Math.floor(this.scene.time)%60).slice(-2); "
+                    format="return arguments[0].padStart(5,' ');"
+                />
             </descendants>
         </node>
         <node id="ui-panel-value-all">
@@ -1016,7 +1090,7 @@
             <material id="clock-plastic-black-emissive"/>
             <texture id="null"><amplification afs="1" aft="1"/></texture>
             <transformations>
-                <translation x="-0.025" y="0.015" z="0.002501"/>
+                <translation x="-0.025" y="0.010" z="0.002501"/>
                 <scale sx="0.010" sy="0.010" sz="0.010"/>
                 <scale sx="0.57142857142" sy="1" sz="1"/>
             </transformations>
@@ -1028,7 +1102,7 @@
             <material id="null"/><texture id="null"><amplification afs="1" aft="1"/></texture>
             <transformations>
                 <translation x="0" y="0" z="0.00001"/>
-                <translation x="0.019" y="0.015" z="0.0025"/>
+                <translation x="0.019" y="0.010" z="0.0025"/>
             </transformations>
             <descendants>
                 <noderef id="ui-panel-value-background"/>
