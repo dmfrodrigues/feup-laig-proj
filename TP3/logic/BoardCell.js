@@ -29,6 +29,8 @@ class BoardCell extends CGFobject {
     get i(){ return this._i; }
     get j(){ return this._j; }
 
+    get id() {return this._id; }
+
     setTurn(turn){
         this._selectable = (
             (this.stack === null) ||

@@ -97,7 +97,7 @@ class Orchestrator extends CGFobject {
             this.changeTheme();
         }
         else if(10 <= id && id < 300)
-            this.gameState.moveState.updateMoveState(obj, id);
+            this.gameState.moveState.updateMoveState(obj);
         else
             obj.onclick();
         /*
@@ -121,7 +121,8 @@ class Orchestrator extends CGFobject {
     }
 
     setValue(value){
-        this.theme.ui.setValue(value);
+        for(let i in this.theme.uis)
+            this.theme.uis[i].setValue(value);
     }
 
     display(){
@@ -130,7 +131,8 @@ class Orchestrator extends CGFobject {
         this.theme.display();
         this.gameState.gameboard.display();
         // this.animator.display();
-        this.theme.ui.display();
+        for(let i in this.theme.uis)
+            this.theme.uis[i].display();
         // ...
     }
 }

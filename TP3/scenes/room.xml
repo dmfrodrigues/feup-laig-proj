@@ -74,20 +74,36 @@
         </gameboard>
         <piece id="piece" height="0.002"/>
         <pieceview classname="RoomPieceStackView"/>
-        <ui id="ui">
-            <transformations>
-                <translation x="0.24" y="0.54" z="-0.2"/>
-                <rotation axis="y" angle="90"/>
-                <rotation axis="x" angle="-45"/>
-            </transformations>
-            <panel id="ui-panel-with-value"/>
-            <value id="ui-panel-value"/>
-            <buttons>
-                <button id="submit"/>
-                <button id="undo"/>
-                <button id="change-theme"/>
-            </buttons>
-        </ui>
+        <uis>
+            <ui id="ui-1">
+                <transformations>
+                    <translation x="0.24" y="0.54" z="-0.2"/>
+                    <rotation axis="y" angle="90"/>
+                    <rotation axis="x" angle="-45"/>
+                </transformations>
+                <panel id="ui-panel-with-value"/>
+                <value id="ui-panel-value"/>
+                <buttons>
+                    <button id="submit"/>
+                    <button id="undo"/>
+                    <button id="change-theme"/>
+                </buttons>
+            </ui>
+            <ui id="ui-2">
+                <transformations>
+                    <translation x="-0.24" y="0.54" z="-0.2"/>
+                    <rotation axis="y" angle="-90"/>
+                    <rotation axis="x" angle="-45"/>
+                </transformations>
+                <panel id="ui-panel-with-value"/>
+                <value id="ui-panel-value"/>
+                <buttons>
+                    <button id="submit"/>
+                    <button id="undo"/>
+                    <button id="change-theme"/>
+                </buttons>
+            </ui>
+        </uis>
     </initials>
     <animations>
         <animation id="turn-light-switch" loop="0" timeupdate="0">
@@ -222,8 +238,8 @@
             <to   x="0.0" y="1.0" z="0.0"/>
         </perspective>
         <perspective id="player1_camera" near="0.1" far="500" angle="50">
-            <from x="+0.60" y="0.90" z="-0.1"/>
-            <to   x="+0.00" y="0.5" z="-0.17"/>
+            <from x="+0.60" y="0.9" z="-0.10"/>
+            <to   x="+0.00" y="0.58" z="-0.2"/>
         </perspective>
         <perspective id="player2_camera" near="0.1" far="500" angle="50">
             <from x="-0.60" y="0.90" z="-0.10"/>
