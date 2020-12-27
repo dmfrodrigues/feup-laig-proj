@@ -109,5 +109,5 @@ function startGame(gameMode, level){
 
 	// create and load graph, and associate it to scene. 
     // Check console for loading errors
-    var orchestrator = new Orchestrator(gameScene, ['room.xml', 'theme2.xml'], gameMode, level);
+    var orchestrator = new Orchestrator(gameScene, ['room.xml', 'iss.xml'], gameMode, level);
 }
