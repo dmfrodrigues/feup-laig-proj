@@ -35,7 +35,7 @@ class PlayerMoveState {
     isCellId(obj){ return obj.id < 100;}
     isStackId(obj){ return obj.id > 100 && obj.id < 200;}
     isSubmitId(obj){ return obj.idObj == 'submit';}
-    isUndoId(obj){ return obj.idObj == 'undo';}
+    isCancelId(obj){ return obj.idObj == 'cancel';}
 
     substacksLength(){
         let sum = 0;
@@ -59,19 +59,19 @@ class PlayerMoveState {
                     if(this.isStackId(obj)) obj = obj.cell;
                     this.direction = this.getDirection(obj, this.stackSelected.cell);
                     let distance = this.distance(this.direction, obj, this.stackSelected.cell);
-                    if(this.direction != 0)
+                    if(this.direction != 0){
                         if(obj.stack == null)
                             this.manageMove(obj);
                         else if(Math.sign(obj.stack.height) ==  Math.sign(this.stackSelected.height)
                         || Math.abs(obj.stack.height) <= distance)
-                            this.manageMove(obj);
+                            this.manageMove(obj);}
                     else break;
                     if(this.substacksLength() == Math.abs(this.stackSelected.height))
                         this.moveState = State.COMPLETE_STACKS;
                     else
                         this.moveState = State.BUILD_SUBSTACKS;
                 }
-                else if(this.isUndoId(obj)){
+                else if(this.isCancelId(obj)){
                     this.initialState();
                 }
                 break;
@@ -96,7 +96,7 @@ class PlayerMoveState {
                         }
                     }
                 }
-                else if(this.isUndoId(obj)){
+                else if(this.isCancelId(obj)){
                     this.initialState();
                 }
                 break;
@@ -110,7 +110,7 @@ class PlayerMoveState {
                     // submit substacks
                     this.moveState = State.FINAL;
                 }
-                else if(this.isUndoId(obj)){
+                else if(this.isCancelId(obj)){
                     this.initialState();
                 }
                 break;
@@ -122,7 +122,7 @@ class PlayerMoveState {
                         this.initialState();
                     }
                 }
-                else if(this.isUndoId(obj)){
+                else if(this.isCancelId(obj)){
                     this.initialState();
                 }
                 break;
@@ -172,6 +172,5 @@ class PlayerMoveState {
         }else{
             obj.select();
         }
-        console.log(this.substacks);
     }
 }

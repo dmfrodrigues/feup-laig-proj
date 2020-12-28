@@ -5,18 +5,19 @@
  */
 
 class GameMove {
-    constructor(scene, originCell, substacks, direction, newPieceCell, gameboard){
+    constructor(scene, originCell, substacks, direction, newPieceCell, turn, gameboard){
         this.scene = scene;
         this.originCell = originCell;
         this.substacks = substacks;
         this.direction = direction;
         this.newPieceCell = newPieceCell;
-        this.gameboard = gameboard;
+        this.turn = turn;
+        this.gameboard = gameboard.toJSON();
+        console.log(gameboard, this.gameboard);
     }
 
     animate(){
         //animate camera
-        this.scene.graph.cameraAnimation = true;
-        this.scene.graph.cameraAnimStartTime = 0;
+        this.scene.graph.startCameraAnimation();
     }
 }
