@@ -10,6 +10,7 @@ class GameState extends CGFobject {
         this.moveState = new PlayerMoveState(this);
 
         this.value = 0.0;
+        this.round = 1;
     }
 
     get gameboard(){ return this._gameboard; }
@@ -24,6 +25,7 @@ class GameState extends CGFobject {
     nextTurn(){
         this.turn = (this.turn === 1 ? 2 : 1);
         this.updateValue();
+        if(this.turn === 1) this.round++;
     }
 
     async updateValue(){

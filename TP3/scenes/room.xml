@@ -81,7 +81,7 @@
                     <rotation axis="y" angle="90"/>
                     <rotation axis="x" angle="-45"/>
                 </transformations>
-                <panel id="ui-panel-with-value"/>
+                <panel id="ui-panel-with-all"/>
                 <value id="ui-panel-value"/>
                 <buttons>
                     <button id="submit"/>
@@ -96,7 +96,7 @@
                     <rotation axis="y" angle="-90"/>
                     <rotation axis="x" angle="-45"/>
                 </transformations>
-                <panel id="ui-panel-with-value"/>
+                <panel id="ui-panel-with-all"/>
                 <value id="ui-panel-value"/>
                 <buttons>
                     <button id="submit"/>
@@ -1005,12 +1005,13 @@
             </descendants>
         </node>
 
-        <node id="ui-panel-with-value">
+        <node id="ui-panel-with-all">
             <material id="null"/><texture id="null"><amplification afs="1" aft="1"/></texture>
             <descendants>
                 <noderef id="ui-panel"/>
                 <noderef id="ui-panel-timer-all"/>
                 <noderef id="ui-panel-value-all"/>
+                <noderef id="ui-panel-turn-all"/>
             </descendants>
         </node>
 
@@ -1035,7 +1036,7 @@
             <material id="clock-plastic-black-emissive"/>
             <texture id="null"><amplification afs="1" aft="1"/></texture>
             <transformations>
-                <translation x="-0.025" y="0.025" z="0.002501"/>
+                <translation x="-0.06" y="0.025" z="0.002501"/>
                 <scale sx="0.010" sy="0.010" sz="0.010"/>
                 <scale sx="0.57142857142" sy="1" sz="1"/>
             </transformations>
@@ -1046,7 +1047,7 @@
         <node id="ui-panel-timer-display">
             <material id="null"/><texture id="null"><amplification afs="1" aft="1"/></texture>
             <transformations>
-                <translation x="0" y="0" z="0.00001"/>
+                <translation x="-0.04" y="0" z="0.00001"/>
                 <translation x="0.019" y="0.025" z="0.0025"/>
             </transformations>
             <descendants>
@@ -1092,7 +1093,7 @@
             <material id="clock-plastic-black-emissive"/>
             <texture id="null"><amplification afs="1" aft="1"/></texture>
             <transformations>
-                <translation x="-0.025" y="0.010" z="0.002501"/>
+                <translation x="-0.062" y="0.010" z="0.002501"/>
                 <scale sx="0.010" sy="0.010" sz="0.010"/>
                 <scale sx="0.57142857142" sy="1" sz="1"/>
             </transformations>
@@ -1103,7 +1104,7 @@
         <node id="ui-panel-value-display">
             <material id="null"/><texture id="null"><amplification afs="1" aft="1"/></texture>
             <transformations>
-                <translation x="0" y="0" z="0.00001"/>
+                <translation x="-0.04" y="0" z="0.00001"/>
                 <translation x="0.019" y="0.010" z="0.0025"/>
             </transformations>
             <descendants>
@@ -1145,6 +1146,63 @@
                 <noderef id="change-theme-button"/>
                 <noderef id="change-theme-text-1"/>
                 <noderef id="change-theme-text-2"/>
+            </descendants>
+        </node>
+        <node id="ui-panel-turn-all">
+            <material id="null"/><texture id="null"><amplification afs="1" aft="1"/></texture>
+            <descendants>
+                <noderef id="ui-panel-turn-label"/>
+                <noderef id="ui-panel-turn-display"/>
+            </descendants>
+        </node>
+        <node id="ui-panel-turn-label">
+            <material id="clock-plastic-black-emissive"/>
+            <texture id="null"><amplification afs="1" aft="1"/></texture>
+            <transformations>
+                <translation x="0.025" y="0.025" z="0.002501"/>
+                <scale sx="0.010" sy="0.010" sz="0.010"/>
+                <scale sx="0.57142857142" sy="1" sz="1"/>
+            </transformations>
+            <descendants>
+                <leaf type="spritetext" font="consolas" text="Turn:"/>
+            </descendants>
+        </node>
+        <node id="ui-panel-turn-display">
+            <material id="null"/><texture id="null"><amplification afs="1" aft="1"/></texture>
+            <transformations>
+                <translation x="0.04" y="0" z="0.00001"/>
+                <translation x="0.019" y="0.025" z="0.0025"/>
+            </transformations>
+            <descendants>
+                <noderef id="ui-panel-turn-background"/>
+                <noderef id="ui-panel-turn"/>
+            </descendants>
+        </node>
+        <node id="ui-panel-turn-background">
+            <material id="calculator-background"/>
+            <texture id="null"><amplification afs="1" aft="1"/></texture>
+            <transformations>
+                <scale sx="0.6" sy="1.1" sz="1"/>
+                <scale sx="0.012" sy="0.012" sz="0.012"/>
+                <scale sx="0.60" sy="1" sz="1"/>
+            </transformations>
+            <descendants>
+                <leaf type="rectangle" x1="-3.0" x2="+3.0" y1="-0.5" y2="+0.5"/>
+            </descendants>
+        </node>
+        <node id="ui-panel-turn">
+            <material id="calculator-digit"/>
+            <texture id="null"><amplification afs="1" aft="1"/></texture>
+            <transformations>
+                <translation x="0" y="0" z="0.00001"/>
+                <scale sx="0.012" sy="0.012" sz="0.012"/>
+                <scale sx="0.60" sy="1" sz="1"/>
+            </transformations>
+            <descendants>
+                <leaf type="spritetext" font="calc" text="001"
+                    eval="return this.scene.orchestrator.gameState.round.toString();"
+                    format="return arguments[0].padStart(3,' ');"
+                />
             </descendants>
         </node>
         <node id="change-theme-button">
