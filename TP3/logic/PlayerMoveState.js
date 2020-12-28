@@ -30,6 +30,7 @@ class PlayerMoveState {
         this.direction = 0;
         this.newPiece = null;
         this.gameState.gameboard.deselectAll();
+        this.gameState.feedbackText = "select substacks";
     }
 
     isCellId(obj){ return obj.id < 100;}
@@ -93,6 +94,7 @@ class PlayerMoveState {
                         let sum = this.substacksLength();
                         if(sum == Math.abs(this.stackSelected.height)){
                             this.moveState = State.COMPLETE_STACKS;
+                            this.gameState.feedbackText = "submit substacks";
                         }
                     }
                 }
@@ -109,6 +111,7 @@ class PlayerMoveState {
                 else if(this.isSubmitId(obj)){
                     // submit substacks
                     this.moveState = State.FINAL;
+                    this.gameState.feedbackText = "select new piece";
                 }
                 else if(this.isCancelId(obj)){
                     this.initialState();
@@ -118,8 +121,8 @@ class PlayerMoveState {
                 if(this.isCellId(obj)){
                     // submit new piece and move
                     if(this.gameState.gameboard.move(this.stackSelected.cell, this.substacks, this.direction, obj)){
-                        this.gameState.orchestrator.nextTurn();
                         this.initialState();
+                        this.gameState.orchestrator.nextTurn();
                     }
                 }
                 else if(this.isCancelId(obj)){

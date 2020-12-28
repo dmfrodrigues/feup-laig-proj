@@ -1012,13 +1012,14 @@
                 <noderef id="ui-panel-timer-all"/>
                 <noderef id="ui-panel-value-all"/>
                 <noderef id="ui-panel-turn-all"/>
+                <noderef id="ui-panel-feedback-all"/>
             </descendants>
         </node>
 
         <node id="ui-panel">
             <material id="plastic-white"/><texture id="null"><amplification afs="1" aft="1"/></texture>
             <transformations>
-                <scale sx="0.16" sy="0.07" sz="0.005"/>
+                <scale sx="0.17" sy="0.07" sz="0.005"/>
             </transformations>
             <descendants>
                 <noderef id="cube"/>
@@ -1202,6 +1203,49 @@
                 <leaf type="spritetext" font="calc" text="001"
                     eval="return this.scene.orchestrator.gameState.round.toString();"
                     format="return arguments[0].padStart(3,' ');"
+                />
+            </descendants>
+        </node>
+        <node id="ui-panel-feedback-all">
+            <material id="null"/><texture id="null"><amplification afs="1" aft="1"/></texture>
+            <descendants>
+                <noderef id="ui-panel-feedback-display"/>
+            </descendants>
+        </node>
+        <node id="ui-panel-feedback-display">
+            <material id="null"/><texture id="null"><amplification afs="1" aft="1"/></texture>
+            <transformations>
+                <translation x="0.025" y="0" z="0.00001"/>
+                <translation x="0.019" y="0.01" z="0.0025"/>
+            </transformations>
+            <descendants>
+                <noderef id="ui-panel-feedback-background"/>
+                <noderef id="ui-panel-feedback"/>
+            </descendants>
+        </node>
+        <node id="ui-panel-feedback-background">
+            <material id="calculator-background"/>
+            <texture id="null"><amplification afs="1" aft="1"/></texture>
+            <transformations>
+                <scale sx="1.7" sy="1.1" sz="1"/>
+                <scale sx="0.012" sy="0.012" sz="0.012"/>
+                <scale sx="0.60" sy="1" sz="1"/>
+            </transformations>
+            <descendants>
+                <leaf type="rectangle" x1="-3.0" x2="+3.0" y1="-0.5" y2="+0.5"/>
+            </descendants>
+        </node>
+        <node id="ui-panel-feedback">
+            <material id="calculator-digit"/>
+            <texture id="null"><amplification afs="1" aft="1"/></texture>
+            <transformations>
+                <translation x="0" y="0" z="0.00001"/>
+                <scale sx="0.57142857142" sy="1" sz="1"/>
+                <scale sx="0.007" sy="0.007" sz="0.007"/>
+            </transformations>
+            <descendants>
+                <leaf type="spritetext" font="consolas" text="none"
+                    eval="return this.scene.orchestrator.gameState.feedbackText;"
                 />
             </descendants>
         </node>

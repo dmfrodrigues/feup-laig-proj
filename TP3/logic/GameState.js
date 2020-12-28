@@ -11,6 +11,7 @@ class GameState extends CGFobject {
 
         this.value = 0.0;
         this.round = 1;
+        this.feedbackText = "none";
     }
 
     get gameboard(){ return this._gameboard; }

@@ -13,7 +13,6 @@ class GameMove {
         this.newPieceCell = newPieceCell;
         this.turn = turn;
         this.gameboard = gameboard.toJSON();
-        console.log(gameboard, this.gameboard);
     }
 
     animate(){
