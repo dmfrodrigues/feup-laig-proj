@@ -59,12 +59,12 @@ class PlayerMoveState {
                     if(this.isStackId(obj)) obj = obj.cell;
                     this.direction = this.getDirection(obj, this.stackSelected.cell);
                     let distance = this.distance(this.direction, obj, this.stackSelected.cell);
-                    if(this.direction != 0)
+                    if(this.direction != 0){
                         if(obj.stack == null)
                             this.manageMove(obj);
                         else if(Math.sign(obj.stack.height) ==  Math.sign(this.stackSelected.height)
                         || Math.abs(obj.stack.height) <= distance)
-                            this.manageMove(obj);
+                            this.manageMove(obj);}
                     else break;
                     if(this.substacksLength() == Math.abs(this.stackSelected.height))
                         this.moveState = State.COMPLETE_STACKS;
