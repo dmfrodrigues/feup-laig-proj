@@ -22,7 +22,6 @@ class XMLscene extends CGFscene {
         super.init(application);
 
         this.sceneInited = false;
-        this.camerasInited = false;
         this.update.t0 = undefined;
 
         this.initCameras();
@@ -95,7 +94,7 @@ class XMLscene extends CGFscene {
 
     updateViews() {
         this.camera = this.graph.views.list[this.graph.views.current];
-        if(this.interface) this.interface.setActiveCamera(this.camera);
+        //if(this.interface) this.interface.setActiveCamera(this.camera);
     }
 
     /**
@@ -123,9 +122,7 @@ class XMLscene extends CGFscene {
 
         this.setGlobalAmbientLight(...this.graph.ambient);
 
-        if(!this.camerasInited){
             this.createCameraControls();
-        }
 
         this.initLights();
         
@@ -135,7 +132,6 @@ class XMLscene extends CGFscene {
             this.time = 0;
 
         this.sceneInited = true;
-        this.camerasInited = true
         this.orchestrator.themeInited=true;
     }
 
