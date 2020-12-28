@@ -17,6 +17,8 @@ var app = {};
 serialInclude(
     [
         '../lib/CGF.js',
+        '../lib/CGFOBJModel.js',
+        '../lib/CGFResourceReader.js',
         'Stack.js',
         'XMLscene.js',
         'MyInterface.js',

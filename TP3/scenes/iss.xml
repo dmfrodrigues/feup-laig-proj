@@ -4,9 +4,8 @@
         <root id="root"/>
         <gameboard id="gameboard">
             <transformations>
-                <translation x="0" y="0" z="-0.2"/>
-                <rotation axis="y" angle="90"/>
-                <translation x="0.05" y="0.51" z="0"/>
+                <translation x="0" y="0.1" z="0"/>
+                <!-- <rotation axis="y" angle="45"/> -->
             </transformations>
             <cells id="cell">
                 <cell i="0" j="0" x="-0.0693" y="0.001" z="-0.12"/>
@@ -110,24 +109,24 @@
     </animations>
     <bindings>
     </bindings>
-    <views default="default_camera">
+    <views default="player1_camera">
         <!-- at least one of the following type of cameras must be declared -->
-        <perspective id="default_camera" near="0.3" far="1000000" angle="50">
-            <from x="1" y="1" z="1"/>
+        <perspective id="default_camera" near="0.2" far="1000000" angle="60">
+            <from x="5" y="5" z="5"/>
             <to   x="0" y="0" z="0"/>
         </perspective>
-        <perspective id="player1_camera" near="0.3" far="1000000" angle="50">
-            <from x="+0.60" y="0.90" z="-0.1"/>
-            <to   x="+0.00" y="0.5" z="-0.17"/>
+        <perspective id="player1_camera" near="0.2" far="1000000" angle="60">
+            <from x="0" y="0.6" z="0.45"/>
+            <to   x="0" y="0.5" z="0.33"/>
         </perspective>
-        <perspective id="player2_camera" near="0.3" far="1000000" angle="50">
-            <from x="-0.60" y="0.90" z="-0.10"/>
-            <to   x="-0.00" y="0.5" z="-0.17"/>
+        <perspective id="player2_camera" near="0.2" far="1000000" angle="60">
+            <from x="0" y="0.6" z="-0.45"/>
+            <to   x="0" y="0.5" z="-0.33"/>
         </perspective>
     </views>
     <illumination>
-        <ambient    r="0.1" g="0.1" b="0.1" a="1"/>
-        <!-- <ambient    r="0.9" g="0.9" b="0.9" a="1"/> -->
+        <!-- <ambient    r="0.1" g="0.1" b="0.1" a="1"/> -->
+        <ambient    r="0.9" g="0.9" b="0.9" a="1"/>
         <background r="0.5" g="0.0" b="0.0" a="1.0"/>
     </illumination>
     <lights>
@@ -462,6 +461,7 @@
             <descendants>
                 <noderef id="skysphere"/>
                 <noderef id="earth-animated-in-space"/>
+                <noderef id="iss-in-space"/>
             </descendants>
         </node>
 
@@ -1139,7 +1139,8 @@
             <material id="null"/><texture id="null"><amplification afs="1" aft="1"/></texture>
             <transformations>
                 <scale sx="0.01" sy="0.01" sz="0.01"/>
-                <translation x="-6786000" y="0" z="0"/>
+                <translation x="0" y="-6786000" z="0"/>
+                <rotation axis="z" angle="90"/>
                 <rotation axis="x" angle="-23.5"/>
             </transformations>
             <descendants>
@@ -1194,9 +1195,26 @@
                 <leaf type="sphere" radius="6388000" slices="256" stacks="120"/>
             </descendants>
         </node>
+        <node id="iss-in-space">
+            <material id="null"/><texture id="null"><amplification afs="1" aft="1"/></texture>
+            <descendants>
+                <noderef id="iss"/>
+            </descendants>
+        </node>
+        <node id="iss">
+            <material id="null"/><texture id="null"><amplification afs="1" aft="1"/></texture>
+            <transformations>
+                <scale sx="0.111" sy="0.111" sz="0.111"/>
+                <translation x="0" y="+31.075" z="+98.044"/>
+            </transformations>
+            <descendants>
+                <leaf type="obj" url="obj/iss/iss-interior-neworder-hatchesopen-lessmodules.obj"/>
+            </descendants>
+        </node>
         <node id="skysphere">
             <material id="star-map"/><texture id="star-map"><amplification afs="1" aft="1"/></texture>
             <transformations>
+                <rotation axis="z" angle="90"/>
                 <rotation axis="y" angle="5"/>
                 <rotation axis="x" angle="5"/>
                 <rotation axis="x" angle="-90"/>
