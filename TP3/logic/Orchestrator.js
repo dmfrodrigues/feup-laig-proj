@@ -72,6 +72,18 @@ class Orchestrator extends CGFobject {
     nextTurn(){
         let orchestrator = this;
         let gamestate = this.gameState;
+
+        server.game_over(gamestate).then(function(response){
+            console.log(response, response.isgameover, response.winner);
+            if(response.isgameover)
+            {
+                gamestate.isGameOver   =        true;
+                gamestate.feedbackText = "game over"; 
+                
+                return;
+            }
+            
+        });
         gamestate.nextTurn();
         if(this.isComputer(gamestate.turn)){
             this.gameState.feedbackText = "computer move"; 
