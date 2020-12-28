@@ -1447,6 +1447,11 @@ class MySceneGraph {
         return this._pieces;
     }
 
+    startCameraAnimation(){
+        this.cameraAnimation = true;
+        this.cameraAnimStartTime = 0;
+    }
+
     handleCameraAnimation(t) {
         let animDuration = 2.0;
         if(this.cameraAnimation){

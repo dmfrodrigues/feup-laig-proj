@@ -53,6 +53,10 @@ class GameBoard extends CGFobject {
     move(originCell, substacks, direction, newPieceCell) {
         if (newPieceCell.stack != null || ( 1 < direction && direction > 6 ))
             return false;
+
+        let turn = this.scene.orchestrator.gameState.turn;
+        let gameMove = new GameMove(this.scene, originCell, substacks, direction, newPieceCell, turn, this);
+        this.scene.orchestrator.gameSequence.addGameMove(gameMove);
         
         for (let k = 0; k < substacks.length; k++) {
             let absHeight = Math.abs(substacks[k]);
@@ -103,9 +107,6 @@ class GameBoard extends CGFobject {
         }
         
         newPieceCell.stack = new PieceStack(this.scene, 1 * (Math.sign(originCell.stack.height)));
-
-        let gameMove = new GameMove(this.scene, originCell, substacks, direction, newPieceCell, this);
-        this.scene.orchestrator.gameSequence.addGameMove(gameMove);
         
         originCell.stack = null;
         
