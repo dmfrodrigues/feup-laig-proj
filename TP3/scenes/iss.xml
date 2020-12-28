@@ -73,20 +73,39 @@
         </gameboard>
         <piece id="piece" height="0.002"/>
         <pieceview classname="RoomPieceStackView"/>
-        <ui id="ui">
-            <transformations>
-                <translation x="0.24" y="0.54" z="-0.2"/>
-                <rotation axis="y" angle="90"/>
-                <rotation axis="x" angle="-45"/>
-            </transformations>
-            <panel id="ui-panel-with-value"/>
-            <value id="ui-panel-value"/>
-            <buttons>
-                <button id="submit"/>
-                <button id="undo"/>
-                <button id="change-theme"/>
-            </buttons>
-        </ui>
+        <uis>
+            <ui id="ui-1">
+                <transformations>
+                    <translation x="+0.2" y="0.228" z="0.17"/>
+                    <rotation axis="y" angle="-15"/>
+                    <rotation axis="x" angle="-45"/>
+                </transformations>
+                <panel id="ui-panel-with-value"/>
+                <value id="ui-panel-value"/>
+                <buttons>
+                    <button id="submit"/>
+                    <button id="undo"/>
+                    <button id="cancel"/>
+                    <button id="change-theme"/>
+                </buttons>
+            </ui>
+            <ui id="ui-2">
+                <transformations>
+                    <translation x="-0.2" y="0.228" z="-0.17"/>
+                    <rotation axis="y" angle="-15"/>
+                    <rotation axis="y" angle="-180"/>
+                    <rotation axis="x" angle="-45"/>
+                </transformations>
+                <panel id="ui-panel-with-value"/>
+                <value id="ui-panel-value"/>
+                <buttons>
+                    <button id="submit"/>
+                    <button id="undo"/>
+                    <button id="cancel"/>
+                    <button id="change-theme"/>
+                </buttons>
+            </ui>
+        </uis>
     </initials>
     <animations>
         <animation id="wood-box-lid-animation" loop="1" easing="easeInMidOutSine">
@@ -867,18 +886,76 @@
             <material id="null"/><texture id="null"><amplification afs="1" aft="1"/></texture>
             <descendants>
                 <noderef id="ui-panel"/>
+                <noderef id="ui-panel-timer-all"/>
                 <noderef id="ui-panel-value-all"/>
             </descendants>
         </node>
 
-
         <node id="ui-panel">
             <material id="plastic-white"/><texture id="null"><amplification afs="1" aft="1"/></texture>
             <transformations>
-                <scale sx="0.14" sy="0.07" sz="0.005"/>
+                <scale sx="0.16" sy="0.07" sz="0.005"/>
             </transformations>
             <descendants>
                 <noderef id="cube"/>
+            </descendants>
+        </node>
+
+        <node id="ui-panel-timer-all">
+            <material id="null"/><texture id="null"><amplification afs="1" aft="1"/></texture>
+            <descendants>
+                <noderef id="ui-panel-timer-label"/>
+                <noderef id="ui-panel-timer-display"/>
+            </descendants>
+        </node>
+        <node id="ui-panel-timer-label">
+            <material id="clock-plastic-black-emissive"/>
+            <texture id="null"><amplification afs="1" aft="1"/></texture>
+            <transformations>
+                <translation x="-0.025" y="0.025" z="0.002501"/>
+                <scale sx="0.010" sy="0.010" sz="0.010"/>
+                <scale sx="0.57142857142" sy="1" sz="1"/>
+            </transformations>
+            <descendants>
+                <leaf type="spritetext" font="consolas" text="Time:"/>
+            </descendants>
+        </node>
+        <node id="ui-panel-timer-display">
+            <material id="null"/><texture id="null"><amplification afs="1" aft="1"/></texture>
+            <transformations>
+                <translation x="0" y="0" z="0.00001"/>
+                <translation x="0.019" y="0.025" z="0.0025"/>
+            </transformations>
+            <descendants>
+                <noderef id="ui-panel-timer-background"/>
+                <noderef id="ui-panel-timer"/>
+            </descendants>
+        </node>
+        <node id="ui-panel-timer-background">
+            <material id="calculator-background"/>
+            <texture id="null"><amplification afs="1" aft="1"/></texture>
+            <transformations>
+                <scale sx="1.15" sy="1.1" sz="1"/>
+                <scale sx="0.012" sy="0.012" sz="0.012"/>
+                <scale sx="0.60" sy="1" sz="1"/>
+            </transformations>
+            <descendants>
+                <leaf type="rectangle" x1="-3.0" x2="+3.0" y1="-0.5" y2="+0.5"/>
+            </descendants>
+        </node>
+        <node id="ui-panel-timer">
+            <material id="calculator-digit"/>
+            <texture id="null"><amplification afs="1" aft="1"/></texture>
+            <transformations>
+                <translation x="0" y="0" z="0.00001"/>
+                <scale sx="0.012" sy="0.012" sz="0.012"/>
+                <scale sx="0.60" sy="1" sz="1"/>
+            </transformations>
+            <descendants>
+                <leaf type="spritetext" font="calc" text="00:00"
+                    eval="return ('0' + Math.floor(this.scene.time/60)).slice(-2) + ':' + ('0' + Math.floor(this.scene.time)%60).slice(-2); "
+                    format="return arguments[0].padStart(5,' ');"
+                />
             </descendants>
         </node>
         <node id="ui-panel-value-all">
@@ -892,7 +969,7 @@
             <material id="clock-plastic-black-emissive"/>
             <texture id="null"><amplification afs="1" aft="1"/></texture>
             <transformations>
-                <translation x="-0.025" y="0.015" z="0.002501"/>
+                <translation x="-0.025" y="0.010" z="0.002501"/>
                 <scale sx="0.010" sy="0.010" sz="0.010"/>
                 <scale sx="0.57142857142" sy="1" sz="1"/>
             </transformations>
@@ -904,7 +981,7 @@
             <material id="null"/><texture id="null"><amplification afs="1" aft="1"/></texture>
             <transformations>
                 <translation x="0" y="0" z="0.00001"/>
-                <translation x="0.019" y="0.015" z="0.0025"/>
+                <translation x="0.019" y="0.010" z="0.0025"/>
             </transformations>
             <descendants>
                 <noderef id="ui-panel-value-background"/>
@@ -938,7 +1015,7 @@
         <node id="change-theme">
             <material id="null"/><texture id="null"><amplification afs="1" aft="1"/></texture>
             <transformations>
-                <translation x="0.04" y="-0.015" z="0.0035"/>
+                <translation x="0.06" y="-0.015" z="0.0035"/>
                 <rotation axis="x" angle="90"/>
             </transformations>
             <descendants>
@@ -983,7 +1060,7 @@
         <node id="submit">
             <material id="null"/><texture id="null"><amplification afs="1" aft="1"/></texture>
             <transformations>
-                <translation x="0.0" y="-0.015" z="0.0035"/>
+                <translation x="0.02" y="-0.015" z="0.0035"/>
                 <rotation axis="x" angle="90"/>
             </transformations>
             <descendants>
@@ -1015,7 +1092,7 @@
         <node id="undo">
             <material id="null"/><texture id="null"><amplification afs="1" aft="1"/></texture>
             <transformations>
-                <translation x="-0.04" y="-0.015" z="0.0035"/>
+                <translation x="-0.06" y="-0.015" z="0.0035"/>
                 <rotation axis="x" angle="90"/>
             </transformations>
             <descendants>
@@ -1044,6 +1121,52 @@
                 <leaf type="spritetext" font="consolas" text="Undo"/>
             </descendants>
         </node>
+        <node id="cancel">
+            <material id="null"/><texture id="null"><amplification afs="1" aft="1"/></texture>
+            <transformations>
+                <translation x="-0.02" y="-0.015" z="0.0035"/>
+                <rotation axis="x" angle="90"/>
+            </transformations>
+            <descendants>
+                <noderef id="cancel-button"/>
+                <noderef id="cancel-text-1"/>
+                <noderef id="cancel-text-2"/>
+            </descendants>
+        </node>
+        <node id="cancel-button">
+            <material id="plastic-red"/><texture id="null"><amplification afs="1" aft="1"/></texture>
+            <transformations>
+                <scale sx="0.030" sy="0.002" sz="0.020"/>
+            </transformations>
+            <descendants>
+                <noderef id="cube"/>
+            </descendants>
+        </node>
+        <node id="cancel-text-1">
+            <material id="plastic-white"/><texture id="null"><amplification afs="1" aft="1"/></texture>
+            <transformations>
+                <translation x="0" y="0.00101" z="-0.004"/>
+                <rotation axis="x" angle="-90"/>
+                <scale sx="0.57142857142" sy="1" sz="1"/>
+                <scale sx="0.007" sy="0.007" sz="0.007"/>
+            </transformations>
+            <descendants>
+                <leaf type="spritetext" font="consolas" text="Cancel"/>
+            </descendants>
+        </node>
+        <node id="cancel-text-2">
+            <material id="plastic-white"/><texture id="null"><amplification afs="1" aft="1"/></texture>
+            <transformations>
+                <translation x="0" y="0.00101" z="+0.004"/>
+                <rotation axis="x" angle="-90"/>
+                <scale sx="0.57142857142" sy="1" sz="1"/>
+                <scale sx="0.007" sy="0.007" sz="0.007"/>
+            </transformations>
+            <descendants>
+                <leaf type="spritetext" font="consolas" text="Move"/>
+            </descendants>
+        </node>
+        
         <node id="cube">
             <material id="null"/>
             <texture id="null">
