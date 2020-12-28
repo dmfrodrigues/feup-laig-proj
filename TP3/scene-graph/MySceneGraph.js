@@ -1020,6 +1020,7 @@ class MySceneGraph {
                         case "spritetext": leaf = this.parseSpriteText     (descendant,           descendant.id); break;
                         case "spriteanim": leaf = this.parseSpriteAnimation(descendant,           descendant.id); break;
                         case "vertex"    : leaf = this.parseVertex         (descendant,           descendant.id); break;
+                        case "obj"       : leaf = this.parseObj            (descendant,           descendant.id); break;
                         default:
                             return `no such leaf type "${descendant.attributes.type}"`;
                     }
@@ -1425,6 +1426,17 @@ class MySceneGraph {
         let y = this.parseFloat(node, 'y', messageError); if(typeof y === "string") return y;
         let z = this.parseFloat(node, 'z', messageError); if(typeof z === "string") return z;
         return new Vertex(this.scene, id, x, y, z);
+    }
+
+    /**
+     * Parses an OBJ object
+     * @param {XMLnode} node XML node
+     * @param {string} messageError String to print in case of error
+     */
+    parseObj(node, messageError){
+        let url = this.parseString(node, 'url', messageError);
+        let ret = new CGFOBJModel(this.scene, "scenes/"+url);
+        return ret;
     }
 
     get gameboard(){

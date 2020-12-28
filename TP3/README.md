@@ -17,4 +17,4 @@
 ----
 ## Issues/Problems
 
-- (items describing unimplemented features, bugs, problems, etc.)
+- Ignoring scaling in MTL OBJ files
