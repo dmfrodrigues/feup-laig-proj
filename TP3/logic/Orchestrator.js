@@ -33,6 +33,7 @@ class Orchestrator extends CGFobject {
         let orchestrator = this;
         let gamestate = this.gameState;
         if(this.isComputer(gamestate.turn)){
+            this.gameState.feedbackText = "computer move"; 
             server.choose_move(
                 gamestate,
                 gamestate.turn,
@@ -49,7 +50,7 @@ class Orchestrator extends CGFobject {
                 );
                 orchestrator.nextTurn();
             });
-        }
+        }else this.gameState.moveState.initialState();
     }
 
     managePick(mode, results){
@@ -73,6 +74,7 @@ class Orchestrator extends CGFobject {
         let gamestate = this.gameState;
         gamestate.nextTurn();
         if(this.isComputer(gamestate.turn)){
+            this.gameState.feedbackText = "computer move"; 
             server.choose_move(
                 gamestate,
                 gamestate.turn,
@@ -89,7 +91,7 @@ class Orchestrator extends CGFobject {
                 );
                 orchestrator.nextTurn();
             });
-        }
+        }else this.gameState.moveState.initialState();
     }
 
     onObjectSelected(obj, id){
