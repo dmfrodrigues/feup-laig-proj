@@ -180,7 +180,7 @@
         <texture id="gameboard"           path="./scenes/gameboard/gameboard.png"       />
         <texture id="cell"                path="./scenes/gameboard/cell.jpg"            />
         <texture id="star-map"            path="./scenes/images/star-map.png"           />
-        <texture id="blue-marble"         path="./scenes/images/earth/blue-marble-larger.jpeg"/>
+        <texture id="blue-marble"         path="./scenes/images/earth/blue-marble-larger-abitsmaller.png"/>
         <texture id="earth-night-lights"  path="./scenes/images/earth/night-lights-larger-transparent-60.png"/>
         <texture id="earth-clouds"        path="./scenes/images/earth/clouds-transparent.png"/>
     </textures>
