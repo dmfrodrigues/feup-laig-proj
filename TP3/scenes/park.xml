@@ -116,8 +116,8 @@
     <views default="default_camera">
         <!-- at least one of the following type of cameras must be declared -->
         <perspective id="default_camera" near="0.1" far="500" angle="45">
-            <from x="0" y="0" z="0"/>
-            <to   x="2.5" y="50.0" z="-25"/>
+            <from x="1" y="1" z="1"/>
+            <to   x="0" y="0.5" z="0"/>
         </perspective>
         <perspective id="player1_camera" near="0.1" far="500" angle="50">
             <from x="-0.10" y="0.9" z="+0.60"/>
@@ -136,7 +136,7 @@
         <!-- NOTE: at least one light should be present, and a maximum of eight lights is accepted. -->
         <light id="sun">
             <enable value="1"/>
-            <position x="2.5" y="50.0" z="-25" w="1.0"/>
+            <position x="2.4" y="90.1" z="-43.3" w="1.0"/>
             <ambient  r="0.30" g="0.30" b="0.30" a="1.0"/>
             <diffuse  r="0.70" g="0.70" b="0.70" a="1.0"/>
             <specular r="0.70" g="0.70" b="0.70" a="1.0"/>
