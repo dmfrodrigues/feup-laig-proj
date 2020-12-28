@@ -83,9 +83,18 @@ main=function(){
         document.getElementById('menu').style.display = 'none';
         document.getElementById('info-text').style.display = 'block';
     });
+
     document.getElementById('exit-info').addEventListener('click', ()=>{
         document.getElementById('menu').style.display = 'block';
         document.getElementById('info-text').style.display = 'none';
+    });
+
+    document.getElementById('menu-button').addEventListener('click', ()=>{
+        location.reload();
+    });
+
+    document.getElementById('movie-button').addEventListener('click', ()=>{
+        
     });
 
 }
