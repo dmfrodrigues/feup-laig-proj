@@ -1,0 +1,17 @@
+newmtl branch_ends
+Ka 1.0000 1.0000 1.0000
+Kd 1.0000 1.0000 1.0000
+Ks 0.0000 0.0000 0.0000
+map_Kd textures/olive_tree_cap.jpg
+
+newmtl leaves
+Ka 1.0000 1.0000 1.0000
+Kd 1.0000 1.0000 1.0000
+Ks 0.0000 0.0000 0.0000
+map_Kd textures/olive_tree-leaf.png
+
+newmtl trunk
+Ka 1.0000 1.0000 1.0000
+Kd 1.0000 1.0000 1.0000
+Ks 0.0000 0.0000 0.0000
+map_Kd textures/olive_tree_bark.jpg
