@@ -90,6 +90,34 @@ class Server {
         .then((response) => response.json())
         .then((response) => response.response);
     }
+
+    /**
+     * Checks game over.
+     * 
+     * @param {GameState} gamestate Game state
+     */
+    game_over(gamestate){
+        let gamestate_json = gamestate.toJSON();
+        let params = {
+            command: 'game_over',
+            args: {
+                gamestate: gamestate_json
+            }
+        };
+        return fetch(
+            this._url,
+            {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json'
+                },
+                body: JSON.stringify(params)
+            }
+        )
+        .then((response) => response.json())
+        .then((response) => response.response);
+    }
 }
 
 var server = new Server('https://feup-plog-tp1-staging.herokuapp.com/');

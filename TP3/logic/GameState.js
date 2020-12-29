@@ -10,7 +10,9 @@ class GameState extends CGFobject {
         this.moveState = new PlayerMoveState(this);
 
         this.value = 0.0;
+        this.isGameOver = false;
         this.round = 1;
+        this.gametime = 0;
         this.feedbackText = "none";
     }
 

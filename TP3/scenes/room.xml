@@ -1078,7 +1078,7 @@
             </transformations>
             <descendants>
                 <leaf type="spritetext" font="calc" text="00:00"
-                    eval="return ('0' + Math.floor(this.scene.time/60)).slice(-2) + ':' + ('0' + Math.floor(this.scene.time)%60).slice(-2); "
+                    eval="return ('0' + Math.floor(this.scene.orchestrator.gameState.gametime/60)).slice(-2) + ':' + ('0' + Math.floor(this.scene.orchestrator.gameState.gametime)%60).slice(-2); "
                     format="return arguments[0].padStart(5,' ');"
                 />
             </descendants>

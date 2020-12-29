@@ -83,6 +83,34 @@ h1 {
     float: right;
 }
 
+.button {
+    width: 10em;
+    margin: 1em;
+    cursor: pointer;
+    border: none;
+    background-color: darkslategray;
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+    padding: 0.8em 1.2em 0.8em 1.2em;
+}
+
+.button-disabled{
+    width: 10em;
+    margin: 1em;
+    cursor: pointer;
+    border: none;
+    background-color: slategray;
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+    padding: 0.8em 1.2em 0.8em 1.2em;
+}
+
+.button:hover{
+  background-color: slategray;
+}
+
 #info-text {
     display: none;
     width: 50em;
@@ -93,10 +121,40 @@ h1 {
     padding: 1em;  
     margin: auto;  
     position: absolute;
-	top:0;
-	bottom: 0;
-	left: 0;
-	right: 0;
+	  top:0;
+	  bottom: 0;
+	  left: 0;
+	  right: 0;
+}
+#game-over {
+    display: none;
+    width: 35em;
+    height: 15em; 
+    text-align: center;
+    color: darkslategray;
+    background-color: white;
+    padding: 1em;  
+    margin: auto;  
+    position: absolute;
+	  top:0;
+	  bottom: 0;
+	  left: 0;
+	  right: 0;
+}
+
+#movie-bar {
+    display: none;
+    width: 22em;
+    height:3em; 
+    text-align: center;
+    color: darkslategray;
+    background-color: white;
+    padding: 0.2em;
+    margin: auto;  
+}
+
+#movie-bar *{
+  margin: 0;
 }
 
 </style>
@@ -152,6 +210,16 @@ h1 {
             After separating the stack, all substacks must move in the same direction, and each stack travels as many hexes as it is tall (e.g., a 2-substack must travel 2 hexes), including over adversary stacks.</p>
             <p>2) Place a new piece: grab a new piece from the reserve, and place it in any empty hex with your color facing up (thus creating a 1-stack).</p>
             <p>The objective is to connect any pair of opposite sides of the board with a contiguous chain of stacks with your color. A player can also lose when he has no legal moves in item 1.</p>
+    </div>
+    <div class="content" id="game-over">
+      <h1>Game Over</h1>
+      <h2>Winner <span id="winner"> ? </span></h2>
+      <button id="menu-button-gameover" class="button">Menu</button>
+      <button id="movie-button" class="button">Movie replay</button>
+    </div>
+    <div class="content" id="movie-bar">
+      <button id="restart-button" class="button">Restart Movie</button>
+      <button id="menu-button-movie" class="button">Return to menu</button>
     </div>
     </div>
 </body>

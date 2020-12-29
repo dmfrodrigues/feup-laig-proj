@@ -9,6 +9,10 @@ class GameBoard extends CGFobject {
 
         this._gameboardSetup = null;
         
+        this.init();
+    }
+
+    init(){
         this._cells = new Array(9);
         for(let i = 0; i <= 8; ++i){
             this._cells[i] = [];
@@ -29,6 +33,12 @@ class GameBoard extends CGFobject {
 
     set gameboardSetup(setup){ this._gameboardSetup = setup; }
     get gameboardSetup(){ return this._gameboardSetup; }
+
+    getCellByID(id){
+        let i = Math.floor(id/10) - 1; 
+        let j = id % 10 - 1;
+        return this._cells[i][j];
+    }
 
     getCell(i, j){
         return this._cells[i][j];
@@ -55,8 +65,10 @@ class GameBoard extends CGFobject {
             return false;
 
         let turn = this.scene.orchestrator.gameState.turn;
-        let gameMove = new GameMove(this.scene, originCell, substacks, direction, newPieceCell, turn, this);
-        this.scene.orchestrator.gameSequence.addGameMove(gameMove);
+        let gameMove = new GameMove(this.scene, originCell.id, substacks, direction, newPieceCell.id, turn, this);
+        if(!this.scene.orchestrator.animator.active){
+            this.scene.orchestrator.gameSequence.addGameMove(gameMove);
+        }
         
         for (let k = 0; k < substacks.length; k++) {
             let absHeight = Math.abs(substacks[k]);
