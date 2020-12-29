@@ -1356,6 +1356,9 @@
             <texture id="null">
                 <amplification afs="1" aft="1"/>
             </texture>
+            <transformations>
+                <translation x="0" y="0.3" z="0"/>
+            </transformations>
             <descendants>
                 <leaf type="obj" url="obj/trees/olive/olive.obj"/>
             </descendants>
