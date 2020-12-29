@@ -8,7 +8,7 @@ class Orchestrator extends CGFobject {
         super(scene);
         this.scene.orchestrator = this;
         this.gameSequence  = new GameSequence();
-        // this.animator     = new Animator(this.scene, this, this.gameSequence);
+        this.animator      = new Animator(this, this.gameSequence);
         this.themeSelected = 0;
         this.themeInited   = false;
         this.themes       = themes;
@@ -72,6 +72,20 @@ class Orchestrator extends CGFobject {
     nextTurn(){
         let orchestrator = this;
         let gamestate = this.gameState;
+        server.game_over(gamestate).then(function(response){
+            if(response.isgameover)
+            {
+                gamestate.isGameOver   =        true;
+                gamestate.feedbackText = "game over"; 
+                if(orchestrator.isComputer(response.winner))
+                    document.getElementById('winner').innerHTML = 'Computer';
+                else 
+                    document.getElementById('winner').innerHTML = 'Player ' + response.winner;
+                document.getElementById('game-over').style.display = 'block';
+                return;
+            }
+            
+        });
         gamestate.nextTurn();
         if(this.isComputer(gamestate.turn)){
             this.gameState.feedbackText = "computer move"; 
@@ -95,7 +109,8 @@ class Orchestrator extends CGFobject {
     }
 
     onObjectSelected(obj, id){
-        if(this.isComputer(this.gameState.turn)) return;
+        if(this.isComputer(this.gameState.turn) || this.gameState.isGameOver) 
+            return;
 
         if(obj.idObj == 'change-theme'){
             this.changeTheme();
@@ -123,7 +138,10 @@ class Orchestrator extends CGFobject {
 
     update(t){
         this.theme.update(t);
-        // this.animator.update(t);
+        if(this.animator.active)
+            this.animator.update(t);
+        if(!this.gameState.isGameOver)
+            this.gameState.gametime = this.scene.time;
     }
 
     setValue(value){
@@ -135,8 +153,7 @@ class Orchestrator extends CGFobject {
         // ...
         if(!this.themeInited) return;
         this.theme.display();
-        this.gameState.gameboard.display();
-        // this.animator.display();
+        this.animator.display();
         for(let i in this.theme.uis)
             this.theme.uis[i].display();
         // ...
