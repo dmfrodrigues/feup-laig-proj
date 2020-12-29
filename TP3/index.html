@@ -95,6 +95,18 @@ h1 {
     padding: 0.8em 1.2em 0.8em 1.2em;
 }
 
+.button-disabled{
+    width: 10em;
+    margin: 1em;
+    cursor: pointer;
+    border: none;
+    background-color: slategray;
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+    padding: 0.8em 1.2em 0.8em 1.2em;
+}
+
 .button:hover{
   background-color: slategray;
 }
@@ -128,6 +140,21 @@ h1 {
 	  bottom: 0;
 	  left: 0;
 	  right: 0;
+}
+
+#movie-bar {
+    display: none;
+    width: 22em;
+    height:3em; 
+    text-align: center;
+    color: darkslategray;
+    background-color: white;
+    padding: 0.2em;
+    margin: auto;  
+}
+
+#movie-bar *{
+  margin: 0;
 }
 
 </style>
@@ -187,8 +214,12 @@ h1 {
     <div class="content" id="game-over">
       <h1>Game Over</h1>
       <h2>Winner <span id="winner"> ? </span></h2>
-      <button id="menu-button" class="button">Menu</button>
+      <button id="menu-button-gameover" class="button">Menu</button>
       <button id="movie-button" class="button">Movie replay</button>
+    </div>
+    <div class="content" id="movie-bar">
+      <button id="restart-button" class="button">Restart Movie</button>
+      <button id="menu-button-movie" class="button">Return to menu</button>
     </div>
     </div>
 </body>

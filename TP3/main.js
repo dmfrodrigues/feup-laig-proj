@@ -55,6 +55,7 @@ serialInclude(
         'logic/PlayerMoveState.js',
         'logic/Button.js',
         'logic/UserInterface.js',
+        'logic/Animator.js',
 
 main=function(){
     app = new CGFapplication(document.getElementById('drawingBoard'));
@@ -89,12 +90,12 @@ main=function(){
         document.getElementById('info-text').style.display = 'none';
     });
 
-    document.getElementById('menu-button').addEventListener('click', ()=>{
+    document.getElementById('menu-button-gameover').addEventListener('click', ()=>{
         location.reload();
     });
 
-    document.getElementById('movie-button').addEventListener('click', ()=>{
-        
+    document.getElementById('menu-button-movie').addEventListener('click', ()=>{
+        location.reload();
     });
 
 }
@@ -122,4 +123,18 @@ function startGame(gameMode, level){
     // Check console for loading errors
     var orchestrator = new Orchestrator(gameScene, ['room.xml', 'iss.xml'], gameMode, level);
     // var orchestrator = new Orchestrator(gameScene, ['iss.xml', 'room.xml'], gameMode, level);
+
+    document.getElementById('movie-button').addEventListener('click', ()=>{
+        orchestrator.animator.start();
+        document.getElementById('movie-bar').style.display = 'block';
+        document.getElementById('game-over').style.display = 'none';
+        document.getElementById('restart-button').disabled = true;
+        document.getElementById('restart-button').className = "button-disabled";
+    });
+
+    document.getElementById('restart-button').addEventListener('click', ()=>{
+        orchestrator.animator.reset();
+        document.getElementById('restart-button').className = "button-disabled";
+        document.getElementById('restart-button').disabled = true;
+    });
 }
