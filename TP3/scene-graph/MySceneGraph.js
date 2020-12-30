@@ -1048,7 +1048,7 @@ class MySceneGraph {
                         case "sphere"    : leaf = this.parseSphere         (descendant,           descendant.id); break;
                         case "torus"     : leaf = this.parseTorus          (descendant,           descendant.id); break;
                         case "plane"     : leaf = this.parsePlane          (descendant,           descendant.id); break;
-                        case "patch"     : leaf = this.parsePatch          (descendant,           descendant.id); break;
+                        case "patch"     : leaf = this.parsePatch          (descendant, afs, aft, descendant.id); break;
                         case "defbarrel" : leaf = this.parseBarrel         (descendant,           descendant.id); break;
                         case "spritetext": leaf = this.parseSpriteText     (descendant,           descendant.id); break;
                         case "spriteanim": leaf = this.parseSpriteAnimation(descendant,           descendant.id); break;
@@ -1365,7 +1365,7 @@ class MySceneGraph {
      * @param {XMLnode} node XML node
      * @param {string} messageError String to print in case of error
      */
-    parsePatch(node, messageError){
+    parsePatch(node, afs, aft, messageError){
         let npartsU = this.parseInt(node, 'npartsU', messageError); if(typeof npartsU === "string") return npartsU;
         let npartsV = this.parseInt(node, 'npartsV', messageError); if(typeof npartsV === "string") return npartsV;
         
@@ -1383,7 +1383,7 @@ class MySceneGraph {
             }
         }
         
-        return new Patch(this.scene, npartsU, npartsV, npointsU, npointsV, controlPoints);
+        return new Patch(this.scene, npartsU, npartsV, npointsU, npointsV, controlPoints, afs, aft);
     }
 
     /**

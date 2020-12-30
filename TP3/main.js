@@ -122,8 +122,7 @@ function startGame(gameMode, level){
 
 	// create and load graph, and associate it to scene. 
     // Check console for loading errors
-    var orchestrator = new Orchestrator(gameScene, ['room.xml', 'iss.xml'], gameMode, level);
-    //var orchestrator = new Orchestrator(gameScene, ['iss.xml', 'room.xml'], gameMode, level);
+    var orchestrator = new Orchestrator(gameScene, ['room.xml', 'iss.xml', 'alentejo.xml'], gameMode, level);
 
     document.getElementById('movie-button').addEventListener('click', ()=>{
         orchestrator.animator.start();
