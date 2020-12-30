@@ -467,6 +467,7 @@
             <descendants>
                 <noderef id="sky-and-ground"/>
                 <noderef id="olive-in-scene"/>
+                <noderef id="wheat-line"/>
             </descendants>
         </node>
 
@@ -1368,6 +1369,82 @@
             </transformations>
             <descendants>
                 <leaf type="obj" url="obj/trees/olive/olive.obj"/>
+            </descendants>
+        </node>
+        <node id="wheat">
+            <material id="null"/>
+            <texture id="null">
+                <amplification afs="1" aft="1"/>
+            </texture>
+            <transformations>
+                <scale sx="1" sy="1" sz="1"/>
+                <scale sx="0.016" sy="0.016" sz="0.016"/>
+            </transformations>
+            <descendants>
+                <leaf type="obj" url="obj/wheat/wheat.obj"/>
+            </descendants>
+        </node>
+        <node id="wheat-1"><material id="null"/><texture id="null"><amplification afs="1" aft="1"/></texture><transformations><translation x="-0.20" y="0" z="-0.20"/><rotation axis="y" angle="000"/><scale sx="1" sz="1" sy="0.90"/></transformations><descendants><noderef id="wheat"/></descendants></node>
+        <node id="wheat-2"><material id="null"/><texture id="null"><amplification afs="1" aft="1"/></texture><transformations><translation x="-0.20" y="0" z="+0.20"/><rotation axis="y" angle="200"/><scale sx="1" sz="1" sy="1.05"/></transformations><descendants><noderef id="wheat"/></descendants></node>
+        <node id="wheat-3"><material id="null"/><texture id="null"><amplification afs="1" aft="1"/></texture><transformations><translation x="+0.20" y="0" z="-0.20"/><rotation axis="y" angle="130"/><scale sx="1" sz="1" sy="0.95"/></transformations><descendants><noderef id="wheat"/></descendants></node>
+        <node id="wheat-4"><material id="null"/><texture id="null"><amplification afs="1" aft="1"/></texture><transformations><translation x="+0.20" y="0" z="+0.20"/><rotation axis="y" angle="300"/><scale sx="1" sz="1" sy="1.10"/></transformations><descendants><noderef id="wheat"/></descendants></node>
+        <node id="wheat-patch"><material id="null"/><texture id="null"><amplification afs="1" aft="1"/></texture><descendants><noderef id="wheat-1"/><noderef id="wheat-2"/><noderef id="wheat-3"/><noderef id="wheat-4"/></descendants></node>
+        <node id="wheat-patch-1"><material id="null"/><texture id="null"><amplification afs="1" aft="1"/></texture><transformations><translation x="-0.40" y="0" z="-0.40"/><rotation axis="y" angle="000"/></transformations><descendants><noderef id="wheat-patch"/></descendants></node>
+        <node id="wheat-patch-2"><material id="null"/><texture id="null"><amplification afs="1" aft="1"/></texture><transformations><translation x="-0.40" y="0" z="+0.40"/><rotation axis="y" angle="200"/></transformations><descendants><noderef id="wheat-patch"/></descendants></node>
+        <node id="wheat-patch-3"><material id="null"/><texture id="null"><amplification afs="1" aft="1"/></texture><transformations><translation x="+0.40" y="0" z="-0.40"/><rotation axis="y" angle="130"/></transformations><descendants><noderef id="wheat-patch"/></descendants></node>
+        <node id="wheat-patch-4"><material id="null"/><texture id="null"><amplification afs="1" aft="1"/></texture><transformations><translation x="+0.40" y="0" z="+0.40"/><rotation axis="y" angle="300"/></transformations><descendants><noderef id="wheat-patch"/></descendants></node>
+        <node id="wheat-part"><material id="null"/><texture id="null"><amplification afs="1" aft="1"/></texture><descendants><noderef id="wheat-patch-1"/><noderef id="wheat-patch-2"/><noderef id="wheat-patch-3"/><noderef id="wheat-patch-4"/></descendants></node>
+        <node id="wheat-part-1"><material id="null"/><texture id="null"><amplification afs="1" aft="1"/></texture><transformations><translation x="-0.8" y="0" z="-0.8"/></transformations><descendants><noderef id="wheat-part"/></descendants></node>
+        <node id="wheat-part-2"><material id="null"/><texture id="null"><amplification afs="1" aft="1"/></texture><transformations><translation x="-0.8" y="0" z="+0.8"/></transformations><descendants><noderef id="wheat-part"/></descendants></node>
+        <node id="wheat-part-3"><material id="null"/><texture id="null"><amplification afs="1" aft="1"/></texture><transformations><translation x="+0.8" y="0" z="-0.8"/></transformations><descendants><noderef id="wheat-part"/></descendants></node>
+        <node id="wheat-part-4"><material id="null"/><texture id="null"><amplification afs="1" aft="1"/></texture><transformations><translation x="+0.8" y="0" z="+0.8"/></transformations><descendants><noderef id="wheat-part"/></descendants></node>
+        <node id="wheat-zone"><material id="null"/><texture id="null"><amplification afs="1" aft="1"/></texture><descendants><noderef id="wheat-part-1"/><noderef id="wheat-part-2"/><noderef id="wheat-part-3"/><noderef id="wheat-part-4"/></descendants></node>
+        <node id="wheat-zone-08"><material id="null"/><texture id="null"><amplification afs="1" aft="1"/></texture><transformations><translation x="-12" y="0" z="0"/></transformations><descendants><noderef id="wheat-zone"/></descendants></node>
+        <node id="wheat-zone-06"><material id="null"/><texture id="null"><amplification afs="1" aft="1"/></texture><transformations><translation x="-09" y="0" z="0"/></transformations><descendants><noderef id="wheat-zone"/></descendants></node>
+        <node id="wheat-zone-04"><material id="null"/><texture id="null"><amplification afs="1" aft="1"/></texture><transformations><translation x="-06" y="0" z="0"/></transformations><descendants><noderef id="wheat-zone"/></descendants></node>
+        <node id="wheat-zone-02"><material id="null"/><texture id="null"><amplification afs="1" aft="1"/></texture><transformations><translation x="-03" y="0" z="0"/></transformations><descendants><noderef id="wheat-zone"/></descendants></node>
+        <node id="wheat-zone+00"><material id="null"/><texture id="null"><amplification afs="1" aft="1"/></texture><transformations><translation x="+00" y="0" z="0"/></transformations><descendants><noderef id="wheat-zone"/></descendants></node>
+        <node id="wheat-zone+02"><material id="null"/><texture id="null"><amplification afs="1" aft="1"/></texture><transformations><translation x="+03" y="0" z="0"/></transformations><descendants><noderef id="wheat-zone"/></descendants></node>
+        <node id="wheat-zone+04"><material id="null"/><texture id="null"><amplification afs="1" aft="1"/></texture><transformations><translation x="+06" y="0" z="0"/></transformations><descendants><noderef id="wheat-zone"/></descendants></node>
+        <node id="wheat-line-1">
+            <material id="null"/>
+            <texture id="null">
+                <amplification afs="1" aft="1"/>
+            </texture>
+            <descendants>
+                <noderef id="wheat-zone-08"/>
+                <noderef id="wheat-zone-06"/>
+                <noderef id="wheat-zone-04"/>
+                <noderef id="wheat-zone-02"/>
+                <noderef id="wheat-zone+00"/>
+                <noderef id="wheat-zone+02"/>
+                <noderef id="wheat-zone+04"/>
+            </descendants>
+        </node>
+        <node id="wheat-line-2">
+            <material id="null"/>
+            <texture id="null">
+                <amplification afs="1" aft="1"/>
+            </texture>
+            <transformations>
+                <translation x="0" z="-3" y="0"/>
+            </transformations>
+            <descendants>
+                <noderef id="wheat-line-1"/>
+            </descendants>
+        </node>
+        <node id="wheat-line">
+            <material id="null"/>
+            <texture id="null">
+                <amplification afs="1" aft="1"/>
+            </texture>
+            <transformations>
+                <translation x="-4" z="-2" y="0"/>
+                <rotation axis="y" angle="75"/>
+            </transformations>
+            <descendants>
+                <noderef id="wheat-line-1"/>
+                <noderef id="wheat-line-2"/>
             </descendants>
         </node>
         <node id="sky-and-ground">
