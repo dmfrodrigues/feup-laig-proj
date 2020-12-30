@@ -173,6 +173,7 @@
         <texture id="porcelain-painted"   path="./scenes/images/porcelain-painted.jpg"  />
         <texture id="dirty-glass"         path="./scenes/images/dirty-glass.jpg"        />
         <texture id="brass"               path="./scenes/images/brass.jpg"              />
+        <texture id="dry-grass"           path="./scenes/alentejo/terrain/dry-grass.jpeg"/>
         <texture id="gameboard"           path="./scenes/gameboard/gameboard.png"       />
         <texture id="cell"                path="./scenes/gameboard/cell.jpg"            />
     </textures>
@@ -447,11 +448,11 @@
             <specular r="0.20" g="0.20" b="0.20" a="1.0"/>
             <emissive r="0.00" g="0.00" b="0.00" a="1.0"/>
         </material>
-        <material id="grass">
-            <shininess value="0.5"/>
-            <ambient  r="0.36" g="0.49" b="0.30" a="1.0"/>
-            <diffuse  r="0.36" g="0.49" b="0.30" a="1.0"/>
-            <specular r="0.20" g="0.20" b="0.20" a="1.0"/>
+        <material id="dry-grass">
+            <shininess value="0.1"/>
+            <ambient  r="1.00" g="1.00" b="1.00" a="1.0"/>
+            <diffuse  r="1.00" g="1.00" b="1.00" a="1.0"/>
+            <specular r="0.05" g="0.05" b="0.05" a="1.0"/>
             <emissive r="0.00" g="0.00" b="0.00" a="1.0"/>
         </material>
     </materials>
@@ -463,7 +464,7 @@
                 <amplification afs="1" aft="1"/>
             </texture>
             <descendants>
-                <noderef id="olive-in-scene"/>
+                <noderef id="sky-and-ground"/>
             </descendants>
         </node>
 
@@ -1363,23 +1364,52 @@
                 <leaf type="obj" url="obj/trees/olive/olive.obj"/>
             </descendants>
         </node>
-        <!-- <node id="sky-and-ground">
+        <node id="sky-and-ground">
             <material id="null"/><texture id="null"><amplification afs="1" aft="1"/></texture>
             <transformations>
                 <rotation axis="y" angle="-90"/>
             </transformations>
             <descendants>
-                <noderef id="skysphere"/>
+                <!-- <noderef id="skysphere"/> -->
                 <noderef id="ground"/>
             </descendants>
         </node>
         <node id="ground">
-            <material id="grass"/><texture id="grass"><amplification afs="2" aft="1.2"/></texture>
+            <material id="dry-grass"/><texture id="dry-grass"><amplification afs="0.003" aft="0.003"/></texture>
             <transformations>
-                <rotation axis="x" angle= "-90"/>
+                <scale sx="1" sz="1" sy="10"/>
+                <translation x="0" z="0" y="-0.6"/>
             </transformations>
             <descendants>
-                <leaf type="rectangle" x1="-200" x2="+200" y1="-200" y2="+200"/>
+                <!--
+                +++++++++> V
+                +
+                +
+                +
+                v
+                U
+                -->
+                <!--
+                <leaf type="patch" npointsU="2" npointsV="3" npartsU="10" npartsV="30" >
+                    <controlpoint x="-300" z="-300" y="0"/><controlpoint x="0" z="-300" y="0"/><controlpoint x="+300" z="-300" y="0"/>
+                    <controlpoint x="-300" z="+300" y="0"/><controlpoint x="0" z="+300" y="0"/><controlpoint x="+300" z="+300" y="0"/>
+                </leaf>
+                -->
+                <leaf type="patch" npointsU="13" npointsV="13" npartsU="30" npartsV="30">
+                    <controlpoint x='-300' z='-300' y='0.686681839973687'/><controlpoint x='-250' z='-300' y='0.799789185437775'/><controlpoint x='-200' z='-300' y='0.928926640220502'/><controlpoint x='-150' z='-300' y='1.12763021828144'/><controlpoint x='-100' z='-300' y='1.37617287375762'/><controlpoint x='-50' z='-300' y='1.6642716834772'/><controlpoint x='0' z='-300' y='1.97399694635286'/><controlpoint x='50' z='-300' y='2.20882037922211'/><controlpoint x='100' z='-300' y='2.43839743856719'/><controlpoint x='150' z='-300' y='2.71106814685272'/><controlpoint x='200' z='-300' y='2.92566464795419'/><controlpoint x='250' z='-300' y='3.0620962804583'/><controlpoint x='300' z='-300' y='3.03901860489549'/>
+                    <controlpoint x='-300' z='-250' y='0.602645716321993'/><controlpoint x='-250' z='-250' y='0.656214322033135'/><controlpoint x='-200' z='-250' y='0.654413757845568'/><controlpoint x='-150' z='-250' y='0.875392051990585'/><controlpoint x='-100' z='-250' y='1.08640370961792'/><controlpoint x='-50' z='-250' y='1.24977113281936'/><controlpoint x='0' z='-250' y='1.46061788882707'/><controlpoint x='50' z='-250' y='1.90803206100403'/><controlpoint x='100' z='-250' y='2.33318682456514'/><controlpoint x='150' z='-250' y='2.76903649711809'/><controlpoint x='200' z='-250' y='2.83525706896949'/><controlpoint x='250' z='-250' y='3.0224182440965'/><controlpoint x='300' z='-250' y='3.0184723424386'/>
+                    <controlpoint x='-300' z='-200' y='0.175599315926424'/><controlpoint x='-250' z='-200' y='0.259768522975664'/><controlpoint x='-200' z='-200' y='0.248980717626113'/><controlpoint x='-150' z='-200' y='0.591928040185876'/><controlpoint x='-100' z='-200' y='0.856536789526234'/><controlpoint x='-50' z='-200' y='1.22100536874822'/><controlpoint x='0' z='-200' y='1.52214222440508'/><controlpoint x='50' z='-200' y='2.13034859383852'/><controlpoint x='100' z='-200' y='2.6142012679196'/><controlpoint x='150' z='-200' y='2.91467871304545'/><controlpoint x='200' z='-200' y='2.81223850774631'/><controlpoint x='250' z='-200' y='2.80205731340905'/><controlpoint x='300' z='-200' y='2.80440580097567'/>
+                    <controlpoint x='-300' z='-150' y='0.0437207590914082'/><controlpoint x='-250' z='-150' y='0.0348529930296472'/><controlpoint x='-200' z='-150' y='0.00810275307112011'/><controlpoint x='-150' z='-150' y='0.332501099921533'/><controlpoint x='-100' z='-150' y='0.628106864522739'/><controlpoint x='-50' z='-150' y='0.817082174116267'/><controlpoint x='0' z='-150' y='1.13687140195426'/><controlpoint x='50' z='-150' y='1.80599261532394'/><controlpoint x='100' z='-150' y='2.40887735018147'/><controlpoint x='150' z='-150' y='2.82584250245706'/><controlpoint x='200' z='-150' y='2.71874941849028'/><controlpoint x='250' z='-150' y='2.75073269411778'/><controlpoint x='300' z='-150' y='2.70635959895153'/>
+                    <controlpoint x='-300' z='-100' y='-0.0399300844912723'/><controlpoint x='-250' z='-100' y='-0.052279077773839'/><controlpoint x='-200' z='-100' y='0.0465194107494478'/><controlpoint x='-150' z='-100' y='0.302314683549'/><controlpoint x='-100' z='-100' y='0.55616678827938'/><controlpoint x='-50' z='-100' y='0.786676524422635'/><controlpoint x='0' z='-100' y='1.18490434344571'/><controlpoint x='50' z='-100' y='1.6995670921561'/><controlpoint x='100' z='-100' y='2.06121128301146'/><controlpoint x='150' z='-100' y='2.30006573318517'/><controlpoint x='200' z='-100' y='2.50047456579195'/><controlpoint x='250' z='-100' y='2.68435641730442'/><controlpoint x='300' z='-100' y='2.81484361138472'/>
+                    <controlpoint x='-300' z='-50' y='0.281660040746028'/><controlpoint x='-250' z='-50' y='0.234894963498635'/><controlpoint x='-200' z='-50' y='0.278253305985839'/><controlpoint x='-150' z='-50' y='0.35318667282667'/><controlpoint x='-100' z='-50' y='0.435441746634187'/><controlpoint x='-50' z='-50' y='0.444643770727051'/><controlpoint x='0' z='-50' y='0.675883075592194'/><controlpoint x='50' z='-50' y='1.06660454870224'/><controlpoint x='100' z='-50' y='1.35929335533874'/><controlpoint x='150' z='-50' y='1.71212579878167'/><controlpoint x='200' z='-50' y='2.12976823840297'/><controlpoint x='250' z='-50' y='2.6915403946656'/><controlpoint x='300' z='-50' y='2.99327798919458'/>
+                    <controlpoint x='-300' z='0' y='0.93605670596449'/><controlpoint x='-250' z='0' y='0.807842114002431'/><controlpoint x='-200' z='0' y='0.576719462714966'/><controlpoint x='-150' z='0' y='0.380950076185795'/><controlpoint x='-100' z='0' y='0.136485730978938'/><controlpoint x='-50' z='0' y='0.023242514676266'/><controlpoint x='0' z='0' y='0'/><controlpoint x='50' z='0' y='0.475049437433317'/><controlpoint x='100' z='0' y='0.800399390627059'/><controlpoint x='150' z='0' y='1.15017074100363'/><controlpoint x='200' z='0' y='1.77867998818429'/><controlpoint x='250' z='0' y='2.46783700342199'/><controlpoint x='300' z='0' y='2.95075922263844'/>
+                    <controlpoint x='-300' z='50' y='1.56244727028232'/><controlpoint x='-250' z='50' y='1.39669068193781'/><controlpoint x='-200' z='50' y='0.947408884770362'/><controlpoint x='-150' z='50' y='0.507055750012349'/><controlpoint x='-100' z='50' y='0.0246338949527936'/><controlpoint x='-50' z='50' y='-0.0980641648421869'/><controlpoint x='0' z='50' y='-0.15824156135412'/><controlpoint x='50' z='50' y='0.1108501519363'/><controlpoint x='100' z='50' y='0.388237038731159'/><controlpoint x='150' z='50' y='0.783660021232065'/><controlpoint x='200' z='50' y='1.36722509515459'/><controlpoint x='250' z='50' y='1.98352869112354'/><controlpoint x='300' z='50' y='2.35634133702548'/>
+                    <controlpoint x='-300' z='100' y='1.98846643989365'/><controlpoint x='-250' z='100' y='1.73169035328894'/><controlpoint x='-200' z='100' y='1.2455356176952'/><controlpoint x='-150' z='100' y='0.735016983132793'/><controlpoint x='-100' z='100' y='0.162066830304177'/><controlpoint x='-50' z='100' y='-0.0423497860286832'/><controlpoint x='0' z='100' y='-0.203992850888428'/><controlpoint x='50' z='100' y='0.0465413013072703'/><controlpoint x='100' z='100' y='0.277526860180515'/><controlpoint x='150' z='100' y='0.685055562175553'/><controlpoint x='200' z='100' y='1.23974935924067'/><controlpoint x='250' z='100' y='1.71679184270491'/><controlpoint x='300' z='100' y='2.01371838379607'/>
+                    <controlpoint x='-300' z='150' y='1.85285793881933'/><controlpoint x='-250' z='150' y='1.71230421920683'/><controlpoint x='-200' z='150' y='1.4564288420431'/><controlpoint x='-150' z='150' y='1.11539819702679'/><controlpoint x='-100' z='150' y='0.715716511229661'/><controlpoint x='-50' z='150' y='0.558531303213077'/><controlpoint x='0' z='150' y='0.348993597109544'/><controlpoint x='50' z='150' y='0.423905515961005'/><controlpoint x='100' z='150' y='0.446103967838514'/><controlpoint x='150' z='150' y='0.813357804284402'/><controlpoint x='200' z='150' y='1.22103297543991'/><controlpoint x='250' z='150' y='1.55894445674199'/><controlpoint x='300' z='150' y='1.69948458468129'/>
+                    <controlpoint x='-300' z='200' y='1.44088044239867'/><controlpoint x='-250' z='200' y='1.48917398573624'/><controlpoint x='-200' z='200' y='1.51268561371357'/><controlpoint x='-150' z='200' y='1.57228835651046'/><controlpoint x='-100' z='200' y='1.40846458441556'/><controlpoint x='-50' z='200' y='1.24218487073374'/><controlpoint x='0' z='200' y='0.975571638036671'/><controlpoint x='50' z='200' y='0.985839897314609'/><controlpoint x='100' z='200' y='1.06718255859698'/><controlpoint x='150' z='200' y='1.39663241295783'/><controlpoint x='200' z='200' y='1.69488047430328'/><controlpoint x='250' z='200' y='1.88514813074314'/><controlpoint x='300' z='200' y='2.02052358391475'/>
+                    <controlpoint x='-300' z='250' y='1.01301013905929'/><controlpoint x='-250' z='250' y='1.30424150511214'/><controlpoint x='-200' z='250' y='1.61782275211484'/><controlpoint x='-150' z='250' y='2.05267867355503'/><controlpoint x='-100' z='250' y='2.09468815222037'/><controlpoint x='-50' z='250' y='1.96614460110928'/><controlpoint x='0' z='250' y='1.60444537945021'/><controlpoint x='50' z='250' y='1.45047378418001'/><controlpoint x='100' z='250' y='1.46851409312301'/><controlpoint x='150' z='250' y='1.79031200841248'/><controlpoint x='200' z='250' y='1.99539784398442'/><controlpoint x='250' z='250' y='2.07764595208225'/><controlpoint x='300' z='250' y='2.12526031720657'/>
+                    <controlpoint x='-300' z='300' y='0.80929920446034'/><controlpoint x='-250' z='300' y='1.24366139335089'/><controlpoint x='-200' z='300' y='1.70697009095174'/><controlpoint x='-150' z='300' y='2.35444813154595'/><controlpoint x='-100' z='300' y='2.42723505606178'/><controlpoint x='-50' z='300' y='2.27645127136101'/><controlpoint x='0' z='300' y='1.83106724447981'/><controlpoint x='50' z='300' y='1.69026578251246'/><controlpoint x='100' z='300' y='1.75468108191675'/><controlpoint x='150' z='300' y='2.08632900666842'/><controlpoint x='200' z='300' y='2.24342845659254'/><controlpoint x='250' z='300' y='2.30215582479809'/><controlpoint x='300' z='300' y='2.37290008888882'/>
+                </leaf>
             </descendants>
         </node>
         <node id="skysphere">
