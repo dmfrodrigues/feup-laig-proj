@@ -1349,6 +1349,10 @@
             <texture id="null">
                 <amplification afs="1" aft="1"/>
             </texture>
+            <transformations>
+                <translation x="1.5" y="0" z="0"/>
+                <rotation axis="y" angle= "-90"/>
+            </transformations>
             <descendants>
                 <noderef id="olive"/>
             </descendants>
