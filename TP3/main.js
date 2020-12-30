@@ -37,6 +37,7 @@ serialInclude(
         'scene-graph/keyframes/MySpriteSheet.js',
         'scene-graph/keyframes/MySpriteText.js',
         'scene-graph/keyframes/MySpriteAnimation.js',
+        'scene-graph/keyframes/CameraAnimation.js',
         'scene-graph/GameboardSetup.js',
         'scene-graph/PiecesSetup.js',
         'scene-graph/Node.js',
@@ -121,8 +122,8 @@ function startGame(gameMode, level){
 
 	// create and load graph, and associate it to scene. 
     // Check console for loading errors
-    //var orchestrator = new Orchestrator(gameScene, ['room.xml', 'iss.xml'], gameMode, level);
-    var orchestrator = new Orchestrator(gameScene, ['iss.xml', 'room.xml'], gameMode, level);
+    var orchestrator = new Orchestrator(gameScene, ['room.xml', 'iss.xml'], gameMode, level);
+    //var orchestrator = new Orchestrator(gameScene, ['iss.xml', 'room.xml'], gameMode, level);
 
     document.getElementById('movie-button').addEventListener('click', ()=>{
         orchestrator.animator.start();

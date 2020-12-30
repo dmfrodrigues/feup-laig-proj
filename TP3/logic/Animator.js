@@ -1,4 +1,4 @@
-ANIM_TIME = 2.5;
+ANIM_TIME = 3.5;
 
 class Animator {
     constructor(orchestrator, gameSequence){

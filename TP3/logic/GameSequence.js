@@ -15,7 +15,7 @@ class GameSequence {
         let move;
         if(this.gameSequence.length == 0) return;
         else if(this.gameSequence.length < 2) {
-            gameState._scene.graph.startCameraAnimation();
+            gameState._scene.graph.cameraHandler.startCameraAnimation();
             move = this.gameSequence.pop();
         }
         else { 
