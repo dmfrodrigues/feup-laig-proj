@@ -143,10 +143,10 @@
         <!-- NOTE: at least one light should be present, and a maximum of eight lights is accepted. -->
         <light id="sun">
             <enable value="1"/>
-            <position x="240" y="9010" z="-4330" w="1.0"/>
-            <ambient  r="0.30" g="0.30" b="0.30" a="1.0"/>
-            <diffuse  r="0.70" g="0.70" b="0.70" a="1.0"/>
-            <specular r="0.70" g="0.70" b="0.70" a="1.0"/>
+            <position x="1000" y="1000" z="0" w="0.0"/>
+            <ambient  r="0.45" g="0.45" b="0.45" a="1.0"/>
+            <diffuse  r="0.45" g="0.45" b="0.45" a="1.0"/>
+            <specular r="0.45" g="0.45" b="0.45" a="1.0"/>
         </light>
     </lights>
 
