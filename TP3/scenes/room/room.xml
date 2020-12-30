@@ -744,6 +744,12 @@
                 <rotation axis="y" angle="80"/>
             </transformations>
             <descendants>
+                <noderef id="wood-box-with-pieces"/>
+            </descendants>
+        </node>
+        <node id="wood-box-with-pieces">
+            <material id="null"/><texture id="null"><amplification afs="1" aft="1"/></texture>
+            <descendants>
                 <noderef id="wood-box"/>
                 <noderef id="wood-box-piece-1"/>
                 <noderef id="wood-box-piece-2"/>
