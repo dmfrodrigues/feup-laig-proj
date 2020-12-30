@@ -1376,6 +1376,9 @@
         </node>
         <node id="earth">
             <material id="null"/><texture id="null"><amplification afs="1" aft="1"/></texture>
+            <transformations>
+                <scale sx="1" sy="0.9967" sz="1"/>  <!-- The earth is slightly flattened -->
+            </transformations>
             <descendants>
                 <noderef id="earth-surface"/>
                 <noderef id="earth-clouds-animated"/>
