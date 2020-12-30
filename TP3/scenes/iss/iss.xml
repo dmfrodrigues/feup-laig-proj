@@ -1392,6 +1392,8 @@
             <material id="null"/><texture id="null"><amplification afs="1" aft="1"/></texture>
             <transformations>
                 <scale sx="1" sy="0.9967" sz="1"/>  <!-- The earth is slightly flattened -->
+                <rotation axis="y" angle="80"/>
+                <rotation axis="x" angle="-90"/>
             </transformations>
             <descendants>
                 <noderef id="earth-surface"/>
@@ -1400,10 +1402,6 @@
         </node>
         <node id="earth-surface">
             <material id="earth"/><texture id="blue-marble"><amplification afs="1" aft="1"/></texture>
-            <transformations>
-                <rotation axis="y" angle="80"/>
-                <rotation axis="x" angle="-90"/>
-            </transformations>
             <descendants>
                 <leaf type="sphere" radius="6378000" slices="256" stacks="120"/>
                 <noderef id="earth-night-lights"/>
@@ -1424,10 +1422,6 @@
         </node>
         <node id="earth-clouds">
             <material id="cloud"/><texture id="earth-clouds"><amplification afs="1" aft="1"/></texture>
-            <transformations>
-                <rotation axis="y" angle="150"/>
-                <rotation axis="x" angle="-90"/>
-            </transformations>
             <descendants>
                 <leaf type="sphere" radius="6388000" slices="256" stacks="120"/>
             </descendants>
