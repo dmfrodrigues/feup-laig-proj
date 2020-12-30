@@ -29,6 +29,8 @@ class MySceneGraph {
         this.scene = scene;
         scene.graph = this;
 
+        this.cameraHandler = new CameraAnimation(scene, this);
+
         this.nodes = [];
 
         this.idRoot = null; // The id of the root element.
@@ -1478,85 +1480,6 @@ class MySceneGraph {
         return this._pieces;
     }
 
-    startCameraAnimation(){
-        this.cameraAnimation = true;
-        this.cameraAnimStartTime = 0;
-    }
-
-	interpolateCameras(cam1, cam2, cam3, w){
-        cam3.setTarget(
-            vec4.fromValues(
-                cam1.target[0] + w*(cam2.target[0] - cam1.target[0]),
-                cam1.target[1] + w*(cam2.target[1] - cam1.target[1]),
-                cam1.target[2] + w*(cam2.target[2] - cam1.target[2]),
-                0
-            )
-        );
-        cam3.setPosition(
-            vec4.fromValues(
-                cam1.position[0] + w*(cam2.position[0] - cam1.position[0]),
-                cam1.position[1] + w*(cam2.position[1] - cam1.position[1]),
-                cam1.position[2] + w*(cam2.position[2] - cam1.position[2]),
-                0
-            )
-        );
-	}
-
-    handleCameraAnimation(t) {
-        let animDuration = 3.0;
-        if(this.cameraAnimation){
-            if(this.cameraAnimStartTime == 0){
-                this.cameraAnimStartTime = t;
-                this.cameraAnimLastTime = t;
-                this.views.current = this.views.move_camera;
-                this.scene.updateViews();
-            }
-            if(t - this.cameraAnimStartTime < animDuration/2.0){
-                if(this.scene.cameraPosition == 1){
-                    this.interpolateCameras(
-                        this.views.list[this.views.p1_camera],
-                        this.views.list[this.views.p1transition_camera], 
-                        this.scene.camera,
-                        (t-this.cameraAnimStartTime)/(animDuration/2.0)
-                    );
-                }else{
-                    this.interpolateCameras(
-                        this.views.list[this.views.p2_camera],
-                        this.views.list[this.views.p2transition_camera], 
-                        this.scene.camera,
-                        (t-this.cameraAnimStartTime)/(animDuration/2.0)
-                    );
-                }
-                this.cameraAnimLastTime = t;
-            }
-            else if(t - this.cameraAnimStartTime < animDuration){
-                if(this.scene.cameraPosition == 1){
-                    this.interpolateCameras(
-                        this.views.list[this.views.p1transition_camera],
-                        this.views.list[this.views.p2_camera], 
-                        this.scene.camera,
-                        (t-this.cameraAnimLastTime)/(animDuration/2.0)
-                    );
-                }else{
-                    this.interpolateCameras(
-                        this.views.list[this.views.p2transition_camera],
-                        this.views.list[this.views.p1_camera], 
-                        this.scene.camera,
-                        (t-this.cameraAnimLastTime)/(animDuration/2.0)
-                    );
-                }
-            }
-            else{
-                if(this.scene.cameraPosition == 1)
-                    this.views.current = this.views.p2_camera;
-                else this.views.current = this.views.p1_camera;
-                this.scene.updateViews();
-                this.cameraAnimation = false;
-                this.scene.cameraPosition = (this.scene.cameraPosition)%2 + 1;
-            }
-        }
-    }
-
     update(t){
         for (var key in this.animations){
             let animation = this.animations[key];
@@ -1570,7 +1493,7 @@ class MySceneGraph {
             this.spriteTexts[text].update();
         }
 
-        this.handleCameraAnimation(t);
+        this.cameraHandler.handleCameraAnimation(t);
     }
 
     /**

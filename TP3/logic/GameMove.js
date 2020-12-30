@@ -17,6 +17,6 @@ class GameMove {
 
     animate(){
         //animate camera
-        this.scene.graph.startCameraAnimation();
+        this.scene.graph.cameraHandler.startCameraAnimation();
     }
 }

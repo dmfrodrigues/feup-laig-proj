@@ -37,6 +37,7 @@ serialInclude(
         'scene-graph/keyframes/MySpriteSheet.js',
         'scene-graph/keyframes/MySpriteText.js',
         'scene-graph/keyframes/MySpriteAnimation.js',
+        'scene-graph/keyframes/CameraAnimation.js',
         'scene-graph/GameboardSetup.js',
         'scene-graph/PiecesSetup.js',
         'scene-graph/Node.js',
