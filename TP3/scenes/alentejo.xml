@@ -1468,7 +1468,7 @@
             <material id="dry-grass"/><texture id="dry-grass"><amplification afs="0.003" aft="0.003"/></texture>
             <transformations>
                 <scale sx="1" sz="1" sy="10"/>
-                <translation x="0" z="0" y="-0.6"/>
+                <translation x="0" z="0" y="-0.59"/>
             </transformations>
             <descendants>
                 <!--
