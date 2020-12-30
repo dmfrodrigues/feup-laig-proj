@@ -129,17 +129,29 @@
     </bindings>
     <views default="player1_camera">
         <!-- at least one of the following type of cameras must be declared -->
-        <perspective id="default_camera" near="0.2" far="1000000" angle="60">
-            <from x="5" y="5" z="5"/>
-            <to   x="0" y="0" z="0"/>
+        <perspective id="movement_camera" near="0.2" far="1000000" angle="60">
+            <from x="0" y="0.6" z="0.45"/>
+            <to   x="0" y="0.5" z="0.33"/>
+        </perspective>
+        <perspective id="aux1" near="0.2" far="1000000" angle="60">
+            <from x="0.5" y="0.6" z="0"/>
+            <to   x="0" y="0.25" z="0"/>
+        </perspective>
+        <perspective id="aux2" near="0.2" far="1000000" angle="60">
+            <from x="-0.5" y="0.6" z="0"/>
+            <to   x="0" y="0.5" z="0"/>
         </perspective>
         <perspective id="player1_camera" near="0.2" far="1000000" angle="60">
             <from x="0" y="0.6" z="0.45"/>
-            <to   x="0" y="0.3" z="0.0"/>
+            <to   x="0" y="0.5" z="0.33"/>
         </perspective>
         <perspective id="player2_camera" near="0.2" far="1000000" angle="60">
             <from x="0" y="0.6" z="-0.45"/>
             <to   x="0" y="0.5" z="-0.33"/>
+        </perspective>
+        <perspective id="default_camera" near="0.2" far="1000000" angle="60">
+            <from x="5" y="5" z="5"/>
+            <to   x="0" y="0" z="0"/>
         </perspective>
     </views>
     <illumination>

@@ -22,6 +22,7 @@ class XMLscene extends CGFscene {
         super.init(application);
 
         this.sceneInited = false;
+        this.cameraPosition = 1;
         this.update.t0 = undefined;
 
         this.initCameras();
@@ -94,7 +95,7 @@ class XMLscene extends CGFscene {
 
     updateViews() {
         this.camera = this.graph.views.list[this.graph.views.current];
-        //if(this.interface) this.interface.setActiveCamera(this.camera);
+        if(this.interface) this.interface.setActiveCamera(this.camera);
     }
 
     /**

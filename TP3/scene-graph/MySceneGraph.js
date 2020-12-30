@@ -407,7 +407,7 @@ class MySceneGraph {
         this.views = {};
         this.views.list = {};
         this.views.default = viewsNode.attributes.default.value;
-        
+
         for(let i = 0; i < viewsNode.children.length; ++i){
             let camera = viewsNode.children[i];
             
@@ -418,9 +418,31 @@ class MySceneGraph {
             let camera_obj;
             if(camera.nodeName == "perspective"){
                 camera_obj = this.parsePerspectiveCamera(camera, camera.id);
-            } else if(camera.nodeName == "ortho"){
+            } 
+            else if(camera.nodeName == "ortho"){
                 camera_obj = this.parseOrthoCamera(camera, camera.id);
-            } else {
+            } 
+            else if(camera.nodeName == "player1"){
+                camera_obj = this.parsePerspectiveCamera(camera, camera.id);
+                this.views.p1_camera = camera.id;
+            }
+            else if(camera.nodeName == "player1transition"){
+                camera_obj = this.parsePerspectiveCamera(camera, camera.id);
+                this.views.p1transition_camera = camera.id;
+            }
+            else if(camera.nodeName == "player2"){
+                camera_obj = this.parsePerspectiveCamera(camera, camera.id);
+                this.views.p2_camera = camera.id;
+            }
+            else if(camera.nodeName == "player2transition"){
+                camera_obj = this.parsePerspectiveCamera(camera, camera.id);
+                this.views.p2transition_camera = camera.id;
+            }
+            else if(camera.nodeName == "movecamera"){
+                camera_obj = this.parsePerspectiveCamera(camera, camera.id);
+                this.views.move_camera= camera.id;
+            }
+            else {
                 this.onXMLMinorError(`no such camera type "${camera.nodeName}"; ignored`);
                 continue;
             }
@@ -442,6 +464,15 @@ class MySceneGraph {
         if(this.views.list[this.views.default] == null){
             this.views.default = Object.keys(this.views.list)[0];
             this.onXMLError(`no such view "${this.views.default}" to use as default; using "${this.views.default}"`);
+        }
+
+        if(this.views.p1_camera == undefined
+        || this.views.p2_camera == undefined
+        || this.views.p1transition_camera == undefined
+        || this.views.p1transition_camera == undefined
+        || this.views.move_camera == undefined)
+        {
+            this.onXMLMinorError(`Players cameras not defined properly`);
         }
 
         this.views.current = this.views.default;
@@ -1452,23 +1483,76 @@ class MySceneGraph {
         this.cameraAnimStartTime = 0;
     }
 
+	interpolateCameras(cam1, cam2, cam3, w){
+        cam3.setTarget(
+            vec4.fromValues(
+                cam1.target[0] + w*(cam2.target[0] - cam1.target[0]),
+                cam1.target[1] + w*(cam2.target[1] - cam1.target[1]),
+                cam1.target[2] + w*(cam2.target[2] - cam1.target[2]),
+                0
+            )
+        );
+        cam3.setPosition(
+            vec4.fromValues(
+                cam1.position[0] + w*(cam2.position[0] - cam1.position[0]),
+                cam1.position[1] + w*(cam2.position[1] - cam1.position[1]),
+                cam1.position[2] + w*(cam2.position[2] - cam1.position[2]),
+                0
+            )
+        );
+	}
+
     handleCameraAnimation(t) {
-        let animDuration = 2.0;
+        let animDuration = 3.0;
         if(this.cameraAnimation){
             if(this.cameraAnimStartTime == 0){
                 this.cameraAnimStartTime = t;
                 this.cameraAnimLastTime = t;
+                this.views.current = this.views.move_camera;
+                this.scene.updateViews();
             }
-            if(t - this.cameraAnimStartTime < animDuration){
-                this.scene.camera.orbit(CGFcameraAxis.y, Math.PI*(t-this.cameraAnimLastTime)/animDuration);
+            if(t - this.cameraAnimStartTime < animDuration/2.0){
+                if(this.scene.cameraPosition == 1){
+                    this.interpolateCameras(
+                        this.views.list[this.views.p1_camera],
+                        this.views.list[this.views.p1transition_camera], 
+                        this.scene.camera,
+                        (t-this.cameraAnimStartTime)/(animDuration/2.0)
+                    );
+                }else{
+                    this.interpolateCameras(
+                        this.views.list[this.views.p2_camera],
+                        this.views.list[this.views.p2transition_camera], 
+                        this.scene.camera,
+                        (t-this.cameraAnimStartTime)/(animDuration/2.0)
+                    );
+                }
                 this.cameraAnimLastTime = t;
             }
+            else if(t - this.cameraAnimStartTime < animDuration){
+                if(this.scene.cameraPosition == 1){
+                    this.interpolateCameras(
+                        this.views.list[this.views.p1transition_camera],
+                        this.views.list[this.views.p2_camera], 
+                        this.scene.camera,
+                        (t-this.cameraAnimLastTime)/(animDuration/2.0)
+                    );
+                }else{
+                    this.interpolateCameras(
+                        this.views.list[this.views.p2transition_camera],
+                        this.views.list[this.views.p1_camera], 
+                        this.scene.camera,
+                        (t-this.cameraAnimLastTime)/(animDuration/2.0)
+                    );
+                }
+            }
             else{
-                this.scene.camera.orbit(
-                    CGFcameraAxis.y, 
-                    Math.PI*(this.cameraAnimStartTime+animDuration-this.cameraAnimLastTime)/animDuration
-                );
+                if(this.scene.cameraPosition == 1)
+                    this.views.current = this.views.p2_camera;
+                else this.views.current = this.views.p1_camera;
+                this.scene.updateViews();
                 this.cameraAnimation = false;
+                this.scene.cameraPosition = (this.scene.cameraPosition)%2 + 1;
             }
         }
     }
