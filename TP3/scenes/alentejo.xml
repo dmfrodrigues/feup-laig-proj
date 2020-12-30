@@ -120,12 +120,12 @@
             <to   x="0" y="0.5" z="0"/>
         </perspective>
         <perspective id="player1_camera" near="0.1" far="2000" angle="50">
-            <from x="-0.10" y="0.9" z="+0.60"/>
-            <to   x="0" y="0.58" z="0"/>
+            <from x="0" y="1.4" z="0.6"/>
+            <to   x="0" y="1.2" z="0.4"/>
         </perspective>
         <perspective id="player2_camera" near="0.1" far="2000" angle="50">
-            <from x="-0.10" y="0.90" z="-0.60"/>
-            <to   x="0" y="0.5" z="0"/>
+            <from x="0" y="1.4" z="-0.6"/>
+            <to   x="0" y="1.2" z="-0.4"/>
         </perspective>
     </views>
     <illumination>
