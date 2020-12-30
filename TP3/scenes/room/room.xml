@@ -284,38 +284,37 @@
     </lights>
 
     <textures>
-        <!-- NOTE: this block "TEXTURE" must be repeated as necessary with different "id" -->
-        <texture id="black_painted_metal" path="./scenes/images/black-painted-metal.jpg"/>
-        <texture id="grey_painted_metal"  path="./scenes/images/grey-painted-metal.jpg" />
-        <texture id="plastic-rugged"      path="./scenes/images/plastic-edited.jpg"     />
-        <texture id="tabletop"            path="./scenes/images/white-tabletop.jpg"     />
-        <texture id="world_map"           path="./scenes/images/world-map.jpg"          />
-        <texture id="book-pages"          path="./scenes/images/book-pages.jpg"         />
-        <texture id="intro-cg-front"      path="./scenes/images/intro-cg-front.jpg"     />
-        <texture id="intro-cg-back"       path="./scenes/images/intro-cg-back.jpg"      />
-        <texture id="intro-cg-spine"      path="./scenes/images/intro-cg-spine.jpg"     />
-        <texture id="intro-cg-stripe"     path="./scenes/images/intro-cg-stripe.jpg"    />
-        <texture id="floor"               path="./scenes/images/floor.jpg"              />
-        <texture id="wall"                path="./scenes/images/wall.jpg"               />
-        <texture id="ceil"                path="./scenes/images/ceil.jpg"               />
-        <texture id="pine-wood"           path="./scenes/images/pine-wood.jpg"          />
-        <texture id="bed-sheets"          path="./scenes/images/bed-sheets.jpg"         />
-        <texture id="door_wood"           path="./scenes/images/door_wood.jpg"          />
-        <texture id="handle_plate"        path="./scenes/images/handle_plate.jpg"       />
-        <texture id="steel"               path="./scenes/images/steel.jpg"              />               
-        <texture id="white_wood"          path="./scenes/images/white_wood.jpg"         />
-        <texture id="dark_wood"           path="./scenes/images/dark_wood.jpg"          />
-        <texture id="crepe-paper"         path="./scenes/images/crepe-paper.jpg"        />
-        <texture id="marble"              path="./scenes/images/marble.jpg"             />
-        <texture id="brick"               path="./scenes/images/brick.jpg"              />
-        <texture id="rustic-wood"         path="./scenes/images/rustic-wood.jpg"        />
-        <texture id="wood-log"            path="./scenes/images/log.jpg"                />
-        <texture id="porcelain-painted"   path="./scenes/images/porcelain-painted.jpg"  />
-        <texture id="dirty-glass"         path="./scenes/images/dirty-glass.jpg"        />
-        <texture id="brass"               path="./scenes/images/brass.jpg"              />
-        <texture id="gameboard"           path="./scenes/gameboard/gameboard.png"       />
-        <texture id="cell"                path="./scenes/gameboard/cell.jpg"            />
-        <texture id="skysphere-empirestate" path="./scenes/images/skysphere/empirestate-day/skysphere-empirestate-small.jpg"/>
+        <texture id="black_painted_metal" path="./scenes/room/textures/black-painted-metal.jpg"             />
+        <texture id="grey_painted_metal"  path="./scenes/room/textures/grey-painted-metal.jpg"              />
+        <texture id="plastic-rugged"      path="./scenes/room/textures/plastic-edited.jpg"                  />
+        <texture id="tabletop"            path="./scenes/room/textures/white-tabletop.jpg"                  />
+        <texture id="world_map"           path="./scenes/room/textures/world-map.jpg"                       />
+        <texture id="book-pages"          path="./scenes/room/textures/book-pages.jpg"                      />
+        <texture id="intro-cg-front"      path="./scenes/room/textures/intro-cg-front.jpg"                  />
+        <texture id="intro-cg-back"       path="./scenes/room/textures/intro-cg-back.jpg"                   />
+        <texture id="intro-cg-spine"      path="./scenes/room/textures/intro-cg-spine.jpg"                  />
+        <texture id="intro-cg-stripe"     path="./scenes/room/textures/intro-cg-stripe.jpg"                 />
+        <texture id="floor"               path="./scenes/room/textures/floor.jpg"                           />
+        <texture id="wall"                path="./scenes/room/textures/wall.jpg"                            />
+        <texture id="ceil"                path="./scenes/room/textures/ceil.jpg"                            />
+        <texture id="pine-wood"           path="./scenes/textures/pine-wood.jpg"                            />
+        <texture id="bed-sheets"          path="./scenes/room/textures/bed-sheets.jpg"                      />
+        <texture id="door_wood"           path="./scenes/textures/door_wood.jpg"                            />
+        <texture id="handle_plate"        path="./scenes/room/textures/handle_plate.jpg"                    />
+        <texture id="steel"               path="./scenes/room/textures/steel.jpg"                           />               
+        <texture id="white_wood"          path="./scenes/room/textures/white_wood.jpg"                      />
+        <texture id="dark_wood"           path="./scenes/room/textures/dark_wood.jpg"                       />
+        <texture id="crepe-paper"         path="./scenes/room/textures/crepe-paper.jpg"                     />
+        <texture id="marble"              path="./scenes/room/textures/marble.jpg"                          />
+        <texture id="brick"               path="./scenes/room/textures/brick.jpg"                           />
+        <texture id="rustic-wood"         path="./scenes/room/textures/rustic-wood.jpg"                     />
+        <texture id="wood-log"            path="./scenes/room/textures/log.jpg"                             />
+        <texture id="porcelain-painted"   path="./scenes/room/textures/porcelain-painted.jpg"               />
+        <texture id="dirty-glass"         path="./scenes/room/textures/dirty-glass.jpg"                     />
+        <texture id="brass"               path="./scenes/textures/brass.jpg"                                />
+        <texture id="skysphere"           path="./scenes/room/textures/skysphere-empirestate-small.jpg"     />
+        <texture id="gameboard"           path="./scenes/gameboard/gameboard.png"                           />
+        <texture id="cell"                path="./scenes/gameboard/cell.jpg"                                />
     </textures>
 
     <spritesheets>
@@ -4019,7 +4018,7 @@
         </node>
 
         <node id="skysphere">
-            <material id="landscape"/><texture id="skysphere-empirestate"><amplification afs="1" aft="1"/></texture>
+            <material id="landscape"/><texture id="skysphere"><amplification afs="1" aft="1"/></texture>
             <transformations>
                 <rotation axis="y" angle="180"/>
                 <rotation axis="y" angle="+10"/> <!-- Adjustments -->

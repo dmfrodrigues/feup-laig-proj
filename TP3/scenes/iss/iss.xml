@@ -1,11 +1,10 @@
 <lsf>
     <initials>
-        <reference length="1.0"/>
+        <reference length="0.0"/>
         <root id="root"/>
         <gameboard id="gameboard">
             <transformations>
-                <translation x="0" y="0.78" z="0"/>
-                <scale sx="1.5" sy="1.5" sz="1.5"/>
+                <translation x="0" y="0.2" z="0"/>
             </transformations>
             <cells id="cell">
                 <cell i="0" j="0" x="-0.0693" y="0.001" z="-0.12"/>
@@ -76,11 +75,9 @@
         <uis>
             <ui id="ui-1">
                 <transformations>
-                    <translation x="0.45" y="0.78" z="0.1"/>
-                    <rotation axis="y" angle="-20"/>
+                    <translation x="+0.2" y="0.228" z="0.17"/>
+                    <rotation axis="y" angle="-15"/>
                     <rotation axis="x" angle="-45"/>
-                    <scale sx="1.5" sy="1.5" sz="1.5"/>
-                    <translation x="0" y="0.04" z="0"/>
                 </transformations>
                 <panel id="ui-panel-with-all"/>
                 <value id="ui-panel-value"/>
@@ -93,12 +90,10 @@
             </ui>
             <ui id="ui-2">
                 <transformations>
-                    <translation x="-0.45" y="0.78" z="-0.1"/>
-                    <rotation axis="y" angle="-20"/>
-                    <rotation axis="y" angle="180"/>
+                    <translation x="-0.2" y="0.228" z="-0.17"/>
+                    <rotation axis="y" angle="-15"/>
+                    <rotation axis="y" angle="-180"/>
                     <rotation axis="x" angle="-45"/>
-                    <scale sx="1.5" sy="1.5" sz="1.5"/>
-                    <translation x="0" y="0.04" z="0"/>
                 </transformations>
                 <panel id="ui-panel-with-all"/>
                 <value id="ui-panel-value"/>
@@ -117,73 +112,72 @@
             <keyframe instant='05.0'><translation x='0' y='0' z='0'/><rotation axis='x' angle='-90'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
             <keyframe instant='10.0'><translation x='0' y='0' z='0'/><rotation axis='x' angle='0'  /><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
         </animation>
+        <animation id="cloud-rotation" loop="1">
+            <keyframe instant='0000000.0'><translation x='0' y='0' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='+000.0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
+            <keyframe instant='1500000.0'><translation x='0' y='0' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='+360.0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
+        </animation>
+        <animation id="earth-rotation" loop="1">
+            <keyframe instant='00000.0'><translation x='0' y='0' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='+000.0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
+            <keyframe instant='86400.0'><translation x='0' y='0' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='+360.0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
+        </animation>
+        <animation id="iss-rotation" loop="1">
+            <keyframe instant='0000.0'><translation x='0' y='0' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='+000.0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
+            <keyframe instant='5400.0'><translation x='0' y='0' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='+360.0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
+        </animation>
     </animations>
     <bindings>
     </bindings>
-    <views default="default_camera">
+    <views default="player1_camera">
         <!-- at least one of the following type of cameras must be declared -->
-        <perspective id="default_camera" near="0.1" far="2000" angle="50">
-            <from x="1" y="1" z="1"/>
-            <to   x="0" y="0.5" z="0"/>
-        </perspective>
-        <perspective id="player1_camera" near="0.1" far="2000" angle="50">
-            <from x="0" y="1.4" z="0.6"/>
-            <to   x="0" y="1.2" z="0.4"/>
-        </perspective>
-        <perspective id="player2_camera" near="0.1" far="2000" angle="50">
-            <from x="0" y="1.4" z="-0.6"/>
-            <to   x="0" y="1.2" z="-0.4"/>
+        <movecamera id="move_camera" near="0.2" far="1000000" angle="60">
+            <from x="0" y="0.6" z="0.45"/>
+            <to   x="0" y="0.5" z="0.33"/>
+        </movecamera>
+        <player1transition id="p1_transition" near="0.2" far="1000000" angle="60">
+            <from x="-0.5" y="0.5" z="0"/>
+            <to   x="0" y="0.4" z="0"/>
+        </player1transition>
+        <player2transition id="p2_transition" near="0.2" far="1000000" angle="60">
+            <from x="+0.5" y="0.5" z="0"/>
+            <to   x="0" y="0.4" z="0"/>
+        </player2transition>
+        <player1 id="player1_camera" near="0.2" far="1000000" angle="60">
+            <from x="0" y="0.6" z="0.45"/>
+            <to   x="0" y="0.5" z="0.33"/>
+        </player1>
+        <player2 id="player2_camera" near="0.2" far="1000000" angle="60">
+            <from x="0" y="0.6" z="-0.45"/>
+            <to   x="0" y="0.5" z="-0.33"/>
+        </player2>
+        <perspective id="default_camera" near="0.2" far="1000000" angle="60">
+            <from x="5" y="5" z="5"/>
+            <to   x="0" y="0" z="0"/>
         </perspective>
     </views>
     <illumination>
-        <ambient    r="0.2" g="0.2" b="0.2" a="1.0"/>
+        <!-- <ambient    r="0.1" g="0.1" b="0.1" a="1"/> -->
+        <ambient    r="0.9" g="0.9" b="0.9" a="1"/>
         <background r="0.1" g="0.7" b="1.0" a="1.0"/>
     </illumination>
     <lights>
         <!-- NOTE: at least one light should be present, and a maximum of eight lights is accepted. -->
         <light id="sun">
             <enable value="1"/>
-            <position x="1000" y="1000" z="0" w="1.0"/>
-            <ambient  r="0.50" g="0.50" b="0.50" a="1.0"/>
-            <diffuse  r="0.90" g="0.90" b="0.90" a="1.0"/>
-            <specular r="0.90" g="0.90" b="0.90" a="1.0"/>
+            <position x="0.0" y="0.0" z="-1" w="0.0"/>
+            <ambient  r="0.00" g="0.00" b="0.00" a="1.0"/>
+            <diffuse  r="1.00" g="1.00" b="1.00" a="1.0"/>
+            <specular r="1.00" g="1.00" b="1.00" a="1.0"/>
         </light>
     </lights>
-
     <textures>
-        <!-- NOTE: this block "TEXTURE" must be repeated as necessary with different "id" -->
-        <texture id="black_painted_metal" path="./scenes/images/black-painted-metal.jpg"/>
-        <texture id="grey_painted_metal"  path="./scenes/images/grey-painted-metal.jpg" />
-        <texture id="plastic-rugged"      path="./scenes/images/plastic-edited.jpg"     />
-        <texture id="tabletop"            path="./scenes/images/white-tabletop.jpg"     />
-        <texture id="world_map"           path="./scenes/images/world-map.jpg"          />
-        <texture id="book-pages"          path="./scenes/images/book-pages.jpg"         />
-        <texture id="intro-cg-front"      path="./scenes/images/intro-cg-front.jpg"     />
-        <texture id="intro-cg-back"       path="./scenes/images/intro-cg-back.jpg"      />
-        <texture id="intro-cg-spine"      path="./scenes/images/intro-cg-spine.jpg"     />
-        <texture id="intro-cg-stripe"     path="./scenes/images/intro-cg-stripe.jpg"    />
-        <texture id="floor"               path="./scenes/images/floor.jpg"              />
-        <texture id="wall"                path="./scenes/images/wall.jpg"               />
-        <texture id="ceil"                path="./scenes/images/ceil.jpg"               />
-        <texture id="pine-wood"           path="./scenes/images/pine-wood.jpg"          />
-        <texture id="bed-sheets"          path="./scenes/images/bed-sheets.jpg"         />
-        <texture id="door_wood"           path="./scenes/images/door_wood.jpg"          />
-        <texture id="handle_plate"        path="./scenes/images/handle_plate.jpg"       />
-        <texture id="steel"               path="./scenes/images/steel.jpg"              />               
-        <texture id="white_wood"          path="./scenes/images/white_wood.jpg"         />
-        <texture id="dark_wood"           path="./scenes/images/dark_wood.jpg"          />
-        <texture id="crepe-paper"         path="./scenes/images/crepe-paper.jpg"        />
-        <texture id="marble"              path="./scenes/images/marble.jpg"             />
-        <texture id="brick"               path="./scenes/images/brick.jpg"              />
-        <texture id="rustic-wood"         path="./scenes/images/rustic-wood.jpg"        />
-        <texture id="wood-log"            path="./scenes/images/log.jpg"                />
-        <texture id="porcelain-painted"   path="./scenes/images/porcelain-painted.jpg"  />
-        <texture id="dirty-glass"         path="./scenes/images/dirty-glass.jpg"        />
-        <texture id="brass"               path="./scenes/images/brass.jpg"              />
-        <texture id="dry-grass"           path="./scenes/alentejo/terrain/dry-grass.jpeg"/>
-        <texture id="gameboard"           path="./scenes/gameboard/gameboard.png"       />
-        <texture id="cell"                path="./scenes/gameboard/cell.jpg"            />
-        <texture id="skysphere"           path="./scenes/alentejo/skysphere/clear-sky.jpeg"/>
+        <texture id="door_wood"           path="./scenes/textures/door_wood.jpg"              />
+        <texture id="brass"               path="./scenes/textures/brass.jpg"                  />
+        <texture id="star-map"            path="./scenes/iss/textures/star-map.png"           />
+        <texture id="blue-marble"         path="./scenes/iss/textures/earth/blue-marble-larger.jpeg"/>
+        <texture id="earth-night-lights"  path="./scenes/iss/textures/earth/night-lights-larger-transparent-60.png"/>
+        <texture id="earth-clouds"        path="./scenes/iss/textures/earth/clouds-transparent.png"/>
+        <texture id="gameboard"           path="./scenes/gameboard/gameboard.png"           />
+        <texture id="cell"                path="./scenes/gameboard/cell.jpg"                />
     </textures>
 
     <spritesheets>
@@ -200,13 +194,6 @@
             <shininess value="5.0"/>
             <ambient  r="1.0" g="1.0" b="1.0" a="1.0"/>
             <diffuse  r="1.0" g="1.0" b="1.0" a="1.0"/>
-            <specular r="0.9" g="0.9" b="0.9" a="1.0"/>
-            <emissive r="0.0" g="0.0" b="0.0" a="1.0"/>
-        </material>
-        <material id="plastic-lightgray">
-            <shininess value="5.0"/>
-            <ambient  r="0.9" g="0.9" b="0.9" a="1.0"/>
-            <diffuse  r="0.9" g="0.9" b="0.9" a="1.0"/>
             <specular r="0.9" g="0.9" b="0.9" a="1.0"/>
             <emissive r="0.0" g="0.0" b="0.0" a="1.0"/>
         </material>
@@ -358,12 +345,12 @@
             <specular r="0.0" g="0.0" b="0.0" a="1.0"/>
             <emissive r="0.0" g="0.0" b="0.0" a="1.0"/>
         </material>
-        <material id="landscape">
+        <material id="star-map">
             <shininess value="0.0"/>
             <ambient  r="0.0" g="0.0" b="0.0" a="1.0"/>
             <diffuse  r="0.0" g="0.0" b="0.0" a="1.0"/>
             <specular r="0.0" g="0.0" b="0.0" a="1.0"/>
-            <emissive r="1.0" g="1.0" b="1.0" a="1.0"/>
+            <emissive r="0.5" g="0.5" b="0.5" a="1.0"/>
         </material>
         <material id="lamp-wax">
             <shininess value="2.0"/>
@@ -456,12 +443,26 @@
             <specular r="0.20" g="0.20" b="0.20" a="1.0"/>
             <emissive r="0.00" g="0.00" b="0.00" a="1.0"/>
         </material>
-        <material id="dry-grass">
-            <shininess value="0.1"/>
+        <material id="earth">
+            <shininess value="10.0"/>
             <ambient  r="1.00" g="1.00" b="1.00" a="1.0"/>
             <diffuse  r="1.00" g="1.00" b="1.00" a="1.0"/>
-            <specular r="0.05" g="0.05" b="0.05" a="1.0"/>
+            <specular r="0.00" g="0.00" b="0.00" a="1.0"/>
             <emissive r="0.00" g="0.00" b="0.00" a="1.0"/>
+        </material>
+        <material id="cloud">
+            <shininess value="10.0"/>
+            <ambient  r="0.75" g="0.75" b="0.75" a="1.0"/>
+            <diffuse  r="0.75" g="0.75" b="0.75" a="1.0"/>
+            <specular r="0.00" g="0.00" b="0.00" a="1.0"/>
+            <emissive r="0.00" g="0.00" b="0.00" a="1.0"/>
+        </material>
+        <material id="earth-night-lights">
+            <shininess value="10.0"/>
+            <ambient  r="0.00" g="0.00" b="0.00" a="0.1"/>
+            <diffuse  r="-0.00" g="0.00" b="0.00" a="0.1"/>
+            <specular r="0.00" g="0.00" b="0.00" a="0.1"/>
+            <emissive r="1.00" g="0.94" b="0.69" a="0.1"/>
         </material>
     </materials>
 
@@ -472,10 +473,9 @@
                 <amplification afs="1" aft="1"/>
             </texture>
             <descendants>
-                <noderef id="sky-and-ground"/>
-                <noderef id="olive-in-scene"/>
-                <noderef id="wheat-line"/>
-                <noderef id="table"/>
+                <noderef id="skysphere"/>
+                <noderef id="earth-animated-in-space"/>
+                <noderef id="iss-in-space"/>
             </descendants>
         </node>
 
@@ -950,7 +950,7 @@
             </transformations>
             <descendants>
                 <leaf type="spritetext" font="calc" text="00:00"
-                    eval="return ('0' + Math.floor(this.scene.time/60)).slice(-2) + ':' + ('0' + Math.floor(this.scene.time)%60).slice(-2); "
+                    eval="return ('0' + Math.floor(this.scene.orchestrator.gameState.gametime/60)).slice(-2) + ':' + ('0' + Math.floor(this.scene.orchestrator.gameState.gametime)%60).slice(-2); "
                     format="return arguments[0].padStart(5,' ');"
                 />
             </descendants>
@@ -1263,6 +1263,7 @@
                 <leaf type="spritetext" font="consolas" text="Move"/>
             </descendants>
         </node>
+        
         <node id="cube">
             <material id="null"/>
             <texture id="null">
@@ -1354,464 +1355,93 @@
                 <leaf type="rectangle" x1="-0.5" y1="-0.5" x2="0.5" y2="0.5"/>
             </descendants>
         </node>
-        <node id="olive-in-scene">
-            <material id="null"/>
-            <texture id="null">
-                <amplification afs="1" aft="1"/>
-            </texture>
-            <transformations>
-                <translation x="1.5" y="0" z="0"/>
-                <rotation axis="y" angle= "-90"/>
-            </transformations>
-            <descendants>
-                <noderef id="olive"/>
-            </descendants>
-        </node>
-        <node id="olive">
-            <material id="null"/>
-            <texture id="null">
-                <amplification afs="1" aft="1"/>
-            </texture>
-            <transformations>
-                <translation x="0" y="0.3" z="0"/>
-            </transformations>
-            <descendants>
-                <leaf type="obj" url="obj/trees/olive/olive.obj"/>
-            </descendants>
-        </node>
-        <node id="wheat">
-            <material id="null"/>
-            <texture id="null">
-                <amplification afs="1" aft="1"/>
-            </texture>
-            <transformations>
-                <scale sx="1" sy="1" sz="1"/>
-                <scale sx="0.016" sy="0.016" sz="0.016"/>
-            </transformations>
-            <descendants>
-                <leaf type="obj" url="obj/wheat/wheat.obj"/>
-            </descendants>
-        </node>
-        <node id="wheat-1"><material id="null"/><texture id="null"><amplification afs="1" aft="1"/></texture><transformations><translation x="-0.20" y="0" z="-0.20"/><rotation axis="y" angle="000"/><scale sx="1" sz="1" sy="0.90"/></transformations><descendants><noderef id="wheat"/></descendants></node>
-        <node id="wheat-2"><material id="null"/><texture id="null"><amplification afs="1" aft="1"/></texture><transformations><translation x="-0.20" y="0" z="+0.20"/><rotation axis="y" angle="200"/><scale sx="1" sz="1" sy="1.05"/></transformations><descendants><noderef id="wheat"/></descendants></node>
-        <node id="wheat-3"><material id="null"/><texture id="null"><amplification afs="1" aft="1"/></texture><transformations><translation x="+0.20" y="0" z="-0.20"/><rotation axis="y" angle="130"/><scale sx="1" sz="1" sy="0.95"/></transformations><descendants><noderef id="wheat"/></descendants></node>
-        <node id="wheat-4"><material id="null"/><texture id="null"><amplification afs="1" aft="1"/></texture><transformations><translation x="+0.20" y="0" z="+0.20"/><rotation axis="y" angle="300"/><scale sx="1" sz="1" sy="1.10"/></transformations><descendants><noderef id="wheat"/></descendants></node>
-        <node id="wheat-patch"><material id="null"/><texture id="null"><amplification afs="1" aft="1"/></texture><descendants><noderef id="wheat-1"/><noderef id="wheat-2"/><noderef id="wheat-3"/><noderef id="wheat-4"/></descendants></node>
-        <node id="wheat-patch-1"><material id="null"/><texture id="null"><amplification afs="1" aft="1"/></texture><transformations><translation x="-0.40" y="0" z="-0.40"/><rotation axis="y" angle="000"/></transformations><descendants><noderef id="wheat-patch"/></descendants></node>
-        <node id="wheat-patch-2"><material id="null"/><texture id="null"><amplification afs="1" aft="1"/></texture><transformations><translation x="-0.40" y="0" z="+0.40"/><rotation axis="y" angle="200"/></transformations><descendants><noderef id="wheat-patch"/></descendants></node>
-        <node id="wheat-patch-3"><material id="null"/><texture id="null"><amplification afs="1" aft="1"/></texture><transformations><translation x="+0.40" y="0" z="-0.40"/><rotation axis="y" angle="130"/></transformations><descendants><noderef id="wheat-patch"/></descendants></node>
-        <node id="wheat-patch-4"><material id="null"/><texture id="null"><amplification afs="1" aft="1"/></texture><transformations><translation x="+0.40" y="0" z="+0.40"/><rotation axis="y" angle="300"/></transformations><descendants><noderef id="wheat-patch"/></descendants></node>
-        <node id="wheat-part"><material id="null"/><texture id="null"><amplification afs="1" aft="1"/></texture><descendants><noderef id="wheat-patch-1"/><noderef id="wheat-patch-2"/><noderef id="wheat-patch-3"/><noderef id="wheat-patch-4"/></descendants></node>
-        <node id="wheat-part-1"><material id="null"/><texture id="null"><amplification afs="1" aft="1"/></texture><transformations><translation x="-0.8" y="0" z="-0.8"/></transformations><descendants><noderef id="wheat-part"/></descendants></node>
-        <node id="wheat-part-2"><material id="null"/><texture id="null"><amplification afs="1" aft="1"/></texture><transformations><translation x="-0.8" y="0" z="+0.8"/></transformations><descendants><noderef id="wheat-part"/></descendants></node>
-        <node id="wheat-part-3"><material id="null"/><texture id="null"><amplification afs="1" aft="1"/></texture><transformations><translation x="+0.8" y="0" z="-0.8"/></transformations><descendants><noderef id="wheat-part"/></descendants></node>
-        <node id="wheat-part-4"><material id="null"/><texture id="null"><amplification afs="1" aft="1"/></texture><transformations><translation x="+0.8" y="0" z="+0.8"/></transformations><descendants><noderef id="wheat-part"/></descendants></node>
-        <node id="wheat-zone"><material id="null"/><texture id="null"><amplification afs="1" aft="1"/></texture><descendants><noderef id="wheat-part-1"/><noderef id="wheat-part-2"/><noderef id="wheat-part-3"/><noderef id="wheat-part-4"/></descendants></node>
-        <node id="wheat-zone-08"><material id="null"/><texture id="null"><amplification afs="1" aft="1"/></texture><transformations><translation x="-12" y="0" z="0"/></transformations><descendants><noderef id="wheat-zone"/></descendants></node>
-        <node id="wheat-zone-06"><material id="null"/><texture id="null"><amplification afs="1" aft="1"/></texture><transformations><translation x="-09" y="0" z="0"/></transformations><descendants><noderef id="wheat-zone"/></descendants></node>
-        <node id="wheat-zone-04"><material id="null"/><texture id="null"><amplification afs="1" aft="1"/></texture><transformations><translation x="-06" y="0" z="0"/></transformations><descendants><noderef id="wheat-zone"/></descendants></node>
-        <node id="wheat-zone-02"><material id="null"/><texture id="null"><amplification afs="1" aft="1"/></texture><transformations><translation x="-03" y="0" z="0"/></transformations><descendants><noderef id="wheat-zone"/></descendants></node>
-        <node id="wheat-zone+00"><material id="null"/><texture id="null"><amplification afs="1" aft="1"/></texture><transformations><translation x="+00" y="0" z="0"/></transformations><descendants><noderef id="wheat-zone"/></descendants></node>
-        <node id="wheat-zone+02"><material id="null"/><texture id="null"><amplification afs="1" aft="1"/></texture><transformations><translation x="+03" y="0" z="0"/></transformations><descendants><noderef id="wheat-zone"/></descendants></node>
-        <node id="wheat-zone+04"><material id="null"/><texture id="null"><amplification afs="1" aft="1"/></texture><transformations><translation x="+06" y="0" z="0"/></transformations><descendants><noderef id="wheat-zone"/></descendants></node>
-        <node id="wheat-line-1">
-            <material id="null"/>
-            <texture id="null">
-                <amplification afs="1" aft="1"/>
-            </texture>
-            <descendants>
-                <noderef id="wheat-zone-08"/>
-                <noderef id="wheat-zone-06"/>
-                <noderef id="wheat-zone-04"/>
-                <noderef id="wheat-zone-02"/>
-                <noderef id="wheat-zone+00"/>
-                <noderef id="wheat-zone+02"/>
-                <noderef id="wheat-zone+04"/>
-            </descendants>
-        </node>
-        <node id="wheat-line-2">
-            <material id="null"/>
-            <texture id="null">
-                <amplification afs="1" aft="1"/>
-            </texture>
-            <transformations>
-                <translation x="0" z="-3" y="0"/>
-            </transformations>
-            <descendants>
-                <noderef id="wheat-line-1"/>
-            </descendants>
-        </node>
-        <node id="wheat-line">
-            <material id="null"/>
-            <texture id="null">
-                <amplification afs="1" aft="1"/>
-            </texture>
-            <transformations>
-                <translation x="-4" z="-2" y="0"/>
-                <rotation axis="y" angle="75"/>
-            </transformations>
-            <descendants>
-                <noderef id="wheat-line-1"/>
-                <noderef id="wheat-line-2"/>
-            </descendants>
-        </node>
-        <node id="sky-and-ground">
+        <node id="earth-animated-in-space">
             <material id="null"/><texture id="null"><amplification afs="1" aft="1"/></texture>
             <transformations>
+                <scale sx="0.01" sy="0.01" sz="0.01"/>
+                <translation x="0" y="-6786000" z="0"/>
+                <rotation axis="z" angle="90"/>
+                <rotation axis="x" angle="-23.5"/>
             </transformations>
             <descendants>
-                <noderef id="skysphere"/>
-                <noderef id="ground"/>
+                <noderef id="earth-animated"/>
             </descendants>
         </node>
-        <node id="ground">
-            <material id="dry-grass"/><texture id="dry-grass"><amplification afs="0.003" aft="0.003"/></texture>
+        <node id="earth-animated">
+            <material id="null"/><texture id="null"><amplification afs="1" aft="1"/></texture>
+            <animationref id="earth-rotation"/>
+            <descendants>
+                <noderef id="earth"/>
+            </descendants>
+        </node>
+        <node id="earth">
+            <material id="null"/><texture id="null"><amplification afs="1" aft="1"/></texture>
+            <descendants>
+                <noderef id="earth-surface"/>
+                <noderef id="earth-clouds-animated"/>
+            </descendants>
+        </node>
+        <node id="earth-surface">
+            <material id="earth"/><texture id="blue-marble"><amplification afs="1" aft="1"/></texture>
             <transformations>
-                <scale sx="1" sz="1" sy="10"/>
-                <translation x="0" z="0" y="-0.59"/>
+                <rotation axis="y" angle="150"/>
+                <rotation axis="x" angle="-90"/>
             </transformations>
             <descendants>
-                <!--
-                +++++++++> V
-                +
-                +
-                +
-                v
-                U
-                -->
-                <!--
-                <leaf type="patch" npointsU="2" npointsV="3" npartsU="10" npartsV="30" >
-                    <controlpoint x="-300" z="-300" y="0"/><controlpoint x="0" z="-300" y="0"/><controlpoint x="+300" z="-300" y="0"/>
-                    <controlpoint x="-300" z="+300" y="0"/><controlpoint x="0" z="+300" y="0"/><controlpoint x="+300" z="+300" y="0"/>
-                </leaf>
-                -->
-                <leaf type="patch" npointsU="13" npointsV="13" npartsU="30" npartsV="30">
-                    <controlpoint x='-300' z='-300' y='0.686681839973687'/><controlpoint x='-250' z='-300' y='0.799789185437775'/><controlpoint x='-200' z='-300' y='0.928926640220502'/><controlpoint x='-150' z='-300' y='1.12763021828144'/><controlpoint x='-100' z='-300' y='1.37617287375762'/><controlpoint x='-50' z='-300' y='1.6642716834772'/><controlpoint x='0' z='-300' y='1.97399694635286'/><controlpoint x='50' z='-300' y='2.20882037922211'/><controlpoint x='100' z='-300' y='2.43839743856719'/><controlpoint x='150' z='-300' y='2.71106814685272'/><controlpoint x='200' z='-300' y='2.92566464795419'/><controlpoint x='250' z='-300' y='3.0620962804583'/><controlpoint x='300' z='-300' y='3.03901860489549'/>
-                    <controlpoint x='-300' z='-250' y='0.602645716321993'/><controlpoint x='-250' z='-250' y='0.656214322033135'/><controlpoint x='-200' z='-250' y='0.654413757845568'/><controlpoint x='-150' z='-250' y='0.875392051990585'/><controlpoint x='-100' z='-250' y='1.08640370961792'/><controlpoint x='-50' z='-250' y='1.24977113281936'/><controlpoint x='0' z='-250' y='1.46061788882707'/><controlpoint x='50' z='-250' y='1.90803206100403'/><controlpoint x='100' z='-250' y='2.33318682456514'/><controlpoint x='150' z='-250' y='2.76903649711809'/><controlpoint x='200' z='-250' y='2.83525706896949'/><controlpoint x='250' z='-250' y='3.0224182440965'/><controlpoint x='300' z='-250' y='3.0184723424386'/>
-                    <controlpoint x='-300' z='-200' y='0.175599315926424'/><controlpoint x='-250' z='-200' y='0.259768522975664'/><controlpoint x='-200' z='-200' y='0.248980717626113'/><controlpoint x='-150' z='-200' y='0.591928040185876'/><controlpoint x='-100' z='-200' y='0.856536789526234'/><controlpoint x='-50' z='-200' y='1.22100536874822'/><controlpoint x='0' z='-200' y='1.52214222440508'/><controlpoint x='50' z='-200' y='2.13034859383852'/><controlpoint x='100' z='-200' y='2.6142012679196'/><controlpoint x='150' z='-200' y='2.91467871304545'/><controlpoint x='200' z='-200' y='2.81223850774631'/><controlpoint x='250' z='-200' y='2.80205731340905'/><controlpoint x='300' z='-200' y='2.80440580097567'/>
-                    <controlpoint x='-300' z='-150' y='0.0437207590914082'/><controlpoint x='-250' z='-150' y='0.0348529930296472'/><controlpoint x='-200' z='-150' y='0.00810275307112011'/><controlpoint x='-150' z='-150' y='0.332501099921533'/><controlpoint x='-100' z='-150' y='0.628106864522739'/><controlpoint x='-50' z='-150' y='0.817082174116267'/><controlpoint x='0' z='-150' y='1.13687140195426'/><controlpoint x='50' z='-150' y='1.80599261532394'/><controlpoint x='100' z='-150' y='2.40887735018147'/><controlpoint x='150' z='-150' y='2.82584250245706'/><controlpoint x='200' z='-150' y='2.71874941849028'/><controlpoint x='250' z='-150' y='2.75073269411778'/><controlpoint x='300' z='-150' y='2.70635959895153'/>
-                    <controlpoint x='-300' z='-100' y='-0.0399300844912723'/><controlpoint x='-250' z='-100' y='-0.052279077773839'/><controlpoint x='-200' z='-100' y='0.0465194107494478'/><controlpoint x='-150' z='-100' y='0.302314683549'/><controlpoint x='-100' z='-100' y='0.55616678827938'/><controlpoint x='-50' z='-100' y='0.786676524422635'/><controlpoint x='0' z='-100' y='1.18490434344571'/><controlpoint x='50' z='-100' y='1.6995670921561'/><controlpoint x='100' z='-100' y='2.06121128301146'/><controlpoint x='150' z='-100' y='2.30006573318517'/><controlpoint x='200' z='-100' y='2.50047456579195'/><controlpoint x='250' z='-100' y='2.68435641730442'/><controlpoint x='300' z='-100' y='2.81484361138472'/>
-                    <controlpoint x='-300' z='-50' y='0.281660040746028'/><controlpoint x='-250' z='-50' y='0.234894963498635'/><controlpoint x='-200' z='-50' y='0.278253305985839'/><controlpoint x='-150' z='-50' y='0.35318667282667'/><controlpoint x='-100' z='-50' y='0.435441746634187'/><controlpoint x='-50' z='-50' y='0.444643770727051'/><controlpoint x='0' z='-50' y='0.675883075592194'/><controlpoint x='50' z='-50' y='1.06660454870224'/><controlpoint x='100' z='-50' y='1.35929335533874'/><controlpoint x='150' z='-50' y='1.71212579878167'/><controlpoint x='200' z='-50' y='2.12976823840297'/><controlpoint x='250' z='-50' y='2.6915403946656'/><controlpoint x='300' z='-50' y='2.99327798919458'/>
-                    <controlpoint x='-300' z='0' y='0.93605670596449'/><controlpoint x='-250' z='0' y='0.807842114002431'/><controlpoint x='-200' z='0' y='0.576719462714966'/><controlpoint x='-150' z='0' y='0.380950076185795'/><controlpoint x='-100' z='0' y='0.136485730978938'/><controlpoint x='-50' z='0' y='0.023242514676266'/><controlpoint x='0' z='0' y='0'/><controlpoint x='50' z='0' y='0.475049437433317'/><controlpoint x='100' z='0' y='0.800399390627059'/><controlpoint x='150' z='0' y='1.15017074100363'/><controlpoint x='200' z='0' y='1.77867998818429'/><controlpoint x='250' z='0' y='2.46783700342199'/><controlpoint x='300' z='0' y='2.95075922263844'/>
-                    <controlpoint x='-300' z='50' y='1.56244727028232'/><controlpoint x='-250' z='50' y='1.39669068193781'/><controlpoint x='-200' z='50' y='0.947408884770362'/><controlpoint x='-150' z='50' y='0.507055750012349'/><controlpoint x='-100' z='50' y='0.0246338949527936'/><controlpoint x='-50' z='50' y='-0.0980641648421869'/><controlpoint x='0' z='50' y='-0.15824156135412'/><controlpoint x='50' z='50' y='0.1108501519363'/><controlpoint x='100' z='50' y='0.388237038731159'/><controlpoint x='150' z='50' y='0.783660021232065'/><controlpoint x='200' z='50' y='1.36722509515459'/><controlpoint x='250' z='50' y='1.98352869112354'/><controlpoint x='300' z='50' y='2.35634133702548'/>
-                    <controlpoint x='-300' z='100' y='1.98846643989365'/><controlpoint x='-250' z='100' y='1.73169035328894'/><controlpoint x='-200' z='100' y='1.2455356176952'/><controlpoint x='-150' z='100' y='0.735016983132793'/><controlpoint x='-100' z='100' y='0.162066830304177'/><controlpoint x='-50' z='100' y='-0.0423497860286832'/><controlpoint x='0' z='100' y='-0.203992850888428'/><controlpoint x='50' z='100' y='0.0465413013072703'/><controlpoint x='100' z='100' y='0.277526860180515'/><controlpoint x='150' z='100' y='0.685055562175553'/><controlpoint x='200' z='100' y='1.23974935924067'/><controlpoint x='250' z='100' y='1.71679184270491'/><controlpoint x='300' z='100' y='2.01371838379607'/>
-                    <controlpoint x='-300' z='150' y='1.85285793881933'/><controlpoint x='-250' z='150' y='1.71230421920683'/><controlpoint x='-200' z='150' y='1.4564288420431'/><controlpoint x='-150' z='150' y='1.11539819702679'/><controlpoint x='-100' z='150' y='0.715716511229661'/><controlpoint x='-50' z='150' y='0.558531303213077'/><controlpoint x='0' z='150' y='0.348993597109544'/><controlpoint x='50' z='150' y='0.423905515961005'/><controlpoint x='100' z='150' y='0.446103967838514'/><controlpoint x='150' z='150' y='0.813357804284402'/><controlpoint x='200' z='150' y='1.22103297543991'/><controlpoint x='250' z='150' y='1.55894445674199'/><controlpoint x='300' z='150' y='1.69948458468129'/>
-                    <controlpoint x='-300' z='200' y='1.44088044239867'/><controlpoint x='-250' z='200' y='1.48917398573624'/><controlpoint x='-200' z='200' y='1.51268561371357'/><controlpoint x='-150' z='200' y='1.57228835651046'/><controlpoint x='-100' z='200' y='1.40846458441556'/><controlpoint x='-50' z='200' y='1.24218487073374'/><controlpoint x='0' z='200' y='0.975571638036671'/><controlpoint x='50' z='200' y='0.985839897314609'/><controlpoint x='100' z='200' y='1.06718255859698'/><controlpoint x='150' z='200' y='1.39663241295783'/><controlpoint x='200' z='200' y='1.69488047430328'/><controlpoint x='250' z='200' y='1.88514813074314'/><controlpoint x='300' z='200' y='2.02052358391475'/>
-                    <controlpoint x='-300' z='250' y='1.01301013905929'/><controlpoint x='-250' z='250' y='1.30424150511214'/><controlpoint x='-200' z='250' y='1.61782275211484'/><controlpoint x='-150' z='250' y='2.05267867355503'/><controlpoint x='-100' z='250' y='2.09468815222037'/><controlpoint x='-50' z='250' y='1.96614460110928'/><controlpoint x='0' z='250' y='1.60444537945021'/><controlpoint x='50' z='250' y='1.45047378418001'/><controlpoint x='100' z='250' y='1.46851409312301'/><controlpoint x='150' z='250' y='1.79031200841248'/><controlpoint x='200' z='250' y='1.99539784398442'/><controlpoint x='250' z='250' y='2.07764595208225'/><controlpoint x='300' z='250' y='2.12526031720657'/>
-                    <controlpoint x='-300' z='300' y='0.80929920446034'/><controlpoint x='-250' z='300' y='1.24366139335089'/><controlpoint x='-200' z='300' y='1.70697009095174'/><controlpoint x='-150' z='300' y='2.35444813154595'/><controlpoint x='-100' z='300' y='2.42723505606178'/><controlpoint x='-50' z='300' y='2.27645127136101'/><controlpoint x='0' z='300' y='1.83106724447981'/><controlpoint x='50' z='300' y='1.69026578251246'/><controlpoint x='100' z='300' y='1.75468108191675'/><controlpoint x='150' z='300' y='2.08632900666842'/><controlpoint x='200' z='300' y='2.24342845659254'/><controlpoint x='250' z='300' y='2.30215582479809'/><controlpoint x='300' z='300' y='2.37290008888882'/>
-                </leaf>
+                <leaf type="sphere" radius="6378000" slices="256" stacks="120"/>
+                <noderef id="earth-night-lights"/>
+            </descendants>
+        </node>
+        <node id="earth-night-lights">
+            <material id="earth-night-lights"/><texture id="earth-night-lights"><amplification afs="1" aft="1"/></texture>
+            <descendants>
+                <leaf type="sphere" radius="6379000" slices="256" stacks="120"/>
+            </descendants>
+        </node>
+        <node id="earth-clouds-animated">
+            <material id="null"/><texture id="null"><amplification afs="1" aft="1"/></texture>
+            <animationref id="cloud-rotation"/>
+            <descendants>
+                <noderef id="earth-clouds"/>
+            </descendants>
+        </node>
+        <node id="earth-clouds">
+            <material id="cloud"/><texture id="earth-clouds"><amplification afs="1" aft="1"/></texture>
+            <transformations>
+                <rotation axis="y" angle="150"/>
+                <rotation axis="x" angle="-90"/>
+            </transformations>
+            <descendants>
+                <leaf type="sphere" radius="6388000" slices="256" stacks="120"/>
+            </descendants>
+        </node>
+        <node id="iss-in-space">
+            <material id="null"/><texture id="null"><amplification afs="1" aft="1"/></texture>
+            <descendants>
+                <noderef id="iss"/>
+            </descendants>
+        </node>
+        <node id="iss">
+            <material id="null"/><texture id="null"><amplification afs="1" aft="1"/></texture>
+            <transformations>
+                <scale sx="0.111" sy="0.111" sz="0.111"/>
+                <translation x="0" y="+31.075" z="+98.044"/>
+            </transformations>
+            <descendants>
+                <leaf type="obj" url="iss/obj/iss/iss-interior-neworder-hatchesopen-lessmodules.obj"/>
             </descendants>
         </node>
         <node id="skysphere">
-            <material id="landscape"/><texture id="skysphere"><amplification afs="1" aft="1"/></texture>
+            <material id="star-map"/><texture id="star-map"><amplification afs="1" aft="1"/></texture>
             <transformations>
-                <rotation axis="x" angle="+90"/>
+                <rotation axis="z" angle="90"/>
+                <rotation axis="y" angle="5"/>
+                <rotation axis="x" angle="5"/>
+                <rotation axis="x" angle="-90"/>
             </transformations>
             <descendants>
-                <leaf type="sphere" radius="-1000" slices="64" stacks="32"/>
+                <leaf type="sphere" radius="-500000" slices="36" stacks="18"/>
             </descendants>
         </node>
-
-        <node id="table">
-            <material id="null"/>
-            <texture id="null">
-                <amplification afs="1" aft="1"/>
-            </texture>
-            <transformations>
-            </transformations>
-            <descendants>
-                <noderef id="table-top"/>
-                <noderef id="table-seat-zpos"/>
-                <noderef id="table-seat-zneg"/>
-                <noderef id="table-leg-1"/>
-                <noderef id="table-leg-2"/>
-                <noderef id="table-leg-3"/>
-                <noderef id="table-leg-4"/>
-                <noderef id="table-lower-beam-right"/>
-                <noderef id="table-lower-beam-left" />
-                <noderef id="table-upper-beam-right"/>
-                <noderef id="table-upper-beam-left" />
-                <noderef id="table-top-support-beam-left"  />
-                <noderef id="table-top-support-beam-center"/>
-                <noderef id="table-top-support-beam-right" />
-            </descendants>
-        </node>
-
-        <node id="table-seat-zpos">
-            <material id="null"/>
-            <texture id="null">
-                <amplification afs="1" aft="1"/>
-            </texture>
-            <transformations>
-                <translation x="0" y="0" z="+0.745"/>
-                <translation x="0" y="0" z="-0.145"/>
-            </transformations>
-            <descendants>
-                <noderef id="table-seat"/>
-            </descendants>
-        </node>
-        <node id="table-seat-zneg">
-            <material id="null"/>
-            <texture id="null">
-                <amplification afs="1" aft="1"/>
-            </texture>
-            <transformations>
-                <translation x="0" y="0" z="-0.745"/>
-                <translation x="0" y="0" z="+0.145"/>
-            </transformations>
-            <descendants>
-                <noderef id="table-seat"/>
-            </descendants>
-        </node>
-
-        <node id="table-seat">
-            <material id="null"/>
-            <texture id="null">
-                <amplification afs="1" aft="1"/>
-            </texture>
-            <transformations>
-                <translation x="0" y="0.43" z="0"/>
-                <translation x="0" y="-0.013" z="0"/>
-            </transformations>
-            <descendants>
-                <noderef id="table-seat-beam1"/>
-                <noderef id="table-seat-beam2"/>
-            </descendants>
-        </node>
-        <node id="table-seat-beam1"><material id="null"/><texture id="null"><amplification afs="1" aft="1"/></texture><transformations><translation x="0" y="0" z="-0.0725"/>                                </transformations><descendants><noderef id="beam-wood-014.5-183.0"/></descendants></node>
-        <node id="table-seat-beam2"><material id="null"/><texture id="null"><amplification afs="1" aft="1"/></texture><transformations><translation x="0" y="0" z="+0.0725"/><rotation axis="y" angle="180"/></transformations><descendants><noderef id="beam-wood-014.5-183.0"/></descendants></node>
-        
-        <node id="table-top">
-            <material id="null"/>
-            <texture id="null">
-                <amplification afs="1" aft="1"/>
-            </texture>
-            <transformations>
-                <translation x="0" y="0.78" z="0"/>
-                <translation x="0" y="-0.013" z="0"/>
-            </transformations>
-            <descendants>
-                <noderef id="table-top-beam1"/>
-                <noderef id="table-top-beam2"/>
-                <noderef id="table-top-beam3"/>
-                <noderef id="table-top-beam4"/>
-                <noderef id="table-top-beam5"/>
-            </descendants>
-        </node>
-        <node id="table-top-beam1"><material id="null"/><texture id="null"><amplification afs="1" aft="1"/></texture><transformations><translation x="0" y="0" z="-0.290"/>                                </transformations><descendants><noderef id="beam-wood-014.5-183.0"/></descendants></node>
-        <node id="table-top-beam2"><material id="null"/><texture id="null"><amplification afs="1" aft="1"/></texture><transformations><translation x="0" y="0" z="-0.145"/><rotation axis="y" angle="180"/></transformations><descendants><noderef id="beam-wood-014.5-183.0"/></descendants></node>
-        <node id="table-top-beam3"><material id="null"/><texture id="null"><amplification afs="1" aft="1"/></texture><transformations><translation x="0" y="0" z="+0.000"/>                                </transformations><descendants><noderef id="beam-wood-014.5-183.0"/></descendants></node>
-        <node id="table-top-beam4"><material id="null"/><texture id="null"><amplification afs="1" aft="1"/></texture><transformations><translation x="0" y="0" z="+0.145"/><rotation axis="y" angle="180"/></transformations><descendants><noderef id="beam-wood-014.5-183.0"/></descendants></node>
-        <node id="table-top-beam5"><material id="null"/><texture id="null"><amplification afs="1" aft="1"/></texture><transformations><translation x="0" y="0" z="+0.290"/>                                </transformations><descendants><noderef id="beam-wood-014.5-183.0"/></descendants></node>
-
-        <node id="beam-wood-014.5-183.0">
-            <!--
-                height: 2.6cm = 0.026m
-            -->
-            <material id="wood"/>
-            <texture id="pine-wood">
-                <amplification afs="1" aft="1"/>
-            </texture>
-            <transformations>
-                <scale sx="1" sy="1" sz="0.92"/>
-            </transformations>
-            <descendants>
-                <noderef id="beam-wood-014.5-183.0-top"/>
-                <noderef id="beam-wood-014.5-183.0-bot"/>
-                <noderef id="beam-wood-014.5-183.0-lef"/>
-                <noderef id="beam-wood-014.5-183.0-rig"/>
-                <noderef id="beam-wood-014.5-183.0-fro"/>
-                <noderef id="beam-wood-014.5-183.0-bac"/>
-            </descendants>
-        </node>
-        <node id="beam-wood-014.5-183.0-top"><material id="null"/><texture id="null"><amplification afs="2" aft="1"/></texture><transformations><translation x="+0.0" y="+0.0130" z="+0.0"/><rotation axis="x" angle= "-90"/></transformations><descendants><leaf type="rectangle" x1="-0.9150" x2="+0.9150" y1="-0.0725" y2="+0.0725"/></descendants></node>
-        <node id="beam-wood-014.5-183.0-bot"><material id="null"/><texture id="null"><amplification afs="2" aft="1"/></texture><transformations><translation x="+0.0" y="-0.0130" z="+0.0"/><rotation axis="x" angle= "+90"/></transformations><descendants><leaf type="rectangle" x1="-0.9150" x2="+0.9150" y1="-0.0725" y2="+0.0725"/></descendants></node>
-        <node id="beam-wood-014.5-183.0-fro"><material id="null"/><texture id="null"><amplification afs="2" aft="1"/></texture><transformations><translation x="+0.0" y="+0.0" z="+0.0725"/>                                 </transformations><descendants><leaf type="rectangle" x1="-0.9150" x2="+0.9150" y1="-0.0130" y2="+0.0130"/></descendants></node>
-        <node id="beam-wood-014.5-183.0-bac"><material id="null"/><texture id="null"><amplification afs="2" aft="1"/></texture><transformations><translation x="+0.0" y="+0.0" z="-0.0725"/><rotation axis="x" angle="+180"/></transformations><descendants><leaf type="rectangle" x1="-0.9150" x2="+0.9150" y1="-0.0130" y2="+0.0130"/></descendants></node>
-        <node id="beam-wood-014.5-183.0-rig"><material id="null"/><texture id="null"><amplification afs="2" aft="1"/></texture><transformations><translation x="+0.9150" y="+0.0" z="+0.0"/><rotation axis="y" angle= "+90"/></transformations><descendants><leaf type="rectangle" x1="-0.0725" x2="+0.0725" y1="-0.0130" y2="+0.0130"/></descendants></node>
-        <node id="beam-wood-014.5-183.0-lef"><material id="null"/><texture id="null"><amplification afs="2" aft="1"/></texture><transformations><translation x="-0.9150" y="+0.0" z="+0.0"/><rotation axis="y" angle= "-90"/></transformations><descendants><leaf type="rectangle" x1="-0.0725" x2="+0.0725" y1="-0.0130" y2="+0.0130"/></descendants></node>
-        
-        <node id="table-leg-1"><material id="null"/><texture id="null"><amplification afs="1" aft="1"/></texture><transformations><translation x="+0.660" y="0" z="+0.145"/><translation x="+0.013" y="0" z="0"/>                                </transformations><descendants><noderef id="table-leg"/></descendants></node>
-        <node id="table-leg-2"><material id="null"/><texture id="null"><amplification afs="1" aft="1"/></texture><transformations><translation x="-0.660" y="0" z="+0.145"/><translation x="-0.013" y="0" z="0"/>                                </transformations><descendants><noderef id="table-leg"/></descendants></node>
-        <node id="table-leg-3"><material id="null"/><texture id="null"><amplification afs="1" aft="1"/></texture><transformations><translation x="+0.660" y="0" z="-0.145"/><translation x="+0.013" y="0" z="0"/><rotation axis="y" angle="180"/></transformations><descendants><noderef id="table-leg"/></descendants></node>
-        <node id="table-leg-4"><material id="null"/><texture id="null"><amplification afs="1" aft="1"/></texture><transformations><translation x="-0.660" y="0" z="-0.145"/><translation x="-0.013" y="0" z="0"/><rotation axis="y" angle="180"/></transformations><descendants><noderef id="table-leg"/></descendants></node>
-        <node id="table-leg">
-            <!--
-                width: 2.6cm = 0.026m
-            -->
-            <material id="wood"/>
-            <texture id="pine-wood">
-                <amplification afs="2" aft="4"/>
-            </texture>
-            <transformations>
-                <rotation axis="y" angle="90"/>
-                <translation x="-0.427" y="0" z="0"/>
-            </transformations>
-            <descendants>
-                <leaf type="patch" npointsU="2" npointsV="2" npartsU="1" npartsV="1">
-                    <controlpoint x='0.150' y='0.000' z='+0.013'/><controlpoint x='0.000' y='0.000' z='+0.013'/>
-                    <controlpoint x='0.502' y='0.754' z='+0.013'/><controlpoint x='0.352' y='0.754' z='+0.013'/>
-                </leaf>
-                <leaf type="patch" npointsU="2" npointsV="2" npartsU="1" npartsV="1">
-                    <controlpoint x='0.000' y='0.000' z='-0.013'/><controlpoint x='0.150' y='0.000' z='-0.013'/>
-                    <controlpoint x='0.352' y='0.754' z='-0.013'/><controlpoint x='0.502' y='0.754' z='-0.013'/>
-                </leaf>
-                <leaf type="patch" npointsU="2" npointsV="2" npartsU="1" npartsV="1">
-                    <controlpoint x='0.000' y='0.000' z='+0.013'/><controlpoint x='0.150' y='0.000' z='+0.013'/>
-                    <controlpoint x='0.000' y='0.000' z='-0.013'/><controlpoint x='0.150' y='0.000' z='-0.013'/>
-                </leaf>
-                <leaf type="patch" npointsU="2" npointsV="2" npartsU="1" npartsV="1">
-                    <controlpoint x='0.352' y='0.754' z='-0.013'/><controlpoint x='0.502' y='0.754' z='-0.013'/>
-                    <controlpoint x='0.352' y='0.754' z='+0.013'/><controlpoint x='0.502' y='0.754' z='+0.013'/>
-                </leaf>
-                <leaf type="patch" npointsU="2" npointsV="2" npartsU="1" npartsV="1">
-                    <controlpoint x='0.352' y='0.754' z='-0.013'/><controlpoint x='0.352' y='0.754' z='+0.013'/>
-                    <controlpoint x='0.000' y='0.000' z='-0.013'/><controlpoint x='0.000' y='0.000' z='+0.013'/>
-                </leaf>
-                <leaf type="patch" npointsU="2" npointsV="2" npartsU="1" npartsV="1">
-                    <controlpoint x='0.150' y='0.000' z='-0.013'/><controlpoint x='0.150' y='0.000' z='+0.013'/>
-                    <controlpoint x='0.504' y='0.754' z='-0.013'/><controlpoint x='0.504' y='0.754' z='+0.013'/>
-                </leaf>
-            </descendants>
-        </node>
-
-        <node id="table-lower-beam-right"><material id="null"/><texture id="null"><amplification afs="1" aft="1"/></texture><transformations><translation x="+0.660" y="0.404" z="0"/>                                <translation x="-0.013" y="0" z="0"/><rotation axis="y" angle="90"/></transformations><descendants><noderef id="table-lower-beam"/></descendants></node>
-        <node id="table-lower-beam-left" ><material id="null"/><texture id="null"><amplification afs="1" aft="1"/></texture><transformations><translation x="-0.660" y="0.404" z="0"/><rotation axis="y" angle="180"/><translation x="-0.013" y="0" z="0"/><rotation axis="y" angle="90"/></transformations><descendants><noderef id="table-lower-beam"/></descendants></node>
-        <node id="table-lower-beam">
-            <!--
-                height: 2.6cm = 0.026m
-            -->
-            <material id="wood"/>
-            <texture id="pine-wood">
-                <amplification afs="1" aft="1"/>
-            </texture>
-            <descendants>
-                <noderef id="table-lower-beam-top"/>
-                <noderef id="table-lower-beam-bot"/>
-                <noderef id="table-lower-beam-lef"/>
-                <noderef id="table-lower-beam-rig"/>
-                <noderef id="table-lower-beam-fro"/>
-                <noderef id="table-lower-beam-bac"/>
-            </descendants>
-        </node>
-        <node id="table-lower-beam-top"      ><material id="null"/><texture id="null"><amplification afs="2" aft="1"/></texture><transformations><translation x="+0.000" y="+0.000" z="+0.000"/><rotation axis="x" angle= "-90"/></transformations><descendants><leaf type="rectangle" x1="-0.730" x2="+0.730" y1="-0.013" y2="+0.013"/></descendants></node>
-        <node id="table-lower-beam-bot"      ><material id="null"/><texture id="null"><amplification afs="2" aft="1"/></texture><transformations><translation x="+0.000" y="-0.140" z="+0.000"/><rotation axis="x" angle= "+90"/></transformations><descendants><leaf type="rectangle" x1="-0.519" x2="+0.519" y1="-0.013" y2="+0.013"/></descendants></node>
-        <node id="table-lower-beam-fro"      ><material id="null"/><texture id="null"><amplification afs="2" aft="1"/></texture><transformations><translation x="+0.000" y="+0.000" z="+0.013"/>                                 </transformations>
-            <descendants>
-                <leaf type="rectangle" x1="-0.730" x2="+0.730" y1="-0.090" y2="+0.000"/>
-                <leaf type="rectangle" x1="-0.519" x2="+0.519" y1="-0.140" y2="-0.090"/>
-                <leaf type="triangle"  x1="-0.519" y1="-0.090" x2="-0.730" y2="-0.090" x3="-0.519" y3="-0.140"/>
-                <leaf type="triangle"  x1="+0.730" y1="-0.090" x2="+0.519" y2="-0.090" x3="+0.519" y3="-0.140"/>
-            </descendants>
-        </node>
-        <node id="table-lower-beam-bac"      ><material id="null"/><texture id="null"><amplification afs="2" aft="1"/></texture><transformations><translation x="+0.000" y="+0.000" z="-0.013"/><rotation axis="y" angle="+180"/></transformations>
-            <descendants>
-                <leaf type="rectangle" x1="-0.730" x2="+0.730" y1="-0.090" y2="+0.000"/>
-                <leaf type="rectangle" x1="-0.519" x2="+0.519" y1="-0.140" y2="-0.090"/>
-                <leaf type="triangle"  x1="-0.519" y1="-0.090" x2="-0.730" y2="-0.090" x3="-0.519" y3="-0.140"/>
-                <leaf type="triangle"  x1="+0.730" y1="-0.090" x2="+0.519" y2="-0.090" x3="+0.519" y3="-0.140"/>
-            </descendants>
-        </node>
-        <node id="table-lower-beam-rig"      ><material id="null"/><texture id="null"><amplification afs="2" aft="1"/></texture><transformations><translation x="+0.730" y="+0.000" z="+0.000"/><rotation axis="y" angle= "+90"/></transformations>
-            <descendants>
-                <leaf type="rectangle" x1="-0.013" x2="+0.013" y1="-0.090" y2="+0.000"/>
-                <leaf type="patch" npointsU="2" npointsV="2" npartsU="1" npartsV="1">
-                    <controlpoint x='+0.013' y='-0.090' z='-0.000'/><controlpoint x='+0.013' y='-0.140' z='-0.211'/>
-                    <controlpoint x='-0.013' y='-0.090' z='-0.000'/><controlpoint x='-0.013' y='-0.140' z='-0.211'/>
-                </leaf>
-            </descendants>
-        </node>
-        <node id="table-lower-beam-lef"      ><material id="null"/><texture id="null"><amplification afs="2" aft="1"/></texture><transformations><translation x="-0.730" y="+0.000" z="+0.000"/><rotation axis="y" angle= "-90"/></transformations>
-            <descendants>
-                <leaf type="rectangle" x1="-0.013" x2="+0.013" y1="-0.090" y2="+0.000"/>
-                <leaf type="patch" npointsU="2" npointsV="2" npartsU="1" npartsV="1">
-                    <controlpoint x='+0.013' y='-0.090' z='-0.000'/><controlpoint x='+0.013' y='-0.140' z='-0.211'/>
-                    <controlpoint x='-0.013' y='-0.090' z='-0.000'/><controlpoint x='-0.013' y='-0.140' z='-0.211'/>
-                </leaf>
-            </descendants>
-        </node>
-        
-        <node id="table-upper-beam-right"><material id="null"/><texture id="null"><amplification afs="1" aft="1"/></texture><transformations><translation x="+0.660" y="0.754" z="0"/>                                <translation x="-0.013" y="0" z="0"/><rotation axis="y" angle="90"/></transformations><descendants><noderef id="table-upper-beam"/></descendants></node>
-        <node id="table-upper-beam-left" ><material id="null"/><texture id="null"><amplification afs="1" aft="1"/></texture><transformations><translation x="-0.660" y="0.754" z="0"/><rotation axis="y" angle="180"/><translation x="-0.013" y="0" z="0"/><rotation axis="y" angle="90"/></transformations><descendants><noderef id="table-upper-beam"/></descendants></node>
-        <node id="table-upper-beam">
-            <!--
-                height: 2.6cm = 0.026m
-            -->
-            <material id="wood"/>
-            <texture id="pine-wood">
-                <amplification afs="1" aft="1"/>
-            </texture>
-            <descendants>
-                <noderef id="table-upper-beam-top"/>
-                <noderef id="table-upper-beam-bot"/>
-                <noderef id="table-upper-beam-lef"/>
-                <noderef id="table-upper-beam-rig"/>
-                <noderef id="table-upper-beam-fro"/>
-                <noderef id="table-upper-beam-bac"/>
-            </descendants>
-        </node>
-        <node id="table-upper-beam-top"      ><material id="null"/><texture id="null"><amplification afs="2" aft="1"/></texture><transformations><translation x="+0.000" y="+0.000" z="+0.000"/><rotation axis="x" angle= "-90"/></transformations><descendants><leaf type="rectangle" x1="-0.350" x2="+0.350" y1="-0.013" y2="+0.013"/></descendants></node>
-        <node id="table-upper-beam-bot"      ><material id="null"/><texture id="null"><amplification afs="2" aft="1"/></texture><transformations><translation x="+0.000" y="-0.090" z="+0.000"/><rotation axis="x" angle= "+90"/></transformations><descendants><leaf type="rectangle" x1="-0.270" x2="+0.270" y1="-0.013" y2="+0.013"/></descendants></node>
-        <node id="table-upper-beam-fro"      ><material id="null"/><texture id="null"><amplification afs="2" aft="1"/></texture><transformations><translation x="+0.000" y="+0.000" z="+0.013"/>                                 </transformations>
-            <descendants>
-                <leaf type="rectangle" x1="-0.350" x2="+0.350" y1="-0.050" y2="+0.000"/>
-                <leaf type="rectangle" x1="-0.270" x2="+0.270" y1="-0.090" y2="-0.050"/>
-                <leaf type="triangle"  x1="-0.270" y1="-0.050" x2="-0.350" y2="-0.050" x3="-0.270" y3="-0.090"/>
-                <leaf type="triangle"  x1="+0.350" y1="-0.050" x2="+0.270" y2="-0.050" x3="+0.270" y3="-0.090"/>
-            </descendants>
-        </node>
-        <node id="table-upper-beam-bac"      ><material id="null"/><texture id="null"><amplification afs="2" aft="1"/></texture><transformations><translation x="+0.000" y="+0.000" z="-0.013"/><rotation axis="y" angle="+180"/></transformations>
-            <descendants>
-                <leaf type="rectangle" x1="-0.350" x2="+0.350" y1="-0.050" y2="+0.000"/>
-                <leaf type="rectangle" x1="-0.270" x2="+0.270" y1="-0.090" y2="-0.050"/>
-                <leaf type="triangle"  x1="-0.270" y1="-0.050" x2="-0.350" y2="-0.050" x3="-0.270" y3="-0.090"/>
-                <leaf type="triangle"  x1="+0.350" y1="-0.050" x2="+0.270" y2="-0.050" x3="+0.270" y3="-0.090"/>
-            </descendants>
-        </node>
-        <node id="table-upper-beam-rig"      ><material id="null"/><texture id="null"><amplification afs="2" aft="1"/></texture><transformations><translation x="+0.350" y="+0.000" z="+0.000"/><rotation axis="y" angle= "+90"/></transformations>
-            <descendants>
-                <leaf type="rectangle" x1="-0.013" x2="+0.013" y1="-0.050" y2="+0.000"/>
-                <leaf type="patch" npointsU="2" npointsV="2" npartsU="1" npartsV="1">
-                    <controlpoint x='+0.013' y='-0.050' z='-0.000'/><controlpoint x='+0.013' y='-0.090' z='-0.080'/>
-                    <controlpoint x='-0.013' y='-0.050' z='-0.000'/><controlpoint x='-0.013' y='-0.090' z='-0.080'/>
-                </leaf>
-            </descendants>
-        </node>
-        <node id="table-upper-beam-lef"      ><material id="null"/><texture id="null"><amplification afs="2" aft="1"/></texture><transformations><translation x="-0.350" y="+0.000" z="+0.000"/><rotation axis="y" angle= "-90"/></transformations>
-            <descendants>
-                <leaf type="rectangle" x1="-0.013" x2="+0.013" y1="-0.050" y2="+0.000"/>
-                <leaf type="patch" npointsU="2" npointsV="2" npartsU="1" npartsV="1">
-                    <controlpoint x='+0.013' y='-0.050' z='-0.000'/><controlpoint x='+0.013' y='-0.090' z='-0.080'/>
-                    <controlpoint x='-0.013' y='-0.050' z='-0.000'/><controlpoint x='-0.013' y='-0.090' z='-0.080'/>
-                </leaf>
-            </descendants>
-        </node>
-
-        <node id="table-top-support-beam-right" ><material id="null"/><texture id="null"><amplification afs="1" aft="1"/></texture><transformations><translation x="+0.634" y="0.754" z="0"/>                                <translation x="-0.045" y="0" z="0"/><rotation axis="y" angle="90"/></transformations><descendants><noderef id="table-top-support-beam"/></descendants></node>
-        <node id="table-top-support-beam-center"><material id="null"/><texture id="null"><amplification afs="1" aft="1"/></texture><transformations><translation x="+0.000" y="0.754" z="0"/>                                <translation x="-0.045" y="0" z="0"/><rotation axis="y" angle="90"/></transformations><descendants><noderef id="table-top-support-beam"/></descendants></node>
-        <node id="table-top-support-beam-left"  ><material id="null"/><texture id="null"><amplification afs="1" aft="1"/></texture><transformations><translation x="-0.634" y="0.754" z="0"/><rotation axis="y" angle="180"/><translation x="-0.045" y="0" z="0"/><rotation axis="y" angle="90"/></transformations><descendants><noderef id="table-top-support-beam"/></descendants></node>
-        <node id="table-top-support-beam">
-            <!--
-                height: 2.6cm = 0.026m
-            -->
-            <material id="wood"/>
-            <texture id="pine-wood">
-                <amplification afs="1" aft="1"/>
-            </texture>
-            <descendants>
-                <noderef id="table-top-support-beam-top"/>
-                <noderef id="table-top-support-beam-bot"/>
-                <noderef id="table-top-support-beam-lef"/>
-                <noderef id="table-top-support-beam-rig"/>
-                <noderef id="table-top-support-beam-fro"/>
-                <noderef id="table-top-support-beam-bac"/>
-            </descendants>
-        </node>
-        <node id="table-top-support-beam-top"      ><material id="null"/><texture id="null"><amplification afs="2" aft="1"/></texture><transformations><translation x="+0.000" y="+0.000" z="+0.000"/><rotation axis="x" angle= "-90"/></transformations><descendants><leaf type="rectangle" x1="-0.270" x2="+0.270" y1="-0.045" y2="+0.045"/></descendants></node>
-        <node id="table-top-support-beam-bot"      ><material id="null"/><texture id="null"><amplification afs="2" aft="1"/></texture><transformations><translation x="+0.000" y="-0.027" z="+0.000"/><rotation axis="x" angle= "+90"/></transformations><descendants><leaf type="rectangle" x1="-0.270" x2="+0.270" y1="-0.045" y2="+0.045"/></descendants></node>
-        <node id="table-top-support-beam-fro"      ><material id="null"/><texture id="null"><amplification afs="2" aft="1"/></texture><transformations><translation x="+0.000" y="+0.000" z="+0.045"/>                                 </transformations><descendants><leaf type="rectangle" x1="-0.270" x2="+0.270" y1="-0.027" y2="+0.000"/></descendants></node>
-        <node id="table-top-support-beam-bac"      ><material id="null"/><texture id="null"><amplification afs="2" aft="1"/></texture><transformations><translation x="+0.000" y="+0.000" z="-0.045"/><rotation axis="y" angle="+180"/></transformations><descendants><leaf type="rectangle" x1="-0.270" x2="+0.270" y1="-0.027" y2="+0.000"/></descendants></node>
-        <node id="table-top-support-beam-rig"      ><material id="null"/><texture id="null"><amplification afs="2" aft="1"/></texture><transformations><translation x="+0.270" y="+0.000" z="+0.000"/><rotation axis="y" angle= "+90"/></transformations><descendants><leaf type="rectangle" x1="-0.045" x2="+0.045" y1="-0.027" y2="+0.000"/></descendants></node>
-        <node id="table-top-support-beam-lef"      ><material id="null"/><texture id="null"><amplification afs="2" aft="1"/></texture><transformations><translation x="-0.270" y="+0.000" z="+0.000"/><rotation axis="y" angle= "-90"/></transformations><descendants><leaf type="rectangle" x1="-0.045" x2="+0.045" y1="-0.027" y2="+0.000"/></descendants></node>
     </nodes>
 </lsf>
