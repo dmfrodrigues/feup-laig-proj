@@ -88,8 +88,8 @@ class Barrel extends CGFobject {
         let nurbsSurface1 = new CGFnurbsSurface(this.degreeU, this.degreeV, controlPoints1);
         let nurbsSurface2 = new CGFnurbsSurface(this.degreeU, this.degreeV, controlPoints2);
 
-        this.nurbsObject1 = new CGFnurbsObject(this.scene, this.npartsU, this.npartsV, 1, 1, nurbsSurface1);
-        this.nurbsObject2 = new CGFnurbsObject(this.scene, this.npartsU, this.npartsV, 1, 1, nurbsSurface2);
+        this.nurbsObject1 = new CGFnurbsObject(this.scene, this.npartsU, this.npartsV, nurbsSurface1);
+        this.nurbsObject2 = new CGFnurbsObject(this.scene, this.npartsU, this.npartsV, nurbsSurface2);
     }
     display() {
         this.nurbsObject1.display();
