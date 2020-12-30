@@ -468,6 +468,7 @@
                 <noderef id="sky-and-ground"/>
                 <noderef id="olive-in-scene"/>
                 <noderef id="wheat-line"/>
+                <noderef id="table"/>
             </descendants>
         </node>
 
@@ -1503,5 +1504,113 @@
                 <leaf type="sphere" radius="-1000" slices="64" stacks="32"/>
             </descendants>
         </node>
+
+        <node id="table">
+            <material id="null"/>
+            <texture id="null">
+                <amplification afs="1" aft="1"/>
+            </texture>
+            <transformations>
+            </transformations>
+            <descendants>
+                <noderef id="table-top"/>
+                <noderef id="table-seat-zpos"/>
+                <noderef id="table-seat-zneg"/>
+            </descendants>
+        </node>
+
+        <node id="table-seat-zpos">
+            <material id="null"/>
+            <texture id="null">
+                <amplification afs="1" aft="1"/>
+            </texture>
+            <transformations>
+                <translation x="0" y="0" z="+0.745"/>
+                <translation x="0" y="0" z="-0.145"/>
+            </transformations>
+            <descendants>
+                <noderef id="table-seat"/>
+            </descendants>
+        </node>
+        <node id="table-seat-zneg">
+            <material id="null"/>
+            <texture id="null">
+                <amplification afs="1" aft="1"/>
+            </texture>
+            <transformations>
+                <translation x="0" y="0" z="-0.745"/>
+                <translation x="0" y="0" z="+0.145"/>
+            </transformations>
+            <descendants>
+                <noderef id="table-seat"/>
+            </descendants>
+        </node>
+
+        <node id="table-seat">
+            <material id="null"/>
+            <texture id="null">
+                <amplification afs="1" aft="1"/>
+            </texture>
+            <transformations>
+                <translation x="0" y="0.43" z="0"/>
+                <translation x="0" y="-0.013" z="0"/>
+            </transformations>
+            <descendants>
+                <noderef id="table-seat-beam1"/>
+                <noderef id="table-seat-beam2"/>
+            </descendants>
+        </node>
+        <node id="table-seat-beam1"><material id="null"/><texture id="null"><amplification afs="1" aft="1"/></texture><transformations><translation x="0" y="0" z="-0.0725"/>                                </transformations><descendants><noderef id="beam-wood-014.5-183.0"/></descendants></node>
+        <node id="table-seat-beam2"><material id="null"/><texture id="null"><amplification afs="1" aft="1"/></texture><transformations><translation x="0" y="0" z="+0.0725"/><rotation axis="y" angle="180"/></transformations><descendants><noderef id="beam-wood-014.5-183.0"/></descendants></node>
+        
+        <node id="table-top">
+            <material id="null"/>
+            <texture id="null">
+                <amplification afs="1" aft="1"/>
+            </texture>
+            <transformations>
+                <translation x="0" y="0.78" z="0"/>
+                <translation x="0" y="-0.013" z="0"/>
+            </transformations>
+            <descendants>
+                <noderef id="table-top-beam1"/>
+                <noderef id="table-top-beam2"/>
+                <noderef id="table-top-beam3"/>
+                <noderef id="table-top-beam4"/>
+                <noderef id="table-top-beam5"/>
+            </descendants>
+        </node>
+        <node id="table-top-beam1"><material id="null"/><texture id="null"><amplification afs="1" aft="1"/></texture><transformations><translation x="0" y="0" z="-0.290"/>                                </transformations><descendants><noderef id="beam-wood-014.5-183.0"/></descendants></node>
+        <node id="table-top-beam2"><material id="null"/><texture id="null"><amplification afs="1" aft="1"/></texture><transformations><translation x="0" y="0" z="-0.145"/><rotation axis="y" angle="180"/></transformations><descendants><noderef id="beam-wood-014.5-183.0"/></descendants></node>
+        <node id="table-top-beam3"><material id="null"/><texture id="null"><amplification afs="1" aft="1"/></texture><transformations><translation x="0" y="0" z="+0.000"/>                                </transformations><descendants><noderef id="beam-wood-014.5-183.0"/></descendants></node>
+        <node id="table-top-beam4"><material id="null"/><texture id="null"><amplification afs="1" aft="1"/></texture><transformations><translation x="0" y="0" z="+0.145"/><rotation axis="y" angle="180"/></transformations><descendants><noderef id="beam-wood-014.5-183.0"/></descendants></node>
+        <node id="table-top-beam5"><material id="null"/><texture id="null"><amplification afs="1" aft="1"/></texture><transformations><translation x="0" y="0" z="+0.290"/>                                </transformations><descendants><noderef id="beam-wood-014.5-183.0"/></descendants></node>
+
+        <node id="beam-wood-014.5-183.0">
+            <!--
+                height: 2.6cm = 0.026m
+            -->
+            <material id="wood"/>
+            <texture id="pine-wood">
+                <amplification afs="1" aft="1"/>
+            </texture>
+            <transformations>
+                <scale sx="1" sy="1" sz="0.92"/>
+            </transformations>
+            <descendants>
+                <noderef id="beam-wood-014.5-183.0-top"/>
+                <noderef id="beam-wood-014.5-183.0-bot"/>
+                <noderef id="beam-wood-014.5-183.0-lef"/>
+                <noderef id="beam-wood-014.5-183.0-rig"/>
+                <noderef id="beam-wood-014.5-183.0-fro"/>
+                <noderef id="beam-wood-014.5-183.0-bac"/>
+            </descendants>
+        </node>
+        <node id="beam-wood-014.5-183.0-top"><material id="null"/><texture id="null"><amplification afs="2" aft="1"/></texture><transformations><translation x="+0.0" y="+0.0130" z="+0.0"/><rotation axis="x" angle= "-90"/></transformations><descendants><leaf type="rectangle" x1="-0.9150" x2="+0.9150" y1="-0.0725" y2="+0.0725"/></descendants></node>
+        <node id="beam-wood-014.5-183.0-bot"><material id="null"/><texture id="null"><amplification afs="2" aft="1"/></texture><transformations><translation x="+0.0" y="-0.0130" z="+0.0"/><rotation axis="x" angle= "+90"/></transformations><descendants><leaf type="rectangle" x1="-0.9150" x2="+0.9150" y1="-0.0725" y2="+0.0725"/></descendants></node>
+        <node id="beam-wood-014.5-183.0-fro"><material id="null"/><texture id="null"><amplification afs="2" aft="1"/></texture><transformations><translation x="+0.0" y="+0.0" z="+0.0725"/>                                 </transformations><descendants><leaf type="rectangle" x1="-0.9150" x2="+0.9150" y1="-0.0130" y2="+0.0130"/></descendants></node>
+        <node id="beam-wood-014.5-183.0-bac"><material id="null"/><texture id="null"><amplification afs="2" aft="1"/></texture><transformations><translation x="+0.0" y="+0.0" z="-0.0725"/><rotation axis="x" angle="+180"/></transformations><descendants><leaf type="rectangle" x1="-0.9150" x2="+0.9150" y1="-0.0130" y2="+0.0130"/></descendants></node>
+        <node id="beam-wood-014.5-183.0-rig"><material id="null"/><texture id="null"><amplification afs="2" aft="1"/></texture><transformations><translation x="+0.9150" y="+0.0" z="+0.0"/><rotation axis="y" angle= "+90"/></transformations><descendants><leaf type="rectangle" x1="-0.0725" x2="+0.0725" y1="-0.0130" y2="+0.0130"/></descendants></node>
+        <node id="beam-wood-014.5-183.0-lef"><material id="null"/><texture id="null"><amplification afs="2" aft="1"/></texture><transformations><translation x="-0.9150" y="+0.0" z="+0.0"/><rotation axis="y" angle= "-90"/></transformations><descendants><leaf type="rectangle" x1="-0.0725" x2="+0.0725" y1="-0.0130" y2="+0.0130"/></descendants></node>
     </nodes>
 </lsf>
