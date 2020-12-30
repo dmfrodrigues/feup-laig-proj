@@ -256,8 +256,8 @@
             <to   x="+0.55" y="0.88" z="-0.20"/>
         </player1>
         <player2 id="player2_camera" near="0.1" far="500" angle="60">
-            <from x="-0.60" y="0.90" z="-0.10"/>
-            <to   x="-0.55" y="0.88" z="-0.10"/>
+            <from x="-0.60" y="0.90" z="-0.20"/>
+            <to   x="-0.55" y="0.88" z="-0.20"/>
         </player2>
     </views>
     <illumination>

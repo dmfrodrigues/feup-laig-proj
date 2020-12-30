@@ -7,7 +7,7 @@ class GameState extends CGFobject {
         this._gameboard = new GameBoard(this._scene);
         this.turn = 1;
 
-        this.moveState = new PlayerMoveState(this);
+        this.moveState = new PlayerMoveState(scene, this);
 
         this.value = 0.0;
         this.isGameOver = false;
