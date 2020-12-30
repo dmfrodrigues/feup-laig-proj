@@ -1387,7 +1387,7 @@
         <node id="earth-surface">
             <material id="earth"/><texture id="blue-marble"><amplification afs="1" aft="1"/></texture>
             <transformations>
-                <rotation axis="y" angle="150"/>
+                <rotation axis="y" angle="80"/>
                 <rotation axis="x" angle="-90"/>
             </transformations>
             <descendants>
