@@ -466,6 +466,7 @@
             </texture>
             <descendants>
                 <noderef id="sky-and-ground"/>
+                <noderef id="olive-in-scene"/>
             </descendants>
         </node>
 
