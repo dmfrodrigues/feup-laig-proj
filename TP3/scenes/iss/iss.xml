@@ -120,34 +120,39 @@
             <keyframe instant='00000.0'><translation x='0' y='0' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='+000.0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
             <keyframe instant='86400.0'><translation x='0' y='0' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='+360.0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
         </animation>
-        <animation id="iss-rotation" loop="1">
-            <keyframe instant='0000.0'><translation x='0' y='0' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='+000.0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='5400.0'><translation x='0' y='0' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='+360.0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
+        <animation id="moon-orbit-distance" loop="1" easing="easeInMidOutSine">
+            <keyframe instant='0000000'><translation x='0' y='362600000' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
+            <keyframe instant='1274400'><translation x='0' y='405400000' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
+            <keyframe instant='2548800'><translation x='0' y='362600000' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
+        </animation>
+        <animation id="moon-orbit-angle" loop="1">
+            <keyframe instant='0000000'><translation x='0' y='0' z='0'/><rotation axis='x' angle='-100'/><rotation axis='y' angle='0'/><rotation axis='z' angle='5.14'/><scale sx='1' sy='1' sz='1'/></keyframe>
+            <keyframe instant='2548800'><translation x='0' y='0' z='0'/><rotation axis='x' angle='-460'/><rotation axis='y' angle='0'/><rotation axis='z' angle='5.14'/><scale sx='1' sy='1' sz='1'/></keyframe>
         </animation>
     </animations>
     <bindings>
     </bindings>
     <views default="player1_camera">
         <!-- at least one of the following type of cameras must be declared -->
-        <movecamera id="move_camera" near="0.2" far="1000000" angle="60">
-            <from x="0" y="0.6" z="0.45"/>
-            <to   x="0" y="0.5" z="0.33"/>
+        <movecamera id="move_camera" near="0.2" far="1000000" angle="30">
+            <from x="0" y="0.75" z="0.70"/>
+            <to   x="0" y="0.45" z="0.23"/>
         </movecamera>
-        <player1transition id="p1_transition" near="0.2" far="1000000" angle="60">
+        <player1transition id="p1_transition" near="0.2" far="1000000" angle="30">
             <from x="-0.5" y="0.5" z="0"/>
             <to   x="0" y="0.4" z="0"/>
         </player1transition>
-        <player2transition id="p2_transition" near="0.2" far="1000000" angle="60">
+        <player2transition id="p2_transition" near="0.2" far="1000000" angle="30">
             <from x="+0.5" y="0.5" z="0"/>
             <to   x="0" y="0.4" z="0"/>
         </player2transition>
-        <player1 id="player1_camera" near="0.2" far="1000000" angle="60">
-            <from x="0" y="0.6" z="0.45"/>
-            <to   x="0" y="0.5" z="0.33"/>
+        <player1 id="player1_camera" near="0.2" far="1000000" angle="30">
+            <from x="0" y="0.75" z="0.70"/>
+            <to   x="0" y="0.45" z="0.23"/>
         </player1>
-        <player2 id="player2_camera" near="0.2" far="1000000" angle="60">
-            <from x="0" y="0.6" z="-0.45"/>
-            <to   x="0" y="0.5" z="-0.33"/>
+        <player2 id="player2_camera" near="0.2" far="1000000" angle="30">
+            <from x="0" y="0.75" z="-0.70"/>
+            <to   x="0" y="0.45" z="-0.23"/>
         </player2>
         <perspective id="default_camera" near="0.2" far="1000000" angle="60">
             <from x="5" y="5" z="5"/>
@@ -176,6 +181,7 @@
         <texture id="blue-marble"         path="./scenes/iss/textures/earth/blue-marble-larger.jpeg"/>
         <texture id="earth-night-lights"  path="./scenes/iss/textures/earth/night-lights-larger-transparent-60.png"/>
         <texture id="earth-clouds"        path="./scenes/iss/textures/earth/clouds-transparent.png"/>
+        <texture id="moon"                path="./scenes/iss/textures/moon.jpeg"/>
         <texture id="gameboard"           path="./scenes/gameboard/gameboard.png"           />
         <texture id="cell"                path="./scenes/gameboard/cell.jpg"                />
     </textures>
@@ -464,6 +470,13 @@
             <specular r="0.00" g="0.00" b="0.00" a="0.1"/>
             <emissive r="1.00" g="0.94" b="0.69" a="0.1"/>
         </material>
+        <material id="moon">
+            <shininess value="0.2"/>
+            <ambient  r="1.00" g="1.00" b="1.00" a="1.0"/>
+            <diffuse  r="1.00" g="1.00" b="1.00" a="1.0"/>
+            <specular r="0.00" g="0.00" b="0.00" a="1.0"/>
+            <emissive r="0.00" g="0.00" b="0.00" a="1.0"/>
+        </material>
     </materials>
 
     <nodes>
@@ -475,6 +488,7 @@
             <descendants>
                 <noderef id="skysphere"/>
                 <noderef id="earth-animated-in-space"/>
+                <noderef id="moon-with-everything"/>
                 <noderef id="iss-in-space"/>
             </descendants>
         </node>
@@ -1418,6 +1432,54 @@
                 <leaf type="sphere" radius="6388000" slices="256" stacks="120"/>
             </descendants>
         </node>
+        <node id="moon-with-everything">
+            <material id="null"/><texture id="null"><amplification afs="1" aft="1"/></texture>
+            <transformations>
+                <scale sx="0.0001" sy="0.0001" sz="0.0001"/>    <!-- Because of near and far arguments of cameras -->
+            </transformations>
+            <descendants>
+                <noderef id="moon-orbiting"/>
+            </descendants>
+        </node>
+
+        <node id="moon-orbiting">
+            <material id="null"/><texture id="null"><amplification afs="1" aft="1"/></texture>
+            <animationref id="moon-orbit-angle"/>
+            <descendants>
+                <noderef id="moon-distanced"/>
+            </descendants>
+        </node>
+
+        <node id="moon-distanced">
+            <material id="null"/><texture id="null"><amplification afs="1" aft="1"/></texture>
+            <animationref id="moon-orbit-distance"/>
+            <descendants>
+                <noderef id="moon-rotated"/>
+            </descendants>
+        </node>
+
+        <node id="moon-rotated">
+            <material id="null"/><texture id="null"><amplification afs="1" aft="1"/></texture>
+            <transformations>
+                <rotation axis="z" angle="90"/>                 <!-- Rotate moon because everything is rotated -->
+            </transformations>
+            <descendants>
+                <noderef id="moon"/>
+            </descendants>
+        </node>
+        <node id="moon">
+            <material id="moon"/><texture id="moon"><amplification afs="1" aft="1"/></texture>
+            <transformations>
+                <scale sx="3" sy="3" sz="3"/>                   <!-- Artificially increased the size of the moon 3x -->
+                <rotation axis="z" angle="6.68"/>               <!-- Moon axial tilt to orbit around Earth -->
+                <scale sx="1" sy="0.9988" sz="1"/>              <!-- The moon is slightly flattened -->
+                <rotation axis="x" angle="-90"/>                <!-- Rotate moon so North points to +Y and South to -Y -->
+            </transformations>
+            <descendants>
+                <leaf type="sphere" radius="1378000" slices="256" stacks="120"/>
+            </descendants>
+        </node>
+
         <node id="iss-in-space">
             <material id="null"/><texture id="null"><amplification afs="1" aft="1"/></texture>
             <descendants>
