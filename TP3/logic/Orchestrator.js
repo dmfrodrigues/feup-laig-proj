@@ -99,29 +99,31 @@ class Orchestrator extends CGFobject {
                 document.getElementById('game-over').style.display = 'block';
                 return;
             }
+            else {
+                gamestate.nextTurn();
+                if(this.isComputer(gamestate.turn)){
+                    this.gameState.feedbackText = "computer move"; 
+                    server.choose_move(
+                        gamestate,
+                        gamestate.turn,
+                        this.getLevel(),
+                        this.getN()
+                    )
+                    .then(function (response){
+                        console.log(response);
+                        gamestate.gameboard.move(
+                            gamestate.gameboard.getCell(response.pos[0], response.pos[1]),
+                            response.substacks,
+                            response.dir,
+                            gamestate.gameboard.getCell(response.newpos[0], response.newpos[1]),
+                            gamestate.turn
+                        );
+                        orchestrator.nextTurn();
+                    });
+                }else this.gameState.moveState.initialState();
+            }
             
         });
-        gamestate.nextTurn();
-        if(this.isComputer(gamestate.turn)){
-            this.gameState.feedbackText = "computer move"; 
-            server.choose_move(
-                gamestate,
-                gamestate.turn,
-                this.getLevel(),
-                this.getN()
-            )
-            .then(function (response){
-                console.log(response);
-                gamestate.gameboard.move(
-                    gamestate.gameboard.getCell(response.pos[0], response.pos[1]),
-                    response.substacks,
-                    response.dir,
-                    gamestate.gameboard.getCell(response.newpos[0], response.newpos[1]),
-                    gamestate.turn
-                );
-                orchestrator.nextTurn();
-            });
-        }else this.gameState.moveState.initialState();
     }
 
     onObjectSelected(obj, id){
