@@ -24,6 +24,6 @@
 - To Sérgio Merêces for the olive trees 3D models ([olive.obj](scenes/alentejo/obj/olive/olive.obj), from [here](https://www.sergiomereces.com/3d-models-free-download/))
 - To unkown user for the wheat plants 3D model ([wheat.obj](scenes/alentejo/obj/olive/olive.obj), from [here](https://123free3dmodels.com/wheat-field-v1-13239))
 - To NASA for the ISS internal 3D model ([iss-interior-neworder-hatchesopen-lessmodules.obj](scenes/iss/obj/iss/iss-interior-neworder-hatchesopen-lessmodules.obj), adapted from [here](https://nasa3d.arc.nasa.gov/detail/iss-internal))
-- To Solar System Scope for the sun ([sun.jpeg](scenes/iss/textures/sun.jpeg)) and moon ([moon.jpeg](scenes/iss/textures/moon.jpeg)) textures (from [here](https://www.solarsystemscope.com/textures/))
+- To Solar System Scope for the and moon texture ([moon.jpeg](scenes/iss/textures/moon.jpeg), from [here](https://www.solarsystemscope.com/textures/))
 
 And to several others for other various textures.
