@@ -93,7 +93,7 @@ class Orchestrator extends CGFobject {
                 gamestate.isGameOver   =        true;
                 gamestate.feedbackText = "game over"; 
                 if(orchestrator.isComputer(response.winner))
-                    document.getElementById('winner').innerHTML = 'Computer' + response.winner;
+                    document.getElementById('winner').innerHTML = 'Computer ' + response.winner;
                 else 
                     document.getElementById('winner').innerHTML = 'Player ' + response.winner;
                 document.getElementById('game-over').style.display = 'block';
