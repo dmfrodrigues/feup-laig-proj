@@ -84,10 +84,10 @@ class Orchestrator extends CGFobject {
         }
     }
 
-    nextTurn(){
+    async nextTurn(){
         let orchestrator = this;
         let gamestate = this.gameState;
-        server.game_over(gamestate).then(function(response){
+        let response = await server.game_over(gamestate);
             if(response.isgameover)
             {
                 gamestate.isGameOver   =        true;
@@ -103,13 +103,12 @@ class Orchestrator extends CGFobject {
                 gamestate.nextTurn();
                 if(this.isComputer(gamestate.turn)){
                     this.gameState.feedbackText = "computer move"; 
-                    server.choose_move(
+                    response = await server.choose_move(
                         gamestate,
                         gamestate.turn,
                         this.getLevel(),
                         this.getN()
-                    )
-                    .then(function (response){
+                    );
                         console.log(response);
                         gamestate.gameboard.move(
                             gamestate.gameboard.getCell(response.pos[0], response.pos[1]),
@@ -119,11 +118,8 @@ class Orchestrator extends CGFobject {
                             gamestate.turn
                         );
                         orchestrator.nextTurn();
-                    });
                 }else this.gameState.moveState.initialState();
             }
-            
-        });
     }
 
     onObjectSelected(obj, id){
