@@ -121,54 +121,57 @@
             <keyframe instant='86400.0'><translation x='0' y='0' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='+360.0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
         </animation>
         <animation id="moon-orbit-distance" loop="1" easing="easeInMidOutSine">
-            <keyframe instant='0000000'><translation x='0' y='362600000' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='1274400'><translation x='0' y='405400000' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='2548800'><translation x='0' y='362600000' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
+            <keyframe instant='0000000'><translation x='362600000' y='0' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
+            <keyframe instant='1274400'><translation x='405400000' y='0' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
+            <keyframe instant='2548800'><translation x='362600000' y='0' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
         </animation>
         <animation id="moon-orbit-angle" loop="1">
-            <keyframe instant='0000000'><translation x='0' y='0' z='0'/><rotation axis='x' angle='-100'/><rotation axis='y' angle='0'/><rotation axis='z' angle='5.14'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='2548800'><translation x='0' y='0' z='0'/><rotation axis='x' angle='-460'/><rotation axis='y' angle='0'/><rotation axis='z' angle='5.14'/><scale sx='1' sy='1' sz='1'/></keyframe>
+            <keyframe instant='0000000'><translation x='0' y='0' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0000'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
+            <keyframe instant='2548800'><translation x='0' y='0' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='+360'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
+        </animation>
+        <animation id="sun-orbit-angle" loop="1">
+            <keyframe instant='00000000'><translation x='0' y='0' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0000'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
+            <keyframe instant='31557600'><translation x='0' y='0' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='+360'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
         </animation>
     </animations>
     <bindings>
     </bindings>
-    <views default="player1_camera">
+    <views default="default_camera">
         <!-- at least one of the following type of cameras must be declared -->
-        <movecamera id="move_camera" near="0.2" far="1000000" angle="30">
+        <movecamera id="move_camera" near="0.2" far="10000000" angle="30">
             <from x="0" y="0.75" z="0.70"/>
             <to   x="0" y="0.45" z="0.23"/>
         </movecamera>
-        <player1transition id="p1_transition" near="0.2" far="1000000" angle="30">
+        <player1transition id="p1_transition" near="0.2" far="10000000" angle="30">
             <from x="-0.5" y="0.5" z="0"/>
             <to   x="0" y="0.4" z="0"/>
         </player1transition>
-        <player2transition id="p2_transition" near="0.2" far="1000000" angle="30">
+        <player2transition id="p2_transition" near="0.2" far="10000000" angle="30">
             <from x="+0.5" y="0.5" z="0"/>
             <to   x="0" y="0.4" z="0"/>
         </player2transition>
-        <player1 id="player1_camera" near="0.2" far="1000000" angle="30">
+        <player1 id="player1_camera" near="0.2" far="10000000" angle="30">
             <from x="0" y="0.75" z="0.70"/>
             <to   x="0" y="0.45" z="0.23"/>
         </player1>
-        <player2 id="player2_camera" near="0.2" far="1000000" angle="30">
+        <player2 id="player2_camera" near="0.2" far="10000000" angle="30">
             <from x="0" y="0.75" z="-0.70"/>
             <to   x="0" y="0.45" z="-0.23"/>
         </player2>
-        <perspective id="default_camera" near="0.2" far="1000000" angle="60">
-            <from x="5" y="5" z="5"/>
+        <perspective id="default_camera" near="1000" far="1000000000" angle="30">
+            <from x="300000" y="300000" z="300000"/>
             <to   x="0" y="0" z="0"/>
         </perspective>
     </views>
     <illumination>
-        <!-- <ambient    r="0.1" g="0.1" b="0.1" a="1"/> -->
-        <ambient    r="0.9" g="0.9" b="0.9" a="1"/>
+        <ambient    r="0.7" g="0.7" b="0.7" a="1.0"/>
         <background r="0.1" g="0.7" b="1.0" a="1.0"/>
     </illumination>
     <lights>
         <!-- NOTE: at least one light should be present, and a maximum of eight lights is accepted. -->
         <light id="sun">
             <enable value="1"/>
-            <position x="0.0" y="0.0" z="-1" w="0.0"/>
+            <position x="147100000000" y="0.0" z="0.0" w="1.0"/>
             <ambient  r="0.00" g="0.00" b="0.00" a="1.0"/>
             <diffuse  r="1.00" g="1.00" b="1.00" a="1.0"/>
             <specular r="1.00" g="1.00" b="1.00" a="1.0"/>
@@ -356,7 +359,7 @@
             <ambient  r="0.0" g="0.0" b="0.0" a="1.0"/>
             <diffuse  r="0.0" g="0.0" b="0.0" a="1.0"/>
             <specular r="0.0" g="0.0" b="0.0" a="1.0"/>
-            <emissive r="0.5" g="0.5" b="0.5" a="1.0"/>
+            <emissive r="0.6" g="0.6" b="0.6" a="1.0"/>
         </material>
         <material id="lamp-wax">
             <shininess value="2.0"/>
@@ -451,14 +454,14 @@
         </material>
         <material id="earth">
             <shininess value="10.0"/>
-            <ambient  r="1.00" g="1.00" b="1.00" a="1.0"/>
+            <ambient  r="0.05" g="0.05" b="0.05" a="1.0"/>
             <diffuse  r="1.00" g="1.00" b="1.00" a="1.0"/>
             <specular r="0.00" g="0.00" b="0.00" a="1.0"/>
             <emissive r="0.00" g="0.00" b="0.00" a="1.0"/>
         </material>
         <material id="cloud">
             <shininess value="10.0"/>
-            <ambient  r="0.75" g="0.75" b="0.75" a="1.0"/>
+            <ambient  r="0.05" g="0.05" b="0.05" a="1.0"/>
             <diffuse  r="0.75" g="0.75" b="0.75" a="1.0"/>
             <specular r="0.00" g="0.00" b="0.00" a="1.0"/>
             <emissive r="0.00" g="0.00" b="0.00" a="1.0"/>
@@ -466,16 +469,23 @@
         <material id="earth-night-lights">
             <shininess value="10.0"/>
             <ambient  r="0.00" g="0.00" b="0.00" a="0.1"/>
-            <diffuse  r="-0.00" g="0.00" b="0.00" a="0.1"/>
+            <diffuse  r="0.00" g="0.00" b="0.00" a="0.1"/>
             <specular r="0.00" g="0.00" b="0.00" a="0.1"/>
             <emissive r="1.00" g="0.94" b="0.69" a="0.1"/>
         </material>
         <material id="moon">
             <shininess value="0.2"/>
-            <ambient  r="1.00" g="1.00" b="1.00" a="1.0"/>
+            <ambient  r="0.05" g="0.05" b="0.05" a="1.0"/>
             <diffuse  r="1.00" g="1.00" b="1.00" a="1.0"/>
             <specular r="0.00" g="0.00" b="0.00" a="1.0"/>
             <emissive r="0.00" g="0.00" b="0.00" a="1.0"/>
+        </material>
+        <material id="sun">
+            <shininess value="0.2"/>
+            <ambient  r="0.00" g="0.00" b="0.00" a="1.0"/>
+            <diffuse  r="0.00" g="0.00" b="0.00" a="1.0"/>
+            <specular r="0.00" g="0.00" b="0.00" a="1.0"/>
+            <emissive r="1.00" g="1.00" b="1.00" a="1.0"/>
         </material>
     </materials>
 
@@ -486,10 +496,8 @@
                 <amplification afs="1" aft="1"/>
             </texture>
             <descendants>
-                <noderef id="skysphere"/>
-                <noderef id="earth-animated-in-space"/>
-                <noderef id="moon-with-everything"/>
-                <noderef id="iss-in-space"/>
+                <noderef id="universe-transformed"/>
+                <noderef id="iss"/>
             </descendants>
         </node>
 
@@ -1369,20 +1377,39 @@
                 <leaf type="rectangle" x1="-0.5" y1="-0.5" x2="0.5" y2="0.5"/>
             </descendants>
         </node>
-        <node id="earth-animated-in-space">
+
+        <node id="universe-transformed">
             <material id="null"/><texture id="null"><amplification afs="1" aft="1"/></texture>
             <transformations>
-                <scale sx="0.01" sy="0.01" sz="0.01"/>
-                <translation x="0" y="-6786000" z="0"/>
+                <translation x="0" y="-67780" z="0"/>
                 <rotation axis="z" angle="90"/>
-                <rotation axis="x" angle="-23.5"/>
+                <rotation axis="y" angle="90"/>
             </transformations>
             <descendants>
-                <noderef id="earth-animated"/>
+                <noderef id="universe"/>
             </descendants>
         </node>
-        <node id="earth-animated">
+        <node id="universe">
             <material id="null"/><texture id="null"><amplification afs="1" aft="1"/></texture>
+            <descendants>
+                <noderef id="skysphere"/>
+                <noderef id="earth-final"/>
+                <noderef id="moon-final"/>
+                <noderef id="sun-final"/>
+            </descendants>
+        </node>
+
+        <!--
+        ================================================================
+        EARTH
+        ================================================================
+        -->
+        <node id="earth-final">
+            <material id="null"/><texture id="null"><amplification afs="1" aft="1"/></texture>
+            <transformations>
+                <scale sx="0.01" sy="0.01" sz="0.01"/>  <!-- Make it smaller -->
+                <rotation axis="z" angle="-23.5"/>      <!-- Rotation axis tilt -->
+            </transformations>
             <animationref id="earth-rotation"/>
             <descendants>
                 <noderef id="earth"/>
@@ -1426,10 +1453,26 @@
                 <leaf type="sphere" radius="6388000" slices="256" stacks="120"/>
             </descendants>
         </node>
-        <node id="moon-with-everything">
+
+        <!--
+        ================================================================
+        MOON
+        ================================================================
+        -->
+        <node id="moon-final">
             <material id="null"/><texture id="null"><amplification afs="1" aft="1"/></texture>
             <transformations>
-                <scale sx="0.0001" sy="0.0001" sz="0.0001"/>    <!-- Because of near and far arguments of cameras -->
+                <scale sx="0.005" sy="0.005" sz="0.005"/>    <!-- Because of near and far arguments of cameras -->
+            </transformations>
+            <descendants>
+                <noderef id="moon-orbiting-tilted"/>
+            </descendants>
+        </node>
+
+        <node id="moon-orbiting-tilted">
+            <material id="null"/><texture id="null"><amplification afs="1" aft="1"/></texture>
+            <transformations>
+                <rotation axis="z" angle="+5.14"/>
             </transformations>
             <descendants>
                 <noderef id="moon-orbiting"/>
@@ -1448,14 +1491,14 @@
             <material id="null"/><texture id="null"><amplification afs="1" aft="1"/></texture>
             <animationref id="moon-orbit-distance"/>
             <descendants>
-                <noderef id="moon-rotated"/>
+                <noderef id="moon-tilted"/>
             </descendants>
         </node>
 
-        <node id="moon-rotated">
+        <node id="moon-tilted">
             <material id="null"/><texture id="null"><amplification afs="1" aft="1"/></texture>
             <transformations>
-                <rotation axis="z" angle="90"/>                 <!-- Rotate moon because everything is rotated -->
+                <rotation axis="z" angle="6.68"/>               <!-- Moon axial tilt to orbit around Earth -->
             </transformations>
             <descendants>
                 <noderef id="moon"/>
@@ -1465,21 +1508,62 @@
             <material id="moon"/><texture id="moon"><amplification afs="1" aft="1"/></texture>
             <transformations>
                 <scale sx="3" sy="3" sz="3"/>                   <!-- Artificially increased the size of the moon 3x -->
-                <rotation axis="z" angle="6.68"/>               <!-- Moon axial tilt to orbit around Earth -->
                 <scale sx="1" sy="0.9988" sz="1"/>              <!-- The moon is slightly flattened -->
                 <rotation axis="x" angle="-90"/>                <!-- Rotate moon so North points to +Y and South to -Y -->
             </transformations>
             <descendants>
-                <leaf type="sphere" radius="1378000" slices="256" stacks="120"/>
+                <leaf type="sphere" radius="1378000" slices="64" stacks="32"/>
             </descendants>
         </node>
 
-        <node id="iss-in-space">
+
+        <!--
+        ================================================================
+        SUN
+        ================================================================
+        -->
+        <node id="sun-final">
             <material id="null"/><texture id="null"><amplification afs="1" aft="1"/></texture>
+            <transformations>
+                <scale sx="0.00002" sy="0.00002" sz="0.00002"/>
+            </transformations>
             <descendants>
-                <noderef id="iss"/>
+                <noderef id="sun-orbiting"/>
             </descendants>
         </node>
+        <node id="sun-orbiting">
+            <material id="null"/><texture id="null"><amplification afs="1" aft="1"/></texture>
+            <animationref id="sun-orbit-angle"/>
+            <descendants>
+                <noderef id="sun-distanced"/>
+            </descendants>
+        </node>
+        <node id="sun-distanced">
+            <material id="null"/><texture id="null"><amplification afs="1" aft="1"/></texture>
+            <transformations>
+                <translation x="147100000000" y="0" z="0"/>
+            </transformations>
+            <descendants>
+                <noderef id="sun"/>
+            </descendants>
+        </node>
+        <node id="sun">
+            <material id="sun"/><texture id="clear"><amplification afs="1" aft="1"/></texture>
+            <transformations>
+                <scale sx="2.5" sy="2.5" sz="2.5"/>                   <!-- Artificially increased the size of the sun 3x -->
+                <rotation axis="x" angle="-90"/>                <!-- Rotate sun so North points to +Y and South to -Y -->
+            </transformations>
+            <descendants>
+                <leaf type="sphere" radius="696340000" slices="64" stacks="32"/>
+            </descendants>
+        </node>
+
+
+        <!--
+        ================================================================
+        ISS
+        ================================================================
+        -->
         <node id="iss">
             <material id="null"/><texture id="null"><amplification afs="1" aft="1"/></texture>
             <transformations>
@@ -1493,13 +1577,11 @@
         <node id="skysphere">
             <material id="star-map"/><texture id="star-map"><amplification afs="1" aft="1"/></texture>
             <transformations>
-                <rotation axis="z" angle="90"/>
-                <rotation axis="y" angle="5"/>
-                <rotation axis="x" angle="5"/>
-                <rotation axis="x" angle="-90"/>
+                <rotation axis="y" angle="5"/><rotation axis="x" angle="5"/>    <!-- Minor adjustments to avoid strange rendering effects -->
+                <rotation axis="x" angle="-90"/>    <!-- Rotate so north is facing +Y, and south facing -Y -->
             </transformations>
             <descendants>
-                <leaf type="sphere" radius="-500000" slices="36" stacks="18"/>
+                <leaf type="sphere" radius="-5000000" slices="36" stacks="18"/>
             </descendants>
         </node>
     </nodes>
