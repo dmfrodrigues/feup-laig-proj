@@ -15,6 +15,7 @@ class Orchestrator extends CGFobject {
         this.theme        = new MySceneGraph(themes[0], this.scene);
         this.gameState    = new GameState(this.scene, this);
         this.gameMode     = gameMode;
+        this.level        = level;
     }
 
     isComputer(player){
@@ -22,6 +23,19 @@ class Orchestrator extends CGFobject {
             case 'PvP': return false;
             case 'PvC': return (player === 2);
             case 'CvC': return true;
+        }
+    }
+
+    getLevel(){
+        return this.level*2-1;
+    }
+    getN(){
+        let level = this.getLevel();
+        switch(level){
+            case 1: return  5;
+            case 3: return  7;
+            case 5: return 10;
+            default: throw new Error(`Value of N for level ${level} is not specified`);
         }
     }
 
@@ -37,8 +51,8 @@ class Orchestrator extends CGFobject {
             server.choose_move(
                 gamestate,
                 gamestate.turn,
-                3,
-                7
+                this.getLevel(),
+                this.getN()
             )
             .then(function (response){
                 console.log(response);
