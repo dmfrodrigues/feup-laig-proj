@@ -35,6 +35,7 @@
 ## Issues/Problems
 
 - Ignoring texture scaling in MTL OBJ files
+- In ISS scene, if one looks from the outside of the Cupola through the windows, the game board disappears. This is because the game board is drawn after the scene, and as such the Cupola windows are drawn before the board. This will not be fixed, as it is not too serious of an issue.
 
 ## Credits
 
