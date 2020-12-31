@@ -172,27 +172,27 @@ this.bindings['sun-light-position'].value = [newPos[0], newPos[1], newPos[2]];
     </bindings>
     <views default="player1_camera">
         <!-- at least one of the following type of cameras must be declared -->
-        <movecamera id="move_camera" near="0.2" far="10000000" angle="30">
+        <movecamera id="move_camera" near="0.2" far="1000000" angle="30">
             <from x="0" y="0.75" z="0.70"/>
             <to   x="0" y="0.45" z="0.23"/>
         </movecamera>
-        <player1transition id="p1_transition" near="0.2" far="10000000" angle="30">
+        <player1transition id="p1_transition" near="0.2" far="1000000" angle="30">
             <from x="-0.5" y="0.5" z="0"/>
             <to   x="0" y="0.4" z="0"/>
         </player1transition>
-        <player2transition id="p2_transition" near="0.2" far="10000000" angle="30">
+        <player2transition id="p2_transition" near="0.2" far="1000000" angle="30">
             <from x="+0.5" y="0.5" z="0"/>
             <to   x="0" y="0.4" z="0"/>
         </player2transition>
-        <player1 id="player1_camera" near="0.2" far="10000000" angle="30">
+        <player1 id="player1_camera" near="0.2" far="1000000" angle="30">
             <from x="0" y="0.75" z="0.70"/>
             <to   x="0" y="0.45" z="0.23"/>
         </player1>
-        <player2 id="player2_camera" near="0.2" far="10000000" angle="30">
+        <player2 id="player2_camera" near="0.2" far="1000000" angle="30">
             <from x="0" y="0.75" z="-0.70"/>
             <to   x="0" y="0.45" z="-0.23"/>
         </player2>
-        <perspective id="default_camera" near="1000" far="1000000000" angle="30">
+        <perspective id="default_camera" near="0.2" far="1000000" angle="30">
             <from x="300000" y="300000" z="300000"/>
             <to   x="0" y="0" z="0"/>
         </perspective>
@@ -1517,7 +1517,7 @@ this.bindings['sun-light-position'].value = [newPos[0], newPos[1], newPos[2]];
         <node id="moon-final">
             <material id="null"/><texture id="null"><amplification afs="1" aft="1"/></texture>
             <transformations>
-                <scale sx="0.005" sy="0.005" sz="0.005"/>    <!-- Because of near and far arguments of cameras -->
+                <scale sx="0.0005" sy="0.0005" sz="0.0005"/>    <!-- Because of near and far arguments of cameras -->
             </transformations>
             <descendants>
                 <noderef id="moon-orbiting-tilted"/>
@@ -1580,7 +1580,7 @@ this.bindings['sun-light-position'].value = [newPos[0], newPos[1], newPos[2]];
         <node id="sun-final">
             <material id="null"/><texture id="null"><amplification afs="1" aft="1"/></texture>
             <transformations>
-                <scale sx="0.00002" sy="0.00002" sz="0.00002"/>
+                <scale sx="0.000002" sy="0.000002" sz="0.000002"/>
             </transformations>
             <descendants>
                 <noderef id="sun-orbiting"/>
@@ -1661,7 +1661,7 @@ this.bindings['sun-light-position'].value = [newPos[0], newPos[1], newPos[2]];
                 <rotation axis="x" angle="-90"/>    <!-- Rotate so north is facing +Y, and south facing -Y -->
             </transformations>
             <descendants>
-                <leaf type="sphere" radius="-5000000" slices="36" stacks="18"/>
+                <leaf type="sphere" radius="-500000" slices="36" stacks="18"/>
             </descendants>
         </node>
     </nodes>
