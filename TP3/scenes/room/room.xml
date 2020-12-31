@@ -4283,7 +4283,7 @@
             </descendants>
         </node>
 
-        <node id="light-switch-old-1" onclick="console.log('hello!'); console.log(this); this.bindings['ceiling-light-var'].value = !this.bindings['ceiling-light-var'].value;">
+        <node id="light-switch-old-1" onclick="this.bindings['ceiling-light-var'].value = !this.bindings['ceiling-light-var'].value;">
             <material id="null"/>
             <texture id="null">
                 <amplification afs="1" aft="1"/>
