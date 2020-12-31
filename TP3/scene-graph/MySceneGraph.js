@@ -710,19 +710,19 @@ class MySceneGraph {
             let id = binding.id;
             let representation = [...binding.children].find((node) => (node.nodeName === 'representation'));
             if(typeof representation !== 'undefined'){
-                let animationref = this.parseString(representation, "animationref", id);
-                let animation = this.animations[animationref];
-                let t = this.parseFloat(representation, "t", id);
-                
-                this.bindings[binding.id] = {
-                    representation: {
-                        animation: animation,
-                        t: t
-                    },
-                    changed_value: function(){
-                        animation.update(this.value);
-                    }
-                };
+            let animationref = this.parseString(representation, "animationref", id);
+            let animation = this.animations[animationref];
+            let t = this.parseFloat(representation, "t", id);
+            
+            this.bindings[binding.id] = {
+                representation: {
+                    animation: animation,
+                    t: t
+                },
+                changed_value: function(){
+                    animation.update(this.value);
+                }
+            };
             } else {
                 this.bindings[binding.id] = {};
             }
