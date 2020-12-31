@@ -46,7 +46,8 @@ class Orchestrator extends CGFobject {
                     gamestate.gameboard.getCell(response.pos[0], response.pos[1]),
                     response.substacks,
                     response.dir,
-                    gamestate.gameboard.getCell(response.newpos[0], response.newpos[1])
+                    gamestate.gameboard.getCell(response.newpos[0], response.newpos[1]),
+                    gamestate.turn
                 );
                 orchestrator.nextTurn();
             });
@@ -101,7 +102,8 @@ class Orchestrator extends CGFobject {
                     gamestate.gameboard.getCell(response.pos[0], response.pos[1]),
                     response.substacks,
                     response.dir,
-                    gamestate.gameboard.getCell(response.newpos[0], response.newpos[1])
+                    gamestate.gameboard.getCell(response.newpos[0], response.newpos[1]),
+                    gamestate.turn
                 );
                 orchestrator.nextTurn();
             });

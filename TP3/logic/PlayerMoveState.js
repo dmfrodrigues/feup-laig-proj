@@ -13,9 +13,9 @@ const State = {
  };
 
 class PlayerMoveState {
-    constructor(gameState){
+    constructor(scene, gameState){
         this.gameState = gameState;
-        
+        this.scene = scene;
         this.moveState = State.INITIAL;
         this.stackSelected = null;
         this.substacks = [];
@@ -25,12 +25,27 @@ class PlayerMoveState {
 
     initialState(){
         this.moveState = State.INITIAL;
+        this.stackSign = 0;
         this.stackSelected = null;
         this.substacks = [];
         this.direction = 0;
         this.newPiece = null;
+        this.initialGameboard = this.gameState.gameboard.toJSON();
         this.gameState.gameboard.deselectAll();
         this.gameState.feedbackText = "select substacks";
+        this.gameState.gameboard.setTurn(this.gameState.turn);
+    }
+
+    resetSubstacks(){
+        for(let i = 0; i <= 8; ++i){
+            for(let j = 0; j <= 8; ++j){
+                if(i-4 <= j && j <= 4+i) {
+                    if(this.initialGameboard[i][j] != 0)
+                        this.gameState.gameboard.getCell(i,j).stack = new PieceStack(this.scene, this.initialGameboard[i][j]);
+                    else this.gameState.gameboard.getCell(i,j).stack = null;
+                }
+            }
+        }
     }
 
     isCellId(obj){ return obj.id < 100;}
@@ -51,6 +66,7 @@ class PlayerMoveState {
                 if(this.isStackId(obj)){
                     this.initialState();
                     this.stackSelected = obj;
+                    this.stackSign = Math.sign(obj.height);
                     this.moveState = State.FIRST_SELECTION;
                     obj.select();
                 }
@@ -110,22 +126,33 @@ class PlayerMoveState {
                 }
                 else if(this.isSubmitId(obj)){
                     // submit substacks
-                    this.moveState = State.FINAL;
-                    this.gameState.feedbackText = "select new piece";
+                    if(this.gameState.gameboard.moveSubstacks(this.stackSelected.cell, this.substacks, this.direction));
+                    {
+                        this.moveState = State.FINAL;
+                        this.gameState.feedbackText = "select new piece";
+                        this.gameState.gameboard.setTurn(this.gameState.turn);
+                    }
                 }
                 else if(this.isCancelId(obj)){
+                    this.resetSubstacks();
                     this.initialState();
                 }
                 break;
             case State.FINAL:
-                if(this.isCellId(obj)){
+                if(this.isCellId(obj) && obj.stack == null){ 
                     // submit new piece and move
-                    if(this.gameState.gameboard.move(this.stackSelected.cell, this.substacks, this.direction, obj)){
+                    if(this.gameState.gameboard.moveNewPiece(obj, this.stackSign)){
+                        let gameMove = new GameMove(this.scene, this.stackSelected.cell.id, this.substacks,
+                            this.direction, obj.id, this.gameState.turn, this.initialGameboard
+                        );
+                        this.scene.orchestrator.gameSequence.addGameMove(gameMove);
                         this.initialState();
                         this.gameState.orchestrator.nextTurn();
+                        this.scene.graph.cameraHandler.startCameraAnimation();
                     }
                 }
                 else if(this.isCancelId(obj)){
+                    this.resetSubstacks();
                     this.initialState();
                 }
                 break;
