@@ -35,8 +35,8 @@ class Animator {
                 let move = this.gameSequence.gameSequence[this.move];
                 let originCell =  this.orchestrator.gameState.gameboard.getCellByID(move.originCell);
                 let newPieceCell =  this.orchestrator.gameState.gameboard.getCellByID(move.newPieceCell);
-                this.orchestrator.gameState.gameboard
-                this.orchestrator.gameState.gameboard.move(originCell, move.substacks, move.direction, newPieceCell);
+                let turn = Math.sign(originCell.stack.height) == 1 ? 1 : 2;
+                this.orchestrator.gameState.gameboard.move(originCell, move.substacks, move.direction, newPieceCell, turn);
                 this.move++;
             }
         } 

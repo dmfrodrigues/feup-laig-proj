@@ -60,16 +60,9 @@ class GameBoard extends CGFobject {
         }
     }
 
-    move(originCell, substacks, direction, newPieceCell) {
-        if (newPieceCell.stack != null || ( 1 < direction && direction > 6 ))
+    moveSubstacks(originCell, substacks, direction){
+        if( direction < 1 || direction > 6 )
             return false;
-
-        let turn = this.scene.orchestrator.gameState.turn;
-        let gameMove = new GameMove(this.scene, originCell.id, substacks, direction, newPieceCell.id, turn, this);
-        if(!this.scene.orchestrator.animator.active){
-            this.scene.orchestrator.gameSequence.addGameMove(gameMove);
-        }
-        
         for (let k = 0; k < substacks.length; k++) {
             let absHeight = Math.abs(substacks[k]);
             let substack_i;
@@ -117,12 +110,33 @@ class GameBoard extends CGFobject {
                 = new PieceStack(this.scene, (absHeight + Math.abs(stack.height)) * (Math.sign(originCell.stack.height)));
             }
         }
-        
-        newPieceCell.stack = new PieceStack(this.scene, 1 * (Math.sign(originCell.stack.height)));
-        
         originCell.stack = null;
+
+        // animate substacks
+        return true;
+    }
+
+    moveNewPiece(newPieceCell, height){
+        if (newPieceCell.stack != null && newPieceCell != originCell)
+           return false;
+        newPieceCell.stack = new PieceStack(this.scene, height);
         
+        // animate new piece
+        return true;
+    }
+
+    move(originCell, substacks, direction, newPieceCell, turn) {
+        let gameMove = new GameMove(this.scene, originCell.id, substacks, direction, newPieceCell.id, turn, this.toJSON());
+        if(!this.scene.orchestrator.animator.active){
+            this.scene.orchestrator.gameSequence.addGameMove(gameMove);
+        }
+
+        this.moveSubstacks(originCell, substacks, direction);
+
+        this.moveNewPiece(newPieceCell, turn == 1 ? 1 : -1);
+
         gameMove.animate();
+        
         return true;
     }
 
