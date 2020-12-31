@@ -1,5 +1,8 @@
 <lsf>
     <initials>
+        <data>
+            <var id="initial-sun-light-position" value="[147100000000, 0, 0]"/>
+        </data>
         <reference length="0.0"/>
         <root id="root"/>
         <gameboard id="gameboard">
@@ -133,8 +136,22 @@
             <keyframe instant='00000000'><translation x='0' y='0' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0000'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
             <keyframe instant='31557600'><translation x='0' y='0' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='+360'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
         </animation>
+        <animation id="sun-light-orbit" loop="1" onupdate="
+let animation = arguments[0];
+let M         = animation.M;
+let oldPos    = this.userdata['initial-sun-light-position'];
+let oldPosVec = vec4.fromValues(oldPos[0], oldPos[1], oldPos[2], 0);
+let newPos    = vec4.create();
+vec4.transformMat4(newPos, oldPosVec, M);
+this.bindings['sun-light-position'].value = [newPos[0], newPos[1], newPos[2]];
+        ">
+            <keyframe instant='00'><translation x='0' y='0' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0000'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
+            <keyframe instant='31'><translation x='0' y='0' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='+360'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
+        </animation>
     </animations>
     <bindings>
+        <binding id="sun-light-position">
+        </binding>
     </bindings>
     <views default="default_camera">
         <!-- at least one of the following type of cameras must be declared -->
@@ -171,7 +188,7 @@
         <!-- NOTE: at least one light should be present, and a maximum of eight lights is accepted. -->
         <light id="sun">
             <enable value="1"/>
-            <position x="147100000000" y="0.0" z="0.0" w="1.0"/>
+            <position x="147100000000" y="0.0" z="0.0" w="1.0" bind="sun-light-position"/>
             <ambient  r="0.00" g="0.00" b="0.00" a="1.0"/>
             <diffuse  r="1.00" g="1.00" b="1.00" a="1.0"/>
             <specular r="1.00" g="1.00" b="1.00" a="1.0"/>
@@ -199,6 +216,27 @@
     </spritesheets>
 
     <materials>
+        <material id="red">
+            <shininess value="5.0"/>
+            <ambient  r="0.0" g="0.0" b="0.0" a="1.0"/>
+            <diffuse  r="0.0" g="0.0" b="0.0" a="1.0"/>
+            <specular r="0.0" g="0.0" b="0.0" a="1.0"/>
+            <emissive r="1.0" g="0.0" b="0.0" a="1.0"/>
+        </material>
+        <material id="green">
+            <shininess value="5.0"/>
+            <ambient  r="0.0" g="0.0" b="0.0" a="1.0"/>
+            <diffuse  r="0.0" g="0.0" b="0.0" a="1.0"/>
+            <specular r="0.0" g="0.0" b="0.0" a="1.0"/>
+            <emissive r="0.0" g="1.0" b="0.0" a="1.0"/>
+        </material>
+        <material id="blue">
+            <shininess value="5.0"/>
+            <ambient  r="0.0" g="0.0" b="0.0" a="1.0"/>
+            <diffuse  r="0.0" g="0.0" b="0.0" a="1.0"/>
+            <specular r="0.0" g="0.0" b="0.0" a="1.0"/>
+            <emissive r="0.0" g="0.0" b="1.0" a="1.0"/>
+        </material>
         <material id="plastic-white">
             <shininess value="5.0"/>
             <ambient  r="1.0" g="1.0" b="1.0" a="1.0"/>
@@ -496,10 +534,29 @@
                 <amplification afs="1" aft="1"/>
             </texture>
             <descendants>
+                <!-- <noderef id="axis"/> -->
                 <noderef id="universe-transformed"/>
                 <noderef id="iss"/>
             </descendants>
         </node>
+
+        <node id="axis">
+            <material id="null"/>
+            <texture id="null">
+                <amplification afs="1" aft="1"/>
+            </texture>
+            <transformations>
+                <scale sx="100000" sy="100000" sz="100000"/>
+            </transformations>
+            <descendants>
+                <noderef id="axis-x"/>
+                <noderef id="axis-y"/>
+                <noderef id="axis-z"/>
+            </descendants>
+        </node>
+        <node id="axis-x"><material id="red"  /><texture id="null"><amplification afs="1" aft="1"/></texture><transformations><translation x="0.5" y="0" z="0"/><scale sx="1" sy="0.02" sz="0.02"/></transformations><descendants><noderef id="cube"/></descendants></node>
+        <node id="axis-y"><material id="green"/><texture id="null"><amplification afs="1" aft="1"/></texture><transformations><translation x="0" y="0.5" z="0"/><scale sx="0.02" sy="1" sz="0.02"/></transformations><descendants><noderef id="cube"/></descendants></node>
+        <node id="axis-z"><material id="blue" /><texture id="null"><amplification afs="1" aft="1"/></texture><transformations><translation x="0" y="0" z="0.5"/><scale sx="0.02" sy="0.02" sz="1"/></transformations><descendants><noderef id="cube"/></descendants></node>
 
         <node id="cell">
             <material id="plastic-white" selectedid="plastic-dark"/>
