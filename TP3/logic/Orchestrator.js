@@ -152,12 +152,10 @@ class Orchestrator extends CGFobject {
     }
 
     display(){
-        // ...
         if(!this.themeInited) return;
         this.theme.display();
         this.animator.display();
         for(let i in this.theme.uis)
             this.theme.uis[i].display();
-        // ...
     }
 }

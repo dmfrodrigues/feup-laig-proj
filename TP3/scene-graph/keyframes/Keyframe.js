@@ -54,7 +54,7 @@ class Keyframe {
 		);
 	}
 
-	/**(t-this.cameraAnimLastTime)/animDuration
+	/**
 	 * Get transformation matrix.
 	 * 
 	 * @return {mat4}	Transformation matrix of keyframe
