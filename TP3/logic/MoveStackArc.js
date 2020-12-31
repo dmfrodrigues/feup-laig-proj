@@ -1,6 +1,6 @@
-STACK_ANIM_TIME = 2.0
-ROTATE_ANIM_TIME = 1.5
-DELAY_TIME = 0.2;
+STACK_ANIM_TIME = 1.0
+ROTATE_ANIM_TIME = 0.72
+DELAY_TIME = 0.05;
 
 class MoveStackArc extends MoveStack{
     constructor(scene, gameboard){
@@ -50,14 +50,14 @@ class MoveStackArc extends MoveStack{
 
     update(t){
         this.deltaTime = t - this.startTime;
-        if(this.deltaTime >= STACK_ANIM_TIME + DELAY_TIME){
+        if(this.deltaTime >= STACK_ANIM_TIME){
             this.pieceStacks = [];
             this.destCells = [];
             this.substacks = [];
             this.notEmptyDestStacks = [];
             this.stacksRotated = {};
         }      
-        else if(this.deltaTime >= STACK_ANIM_TIME){
+        if(this.deltaTime >= STACK_ANIM_TIME - DELAY_TIME){
             for(let i=0; i < this.destCells.length; i++){
                 this.destCells[i].visible = true;
             }
@@ -74,7 +74,7 @@ class MoveStackArc extends MoveStack{
             let destY = this.scene.graph.pieces.height * Math.abs(this.destCells[i].stack.height);
 
             let x = w * (destPos[0]-origPos[0]);
-            let y = (1.0-Math.pow((this.deltaTime-1),2)) * 0.15 + originY + w*(destY-originY);
+            let y = (1.0-Math.pow((2*this.deltaTime-1),2)) * 0.10 + originY + w*(destY-originY);
             let z = w * (destPos[2]-origPos[2]);
             
             this.scene.pushMatrix();
@@ -88,7 +88,9 @@ class MoveStackArc extends MoveStack{
             if(this.stacksRotated[this.notEmptyDestStacks[i]] != undefined){
                 let w = this.deltaTime / ROTATE_ANIM_TIME;
 
-                let y = (1.0-Math.pow((this.deltaTime-1),2)) * 0.05;
+                console.log(Math.min(this.deltaTime, ROTATE_ANIM_TIME));
+                let y = (1.0-Math.pow(2.75*Math.min(this.deltaTime, ROTATE_ANIM_TIME)-1,2)) * 0.07;
+                
                 let alpha = Math.min(1, w) * Math.PI;
                 
                 this.scene.pushMatrix();
