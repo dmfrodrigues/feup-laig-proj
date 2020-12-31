@@ -116,7 +116,6 @@ class GameBoard extends CGFobject {
 
             destCells.push(this.getCell(substack_i, substack_j));
         }
-        
         this.moveStack.moveSubstacks(originCell, substacks, destCells);
         originCell.stack = null;
 
