@@ -12,7 +12,8 @@ class MoveStackArc extends MoveStack{
         this.origCell = null;
         this.pieceStacks = [];
         this.destCells = [];
-        this.substacks
+        this.substacks = [];
+        this.notEmptyDestCells = [];
     }
 
 
@@ -28,7 +29,7 @@ class MoveStackArc extends MoveStack{
 
     }
 
-    moveSubstacks(origCell, substacks, destCells){
+    moveSubstacks(origCell, substacks, destCells, notEmptyDestCells, notEmptyDestHeights){
         this.substacks = substacks;
         this.origCell = origCell;
         this.startTime = this.scene.time;
@@ -38,6 +39,12 @@ class MoveStackArc extends MoveStack{
             destCells[i].visible = false;
             this.destCells.push(destCells[i]);
         }
+
+        for(let i=0; i < notEmptyDestCells.length; i++){
+            this.notEmptyDestCells.push(new PieceStack(this.scene, notEmptyDestHeights[i]));
+            this.notEmptyDestCells[i].cell =  notEmptyDestCells[i];
+        }
+
     }
 
     update(t){
@@ -49,7 +56,12 @@ class MoveStackArc extends MoveStack{
             this.pieceStacks = [];
             this.destCells = [];
             this.substacks = [];
+            this.notEmptyDestCells = [];
             return;
+        };
+
+        if(this.deltaTime >= ROTATE_ANIM_TIME){
+
         };
         
     }
@@ -73,6 +85,17 @@ class MoveStackArc extends MoveStack{
             this.pieceStacks[i].display();
             this.scene.popMatrix();
 
+        }
+
+        for(let i=0; i < this.notEmptyDestCells.length; i++){
+            let w = this.deltaTime / ROTATE_ANIM_TIME;
+
+            let y = (1.0-Math.pow((this.deltaTime-1),2)) * 0.10;
+
+            this.scene.pushMatrix();
+            this.scene.translate(0, y, 0);
+            this.notEmptyDestCells[i].display();
+            this.scene.popMatrix();
         }
     }
 }

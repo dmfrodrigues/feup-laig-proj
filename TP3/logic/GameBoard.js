@@ -65,6 +65,9 @@ class GameBoard extends CGFobject {
 
     moveSubstacks(originCell, substacks, direction){
         let destCells = [];
+        let notEmptyCells = [];
+        let notEmptyDestHeights = [];
+
         if( direction < 1 || direction > 6 )
             return false;
         for (let k = 0; k < substacks.length; k++) {
@@ -110,13 +113,16 @@ class GameBoard extends CGFobject {
                 = new PieceStack(this.scene, absHeight * (Math.sign(originCell.stack.height)));
             }
             else{
+                notEmptyCells.push(this.getCell(substack_i, substack_j));
+                notEmptyDestHeights.push(stack.height);
+
                 this.getCell(substack_i, substack_j).stack
                 = new PieceStack(this.scene, (absHeight + Math.abs(stack.height)) * (Math.sign(originCell.stack.height)));
             }
 
             destCells.push(this.getCell(substack_i, substack_j));
         }
-        this.moveStack.moveSubstacks(originCell, substacks, destCells);
+        this.moveStack.moveSubstacks(originCell, substacks, destCells, notEmptyCells, notEmptyDestHeights);
         originCell.stack = null;
 
         // animate substacks
