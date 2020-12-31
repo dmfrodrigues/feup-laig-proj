@@ -1093,7 +1093,7 @@ this.bindings['sun-light-position'].value = [newPos[0], newPos[1], newPos[2]];
                 <scale sx="0.57142857142" sy="1" sz="1"/>
             </transformations>
             <descendants>
-                <leaf type="spritetext" font="consolas" text="Turn:"/>
+                <leaf type="spritetext" font="consolas" text="Round:"/>
             </descendants>
         </node>
         <node id="ui-panel-turn-display">

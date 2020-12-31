@@ -120,7 +120,7 @@
     </animations>
     <bindings>
     </bindings>
-    <views default="default_camera">
+    <views default="player1_camera">
         <!-- at least one of the following type of cameras must be declared -->
         <perspective id="default_camera" near="0.1" far="2000" angle="50">
             <from x="1" y="1" z="1"/>
@@ -1011,7 +1011,7 @@
                 <scale sx="0.57142857142" sy="1" sz="1"/>
             </transformations>
             <descendants>
-                <leaf type="spritetext" font="consolas" text="Turn:"/>
+                <leaf type="spritetext" font="consolas" text="Round:"/>
             </descendants>
         </node>
         <node id="ui-panel-turn-display">
