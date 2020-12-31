@@ -133,18 +133,14 @@
             <from x="+0.5" y="1.4" z="0"/>
             <to   x="0" y="1.2" z="0"/>
         </player2transition>
-        <perspective id="default_camera" near="0.1" far="2000" angle="50">
-            <from x="1" y="1" z="1"/>
-            <to   x="0" y="0.5" z="0"/>
-        </perspective>
-        <perspective id="player1_camera" near="0.1" far="2000" angle="50">
+        <player1 id="player1_camera" near="0.1" far="2000" angle="50">
             <from x="0" y="1.4" z="0.6"/>
             <to   x="0" y="1.2" z="0.4"/>
-        </perspective>
-        <perspective id="player2_camera" near="0.1" far="2000" angle="50">
+        </player1>
+        <player2 id="player2_camera" near="0.1" far="2000" angle="50">
             <from x="0" y="1.4" z="-0.6"/>
             <to   x="0" y="1.2" z="-0.4"/>
-        </perspective>
+        </player2>
     </views>
     <illumination>
         <ambient    r="0.2" g="0.2" b="0.2" a="1.0"/>
