@@ -107,8 +107,8 @@ class Orchestrator extends CGFobject {
             server.choose_move(
                 gamestate,
                 gamestate.turn,
-                3,
-                7
+                this.getLevel(),
+                this.getN()
             )
             .then(function (response){
                 console.log(response);
