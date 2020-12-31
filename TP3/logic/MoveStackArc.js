@@ -15,6 +15,15 @@ class MoveStackArc extends MoveStack{
         this.substacks
     }
 
+
+    piecesUnderStack(substacks, stackIdx){
+        let total = 0;
+        for(let i=0; i < substacks.length && i < stackIdx ; i++){
+            total += substacks[i];
+        }
+        return total;
+    }
+
     rotateStack(){
 
     }
@@ -52,8 +61,8 @@ class MoveStackArc extends MoveStack{
             let origPos = this.gameboard.gameboardSetup.getCellPosition(this.origCell.i, this.origCell.j);
             let destPos = this.gameboard.gameboardSetup.getCellPosition(this.destCells[i].i, this.destCells[i].j);
 
-            let originY = 0;
-            let destY = 0;
+            let originY = this.scene.graph.pieces.height * this.piecesUnderStack(this.substacks, i);
+            let destY = this.scene.graph.pieces.height * Math.abs(this.destCells[i].stack.height);
 
             let x = w * (destPos[0]-origPos[0]);
             let y = (1.0-Math.pow((this.deltaTime-1),2)) * 0.20 + originY + w*(destY-originY);
