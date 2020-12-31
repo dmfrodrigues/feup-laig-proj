@@ -40,6 +40,9 @@ class MySceneGraph {
         this.axisCoords['y'] = [0, 1, 0];
         this.axisCoords['z'] = [0, 0, 1];
 
+        // Create user data object
+        this.userdata = {};
+
         // File reading 
         this.reader = new CGFXMLreader();
 
@@ -250,12 +253,32 @@ class MySceneGraph {
         for (var i = 0; i < children.length; i++)
             nodeNames.push(children[i].nodeName);
 
+        var dataIndex = nodeNames.indexOf("data");
         var rootIndex = nodeNames.indexOf("root");
         var referenceIndex = nodeNames.indexOf("reference");
         var gameboardIndex = nodeNames.indexOf("gameboard");
         var piecesIndex = nodeNames.indexOf("piece");
         var piecesViewIndex = nodeNames.indexOf("pieceview");
         var uisIndex = nodeNames.indexOf("uis");
+
+        // Get data
+        if(dataIndex != -1){
+            let dataNode = children[dataIndex];
+            for(let i = 0; i < dataNode.children.length; ++i){
+                let child = dataNode.children[i];
+                if(child.nodeName === 'var'){
+                    let id = child.id;
+                    if(typeof child.attributes.value === 'undefined'){
+                        this.onXMLMinorError(`Data var '${id}' does not have value; ignored`);
+                        continue;
+                    }
+                    let value = eval(child.attributes.value.value);
+                    this.userdata[id] = value;
+                } else {
+                    this.onXMLMinorError(`Unknown data tag '${child.nodeName}'`)
+                }
+            }
+        }
 
         // Get root of the scene.
         if(rootIndex == -1)
@@ -627,6 +650,36 @@ class MySceneGraph {
                 }
             }
 
+            let positionNode = [...children[i].children].find((node) => (node.nodeName === 'position'));
+            if(typeof positionNode.attributes.bind !== 'undefined'){
+                let bindingref = positionNode.attributes.bind.value;
+                if(this.bindings[bindingref] !== null){
+                    let binding = this.bindings[bindingref];
+                    let self = this;
+                    Object.defineProperty(binding, 'value',
+                        {
+                            set: function (value){
+                                if(self.scene.sceneInited){
+                                    light.setPosition(
+                                        value[0],
+                                        value[1],
+                                        value[2],
+                                        light.position[3]
+                                    );
+                                    light.update();
+                                }
+                            },
+                            get: function (){
+                                return light.position;
+                            }
+                        }
+                    );
+                    binding.value = binding.value;
+                } else {
+                    this.onXMLMinorError(`Unknown binding '${bindingref}'`);
+                }
+            }
+
             numLights++;
         }
 
@@ -656,6 +709,7 @@ class MySceneGraph {
             let binding = bindingsNode.children[i];
             let id = binding.id;
             let representation = [...binding.children].find((node) => (node.nodeName === 'representation'));
+            if(typeof representation !== 'undefined'){
             let animationref = this.parseString(representation, "animationref", id);
             let animation = this.animations[animationref];
             let t = this.parseFloat(representation, "t", id);
@@ -669,6 +723,9 @@ class MySceneGraph {
                     animation.update(this.value);
                 }
             };
+            } else {
+                this.bindings[binding.id] = {};
+            }
         }
 
 
@@ -863,6 +920,12 @@ class MySceneGraph {
             if(typeof animation.attributes.timeupdate !== 'undefined'){
                 let timeupdate = this.parseBoolean(animation, "timeupdate", animation.id, true);
                 if(!timeupdate) anim.timeupdate = false;
+            }
+
+            if(typeof animation.attributes.onupdate !== 'undefined'){
+                let onupdate = animation.attributes.onupdate.value;
+                let onupdate_func = new Function(onupdate);
+                anim.onupdate = onupdate_func.bind(this);
             }
 
             this.animations[animation.id] = anim;
