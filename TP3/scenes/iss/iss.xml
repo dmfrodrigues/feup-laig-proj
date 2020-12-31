@@ -132,11 +132,29 @@
             <keyframe instant='0000000'><translation x='0' y='0' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0000'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
             <keyframe instant='2548800'><translation x='0' y='0' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='+360'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
         </animation>
+        <!--
+        <animation id="iss-orbit" loop="1">
+            <keyframe instant='0000'><translation x='0' y='0' z='0'/><rotation axis='x' angle='0000'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
+            <keyframe instant='5580'><translation x='0' y='0' z='0'/><rotation axis='x' angle='-360'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
+        </animation>
+        -->
+        <animation id="iss-orbit-inverse" loop="1">
+            <keyframe instant='0000'><translation x='0' y='0' z='0'/><rotation axis='x' angle='0000'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
+            <keyframe instant='5580'><translation x='0' y='0' z='0'/><rotation axis='x' angle='+360'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
+        </animation>
         <animation id="sun-orbit-angle" loop="1" onupdate="
-let animation = arguments[0];
 let M         = mat4.create();
+
+mat4.translate(M, M, [0, -67780, 0]);
+mat4.multiply(M, M, this.animations['iss-orbit-inverse'].M);
+mat4.rotate(M, M, +23.5*Math.PI/180, [0,1,0]);
+mat4.rotate(M, M, -51.6*Math.PI/180, [0,1,0]);
+mat4.translate(M, M, [0, +67780, 0]);
+
 mat4.rotate(M, M, 90*Math.PI/180, [0,0,1]);
 mat4.rotate(M, M, 90*Math.PI/180, [0,1,0]);
+
+let animation = arguments[0];
 mat4.multiply(M, M, animation.M);
 let oldPos    = this.userdata['initial-sun-light-position'];
 let oldPosVec = vec4.fromValues(oldPos[0], oldPos[1], oldPos[2], 0);
@@ -152,7 +170,7 @@ this.bindings['sun-light-position'].value = [newPos[0], newPos[1], newPos[2]];
         <binding id="sun-light-position">
         </binding>
     </bindings>
-    <views default="default_camera">
+    <views default="player1_camera">
         <!-- at least one of the following type of cameras must be declared -->
         <movecamera id="move_camera" near="0.2" far="10000000" angle="30">
             <from x="0" y="0.75" z="0.70"/>
@@ -533,8 +551,7 @@ this.bindings['sun-light-position'].value = [newPos[0], newPos[1], newPos[2]];
                 <amplification afs="1" aft="1"/>
             </texture>
             <descendants>
-                <!-- <noderef id="axis"/> -->
-                <noderef id="universe-transformed"/>
+                <noderef id="universe-animated"/>
                 <noderef id="iss"/>
             </descendants>
         </node>
@@ -1434,6 +1451,27 @@ this.bindings['sun-light-position'].value = [newPos[0], newPos[1], newPos[2]];
             </descendants>
         </node>
 
+        <node id="universe-animated">
+            <material id="null"/><texture id="null"><amplification afs="1" aft="1"/></texture>
+            <transformations>
+                <translation x="0" y="-67780" z="0"/>
+            </transformations>
+            <animationref id="iss-orbit-inverse"/>
+            <descendants>
+                <noderef id="universe-moving"/>
+            </descendants>
+        </node>
+        <node id="universe-moving">
+            <material id="null"/><texture id="null"><amplification afs="1" aft="1"/></texture>
+            <transformations>
+                <rotation axis="y" angle="+23.5"/>
+                <rotation axis="y" angle="-51.6"/>
+                <translation x="0" y="67780" z="0"/>
+            </transformations>
+            <descendants>
+                <noderef id="universe-transformed"/>
+            </descendants>
+        </node>
         <node id="universe-transformed">
             <material id="null"/><texture id="null"><amplification afs="1" aft="1"/></texture>
             <transformations>
@@ -1630,6 +1668,31 @@ this.bindings['sun-light-position'].value = [newPos[0], newPos[1], newPos[2]];
                 <leaf type="obj" url="iss/obj/iss/iss-interior-neworder-hatchesopen-lessmodules.obj"/>
             </descendants>
         </node>
+        
+        <!--
+        <node id="iss-orbit">
+            <material id="null"/><texture id="null"><amplification afs="1" aft="1"/></texture>
+            <transformations>
+                <translation x="0" y="-67780" z="0"/>
+                <rotation axis="y" angle="+51.6"/>
+                <rotation axis="y" angle="-23.5"/>
+            </transformations>
+            <animationref id="iss-orbit"/>
+            <descendants>
+                <noderef id="iss-inclination"/>
+            </descendants>
+        </node>
+        <node id="iss-inclination">
+            <material id="null"/><texture id="null"><amplification afs="1" aft="1"/></texture>
+            <transformations>
+                <translation x="0" y="+67780" z="0"/>
+            </transformations>
+            <descendants>
+                <leaf type="sphere" radius="10000" slices="36" stacks="18"/>
+            </descendants>
+        </node>
+        -->
+
         <node id="skysphere">
             <material id="star-map"/><texture id="star-map"><amplification afs="1" aft="1"/></texture>
             <transformations>
