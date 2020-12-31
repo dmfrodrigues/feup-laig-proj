@@ -125,8 +125,8 @@ function startGame(gameMode, level){
     var orchestrator = new Orchestrator(
         gameScene,
         [
-            'iss/iss.xml',
             'room/room.xml',
+            'iss/iss.xml',
             'alentejo/alentejo.xml'
         ],
         gameMode,
