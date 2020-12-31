@@ -14,6 +14,7 @@ class MoveStackArc extends MoveStack{
         this.destCells = [];
         this.substacks = [];
         this.notEmptyDestCells = [];
+        this.stacksRotated = [];
     }
 
 
@@ -41,8 +42,14 @@ class MoveStackArc extends MoveStack{
         }
 
         for(let i=0; i < notEmptyDestCells.length; i++){
-            this.notEmptyDestCells.push(new PieceStack(this.scene, notEmptyDestHeights[i]));
-            this.notEmptyDestCells[i].cell =  notEmptyDestCells[i];
+            if(Math.sign(origCell.stack.height) != Math.sign(notEmptyDestHeights)){
+                this.stacksRotated.push(new PieceStack(this.scene, notEmptyDestHeights[i]));
+                this.stacksRotated[i].cell = notEmptyDestCells[i];
+            }
+            else{
+                this.notEmptyDestCells.push(new PieceStack(this.scene, notEmptyDestHeights[i]));
+                this.notEmptyDestCells[i].cell =  notEmptyDestCells[i];
+            }
         }
 
     }
@@ -57,12 +64,12 @@ class MoveStackArc extends MoveStack{
             this.destCells = [];
             this.substacks = [];
             this.notEmptyDestCells = [];
+            this.stacksRotated = [];
             return;
         };
+    }
 
-        if(this.deltaTime >= ROTATE_ANIM_TIME){
-
-        };
+    diplayRotation(){
         
     }
 
@@ -77,7 +84,7 @@ class MoveStackArc extends MoveStack{
             let destY = this.scene.graph.pieces.height * Math.abs(this.destCells[i].stack.height);
 
             let x = w * (destPos[0]-origPos[0]);
-            let y = (1.0-Math.pow((this.deltaTime-1),2)) * 0.20 + originY + w*(destY-originY);
+            let y = (1.0-Math.pow((this.deltaTime-1),2)) * 0.15 + originY + w*(destY-originY);
             let z = w * (destPos[2]-origPos[2]);
             
             this.scene.pushMatrix();
@@ -87,13 +94,23 @@ class MoveStackArc extends MoveStack{
 
         }
 
-        for(let i=0; i < this.notEmptyDestCells.length; i++){
+        for(let i=0; i < this.stacksRotated.length; i++){
             let w = this.deltaTime / ROTATE_ANIM_TIME;
 
-            let y = (1.0-Math.pow((this.deltaTime-1),2)) * 0.10;
-
+            let y = (1.0-Math.pow((this.deltaTime-1),2)) * 0.05;
+            let alpha = Math.min(1, w) * Math.PI;
+            
             this.scene.pushMatrix();
             this.scene.translate(0, y, 0);
+            //this.scene.multMatrix(this.gameboard.gameboardSetup.transformation);
+            this.scene.rotate(alpha, 1, 0, 0);
+            this.stacksRotated[i].display();
+
+            this.scene.popMatrix();
+        }
+
+        for(let i=0; i < this.notEmptyDestCells.length; i++){
+            this.scene.pushMatrix();
             this.notEmptyDestCells[i].display();
             this.scene.popMatrix();
         }
