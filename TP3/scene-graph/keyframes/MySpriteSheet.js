@@ -7,11 +7,8 @@
  * @param sizeN   - Number of rows in texture
  */
 class MySpriteSheet {
-    static shader = new MyShader(
-        this.scene.gl,
-        "scenes/spritesheets/spritesheet.vert",
-        "scenes/spritesheets/spritesheet.frag"
-    );
+    static _current_scene = null;
+    static shader = null;
 
     constructor(scene, texture, sizeM, sizeN){
         this.scene = scene;
@@ -19,9 +16,17 @@ class MySpriteSheet {
         this.sizeN = sizeN;
         this.sizeVec = vec2.fromValues(1.0/sizeM, 1.0/sizeN);
         this.texture = new CGFtexture(this.scene, texture);
+        if(MySpriteSheet._current_scene !== this.scene){
+            MySpriteSheet._current_scene = this.scene;
+            MySpriteSheet.shader = new MyShader(
+                MySpriteSheet._current_scene.gl, 
+                "scenes/spritesheets/spritesheet.vert", 
+                "scenes/spritesheets/spritesheet.frag"
+            );
+        }
     }
     activateCellMN(m, n){
-        this.shader.addUniformsValues({
+        MySpriteSheet.shader.addUniformsValues({
             m: m,
             n: n,
             sizeVec: this.sizeVec
