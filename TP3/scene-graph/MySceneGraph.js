@@ -514,6 +514,8 @@ class MySceneGraph {
             this.onXMLError(`no such view "${this.views.default}" to use as default; using "${this.views.default}"`);
         }
 
+        this.views.current = this.views.default;
+
         if(this.views.p1_camera == undefined
         || this.views.p2_camera == undefined
         || this.views.p1transition_camera == undefined
@@ -522,8 +524,16 @@ class MySceneGraph {
         {
             this.onXMLMinorError(`Players cameras not defined properly`);
         }
-
-        this.views.current = this.views.default;
+        else{
+            if(this.scene.cameraPosition == 1){
+                this.views.current = this.views.p1_camera;
+                this.cameraHandler.setCameraPos(this.views.list[this.views.move_camera], this.views.list[this.views.p1_camera]);
+            }
+            else{
+                this.views.current = this.views.p2_camera;
+                this.cameraHandler.setCameraPos(this.views.list[this.views.move_camera], this.views.list[this.views.p2_camera]);
+            }
+        }
 
         this.log("Parsed views");
         
