@@ -1,4 +1,5 @@
 PIECE_ANIM_TIME = 1.0
+LID_OPEN_TIME = 0.5
 
 class MoveNewPiece extends MoveStack{
     constructor(scene, gameboard){
@@ -13,11 +14,22 @@ class MoveNewPiece extends MoveStack{
     }
 
     moveNewPiece(destCell, height){
+        this.startTime = this.scene.time;
         this.startPos = this.scene.graph.newPiecePos;
         this.piecesBoxAnim = this.scene.graph.animations[this.scene.graph.piecesBoxAnim];
-        console.log(this.piecesBoxAnim);
 
-        this.startTime = this.scene.time;
+        let keys = Object.keys(this.piecesBoxAnim.keyframes);
+        this.scene.graph.piecesBoxAnimation = new KeyframeAnimation(this.scene, false);
+        this.scene.graph.piecesBoxAnimation.visible = true;
+        for(let i in keys){
+            this.scene.graph.piecesBoxAnimation.addKeyframe(
+                parseFloat(keys[i]) + this.startTime,
+                this.piecesBoxAnim.keyframes[keys[i]]
+            );
+        }
+
+        this.scene.graph.piecesBox.animation = this.scene.graph.piecesBoxAnimation;
+
         this.destCell = destCell;
         destCell.visible = false;
         this.pieceStack = new PieceStack(this.scene, height);
@@ -26,7 +38,8 @@ class MoveNewPiece extends MoveStack{
 
     update(t){
         if(this.pieceStack == null) return;
-        this.deltaTime = t - this.startTime;
+        this.deltaTime = t - this.startTime - LID_OPEN_TIME;
+
         if(this.deltaTime >= PIECE_ANIM_TIME){
             this.pieceStack = null;
             this.destCell.visible = true;
@@ -34,7 +47,7 @@ class MoveNewPiece extends MoveStack{
     }
 
     display(){
-        if(this.pieceStack != null){
+        if(this.pieceStack != null || this.deltaTime < 0){
             let w = this.deltaTime / PIECE_ANIM_TIME;
 
             let x = this.startPos[0] + w * (this.destPos[0]-this.startPos[0]);

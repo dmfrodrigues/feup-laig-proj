@@ -30,6 +30,7 @@ class MySceneGraph {
         scene.graph = this;
 
         this.cameraHandler = new CameraAnimation(scene, this);
+        this.scene.graph.piecesBoxAnimation = null;
 
         this.nodes = [];
 
@@ -259,7 +260,7 @@ class MySceneGraph {
         var gameboardIndex = nodeNames.indexOf("gameboard");
         var piecesIndex = nodeNames.indexOf("piece");
         var piecesViewIndex = nodeNames.indexOf("pieceview");
-        var piecesBoxIndex = nodeNames.indexOf("piecesbox");
+        var piecesBoxAnimIndex = nodeNames.indexOf("piecesboxanim");
         var newPieceIndex = nodeNames.indexOf("newpiecepos");
         var uisIndex = nodeNames.indexOf("uis");
 
@@ -334,12 +335,12 @@ class MySceneGraph {
         }
 
         // Get pieces box
-        if(piecesBoxIndex == -1){
+        if(piecesBoxAnimIndex == -1){
             this.onXMLMinorError("No piece box defined for scene.");
         } else {
-            let piecesBoxNode = children[piecesBoxIndex];
-            this._piecesBoxID = this.parseString(piecesBoxNode, "id", "piecesbox");
-            this._piecesBoxAnim = this.parseString(piecesBoxNode, "animationref", "piecesboxanim");
+            let piecesBoxAnimNode = children[piecesBoxAnimIndex];
+            this._piecesBox = this.parseString(piecesBoxAnimNode, "id", "piecesbox");
+            this._piecesBoxAnimID = this.parseString(piecesBoxAnimNode, "animationref", "piecesboxanimid");
         }
 
         // Get  new piece pos
@@ -1205,11 +1206,11 @@ class MySceneGraph {
             }
         }
 
-        if(this._piecesBoxID){
-            if(this.nodes[this._piecesBoxID] == null)
-                return `No such pieces box node "${this._piecesBoxID}"`;
+        if(this._piecesBox){
+            if(this.nodes[this._piecesBox] == null)
+                return `No such pieces box node "${this._piecesBox}"`;
             else
-                this._piecesBox = this.nodes[this._piecesBoxID];
+                this._piecesBox = this.nodes[this._piecesBox];
         }
         
         this.log("Parsed nodes");
@@ -1577,7 +1578,7 @@ class MySceneGraph {
     }
 
     get piecesBoxAnim(){
-        return this._piecesBoxAnim;
+        return this._piecesBoxAnimID;
     }
 
     get newPiecePos(){
@@ -1598,6 +1599,10 @@ class MySceneGraph {
         }
 
         this.cameraHandler.handleCameraAnimation(t);
+
+        if(this.scene.graph.piecesBoxAnimation != null){
+            this.scene.graph.piecesBoxAnimation.update(t);
+        }
     }
 
     /**

@@ -74,7 +74,7 @@
         </gameboard>
         <piece id="piece" height="0.002"/>
         <pieceview classname="RoomPieceStackView"/>
-        <piecesbox id="wood-box-in-table" animationref="wood-box-lid-animation"/>
+        <piecesboxanim id="wood-box-lid-animated" animationref="wood-box-lid-animation"/>
         <newpiecepos x="-0.275" y="0" z="0"/>
         <uis>
             <ui id="ui-1">
@@ -225,9 +225,9 @@
             <keyframe instant='05.0'><translation x='0' y='0' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1.00' sy='1.00' sz='1.00'/></keyframe>
         </animation>
         <animation id="wood-box-lid-animation" loop='0' easing="easeInMidOutSine" >
-            <keyframe instant='00.0'><translation x='0' y='0' z='0'/><rotation axis='x' angle='0'  /><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='0.75'><translation x='0' y='0' z='0'/><rotation axis='x' angle='-90'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='02.0'><translation x='0' y='0' z='0'/><rotation axis='x' angle='0'  /><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
+            <keyframe instant='0.0'><translation x='0' y='0' z='0'/><rotation axis='x' angle='0'  /><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
+            <keyframe instant='1.25'><translation x='0' y='0' z='0'/><rotation axis='x' angle='-90'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
+            <keyframe instant='2.5'><translation x='0' y='0' z='0'/><rotation axis='x' angle='0'  /><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
         </animation>
     </animations>
     <bindings>
@@ -913,7 +913,7 @@
             <transformations>
                 <translation x="0" y="0.051" z="-0.051"/>
             </transformations>
-            <animationref id="wood-box-lid-animation"/>
+            <!--<animationref id="wood-box-lid-animation"/>-->
             <descendants>
                 <noderef id="wood-box-lid"/>
             </descendants>
