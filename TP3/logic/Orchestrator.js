@@ -15,6 +15,7 @@ class Orchestrator extends CGFobject {
         this.theme        = new MySceneGraph(themes[0], this.scene);
         this.gameState    = new GameState(this.scene, this);
         this.gameMode     = gameMode;
+        this.level        = level;
     }
 
     isComputer(player){
@@ -22,6 +23,19 @@ class Orchestrator extends CGFobject {
             case 'PvP': return false;
             case 'PvC': return (player === 2);
             case 'CvC': return true;
+        }
+    }
+
+    getLevel(){
+        return this.level*2-1;
+    }
+    getN(){
+        let level = this.getLevel();
+        switch(level){
+            case 1: return  5;
+            case 3: return  7;
+            case 5: return 10;
+            default: throw new Error(`Value of N for level ${level} is not specified`);
         }
     }
 
@@ -37,8 +51,8 @@ class Orchestrator extends CGFobject {
             server.choose_move(
                 gamestate,
                 gamestate.turn,
-                3,
-                7
+                this.getLevel(),
+                this.getN()
             )
             .then(function (response){
                 console.log(response);
@@ -70,44 +84,42 @@ class Orchestrator extends CGFobject {
         }
     }
 
-    nextTurn(){
+    async nextTurn(){
         let orchestrator = this;
         let gamestate = this.gameState;
-        server.game_over(gamestate).then(function(response){
+        let response = await server.game_over(gamestate);
             if(response.isgameover)
             {
                 gamestate.isGameOver   =        true;
                 gamestate.feedbackText = "game over"; 
                 if(orchestrator.isComputer(response.winner))
-                    document.getElementById('winner').innerHTML = 'Computer';
+                    document.getElementById('winner').innerHTML = 'Computer ' + response.winner;
                 else 
                     document.getElementById('winner').innerHTML = 'Player ' + response.winner;
                 document.getElementById('game-over').style.display = 'block';
                 return;
             }
-            
-        });
-        gamestate.nextTurn();
-        if(this.isComputer(gamestate.turn)){
-            this.gameState.feedbackText = "computer move"; 
-            server.choose_move(
-                gamestate,
-                gamestate.turn,
-                3,
-                7
-            )
-            .then(function (response){
-                console.log(response);
-                gamestate.gameboard.move(
-                    gamestate.gameboard.getCell(response.pos[0], response.pos[1]),
-                    response.substacks,
-                    response.dir,
-                    gamestate.gameboard.getCell(response.newpos[0], response.newpos[1]),
-                    gamestate.turn
-                );
-                orchestrator.nextTurn();
-            });
-        }else this.gameState.moveState.initialState();
+            else {
+                gamestate.nextTurn();
+                if(this.isComputer(gamestate.turn)){
+                    this.gameState.feedbackText = "computer move"; 
+                    response = await server.choose_move(
+                        gamestate,
+                        gamestate.turn,
+                        this.getLevel(),
+                        this.getN()
+                    );
+                        console.log(response);
+                        gamestate.gameboard.move(
+                            gamestate.gameboard.getCell(response.pos[0], response.pos[1]),
+                            response.substacks,
+                            response.dir,
+                            gamestate.gameboard.getCell(response.newpos[0], response.newpos[1]),
+                            gamestate.turn
+                        );
+                        orchestrator.nextTurn();
+                }else this.gameState.moveState.initialState();
+            }
     }
 
     onObjectSelected(obj, id){

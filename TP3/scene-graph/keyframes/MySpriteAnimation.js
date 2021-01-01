@@ -24,14 +24,14 @@ class MySpriteAnimation{
         this.activeCell = this.startCell + Math.floor(t * this.factor);
     }
     display(){
-        this.scene.setActiveShaderSimple(this.spriteSheet.shader);
-        this.spriteSheet.shader.clearUniforms();
-        this.spriteSheet.shader.addUniformsValues({
+        this.scene.setActiveShaderSimple(MySpriteSheet.shader);
+        MySpriteSheet.shader.clearUniforms();
+        MySpriteSheet.shader.addUniformsValues({
             ambient : this.scene.appearance.ambient,
             emission: this.scene.appearance.emission
         });
         this.spriteSheet.activateCellP(this.activeCell);
-        this.spriteSheet.shader.updateUniforms();
+        MySpriteSheet.shader.updateUniforms();
         this.geometry.display();
         this.scene.setActiveShaderSimple(this.scene.defaultShader);
     }

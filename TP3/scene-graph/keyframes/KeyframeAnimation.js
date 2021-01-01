@@ -46,6 +46,8 @@ class KeyframeAnimation extends Animation {
         this.x2_x1 = 1;
 
         this._easing = function (x) { return x; }
+
+        this.onupdate = null;
     }
     addKeyframe(t, keyframe){
         this.keyframes[t] = keyframe;
@@ -75,6 +77,8 @@ class KeyframeAnimation extends Animation {
             eval('this._easing = function(x){ return (' + easing + '); }');
     }
     update(t){
+        if(this.onupdate !== null) this.onupdate(this);
+
         if(this.loop && t > 0) t %= this.tmax;
         let x = this._easing(t/this.tmax);
         if(1 <= x){

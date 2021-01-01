@@ -1182,7 +1182,7 @@
                 <scale sx="0.57142857142" sy="1" sz="1"/>
             </transformations>
             <descendants>
-                <leaf type="spritetext" font="consolas" text="Turn:"/>
+                <leaf type="spritetext" font="consolas" text="Round:"/>
             </descendants>
         </node>
         <node id="ui-panel-turn-display">
@@ -4283,7 +4283,7 @@
             </descendants>
         </node>
 
-        <node id="light-switch-old-1" onclick="console.log('hello!'); console.log(this); this.bindings['ceiling-light-var'].value = !this.bindings['ceiling-light-var'].value;">
+        <node id="light-switch-old-1" onclick="this.bindings['ceiling-light-var'].value = !this.bindings['ceiling-light-var'].value;">
             <material id="null"/>
             <texture id="null">
                 <amplification afs="1" aft="1"/>
