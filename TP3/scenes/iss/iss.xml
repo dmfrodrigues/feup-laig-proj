@@ -229,9 +229,6 @@ this.bindings['sun-light-position'].value = [newPos[0], newPos[1], newPos[2]];
         <spritesheet id="consolas" path="./scenes/spritesheets/consolas.svg" sizeM="16" sizeN="16"/>
         <spritesheet id="lcd" path="./scenes/spritesheets/lcd.svg" sizeM="16" sizeN="16"/>
         <spritesheet id="calc" path="./scenes/spritesheets/calc.svg" sizeM="16" sizeN="16"/>
-        <spritesheet id="fire" path="./scenes/spritesheets/fire8_64.png" sizeM="10" sizeN="6"/>
-        <spritesheet id="tv-news" path="./scenes/spritesheets/news.jpg" sizeM="8" sizeN="18"/>
-        <spritesheet id="tv-football" path="./scenes/spritesheets/football.jpg" sizeM="8" sizeN="18"/>
     </spritesheets>
 
     <materials>
