@@ -61,7 +61,7 @@ class MoveNewPiece extends MoveStack{
     }
 
     display(){
-        if(this.pieceStack != null || this.deltaTime < 0){
+        if(this.pieceStack != null && this.deltaTime >= 0){
             let w = this.deltaTime / PIECE_ANIM_TIME;
 
             let x = this.startPos[0] + w * (this.destPos[0]-this.startPos[0]);
