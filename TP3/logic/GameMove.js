@@ -5,12 +5,12 @@
  */
 
 class GameMove {
-    constructor(scene, originCellID, substacks, direction, newPieceCellID, turn, gameboard){
+    constructor(scene, originCell, substacks, direction, newPieceCell, turn, gameboard){
         this.scene = scene;
-        this.originCell = originCellID;
+        this.originCell = originCell;
         this.substacks = substacks;
         this.direction = direction;
-        this.newPieceCell = newPieceCellID;
+        this.newPieceCell = newPieceCell;
         this.turn = turn;
         this.gameboard = gameboard; // array
     }

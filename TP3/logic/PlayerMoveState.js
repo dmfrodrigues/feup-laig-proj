@@ -142,8 +142,8 @@ class PlayerMoveState {
                 if(this.isCellId(obj) && obj.stack == null){ 
                     // submit new piece and move
                     if(this.gameState.gameboard.moveNewPiece(obj, this.stackSign)){
-                        let gameMove = new GameMove(this.scene, this.stackSelected.cell.id, this.substacks,
-                            this.direction, obj.id, this.gameState.turn, this.initialGameboard
+                        let gameMove = new GameMove(this.scene, this.stackSelected.cell, this.substacks,
+                            this.direction, obj, this.gameState.turn, this.initialGameboard
                         );
                         this.scene.orchestrator.gameSequence.addGameMove(gameMove);
                         this.initialState();
