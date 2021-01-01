@@ -14,6 +14,8 @@ class MoveStackArc extends MoveStack{
         this.notEmptyDestStacks = [];
         this.stacksRotated = {};
         this.deltaTime = 0;
+        this.resolutionFunc = null;
+        this.rejectionFunc  = null;
     }
 
 
@@ -25,7 +27,7 @@ class MoveStackArc extends MoveStack{
         return total;
     }
 
-    moveSubstacks(origCell, substacks, destCells, notEmptyDestCells, notEmptyDestHeights){
+    async moveSubstacks(origCell, substacks, destCells, notEmptyDestCells, notEmptyDestHeights){
         this.substacks = substacks;
         this.origCell = origCell;
         this.startTime = this.scene.time;
@@ -44,6 +46,11 @@ class MoveStackArc extends MoveStack{
             }
         }
 
+        let self = this;
+        return new Promise(function(resolutionFunc, rejectionFunc){
+            self.resolutionFunc = resolutionFunc;
+            self.rejectionFunc  = rejectionFunc;
+        });
     }
 
     update(t){
@@ -57,6 +64,12 @@ class MoveStackArc extends MoveStack{
             this.substacks = [];
             this.notEmptyDestStacks = [];
             this.stacksRotated = {};
+            let resolutionFunc = this.resolutionFunc;
+            if(resolutionFunc !== null){
+                resolutionFunc({});
+                this.resolutionFunc = null;
+                this.rejectionFunc  = null;
+            }
         }      
         if(this.deltaTime >= STACK_ANIM_TIME - DELAY_TIME){
             for(let i=0; i < this.destCells.length; i++){

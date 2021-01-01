@@ -52,9 +52,11 @@ class MoveNewPiece extends MoveStack{
             this.pieceStack = null;
             this.destCell.visible = true;
             let resolutionFunc = this.resolutionFunc;
-            resolutionFunc({});
-            this.resolutionFunc = null;
-            this.rejectionFunc  = null;
+            if(resolutionFunc !== null){
+                resolutionFunc({});
+                this.resolutionFunc = null;
+                this.rejectionFunc  = null;
+            }
         }      
     }
 

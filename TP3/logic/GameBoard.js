@@ -64,7 +64,7 @@ class GameBoard extends CGFobject {
         }
     }
 
-    moveSubstacks(originCell, substacks, direction){
+    async moveSubstacks(originCell, substacks, direction){
         let destCells = [];
         let notEmptyCells = [];
         let notEmptyDestHeights = [];
@@ -123,7 +123,7 @@ class GameBoard extends CGFobject {
 
             destCells.push(this.getCell(substack_i, substack_j));
         }
-        this.moveStack.moveSubstacks(originCell, substacks, destCells, notEmptyCells, notEmptyDestHeights);
+        await this.moveStack.moveSubstacks(originCell, substacks, destCells, notEmptyCells, notEmptyDestHeights);
         originCell.stack = null;
 
         return true;
@@ -144,7 +144,7 @@ class GameBoard extends CGFobject {
             this.scene.orchestrator.gameSequence.addGameMove(gameMove);
         }
 
-        this.moveSubstacks(originCell, substacks, direction);
+        await this.moveSubstacks(originCell, substacks, direction);
 
         await this.moveNewPiece(newPieceCell, turn == 1 ? 1 : -1);
 

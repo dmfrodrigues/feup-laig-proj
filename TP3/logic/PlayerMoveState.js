@@ -126,7 +126,7 @@ class PlayerMoveState {
                 }
                 else if(this.isSubmitId(obj)){
                     // submit substacks
-                    if(this.gameState.gameboard.moveSubstacks(this.stackSelected.cell, this.substacks, this.direction));
+                    if(await this.gameState.gameboard.moveSubstacks(this.stackSelected.cell, this.substacks, this.direction));
                     {
                         this.moveState = State.FINAL;
                         this.gameState.feedbackText = "select new piece";
