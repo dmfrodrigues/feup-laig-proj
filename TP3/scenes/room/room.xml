@@ -75,7 +75,7 @@
         <piece id="piece" height="0.002"/>
         <pieceview classname="RoomPieceStackView"/>
         <piecesboxanim id="wood-box-lid-animated" animationref="wood-box-lid-animation"/>
-        <newpiecepos x="-0.275" y="0" z="0"/>
+        <newpiecepos x="-0.275" y="0.0" z="0"/>
         <uis>
             <ui id="ui-1">
                 <transformations>

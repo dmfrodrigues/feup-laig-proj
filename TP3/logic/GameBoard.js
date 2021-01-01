@@ -123,9 +123,9 @@ class GameBoard extends CGFobject {
 
             destCells.push(this.getCell(substack_i, substack_j));
         }
-        await this.moveStack.moveSubstacks(originCell, substacks, destCells, notEmptyCells, notEmptyDestHeights);
+        let response = this.moveStack.moveSubstacks(originCell, substacks, destCells, notEmptyCells, notEmptyDestHeights);
         originCell.stack = null;
-
+        await response;
         return true;
     }
 
