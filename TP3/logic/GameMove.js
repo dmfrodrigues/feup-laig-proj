@@ -24,10 +24,12 @@ class GameMove {
     }
 
     toJSON(){
+        let substacks = this.substacks;
+        if(this.turn === 2) substacks = substacks.map((x) => -x);
         return {
             player: this.turn,
             pos: [this.originCell.i, this.originCell.j],
-            substacks: this.substacks,
+            substacks: substacks,
             dir: this.direction,
             newpos: [this.newPieceCell.i, this.newPieceCell.j]
         };
