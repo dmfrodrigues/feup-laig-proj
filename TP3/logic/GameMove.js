@@ -15,16 +15,7 @@ class GameMove {
         this.gameboard = gameboard; // array
     }
 
-    animateSubstacks(){
-
-    }
-
-    animateNewPiece(){
-
-    }
-
     animate(){
-        //animate camera
         this.scene.graph.cameraHandler.startCameraAnimation();
     }
 }

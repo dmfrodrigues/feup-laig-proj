@@ -7,9 +7,6 @@ class MoveStackArc extends MoveStack{
         super(scene);
         this.gameboard = gameboard;
 
-        this.startTime = 0;
-        this.deltaTime = 0;
-
         this.origCell = null;
         this.pieceStacks = [];
         this.destCells = [];
@@ -87,10 +84,7 @@ class MoveStackArc extends MoveStack{
         for(let i=0; i < this.notEmptyDestStacks.length; i++){
             if(this.stacksRotated[this.notEmptyDestStacks[i]] != undefined){
                 let w = this.deltaTime / ROTATE_ANIM_TIME;
-
-                console.log(Math.min(this.deltaTime, ROTATE_ANIM_TIME));
                 let y = (1.0-Math.pow(2.75*Math.min(this.deltaTime, ROTATE_ANIM_TIME)-1,2)) * 0.07;
-                
                 let alpha = Math.min(1, w) * Math.PI;
                 
                 this.scene.pushMatrix();

@@ -13,6 +13,7 @@ class GameBoard extends CGFobject {
 
 
         this.moveStack = new MoveStackArc(scene, this);
+        this.movePiece = new MoveNewPiece(scene, this);
     }
 
     init(){
@@ -125,7 +126,6 @@ class GameBoard extends CGFobject {
         this.moveStack.moveSubstacks(originCell, substacks, destCells, notEmptyCells, notEmptyDestHeights);
         originCell.stack = null;
 
-        // animate substacks
         return true;
     }
 
@@ -134,7 +134,7 @@ class GameBoard extends CGFobject {
            return false;
         newPieceCell.stack = new PieceStack(this.scene, height);
         
-        // animate new piece
+        this.movePiece.moveNewPiece(newPieceCell, height);
         return true;
     }
 
@@ -178,8 +178,11 @@ class GameBoard extends CGFobject {
                 this.getCell(i,j).display();
             }
         }
+        
         this.moveStack.update(this.scene.time);
         this.moveStack.display();
+        this.movePiece.update(this.scene.time);
+        this.movePiece.display();
         this.scene.popMatrix();
 
     }

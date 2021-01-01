@@ -59,6 +59,7 @@ serialInclude(
         'logic/Animator.js',
         'logic/MoveStack.js',
         'logic/MoveStackArc.js',
+        'logic/MoveNewPiece.js',
 
 main=function(){
     app = new CGFapplication(document.getElementById('drawingBoard'));
