@@ -126,7 +126,7 @@ class PlayerMoveState {
                 }
                 else if(this.isSubmitId(obj)){
                     // submit substacks
-                    if(this.gameState.gameboard.moveSubstacks(this.stackSelected.cell, this.substacks, this.direction));
+                    if(await this.gameState.gameboard.moveSubstacks(this.stackSelected.cell, this.substacks, this.direction));
                     {
                         this.moveState = State.FINAL;
                         this.gameState.feedbackText = "select new piece";
@@ -158,7 +158,7 @@ class PlayerMoveState {
                     }
 
                     // submit new piece and move
-                    if(this.gameState.gameboard.moveNewPiece(obj, this.stackSign)){
+                    if(await this.gameState.gameboard.moveNewPiece(obj, this.stackSign)){
                         let newGameboardJS = this.gameState.gameboard.toJSON();
                         if(JSON.stringify(newGameboard) !== JSON.stringify(newGameboardJS)){
                             let text =

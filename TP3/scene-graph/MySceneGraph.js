@@ -30,6 +30,7 @@ class MySceneGraph {
         scene.graph = this;
 
         this.cameraHandler = new CameraAnimation(scene, this);
+        this.scene.graph.piecesBoxAnimation = null;
 
         this.nodes = [];
 
@@ -259,6 +260,8 @@ class MySceneGraph {
         var gameboardIndex = nodeNames.indexOf("gameboard");
         var piecesIndex = nodeNames.indexOf("piece");
         var piecesViewIndex = nodeNames.indexOf("pieceview");
+        var piecesBoxAnimIndex = nodeNames.indexOf("piecesboxanim");
+        var newPieceIndex = nodeNames.indexOf("newpiecepos");
         var uisIndex = nodeNames.indexOf("uis");
 
         // Get data
@@ -331,6 +334,26 @@ class MySceneGraph {
             this._pieces = pieces;
         }
 
+        // Get pieces box
+        if(piecesBoxAnimIndex == -1){
+            this.onXMLMinorError("No piece box defined for scene.");
+        } else {
+            let piecesBoxAnimNode = children[piecesBoxAnimIndex];
+            this._piecesBox = this.parseString(piecesBoxAnimNode, "id", "piecesbox");
+            this._piecesBoxAnimID = this.parseString(piecesBoxAnimNode, "animationref", "piecesboxanimid");
+        }
+
+        // Get  new piece pos
+        if(newPieceIndex == -1){
+                this.onXMLMinorError("No new piece pos defined for scene.");
+        } else {
+            let newPieceNode = children[newPieceIndex];
+            let x = this.parseFloat(newPieceNode, 'x', 'newpiecepos'); if(typeof x === 'string') return x;
+            let y = this.parseFloat(newPieceNode, 'y', 'newpiecepos'); if(typeof y === 'string') return y;
+            let z = this.parseFloat(newPieceNode, 'z', 'newpiecepos'); if(typeof z === 'string') return z;
+            this._newPiecePos = vec3.fromValues(x, y, z);
+        }
+        
         // Get UIs
 
         if(uisIndex == -1){
@@ -1182,6 +1205,13 @@ class MySceneGraph {
                 }
             }
         }
+
+        if(this._piecesBox){
+            if(this.nodes[this._piecesBox] == null)
+                return `No such pieces box node "${this._piecesBox}"`;
+            else
+                this._piecesBox = this.nodes[this._piecesBox];
+        }
         
         this.log("Parsed nodes");
     }
@@ -1543,6 +1573,18 @@ class MySceneGraph {
         return this._pieces;
     }
 
+    get piecesBox(){
+        return this._piecesBox;
+    }
+
+    get piecesBoxAnim(){
+        return this._piecesBoxAnimID;
+    }
+
+    get newPiecePos(){
+        return this._newPiecePos;
+    }
+
     update(t){
         for (var key in this.animations){
             let animation = this.animations[key];
@@ -1557,6 +1599,10 @@ class MySceneGraph {
         }
 
         this.cameraHandler.handleCameraAnimation(t);
+
+        if(this.scene.graph.piecesBoxAnimation != null){
+            this.scene.graph.piecesBoxAnimation.update(t);
+        }
     }
 
     /**
@@ -1573,6 +1619,6 @@ class MySceneGraph {
         this.display.numFrames++;
         let now = new Date().getTime();
         let seconds_per_frame = ((now-this.display.startTime)/1000)/this.display.numFrames;
-        if(this.display.numFrames % 500 === 0) console.log(1/seconds_per_frame);
+        if(this.display.numFrames % 100 === 0) console.log(1/seconds_per_frame);
     }
 }

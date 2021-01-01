@@ -54,9 +54,9 @@ class Orchestrator extends CGFobject {
                 this.getLevel(),
                 this.getN()
             )
-            .then(function (response){
+            .then(async function (response){
                 console.log(response);
-                gamestate.gameboard.move(
+                await gamestate.gameboard.move(
                     gamestate.gameboard.getCell(response.pos[0], response.pos[1]),
                     response.substacks,
                     response.dir,
@@ -110,7 +110,7 @@ class Orchestrator extends CGFobject {
                         this.getN()
                     );
                         console.log(response);
-                        gamestate.gameboard.move(
+                        await gamestate.gameboard.move(
                             gamestate.gameboard.getCell(response.pos[0], response.pos[1]),
                             response.substacks,
                             response.dir,
@@ -122,7 +122,7 @@ class Orchestrator extends CGFobject {
             }
     }
 
-    onObjectSelected(obj, id){
+    async onObjectSelected(obj, id){
         if(this.isComputer(this.gameState.turn) || this.gameState.isGameOver) 
             return;
 
@@ -134,7 +134,7 @@ class Orchestrator extends CGFobject {
             this.undo();
         }
         else if(10 <= id && id < 300)
-            this.gameState.moveState.updateMoveState(obj);
+            await this.gameState.moveState.updateMoveState(obj);
         else
             obj.onclick();
     }
@@ -164,12 +164,10 @@ class Orchestrator extends CGFobject {
     }
 
     display(){
-        // ...
         if(!this.themeInited) return;
         this.theme.display();
         this.animator.display();
         for(let i in this.theme.uis)
             this.theme.uis[i].display();
-        // ...
     }
 }

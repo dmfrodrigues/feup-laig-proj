@@ -30,10 +30,13 @@ class RoomPieceStackView extends PieceStackView {
 
     display(pieceStack){
         if(pieceStack.height != 0){
-            let M = this.getGameboardSetup().getCellMatrix(
-                pieceStack.cell.i,
-                pieceStack.cell.j
-            );
+            let M = mat4.create();
+            if(pieceStack.cell != null){
+                M = this.getGameboardSetup().getCellMatrix(
+                    pieceStack.cell.i,
+                    pieceStack.cell.j
+                );
+            }
 
             this.scene.pushMatrix();{
                 this.scene.multMatrix(M);

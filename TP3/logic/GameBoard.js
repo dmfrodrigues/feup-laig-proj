@@ -10,6 +10,10 @@ class GameBoard extends CGFobject {
         this._gameboardSetup = null;
         
         this.init();
+
+
+        this.moveStack = new MoveStackArc(scene, this);
+        this.movePiece = new MoveNewPiece(scene, this);
     }
 
     init(){
@@ -60,7 +64,11 @@ class GameBoard extends CGFobject {
         }
     }
 
-    moveSubstacks(originCell, substacks, direction){
+    async moveSubstacks(originCell, substacks, direction){
+        let destCells = [];
+        let notEmptyCells = [];
+        let notEmptyDestHeights = [];
+
         if( direction < 1 || direction > 6 )
             return false;
         for (let k = 0; k < substacks.length; k++) {
@@ -106,34 +114,39 @@ class GameBoard extends CGFobject {
                 = new PieceStack(this.scene, absHeight * (Math.sign(originCell.stack.height)));
             }
             else{
+                notEmptyCells.push(this.getCell(substack_i, substack_j));
+                notEmptyDestHeights.push(stack.height);
+
                 this.getCell(substack_i, substack_j).stack
                 = new PieceStack(this.scene, (absHeight + Math.abs(stack.height)) * (Math.sign(originCell.stack.height)));
             }
-        }
-        originCell.stack = null;
 
-        // animate substacks
+            destCells.push(this.getCell(substack_i, substack_j));
+        }
+        let response = this.moveStack.moveSubstacks(originCell, substacks, destCells, notEmptyCells, notEmptyDestHeights);
+        originCell.stack = null;
+        await response;
         return true;
     }
 
-    moveNewPiece(newPieceCell, height){
+    async moveNewPiece(newPieceCell, height){
         if (newPieceCell.stack != null && newPieceCell != originCell)
            return false;
         newPieceCell.stack = new PieceStack(this.scene, height);
         
-        // animate new piece
+        await this.movePiece.moveNewPiece(newPieceCell, height);
         return true;
     }
 
-    move(originCell, substacks, direction, newPieceCell, turn) {
+    async move(originCell, substacks, direction, newPieceCell, turn) {
         let gameMove = new GameMove(this.scene, originCell.id, substacks, direction, newPieceCell.id, turn, this.toJSON());
         if(!this.scene.orchestrator.animator.active){
             this.scene.orchestrator.gameSequence.addGameMove(gameMove);
         }
 
-        this.moveSubstacks(originCell, substacks, direction);
+        await this.moveSubstacks(originCell, substacks, direction);
 
-        this.moveNewPiece(newPieceCell, turn == 1 ? 1 : -1);
+        await this.moveNewPiece(newPieceCell, turn == 1 ? 1 : -1);
 
         gameMove.animate();
         
@@ -159,14 +172,18 @@ class GameBoard extends CGFobject {
     display() {
         this.scene.pushMatrix();
         this.scene.multMatrix(this.gameboardSetup.transformation);
-
         this.gameboardSetup.obj.display();
         for(let i = 0; i <= 8; ++i){
             for(let j = Math.max(i-4, 0); j <= Math.min(4+i,8); ++j){
                 this.getCell(i,j).display();
             }
         }
-
+        
+        this.moveStack.update(this.scene.time);
+        this.moveStack.display();
+        this.movePiece.update(this.scene.time);
+        this.movePiece.display();
         this.scene.popMatrix();
+
     }
 }

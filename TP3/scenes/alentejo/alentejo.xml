@@ -73,6 +73,8 @@
         </gameboard>
         <piece id="piece" height="0.002"/>
         <pieceview classname="RoomPieceStackView"/>
+        <piecesboxanim id="wood-box-lid-animated" animationref="wood-box-lid-animation"/>
+        <newpiecepos x="-0.225" y="0.0" z="0.10"/>
         <uis>
             <ui id="ui-1">
                 <transformations>
@@ -112,10 +114,10 @@
         </uis>
     </initials>
     <animations>
-        <animation id="wood-box-lid-animation" loop="1" easing="easeInMidOutSine">
-            <keyframe instant='00.0'><translation x='0' y='0' z='0'/><rotation axis='x' angle='0'  /><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='05.0'><translation x='0' y='0' z='0'/><rotation axis='x' angle='-90'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
-            <keyframe instant='10.0'><translation x='0' y='0' z='0'/><rotation axis='x' angle='0'  /><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
+        <animation id="wood-box-lid-animation" loop='0' easing="easeInMidOutSine" >
+            <keyframe instant='0.0'><translation x='0' y='0' z='0'/><rotation axis='x' angle='0'  /><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
+            <keyframe instant='1.25'><translation x='0' y='0' z='0'/><rotation axis='x' angle='-90'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
+            <keyframe instant='2.5'><translation x='0' y='0' z='0'/><rotation axis='x' angle='0'  /><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
         </animation>
     </animations>
     <bindings>
@@ -177,7 +179,6 @@
         <spritesheet id="calc" path="./scenes/spritesheets/calc.svg" sizeM="16" sizeN="16"/>
         <spritesheet id="fire" path="./scenes/spritesheets/fire8_64.png" sizeM="10" sizeN="6"/>
         <spritesheet id="tv-news" path="./scenes/spritesheets/news.jpg" sizeM="8" sizeN="18"/>
-        <spritesheet id="tv-football" path="./scenes/spritesheets/football.jpg" sizeM="8" sizeN="18"/>
     </spritesheets>
 
     <materials>
@@ -461,6 +462,7 @@
                 <noderef id="olive-in-scene"/>
                 <noderef id="wheat-line"/>
                 <noderef id="table"/>
+                <noderef id="wood-box-in-table"/>
             </descendants>
         </node>
 
@@ -586,8 +588,8 @@
         <node id="wood-box-in-table">
             <material id="null"/><texture id="null"><amplification afs="1" aft="1"/></texture>
             <transformations>
-                <translation x="-0.22" y="0.51" z="0.01"/>
-                <rotation axis="y" angle="80"/>
+                <translation x="-0.4" y="0.79" z="0.15"/>
+                <rotation axis="y" angle="90"/>
             </transformations>
             <descendants>
                 <noderef id="wood-box"/>
@@ -751,7 +753,6 @@
             <transformations>
                 <translation x="0" y="0.051" z="-0.051"/>
             </transformations>
-            <animationref id="wood-box-lid-animation"/>
             <descendants>
                 <noderef id="wood-box-lid"/>
             </descendants>
