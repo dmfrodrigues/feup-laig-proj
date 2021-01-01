@@ -8,9 +8,17 @@ uniform bool uUseTexture;
 uniform mat4 uMVMatrix;
 uniform mat4 uPMatrix;
 
+out vec4 vFinalColor;
+
 uniform vec4 uPickColor;
 
 void main() {
+
+	vec3 pt = vec3(aVertexPosition);
+	 
     // Transformed Vertex position
-    gl_Position = uPMatrix * (uMVMatrix * vec4(aVertexPosition, 1.0));
+    vec4 vertex = uMVMatrix * vec4(pt, 1.0);
+    gl_Position = uPMatrix * vertex;
+        
+	vFinalColor = uPickColor;
 }

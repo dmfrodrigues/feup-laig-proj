@@ -1,9 +1,9 @@
 #version 300 es
 precision highp float;
 
-uniform vec4 uPickColor;
+in vec4 vFinalColor;
 out vec4 fragColor;
 
 void main() {
-	fragColor = uPickColor;	
+	fragColor = vFinalColor;	
 }
