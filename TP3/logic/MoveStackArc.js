@@ -13,6 +13,7 @@ class MoveStackArc extends MoveStack{
         this.substacks = [];
         this.notEmptyDestStacks = [];
         this.stacksRotated = {};
+        this.deltaTime = 0;
     }
 
 

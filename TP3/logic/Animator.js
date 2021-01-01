@@ -23,7 +23,7 @@ class Animator {
         this.startTime = 0;
     }
 
-    update(time){
+    async update(time){
         if(time - this.startTime >= ANIM_TIME){
             if(this.gameSequence.gameSequence.length <= this.move){
                 this.active = false;
@@ -36,7 +36,7 @@ class Animator {
                 let originCell =  this.orchestrator.gameState.gameboard.getCellByID(move.originCell);
                 let newPieceCell =  this.orchestrator.gameState.gameboard.getCellByID(move.newPieceCell);
                 let turn = Math.sign(originCell.stack.height) == 1 ? 1 : 2;
-                this.orchestrator.gameState.gameboard.move(originCell, move.substacks, move.direction, newPieceCell, turn);
+                await this.orchestrator.gameState.gameboard.move(originCell, move.substacks, move.direction, newPieceCell, turn);
                 this.move++;
             }
         } 

@@ -11,6 +11,8 @@ class MoveNewPiece extends MoveStack{
         this.startPos =  null;
         this.destPos = null;
         this.deltaTime = 0;
+        this.resolutionFunc = null;
+        this.rejectionFunc  = null;
     }
 
     moveNewPiece(destCell, height){
@@ -34,6 +36,12 @@ class MoveNewPiece extends MoveStack{
         destCell.visible = false;
         this.pieceStack = new PieceStack(this.scene, height);
         this.destPos = this.gameboard.gameboardSetup.getCellPosition(this.destCell.i, this.destCell.j);
+    
+        let self = this;
+        return new Promise(function(resolutionFunc, rejectionFunc){
+            self.resolutionFunc = resolutionFunc;
+            self.rejectionFunc  = rejectionFunc;
+        });
     }
 
     update(t){
@@ -43,6 +51,10 @@ class MoveNewPiece extends MoveStack{
         if(this.deltaTime >= PIECE_ANIM_TIME){
             this.pieceStack = null;
             this.destCell.visible = true;
+            let resolutionFunc = this.resolutionFunc;
+            resolutionFunc({});
+            this.resolutionFunc = null;
+            this.rejectionFunc  = null;
         }      
     }
 

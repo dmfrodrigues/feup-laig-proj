@@ -60,7 +60,7 @@ class PlayerMoveState {
         return sum;
     }
 
-    updateMoveState(obj){
+    async updateMoveState(obj){
         switch (this.moveState) {
             case State.INITIAL:
                 if(this.isStackId(obj)){
@@ -141,7 +141,7 @@ class PlayerMoveState {
             case State.FINAL:
                 if(this.isCellId(obj) && obj.stack == null){ 
                     // submit new piece and move
-                    if(this.gameState.gameboard.moveNewPiece(obj, this.stackSign)){
+                    if(await this.gameState.gameboard.moveNewPiece(obj, this.stackSign)){
                         let gameMove = new GameMove(this.scene, this.stackSelected.cell.id, this.substacks,
                             this.direction, obj.id, this.gameState.turn, this.initialGameboard
                         );
