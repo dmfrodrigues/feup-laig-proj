@@ -60,7 +60,7 @@ class PlayerMoveState {
         return sum;
     }
 
-    updateMoveState(obj){
+    async updateMoveState(obj){
         switch (this.moveState) {
             case State.INITIAL:
                 if(this.isStackId(obj)){
@@ -140,15 +140,45 @@ class PlayerMoveState {
                 break;
             case State.FINAL:
                 if(this.isCellId(obj) && obj.stack == null){ 
+                    let gameMove = new GameMove(this.scene, this.stackSelected.cell, this.substacks,
+                        this.direction, obj, this.gameState.turn, this.initialGameboard
+                    );
+                    try{
+                    let newGameboard = await server.move(this.initialGameboard, gameMove);
+                    if(newGameboard === false){
+                        let text = 
+                            "Warning: the server did not consider this move to be valid. "+
+                            "The client should not have allowed this move.\n"+
+                            "Please report this issue in https://git.fe.up.pt/laig/laig-2020-2021/t02/laig-t02-g04 or https://github.com/dmfrodrigues/feup-laig-proj, "+
+                            "or email us to diogo.rodrigues@fe.up.pt or up201800170@fe.up.pt."
+                        ;
+                        alert(text);
+                        console.warn(text);
+                        break;
+                    }
+
                     // submit new piece and move
                     if(this.gameState.gameboard.moveNewPiece(obj, this.stackSign)){
-                        let gameMove = new GameMove(this.scene, this.stackSelected.cell.id, this.substacks,
-                            this.direction, obj.id, this.gameState.turn, this.initialGameboard
-                        );
+                        let newGameboardJS = this.gameState.gameboard.toJSON();
+                        if(JSON.stringify(newGameboard) !== JSON.stringify(newGameboardJS)){
+                            let text =
+                                "Catastrophic failure: the server considered this move valid, "
+                                "but the client did not correctly move the piece.\n"
+                                "Please report this issue in https://git.fe.up.pt/laig/laig-2020-2021/t02/laig-t02-g04 or https://github.com/dmfrodrigues/feup-laig-proj, "
+                                "or email us to diogo.rodrigues@fe.up.pt or up201800170@fe.up.pt."
+                            ;
+                            alert(text);
+                            console.error(text);
+                        }
+
                         this.scene.orchestrator.gameSequence.addGameMove(gameMove);
                         this.initialState();
                         this.gameState.orchestrator.nextTurn();
                         this.scene.graph.cameraHandler.startCameraAnimation();
+                    }
+                    } catch(err) {
+                        alert("Server is inaccessible");
+                        console.error(err);
                     }
                 }
                 else if(this.isCancelId(obj)){
