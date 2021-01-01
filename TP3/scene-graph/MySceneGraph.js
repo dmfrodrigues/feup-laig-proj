@@ -29,6 +29,8 @@ class MySceneGraph {
         this.scene = scene;
         scene.graph = this;
 
+        this.cameraHandler = new CameraAnimation(scene, this);
+
         this.nodes = [];
 
         this.idRoot = null; // The id of the root element.
@@ -37,6 +39,9 @@ class MySceneGraph {
         this.axisCoords['x'] = [1, 0, 0];
         this.axisCoords['y'] = [0, 1, 0];
         this.axisCoords['z'] = [0, 0, 1];
+
+        // Create user data object
+        this.userdata = {};
 
         // File reading 
         this.reader = new CGFXMLreader();
@@ -248,12 +253,32 @@ class MySceneGraph {
         for (var i = 0; i < children.length; i++)
             nodeNames.push(children[i].nodeName);
 
+        var dataIndex = nodeNames.indexOf("data");
         var rootIndex = nodeNames.indexOf("root");
         var referenceIndex = nodeNames.indexOf("reference");
         var gameboardIndex = nodeNames.indexOf("gameboard");
         var piecesIndex = nodeNames.indexOf("piece");
         var piecesViewIndex = nodeNames.indexOf("pieceview");
-        var uiIndex = nodeNames.indexOf("ui");
+        var uisIndex = nodeNames.indexOf("uis");
+
+        // Get data
+        if(dataIndex != -1){
+            let dataNode = children[dataIndex];
+            for(let i = 0; i < dataNode.children.length; ++i){
+                let child = dataNode.children[i];
+                if(child.nodeName === 'var'){
+                    let id = child.id;
+                    if(typeof child.attributes.value === 'undefined'){
+                        this.onXMLMinorError(`Data var '${id}' does not have value; ignored`);
+                        continue;
+                    }
+                    let value = eval(child.attributes.value.value);
+                    this.userdata[id] = value;
+                } else {
+                    this.onXMLMinorError(`Unknown data tag '${child.nodeName}'`)
+                }
+            }
+        }
 
         // Get root of the scene.
         if(rootIndex == -1)
@@ -306,13 +331,13 @@ class MySceneGraph {
             this._pieces = pieces;
         }
 
-        // Get UI
+        // Get UIs
 
-        if(uiIndex == -1){
-            this.onXMLMinorError("No ui defined for scene.");
+        if(uisIndex == -1){
+            this.onXMLMinorError("No uis defined for scene.");
         } else {
-            let uiNode = children[uiIndex];
-            let ret = this.parseUI(uiNode);
+            let uisNode = children[uisIndex];
+            let ret = this.parseUIs(uisNode);
             if(typeof ret === 'string') return ret;
         }
 
@@ -357,18 +382,23 @@ class MySceneGraph {
     }
 
     /**
-     * Parses the <ui> block.
-     * @param {ui block element} node 
+     * Parses the <uis> block.
+     * @param {uis block element} node 
      */
-    parseUI(node){
-        let ui= new UserInterface(this.scene);
+    parseUIs(node){
 
-        let idUI = this.reader.getString(node, 'id');
+        this.uis = {};
+
+        for(let i = 0; i < node.children.length; ++i){
+            let uiNode = node.children[i];
+        let ui = new UserInterface(this.scene);
+
+        let idUI = this.reader.getString(uiNode, 'id');
         if(idUI == null)
             return "No UI ID defined for scene.";
         ui.idObj = idUI;
 
-        let uiChildren = [...node.children];
+        let uiChildren = [...uiNode.children];
         let transformations = uiChildren.find(function (u){ return (u.nodeName === 'transformations'); });
         let M = this.parseTransformations(transformations, "ui"); if(typeof M === "string") return M;
         ui.transformation = M;
@@ -388,8 +418,8 @@ class MySceneGraph {
             ui.addButtonID(button_id);
         }
 
-        this._ui = ui;
-
+        this.uis[idUI] = ui;
+        }
         return null;
     }
 
@@ -402,7 +432,7 @@ class MySceneGraph {
         this.views = {};
         this.views.list = {};
         this.views.default = viewsNode.attributes.default.value;
-        
+
         for(let i = 0; i < viewsNode.children.length; ++i){
             let camera = viewsNode.children[i];
             
@@ -413,9 +443,31 @@ class MySceneGraph {
             let camera_obj;
             if(camera.nodeName == "perspective"){
                 camera_obj = this.parsePerspectiveCamera(camera, camera.id);
-            } else if(camera.nodeName == "ortho"){
+            } 
+            else if(camera.nodeName == "ortho"){
                 camera_obj = this.parseOrthoCamera(camera, camera.id);
-            } else {
+            } 
+            else if(camera.nodeName == "player1"){
+                camera_obj = this.parsePerspectiveCamera(camera, camera.id);
+                this.views.p1_camera = camera.id;
+            }
+            else if(camera.nodeName == "player1transition"){
+                camera_obj = this.parsePerspectiveCamera(camera, camera.id);
+                this.views.p1transition_camera = camera.id;
+            }
+            else if(camera.nodeName == "player2"){
+                camera_obj = this.parsePerspectiveCamera(camera, camera.id);
+                this.views.p2_camera = camera.id;
+            }
+            else if(camera.nodeName == "player2transition"){
+                camera_obj = this.parsePerspectiveCamera(camera, camera.id);
+                this.views.p2transition_camera = camera.id;
+            }
+            else if(camera.nodeName == "movecamera"){
+                camera_obj = this.parsePerspectiveCamera(camera, camera.id);
+                this.views.move_camera= camera.id;
+            }
+            else {
                 this.onXMLMinorError(`no such camera type "${camera.nodeName}"; ignored`);
                 continue;
             }
@@ -437,6 +489,15 @@ class MySceneGraph {
         if(this.views.list[this.views.default] == null){
             this.views.default = Object.keys(this.views.list)[0];
             this.onXMLError(`no such view "${this.views.default}" to use as default; using "${this.views.default}"`);
+        }
+
+        if(this.views.p1_camera == undefined
+        || this.views.p2_camera == undefined
+        || this.views.p1transition_camera == undefined
+        || this.views.p1transition_camera == undefined
+        || this.views.move_camera == undefined)
+        {
+            this.onXMLMinorError(`Players cameras not defined properly`);
         }
 
         this.views.current = this.views.default;
@@ -589,6 +650,36 @@ class MySceneGraph {
                 }
             }
 
+            let positionNode = [...children[i].children].find((node) => (node.nodeName === 'position'));
+            if(typeof positionNode.attributes.bind !== 'undefined'){
+                let bindingref = positionNode.attributes.bind.value;
+                if(this.bindings[bindingref] !== null){
+                    let binding = this.bindings[bindingref];
+                    let self = this;
+                    Object.defineProperty(binding, 'value',
+                        {
+                            set: function (value){
+                                if(self.scene.sceneInited){
+                                    light.setPosition(
+                                        value[0],
+                                        value[1],
+                                        value[2],
+                                        light.position[3]
+                                    );
+                                    light.update();
+                                }
+                            },
+                            get: function (){
+                                return light.position;
+                            }
+                        }
+                    );
+                    binding.value = binding.value;
+                } else {
+                    this.onXMLMinorError(`Unknown binding '${bindingref}'`);
+                }
+            }
+
             numLights++;
         }
 
@@ -618,6 +709,7 @@ class MySceneGraph {
             let binding = bindingsNode.children[i];
             let id = binding.id;
             let representation = [...binding.children].find((node) => (node.nodeName === 'representation'));
+            if(typeof representation !== 'undefined'){
             let animationref = this.parseString(representation, "animationref", id);
             let animation = this.animations[animationref];
             let t = this.parseFloat(representation, "t", id);
@@ -631,6 +723,9 @@ class MySceneGraph {
                     animation.update(this.value);
                 }
             };
+            } else {
+                this.bindings[binding.id] = {};
+            }
         }
 
 
@@ -827,6 +922,12 @@ class MySceneGraph {
                 if(!timeupdate) anim.timeupdate = false;
             }
 
+            if(typeof animation.attributes.onupdate !== 'undefined'){
+                let onupdate = animation.attributes.onupdate.value;
+                let onupdate_func = new Function(onupdate);
+                anim.onupdate = onupdate_func.bind(this);
+            }
+
             this.animations[animation.id] = anim;
         }
 
@@ -1010,11 +1111,12 @@ class MySceneGraph {
                         case "sphere"    : leaf = this.parseSphere         (descendant,           descendant.id); break;
                         case "torus"     : leaf = this.parseTorus          (descendant,           descendant.id); break;
                         case "plane"     : leaf = this.parsePlane          (descendant,           descendant.id); break;
-                        case "patch"     : leaf = this.parsePatch          (descendant,           descendant.id); break;
+                        case "patch"     : leaf = this.parsePatch          (descendant, afs, aft, descendant.id); break;
                         case "defbarrel" : leaf = this.parseBarrel         (descendant,           descendant.id); break;
                         case "spritetext": leaf = this.parseSpriteText     (descendant,           descendant.id); break;
                         case "spriteanim": leaf = this.parseSpriteAnimation(descendant,           descendant.id); break;
                         case "vertex"    : leaf = this.parseVertex         (descendant,           descendant.id); break;
+                        case "obj"       : leaf = this.parseObj            (descendant,           descendant.id); break;
                         default:
                             return `no such leaf type "${descendant.attributes.type}"`;
                     }
@@ -1055,27 +1157,28 @@ class MySceneGraph {
                 this._pieces.obj = this.nodes[this._pieces.idObj];
         }
 
-        if(this._ui){
-            if(this.nodes[this._ui.panelID] == null)
-                return `No such panel node "${this._ui.panelID}"`;
+        for(let i in this.uis)
+        {
+            if(this.nodes[this.uis[i].panelID] == null)
+                return `No such panel node "${this.uis[i].panelID}"`;
             else
-                this._ui.panel = this.nodes[this._ui.panelID];
+                this.uis[i].panel = this.nodes[this.uis[i].panelID];
 
-            if(this.nodes[this._ui.valueID] == null)
-                return `No such value node "${this._ui.valueID}"`;
+            if(this.nodes[this.uis[i].valueID] == null)
+                return `No such value node "${this.uis[i].valueID}"`;
             else
-                this._ui.valueNode =
-                    this.nodes[this._ui.valueID].children
+                this.uis[i].valueNode =
+                    this.nodes[this.uis[i].valueID].children
                     .find(function (u){ return (u instanceof MySpriteText); });
 
-            for(let i=0; i<this._ui.buttonsIDs.length;i++){
-                if(this.nodes[this._ui.buttonsIDs[i]] == null)
-                    return `No such button node "${this._ui.buttonsIDs[i]}"`;
+            for(let k=0; k<this.uis[i].buttonsIDs.length;k++){
+                if(this.nodes[this.uis[i].buttonsIDs[k]] == null)
+                    return `No such button node "${this.uis[i].buttonsIDs[k]}"`;
                 else{
                     let button = new Button(this.scene);
-                    button.obj = this.nodes[this._ui.buttonsIDs[i]];
-                    button.idObj = this._ui.buttonsIDs[i];
-                    this._ui.buttons.push(button);
+                    button.obj = this.nodes[this.uis[i].buttonsIDs[k]];
+                    button.idObj = this.uis[i].buttonsIDs[k];
+                    this.uis[i].buttons.push(button);
                 }
             }
         }
@@ -1325,7 +1428,7 @@ class MySceneGraph {
      * @param {XMLnode} node XML node
      * @param {string} messageError String to print in case of error
      */
-    parsePatch(node, messageError){
+    parsePatch(node, afs, aft, messageError){
         let npartsU = this.parseInt(node, 'npartsU', messageError); if(typeof npartsU === "string") return npartsU;
         let npartsV = this.parseInt(node, 'npartsV', messageError); if(typeof npartsV === "string") return npartsV;
         
@@ -1343,7 +1446,7 @@ class MySceneGraph {
             }
         }
         
-        return new Patch(this.scene, npartsU, npartsV, npointsU, npointsV, controlPoints);
+        return new Patch(this.scene, npartsU, npartsV, npointsU, npointsV, controlPoints, afs, aft);
     }
 
     /**
@@ -1421,16 +1524,23 @@ class MySceneGraph {
         return new Vertex(this.scene, id, x, y, z);
     }
 
+    /**
+     * Parses an OBJ object
+     * @param {XMLnode} node XML node
+     * @param {string} messageError String to print in case of error
+     */
+    parseObj(node, messageError){
+        let url = this.parseString(node, 'url', messageError);
+        let ret = new CGFOBJModel(this.scene, "scenes/"+url);
+        return ret;
+    }
+
     get gameboard(){
         return this._gameboard;
     }
 
     get pieces(){
         return this._pieces;
-    }
-
-    get ui(){
-        return this._ui;
     }
 
     update(t){
@@ -1445,6 +1555,8 @@ class MySceneGraph {
         for (let text in this.spriteTexts){
             this.spriteTexts[text].update();
         }
+
+        this.cameraHandler.handleCameraAnimation(t);
     }
 
     /**

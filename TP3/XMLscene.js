@@ -22,6 +22,8 @@ class XMLscene extends CGFscene {
         super.init(application);
 
         this.sceneInited = false;
+        this.cameraPosition = 1;
+        this.update.t0 = undefined;
 
         this.initCameras();
 
@@ -57,7 +59,16 @@ class XMLscene extends CGFscene {
      * Initializes the scene lights with the values read from the XML file.
      */
     initLights() {
-        if(this.interface) var folder_lights = this.interface.gui.addFolder("Lights");
+        if(this.interface){  
+            var folder = this.interface.gui.__folders["Lights"];
+            if (folder) {
+                folder.close();
+                this.interface.gui.__ul.removeChild(folder.domElement.parentNode);
+                delete this.interface.gui.__folders["Lights"];
+                this.interface.gui.onResize();
+            }
+            var folder_lights = this.interface.gui.addFolder("Lights");
+        }
 
         var i = 0;
         // Lights index.
@@ -96,8 +107,8 @@ class XMLscene extends CGFscene {
         if (typeof this.update.t0 === 'undefined'){
             this.update.t0 = time;
         }
-        let t = (time-this.update.t0)/SECONDS_TO_MILLIS;
-        this.orchestrator.update(t);
+        this.time = (time-this.update.t0)/SECONDS_TO_MILLIS;
+        this.orchestrator.update(this.time);
     }
 
     /** Handler called when the graph is finally loaded. 
@@ -112,13 +123,17 @@ class XMLscene extends CGFscene {
 
         this.setGlobalAmbientLight(...this.graph.ambient);
 
+            this.createCameraControls();
+
         this.initLights();
-
-        this.createCameraControls();
-
+        
         this.orchestrator.initialize();
 
+        if(!this.sceneInited)
+            this.time = 0;
+
         this.sceneInited = true;
+        this.orchestrator.themeInited=true;
     }
 
     pushAppearance(){

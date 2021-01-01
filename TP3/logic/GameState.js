@@ -7,9 +7,13 @@ class GameState extends CGFobject {
         this._gameboard = new GameBoard(this._scene);
         this.turn = 1;
 
-        this.moveState = new PlayerMoveState(this);
+        this.moveState = new PlayerMoveState(scene, this);
 
         this.value = 0.0;
+        this.isGameOver = false;
+        this.round = 1;
+        this.gametime = 0;
+        this.feedbackText = "none";
     }
 
     get gameboard(){ return this._gameboard; }
@@ -19,10 +23,12 @@ class GameState extends CGFobject {
         if(this._orchestrator.isComputer(this._turn)) this._gameboard.setTurn(null);
         else                                          this._gameboard.setTurn(turn);
     }
+    get orchestrator(){ return this._orchestrator; }
 
     nextTurn(){
         this.turn = (this.turn === 1 ? 2 : 1);
         this.updateValue();
+        if(this.turn === 1) this.round++;
     }
 
     async updateValue(){

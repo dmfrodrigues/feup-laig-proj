@@ -17,6 +17,8 @@ var app = {};
 serialInclude(
     [
         '../lib/CGF.js',
+        '../lib/CGFOBJModel.js',
+        '../lib/CGFResourceReader.js',
         'Stack.js',
         'XMLscene.js',
         'MyInterface.js',
@@ -35,6 +37,7 @@ serialInclude(
         'scene-graph/keyframes/MySpriteSheet.js',
         'scene-graph/keyframes/MySpriteText.js',
         'scene-graph/keyframes/MySpriteAnimation.js',
+        'scene-graph/keyframes/CameraAnimation.js',
         'scene-graph/GameboardSetup.js',
         'scene-graph/PiecesSetup.js',
         'scene-graph/Node.js',
@@ -53,6 +56,7 @@ serialInclude(
         'logic/PlayerMoveState.js',
         'logic/Button.js',
         'logic/UserInterface.js',
+        'logic/Animator.js',
 
 main=function(){
     app = new CGFapplication(document.getElementById('drawingBoard'));
@@ -81,9 +85,18 @@ main=function(){
         document.getElementById('menu').style.display = 'none';
         document.getElementById('info-text').style.display = 'block';
     });
+
     document.getElementById('exit-info').addEventListener('click', ()=>{
         document.getElementById('menu').style.display = 'block';
         document.getElementById('info-text').style.display = 'none';
+    });
+
+    document.getElementById('menu-button-gameover').addEventListener('click', ()=>{
+        location.reload();
+    });
+
+    document.getElementById('menu-button-movie').addEventListener('click', ()=>{
+        location.reload();
     });
 
 }
@@ -109,5 +122,28 @@ function startGame(gameMode, level){
 
 	// create and load graph, and associate it to scene. 
     // Check console for loading errors
-    var orchestrator = new Orchestrator(gameScene, 'room.xml', gameMode, level);
+    var orchestrator = new Orchestrator(
+        gameScene,
+        [
+            'room/room.xml',
+            'iss/iss.xml',
+            'alentejo/alentejo.xml'
+        ],
+        gameMode,
+        level
+    );
+
+    document.getElementById('movie-button').addEventListener('click', ()=>{
+        orchestrator.animator.start();
+        document.getElementById('movie-bar').style.display = 'block';
+        document.getElementById('game-over').style.display = 'none';
+        document.getElementById('restart-button').disabled = true;
+        document.getElementById('restart-button').className = "button-disabled";
+    });
+
+    document.getElementById('restart-button').addEventListener('click', ()=>{
+        orchestrator.animator.reset();
+        document.getElementById('restart-button').className = "button-disabled";
+        document.getElementById('restart-button').disabled = true;
+    });
 }
