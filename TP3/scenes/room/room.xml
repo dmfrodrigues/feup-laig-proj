@@ -325,7 +325,6 @@
         <spritesheet id="calc" path="./scenes/spritesheets/calc.svg" sizeM="16" sizeN="16"/>
         <spritesheet id="fire" path="./scenes/spritesheets/fire8_64.png" sizeM="10" sizeN="6"/>
         <spritesheet id="tv-news" path="./scenes/spritesheets/news.jpg" sizeM="8" sizeN="18"/>
-        <spritesheet id="tv-football" path="./scenes/spritesheets/football.jpg" sizeM="8" sizeN="18"/>
     </spritesheets>
 
     <materials>
@@ -3772,33 +3771,8 @@
                 <translation x="0" y="0" z="-0.005"/>
             </transformations>
             <descendants>
-                <noderef id="tv-screen-program-1"/>
-                <noderef id="tv-screen-program-2"/>
-                <noderef id="tv-screen-off"/>
-            </descendants>
-        </node>
-        <node id="tv-screen-program-1">
-            <material id="television-screen-on"/><texture id="null"><amplification afs="1" aft="1"/></texture>
-            <transformations>
-                <translation x="0" y="0" z="0.0001"/>
-                <rotation axis="x" angle="90"/>
-                <scale sx="0.70" sy="1" sz="0.40"/>
-                <rotation axis="x" angle="-90"/>
-            </transformations>
-            <descendants>
                 <noderef id="tv-screen-news"/>
-            </descendants>
-        </node>
-        <node id="tv-screen-program-2">
-            <material id="television-screen-on"/><texture id="null"><amplification afs="1" aft="1"/></texture>
-            <transformations>
-                <translation x="0" y="0" z="0.00005"/>
-                <rotation axis="x" angle="90"/>
-                <scale sx="0.70" sy="1" sz="0.40"/>
-                <rotation axis="x" angle="-90"/>
-            </transformations>
-            <descendants>
-                <noderef id="tv-screen-football"/>
+                <!-- <noderef id="tv-screen-off"/> -->
             </descendants>
         </node>
         <node id="tv-screen-off">
@@ -3812,15 +3786,15 @@
             </descendants>
         </node>
         <node id="tv-screen-news">
-            <material id="null"/><texture id="null"><amplification afs="1" aft="1"/></texture>
+            <material id="television-screen-on"/><texture id="null"><amplification afs="1" aft="1"/></texture>
+            <transformations>
+                <translation x="0" y="0" z="0.0001"/>
+                <rotation axis="x" angle="90"/>
+                <scale sx="0.70" sy="1" sz="0.40"/>
+                <rotation axis="x" angle="-90"/>
+            </transformations>
             <descendants>
                 <leaf type="spriteanim" ssid="tv-news" startCell="1" endCell="136" duration="15" />
-            </descendants>
-        </node>
-        <node id="tv-screen-football">
-            <material id="null"/><texture id="null"><amplification afs="1" aft="1"/></texture>
-            <descendants>
-                <leaf type="spriteanim" ssid="tv-football" startCell="1" endCell="141" duration="20" />
             </descendants>
         </node>
 
