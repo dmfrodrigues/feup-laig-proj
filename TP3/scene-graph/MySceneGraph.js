@@ -259,6 +259,8 @@ class MySceneGraph {
         var gameboardIndex = nodeNames.indexOf("gameboard");
         var piecesIndex = nodeNames.indexOf("piece");
         var piecesViewIndex = nodeNames.indexOf("pieceview");
+        var piecesBoxIndex = nodeNames.indexOf("piecesbox");
+        var newPieceIndex = nodeNames.indexOf("newpiecepos");
         var uisIndex = nodeNames.indexOf("uis");
 
         // Get data
@@ -331,6 +333,26 @@ class MySceneGraph {
             this._pieces = pieces;
         }
 
+        // Get pieces box
+        if(piecesBoxIndex == -1){
+            this.onXMLMinorError("No piece box defined for scene.");
+        } else {
+            let piecesBoxNode = children[piecesBoxIndex];
+            this._piecesBoxID = this.parseString(piecesBoxNode, "id", "piecesbox");
+            this._piecesBoxAnim = this.parseString(piecesBoxNode, "animationref", "piecesboxanim");
+        }
+
+        // Get  new piece pos
+        if(newPieceIndex == -1){
+                this.onXMLMinorError("No new piece pos defined for scene.");
+        } else {
+            let newPieceNode = children[newPieceIndex];
+            let x = this.parseFloat(newPieceNode, 'x', 'newpiecepos'); if(typeof x === 'string') return x;
+            let y = this.parseFloat(newPieceNode, 'y', 'newpiecepos'); if(typeof y === 'string') return y;
+            let z = this.parseFloat(newPieceNode, 'z', 'newpiecepos'); if(typeof z === 'string') return z;
+            this._newPiecePos = vec3.fromValues(x, y, z);
+        }
+        
         // Get UIs
 
         if(uisIndex == -1){
@@ -1182,6 +1204,13 @@ class MySceneGraph {
                 }
             }
         }
+
+        if(this._piecesBoxID){
+            if(this.nodes[this._piecesBoxID] == null)
+                return `No such pieces box node "${this._piecesBoxID}"`;
+            else
+                this._piecesBox = this.nodes[this._piecesBoxID];
+        }
         
         this.log("Parsed nodes");
     }
@@ -1541,6 +1570,18 @@ class MySceneGraph {
 
     get pieces(){
         return this._pieces;
+    }
+
+    get piecesBox(){
+        return this._piecesBox;
+    }
+
+    get piecesBoxAnim(){
+        return this._piecesBoxAnim;
+    }
+
+    get newPiecePos(){
+        return this._newPiecePos;
     }
 
     update(t){

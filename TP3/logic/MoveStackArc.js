@@ -48,6 +48,9 @@ class MoveStackArc extends MoveStack{
     update(t){
         this.deltaTime = t - this.startTime;
         if(this.deltaTime >= STACK_ANIM_TIME){
+            for(let i=0; i < this.destCells.length; i++){
+                this.destCells[i].visible = true;
+            }
             this.pieceStacks = [];
             this.destCells = [];
             this.substacks = [];

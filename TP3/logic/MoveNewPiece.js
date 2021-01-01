@@ -7,12 +7,16 @@ class MoveNewPiece extends MoveStack{
 
         this.destCell = null;
         this.pieceStack = null;
-        this.startPos = vec3.fromValues(-0.275, 0, 0);
+        this.startPos =  null;
         this.destPos = null;
         this.deltaTime = 0;
     }
 
     moveNewPiece(destCell, height){
+        this.startPos = this.scene.graph.newPiecePos;
+        this.piecesBoxAnim = this.scene.graph.animations[this.scene.graph.piecesBoxAnim];
+        console.log(this.piecesBoxAnim);
+
         this.startTime = this.scene.time;
         this.destCell = destCell;
         destCell.visible = false;
@@ -32,10 +36,11 @@ class MoveNewPiece extends MoveStack{
     display(){
         if(this.pieceStack != null){
             let w = this.deltaTime / PIECE_ANIM_TIME;
+
             let x = this.startPos[0] + w * (this.destPos[0]-this.startPos[0]);
             let y = (1.0-Math.pow(2*this.deltaTime-1,2)) * 0.15;
             let z = this.startPos[2] + w * (this.destPos[2]-this.startPos[2]);
-            
+
             this.scene.pushMatrix();
             this.scene.translate(x, y, z);
             this.pieceStack.display();
