@@ -140,6 +140,8 @@ class Orchestrator extends CGFobject {
     }
 
     changeTheme(){
+        this.gameState.moveState.resetSubstacks();
+        this.gameState.moveState.initialState();
         this.themeInited = false;
         button_id = 200;
         this.themeSelected = (this.themeSelected+1)%(this.themes.length);
