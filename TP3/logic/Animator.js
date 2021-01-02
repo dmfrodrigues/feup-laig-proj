@@ -1,4 +1,4 @@
-ANIM_TIME = 3.5;
+ANIM_TIME = 4.5;
 
 class Animator {
     constructor(orchestrator, gameSequence){
@@ -12,14 +12,14 @@ class Animator {
 
     reset(){
         this.active = true;
-        this.orchestrator.gameState.gameboard.init();
+        this.orchestrator.gameState.gameboard.resetBoard();
         this.move = 0;
         this.startTime = 0;
     }
 
     start(){
         this.active = true;
-        this.orchestrator.gameState.gameboard.init();
+        this.orchestrator.gameState.gameboard.resetBoard();
         this.startTime = 0;
     }
 
@@ -35,8 +35,8 @@ class Animator {
                 let move = this.gameSequence.gameSequence[this.move];
                 let originCell =  move.originCell;
                 let newPieceCell =  move.newPieceCell;
-                let turn = Math.sign(originCell.stack.height) == 1 ? 1 : 2;
-                await this.orchestrator.gameState.gameboard.move(originCell, move.substacks, move.direction, newPieceCell, turn);
+                //let turn = Math.sign(originCell.stack.height) == 1 ? 1 : 2;
+                await this.orchestrator.gameState.gameboard.move(originCell, move.substacks, move.direction, newPieceCell, move.turn);
                 this.move++;
             }
         } 
