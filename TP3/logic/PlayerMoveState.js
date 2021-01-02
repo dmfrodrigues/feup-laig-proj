@@ -158,7 +158,7 @@ class PlayerMoveState {
                     }
 
                     // submit new piece and move
-                    if(await this.gameState.gameboard.moveNewPiece(obj, this.stackSign)){
+                    if(await this.gameState.gameboard.moveNewPiece(obj, this.stackSelected.cell, this.stackSign)){
                         let newGameboardJS = this.gameState.gameboard.toJSON();
                         if(JSON.stringify(newGameboard) !== JSON.stringify(newGameboardJS)){
                             let text =
