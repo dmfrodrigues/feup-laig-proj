@@ -172,17 +172,18 @@ class GameBoard extends CGFobject {
     display() {
         this.scene.pushMatrix();
         this.scene.multMatrix(this.gameboardSetup.transformation);
+        
+        this.moveStack.update(this.scene.time);
+        this.moveStack.display();
+        this.movePiece.update(this.scene.time);
+        this.movePiece.display();
+
         this.gameboardSetup.obj.display();
         for(let i = 0; i <= 8; ++i){
             for(let j = Math.max(i-4, 0); j <= Math.min(4+i,8); ++j){
                 this.getCell(i,j).display();
             }
         }
-        
-        this.moveStack.update(this.scene.time);
-        this.moveStack.display();
-        this.movePiece.update(this.scene.time);
-        this.movePiece.display();
         this.scene.popMatrix();
 
     }
