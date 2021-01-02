@@ -1,6 +1,5 @@
 STACK_ANIM_TIME = 1.0
 ROTATE_ANIM_TIME = 0.72
-DELAY_TIME = 0.05;
 
 class MoveStackArc extends MoveStack{
     constructor(scene, gameboard){
@@ -55,7 +54,7 @@ class MoveStackArc extends MoveStack{
 
     update(t){
         this.deltaTime = t - this.startTime;
-        if(this.deltaTime >= STACK_ANIM_TIME + DELAY_TIME){
+        if(this.deltaTime >= STACK_ANIM_TIME){
             for(let i=0; i < this.destCells.length; i++){
                 this.destCells[i].visible = true;
             }
@@ -71,11 +70,6 @@ class MoveStackArc extends MoveStack{
                 this.rejectionFunc  = null;
             }
         }      
-        if(this.deltaTime >= STACK_ANIM_TIME - DELAY_TIME){
-            for(let i=0; i < this.destCells.length; i++){
-                this.destCells[i].visible = true;
-            }
-        }
     }
 
     display(){

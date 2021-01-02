@@ -1,6 +1,5 @@
 PIECE_ANIM_TIME = 2.0
 LID_OPEN_TIME = 0.75
-DELAY_TIME = 0.05
 
 class MoveNewPiece extends MoveStack{
     constructor(scene, gameboard){
@@ -66,7 +65,7 @@ class MoveNewPiece extends MoveStack{
             let w = this.deltaTime / PIECE_ANIM_TIME;
 
             let x = this.startPos[0] + w * (this.destPos[0]-this.startPos[0]);
-            let y = (1.0-Math.pow(this.deltaTime-1,2)) * 0.12;
+            let y = (1.0-Math.pow(this.deltaTime-1,2)) * 0.15;
             let z = this.startPos[2] + w * (this.destPos[2]-this.startPos[2]);
 
             this.scene.pushMatrix();
