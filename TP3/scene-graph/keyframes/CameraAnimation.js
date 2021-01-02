@@ -14,6 +14,11 @@ class CameraAnimation{
         this.graph.cameraAnimStartTime = 0;
     }
 
+    setCameraPos(cam1, cam2){
+        cam1.setTarget(cam2.target);
+        cam1.setPosition(cam2.position);
+    }
+
 	interpolateCameras(cam1, cam2, cam3, w){
         cam3.setTarget(
             vec4.fromValues(
