@@ -27,7 +27,7 @@ class GameMove {
         };
     }
 
-    animate(){
-        this.scene.graph.cameraHandler.startCameraAnimation();
+    async animate(){
+        await this.scene.graph.cameraHandler.startCameraAnimation();
     }
 }
