@@ -14,7 +14,8 @@ LAIG_TP2_$(GROUP).zip:
 	zip -r LAIG_TP2_$(GROUP).zip TP2
 
 LAIG_TP3_$(GROUP).zip:
-	zip -r LAIG_TP3_$(GROUP).zip TP3 lib
+	cd TP3 && pandoc user-manual.md -o user-manual.pdf
+	zip -r LAIG_TP3_$(GROUP).zip TP3 lib server
 
 clean:
 	rm -f *.zip
