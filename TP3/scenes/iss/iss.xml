@@ -91,6 +91,7 @@
                     <button id="undo"/>
                     <button id="cancel"/>
                     <button id="change-theme"/>
+                    <button id="main-menu"/>
                 </buttons>
             </ui>
             <ui id="ui-2">
@@ -107,6 +108,7 @@
                     <button id="undo"/>
                     <button id="cancel"/>
                     <button id="change-theme"/>
+                    <button id="main-menu"/>
                 </buttons>
             </ui>
         </uis>
@@ -126,15 +128,15 @@
         </p1transition>
 
         <p2transition lastinstant="3.0">
-            <keyframe instant="0.3" fx="+0.14" fy="0.70" fz="-0.56" tx="0.0" ty="0.35" tz="0.0"/>
-            <keyframe instant="0.6" fx="+0.28" fy="0.70" fz="-0.42" tx="0.0" ty="0.35" tz="0.0"/>
-            <keyframe instant="0.9" fx="+0.42" fy="0.70" fz="-0.28" tx="0.0" ty="0.35" tz="0.0"/>
-            <keyframe instant="1.2" fx="+0.56" fy="0.70" fz="-0.14" tx="0.0" ty="0.35" tz="0.0"/>
-            <keyframe instant="1.5" fx="+0.70" fy="0.70" fz="-0.00" tx="0.0" ty="0.35" tz="0.0"/>
-            <keyframe instant="1.8" fx="+0.56" fy="0.70" fz="+0.14" tx="0.0" ty="0.35" tz="0.0"/>
-            <keyframe instant="2.1" fx="+0.42" fy="0.70" fz="+0.28" tx="0.0" ty="0.35" tz="0.0"/>
-            <keyframe instant="2.4" fx="+0.28" fy="0.70" fz="+0.42" tx="0.0" ty="0.35" tz="0.0"/>
-            <keyframe instant="2.7" fx="+0.14" fy="0.70" fz="+0.56" tx="0.0" ty="0.35" tz="0.0"/>
+            <keyframe instant="0.3" fx="-0.14" fy="0.70" fz="-0.56" tx="0.0" ty="0.35" tz="0.0"/>
+            <keyframe instant="0.6" fx="-0.28" fy="0.70" fz="-0.42" tx="0.0" ty="0.35" tz="0.0"/>
+            <keyframe instant="0.9" fx="-0.42" fy="0.70" fz="-0.28" tx="0.0" ty="0.35" tz="0.0"/>
+            <keyframe instant="1.2" fx="-0.56" fy="0.70" fz="-0.14" tx="0.0" ty="0.35" tz="0.0"/>
+            <keyframe instant="1.5" fx="-0.70" fy="0.70" fz="-0.00" tx="0.0" ty="0.35" tz="0.0"/>
+            <keyframe instant="1.8" fx="-0.56" fy="0.70" fz="+0.14" tx="0.0" ty="0.35" tz="0.0"/>
+            <keyframe instant="2.1" fx="-0.42" fy="0.70" fz="+0.28" tx="0.0" ty="0.35" tz="0.0"/>
+            <keyframe instant="2.4" fx="-0.28" fy="0.70" fz="+0.42" tx="0.0" ty="0.35" tz="0.0"/>
+            <keyframe instant="2.7" fx="-0.14" fy="0.70" fz="+0.56" tx="0.0" ty="0.35" tz="0.0"/>
         </p2transition>
     </initials>
     <animations>
@@ -950,13 +952,14 @@ this.bindings['sun-light-position'].value = [newPos[0], newPos[1], newPos[2]];
                 <noderef id="ui-panel-value-all"/>
                 <noderef id="ui-panel-turn-all"/>
                 <noderef id="ui-panel-feedback-all"/>
+                <noderef id="ui-panel-timeleft-all"/>
             </descendants>
         </node>
 
         <node id="ui-panel">
             <material id="plastic-white"/><texture id="null"><amplification afs="1" aft="1"/></texture>
             <transformations>
-                <scale sx="0.17" sy="0.07" sz="0.005"/>
+                <scale sx="0.23" sy="0.07" sz="0.005"/>
             </transformations>
             <descendants>
                 <noderef id="cube"/>
@@ -974,7 +977,7 @@ this.bindings['sun-light-position'].value = [newPos[0], newPos[1], newPos[2]];
             <material id="clock-plastic-black-emissive"/>
             <texture id="null"><amplification afs="1" aft="1"/></texture>
             <transformations>
-                <translation x="-0.06" y="0.025" z="0.002501"/>
+                <translation x="-0.095" y="0.025" z="0.002501"/>
                 <scale sx="0.010" sy="0.010" sz="0.010"/>
                 <scale sx="0.57142857142" sy="1" sz="1"/>
             </transformations>
@@ -985,7 +988,7 @@ this.bindings['sun-light-position'].value = [newPos[0], newPos[1], newPos[2]];
         <node id="ui-panel-timer-display">
             <material id="null"/><texture id="null"><amplification afs="1" aft="1"/></texture>
             <transformations>
-                <translation x="-0.04" y="0" z="0.00001"/>
+                <translation x="-0.074" y="0" z="0.00001"/>
                 <translation x="0.019" y="0.025" z="0.0025"/>
             </transformations>
             <descendants>
@@ -1020,6 +1023,66 @@ this.bindings['sun-light-position'].value = [newPos[0], newPos[1], newPos[2]];
                 />
             </descendants>
         </node>
+
+        <node id="ui-panel-timeleft-all">
+            <material id="null"/><texture id="null"><amplification afs="1" aft="1"/></texture>
+            <descendants>
+                <noderef id="ui-panel-timeleft-label"/>
+                <noderef id="ui-panel-timeleft-display"/>
+            </descendants>
+        </node>
+        <node id="ui-panel-timeleft-label">
+            <material id="clock-plastic-black-emissive"/>
+            <texture id="null"><amplification afs="1" aft="1"/></texture>
+            <transformations>
+                <translation x="0.085" y="0.025" z="0.002501"/>
+                <scale sx="0.010" sy="0.010" sz="0.010"/>
+                <scale sx="0.57142857142" sy="1" sz="1"/>
+            </transformations>
+            <descendants>
+                <leaf type="spritetext" font="consolas" text="Time left:"/>
+            </descendants>
+        </node>
+        <node id="ui-panel-timeleft-display">
+            <material id="null"/><texture id="null"><amplification afs="1" aft="1"/></texture>
+            <transformations>
+                <translation x="0.065" y="0" z="0.00001"/>
+                <translation x="0.019" y="0.010" z="0.0025"/>
+            </transformations>
+            <descendants>
+                <noderef id="ui-panel-timeleft-background"/>
+                <noderef id="ui-panel-timeleft"/>
+            </descendants>
+        </node>
+        <node id="ui-panel-timeleft-background">
+            <material id="calculator-background"/>
+            <texture id="null"><amplification afs="1" aft="1"/></texture>
+            <transformations>
+                <scale sx="1.15" sy="1.1" sz="1"/>
+                <scale sx="0.012" sy="0.012" sz="0.012"/>
+                <scale sx="0.60" sy="1" sz="1"/>
+            </transformations>
+            <descendants>
+                <leaf type="rectangle" x1="-3.0" x2="+3.0" y1="-0.5" y2="+0.5"/>
+            </descendants>
+        </node>
+        <node id="ui-panel-timeleft">
+            <material id="calculator-digit"/>
+            <texture id="null"><amplification afs="1" aft="1"/></texture>
+            <transformations>
+                <translation x="0" y="0" z="0.00001"/>
+                <scale sx="0.012" sy="0.012" sz="0.012"/>
+                <scale sx="0.60" sy="1" sz="1"/>
+            </transformations>
+            <descendants>
+                <leaf type="spritetext" font="calc" text="00:00"
+                    eval="return ('0' + Math.floor(this.scene.orchestrator.gameState.timeLeft/60)).slice(-2) + ':' + ('0' + Math.floor(this.scene.orchestrator.gameState.timeLeft)%60).slice(-2); "
+                    format="return arguments[0].padStart(5,' ');"
+                />
+            </descendants>
+        </node>
+
+
         <node id="ui-panel-value-all">
             <material id="null"/><texture id="null"><amplification afs="1" aft="1"/></texture>
             <descendants>
@@ -1031,7 +1094,7 @@ this.bindings['sun-light-position'].value = [newPos[0], newPos[1], newPos[2]];
             <material id="clock-plastic-black-emissive"/>
             <texture id="null"><amplification afs="1" aft="1"/></texture>
             <transformations>
-                <translation x="-0.062" y="0.010" z="0.002501"/>
+                <translation x="-0.096" y="0.010" z="0.002501"/>
                 <scale sx="0.010" sy="0.010" sz="0.010"/>
                 <scale sx="0.57142857142" sy="1" sz="1"/>
             </transformations>
@@ -1042,7 +1105,7 @@ this.bindings['sun-light-position'].value = [newPos[0], newPos[1], newPos[2]];
         <node id="ui-panel-value-display">
             <material id="null"/><texture id="null"><amplification afs="1" aft="1"/></texture>
             <transformations>
-                <translation x="-0.04" y="0" z="0.00001"/>
+                <translation x="-0.074" y="0" z="0.00001"/>
                 <translation x="0.019" y="0.010" z="0.0025"/>
             </transformations>
             <descendants>
@@ -1074,18 +1137,7 @@ this.bindings['sun-light-position'].value = [newPos[0], newPos[1], newPos[2]];
                 <leaf type="spritetext" font="calc" text="   0.0" format="return arguments[0].padStart(6,' ');"/>
             </descendants>
         </node>
-        <node id="change-theme">
-            <material id="null"/><texture id="null"><amplification afs="1" aft="1"/></texture>
-            <transformations>
-                <translation x="0.06" y="-0.015" z="0.0035"/>
-                <rotation axis="x" angle="90"/>
-            </transformations>
-            <descendants>
-                <noderef id="change-theme-button"/>
-                <noderef id="change-theme-text-1"/>
-                <noderef id="change-theme-text-2"/>
-            </descendants>
-        </node>
+
         <node id="ui-panel-turn-all">
             <material id="null"/><texture id="null"><amplification afs="1" aft="1"/></texture>
             <descendants>
@@ -1097,7 +1149,7 @@ this.bindings['sun-light-position'].value = [newPos[0], newPos[1], newPos[2]];
             <material id="clock-plastic-black-emissive"/>
             <texture id="null"><amplification afs="1" aft="1"/></texture>
             <transformations>
-                <translation x="0.025" y="0.025" z="0.002501"/>
+                <translation x="0.000" y="0.025" z="0.002501"/>
                 <scale sx="0.010" sy="0.010" sz="0.010"/>
                 <scale sx="0.57142857142" sy="1" sz="1"/>
             </transformations>
@@ -1108,7 +1160,7 @@ this.bindings['sun-light-position'].value = [newPos[0], newPos[1], newPos[2]];
         <node id="ui-panel-turn-display">
             <material id="null"/><texture id="null"><amplification afs="1" aft="1"/></texture>
             <transformations>
-                <translation x="0.04" y="0" z="0.00001"/>
+                <translation x="0.01" y="0" z="0.00001"/>
                 <translation x="0.019" y="0.025" z="0.0025"/>
             </transformations>
             <descendants>
@@ -1152,7 +1204,7 @@ this.bindings['sun-light-position'].value = [newPos[0], newPos[1], newPos[2]];
         <node id="ui-panel-feedback-display">
             <material id="null"/><texture id="null"><amplification afs="1" aft="1"/></texture>
             <transformations>
-                <translation x="0.025" y="0" z="0.00001"/>
+                <translation x="-0.005" y="0" z="0.00001"/>
                 <translation x="0.019" y="0.01" z="0.0025"/>
             </transformations>
             <descendants>
@@ -1184,6 +1236,18 @@ this.bindings['sun-light-position'].value = [newPos[0], newPos[1], newPos[2]];
                 <leaf type="spritetext" font="consolas" text="none"
                     eval="return this.scene.orchestrator.gameState.feedbackText;"
                 />
+            </descendants>
+        </node>
+        <node id="change-theme">
+            <material id="null"/><texture id="null"><amplification afs="1" aft="1"/></texture>
+            <transformations>
+                <translation x="0.04" y="-0.015" z="0.0035"/>
+                <rotation axis="x" angle="90"/>
+            </transformations>
+            <descendants>
+                <noderef id="change-theme-button"/>
+                <noderef id="change-theme-text-1"/>
+                <noderef id="change-theme-text-2"/>
             </descendants>
         </node>
         <node id="change-theme-button">
@@ -1219,10 +1283,58 @@ this.bindings['sun-light-position'].value = [newPos[0], newPos[1], newPos[2]];
                 <leaf type="spritetext" font="consolas" text="Theme"/>
             </descendants>
         </node>
+
+
+        <node id="main-menu">
+            <material id="null"/><texture id="null"><amplification afs="1" aft="1"/></texture>
+            <transformations>
+                <translation x="0.08" y="-0.015" z="0.0035"/>
+                <rotation axis="x" angle="90"/>
+            </transformations>
+            <descendants>
+                <noderef id="main-menu-button"/>
+                <noderef id="main-menu-text-1"/>
+                <noderef id="main-menu-text-2"/>
+            </descendants>
+        </node>
+        <node id="main-menu-button">
+            <material id="plastic-dark"/><texture id="null"><amplification afs="1" aft="1"/></texture>
+            <transformations>
+                <scale sx="0.030" sy="0.002" sz="0.020"/>
+            </transformations>
+            <descendants>
+                <noderef id="cube"/>
+            </descendants>
+        </node>
+        <node id="main-menu-text-1">
+            <material id="plastic-white"/><texture id="null"><amplification afs="1" aft="1"/></texture>
+            <transformations>
+                <translation x="0" y="0.00101" z="-0.004"/>
+                <rotation axis="x" angle="-90"/>
+                <scale sx="0.57142857142" sy="1" sz="1"/>
+                <scale sx="0.007" sy="0.007" sz="0.007"/>
+            </transformations>
+            <descendants>
+                <leaf type="spritetext" font="consolas" text="Main"/>
+            </descendants>
+        </node>
+        <node id="main-menu-text-2">
+            <material id="plastic-white"/><texture id="null"><amplification afs="1" aft="1"/></texture>
+            <transformations>
+                <translation x="0" y="0.00101" z="0.004"/>
+                <rotation axis="x" angle="-90"/>
+                <scale sx="0.57142857142" sy="1" sz="1"/>
+                <scale sx="0.007" sy="0.007" sz="0.007"/>
+            </transformations>
+            <descendants>
+                <leaf type="spritetext" font="consolas" text="Menu"/>
+            </descendants>
+        </node>
+
         <node id="submit">
             <material id="null"/><texture id="null"><amplification afs="1" aft="1"/></texture>
             <transformations>
-                <translation x="0.02" y="-0.015" z="0.0035"/>
+                <translation x="0.0" y="-0.015" z="0.0035"/>
                 <rotation axis="x" angle="90"/>
             </transformations>
             <descendants>
@@ -1254,7 +1366,7 @@ this.bindings['sun-light-position'].value = [newPos[0], newPos[1], newPos[2]];
         <node id="undo">
             <material id="null"/><texture id="null"><amplification afs="1" aft="1"/></texture>
             <transformations>
-                <translation x="-0.06" y="-0.015" z="0.0035"/>
+                <translation x="-0.08" y="-0.015" z="0.0035"/>
                 <rotation axis="x" angle="90"/>
             </transformations>
             <descendants>
@@ -1286,7 +1398,7 @@ this.bindings['sun-light-position'].value = [newPos[0], newPos[1], newPos[2]];
         <node id="cancel">
             <material id="null"/><texture id="null"><amplification afs="1" aft="1"/></texture>
             <transformations>
-                <translation x="-0.02" y="-0.015" z="0.0035"/>
+                <translation x="-0.04" y="-0.015" z="0.0035"/>
                 <rotation axis="x" angle="90"/>
             </transformations>
             <descendants>

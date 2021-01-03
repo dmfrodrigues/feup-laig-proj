@@ -93,8 +93,12 @@ class XMLscene extends CGFscene {
         this.updateViews();
     }
 
-    updateViews() {
+    updateCamera(){
         this.camera = this.graph.views.list[this.graph.views.current];
+    }
+
+    updateViews() {
+        this.updateCamera();
         if(this.interface) this.interface.setActiveCamera(this.camera);
     }
 

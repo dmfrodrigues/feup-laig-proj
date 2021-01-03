@@ -4,7 +4,7 @@
  * @param scene  		- Reference to MyScene object
  */
 class Orchestrator extends CGFobject {
-	constructor(scene, themes, gameMode, level) {
+	constructor(scene, themes, gameMode, level, timeMode) {
         super(scene);
         this.scene.orchestrator = this;
         this.gameSequence  = new GameSequence();
@@ -13,9 +13,10 @@ class Orchestrator extends CGFobject {
         this.themeInited   = false;
         this.themes       = themes;
         this.theme        = new MySceneGraph(themes[0], this.scene);
-        this.gameState    = new GameState(this.scene, this);
+        this.gameState    = new GameState(this.scene, this, timeMode);
         this.gameMode     = gameMode;
         this.level        = level;
+        this.timeMode     = timeMode;
     }
 
     isComputer(player){
@@ -55,7 +56,6 @@ class Orchestrator extends CGFobject {
                 this.getN()
             )
             .then(async function (response){
-                console.log(response);
                 await gamestate.gameboard.move(
                     gamestate.gameboard.getCell(response.pos[0], response.pos[1]),
                     response.substacks,
@@ -109,7 +109,6 @@ class Orchestrator extends CGFobject {
                         this.getLevel(),
                         this.getN()
                     );
-                        console.log(response);
                         await gamestate.gameboard.move(
                             gamestate.gameboard.getCell(response.pos[0], response.pos[1]),
                             response.substacks,
@@ -128,6 +127,9 @@ class Orchestrator extends CGFobject {
 
         if(obj.idObj == 'change-theme'){
             this.changeTheme();
+        }
+        else if(obj.idObj == 'main-menu'){
+            location.reload();
         }
         else if(obj.idObj == 'undo' && !this.isComputer(this.gameState.turn)){
             this.gameState.moveState.initialState();
@@ -154,14 +156,17 @@ class Orchestrator extends CGFobject {
 
     async undo(){
         await this.gameSequence.manageUndo(this.gameState);
+        this.gameState.setTime();
     }
 
     update(t){
         this.theme.update(t);
         if(this.animator.active)
             this.animator.update(t);
-        if(!this.gameState.isGameOver)
-            this.gameState.gametime = this.scene.time;
+        if(!this.gameState.isGameOver){
+            this.gameState.updateTime(t);
+            this.gameState.checkTime();
+        }
     }
 
     setValue(value){

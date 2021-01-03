@@ -1,5 +1,5 @@
 class GameState extends CGFobject {
-    constructor(scene, orchestrator){
+    constructor(scene, orchestrator, timeMode){
         super(scene);
         this._scene = scene;
         this._orchestrator = orchestrator;
@@ -14,6 +14,51 @@ class GameState extends CGFobject {
         this.round = 1;
         this.gametime = 0;
         this.feedbackText = "none";
+        this.timeMode = timeMode;
+        this.lastTime = 0;
+        this.timeLeft = 0;
+        this.setTime(this.timeMode);
+    }
+
+    setTime(){
+        this.lastTime = this.gametime;
+        switch (this.timeMode) {
+            case 'sandbox':
+                this.timeLeft = 0;
+                break;
+            case 'standard':
+                this.timeLeft = 300;
+                break;
+            case 'blitz':
+                this.timeLeft = 60;
+                break;
+            default:
+                break;
+        }
+    }
+
+    checkTime(){
+        if(this.timeMode != 'sandbox' && this.timeLeft <= 0){
+            this.isGameOver   =        true;
+            this.feedbackText = "game over"; 
+            if(this._orchestrator.isComputer(this.turn % 2 + 1))
+                document.getElementById('winner').innerHTML = 'Computer ' + (this.turn % 2 + 1);
+            else 
+                document.getElementById('winner').innerHTML = 'Player ' + (this.turn % 2 + 1);
+            document.getElementById('game-over').style.display = 'block';
+            return true;
+        }
+        return false;
+    }
+
+    updateTime(t){
+        this.gametime = this._scene.time;
+        if(this.timeMode != 'sandbox'){
+            this.timeLeft -= t - this.lastTime;
+            this.lastTime = t;
+        }
+
+        if(this.timeLeft < 0) this.timeLeft = 0;
     }
 
     get gameboard(){ return this._gameboard; }
@@ -28,6 +73,7 @@ class GameState extends CGFobject {
     nextTurn(){
         this.turn = (this.turn === 1 ? 2 : 1);
         this.updateValue();
+        this.setTime();
         if(this.turn === 1) this.round++;
     }
 

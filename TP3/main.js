@@ -77,12 +77,14 @@ main=function(){
         }else if(document.getElementById('CvC').checked){
             gameMode = document.getElementById('CvC').value;
         }
-        
+
         let level = document.getElementById('level').value;
+
+        let timeMode = document.getElementById('timelimit').value;
 
         this.document.getElementById('menu').style.display = 'none';
 
-        startGame(gameMode, level);
+        startGame(gameMode, level, timeMode);
     });
 
     document.getElementById('info-button').addEventListener('click', ()=>{
@@ -114,7 +116,7 @@ function startMenu(){
     app.run();
 }
 
-function startGame(gameMode, level){
+function startGame(gameMode, level, timeMode){
 	// Standard application, scene and interface setup
     var gameInterface = new MyInterface();
     var gameScene = new XMLscene(gameInterface);
@@ -134,7 +136,8 @@ function startGame(gameMode, level){
             'alentejo/alentejo.xml'
         ],
         gameMode,
-        level
+        level,
+        timeMode
     );
 
     document.getElementById('movie-button').addEventListener('click', ()=>{
