@@ -2,12 +2,13 @@
 
 ## Group: T02G04
 
-| Name             | Number    | E-Mail             |
-| ---------------- | --------- | ------------------ |
+| Name                             | Number    | E-Mail               |
+|----------------------------------|-----------|----------------------|
 | Breno Accioly de Barros Pimentel | 201800170 | up201800170@fe.up.pt |
 | Diogo Miguel Ferreira Rodrigues  | 201806429 | up201806429@fe.up.pt |
 
 ----
+
 ## Project information
 
 - Main menu:
