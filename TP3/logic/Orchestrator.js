@@ -4,7 +4,7 @@
  * @param scene  		- Reference to MyScene object
  */
 class Orchestrator extends CGFobject {
-	constructor(scene, themes, gameMode, level) {
+	constructor(scene, themes, gameMode, level, timeMode) {
         super(scene);
         this.scene.orchestrator = this;
         this.gameSequence  = new GameSequence();
@@ -16,6 +16,7 @@ class Orchestrator extends CGFobject {
         this.gameState    = new GameState(this.scene, this);
         this.gameMode     = gameMode;
         this.level        = level;
+        this.timeMode     = timeMode;
     }
 
     isComputer(player){

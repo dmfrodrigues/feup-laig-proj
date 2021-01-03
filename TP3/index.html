@@ -48,7 +48,7 @@ canvas {
 	right: 0;
 }
 
-#levels {
+#levels, #times{
     text-align: center;
 }
 
@@ -193,6 +193,13 @@ h1 {
             <option value="1">Level 1</option>
             <option value="2">Level 2</option>
             <option value="3">Level 3</option>
+          </select>
+        </div>
+        <div id="times">
+          <select id="timelimit">
+            <option value="sandbox">Sandbox: no time limit</option>
+            <option value="standard">Standard: 5 min</option>
+            <option value="blitz">Blitz: 1 min</option>
           </select>
         </div>
       </article>
