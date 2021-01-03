@@ -108,6 +108,9 @@
                 </buttons>
             </ui>
         </uis>
+        <audios>
+            <audio url="https://drive.google.com/uc?id=1xouD5zBs6F7fhMzVbh8GkBXVE4cF0YeF"/>
+        </audios>
     </initials>
     <animations>
         <animation id="turn-light-switch" loop="0" timeupdate="0">

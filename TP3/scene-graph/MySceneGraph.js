@@ -263,6 +263,7 @@ class MySceneGraph {
         var piecesBoxAnimIndex = nodeNames.indexOf("piecesboxanim");
         var newPieceIndex = nodeNames.indexOf("newpiecepos");
         var uisIndex = nodeNames.indexOf("uis");
+        var audiosIndex = nodeNames.indexOf("audios");
 
         // Get data
         if(dataIndex != -1){
@@ -362,6 +363,22 @@ class MySceneGraph {
             let uisNode = children[uisIndex];
             let ret = this.parseUIs(uisNode);
             if(typeof ret === 'string') return ret;
+        }
+
+        // Get audios
+        this.audios = [];
+        if(audiosIndex == -1){
+            let audiosNode = children[audiosIndex];
+            for(let i = 0; i < audiosNode.children.length; ++i){
+                let audioNode = audiosNode.children[i];
+                if(audioNode.nodeName === 'audio'){
+                    let audio = new Audio(audioNode.attributes.url);
+                    audio.loop = true;
+                    this.audios.push(audio);
+                } else {
+                    this.onXMLMinorError(`Unknown node name '${aaudioNodeudio.nodeName}' in <audios>`);
+                }
+            }
         }
 
         this.log("Parsed initials");
@@ -1593,6 +1610,18 @@ class MySceneGraph {
 
     get newPiecePos(){
         return this._newPiecePos;
+    }
+
+    playAudio(){
+        for(let audio of this.audios){
+            audio.play();
+        }
+    }
+
+    pauseAudio(){
+        for(let audio of this.audios){
+            audio.pause();
+        }
     }
 
     update(t){
