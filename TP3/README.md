@@ -10,6 +10,9 @@
 ----
 ## Project information
 
+- Main menu:
+  - Space scene, zooming through starts
+  - Main menu background implemented with WebGL/WebCGF, foreground in HTML for nicer and simpler menu.
 - Modified CGF:
   - CGFnurbsObject: added `afs`, `aft` to constructor to allow texture scaling in NURBS.
   - Gouraud shader: added condition to check for transparency, and discard the fragment if it is completely transparent. This avoids having to disable depth writing, which has inconvenient effects in drawing several transparent objects in arbitrary order. Discarding fully transparent fragments also led to increased performance, between 0%-20%.
