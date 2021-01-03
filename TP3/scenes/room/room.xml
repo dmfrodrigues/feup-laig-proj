@@ -1075,7 +1075,7 @@
             <material id="clock-plastic-black-emissive"/>
             <texture id="null"><amplification afs="1" aft="1"/></texture>
             <transformations>
-                <translation x="-0.08" y="0.025" z="0.002501"/>
+                <translation x="-0.095" y="0.025" z="0.002501"/>
                 <scale sx="0.010" sy="0.010" sz="0.010"/>
                 <scale sx="0.57142857142" sy="1" sz="1"/>
             </transformations>
@@ -1086,7 +1086,7 @@
         <node id="ui-panel-timer-display">
             <material id="null"/><texture id="null"><amplification afs="1" aft="1"/></texture>
             <transformations>
-                <translation x="-0.06" y="0" z="0.00001"/>
+                <translation x="-0.074" y="0" z="0.00001"/>
                 <translation x="0.019" y="0.025" z="0.0025"/>
             </transformations>
             <descendants>
@@ -1144,7 +1144,7 @@
         <node id="ui-panel-timeleft-display">
             <material id="null"/><texture id="null"><amplification afs="1" aft="1"/></texture>
             <transformations>
-                <translation x="0.07" y="0" z="0.00001"/>
+                <translation x="0.065" y="0" z="0.00001"/>
                 <translation x="0.019" y="0.010" z="0.0025"/>
             </transformations>
             <descendants>
@@ -1169,7 +1169,7 @@
             <texture id="null"><amplification afs="1" aft="1"/></texture>
             <transformations>
                 <translation x="0" y="0" z="0.00001"/>
-                <scale sx="0.012" sy="0.012" sz="0.012"/>
+                <scale sx="0.0096" sy="0.012" sz="0.012"/>
                 <scale sx="0.60" sy="1" sz="1"/>
             </transformations>
             <descendants>
@@ -1192,7 +1192,7 @@
             <material id="clock-plastic-black-emissive"/>
             <texture id="null"><amplification afs="1" aft="1"/></texture>
             <transformations>
-                <translation x="-0.082" y="0.010" z="0.002501"/>
+                <translation x="-0.096" y="0.010" z="0.002501"/>
                 <scale sx="0.010" sy="0.010" sz="0.010"/>
                 <scale sx="0.57142857142" sy="1" sz="1"/>
             </transformations>
@@ -1203,7 +1203,7 @@
         <node id="ui-panel-value-display">
             <material id="null"/><texture id="null"><amplification afs="1" aft="1"/></texture>
             <transformations>
-                <translation x="-0.06" y="0" z="0.00001"/>
+                <translation x="-0.074" y="0" z="0.00001"/>
                 <translation x="0.019" y="0.010" z="0.0025"/>
             </transformations>
             <descendants>
@@ -1258,7 +1258,7 @@
             <material id="clock-plastic-black-emissive"/>
             <texture id="null"><amplification afs="1" aft="1"/></texture>
             <transformations>
-                <translation x="0.005" y="0.025" z="0.002501"/>
+                <translation x="0.000" y="0.025" z="0.002501"/>
                 <scale sx="0.010" sy="0.010" sz="0.010"/>
                 <scale sx="0.57142857142" sy="1" sz="1"/>
             </transformations>
@@ -1269,7 +1269,7 @@
         <node id="ui-panel-turn-display">
             <material id="null"/><texture id="null"><amplification afs="1" aft="1"/></texture>
             <transformations>
-                <translation x="0.02" y="0" z="0.00001"/>
+                <translation x="0.01" y="0" z="0.00001"/>
                 <translation x="0.019" y="0.025" z="0.0025"/>
             </transformations>
             <descendants>
@@ -1313,7 +1313,7 @@
         <node id="ui-panel-feedback-display">
             <material id="null"/><texture id="null"><amplification afs="1" aft="1"/></texture>
             <transformations>
-                <translation x="0.005" y="0" z="0.00001"/>
+                <translation x="-0.005" y="0" z="0.00001"/>
                 <translation x="0.019" y="0.01" z="0.0025"/>
             </transformations>
             <descendants>

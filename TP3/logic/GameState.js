@@ -20,7 +20,7 @@ class GameState extends CGFobject {
         this.setTime(this.timeMode);
     }
 
-    setTime(timeMode){
+    setTime(){
         this.lastTime = this.gametime;
         switch (this.timeMode) {
             case 'sandbox':
@@ -34,6 +34,18 @@ class GameState extends CGFobject {
                 break;
             default:
                 break;
+        }
+    }
+
+    checkTime(){
+        if(this.timeMode != 'sandbox' && this.timeLeft <= 0){
+            this.isGameOver   =        true;
+            this.feedbackText = "game over"; 
+            if(this.isComputer(this.turn % 2 + 1))
+                document.getElementById('winner').innerHTML = 'Computer ' + (this.turn % 2 + 1);
+            else 
+                document.getElementById('winner').innerHTML = 'Player ' + (this.turn % 2 + 1);
+            document.getElementById('game-over').style.display = 'block';
         }
     }
 
@@ -59,7 +71,7 @@ class GameState extends CGFobject {
     nextTurn(){
         this.turn = (this.turn === 1 ? 2 : 1);
         this.updateValue();
-        this.setTime(this.timeMode);
+        this.setTime();
         if(this.turn === 1) this.round++;
     }
 

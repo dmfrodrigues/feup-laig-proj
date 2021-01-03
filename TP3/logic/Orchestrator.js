@@ -158,15 +158,7 @@ class Orchestrator extends CGFobject {
             this.animator.update(t);
         if(!this.gameState.isGameOver){
             this.gameState.updateTime(t);
-        }
-        if(this.gameState.timeMode != 'sandbox' && this.gameState.timeLeft <= 0){
-            this.gameState.isGameOver   =        true;
-            this.gameState.feedbackText = "game over"; 
-            if(this.isComputer(this.gameState.turn % 2 + 1))
-                document.getElementById('winner').innerHTML = 'Computer ' + (this.gameState.turn % 2 + 1);
-            else 
-                document.getElementById('winner').innerHTML = 'Player ' + (this.gameState.turn % 2 + 1);
-            document.getElementById('game-over').style.display = 'block';
+            this.gameState.checkTime();
         }
     }
 
