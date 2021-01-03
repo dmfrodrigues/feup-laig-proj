@@ -123,27 +123,28 @@ class Orchestrator extends CGFobject {
     }
 
     async onObjectSelected(obj, id){
-        if(this.gameState.isGameOver) return;
+        if(this.gameState.isGameOver) 
+            return;
 
         if(obj.idObj == 'change-theme'){
             this.changeTheme();
-        }        
-        else obj.onclick();
-
-        if(this.isComputer(this.gameState.turn)) return;
-
-        if(10 <= id && id < 300)
-            await this.gameState.moveState.updateMoveState(obj);
-        else if(obj.idObj == 'undo'){
-                this.gameState.moveState.initialState();
-                await this.undo();
         }
-
+        else if(obj.idObj == 'undo' && !this.isComputer(this.gameState.turn)){
+            this.gameState.moveState.initialState();
+            await this.undo();
+        }
+        else if(10 <= id && id < 300)
+            await this.gameState.moveState.updateMoveState(obj);
+        else
+            obj.onclick();
     }
 
     changeTheme(){
-        this.gameState.moveState.resetSubstacks();
-        this.gameState.moveState.initialState();
+        if(!this.isComputer(this.gameState.turn))
+        {   
+            this.gameState.moveState.resetSubstacks();
+            this.gameState.moveState.initialState();
+        }
         this.themeInited = false;
         button_id = 200;
         this.themeSelected = (this.themeSelected+1)%(this.themes.length);
