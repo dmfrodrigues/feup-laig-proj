@@ -367,19 +367,26 @@ class MySceneGraph {
 
         // Get audios
         this.audios = [];
-        if(audiosIndex == -1){
+        if(audiosIndex !== -1){
             let audiosNode = children[audiosIndex];
             for(let i = 0; i < audiosNode.children.length; ++i){
                 let audioNode = audiosNode.children[i];
                 if(audioNode.nodeName === 'audio'){
-                    let audio = new Audio(audioNode.attributes.url);
+                    if(typeof audioNode.attributes.url === 'undefined'){
+                        this.onXMLMinorError("Audio does not have URL, ignoring");
+                        continue;
+                    }
+                    let audio = new Audio(audioNode.attributes.url.value);
                     audio.loop = true;
+                    if(typeof audioNode.attributes.volume !== 'undefined'){
+                        audio.volume = this.parseFloat(audioNode, 'volume', '<audio>');
+                    }
                     this.audios.push(audio);
                 } else {
                     this.onXMLMinorError(`Unknown node name '${aaudioNodeudio.nodeName}' in <audios>`);
                 }
             }
-        }
+        } else this.onXMLMinorError("No audios defined for scene");
 
         this.log("Parsed initials");
 
@@ -1613,13 +1620,15 @@ class MySceneGraph {
     }
 
     playAudio(){
-        for(let audio of this.audios){
+        for(let i = 0; i < this.audios.length; ++i){
+            let audio = this.audios[i];
             audio.play();
         }
     }
 
     pauseAudio(){
-        for(let audio of this.audios){
+        for(let i = 0; i < this.audios.length; ++i){
+            let audio = this.audios[i];
             audio.pause();
         }
     }
