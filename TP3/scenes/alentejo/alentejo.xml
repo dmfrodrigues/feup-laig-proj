@@ -113,27 +113,27 @@
             </ui>
         </uis>
         <p1transition lastinstant="3.0">
-            <keyframe instant="0.3" fx="+0.1" fy="1.4" fz="+0.48" tx="0.0" ty="1.2" tz="0.0"/>
-            <keyframe instant="0.6" fx="+0.2" fy="1.4" fz="+0.36" tx="0.0" ty="1.2" tz="0.0"/>
-            <keyframe instant="0.9" fx="+0.3" fy="1.4" fz="+0.24" tx="0.0" ty="1.2" tz="0.0"/>
-            <keyframe instant="1.2" fx="+0.4" fy="1.4" fz="+0.12" tx="0.0" ty="1.2" tz="0.0"/>
-            <keyframe instant="1.5" fx="+0.5" fy="1.4" fz="+0.00" tx="0.0" ty="1.2" tz="0.0"/>
-            <keyframe instant="1.8" fx="+0.4" fy="1.4" fz="-0.12" tx="0.0" ty="1.2" tz="0.0"/>
-            <keyframe instant="2.1" fx="+0.3" fy="1.4" fz="-0.24" tx="0.0" ty="1.2" tz="0.0"/>
-            <keyframe instant="2.4" fx="+0.2" fy="1.4" fz="-0.36" tx="0.0" ty="1.2" tz="0.0"/>
-            <keyframe instant="2.7" fx="+0.1" fy="1.4" fz="-0.48" tx="0.0" ty="1.2" tz="0.0"/>
+            <keyframe instant="0.3" fx="+0.1" fy="1.4" fz="+0.48" tx="0.0" ty="1.0" tz="0.0"/>
+            <keyframe instant="0.6" fx="+0.2" fy="1.4" fz="+0.36" tx="0.0" ty="1.0" tz="0.0"/>
+            <keyframe instant="0.9" fx="+0.3" fy="1.4" fz="+0.24" tx="0.0" ty="1.0" tz="0.0"/>
+            <keyframe instant="1.2" fx="+0.4" fy="1.4" fz="+0.12" tx="0.0" ty="1.0" tz="0.0"/>
+            <keyframe instant="1.5" fx="+0.5" fy="1.4" fz="+0.00" tx="0.0" ty="1.0" tz="0.0"/>
+            <keyframe instant="1.8" fx="+0.4" fy="1.4" fz="-0.12" tx="0.0" ty="1.0" tz="0.0"/>
+            <keyframe instant="2.1" fx="+0.3" fy="1.4" fz="-0.24" tx="0.0" ty="1.0" tz="0.0"/>
+            <keyframe instant="2.4" fx="+0.2" fy="1.4" fz="-0.36" tx="0.0" ty="1.0" tz="0.0"/>
+            <keyframe instant="2.7" fx="+0.1" fy="1.4" fz="-0.48" tx="0.0" ty="1.0" tz="0.0"/>
         </p1transition>
 
         <p2transition lastinstant="3.0">
-            <keyframe instant="0.3" fx="-0.1" fy="1.4" fz="-0.48" tx="0.0" ty="1.2" tz="0.0"/>
-            <keyframe instant="0.6" fx="-0.2" fy="1.4" fz="-0.36" tx="0.0" ty="1.2" tz="0.0"/>
-            <keyframe instant="0.9" fx="-0.3" fy="1.4" fz="-0.24" tx="0.0" ty="1.2" tz="0.0"/>
-            <keyframe instant="1.2" fx="-0.4" fy="1.4" fz="-0.12" tx="0.0" ty="1.2" tz="0.0"/>
-            <keyframe instant="1.5" fx="-0.5" fy="1.4" fz="-0.00" tx="0.0" ty="1.2" tz="0.0"/>
-            <keyframe instant="1.8" fx="-0.4" fy="1.4" fz="+0.12" tx="0.0" ty="1.2" tz="0.0"/>
-            <keyframe instant="2.1" fx="-0.3" fy="1.4" fz="+0.24" tx="0.0" ty="1.2" tz="0.0"/>
-            <keyframe instant="2.4" fx="-0.2" fy="1.4" fz="+0.36" tx="0.0" ty="1.2" tz="0.0"/>
-            <keyframe instant="2.7" fx="-0.1" fy="1.4" fz="+0.48" tx="0.0" ty="1.2" tz="0.0"/>
+            <keyframe instant="0.3" fx="-0.1" fy="1.4" fz="-0.48" tx="0.0" ty="1.0" tz="0.0"/>
+            <keyframe instant="0.6" fx="-0.2" fy="1.4" fz="-0.36" tx="0.0" ty="1.0" tz="0.0"/>
+            <keyframe instant="0.9" fx="-0.3" fy="1.4" fz="-0.24" tx="0.0" ty="1.0" tz="0.0"/>
+            <keyframe instant="1.2" fx="-0.4" fy="1.4" fz="-0.12" tx="0.0" ty="1.0" tz="0.0"/>
+            <keyframe instant="1.5" fx="-0.5" fy="1.4" fz="-0.00" tx="0.0" ty="1.0" tz="0.0"/>
+            <keyframe instant="1.8" fx="-0.4" fy="1.4" fz="+0.12" tx="0.0" ty="1.0" tz="0.0"/>
+            <keyframe instant="2.1" fx="-0.3" fy="1.4" fz="+0.24" tx="0.0" ty="1.0" tz="0.0"/>
+            <keyframe instant="2.4" fx="-0.2" fy="1.4" fz="+0.36" tx="0.0" ty="1.0" tz="0.0"/>
+            <keyframe instant="2.7" fx="-0.1" fy="1.4" fz="+0.48" tx="0.0" ty="1.0" tz="0.0"/>
         </p2transition>
     </initials>
     <animations>
