@@ -11,9 +11,14 @@
 ## Project information
 
 - Modified CGF:
-  - ...
+  - CGFnurbsObject: added `afs`, `aft` to constructor to allow texture scaling in NURBS.
+  - Gouraud shader: added condition to check for transparency, and discard the fragment if it is completely transparent. This avoids having to disable depth writing, which has inconvenient effects in drawing several transparent objects in arbitrary order. Discarding fully transparent fragments also led to increased performance, between 0%-20%.
+  - OBJ:
+    - Developed CGFOBJModel based on files provided by lecturers, but added full support for MTL files and textures
+    - Developed CGFResourceReader based on files provided by lecturers, but using `fetch` for improved performance
+  - Improved rendering performance by **2x** by retrieving `pMatrix` from scene instead of the active shader's `gl` object. Now scene is nearly as fast as if `setActiveShaderSimple` was not even used.
 - Scenes:
-  - Room:
+  - Room: similar to previous project, except you can't change the TV channel as it made the scene even more complex.
   - ISS: a scene in the International Space Station (ISS)
     - Contains the following elements:
       - Earth, with surface, clouds and night lights
@@ -30,11 +35,15 @@
       - The ISS orbits around the Earth once every 91min
     - The Sun can be seen for about 1min in the upper-left corner of the front-right window of player 1
     - The Moon can be seen for a couple of minutes in the right side of the window in the back of player 1
-  - Alentejo:
+  - Alentejo: a country scene in Alentejo, Portugal
+    - Contains the following elements:
+      - Ground with varying heights, made with a surface
+      - A picnic table made of pine wood
+      - A wheat field to the left
+      - An olive tree to the right
 ----
 ## Issues/Problems
 
-- Ignoring texture scaling in MTL OBJ files
 - In ISS scene, if one looks from the outside of the Cupola through the windows, the game board disappears. This is because the game board is drawn after the scene, and as such the Cupola windows are drawn before the board. This will not be fixed, as it is not too serious of an issue.
 
 ## Credits
