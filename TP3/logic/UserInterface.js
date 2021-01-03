@@ -37,7 +37,6 @@ class UserInterface extends CGFobject {
     get valueNode(){ return this._value; }
 
     setValue(value){
-        console.log({value: value});
         this._value.text = (Math.round(value*10)/10).toFixed(1);
     }
 
