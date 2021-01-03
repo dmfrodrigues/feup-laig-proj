@@ -57,5 +57,6 @@
 - To Solar System Scope for the and moon texture ([moon.jpeg](scenes/iss/textures/moon.jpeg), from [here](https://www.solarsystemscope.com/textures/))
 - To Virtual Fireplace for the fireplace crackling sound track (from [here](https://www.youtube.com/watch?v=lQPdYRh3CME))
 - To VideoPlasty for the city ambience sound track (from [here](https://www.youtube.com/watch?v=jX-0Wb_wQsY))
+- To crysknife007 for the ISS ambience sound track (from [here](https://www.youtube.com/watch?v=ct2Ad44CH98), notice I use only a portion of the 1h-long audio)
 
 And to several others for other various textures.
