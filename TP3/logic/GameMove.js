@@ -12,15 +12,7 @@ class GameMove {
         this.direction = direction;
         this.newPieceCell = newPieceCell;
         this.turn = turn;
-        this.gameboard = JSON.parse(JSON.stringify(gameboard)); // array
-    }
-
-    animateSubstacks(){
-
-    }
-
-    animateNewPiece(){
-
+        this.gameboard = JSON.parse(JSON.stringify(gameboard));
     }
 
     toJSON(){

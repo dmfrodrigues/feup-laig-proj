@@ -123,21 +123,20 @@ class Orchestrator extends CGFobject {
     }
 
     async onObjectSelected(obj, id){
+        if(this.isComputer(this.gameState.turn) || this.gameState.isGameOver) 
+            return;
+
         if(obj.idObj == 'change-theme'){
             this.changeTheme();
         }
-        else
-            obj.onclick();
-        
-        if(this.isComputer(this.gameState.turn) || this.gameState.isGameOver) 
-            return;
-        
-        if(obj.idObj == 'undo'){
+        else if(obj.idObj == 'undo'){
             this.gameState.moveState.initialState();
-            this.undo();
+            await this.undo();
         }
         else if(10 <= id && id < 300)
             await this.gameState.moveState.updateMoveState(obj);
+        else
+            obj.onclick();
     }
 
     changeTheme(){
@@ -149,8 +148,8 @@ class Orchestrator extends CGFobject {
         this.theme = new MySceneGraph(this.themes[this.themeSelected], this.scene);
     }
 
-    undo(){
-        this.gameSequence.manageUndo(this.gameState);
+    async undo(){
+        await this.gameSequence.manageUndo(this.gameState);
     }
 
     update(t){
