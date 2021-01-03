@@ -88,11 +88,6 @@ h1 {
   background-color: darkslategray;
 }
 
-#info-wrapper{
-    position: relative;
-    padding: 1em;
-}
-
 .info-button {
     position: absolute;
     cursor: pointer;
@@ -101,11 +96,24 @@ h1 {
     color: white;
     text-decoration: none;
     font-size: 16px;
-    margin-bottom: 1em;
-    padding: 0.5em 0.8em 0.5em 0.8em;
+    padding: 0.5em 0.8em;
+    border-radius: 30%;
+    right:  1.5em;
+    bottom: 1.5em;
+}
+
+.close-button {
+    position: absolute;
+    cursor: pointer;
+    border: none;
+    background-color: darkslategray;
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+    padding: 0.5em 0.8em;
     border-radius: 30%;
     right: 1em;
-    bottom: 0.6em;
+    top:   1em;
 }
 
 .button {
@@ -117,7 +125,7 @@ h1 {
     color: white;
     text-decoration: none;
     font-size: 16px;
-    padding: 0.8em 1.2em 0.8em 1.2em;
+    padding: 0.8em 1.2em;
 }
 
 .button-disabled{
@@ -129,7 +137,7 @@ h1 {
     color: white;
     text-decoration: none;
     font-size: 16px;
-    padding: 0.8em 1.2em 0.8em 1.2em;
+    padding: 0.8em 1.2em;
 }
 
 .button:hover{
@@ -230,12 +238,10 @@ h1 {
       <div id="play-button">
         <input type="submit" value="Play Game">
       </div>
-      <div id="info-wrapper">
-        <button id="info-button" class="info-button"><span>&#63;</span></button>
-      </div>
+      <button id="info-button" class="info-button"><span>&#63;</span></button>
     </div>
     <div class="content" id="info-text">
-            <button id="exit-info" class="info-button">X</button>
+            <button id="exit-info" class="close-button">X</button>
             <p>Players take turns in doing two consecutive, mandatory actions:</p>
             <p>1) Separate and move a stack: a stack can be separated into many substacks (it can also be 'separated' into a single substack), under the condition that all substacks must have different heights. 
             After separating the stack, all substacks must move in the same direction, and each stack travels as many hexes as it is tall (e.g., a 2-substack must travel 2 hexes), including over adversary stacks.</p>
