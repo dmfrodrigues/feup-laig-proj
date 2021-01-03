@@ -11,11 +11,11 @@ class GameSequence {
         this.gameSequence.push(gameMove);
     }
 
-    manageUndo(gameState){
+    async manageUndo(gameState){
         let move;
         if(this.gameSequence.length == 0) return;
         else if(this.gameSequence.length < 2) {
-            gameState._scene.graph.cameraHandler.startCameraAnimation();
+            await gameState._scene.graph.cameraHandler.startCameraAnimation();
             move = this.gameSequence.pop();
         }
         else { 

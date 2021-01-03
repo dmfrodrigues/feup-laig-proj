@@ -6,12 +6,19 @@ ANIM_DUR = 3.0;
 class CameraAnimation{
     constructor(scene, graph){
         this.scene = scene;
-        this.graph = graph
+        this.graph = graph;
+        this.resolutionFunc = null;
+        this.rejectionFunc = null;
     }
 
-    startCameraAnimation(){
+    async startCameraAnimation(){
         this.graph.cameraAnimation = true;
         this.graph.cameraAnimStartTime = 0;
+        let self = this;
+        return new Promise(function(resolutionFunc, rejectionFunc){
+            self.resolutionFunc = resolutionFunc;
+            self.rejectionFunc  = rejectionFunc;
+        });
     }
 
     setCameraPos(cam1, cam2){
@@ -88,6 +95,11 @@ class CameraAnimation{
                 this.scene.updateViews();
                 this.graph.cameraAnimation = false;
                 this.scene.cameraPosition = (this.scene.cameraPosition)%2 + 1;
+
+                let resolutionFunc = this.resolutionFunc;
+                resolutionFunc({});
+                this.resolutionFunc = null;
+                this.rejectionFunc  = null;
             }
         }
     }

@@ -164,7 +164,7 @@ class GameBoard extends CGFobject {
 
         await this.moveNewPiece(newPieceCell, originCell, turn == 1 ? 1 : -1);
 
-        gameMove.animate();
+        await gameMove.animate();
         
         return true;
     }

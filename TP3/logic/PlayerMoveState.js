@@ -174,7 +174,7 @@ class PlayerMoveState {
                         this.scene.orchestrator.gameSequence.addGameMove(gameMove);
                         this.initialState();
                         this.gameState.orchestrator.nextTurn();
-                        this.scene.graph.cameraHandler.startCameraAnimation();
+                        await this.scene.graph.cameraHandler.startCameraAnimation();
                     }
                     } catch(err) {
                         alert("Server is inaccessible");
