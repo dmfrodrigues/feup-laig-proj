@@ -1622,7 +1622,10 @@ class MySceneGraph {
     playAudio(){
         for(let i = 0; i < this.audios.length; ++i){
             let audio = this.audios[i];
-            audio.play();
+            audio.play()
+            .catch(function(error){
+                console.log("Audio error:", error, "It may happen if you change theme before the audio started playing; don't bother with that.");
+            });
         }
     }
 

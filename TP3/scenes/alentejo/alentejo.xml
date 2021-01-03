@@ -112,6 +112,9 @@
                 </buttons>
             </ui>
         </uis>
+        <audios>
+            <audio url="https://drive.google.com/uc?id=1HubwaEYEzPz-fU0Ga2iETLHNiI1Faw4m" volume="0.03"/>
+        </audios>
     </initials>
     <animations>
         <animation id="wood-box-lid-animation" loop='0' easing="easeInMidOutSine" >

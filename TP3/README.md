@@ -58,5 +58,6 @@
 - To Virtual Fireplace for the fireplace crackling sound track (from [here](https://www.youtube.com/watch?v=lQPdYRh3CME))
 - To VideoPlasty for the city ambience sound track (from [here](https://www.youtube.com/watch?v=jX-0Wb_wQsY))
 - To crysknife007 for the ISS ambience sound track (from [here](https://www.youtube.com/watch?v=ct2Ad44CH98), notice I use only a portion of the 1h-long audio)
+- To Michael Ghelfi for the countryside ambience sound track (from [here](https://www.youtube.com/watch?v=MfiDTOst3L4), notice I use only a portion of the 1h-long audio)
 
 And to several others for other various textures.
