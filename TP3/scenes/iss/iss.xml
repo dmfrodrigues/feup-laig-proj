@@ -1,0 +1,1777 @@
+<lsf>
+    <initials>
+        <data>
+            <var id="initial-sun-light-position" value="[147100000000, 0, 0]"/>
+        </data>
+        <reference length="0.0"/>
+        <root id="root"/>
+        <gameboard id="gameboard">
+            <transformations>
+                <translation x="0" y="0.2" z="0"/>
+            </transformations>
+            <cells id="cell">
+                <cell i="0" j="0" x="-0.0693" y="0.001" z="-0.12"/>
+                <cell i="0" j="1" x="-0.0347" y="0.001" z="-0.12"/>
+                <cell i="0" j="2" x="+0.0000" y="0.001" z="-0.12"/>
+                <cell i="0" j="3" x="+0.0347" y="0.001" z="-0.12"/>
+                <cell i="0" j="4" x="+0.0693" y="0.001" z="-0.12"/>
+                <cell i="1" j="0" x="-0.0867" y="0.001" z="-0.09"/>
+                <cell i="1" j="1" x="-0.0520" y="0.001" z="-0.09"/>
+                <cell i="1" j="2" x="-0.0173" y="0.001" z="-0.09"/>
+                <cell i="1" j="3" x="+0.0173" y="0.001" z="-0.09"/>
+                <cell i="1" j="4" x="+0.0520" y="0.001" z="-0.09"/>
+                <cell i="1" j="5" x="+0.0867" y="0.001" z="-0.09"/>
+                <cell i="2" j="0" x="-0.1040" y="0.001" z="-0.06"/>
+                <cell i="2" j="1" x="-0.0693" y="0.001" z="-0.06"/>
+                <cell i="2" j="2" x="-0.0347" y="0.001" z="-0.06"/>
+                <cell i="2" j="3" x="+0.0000" y="0.001" z="-0.06"/>
+                <cell i="2" j="4" x="+0.0347" y="0.001" z="-0.06"/>
+                <cell i="2" j="5" x="+0.0693" y="0.001" z="-0.06"/>
+                <cell i="2" j="6" x="+0.1040" y="0.001" z="-0.06"/>
+                <cell i="3" j="0" x="-0.1213" y="0.001" z="-0.03"/>
+                <cell i="3" j="1" x="-0.0867" y="0.001" z="-0.03"/>
+                <cell i="3" j="2" x="-0.0520" y="0.001" z="-0.03"/>
+                <cell i="3" j="3" x="-0.0173" y="0.001" z="-0.03"/>
+                <cell i="3" j="4" x="+0.0173" y="0.001" z="-0.03"/>
+                <cell i="3" j="5" x="+0.0520" y="0.001" z="-0.03"/>
+                <cell i="3" j="6" x="+0.0867" y="0.001" z="-0.03"/>
+                <cell i="3" j="7" x="+0.1213" y="0.001" z="-0.03"/>
+                <cell i="4" j="0" x="-0.1386" y="0.001" z="+0.00"/>
+                <cell i="4" j="1" x="-0.1040" y="0.001" z="+0.00"/>
+                <cell i="4" j="2" x="-0.0693" y="0.001" z="+0.00"/>
+                <cell i="4" j="3" x="-0.0347" y="0.001" z="+0.00"/>
+                <cell i="4" j="4" x="+0.0000" y="0.001" z="+0.00"/>
+                <cell i="4" j="5" x="+0.0347" y="0.001" z="+0.00"/>
+                <cell i="4" j="6" x="+0.0693" y="0.001" z="+0.00"/>
+                <cell i="4" j="7" x="+0.1040" y="0.001" z="+0.00"/>
+                <cell i="4" j="8" x="+0.1386" y="0.001" z="+0.00"/>
+                <cell i="5" j="1" x="-0.1213" y="0.001" z="+0.03"/>
+                <cell i="5" j="2" x="-0.0867" y="0.001" z="+0.03"/>
+                <cell i="5" j="3" x="-0.0520" y="0.001" z="+0.03"/>
+                <cell i="5" j="4" x="-0.0173" y="0.001" z="+0.03"/>
+                <cell i="5" j="5" x="+0.0173" y="0.001" z="+0.03"/>
+                <cell i="5" j="6" x="+0.0520" y="0.001" z="+0.03"/>
+                <cell i="5" j="7" x="+0.0867" y="0.001" z="+0.03"/>
+                <cell i="5" j="8" x="+0.1213" y="0.001" z="+0.03"/>
+                <cell i="6" j="2" x="-0.1040" y="0.001" z="+0.06"/>
+                <cell i="6" j="3" x="-0.0693" y="0.001" z="+0.06"/>
+                <cell i="6" j="4" x="-0.0347" y="0.001" z="+0.06"/>
+                <cell i="6" j="5" x="+0.0000" y="0.001" z="+0.06"/>
+                <cell i="6" j="6" x="+0.0347" y="0.001" z="+0.06"/>
+                <cell i="6" j="7" x="+0.0693" y="0.001" z="+0.06"/>
+                <cell i="6" j="8" x="+0.1040" y="0.001" z="+0.06"/>
+                <cell i="7" j="3" x="-0.0867" y="0.001" z="+0.09"/>
+                <cell i="7" j="4" x="-0.0520" y="0.001" z="+0.09"/>
+                <cell i="7" j="5" x="-0.0173" y="0.001" z="+0.09"/>
+                <cell i="7" j="6" x="+0.0173" y="0.001" z="+0.09"/>
+                <cell i="7" j="7" x="+0.0520" y="0.001" z="+0.09"/>
+                <cell i="7" j="8" x="+0.0867" y="0.001" z="+0.09"/>
+                <cell i="8" j="4" x="-0.0693" y="0.001" z="+0.12"/>
+                <cell i="8" j="5" x="-0.0347" y="0.001" z="+0.12"/>
+                <cell i="8" j="6" x="+0.0000" y="0.001" z="+0.12"/>
+                <cell i="8" j="7" x="+0.0347" y="0.001" z="+0.12"/>
+                <cell i="8" j="8" x="+0.0693" y="0.001" z="+0.12"/>
+            </cells>
+        </gameboard>
+        <piece id="piece" height="0.002"/>
+        <pieceview classname="RoomPieceStackView"/>
+        <piecesboxanim id="wood-box-lid-animated" animationref="wood-box-lid-animation"/>
+        <newpiecepos x="-0.29" y="0.0" z="0"/>
+        <uis>
+            <ui id="ui-1">
+                <transformations>
+                    <translation x="+0.2" y="0.228" z="0.17"/>
+                    <rotation axis="y" angle="-15"/>
+                    <rotation axis="x" angle="-45"/>
+                </transformations>
+                <panel id="ui-panel-with-all"/>
+                <value id="ui-panel-value"/>
+                <buttons>
+                    <button id="submit"/>
+                    <button id="undo"/>
+                    <button id="cancel"/>
+                    <button id="change-theme"/>
+                    <button id="main-menu"/>
+                </buttons>
+            </ui>
+            <ui id="ui-2">
+                <transformations>
+                    <translation x="-0.2" y="0.228" z="-0.17"/>
+                    <rotation axis="y" angle="-15"/>
+                    <rotation axis="y" angle="-180"/>
+                    <rotation axis="x" angle="-45"/>
+                </transformations>
+                <panel id="ui-panel-with-all"/>
+                <value id="ui-panel-value"/>
+                <buttons>
+                    <button id="submit"/>
+                    <button id="undo"/>
+                    <button id="cancel"/>
+                    <button id="change-theme"/>
+                    <button id="main-menu"/>
+                </buttons>
+            </ui>
+        </uis>
+        <audios>
+            <audio url="https://drive.google.com/uc?id=1yASc6qN-1vwDr1ZLN1hMPhDc9J5gdmET" volume="0.1"/>
+        </audios>
+        <p1transition lastinstant="3.0">
+            <keyframe instant="0.3" fx="+0.14" fy="0.70" fz="+0.56" tx="0.0" ty="0.35" tz="0.0"/>
+            <keyframe instant="0.6" fx="+0.28" fy="0.70" fz="+0.42" tx="0.0" ty="0.35" tz="0.0"/>
+            <keyframe instant="0.9" fx="+0.42" fy="0.70" fz="+0.28" tx="0.0" ty="0.35" tz="0.0"/>
+            <keyframe instant="1.2" fx="+0.56" fy="0.70" fz="+0.14" tx="0.0" ty="0.35" tz="0.0"/>
+            <keyframe instant="1.5" fx="+0.70" fy="0.70" fz="+0.00" tx="0.0" ty="0.35" tz="0.0"/>
+            <keyframe instant="1.8" fx="+0.56" fy="0.70" fz="-0.14" tx="0.0" ty="0.35" tz="0.0"/>
+            <keyframe instant="2.1" fx="+0.42" fy="0.70" fz="-0.28" tx="0.0" ty="0.35" tz="0.0"/>
+            <keyframe instant="2.4" fx="+0.28" fy="0.70" fz="-0.42" tx="0.0" ty="0.35" tz="0.0"/>
+            <keyframe instant="2.7" fx="+0.14" fy="0.70" fz="-0.56" tx="0.0" ty="0.35" tz="0.0"/>
+        </p1transition>
+
+        <p2transition lastinstant="3.0">
+            <keyframe instant="0.3" fx="-0.14" fy="0.70" fz="-0.56" tx="0.0" ty="0.35" tz="0.0"/>
+            <keyframe instant="0.6" fx="-0.28" fy="0.70" fz="-0.42" tx="0.0" ty="0.35" tz="0.0"/>
+            <keyframe instant="0.9" fx="-0.42" fy="0.70" fz="-0.28" tx="0.0" ty="0.35" tz="0.0"/>
+            <keyframe instant="1.2" fx="-0.56" fy="0.70" fz="-0.14" tx="0.0" ty="0.35" tz="0.0"/>
+            <keyframe instant="1.5" fx="-0.70" fy="0.70" fz="-0.00" tx="0.0" ty="0.35" tz="0.0"/>
+            <keyframe instant="1.8" fx="-0.56" fy="0.70" fz="+0.14" tx="0.0" ty="0.35" tz="0.0"/>
+            <keyframe instant="2.1" fx="-0.42" fy="0.70" fz="+0.28" tx="0.0" ty="0.35" tz="0.0"/>
+            <keyframe instant="2.4" fx="-0.28" fy="0.70" fz="+0.42" tx="0.0" ty="0.35" tz="0.0"/>
+            <keyframe instant="2.7" fx="-0.14" fy="0.70" fz="+0.56" tx="0.0" ty="0.35" tz="0.0"/>
+        </p2transition>
+    </initials>
+    <animations>
+        <animation id="wood-box-lid-animation" loop='0' easing="easeInMidOutSine" >
+            <keyframe instant='0.0'><translation x='0' y='0' z='0'/><rotation axis='x' angle='0'  /><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
+            <keyframe instant='1.25'><translation x='0' y='0' z='0'/><rotation axis='x' angle='-90'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
+            <keyframe instant='2.5'><translation x='0' y='0' z='0'/><rotation axis='x' angle='0'  /><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
+        </animation>
+        <animation id="cloud-rotation" loop="1">
+            <keyframe instant='0000000.0'><translation x='0' y='0' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='+000.0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
+            <keyframe instant='1500000.0'><translation x='0' y='0' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='+360.0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
+        </animation>
+        <animation id="earth-rotation" loop="1">
+            <keyframe instant='00000.0'><translation x='0' y='0' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='+000.0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
+            <keyframe instant='86400.0'><translation x='0' y='0' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='+360.0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
+        </animation>
+        <animation id="moon-orbit-distance" loop="1" easing="easeInMidOutSine">
+            <keyframe instant='0000000'><translation x='362600000' y='0' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
+            <keyframe instant='1274400'><translation x='405400000' y='0' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
+            <keyframe instant='2548800'><translation x='362600000' y='0' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
+        </animation>
+        <animation id="moon-orbit-angle" loop="1">
+            <keyframe instant='0000000'><translation x='0' y='0' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='+195'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
+            <keyframe instant='2548800'><translation x='0' y='0' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='+555'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
+        </animation>
+        <animation id="iss-orbit-inverse" loop="1">
+            <keyframe instant='0000'><translation x='0' y='0' z='0'/><rotation axis='x' angle='0000'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
+            <keyframe instant='5580'><translation x='0' y='0' z='0'/><rotation axis='x' angle='+360'/><rotation axis='y' angle='0'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
+        </animation>
+        <animation id="sun-orbit-angle" loop="1" onupdate="
+let M         = mat4.create();
+
+mat4.translate(M, M, [0, -67780, 0]);
+mat4.multiply(M, M, this.animations['iss-orbit-inverse'].M);
+mat4.rotate(M, M, +23.5*Math.PI/180, [0,1,0]);
+mat4.rotate(M, M, -51.6*Math.PI/180, [0,1,0]);
+mat4.translate(M, M, [0, +67780, 0]);
+
+mat4.rotate(M, M, 90*Math.PI/180, [0,0,1]);
+mat4.rotate(M, M, 90*Math.PI/180, [0,1,0]);
+
+let animation = arguments[0];
+mat4.multiply(M, M, animation.M);
+let oldPos    = this.userdata['initial-sun-light-position'];
+let oldPosVec = vec4.fromValues(oldPos[0], oldPos[1], oldPos[2], 0);
+let newPos    = vec4.create();
+vec4.transformMat4(newPos, oldPosVec, M);
+this.bindings['sun-light-position'].value = [newPos[0], newPos[1], newPos[2]];
+        ">
+            <keyframe instant='00000000'><translation x='0' y='0' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='0000'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
+            <keyframe instant='31557600'><translation x='0' y='0' z='0'/><rotation axis='x' angle='0'/><rotation axis='y' angle='+360'/><rotation axis='z' angle='0'/><scale sx='1' sy='1' sz='1'/></keyframe>
+        </animation>
+    </animations>
+    <bindings>
+        <binding id="sun-light-position">
+        </binding>
+    </bindings>
+    <views default="player1_camera">
+        <movecamera id="move_camera" near="0.2" far="1000000" angle="30">
+            <from x="0" y="0.75" z="0.70"/>
+            <to   x="0" y="0.45" z="0.23"/>
+        </movecamera>
+        <player1 id="player1_camera" near="0.2" far="1000000" angle="32">
+            <from x="0" y="0.75" z="0.70"/>
+            <to   x="0" y="0.45" z="0.23"/>
+        </player1>
+        <player2 id="player2_camera" near="0.2" far="1000000" angle="32">
+            <from x="0" y="0.75" z="-0.70"/>
+            <to   x="0" y="0.45" z="-0.23"/>
+        </player2>
+        <perspective id="default_camera" near="0.2" far="1000000" angle="30">
+            <from x="300000" y="300000" z="300000"/>
+            <to   x="0" y="0" z="0"/>
+        </perspective>
+    </views>
+    <illumination>
+        <ambient    r="0.7" g="0.7" b="0.7" a="1.0"/>
+        <background r="0.1" g="0.7" b="1.0" a="1.0"/>
+    </illumination>
+    <lights>
+        <light id="sun">
+            <enable value="1"/>
+            <position x="147100000000" y="0.0" z="0.0" w="1.0" bind="sun-light-position"/>
+            <ambient  r="0.00" g="0.00" b="0.00" a="1.0"/>
+            <diffuse  r="1.00" g="1.00" b="1.00" a="1.0"/>
+            <specular r="1.00" g="1.00" b="1.00" a="1.0"/>
+        </light>
+    </lights>
+    <textures>
+        <texture id="door_wood"           path="./scenes/textures/door_wood.jpg"              />
+        <texture id="brass"               path="./scenes/textures/brass.jpg"                  />
+        <texture id="star-map"            path="./scenes/iss/textures/star-map.png"           />
+        <texture id="blue-marble"         path="./scenes/iss/textures/earth/blue-marble-larger.jpeg"/>
+        <texture id="earth-night-lights"  path="./scenes/iss/textures/earth/night-lights-larger-transparent-60.png"/>
+        <texture id="earth-clouds"        path="./scenes/iss/textures/earth/clouds-transparent.png"/>
+        <texture id="moon"                path="./scenes/iss/textures/moon.jpeg"/>
+        <texture id="gameboard"           path="./scenes/gameboard/gameboard.png"           />
+        <texture id="cell"                path="./scenes/gameboard/cell.jpg"                />
+    </textures>
+
+    <spritesheets>
+        <spritesheet id="consolas" path="./scenes/spritesheets/consolas.svg" sizeM="16" sizeN="16"/>
+        <spritesheet id="lcd" path="./scenes/spritesheets/lcd.svg" sizeM="16" sizeN="16"/>
+        <spritesheet id="calc" path="./scenes/spritesheets/calc.svg" sizeM="16" sizeN="16"/>
+    </spritesheets>
+
+    <materials>
+        <material id="plastic-white">
+            <shininess value="5.0"/>
+            <ambient  r="1.0" g="1.0" b="1.0" a="1.0"/>
+            <diffuse  r="1.0" g="1.0" b="1.0" a="1.0"/>
+            <specular r="0.9" g="0.9" b="0.9" a="1.0"/>
+            <emissive r="0.0" g="0.0" b="0.0" a="1.0"/>
+        </material>
+        <material id="plastic-dark">
+            <shininess value="5.0"/>
+            <ambient  r="0.40" g="0.40" b="0.40" a="1.0"/>
+            <diffuse  r="0.40" g="0.40" b="0.40" a="1.0"/>
+            <specular r="0.36" g="0.36" b="0.36" a="1.0"/>
+            <emissive r="0.35" g="0.35" b="0.35" a="1.0"/>
+        </material>
+        <material id="plastic-red">
+            <shininess value="15.0"/>
+            <ambient  r="1.0" g="0.5" b="0.5" a="1.0"/>
+            <diffuse  r="1.0" g="0.5" b="0.5" a="1.0"/>
+            <specular r="0.3" g="0.3" b="0.3" a="1.0"/>
+            <emissive r="0.0" g="0.0" b="0.0" a="1.0"/>
+        </material>
+        <material id="plastic-red-emissive">
+            <shininess value="15.0"/>
+            <ambient  r="1.0" g="0.5" b="0.5" a="1.0"/>
+            <diffuse  r="1.0" g="0.5" b="0.5" a="1.0"/>
+            <specular r="0.3" g="0.3" b="0.3" a="1.0"/>
+            <emissive r="0.3" g="0.3" b="0.3" a="1.0"/>
+        </material>
+        <material id="plastic-yellow">
+            <shininess value="15.0"/>
+            <ambient  r="1.0" g="1.0" b="0.3" a="1.0"/>
+            <diffuse  r="1.0" g="1.0" b="0.3" a="1.0"/>
+            <specular r="0.3" g="0.3" b="0.3" a="1.0"/>
+            <emissive r="0.0" g="0.0" b="0.0" a="1.0"/>
+        </material>
+        <material id="plastic-yellow-emissive">
+            <shininess value="15.0"/>
+            <ambient  r="1.0" g="1.0" b="0.3" a="1.0"/>
+            <diffuse  r="1.0" g="1.0" b="0.3" a="1.0"/>
+            <specular r="0.3" g="0.3" b="0.3" a="1.0"/>
+            <emissive r="0.3" g="0.3" b="0.3" a="1.0"/>
+        </material>
+        <material id="plastic-blue">
+            <shininess value="15.0"/>
+            <ambient  r="0.5" g="0.5" b="1.0" a="1.0"/>
+            <diffuse  r="0.5" g="0.5" b="1.0" a="1.0"/>
+            <specular r="0.3" g="0.3" b="0.3" a="1.0"/>
+            <emissive r="0.0" g="0.0" b="0.0" a="1.0"/>
+        </material>
+        <material id="plastic-green">
+            <shininess value="15.0"/>
+            <ambient  r="0.5" g="1.0" b="0.5" a="1.0"/>
+            <diffuse  r="0.5" g="1.0" b="0.5" a="1.0"/>
+            <specular r="0.3" g="0.3" b="0.3" a="1.0"/>
+            <emissive r="0.0" g="0.0" b="0.0" a="1.0"/>
+        </material>
+        <material id="plastic-orange">
+            <shininess value="15.0"/>
+            <ambient  r="1.0" g="0.75" b="0.5" a="1.0"/>
+            <diffuse  r="1.0" g="0.75" b="0.5" a="1.0"/>
+            <specular r="0.3" g="0.3" b="0.3" a="1.0"/>
+            <emissive r="0.0" g="0.0" b="0.0" a="1.0"/>
+        </material>
+        
+        <material id="plastic-pink">
+            <shininess value="1.0"/>
+            <ambient  r="0.15" g="0.11" b="0.23" a="1.0"/>
+            <diffuse  r="0.15" g="0.11" b="0.23" a="1.0"/>
+            <specular r="0.05" g="0.04" b="0.08" a="1.0"/>
+            <emissive r="0.0" g="0.0" b="0.0" a="1.0"/>
+        </material>
+        <material id="plastic-old">
+            <shininess value="1.0"/>
+            <ambient  r="0.86" g="0.86" b="0.73" a="1.0"/>
+            <diffuse  r="0.86" g="0.86" b="0.73" a="1.0"/>
+            <specular r="0.29" g="0.29" b="0.24" a="1.0"/>
+            <emissive r="0.0" g="0.0" b="0.0" a="1.0"/>
+        </material>
+        <material id="plastic-black-shiny">
+            <shininess value="5.0"/>
+            <ambient  r="0.05" g="0.05" b="0.05" a="1.0"/>
+            <diffuse  r="0.05" g="0.05" b="0.05" a="1.0"/>
+            <specular r="0.25" g="0.25" b="0.25" a="1.0"/>
+            <emissive r="0.0" g="0.0" b="0.0" a="1.0"/>
+        </material>
+        <material id="television-screen">
+            <shininess value="50.0"/>
+            <ambient  r="0.10" g="0.10" b="0.10" a="1.0"/>
+            <diffuse  r="0.10" g="0.10" b="0.10" a="1.0"/>
+            <specular r="0.70" g="0.70" b="0.70" a="1.0"/>
+            <emissive r="0.0" g="0.0" b="0.0" a="1.0"/>
+        </material>
+        <material id="television-screen-on">
+            <shininess value="50.0"/>
+            <ambient  r="0.10" g="0.10" b="0.10" a="1.0"/>
+            <diffuse  r="0.10" g="0.10" b="0.10" a="1.0"/>
+            <specular r="0.70" g="0.70" b="0.70" a="1.0"/>
+            <emissive r="0.80" g="0.80" b="0.80" a="1.0"/>
+        </material>
+        <material id="metal">
+            <shininess value="50.0"/>
+            <ambient  r="1.0" g="1.0" b="1.0" a="1.0"/>
+            <diffuse  r="1.0" g="1.0" b="1.0" a="1.0"/>
+            <specular r="0.6" g="0.6" b="0.6" a="1.0"/>
+            <emissive r="0.0" g="0.0" b="0.0" a="1.0"/>
+        </material>
+        <material id="book-cover">
+            <shininess value="50.0"/>
+            <ambient  r="0.9" g="0.9" b="0.9" a="1.0"/>
+            <diffuse  r="0.9" g="0.9" b="0.9" a="1.0"/>
+            <specular r="1.0" g="1.0" b="1.0" a="1.0"/>
+            <emissive r="0.0" g="0.0" b="0.0" a="1.0"/>
+        </material>
+        <material id="paper">
+            <shininess value="8.0"/>
+            <ambient  r="1.0" g="1.0" b="1.0" a="1.0"/>
+            <diffuse  r="1.0" g="1.0" b="1.0" a="1.0"/>
+            <specular r="0.05" g="0.05" b="0.05" a="1.0"/>
+            <emissive r="0.0" g="0.0" b="0.0" a="1.0"/>
+        </material>
+        <material id="paper-lamp">
+            <shininess value="0.5"/>
+            <ambient  r="1.0" g="1.0" b="1.0" a="0.5"/>
+            <diffuse  r="0.9" g="0.9" b="0.9" a="0.5"/>
+            <specular r="0.0" g="0.0" b="0.0" a="0.5"/>
+            <emissive r="0.0" g="0.0" b="0.0" a="0.5"/>
+        </material>
+        <material id="paint">
+            <shininess value="4.0"/>
+            <ambient  r="1.0" g="1.0" b="1.0" a="1.0"/>
+            <diffuse  r="1.0" g="1.0" b="1.0" a="1.0"/>
+            <specular r="0.1" g="0.1" b="0.1" a="1.0"/>
+            <emissive r="0.0" g="0.0" b="0.0" a="1.0"/>
+        </material>
+        <material id="wood">
+            <shininess value="1.0"/>
+            <ambient  r="1.0" g="1.0" b="1.0" a="1.0"/>
+            <diffuse  r="1.0" g="1.0" b="1.0" a="1.0"/>
+            <specular r="0.01" g="0.01" b="0.01" a="1.0"/>
+            <emissive r="0.0" g="0.0" b="0.0" a="1.0"/>
+        </material>
+        <material id="wood-brown">
+            <shininess value="10.0"/>
+            <ambient  r="0.39" g="0.24" b="0.15" a="1.0"/>
+            <diffuse  r="0.39" g="0.24" b="0.15" a="1.0"/>
+            <specular r="0.5" g="0.5" b="0.5" a="1.0"/>
+            <emissive r="0.0" g="0.0" b="0.0" a="1.0"/>
+        </material>
+        <material id="bed-sheets">
+            <shininess value="1.0"/>
+            <ambient  r="1.0" g="1.0" b="1.0" a="1.0"/>
+            <diffuse  r="1.0" g="1.0" b="1.0" a="1.0"/>
+            <specular r="0.0" g="0.0" b="0.0" a="1.0"/>
+            <emissive r="0.0" g="0.0" b="0.0" a="1.0"/>
+        </material>
+        <material id="star-map">
+            <shininess value="0.0"/>
+            <ambient  r="0.0" g="0.0" b="0.0" a="1.0"/>
+            <diffuse  r="0.0" g="0.0" b="0.0" a="1.0"/>
+            <specular r="0.0" g="0.0" b="0.0" a="1.0"/>
+            <emissive r="0.6" g="0.6" b="0.6" a="1.0"/>
+        </material>
+        <material id="lamp-wax">
+            <shininess value="2.0"/>
+            <ambient  r="0.20" g="0.15" b="0.15" a="1.0"/>
+            <diffuse  r="0.07" g="0.03" b="0.03" a="1.0"/>
+            <specular r="0.30" g="0.15" b="0.15" a="1.0"/>
+            <emissive r="0.90" g="0.50" b="0.20" a="1.0"/>
+        </material>
+        <material id="lavalamp-glass">
+            <shininess value="2.0"/>
+            <ambient  r="0.20" g="0.15" b="0.15" a="1.0"/>
+            <diffuse  r="0.20" g="0.15" b="0.15" a="1.0"/>
+            <specular r="0.10" g="0.10" b="0.10" a="1.0"/>
+            <emissive r="0.85" g="0.23" b="0.23" a="1.0"/>
+        </material>
+        <material id="clock-button">
+            <shininess value="2.0"/>
+            <ambient  r="0.40" g="0.15" b="0.15" a="1.0"/>
+            <diffuse  r="0.20" g="0.15" b="0.15" a="1.0"/>
+            <specular r="0.30" g="0.10" b="0.10" a="1.0"/>
+            <emissive r="1.0" g="0.25" b="0.25" a="1.0"/>
+        </material>
+        <material id="clock-plastic">
+            <shininess value="1.0"/>
+            <ambient  r="1.0" g="1.0" b="1.0" a="1.0"/>
+            <diffuse  r="1.0" g="1.0" b="1.0" a="1.0"/>
+            <specular r="1.0" g="1.0" b="1.0" a="1.0"/>
+            <emissive r="0.1" g="0.1" b="0.1" a="1.0"/>
+        </material>
+        <material id="clock-plastic-black-emissive">
+            <shininess value="1.0"/>
+            <ambient  r="0.0" g="0.0" b="0.0" a="1.0"/>
+            <diffuse  r="0.0" g="0.0" b="0.0" a="1.0"/>
+            <specular r="0.0" g="0.0" b="0.0" a="1.0"/>
+            <emissive r="0.1" g="0.1" b="0.1" a="1.0"/>
+        </material>
+        <material id="clock-plastic-red-emissive">
+            <shininess value="1.0"/>
+            <ambient  r="0.0" g="0.0" b="0.0" a="1.0"/>
+            <diffuse  r="0.0" g="0.0" b="0.0" a="1.0"/>
+            <specular r="0.0" g="0.0" b="0.0" a="1.0"/>
+            <emissive r="0.9" g="0.0" b="0.0" a="1.0"/>
+        </material>
+        <material id="brick">
+            <shininess value="1.0"/>
+            <ambient  r="0.7" g="0.7" b="0.7" a="1.0"/>
+            <diffuse  r="0.7" g="0.7" b="0.7" a="1.0"/>
+            <specular r="0.0" g="0.0" b="0.0" a="1.0"/>
+            <emissive r="0.0" g="0.0" b="0.0" a="1.0"/>
+        </material>
+        <material id="black">
+            <shininess value="1.0"/>
+            <ambient  r="0.0" g="0.0" b="0.0" a="1.0"/>
+            <diffuse  r="0.0" g="0.0" b="0.0" a="1.0"/>
+            <specular r="0.0" g="0.0" b="0.0" a="1.0"/>
+            <emissive r="0.0" g="0.0" b="0.0" a="1.0"/>
+        </material>
+        <material id="porcelain">
+            <shininess value="50.0"/>
+            <ambient  r="0.9" g="0.9" b="0.9" a="1.0"/>
+            <diffuse  r="0.9" g="0.9" b="0.9" a="1.0"/>
+            <specular r="0.3" g="0.3" b="0.3" a="1.0"/>
+            <emissive r="0.0" g="0.0" b="0.0" a="1.0"/>
+        </material>
+        <material id="glass">
+            <shininess value="10.0"/>
+            <ambient  r="0.514" g="0.680" b="0.660" a="0.10"/>
+            <diffuse  r="0.514" g="0.680" b="0.660" a="0.10"/>
+            <specular r="0.514" g="0.680" b="0.660" a="0.10"/>
+            <emissive r="0.000" g="0.000" b="0.000" a="0.10"/>
+        </material>
+        <material id="fire">
+            <shininess value="1.0"/>
+            <ambient  r="0.0" g="0.0" b="0.0" a="1.0"/>
+            <diffuse  r="0.0" g="0.0" b="0.0" a="1.0"/>
+            <specular r="0.0" g="0.0" b="0.0" a="1.0"/>
+            <emissive r="1.0" g="1.0" b="1.0" a="1.0"/>
+        </material>
+        <material id="calculator-digit">
+            <shininess value="2.0"/>
+            <ambient  r="0.19" g="0.21" b="0.17" a="1.0"/>
+            <diffuse  r="0.19" g="0.21" b="0.17" a="1.0"/>
+            <specular r="0.50" g="0.50" b="0.50" a="1.0"/>
+            <emissive r="0.00" g="0.00" b="0.00" a="1.0"/>
+        </material>
+        <material id="calculator-background">
+            <shininess value="2.0"/>
+            <ambient  r="0.73" g="0.79" b="0.72" a="1.0"/>
+            <diffuse  r="0.73" g="0.79" b="0.72" a="1.0"/>
+            <specular r="0.20" g="0.20" b="0.20" a="1.0"/>
+            <emissive r="0.00" g="0.00" b="0.00" a="1.0"/>
+        </material>
+        <material id="earth">
+            <shininess value="10.0"/>
+            <ambient  r="0.05" g="0.05" b="0.05" a="1.0"/>
+            <diffuse  r="1.00" g="1.00" b="1.00" a="1.0"/>
+            <specular r="0.00" g="0.00" b="0.00" a="1.0"/>
+            <emissive r="0.00" g="0.00" b="0.00" a="1.0"/>
+        </material>
+        <material id="cloud">
+            <shininess value="10.0"/>
+            <ambient  r="0.05" g="0.05" b="0.05" a="1.0"/>
+            <diffuse  r="0.75" g="0.75" b="0.75" a="1.0"/>
+            <specular r="0.00" g="0.00" b="0.00" a="1.0"/>
+            <emissive r="0.00" g="0.00" b="0.00" a="1.0"/>
+        </material>
+        <material id="earth-night-lights">
+            <shininess value="10.0"/>
+            <ambient  r="0.00" g="0.00" b="0.00" a="0.1"/>
+            <diffuse  r="0.00" g="0.00" b="0.00" a="0.1"/>
+            <specular r="0.00" g="0.00" b="0.00" a="0.1"/>
+            <emissive r="1.00" g="0.94" b="0.69" a="0.1"/>
+        </material>
+        <material id="moon">
+            <shininess value="0.2"/>
+            <ambient  r="0.05" g="0.05" b="0.05" a="1.0"/>
+            <diffuse  r="1.00" g="1.00" b="1.00" a="1.0"/>
+            <specular r="0.00" g="0.00" b="0.00" a="1.0"/>
+            <emissive r="0.00" g="0.00" b="0.00" a="1.0"/>
+        </material>
+        <material id="sun">
+            <shininess value="0.2"/>
+            <ambient  r="0.00" g="0.00" b="0.00" a="1.0"/>
+            <diffuse  r="0.00" g="0.00" b="0.00" a="1.0"/>
+            <specular r="0.00" g="0.00" b="0.00" a="1.0"/>
+            <emissive r="1.00" g="1.00" b="1.00" a="1.0"/>
+        </material>
+    </materials>
+
+    <nodes>
+        <node id="root">
+            <material id="null"/>
+            <texture id="null">
+                <amplification afs="1" aft="1"/>
+            </texture>
+            <descendants>
+                <noderef id="universe-animated"/>
+                <noderef id="iss"/>
+                <noderef id="wood-box-floating"/>
+            </descendants>
+        </node>
+
+        <node id="cell">
+            <material id="plastic-white" selectedid="plastic-dark"/>
+            <texture id="cell">
+                <amplification afs="1" aft="1"/>
+            </texture>
+            <transformations>
+                <translation x="0" y="0.0001" z="0"/>
+                <scale sx="0.039" sy="0.039" sz="0.039"/>
+            </transformations>
+            <descendants>
+                <noderef id="hexagon"/>
+            </descendants>
+        </node>
+        <node id="hexagon">
+            <material id="null"/>
+            <texture id="null">
+                <amplification afs="1" aft="1"/>
+            </texture>
+            <transformations>
+                <rotation axis="x" angle="-90"/>
+                <scale sx="0.25" sy="0.25" sz="0.25"/>
+                <scale sx="0.86602540378" sy="1" sz="1"/>
+            </transformations>
+            <descendants>
+                <leaf type="triangle" x1="+2" y1="-1" x2="+2" y2="+1" x3="0" y3="0"/>
+                <leaf type="triangle" x1="+2" y1="+1" x2="00" y2="+2" x3="0" y3="0"/>
+                <leaf type="triangle" x1="00" y1="+2" x2="-2" y2="+1" x3="0" y3="0"/>
+                <leaf type="triangle" x1="-2" y1="+1" x2="-2" y2="-1" x3="0" y3="0"/>
+                <leaf type="triangle" x1="-2" y1="-1" x2="00" y2="-2" x3="0" y3="0"/>
+                <leaf type="triangle" x1="00" y1="-2" x2="+2" y2="-1" x3="0" y3="0"/>
+            </descendants>
+        </node>
+
+        <node id="gameboard">
+            <material id="plastic-white"/>
+            <texture id="null">
+                <amplification afs="1" aft="1"/>
+            </texture>
+            <transformations>
+                <rotation axis="x" angle="-90"/>
+            </transformations>
+            <descendants>
+                <noderef id="gameboard-front"/>
+                <noderef id="gameboard-back"/>
+                <noderef id="gameboard-left"/>
+                <noderef id="gameboard-right"/>
+                <noderef id="gameboard-top"/>
+                <noderef id="gameboard-bottom"/>
+            </descendants>
+        </node>
+        <node id="gameboard-front">
+            <material id="null"/>
+            <texture id="gameboard">
+                <amplification afs="0.4" aft="0.3"/>
+            </texture>
+            <transformations>
+                <translation x="0" y="0" z="0.001"/>
+            </transformations>
+            <descendants>
+                <leaf type="rectangle" x1="-0.2" x2="+0.2" y1="-0.150" y2="+0.150"/>
+            </descendants>
+        </node>
+        <node id="gameboard-back">
+            <material id="null"/><texture id="clear"/><transformations><rotation axis="y" angle="180"/></transformations>
+            <descendants>
+                <leaf type="rectangle" x1="-0.2" x2="+0.2" y1="-0.15" y2="+0.15"/>
+            </descendants>
+        </node>
+        <node id="gameboard-left">
+            <material id="null"/><texture id="clear"/><transformations><translation x="-0.2" y="0" z="0"/><rotation axis="y" angle="-90"/></transformations>
+            <descendants>
+                <leaf type="rectangle" x1="0" x2="0.001" y1="-0.15" y2="+0.15"/>
+            </descendants>
+        </node>
+        <node id="gameboard-right">
+            <material id="null"/><texture id="clear"/><transformations><translation x="+0.2" y="0" z="0"/><rotation axis="y" angle="+90"/></transformations>
+            <descendants>
+                <leaf type="rectangle" x1="-0.001" x2="0" y1="-0.15" y2="+0.15"/>
+            </descendants>
+        </node>
+        <node id="gameboard-top">
+            <material id="null"/><texture id="clear"/><transformations><translation x="0" y="+0.15" z="0"/><rotation axis="x" angle="-90"/></transformations>
+            <descendants>
+                <leaf type="rectangle" x1="-0.2" x2="+0.2" y1="-0.001" y2="0"/>
+            </descendants>
+        </node>
+        <node id="gameboard-bottom">
+            <material id="null"/><texture id="clear"/><transformations><translation x="0" y="-0.15" z="0"/><rotation axis="x" angle="+90"/></transformations>
+            <descendants>
+                <leaf type="rectangle" x1="-0.2" x2="+0.2" y1="0" y2="+0.001"/>
+            </descendants>
+        </node>
+
+        <node id="piece">
+            <material id="plastic-white"/><texture id="clear"/>
+            <transformations>
+                <rotation axis="x" angle="-90"/>
+            </transformations>
+            <descendants>
+                <noderef id="piece-top"/>
+                <noderef id="piece-bottom"/>
+            </descendants>
+        </node>
+        <node id="piece-top">
+            <material id="plastic-red" selectedid="plastic-red-emissive"/><texture id="null"><amplification afs="1" aft="1"/></texture>
+            <transformations>
+                <translation x="0" y="0" z="0.001"/>
+            </transformations>
+            <descendants>
+                <leaf type="cylinder" bottomRadius="0.011" topRadius="0.0105" height="0.001" slices="32" stacks="2"/>
+            </descendants>
+        </node>
+        <node id="piece-bottom">
+            <material id="plastic-yellow" selectedid="plastic-yellow-emissive"/><texture id="null"><amplification afs="1" aft="1"/></texture>
+            <descendants>
+                <leaf type="cylinder" bottomRadius="0.0105" topRadius="0.011" height="0.001" slices="32" stacks="2"/>
+            </descendants>
+        </node>
+
+        <node id="wood-box-floating">
+            <material id="null"/><texture id="null"><amplification afs="1" aft="1"/></texture>
+            <transformations>
+                <translation x="-0.275" y="0.2" z="0.01"/>
+                <rotation axis="y" angle="90"/>
+            </transformations>
+            <descendants>
+                <noderef id="wood-box"/>
+                <noderef id="wood-box-piece-1"/>
+                <noderef id="wood-box-piece-2"/>
+                <noderef id="wood-box-piece-3"/>
+            </descendants>
+        </node>
+        <node id="wood-box-piece-1"><material id="null"/><texture id="clear"/><transformations><translation x="-0.050" y="0.010" z="-0.025"/>                                </transformations><descendants><noderef id="piece"/></descendants></node>
+        <node id="wood-box-piece-2"><material id="null"/><texture id="clear"/><transformations><translation x="-0.045" y="0.014" z="-0.027"/><rotation axis="x" angle="180"/></transformations><descendants><noderef id="piece"/></descendants></node>
+        <node id="wood-box-piece-3"><material id="null"/><texture id="clear"/><transformations><translation x="-0.040" y="0.013" z="-0.015"/><rotation axis="x" angle="020"/></transformations><descendants><noderef id="piece"/></descendants></node>
+        <node id="wood-box">
+            <material id="wood"/><texture id="door_wood"><amplification afs="1" aft="1"/></texture>
+            <descendants>
+                <noderef id="wood-box-lid-animated"/>
+                <noderef id="wood-box-tray"/>
+            </descendants>
+        </node>
+        <node id="wood-box-tray">
+            <material id="null"/><texture id="null"><amplification afs="1" aft="1"/></texture>
+            <descendants>
+                <noderef id="wood-box-tray-outside-front"/>
+                <noderef id="wood-box-tray-outside-back"/>
+                <noderef id="wood-box-tray-outside-left"/>
+                <noderef id="wood-box-tray-outside-right"/>
+                <noderef id="wood-box-tray-outside-bottom"/>
+                <noderef id="wood-box-tray-border"/>
+                <noderef id="wood-box-tray-innerborder"/>
+                <noderef id="wood-box-tray-inside-front"/>
+                <noderef id="wood-box-tray-inside-back"/>
+                <noderef id="wood-box-tray-inside-left"/>
+                <noderef id="wood-box-tray-inside-right"/>
+                <noderef id="wood-box-tray-inside-bottom"/>
+                <noderef id="wood-box-tray-hinges"/>
+            </descendants>
+        </node>
+        <node id="wood-box-tray-outside-front" ><material id="null"/><texture id="null"><amplification afs="0.15" aft="0.05"/></texture><transformations><translation x="0"      y="0" z="+0.05"/>                                </transformations><descendants><leaf type="rectangle" x1="-0.075" x2="+0.075" y1="0" y2="0.05"/></descendants></node>
+        <node id="wood-box-tray-outside-back"  ><material id="null"/><texture id="null"><amplification afs="0.15" aft="0.05"/></texture><transformations><translation x="0"      y="0" z="-0.05"/><rotation axis="y" angle="180"/></transformations><descendants><leaf type="rectangle" x1="-0.075" x2="+0.075" y1="0" y2="0.05"/></descendants></node>
+        <node id="wood-box-tray-outside-left"  ><material id="null"/><texture id="null"><amplification afs="0.15" aft="0.05"/></texture><transformations><translation x="-0.075" y="0" z="0"    /><rotation axis="y" angle="-90"/></transformations><descendants><leaf type="rectangle" x1="-0.050" x2="+0.050" y1="0" y2="0.05"/></descendants></node>
+        <node id="wood-box-tray-outside-right" ><material id="null"/><texture id="null"><amplification afs="0.15" aft="0.05"/></texture><transformations><translation x="+0.075" y="0" z="0"    /><rotation axis="y" angle="+90"/></transformations><descendants><leaf type="rectangle" x1="-0.050" x2="+0.050" y1="0" y2="0.05"/></descendants></node>
+        <node id="wood-box-tray-outside-bottom"><material id="null"/><texture id="null"><amplification afs="0.15" aft="0.05"/></texture><transformations>                                         <rotation axis="x" angle="+90"/></transformations><descendants><leaf type="rectangle" x1="-0.075" x2="+0.075" y1="-0.05" y2="+0.05"/></descendants></node>
+        <node id="wood-box-tray-border"        >
+            <material id="null"/><texture id="null"><amplification afs="0.15" aft="0.05"/></texture>
+            <transformations>
+                <translation x="0" y="0.05" z="0"/>
+                <rotation axis="x" angle="-90"/>
+            </transformations>
+            <descendants>
+                <leaf type="rectangle" x1="-0.075" x2="+0.075" y1="-0.05" y2="-0.04"/>
+                <leaf type="rectangle" x1="-0.075" x2="+0.075" y1="+0.04" y2="+0.05"/>
+                <leaf type="rectangle" x1="-0.075" x2="-0.065" y1="-0.04" y2="+0.04"/>
+                <leaf type="rectangle" x1="+0.065" x2="+0.075" y1="-0.04" y2="+0.04"/>
+            </descendants>
+        </node>
+        <node id="wood-box-tray-innerborder">
+            <material id="null"/><texture id="null"><amplification afs="0.15" aft="0.05"/></texture>
+            <descendants>
+                <noderef id="wood-box-tray-innerborder-top"/>
+                <noderef id="wood-box-tray-innerborder-front"/>
+                <noderef id="wood-box-tray-innerborder-back"/>
+                <noderef id="wood-box-tray-innerborder-left"/>
+                <noderef id="wood-box-tray-innerborder-right"/>
+            </descendants>
+        </node>
+        <node id="wood-box-tray-innerborder-top">
+            <material id="null"/><texture id="null"><amplification afs="0.15" aft="0.05"/></texture>
+            <transformations>
+                <translation x="0" y="0.055" z="0"/>
+                <rotation axis="x" angle="-90"/>
+            </transformations>
+            <descendants>
+                <leaf type="rectangle" x1="-0.065" x2="+0.065" y1="-0.04" y2="-0.038"/>
+                <leaf type="rectangle" x1="-0.065" x2="+0.065" y1="+0.038" y2="+0.04"/>
+                <leaf type="rectangle" x1="-0.065" x2="-0.063" y1="-0.038" y2="+0.038"/>
+                <leaf type="rectangle" x1="+0.063" x2="+0.065" y1="-0.038" y2="+0.038"/>
+            </descendants>
+        </node>
+        <node id="wood-box-tray-innerborder-front" ><material id="null"/><texture id="null"><amplification afs="0.15" aft="0.05"/></texture><transformations><translation x="0"      y="0" z="+0.04"/>                                </transformations><descendants><leaf type="rectangle" x1="-0.065" x2="+0.065" y1="0.05" y2="0.055"/></descendants></node>
+        <node id="wood-box-tray-innerborder-back"  ><material id="null"/><texture id="null"><amplification afs="0.15" aft="0.05"/></texture><transformations><translation x="0"      y="0" z="-0.04"/><rotation axis="y" angle="180"/></transformations><descendants><leaf type="rectangle" x1="-0.065" x2="+0.065" y1="0.05" y2="0.055"/></descendants></node>
+        <node id="wood-box-tray-innerborder-left"  ><material id="null"/><texture id="null"><amplification afs="0.15" aft="0.05"/></texture><transformations><translation x="-0.065" y="0" z="0"    /><rotation axis="y" angle="-90"/></transformations><descendants><leaf type="rectangle" x1="-0.040" x2="+0.040" y1="0.05" y2="0.055"/></descendants></node>
+        <node id="wood-box-tray-innerborder-right" ><material id="null"/><texture id="null"><amplification afs="0.15" aft="0.05"/></texture><transformations><translation x="+0.065" y="0" z="0"    /><rotation axis="y" angle="+90"/></transformations><descendants><leaf type="rectangle" x1="-0.040" x2="+0.040" y1="0.05" y2="0.055"/></descendants></node>
+        
+        <node id="wood-box-tray-inside-front" ><material id="null"/><texture id="null"><amplification afs="0.15" aft="0.05"/></texture><transformations><translation x="0"      y="0"    z="+0.038"/>                                </transformations><descendants><leaf type="rectangle" x2="-0.063" x1="+0.063" y1="0.01" y2="0.055"/></descendants></node>
+        <node id="wood-box-tray-inside-back"  ><material id="null"/><texture id="null"><amplification afs="0.15" aft="0.05"/></texture><transformations><translation x="0"      y="0"    z="-0.038"/><rotation axis="y" angle="180"/></transformations><descendants><leaf type="rectangle" x2="-0.063" x1="+0.063" y1="0.01" y2="0.055"/></descendants></node>
+        <node id="wood-box-tray-inside-left"  ><material id="null"/><texture id="null"><amplification afs="0.15" aft="0.05"/></texture><transformations><translation x="-0.063" y="0"    z="0"    /><rotation axis="y" angle="-90"/></transformations><descendants><leaf type="rectangle" x2="-0.038" x1="+0.038" y1="0.01" y2="0.055"/></descendants></node>
+        <node id="wood-box-tray-inside-right" ><material id="null"/><texture id="null"><amplification afs="0.15" aft="0.05"/></texture><transformations><translation x="+0.063" y="0"    z="0"    /><rotation axis="y" angle="+90"/></transformations><descendants><leaf type="rectangle" x2="-0.038" x1="+0.038" y1="0.01" y2="0.055"/></descendants></node>
+        <node id="wood-box-tray-inside-bottom"><material id="null"/><texture id="null"><amplification afs="0.15" aft="0.05"/></texture><transformations><translation x="0"      y="0.01" z="0"    /><rotation axis="x" angle="+90"/></transformations><descendants><leaf type="rectangle" x2="-0.063" x1="+0.063" y1="-0.038" y2="+0.038"/></descendants></node>
+
+        <node id="wood-box-tray-hinges"       >
+            <material id="null"/>
+            <texture id="null"><amplification afs="1" aft="1"/></texture>
+            <transformations>
+                <translation x="0" y="0.051" z="-0.051"    />
+            </transformations>
+            <descendants>
+                <noderef id="wood-box-tray-hinge1"/>
+                <noderef id="wood-box-tray-hinge2"/>
+            </descendants>
+        </node>
+        <node id="wood-box-tray-hinge1">
+            <material id="null"/>
+            <texture id="null"><amplification afs="1" aft="1"/></texture>
+            <transformations>
+                <translation x="+0.035" y="0" z="0"/>
+            </transformations>
+            <descendants>
+                <noderef id="wood-box-tray-hinge-and-leaf"/>
+            </descendants>
+        </node>
+        <node id="wood-box-tray-hinge2">
+            <material id="null"/>
+            <texture id="null"><amplification afs="1" aft="1"/></texture>
+            <transformations>
+                <translation x="-0.035" y="0" z="0"/>
+            </transformations>
+            <descendants>
+                <noderef id="wood-box-tray-hinge-and-leaf"/>
+            </descendants>
+        </node>
+        <node id="wood-box-tray-hinge-and-leaf">
+            <material id="null"/>
+            <texture id="null"><amplification afs="1" aft="1"/></texture>
+            <descendants>
+                <noderef id="wood-box-tray-hinge"/>
+                <noderef id="wood-box-tray-hinge-leaf"/>
+            </descendants>
+        </node>
+        <node id="wood-box-tray-hinge">
+            <material id="metal"/>
+            <texture id="brass"><amplification afs="1" aft="1"/></texture>
+            <transformations>
+                <translation x="+0.005" y="0" z="0"/>
+                <rotation axis="y" angle="-90"/>
+            </transformations>
+            <descendants>
+                <leaf type="cylinder" bottomRadius="0.001" topRadius="0.001" height="0.010" slices="32" stacks="4"/>
+            </descendants>
+        </node>
+        <node id="wood-box-tray-hinge-leaf">
+            <material id="metal"/>
+            <texture id="brass"><amplification afs="1" aft="1"/></texture>
+            <descendants>
+                <noderef id="wood-box-tray-hinge-leaf-front"/>
+                <noderef id="wood-box-tray-hinge-leaf-back"/>
+                <noderef id="wood-box-tray-hinge-leaf-left"/>
+                <noderef id="wood-box-tray-hinge-leaf-right"/>
+                <noderef id="wood-box-tray-hinge-leaf-top"/>
+                <noderef id="wood-box-tray-hinge-leaf-bottom"/>
+            </descendants>
+        </node>
+        <node id="wood-box-tray-hinge-leaf-front" ><material id="null"/><texture id="null"><amplification afs="0.02" aft="0.02"/></texture><transformations><translation x="0" y="0" z="+0.006"/>                                 </transformations><descendants><leaf type="rectangle" x1="-0.0045" x2="+0.0045" y1="-0.001" y2="0"/></descendants></node>
+        <node id="wood-box-tray-hinge-leaf-back"  ><material id="null"/><texture id="null"><amplification afs="0.02" aft="0.02"/></texture><transformations>                                                                      </transformations><descendants><leaf type="rectangle" x2="-0.0045" x1="+0.0045" y1="-0.001" y2="0"/></descendants></node>
+        <node id="wood-box-tray-hinge-leaf-left"  ><material id="null"/><texture id="null"><amplification afs="0.02" aft="0.02"/></texture><transformations><translation x="-0.0045" y="0" z="0"/><rotation axis="y" angle="-90"/></transformations><descendants><leaf type="rectangle" x1="-0.0000" x2="+0.0060" y1="-0.001" y2="0"/></descendants></node>
+        <node id="wood-box-tray-hinge-leaf-right" ><material id="null"/><texture id="null"><amplification afs="0.02" aft="0.02"/></texture><transformations><translation x="+0.0045" y="0" z="0"/><rotation axis="y" angle="+90"/></transformations><descendants><leaf type="rectangle" x1="-0.0060" x2="+0.0000" y1="-0.001" y2="0"/></descendants></node>
+        <node id="wood-box-tray-hinge-leaf-top"   ><material id="null"/><texture id="null"><amplification afs="0.02" aft="0.02"/></texture><transformations>                                      <rotation axis="x" angle="-90"/></transformations><descendants><leaf type="rectangle" x1="-0.0045" x2="+0.0045" y1="-0.006" y2="0"/></descendants></node>
+        <node id="wood-box-tray-hinge-leaf-bottom"><material id="null"/><texture id="null"><amplification afs="0.02" aft="0.02"/></texture><transformations><translation x="0" y="-0.001" z="0"/> <rotation axis="x" angle="+90"/></transformations><descendants><leaf type="rectangle" x1="-0.0045" x2="+0.0045" y1="0" y2="+0.006"/></descendants></node>
+        
+
+        <node id="wood-box-lid-animated">
+            <material id="null"/><texture id="null"><amplification afs="1" aft="1"/></texture>
+            <transformations>
+                <translation x="0" y="0.051" z="-0.051"/>
+            </transformations>
+            <descendants>
+                <noderef id="wood-box-lid"/>
+            </descendants>
+        </node>
+        <node id="wood-box-lid">
+            <material id="null"/><texture id="null"><amplification afs="1" aft="1"/></texture>
+            <transformations>
+                <translation x="0" y="0" z="0.051"/>
+            </transformations>
+            <descendants>
+                <noderef id="wood-box-lid-outside-front"/>
+                <noderef id="wood-box-lid-outside-back"/>
+                <noderef id="wood-box-lid-outside-left"/>
+                <noderef id="wood-box-lid-outside-right"/>
+                <noderef id="wood-box-lid-outside-top"/>
+                <noderef id="wood-box-lid-border"/>
+                <noderef id="wood-box-lid-inside-front"/>
+                <noderef id="wood-box-lid-inside-back"/>
+                <noderef id="wood-box-lid-inside-left"/>
+                <noderef id="wood-box-lid-inside-right"/>
+                <noderef id="wood-box-lid-inside-top"/>
+                <noderef id="wood-box-lid-hinges"/>
+            </descendants>
+        </node>
+        <node id="wood-box-lid-outside-front" ><material id="null"/><texture id="null"><amplification afs="0.15" aft="0.05"/></texture><transformations><translation x="0"      y="0" z="+0.05"/>                                </transformations><descendants><leaf type="rectangle" x1="-0.075" x2="+0.075" y1="0" y2="0.025"/></descendants></node>
+        <node id="wood-box-lid-outside-back"  ><material id="null"/><texture id="null"><amplification afs="0.15" aft="0.05"/></texture><transformations><translation x="0"      y="0" z="-0.05"/><rotation axis="y" angle="180"/></transformations><descendants><leaf type="rectangle" x1="-0.075" x2="+0.075" y1="0" y2="0.025"/></descendants></node>
+        <node id="wood-box-lid-outside-left"  ><material id="null"/><texture id="null"><amplification afs="0.15" aft="0.05"/></texture><transformations><translation x="-0.075" y="0" z="0"    /><rotation axis="y" angle="-90"/></transformations><descendants><leaf type="rectangle" x1="-0.050" x2="+0.050" y1="0" y2="0.025"/></descendants></node>
+        <node id="wood-box-lid-outside-right" ><material id="null"/><texture id="null"><amplification afs="0.15" aft="0.05"/></texture><transformations><translation x="+0.075" y="0" z="0"    /><rotation axis="y" angle="+90"/></transformations><descendants><leaf type="rectangle" x1="-0.050" x2="+0.050" y1="0" y2="0.025"/></descendants></node>
+        <node id="wood-box-lid-outside-top"   ><material id="null"/><texture id="null"><amplification afs="0.15" aft="0.05"/></texture><transformations><translation x="0" y="+0.025" z="0"    /><rotation axis="x" angle="-90"/></transformations><descendants><leaf type="rectangle" x1="-0.075" x2="+0.075" y1="-0.05" y2="+0.05"/></descendants></node>
+        <node id="wood-box-lid-border"        >
+            <material id="null"/><texture id="null"><amplification afs="0.15" aft="0.05"/></texture>
+            <transformations>
+                <rotation axis="x" angle="+90"/>
+            </transformations>
+            <descendants>
+                <leaf type="rectangle" x1="-0.075" x2="+0.075" y1="-0.05" y2="-0.04"/>
+                <leaf type="rectangle" x1="-0.075" x2="+0.075" y1="+0.04" y2="+0.05"/>
+                <leaf type="rectangle" x1="-0.075" x2="-0.065" y1="-0.04" y2="+0.04"/>
+                <leaf type="rectangle" x1="+0.065" x2="+0.075" y1="-0.04" y2="+0.04"/>
+            </descendants>
+        </node>
+        <node id="wood-box-lid-inside-front" ><material id="null"/><texture id="null"><amplification afs="0.15" aft="0.05"/></texture><transformations><translation x="0"      y="0" z="+0.04"/>                                </transformations><descendants><leaf type="rectangle" x2="-0.065" x1="+0.065" y1="0" y2="0.015"/></descendants></node>
+        <node id="wood-box-lid-inside-back"  ><material id="null"/><texture id="null"><amplification afs="0.15" aft="0.05"/></texture><transformations><translation x="0"      y="0" z="-0.04"/><rotation axis="y" angle="180"/></transformations><descendants><leaf type="rectangle" x2="-0.065" x1="+0.065" y1="0" y2="0.015"/></descendants></node>
+        <node id="wood-box-lid-inside-left"  ><material id="null"/><texture id="null"><amplification afs="0.15" aft="0.05"/></texture><transformations><translation x="-0.065" y="0" z="0"    /><rotation axis="y" angle="-90"/></transformations><descendants><leaf type="rectangle" x2="-0.040" x1="+0.040" y1="0" y2="0.015"/></descendants></node>
+        <node id="wood-box-lid-inside-right" ><material id="null"/><texture id="null"><amplification afs="0.15" aft="0.05"/></texture><transformations><translation x="+0.065" y="0" z="0"    /><rotation axis="y" angle="+90"/></transformations><descendants><leaf type="rectangle" x2="-0.040" x1="+0.040" y1="0" y2="0.015"/></descendants></node>
+        <node id="wood-box-lid-inside-top"   ><material id="null"/><texture id="null"><amplification afs="0.15" aft="0.05"/></texture><transformations><translation x="0" y="+0.015" z="0"    /><rotation axis="x" angle="+90"/></transformations><descendants><leaf type="rectangle" x1="-0.075" x2="+0.075" y1="-0.05" y2="+0.05"/></descendants></node>
+        <node id="wood-box-lid-hinges"       >
+            <material id="null"/>
+            <texture id="null"><amplification afs="0.15" aft="0.05"/></texture>
+            <transformations>
+                <translation x="0" y="0" z="-0.051"    />
+            </transformations>
+            <descendants>
+                <noderef id="wood-box-lid-hinge1"/>
+                <noderef id="wood-box-lid-hinge2"/>
+            </descendants>
+        </node>
+        <node id="wood-box-lid-hinge1">
+            <material id="null"/>
+            <texture id="null"><amplification afs="1" aft="1"/></texture>
+            <transformations>
+                <translation x="+0.035" y="0" z="0"/>
+            </transformations>
+            <descendants>
+                <noderef id="wood-box-lid-hinge"/>
+            </descendants>
+        </node>
+        <node id="wood-box-lid-hinge2">
+            <material id="null"/>
+            <texture id="null"><amplification afs="1" aft="1"/></texture>
+            <transformations>
+                <translation x="-0.035" y="0" z="0"/>
+            </transformations>
+            <descendants>
+                <noderef id="wood-box-lid-hinge"/>
+            </descendants>
+        </node>
+        <node id="wood-box-lid-hinge">
+            <material id="null"/>
+            <texture id="null"><amplification afs="1" aft="1"/></texture>
+            <transformations>
+                <rotation axis="y" angle="-90"/>
+            </transformations>
+            <descendants>
+                <noderef id="wood-box-lid-hinge-left"/>
+                <noderef id="wood-box-lid-hinge-right"/>
+            </descendants>
+        </node>
+        <node id="wood-box-lid-hinge-left">
+            <material id="metal"/>
+            <texture id="brass"><amplification afs="1" aft="1"/></texture>
+            <transformations>
+                <translation x="0" y="0" z="0.005"/>
+            </transformations>
+            <descendants>
+                <leaf type="cylinder" bottomRadius="0.001" topRadius="0.001" height="0.006" slices="32" stacks="4"/>
+            </descendants>
+        </node>
+        <node id="wood-box-lid-hinge-right">
+            <material id="metal"/>
+            <texture id="brass"><amplification afs="1" aft="1"/></texture>
+            <transformations>
+                <rotation axis="y" angle="180"/>
+                <translation x="0" y="0" z="0.005"/>
+            </transformations>
+            <descendants>
+                <leaf type="cylinder" bottomRadius="0.001" topRadius="0.001" height="0.006" slices="32" stacks="4"/>
+            </descendants>
+        </node>
+
+        <node id="ui-panel-with-all">
+            <material id="null"/><texture id="null"><amplification afs="1" aft="1"/></texture>
+            <descendants>
+                <noderef id="ui-panel"/>
+                <noderef id="ui-panel-timer-all"/>
+                <noderef id="ui-panel-value-all"/>
+                <noderef id="ui-panel-turn-all"/>
+                <noderef id="ui-panel-feedback-all"/>
+                <noderef id="ui-panel-timeleft-all"/>
+            </descendants>
+        </node>
+
+        <node id="ui-panel">
+            <material id="plastic-white"/><texture id="null"><amplification afs="1" aft="1"/></texture>
+            <transformations>
+                <scale sx="0.23" sy="0.07" sz="0.005"/>
+            </transformations>
+            <descendants>
+                <noderef id="cube"/>
+            </descendants>
+        </node>
+
+        <node id="ui-panel-timer-all">
+            <material id="null"/><texture id="null"><amplification afs="1" aft="1"/></texture>
+            <descendants>
+                <noderef id="ui-panel-timer-label"/>
+                <noderef id="ui-panel-timer-display"/>
+            </descendants>
+        </node>
+        <node id="ui-panel-timer-label">
+            <material id="clock-plastic-black-emissive"/>
+            <texture id="null"><amplification afs="1" aft="1"/></texture>
+            <transformations>
+                <translation x="-0.095" y="0.025" z="0.002501"/>
+                <scale sx="0.010" sy="0.010" sz="0.010"/>
+                <scale sx="0.57142857142" sy="1" sz="1"/>
+            </transformations>
+            <descendants>
+                <leaf type="spritetext" font="consolas" text="Time:"/>
+            </descendants>
+        </node>
+        <node id="ui-panel-timer-display">
+            <material id="null"/><texture id="null"><amplification afs="1" aft="1"/></texture>
+            <transformations>
+                <translation x="-0.074" y="0" z="0.00001"/>
+                <translation x="0.019" y="0.025" z="0.0025"/>
+            </transformations>
+            <descendants>
+                <noderef id="ui-panel-timer-background"/>
+                <noderef id="ui-panel-timer"/>
+            </descendants>
+        </node>
+        <node id="ui-panel-timer-background">
+            <material id="calculator-background"/>
+            <texture id="null"><amplification afs="1" aft="1"/></texture>
+            <transformations>
+                <scale sx="1.15" sy="1.1" sz="1"/>
+                <scale sx="0.012" sy="0.012" sz="0.012"/>
+                <scale sx="0.60" sy="1" sz="1"/>
+            </transformations>
+            <descendants>
+                <leaf type="rectangle" x1="-3.0" x2="+3.0" y1="-0.5" y2="+0.5"/>
+            </descendants>
+        </node>
+        <node id="ui-panel-timer">
+            <material id="calculator-digit"/>
+            <texture id="null"><amplification afs="1" aft="1"/></texture>
+            <transformations>
+                <translation x="0" y="0" z="0.00001"/>
+                <scale sx="0.012" sy="0.012" sz="0.012"/>
+                <scale sx="0.60" sy="1" sz="1"/>
+            </transformations>
+            <descendants>
+                <leaf type="spritetext" font="calc" text="00:00"
+                    eval="return ('0' + Math.floor(this.scene.orchestrator.gameState.gametime/60)).slice(-2) + ':' + ('0' + Math.floor(this.scene.orchestrator.gameState.gametime)%60).slice(-2); "
+                    format="return arguments[0].padStart(5,' ');"
+                />
+            </descendants>
+        </node>
+
+        <node id="ui-panel-timeleft-all">
+            <material id="null"/><texture id="null"><amplification afs="1" aft="1"/></texture>
+            <descendants>
+                <noderef id="ui-panel-timeleft-label"/>
+                <noderef id="ui-panel-timeleft-display"/>
+            </descendants>
+        </node>
+        <node id="ui-panel-timeleft-label">
+            <material id="clock-plastic-black-emissive"/>
+            <texture id="null"><amplification afs="1" aft="1"/></texture>
+            <transformations>
+                <translation x="0.085" y="0.025" z="0.002501"/>
+                <scale sx="0.010" sy="0.010" sz="0.010"/>
+                <scale sx="0.57142857142" sy="1" sz="1"/>
+            </transformations>
+            <descendants>
+                <leaf type="spritetext" font="consolas" text="Time left:"/>
+            </descendants>
+        </node>
+        <node id="ui-panel-timeleft-display">
+            <material id="null"/><texture id="null"><amplification afs="1" aft="1"/></texture>
+            <transformations>
+                <translation x="0.065" y="0" z="0.00001"/>
+                <translation x="0.019" y="0.010" z="0.0025"/>
+            </transformations>
+            <descendants>
+                <noderef id="ui-panel-timeleft-background"/>
+                <noderef id="ui-panel-timeleft"/>
+            </descendants>
+        </node>
+        <node id="ui-panel-timeleft-background">
+            <material id="calculator-background"/>
+            <texture id="null"><amplification afs="1" aft="1"/></texture>
+            <transformations>
+                <scale sx="1.15" sy="1.1" sz="1"/>
+                <scale sx="0.012" sy="0.012" sz="0.012"/>
+                <scale sx="0.60" sy="1" sz="1"/>
+            </transformations>
+            <descendants>
+                <leaf type="rectangle" x1="-3.0" x2="+3.0" y1="-0.5" y2="+0.5"/>
+            </descendants>
+        </node>
+        <node id="ui-panel-timeleft">
+            <material id="calculator-digit"/>
+            <texture id="null"><amplification afs="1" aft="1"/></texture>
+            <transformations>
+                <translation x="0" y="0" z="0.00001"/>
+                <scale sx="0.012" sy="0.012" sz="0.012"/>
+                <scale sx="0.60" sy="1" sz="1"/>
+            </transformations>
+            <descendants>
+                <leaf type="spritetext" font="calc" text="00:00"
+                    eval="return ('0' + Math.floor(this.scene.orchestrator.gameState.timeLeft/60)).slice(-2) + ':' + ('0' + Math.floor(this.scene.orchestrator.gameState.timeLeft)%60).slice(-2); "
+                    format="return arguments[0].padStart(5,' ');"
+                />
+            </descendants>
+        </node>
+
+
+        <node id="ui-panel-value-all">
+            <material id="null"/><texture id="null"><amplification afs="1" aft="1"/></texture>
+            <descendants>
+                <noderef id="ui-panel-value-label"/>
+                <noderef id="ui-panel-value-display"/>
+            </descendants>
+        </node>
+        <node id="ui-panel-value-label">
+            <material id="clock-plastic-black-emissive"/>
+            <texture id="null"><amplification afs="1" aft="1"/></texture>
+            <transformations>
+                <translation x="-0.096" y="0.010" z="0.002501"/>
+                <scale sx="0.010" sy="0.010" sz="0.010"/>
+                <scale sx="0.57142857142" sy="1" sz="1"/>
+            </transformations>
+            <descendants>
+                <leaf type="spritetext" font="consolas" text="Value:"/>
+            </descendants>
+        </node>
+        <node id="ui-panel-value-display">
+            <material id="null"/><texture id="null"><amplification afs="1" aft="1"/></texture>
+            <transformations>
+                <translation x="-0.074" y="0" z="0.00001"/>
+                <translation x="0.019" y="0.010" z="0.0025"/>
+            </transformations>
+            <descendants>
+                <noderef id="ui-panel-value-background"/>
+                <noderef id="ui-panel-value"/>
+            </descendants>
+        </node>
+        <node id="ui-panel-value-background">
+            <material id="calculator-background"/>
+            <texture id="null"><amplification afs="1" aft="1"/></texture>
+            <transformations>
+                <scale sx="1.15" sy="1.1" sz="1"/>
+                <scale sx="0.012" sy="0.012" sz="0.012"/>
+                <scale sx="0.60" sy="1" sz="1"/>
+            </transformations>
+            <descendants>
+                <leaf type="rectangle" x1="-3.0" x2="+3.0" y1="-0.5" y2="+0.5"/>
+            </descendants>
+        </node>
+        <node id="ui-panel-value">
+            <material id="calculator-digit"/>
+            <texture id="null"><amplification afs="1" aft="1"/></texture>
+            <transformations>
+                <translation x="0" y="0" z="0.00001"/>
+                <scale sx="0.012" sy="0.012" sz="0.012"/>
+                <scale sx="0.60" sy="1" sz="1"/>
+            </transformations>
+            <descendants>
+                <leaf type="spritetext" font="calc" text="   0.0" format="return arguments[0].padStart(6,' ');"/>
+            </descendants>
+        </node>
+
+        <node id="ui-panel-turn-all">
+            <material id="null"/><texture id="null"><amplification afs="1" aft="1"/></texture>
+            <descendants>
+                <noderef id="ui-panel-turn-label"/>
+                <noderef id="ui-panel-turn-display"/>
+            </descendants>
+        </node>
+        <node id="ui-panel-turn-label">
+            <material id="clock-plastic-black-emissive"/>
+            <texture id="null"><amplification afs="1" aft="1"/></texture>
+            <transformations>
+                <translation x="0.000" y="0.025" z="0.002501"/>
+                <scale sx="0.010" sy="0.010" sz="0.010"/>
+                <scale sx="0.57142857142" sy="1" sz="1"/>
+            </transformations>
+            <descendants>
+                <leaf type="spritetext" font="consolas" text="Round:"/>
+            </descendants>
+        </node>
+        <node id="ui-panel-turn-display">
+            <material id="null"/><texture id="null"><amplification afs="1" aft="1"/></texture>
+            <transformations>
+                <translation x="0.01" y="0" z="0.00001"/>
+                <translation x="0.019" y="0.025" z="0.0025"/>
+            </transformations>
+            <descendants>
+                <noderef id="ui-panel-turn-background"/>
+                <noderef id="ui-panel-turn"/>
+            </descendants>
+        </node>
+        <node id="ui-panel-turn-background">
+            <material id="calculator-background"/>
+            <texture id="null"><amplification afs="1" aft="1"/></texture>
+            <transformations>
+                <scale sx="0.6" sy="1.1" sz="1"/>
+                <scale sx="0.012" sy="0.012" sz="0.012"/>
+                <scale sx="0.60" sy="1" sz="1"/>
+            </transformations>
+            <descendants>
+                <leaf type="rectangle" x1="-3.0" x2="+3.0" y1="-0.5" y2="+0.5"/>
+            </descendants>
+        </node>
+        <node id="ui-panel-turn">
+            <material id="calculator-digit"/>
+            <texture id="null"><amplification afs="1" aft="1"/></texture>
+            <transformations>
+                <translation x="0" y="0" z="0.00001"/>
+                <scale sx="0.012" sy="0.012" sz="0.012"/>
+                <scale sx="0.60" sy="1" sz="1"/>
+            </transformations>
+            <descendants>
+                <leaf type="spritetext" font="calc" text="001"
+                    eval="return this.scene.orchestrator.gameState.round.toString();"
+                    format="return arguments[0].padStart(3,' ');"
+                />
+            </descendants>
+        </node>
+        <node id="ui-panel-feedback-all">
+            <material id="null"/><texture id="null"><amplification afs="1" aft="1"/></texture>
+            <descendants>
+                <noderef id="ui-panel-feedback-display"/>
+            </descendants>
+        </node>
+        <node id="ui-panel-feedback-display">
+            <material id="null"/><texture id="null"><amplification afs="1" aft="1"/></texture>
+            <transformations>
+                <translation x="-0.005" y="0" z="0.00001"/>
+                <translation x="0.019" y="0.01" z="0.0025"/>
+            </transformations>
+            <descendants>
+                <noderef id="ui-panel-feedback-background"/>
+                <noderef id="ui-panel-feedback"/>
+            </descendants>
+        </node>
+        <node id="ui-panel-feedback-background">
+            <material id="calculator-background"/>
+            <texture id="null"><amplification afs="1" aft="1"/></texture>
+            <transformations>
+                <scale sx="1.7" sy="1.1" sz="1"/>
+                <scale sx="0.012" sy="0.012" sz="0.012"/>
+                <scale sx="0.60" sy="1" sz="1"/>
+            </transformations>
+            <descendants>
+                <leaf type="rectangle" x1="-3.0" x2="+3.0" y1="-0.5" y2="+0.5"/>
+            </descendants>
+        </node>
+        <node id="ui-panel-feedback">
+            <material id="calculator-digit"/>
+            <texture id="null"><amplification afs="1" aft="1"/></texture>
+            <transformations>
+                <translation x="0" y="0" z="0.00001"/>
+                <scale sx="0.57142857142" sy="1" sz="1"/>
+                <scale sx="0.007" sy="0.007" sz="0.007"/>
+            </transformations>
+            <descendants>
+                <leaf type="spritetext" font="consolas" text="none"
+                    eval="return this.scene.orchestrator.gameState.feedbackText;"
+                />
+            </descendants>
+        </node>
+        <node id="change-theme">
+            <material id="null"/><texture id="null"><amplification afs="1" aft="1"/></texture>
+            <transformations>
+                <translation x="0.04" y="-0.015" z="0.0035"/>
+                <rotation axis="x" angle="90"/>
+            </transformations>
+            <descendants>
+                <noderef id="change-theme-button"/>
+                <noderef id="change-theme-text-1"/>
+                <noderef id="change-theme-text-2"/>
+            </descendants>
+        </node>
+        <node id="change-theme-button">
+            <material id="plastic-blue"/><texture id="null"><amplification afs="1" aft="1"/></texture>
+            <transformations>
+                <scale sx="0.030" sy="0.002" sz="0.020"/>
+            </transformations>
+            <descendants>
+                <noderef id="cube"/>
+            </descendants>
+        </node>
+        <node id="change-theme-text-1">
+            <material id="plastic-white"/><texture id="null"><amplification afs="1" aft="1"/></texture>
+            <transformations>
+                <translation x="0" y="0.00101" z="-0.004"/>
+                <rotation axis="x" angle="-90"/>
+                <scale sx="0.57142857142" sy="1" sz="1"/>
+                <scale sx="0.007" sy="0.007" sz="0.007"/>
+            </transformations>
+            <descendants>
+                <leaf type="spritetext" font="consolas" text="Change"/>
+            </descendants>
+        </node>
+        <node id="change-theme-text-2">
+            <material id="plastic-white"/><texture id="null"><amplification afs="1" aft="1"/></texture>
+            <transformations>
+                <translation x="0" y="0.00101" z="0.004"/>
+                <rotation axis="x" angle="-90"/>
+                <scale sx="0.57142857142" sy="1" sz="1"/>
+                <scale sx="0.007" sy="0.007" sz="0.007"/>
+            </transformations>
+            <descendants>
+                <leaf type="spritetext" font="consolas" text="Theme"/>
+            </descendants>
+        </node>
+
+
+        <node id="main-menu">
+            <material id="null"/><texture id="null"><amplification afs="1" aft="1"/></texture>
+            <transformations>
+                <translation x="0.08" y="-0.015" z="0.0035"/>
+                <rotation axis="x" angle="90"/>
+            </transformations>
+            <descendants>
+                <noderef id="main-menu-button"/>
+                <noderef id="main-menu-text-1"/>
+                <noderef id="main-menu-text-2"/>
+            </descendants>
+        </node>
+        <node id="main-menu-button">
+            <material id="plastic-dark"/><texture id="null"><amplification afs="1" aft="1"/></texture>
+            <transformations>
+                <scale sx="0.030" sy="0.002" sz="0.020"/>
+            </transformations>
+            <descendants>
+                <noderef id="cube"/>
+            </descendants>
+        </node>
+        <node id="main-menu-text-1">
+            <material id="plastic-white"/><texture id="null"><amplification afs="1" aft="1"/></texture>
+            <transformations>
+                <translation x="0" y="0.00101" z="-0.004"/>
+                <rotation axis="x" angle="-90"/>
+                <scale sx="0.57142857142" sy="1" sz="1"/>
+                <scale sx="0.007" sy="0.007" sz="0.007"/>
+            </transformations>
+            <descendants>
+                <leaf type="spritetext" font="consolas" text="Main"/>
+            </descendants>
+        </node>
+        <node id="main-menu-text-2">
+            <material id="plastic-white"/><texture id="null"><amplification afs="1" aft="1"/></texture>
+            <transformations>
+                <translation x="0" y="0.00101" z="0.004"/>
+                <rotation axis="x" angle="-90"/>
+                <scale sx="0.57142857142" sy="1" sz="1"/>
+                <scale sx="0.007" sy="0.007" sz="0.007"/>
+            </transformations>
+            <descendants>
+                <leaf type="spritetext" font="consolas" text="Menu"/>
+            </descendants>
+        </node>
+
+        <node id="submit">
+            <material id="null"/><texture id="null"><amplification afs="1" aft="1"/></texture>
+            <transformations>
+                <translation x="0.0" y="-0.015" z="0.0035"/>
+                <rotation axis="x" angle="90"/>
+            </transformations>
+            <descendants>
+                <noderef id="submit-button"/>
+                <noderef id="submit-text"/>
+            </descendants>
+        </node>
+        <node id="submit-button">
+            <material id="plastic-green"/><texture id="null"><amplification afs="1" aft="1"/></texture>
+            <transformations>
+                <scale sx="0.030" sy="0.002" sz="0.020"/>
+            </transformations>
+            <descendants>
+                <noderef id="cube"/>
+            </descendants>
+        </node>
+        <node id="submit-text">
+            <material id="plastic-white"/><texture id="null"><amplification afs="1" aft="1"/></texture>
+            <transformations>
+                <translation x="0" y="0.00101" z="0"/>
+                <rotation axis="x" angle="-90"/>
+                <scale sx="0.57142857142" sy="1" sz="1"/>
+                <scale sx="0.007" sy="0.007" sz="0.007"/>
+            </transformations>
+            <descendants>
+                <leaf type="spritetext" font="consolas" text="Submit"/>
+            </descendants>
+        </node>
+        <node id="undo">
+            <material id="null"/><texture id="null"><amplification afs="1" aft="1"/></texture>
+            <transformations>
+                <translation x="-0.08" y="-0.015" z="0.0035"/>
+                <rotation axis="x" angle="90"/>
+            </transformations>
+            <descendants>
+                <noderef id="undo-button"/>
+                <noderef id="undo-text"/>
+            </descendants>
+        </node>
+        <node id="undo-button">
+            <material id="plastic-orange"/><texture id="null"><amplification afs="1" aft="1"/></texture>
+            <transformations>
+                <scale sx="0.030" sy="0.002" sz="0.020"/>
+            </transformations>
+            <descendants>
+                <noderef id="cube"/>
+            </descendants>
+        </node>
+        <node id="undo-text">
+            <material id="plastic-white"/><texture id="null"><amplification afs="1" aft="1"/></texture>
+            <transformations>
+                <translation x="0" y="0.00101" z="0"/>
+                <rotation axis="x" angle="-90"/>
+                <scale sx="0.57142857142" sy="1" sz="1"/>
+                <scale sx="0.007" sy="0.007" sz="0.007"/>
+            </transformations>
+            <descendants>
+                <leaf type="spritetext" font="consolas" text="Undo"/>
+            </descendants>
+        </node>
+        <node id="cancel">
+            <material id="null"/><texture id="null"><amplification afs="1" aft="1"/></texture>
+            <transformations>
+                <translation x="-0.04" y="-0.015" z="0.0035"/>
+                <rotation axis="x" angle="90"/>
+            </transformations>
+            <descendants>
+                <noderef id="cancel-button"/>
+                <noderef id="cancel-text-1"/>
+                <noderef id="cancel-text-2"/>
+            </descendants>
+        </node>
+        <node id="cancel-button">
+            <material id="plastic-red"/><texture id="null"><amplification afs="1" aft="1"/></texture>
+            <transformations>
+                <scale sx="0.030" sy="0.002" sz="0.020"/>
+            </transformations>
+            <descendants>
+                <noderef id="cube"/>
+            </descendants>
+        </node>
+        <node id="cancel-text-1">
+            <material id="plastic-white"/><texture id="null"><amplification afs="1" aft="1"/></texture>
+            <transformations>
+                <translation x="0" y="0.00101" z="-0.004"/>
+                <rotation axis="x" angle="-90"/>
+                <scale sx="0.57142857142" sy="1" sz="1"/>
+                <scale sx="0.007" sy="0.007" sz="0.007"/>
+            </transformations>
+            <descendants>
+                <leaf type="spritetext" font="consolas" text="Cancel"/>
+            </descendants>
+        </node>
+        <node id="cancel-text-2">
+            <material id="plastic-white"/><texture id="null"><amplification afs="1" aft="1"/></texture>
+            <transformations>
+                <translation x="0" y="0.00101" z="+0.004"/>
+                <rotation axis="x" angle="-90"/>
+                <scale sx="0.57142857142" sy="1" sz="1"/>
+                <scale sx="0.007" sy="0.007" sz="0.007"/>
+            </transformations>
+            <descendants>
+                <leaf type="spritetext" font="consolas" text="Move"/>
+            </descendants>
+        </node>
+        
+        <node id="cube">
+            <material id="null"/>
+            <texture id="null">
+                <amplification afs="1" aft="1"/>
+            </texture>
+            <descendants>
+                <noderef id="cube_top"/>
+                <noderef id="cube_bot"/>
+                <noderef id="cube_lef"/>
+                <noderef id="cube_rig"/>
+                <noderef id="cube_fro"/>
+                <noderef id="cube_bac"/>
+            </descendants>
+        </node>
+        <node id="cube_top">
+            <material id="null"/>
+            <texture id="null">
+                <amplification afs="1" aft="1"/>
+            </texture>
+            <transformations>
+                <translation x="+0.0" y="+0.5" z="+0.0"/>
+                <rotation axis="x" angle= "-90"/>
+            </transformations>
+            <descendants>
+                <leaf type="rectangle" x1="-0.5" y1="-0.5" x2="0.5" y2="0.5"/>
+            </descendants>
+        </node>
+        <node id="cube_bot">
+            <material id="null"/>
+            <texture id="null">
+                <amplification afs="1" aft="1"/>
+            </texture>
+            <transformations>
+                <translation x="+0.0" y="-0.5" z="+0.0"/>
+                <rotation axis="x" angle= "+90"/>
+            </transformations>
+            <descendants>
+                <leaf type="rectangle" x1="-0.5" y1="-0.5" x2="0.5" y2="0.5"/>
+            </descendants>
+        </node>
+        <node id="cube_fro">
+            <material id="null"/>
+            <texture id="null">
+                <amplification afs="1" aft="1"/>
+            </texture>
+            <transformations>
+                <translation x="+0.0" y="+0.0" z="+0.5"/>
+            </transformations>
+            <descendants>
+                <leaf type="rectangle" x1="-0.5" y1="-0.5" x2="0.5" y2="0.5"/>
+            </descendants>
+        </node>
+        <node id="cube_bac">
+            <material id="null"/>
+            <texture id="null">
+                <amplification afs="1" aft="1"/>
+            </texture>
+            <transformations>
+                <translation x="+0.0" y="+0.0" z="-0.5"/>
+                <rotation axis="x" angle="+180"/>
+            </transformations>
+            <descendants>
+                <leaf type="rectangle" x1="-0.5" y1="-0.5" x2="0.5" y2="0.5"/>
+            </descendants>
+        </node>
+        <node id="cube_rig">
+            <material id="null"/>
+            <texture id="null">
+                <amplification afs="1" aft="1"/>
+            </texture>
+            <transformations>
+                <translation x="+0.5" y="+0.0" z="+0.0"/>
+                <rotation axis="y" angle= "+90"/>
+            </transformations>
+            <descendants>
+                <leaf type="rectangle" x1="-0.5" y1="-0.5" x2="0.5" y2="0.5"/>
+            </descendants>
+        </node>
+        <node id="cube_lef">
+            <material id="null"/>
+            <texture id="null">
+                <amplification afs="1" aft="1"/>
+            </texture>
+            <transformations>
+                <translation x="-0.5" y="+0.0" z="+0.0"/>
+                <rotation axis="y" angle= "-90"/>
+            </transformations>
+            <descendants>
+                <leaf type="rectangle" x1="-0.5" y1="-0.5" x2="0.5" y2="0.5"/>
+            </descendants>
+        </node>
+
+        <node id="universe-animated">
+            <material id="null"/><texture id="null"><amplification afs="1" aft="1"/></texture>
+            <transformations>
+                <translation x="0" y="-67780" z="0"/>
+            </transformations>
+            <animationref id="iss-orbit-inverse"/>
+            <descendants>
+                <noderef id="universe-moving"/>
+            </descendants>
+        </node>
+        <node id="universe-moving">
+            <material id="null"/><texture id="null"><amplification afs="1" aft="1"/></texture>
+            <transformations>
+                <rotation axis="y" angle="+23.5"/>
+                <rotation axis="y" angle="-51.6"/>
+                <translation x="0" y="67780" z="0"/>
+            </transformations>
+            <descendants>
+                <noderef id="universe-transformed"/>
+            </descendants>
+        </node>
+        <node id="universe-transformed">
+            <material id="null"/><texture id="null"><amplification afs="1" aft="1"/></texture>
+            <transformations>
+                <translation x="0" y="-67780" z="0"/>
+                <rotation axis="z" angle="90"/>
+                <rotation axis="y" angle="90"/>
+            </transformations>
+            <descendants>
+                <noderef id="universe"/>
+            </descendants>
+        </node>
+        <node id="universe">
+            <material id="null"/><texture id="null"><amplification afs="1" aft="1"/></texture>
+            <descendants>
+                <noderef id="skysphere"/>
+                <noderef id="earth-final"/>
+                <noderef id="moon-final"/>
+                <noderef id="sun-final"/>
+            </descendants>
+        </node>
+
+        <!--
+        ================================================================
+        EARTH
+        ================================================================
+        -->
+        <node id="earth-final">
+            <material id="null"/><texture id="null"><amplification afs="1" aft="1"/></texture>
+            <transformations>
+                <scale sx="0.01" sy="0.01" sz="0.01"/>  <!-- Make it smaller -->
+                <rotation axis="z" angle="-23.5"/>      <!-- Rotation axis tilt -->
+            </transformations>
+            <animationref id="earth-rotation"/>
+            <descendants>
+                <noderef id="earth"/>
+            </descendants>
+        </node>
+        <node id="earth">
+            <material id="null"/><texture id="null"><amplification afs="1" aft="1"/></texture>
+            <transformations>
+                <scale sx="1" sy="0.9967" sz="1"/>  <!-- The earth is slightly flattened -->
+                <rotation axis="y" angle="80"/>
+                <rotation axis="x" angle="-90"/>
+            </transformations>
+            <descendants>
+                <noderef id="earth-surface"/>
+                <noderef id="earth-clouds-animated"/>
+            </descendants>
+        </node>
+        <node id="earth-surface">
+            <material id="earth"/><texture id="blue-marble"><amplification afs="1" aft="1"/></texture>
+            <descendants>
+                <noderef id="earth-sphere"/>
+                <noderef id="earth-night-lights"/>
+            </descendants>
+        </node>
+        <node id="earth-night-lights">
+            <material id="earth-night-lights"/><texture id="earth-night-lights"><amplification afs="1" aft="1"/></texture>
+            <transformations>
+                <scale sx="1.00015678896" sy="1.00015678896" sz="1.00015678896"/>
+            </transformations>
+            <descendants>
+                <noderef id="earth-sphere"/>
+            </descendants>
+        </node>
+        <node id="earth-clouds-animated">
+            <material id="null"/><texture id="null"><amplification afs="1" aft="1"/></texture>
+            <animationref id="cloud-rotation"/>
+            <descendants>
+                <noderef id="earth-clouds"/>
+            </descendants>
+        </node>
+        <node id="earth-clouds">
+            <material id="cloud"/><texture id="earth-clouds"><amplification afs="1" aft="1"/></texture>
+            <transformations>
+                <scale sx="1.00156788962" sy="1.00156788962" sz="1.00156788962"/>
+            </transformations>
+            <descendants>
+                <noderef id="earth-sphere"/>
+            </descendants>
+        </node>
+        <node id="earth-sphere">
+            <material id="null"/><texture id="null"><amplification afs="1" aft="1"/></texture>
+            <descendants>
+                <leaf type="sphere" radius="6378000" slices="256" stacks="60"/>
+            </descendants>
+        </node>
+
+        <!--
+        ================================================================
+        MOON
+        ================================================================
+        -->
+        <node id="moon-final">
+            <material id="null"/><texture id="null"><amplification afs="1" aft="1"/></texture>
+            <transformations>
+                <scale sx="0.0005" sy="0.0005" sz="0.0005"/>    <!-- Because of near and far arguments of cameras -->
+            </transformations>
+            <descendants>
+                <noderef id="moon-orbiting-tilted"/>
+            </descendants>
+        </node>
+
+        <node id="moon-orbiting-tilted">
+            <material id="null"/><texture id="null"><amplification afs="1" aft="1"/></texture>
+            <transformations>
+                <rotation axis="z" angle="+5.14"/>
+            </transformations>
+            <descendants>
+                <noderef id="moon-orbiting"/>
+            </descendants>
+        </node>
+
+        <node id="moon-orbiting">
+            <material id="null"/><texture id="null"><amplification afs="1" aft="1"/></texture>
+            <animationref id="moon-orbit-angle"/>
+            <descendants>
+                <noderef id="moon-distanced"/>
+            </descendants>
+        </node>
+
+        <node id="moon-distanced">
+            <material id="null"/><texture id="null"><amplification afs="1" aft="1"/></texture>
+            <animationref id="moon-orbit-distance"/>
+            <descendants>
+                <noderef id="moon-tilted"/>
+            </descendants>
+        </node>
+
+        <node id="moon-tilted">
+            <material id="null"/><texture id="null"><amplification afs="1" aft="1"/></texture>
+            <transformations>
+                <rotation axis="z" angle="6.68"/>               <!-- Moon axial tilt to orbit around Earth -->
+            </transformations>
+            <descendants>
+                <noderef id="moon"/>
+            </descendants>
+        </node>
+        <node id="moon">
+            <material id="moon"/><texture id="moon"><amplification afs="1" aft="1"/></texture>
+            <transformations>
+                <scale sx="3" sy="3" sz="3"/>                   <!-- Artificially increased the size of the moon 3x -->
+                <scale sx="1" sy="0.9988" sz="1"/>              <!-- The moon is slightly flattened -->
+                <rotation axis="x" angle="-90"/>                <!-- Rotate moon so North points to +Y and South to -Y -->
+            </transformations>
+            <descendants>
+                <leaf type="sphere" radius="1378000" slices="64" stacks="32"/>
+            </descendants>
+        </node>
+
+
+        <!--
+        ================================================================
+        SUN
+        ================================================================
+        -->
+        <node id="sun-final">
+            <material id="null"/><texture id="null"><amplification afs="1" aft="1"/></texture>
+            <transformations>
+                <scale sx="0.000002" sy="0.000002" sz="0.000002"/>
+            </transformations>
+            <descendants>
+                <noderef id="sun-orbiting"/>
+            </descendants>
+        </node>
+        <node id="sun-orbiting">
+            <material id="null"/><texture id="null"><amplification afs="1" aft="1"/></texture>
+            <animationref id="sun-orbit-angle"/>
+            <descendants>
+                <noderef id="sun-distanced"/>
+            </descendants>
+        </node>
+        <node id="sun-distanced">
+            <material id="null"/><texture id="null"><amplification afs="1" aft="1"/></texture>
+            <transformations>
+                <translation x="147100000000" y="0" z="0"/>
+            </transformations>
+            <descendants>
+                <noderef id="sun"/>
+            </descendants>
+        </node>
+        <node id="sun">
+            <material id="sun"/><texture id="clear"><amplification afs="1" aft="1"/></texture>
+            <transformations>
+                <scale sx="2.5" sy="2.5" sz="2.5"/>                   <!-- Artificially increased the size of the sun 3x -->
+                <rotation axis="x" angle="-90"/>                <!-- Rotate sun so North points to +Y and South to -Y -->
+            </transformations>
+            <descendants>
+                <leaf type="sphere" radius="696340000" slices="64" stacks="32"/>
+            </descendants>
+        </node>
+
+
+        <!--
+        ================================================================
+        ISS
+        ================================================================
+        -->
+        <node id="iss">
+            <material id="null"/><texture id="null"><amplification afs="1" aft="1"/></texture>
+            <transformations>
+                <scale sx="0.111" sy="0.111" sz="0.111"/>
+                <translation x="0" y="+31.075" z="+98.044"/>
+            </transformations>
+            <descendants>
+                <leaf type="obj" url="iss/obj/iss/iss-interior-neworder-hatchesopen-lessmodules.obj"/>
+            </descendants>
+        </node>
+
+        <node id="skysphere">
+            <material id="star-map"/><texture id="star-map"><amplification afs="1" aft="1"/></texture>
+            <transformations>
+                <rotation axis="y" angle="5"/><rotation axis="x" angle="5"/>    <!-- Minor adjustments to avoid strange rendering effects -->
+                <rotation axis="x" angle="-90"/>    <!-- Rotate so north is facing +Y, and south facing -Y -->
+            </transformations>
+            <descendants>
+                <leaf type="sphere" radius="-500000" slices="36" stacks="18"/>
+            </descendants>
+        </node>
+    </nodes>
+</lsf>

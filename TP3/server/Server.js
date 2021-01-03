@@ -11,12 +11,20 @@ class Server {
     /**
      * Get resulting gameboard after performing move in a given board.
      * 
-     * @param {GameBoard}   gameboard   Gameboard
+     * @param {List[List[Integer]]}   gameboard   Gameboard
      * @param {GameMove}    move        Move
      */
     move(gameboard, move){
-        gameboard_json = JSON.stringify(gameboard);
-        move_json      = JSON.stringify(move);
+        // let gameboard_json = gameboard.toJSON();
+        let gameboard_json = gameboard;
+        let move_json      = move.toJSON();
+        let params = {
+            command: 'move',
+            args: {
+                board: gameboard_json,
+                playermove: move_json
+            }
+        };
         return fetch(
             this._url,
             {
@@ -25,15 +33,14 @@ class Server {
                     'Content-Type': 'application/json',
                     'Accept': 'application/json'
                 },
-                body: {
-                    command: 'move',
-                    args: {
-                        board: gameboard_json,
-                        playermove: move_json
-                    }
-                }
+                body: JSON.stringify(params)
             }
-        );
+        )
+        .then(function (response){
+            if(!response.ok) return Promise.resolve({response: false});
+            return response.json();
+        })
+        .then((response) => response.response);
     }
 
     /**
@@ -48,6 +55,60 @@ class Server {
             args: {
                 gamestate: gamestate_json,
                 turn: gamestate.turn
+            }
+        };
+        return fetch(
+            this._url,
+            {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json'
+                },
+                body: JSON.stringify(params)
+            }
+        )
+        .then((response) => response.json())
+        .then((response) => response.response);
+    }
+
+    choose_move(gamestate, turn, level, n){
+        let gamestate_json = gamestate.toJSON();
+        let params = {
+            command: 'choose_move',
+            args: {
+                gamestate: gamestate_json,
+                turn: turn,
+                level: level,
+                n: n
+            }
+        };
+        return fetch(
+            this._url,
+            {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json'
+                },
+                body: JSON.stringify(params)
+            }
+        )
+        .then((response) => response.json())
+        .then((response) => response.response);
+    }
+
+    /**
+     * Checks game over.
+     * 
+     * @param {GameState} gamestate Game state
+     */
+    game_over(gamestate){
+        let gamestate_json = gamestate.toJSON();
+        let params = {
+            command: 'game_over',
+            args: {
+                gamestate: gamestate_json
             }
         };
         return fetch(

@@ -17,6 +17,8 @@ class PieceStack extends CGFobject {
 		this._selectable = false;
 		this._selected = false;
 	}
+
+	get id() {return this._id; }
 	
 	get height(){ return this._height; }
 	getPlayer(){

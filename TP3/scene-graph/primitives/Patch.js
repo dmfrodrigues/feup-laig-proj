@@ -7,7 +7,7 @@
  * @param controlPoints - control points for the patch
  */
 class Patch extends CGFobject {
-	constructor(scene, npartsU, npartsV, npointsU, npointsV, controlPoints) {
+	constructor(scene, npartsU, npartsV, npointsU, npointsV, controlPoints, afs=1, aft=1) {
         super(scene);
         this.scene   = scene;
         this.npartsU = npartsU;
@@ -16,6 +16,8 @@ class Patch extends CGFobject {
         this.degreeV = npointsV-1;
         this.npointsU = npointsU;
         this.npointsV = npointsV;
+        this.afs      = afs;
+        this.aft      = aft;
         this.controlPoints = JSON.parse(JSON.stringify(controlPoints));
         this.initBuffers();
     }
@@ -26,7 +28,7 @@ class Patch extends CGFobject {
             }
         }
         let nurbsSurface = new CGFnurbsSurface(this.degreeU, this.degreeV, this.controlPoints);
-        this.nurbsObject = new CGFnurbsObject(this.scene, this.npartsU, this.npartsV, nurbsSurface);
+        this.nurbsObject = new CGFnurbsObject(this.scene, this.npartsU, this.npartsV, nurbsSurface, this.afs, this.aft);
     }
     display(){
         this.nurbsObject.display();

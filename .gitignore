@@ -2,3 +2,16 @@ ssh-*
 *.zip
 *.7z
 *.code-workspace
+test-obj
+night-lights-huge.jpg
+night-lights-larger.png
+night-lights-larger-transparent.png
+TP3/scenes/obj/trees/tree
+TP3/scenes/obj/trees/cork
+TP3/scenes/obj/trees/olive/Olive_Trees_Pack_V1/_max/*.max
+TP3/scenes/obj/trees/olive/Olive_Trees_Pack_V1/_previews
+TP3/scenes/obj/trees/olive/Olive_Trees_Pack_V1/Obj
+TP3/scenes/obj/trees/olive/Olive_Trees_Pack_V1/*.pdf
+Thumbs.db
+user-manual.pdf
+LAIG_TP3_T2_G04

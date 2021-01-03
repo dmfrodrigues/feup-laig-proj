@@ -14,6 +14,7 @@ class BoardCell extends CGFobject {
         this._id = 10*(i+1) + (j+1);
         this._selectable = false;
         this._selected = false;
+        this.visible = true;
     }
     
     /**
@@ -28,6 +29,8 @@ class BoardCell extends CGFobject {
 
     get i(){ return this._i; }
     get j(){ return this._j; }
+
+    get id() {return this._id; }
 
     setTurn(turn){
         this._selectable = (
@@ -63,6 +66,7 @@ class BoardCell extends CGFobject {
             }
             this.scene.clearPickRegistration();
         }this.scene.popMatrix();
+        if(!this.visible) return;
         if(this._stack != null)
             this._stack.display();
     }
