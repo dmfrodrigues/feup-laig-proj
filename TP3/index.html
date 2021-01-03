@@ -39,7 +39,7 @@ canvas {
     align-items: center;
     background-color: whitesmoke;
     width: 33em;
-    height: 20em;
+    height: 22em;
     padding: 2em;
     position: absolute;
 	top:0;
@@ -50,6 +50,13 @@ canvas {
 
 #levels, #times{
     text-align: center;
+}
+
+#level, #timelimit{
+  outline: none;
+  padding: 0.2em;
+  margin: 0.2em;
+  cursor: pointer;
 }
 
 h1 {
@@ -67,6 +74,15 @@ h1 {
     margin: 1em;
     text-align: center;
 }
+
+#play-button input{
+  cursor: pointer;
+  border: none;
+  color: white;
+  padding: 0.5em;
+  background-color: darkslategray;
+}
+
 #info-wrapper{
     padding: 1em;
 }
@@ -114,7 +130,7 @@ h1 {
 #info-text {
     display: none;
     width: 50em;
-    height: 15em; 
+    height: 17em; 
     text-align: justify;
     color: darkslategray;
     background-color: white;
@@ -126,6 +142,7 @@ h1 {
 	  left: 0;
 	  right: 0;
 }
+
 #game-over {
     display: none;
     width: 35em;
