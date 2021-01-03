@@ -131,7 +131,7 @@ class Orchestrator extends CGFobject {
         }
         else if(obj.idObj == 'undo'){
             this.gameState.moveState.initialState();
-            this.undo();
+            await this.undo();
         }
         else if(10 <= id && id < 300)
             await this.gameState.moveState.updateMoveState(obj);
@@ -148,8 +148,8 @@ class Orchestrator extends CGFobject {
         this.theme = new MySceneGraph(this.themes[this.themeSelected], this.scene);
     }
 
-    undo(){
-        this.gameSequence.manageUndo(this.gameState);
+    async undo(){
+        await this.gameSequence.manageUndo(this.gameState);
     }
 
     update(t){
