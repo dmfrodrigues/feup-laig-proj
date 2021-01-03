@@ -90,6 +90,7 @@
                     <button id="undo"/>
                     <button id="cancel"/>
                     <button id="change-theme"/>
+                    <button id="main-menu"/>
                 </buttons>
             </ui>
             <ui id="ui-2">
@@ -105,6 +106,7 @@
                     <button id="undo"/>
                     <button id="cancel"/>
                     <button id="change-theme"/>
+                    <button id="main-menu"/>
                 </buttons>
             </ui>
         </uis>
@@ -1235,18 +1237,7 @@
                 <leaf type="spritetext" font="calc" text="   0.0" format="return arguments[0].padStart(6,' ');"/>
             </descendants>
         </node>
-        <node id="change-theme">
-            <material id="null"/><texture id="null"><amplification afs="1" aft="1"/></texture>
-            <transformations>
-                <translation x="0.06" y="-0.015" z="0.0035"/>
-                <rotation axis="x" angle="90"/>
-            </transformations>
-            <descendants>
-                <noderef id="change-theme-button"/>
-                <noderef id="change-theme-text-1"/>
-                <noderef id="change-theme-text-2"/>
-            </descendants>
-        </node>
+
         <node id="ui-panel-turn-all">
             <material id="null"/><texture id="null"><amplification afs="1" aft="1"/></texture>
             <descendants>
@@ -1347,6 +1338,18 @@
                 />
             </descendants>
         </node>
+        <node id="change-theme">
+            <material id="null"/><texture id="null"><amplification afs="1" aft="1"/></texture>
+            <transformations>
+                <translation x="0.04" y="-0.015" z="0.0035"/>
+                <rotation axis="x" angle="90"/>
+            </transformations>
+            <descendants>
+                <noderef id="change-theme-button"/>
+                <noderef id="change-theme-text-1"/>
+                <noderef id="change-theme-text-2"/>
+            </descendants>
+        </node>
         <node id="change-theme-button">
             <material id="plastic-blue"/><texture id="null"><amplification afs="1" aft="1"/></texture>
             <transformations>
@@ -1380,10 +1383,60 @@
                 <leaf type="spritetext" font="consolas" text="Theme"/>
             </descendants>
         </node>
+
+
+        <node id="main-menu">
+            <material id="null"/><texture id="null"><amplification afs="1" aft="1"/></texture>
+            <transformations>
+                <translation x="0.08" y="-0.015" z="0.0035"/>
+                <rotation axis="x" angle="90"/>
+            </transformations>
+            <descendants>
+                <noderef id="main-menu-button"/>
+                <noderef id="main-menu-text-1"/>
+                <noderef id="main-menu-text-2"/>
+            </descendants>
+        </node>
+        <node id="main-menu-button">
+            <material id="plastic-dark"/><texture id="null"><amplification afs="1" aft="1"/></texture>
+            <transformations>
+                <scale sx="0.030" sy="0.002" sz="0.020"/>
+            </transformations>
+            <descendants>
+                <noderef id="cube"/>
+            </descendants>
+        </node>
+        <node id="main-menu-text-1">
+            <material id="plastic-white"/><texture id="null"><amplification afs="1" aft="1"/></texture>
+            <transformations>
+                <translation x="0" y="0.00101" z="-0.004"/>
+                <rotation axis="x" angle="-90"/>
+                <scale sx="0.57142857142" sy="1" sz="1"/>
+                <scale sx="0.007" sy="0.007" sz="0.007"/>
+            </transformations>
+            <descendants>
+                <leaf type="spritetext" font="consolas" text="Main"/>
+            </descendants>
+        </node>
+        <node id="main-menu-text-2">
+            <material id="plastic-white"/><texture id="null"><amplification afs="1" aft="1"/></texture>
+            <transformations>
+                <translation x="0" y="0.00101" z="0.004"/>
+                <rotation axis="x" angle="-90"/>
+                <scale sx="0.57142857142" sy="1" sz="1"/>
+                <scale sx="0.007" sy="0.007" sz="0.007"/>
+            </transformations>
+            <descendants>
+                <leaf type="spritetext" font="consolas" text="Menu"/>
+            </descendants>
+        </node>
+
+
+
         <node id="submit">
             <material id="null"/><texture id="null"><amplification afs="1" aft="1"/></texture>
             <transformations>
-                <translation x="0.02" y="-0.015" z="0.0035"/>
+                <translation x="0.0" y="-0.015" z="0.0035"/>
                 <rotation axis="x" angle="90"/>
             </transformations>
             <descendants>
@@ -1415,7 +1468,7 @@
         <node id="undo">
             <material id="null"/><texture id="null"><amplification afs="1" aft="1"/></texture>
             <transformations>
-                <translation x="-0.06" y="-0.015" z="0.0035"/>
+                <translation x="-0.08" y="-0.015" z="0.0035"/>
                 <rotation axis="x" angle="90"/>
             </transformations>
             <descendants>
@@ -1447,7 +1500,7 @@
         <node id="cancel">
             <material id="null"/><texture id="null"><amplification afs="1" aft="1"/></texture>
             <transformations>
-                <translation x="-0.02" y="-0.015" z="0.0035"/>
+                <translation x="-0.04" y="-0.015" z="0.0035"/>
                 <rotation axis="x" angle="90"/>
             </transformations>
             <descendants>

@@ -109,7 +109,6 @@ class Orchestrator extends CGFobject {
                         this.getLevel(),
                         this.getN()
                     );
-                        console.log(response);
                         await gamestate.gameboard.move(
                             gamestate.gameboard.getCell(response.pos[0], response.pos[1]),
                             response.substacks,
@@ -128,6 +127,9 @@ class Orchestrator extends CGFobject {
 
         if(obj.idObj == 'change-theme'){
             this.changeTheme();
+        }
+        else if(obj.idObj == 'main-menu'){
+            location.reload();
         }
         else if(obj.idObj == 'undo' && !this.isComputer(this.gameState.turn)){
             this.gameState.moveState.initialState();
