@@ -13,7 +13,7 @@ class Orchestrator extends CGFobject {
         this.themeInited   = false;
         this.themes       = themes;
         this.theme        = new MySceneGraph(themes[0], this.scene);
-        this.gameState    = new GameState(this.scene, this);
+        this.gameState    = new GameState(this.scene, this, timeMode);
         this.gameMode     = gameMode;
         this.level        = level;
         this.timeMode     = timeMode;
@@ -56,7 +56,6 @@ class Orchestrator extends CGFobject {
                 this.getN()
             )
             .then(async function (response){
-                console.log(response);
                 await gamestate.gameboard.move(
                     gamestate.gameboard.getCell(response.pos[0], response.pos[1]),
                     response.substacks,
@@ -157,8 +156,18 @@ class Orchestrator extends CGFobject {
         this.theme.update(t);
         if(this.animator.active)
             this.animator.update(t);
-        if(!this.gameState.isGameOver)
-            this.gameState.gametime = this.scene.time;
+        if(!this.gameState.isGameOver){
+            this.gameState.updateTime(t);
+        }
+        if(this.gameState.timeMode != 'sandbox' && this.gameState.timeLeft <= 0){
+            this.gameState.isGameOver   =        true;
+            this.gameState.feedbackText = "game over"; 
+            if(this.isComputer(this.gameState.turn % 2 + 1))
+                document.getElementById('winner').innerHTML = 'Computer ' + (this.gameState.turn % 2 + 1);
+            else 
+                document.getElementById('winner').innerHTML = 'Player ' + (this.gameState.turn % 2 + 1);
+            document.getElementById('game-over').style.display = 'block';
+        }
     }
 
     setValue(value){
