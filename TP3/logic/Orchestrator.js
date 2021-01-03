@@ -155,6 +155,7 @@ class Orchestrator extends CGFobject {
 
     async undo(){
         await this.gameSequence.manageUndo(this.gameState);
+        this.gameState.setTime();
     }
 
     update(t){
