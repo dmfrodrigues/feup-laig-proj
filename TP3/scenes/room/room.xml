@@ -1169,7 +1169,7 @@
             <texture id="null"><amplification afs="1" aft="1"/></texture>
             <transformations>
                 <translation x="0" y="0" z="0.00001"/>
-                <scale sx="0.0096" sy="0.012" sz="0.012"/>
+                <scale sx="0.012" sy="0.012" sz="0.012"/>
                 <scale sx="0.60" sy="1" sz="1"/>
             </transformations>
             <descendants>

@@ -41,12 +41,14 @@ class GameState extends CGFobject {
         if(this.timeMode != 'sandbox' && this.timeLeft <= 0){
             this.isGameOver   =        true;
             this.feedbackText = "game over"; 
-            if(this.isComputer(this.turn % 2 + 1))
+            if(this._orchestrator.isComputer(this.turn % 2 + 1))
                 document.getElementById('winner').innerHTML = 'Computer ' + (this.turn % 2 + 1);
             else 
                 document.getElementById('winner').innerHTML = 'Player ' + (this.turn % 2 + 1);
             document.getElementById('game-over').style.display = 'block';
+            return true;
         }
+        return false;
     }
 
     updateTime(t){

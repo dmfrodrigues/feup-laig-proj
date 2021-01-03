@@ -170,7 +170,7 @@ class PlayerMoveState {
                             alert(text);
                             console.error(text);
                         }
-
+                        this.gameState.setTime();
                         this.scene.orchestrator.gameSequence.addGameMove(gameMove);
                         this.initialState();
                         this.gameState.orchestrator.nextTurn();
