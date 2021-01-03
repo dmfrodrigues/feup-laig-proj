@@ -109,6 +109,7 @@
                     <button id="submit"/>
                     <button id="undo"/>
                     <button id="cancel"/>
+                    <button id="change-theme"/>
                     <button id="main-menu"/>
                 </buttons>
             </ui>
