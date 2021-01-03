@@ -9,6 +9,22 @@
 
 ----
 
+## Media
+
+| Main menu                                     | Gameboard                                     |
+|-----------------------------------------------|-----------------------------------------------|
+| ![main menu](https://i.imgur.com/pxzskSJ.jpg) | ![gameboard](https://i.imgur.com/MxQAUzl.jpg) |
+
+| Room scene                                    | Alentejo scene                                |
+|-----------------------------------------------|-----------------------------------------------|
+| ![room](https://i.imgur.com/lAuIWp5.jpg)      | ![alentejo](https://i.imgur.com/IMdiVrQ.jpg)  |
+
+| ISS scene, facing the Moon                    | ISS scene, looking at Earth (Egypt)           |
+|-----------------------------------------------|-----------------------------------------------|
+| ![main menu](https://i.imgur.com/cOmDygK.jpg) | ![gameboard](https://i.imgur.com/GVdGyJj.jpg) |
+
+----
+
 ## Project information
 
 - Modified CGF:
