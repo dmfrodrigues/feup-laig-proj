@@ -122,8 +122,12 @@ class XMLscene extends CGFscene {
         this.gl.clearColor(...this.graph.background);
 
         this.setGlobalAmbientLight(...this.graph.ambient);
+        
+        if(this.interface)
+            for(let i of this.interface.gui.__controllers)
+                this.interface.gui.remove(i);
 
-            this.createCameraControls();
+        this.createCameraControls();
 
         this.initLights();
         

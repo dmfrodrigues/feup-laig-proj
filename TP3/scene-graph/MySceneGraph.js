@@ -264,6 +264,8 @@ class MySceneGraph {
         var newPieceIndex = nodeNames.indexOf("newpiecepos");
         var uisIndex = nodeNames.indexOf("uis");
         var audiosIndex = nodeNames.indexOf("audios");
+        var p1TransitionIndex = nodeNames.indexOf("p1transition");
+        var p2TransitionIndex = nodeNames.indexOf("p2transition");
 
         // Get data
         if(dataIndex != -1){
@@ -387,6 +389,58 @@ class MySceneGraph {
                 }
             }
         } else this.onXMLMinorError("No audios defined for scene");
+        
+        // Get Player 1 camera transition
+
+        if(p1TransitionIndex == -1){
+            this.onXMLMinorError("No player 1 transition defined for scene.");
+        } else {
+            let p1TransitionNode = children[p1TransitionIndex];
+            
+            this.cameraHandler.lastinstant1 = this.parseFloat(p1TransitionNode, "lastinstant");
+
+            for(let i = 0; i < p1TransitionNode.children.length; ++i){
+                let keyframe = p1TransitionNode.children[i];
+                let instant = this.parseFloat(keyframe, "instant");
+                
+                let fx = this.parseFloat(keyframe, "fx");
+                let fy = this.parseFloat(keyframe, "fy");
+                let fz = this.parseFloat(keyframe, "fz");
+
+                let tx = this.parseFloat(keyframe, "tx");
+                let ty = this.parseFloat(keyframe, "ty");
+                let tz = this.parseFloat(keyframe, "tz");
+
+                this.cameraHandler.transitions1[instant] =
+                new CameraKeyframe(vec3.fromValues(fx, fy, fz), vec3.fromValues(tx, ty, tz));
+            }
+        }
+
+        // Get Player 2 camera transition
+
+        if(p2TransitionIndex == -1){
+            this.onXMLMinorError("No player 2 transition defined for scene.");
+        } else {
+            let p2TransitionNode = children[p2TransitionIndex];
+            
+            this.cameraHandler.lastinstant2 = this.parseFloat(p2TransitionNode, "lastinstant");
+            
+            for(let i = 0; i < p2TransitionNode.children.length; ++i){
+                let keyframe = p2TransitionNode.children[i];
+                let instant = this.parseFloat(keyframe, "instant");
+                
+                let fx = this.parseFloat(keyframe, "fx");
+                let fy = this.parseFloat(keyframe, "fy");
+                let fz = this.parseFloat(keyframe, "fz");
+
+                let tx = this.parseFloat(keyframe, "tx");
+                let ty = this.parseFloat(keyframe, "ty");
+                let tz = this.parseFloat(keyframe, "tz");
+
+                this.cameraHandler.transitions2[instant] =
+                new CameraKeyframe(vec4.fromValues(fx, fy, fz, 0), vec4.fromValues(tx, ty, tz, 0));
+            }
+        }
 
         this.log("Parsed initials");
 
@@ -498,17 +552,9 @@ class MySceneGraph {
                 camera_obj = this.parsePerspectiveCamera(camera, camera.id);
                 this.views.p1_camera = camera.id;
             }
-            else if(camera.nodeName == "player1transition"){
-                camera_obj = this.parsePerspectiveCamera(camera, camera.id);
-                this.views.p1transition_camera = camera.id;
-            }
             else if(camera.nodeName == "player2"){
                 camera_obj = this.parsePerspectiveCamera(camera, camera.id);
                 this.views.p2_camera = camera.id;
-            }
-            else if(camera.nodeName == "player2transition"){
-                camera_obj = this.parsePerspectiveCamera(camera, camera.id);
-                this.views.p2transition_camera = camera.id;
             }
             else if(camera.nodeName == "movecamera"){
                 camera_obj = this.parsePerspectiveCamera(camera, camera.id);
@@ -542,8 +588,6 @@ class MySceneGraph {
 
         if(this.views.p1_camera == undefined
         || this.views.p2_camera == undefined
-        || this.views.p1transition_camera == undefined
-        || this.views.p1transition_camera == undefined
         || this.views.move_camera == undefined)
         {
             this.onXMLMinorError(`Players cameras not defined properly`);
