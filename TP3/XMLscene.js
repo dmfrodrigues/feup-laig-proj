@@ -138,6 +138,8 @@ class XMLscene extends CGFscene {
 
         this.sceneInited = true;
         this.orchestrator.themeInited=true;
+
+        this.graph.playAudio();
     }
 
     pushAppearance(){

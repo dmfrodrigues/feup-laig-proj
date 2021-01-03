@@ -263,6 +263,7 @@ class MySceneGraph {
         var piecesBoxAnimIndex = nodeNames.indexOf("piecesboxanim");
         var newPieceIndex = nodeNames.indexOf("newpiecepos");
         var uisIndex = nodeNames.indexOf("uis");
+        var audiosIndex = nodeNames.indexOf("audios");
         var p1TransitionIndex = nodeNames.indexOf("p1transition");
         var p2TransitionIndex = nodeNames.indexOf("p2transition");
 
@@ -366,6 +367,29 @@ class MySceneGraph {
             if(typeof ret === 'string') return ret;
         }
 
+        // Get audios
+        this.audios = [];
+        if(audiosIndex !== -1){
+            let audiosNode = children[audiosIndex];
+            for(let i = 0; i < audiosNode.children.length; ++i){
+                let audioNode = audiosNode.children[i];
+                if(audioNode.nodeName === 'audio'){
+                    if(typeof audioNode.attributes.url === 'undefined'){
+                        this.onXMLMinorError("Audio does not have URL, ignoring");
+                        continue;
+                    }
+                    let audio = new Audio(audioNode.attributes.url.value);
+                    audio.loop = true;
+                    if(typeof audioNode.attributes.volume !== 'undefined'){
+                        audio.volume = this.parseFloat(audioNode, 'volume', '<audio>');
+                    }
+                    this.audios.push(audio);
+                } else {
+                    this.onXMLMinorError(`Unknown node name '${aaudioNodeudio.nodeName}' in <audios>`);
+                }
+            }
+        } else this.onXMLMinorError("No audios defined for scene");
+        
         // Get Player 1 camera transition
 
         if(p1TransitionIndex == -1){
@@ -1637,6 +1661,23 @@ class MySceneGraph {
 
     get newPiecePos(){
         return this._newPiecePos;
+    }
+
+    playAudio(){
+        for(let i = 0; i < this.audios.length; ++i){
+            let audio = this.audios[i];
+            audio.play()
+            .catch(function(error){
+                console.log("Audio error:", error, "It may happen if you change theme before the audio started playing; don't bother with that.");
+            });
+        }
+    }
+
+    pauseAudio(){
+        for(let i = 0; i < this.audios.length; ++i){
+            let audio = this.audios[i];
+            audio.pause();
+        }
     }
 
     update(t){

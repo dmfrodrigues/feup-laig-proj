@@ -108,6 +108,10 @@
                 </buttons>
             </ui>
         </uis>
+        <audios>
+            <audio url="https://drive.google.com/uc?id=1xouD5zBs6F7fhMzVbh8GkBXVE4cF0YeF" volume="0.2"/>
+            <audio url="https://drive.google.com/uc?id=1qoTJdIPAhFu6OrbMP9BoNpCAfwZisX5D" volume="0.015"/>
+        </audios>
         <p1transition lastinstant="3.0">
             <keyframe instant="0.3" fx="+0.48" fy="0.9" fz="-0.13" tx="0.0" ty="0.7" tz="-0.2"/>
             <keyframe instant="0.6" fx="+0.36" fy="0.9" fz="-0.0" tx="0.0" ty="0.7" tz="-0.2"/>

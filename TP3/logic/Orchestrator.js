@@ -140,6 +140,7 @@ class Orchestrator extends CGFobject {
     }
 
     changeTheme(){
+        this.theme.pauseAudio();
         if(!this.isComputer(this.gameState.turn))
         {   
             this.gameState.moveState.resetSubstacks();
