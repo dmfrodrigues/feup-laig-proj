@@ -261,6 +261,12 @@
             <from x="-0.60" y="0.90" z="-0.20"/>
             <to   x="-0.55" y="0.88" z="-0.20"/>
         </player2>
+        <p1transition>
+            <keyframe instant="1.0" fx="0.0" fy="0.9" fz="0.3" tx="0.0" ty="0.86" tz="0.2"/>
+        </p1transition>
+        <p2transition>
+            <keyframe instant="1.0" fx="0.0" fy="0.9" fz="-0.7" tx="0.0" ty="0.86" tz="-0.2"/>
+        </p2transition>
     </views>
     <illumination>
         <ambient    r="0.2" g="0.2" b="0.2" a="1.0"/>

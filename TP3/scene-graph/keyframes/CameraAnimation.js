@@ -6,7 +6,11 @@ ANIM_DUR = 3.0;
 class CameraAnimation{
     constructor(scene, graph){
         this.scene = scene;
-        this.graph = graph
+        this.graph = graph;
+
+        this.transitions1 = [];
+        this.transitions2 = [];
+        this.idx = 0;
     }
 
     startCameraAnimation(){
@@ -41,11 +45,56 @@ class CameraAnimation{
     handleCameraAnimation(t) {
         if(this.graph.cameraAnimation){
             if(this.graph.cameraAnimStartTime == 0){
+                this.idx = 0;
+                this.keys = Object.keys(this.transitions1).map(Number).sort(function (a,b){ return a-b; });
+                this.key1 = 0;
+                this.key2 = this.keys[this.idx];
+                
                 this.graph.cameraAnimStartTime = t;
                 this.graph.cameraAnimLastTime = t;
                 this.graph.views.current = this.graph.views.move_camera;
                 this.scene.updateViews();
             }
+
+            if(t - this.graph.cameraAnimStartTime < ANIM_DUR){
+                if(t - this.graph.cameraAnimStartTime > this.key2){
+                    this.key1 = this.key2;
+
+                    if(this.idx >= this.keys.length)
+                        this.key2 = -1;
+                    else
+                        this.key2 = this.key2;           
+                          
+                    this.graph.cameraAnimLastTime = t;
+                    this.idx++;
+                }
+                if(this.scene.cameraPosition == 1){
+                    if(this.key1 == 0)
+                        this.interpolateCameras(camPlayer1, this.transitions1[this.key2], this.scene.camera);
+                    else if(this.key2 == -1)
+                        this.interpolateCameras(this.transitions1[this.key1], camPlayer2, this.scene.camera);
+                    else
+                        this.interpolateCameras(this.transitions1[this.key1], this.transitions1[this.key2], this.scene.camera);
+                }
+                else{
+                    if(this.key1 == 0)
+                        this.interpolateCameras(camPlayer2, this.transitions2[this.key2], this.scene.camera);
+                    else if(this.key2 == -1)
+                        this.interpolateCameras(camPlayer1, this.transitions1[this.key2], this.scene.camera);
+                    else
+                        this.interpolateCameras(this.transitions2[this.key1], this.transitions2[this.key2], this.scene.camera);
+                }
+            }
+            else{
+                if(this.scene.cameraPosition == 1)
+                    this.graph.views.current = this.graph.views.p2_camera;
+                else this.graph.views.current = this.graph.views.p1_camera;
+                this.scene.updateViews();
+                this.graph.cameraAnimation = false;
+                this.scene.cameraPosition = (this.scene.cameraPosition) % 2 + 1;
+            }
+
+            /*
             if(t - this.graph.cameraAnimStartTime < ANIM_DUR/2.0){
                 if(this.scene.cameraPosition == 1){
                     this.interpolateCameras(
@@ -89,6 +138,7 @@ class CameraAnimation{
                 this.graph.cameraAnimation = false;
                 this.scene.cameraPosition = (this.scene.cameraPosition)%2 + 1;
             }
+            */
         }
     }
 }

@@ -123,20 +123,21 @@ class Orchestrator extends CGFobject {
     }
 
     async onObjectSelected(obj, id){
-        if(this.isComputer(this.gameState.turn) || this.gameState.isGameOver) 
-            return;
-
         if(obj.idObj == 'change-theme'){
             this.changeTheme();
         }
-        else if(obj.idObj == 'undo'){
+        else
+            obj.onclick();
+        
+        if(this.isComputer(this.gameState.turn) || this.gameState.isGameOver) 
+            return;
+        
+        if(obj.idObj == 'undo'){
             this.gameState.moveState.initialState();
             this.undo();
         }
         else if(10 <= id && id < 300)
             await this.gameState.moveState.updateMoveState(obj);
-        else
-            obj.onclick();
     }
 
     changeTheme(){
