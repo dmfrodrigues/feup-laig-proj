@@ -110,6 +110,29 @@
                 </buttons>
             </ui>
         </uis>
+        <p1transition lastinstant="3.0">
+            <keyframe instant="0.3" fx="+0.14" fy="0.70" fz="+0.56" tx="0.0" ty="0.35" tz="0.0"/>
+            <keyframe instant="0.6" fx="+0.28" fy="0.70" fz="+0.42" tx="0.0" ty="0.35" tz="0.0"/>
+            <keyframe instant="0.9" fx="+0.42" fy="0.70" fz="+0.28" tx="0.0" ty="0.35" tz="0.0"/>
+            <keyframe instant="1.2" fx="+0.56" fy="0.70" fz="+0.14" tx="0.0" ty="0.35" tz="0.0"/>
+            <keyframe instant="1.5" fx="+0.70" fy="0.70" fz="+0.00" tx="0.0" ty="0.35" tz="0.0"/>
+            <keyframe instant="1.8" fx="+0.56" fy="0.70" fz="-0.14" tx="0.0" ty="0.35" tz="0.0"/>
+            <keyframe instant="2.1" fx="+0.42" fy="0.70" fz="-0.28" tx="0.0" ty="0.35" tz="0.0"/>
+            <keyframe instant="2.4" fx="+0.28" fy="0.70" fz="-0.42" tx="0.0" ty="0.35" tz="0.0"/>
+            <keyframe instant="2.7" fx="+0.14" fy="0.70" fz="-0.56" tx="0.0" ty="0.35" tz="0.0"/>
+        </p1transition>
+
+        <p2transition lastinstant="3.0">
+            <keyframe instant="0.3" fx="+0.14" fy="0.70" fz="-0.56" tx="0.0" ty="0.35" tz="0.0"/>
+            <keyframe instant="0.6" fx="+0.28" fy="0.70" fz="-0.42" tx="0.0" ty="0.35" tz="0.0"/>
+            <keyframe instant="0.9" fx="+0.42" fy="0.70" fz="-0.28" tx="0.0" ty="0.35" tz="0.0"/>
+            <keyframe instant="1.2" fx="+0.56" fy="0.70" fz="-0.14" tx="0.0" ty="0.35" tz="0.0"/>
+            <keyframe instant="1.5" fx="+0.70" fy="0.70" fz="-0.00" tx="0.0" ty="0.35" tz="0.0"/>
+            <keyframe instant="1.8" fx="+0.56" fy="0.70" fz="+0.14" tx="0.0" ty="0.35" tz="0.0"/>
+            <keyframe instant="2.1" fx="+0.42" fy="0.70" fz="+0.28" tx="0.0" ty="0.35" tz="0.0"/>
+            <keyframe instant="2.4" fx="+0.28" fy="0.70" fz="+0.42" tx="0.0" ty="0.35" tz="0.0"/>
+            <keyframe instant="2.7" fx="+0.14" fy="0.70" fz="+0.56" tx="0.0" ty="0.35" tz="0.0"/>
+        </p2transition>
     </initials>
     <animations>
         <animation id="wood-box-lid-animation" loop='0' easing="easeInMidOutSine" >
@@ -171,19 +194,11 @@ this.bindings['sun-light-position'].value = [newPos[0], newPos[1], newPos[2]];
             <from x="0" y="0.75" z="0.70"/>
             <to   x="0" y="0.45" z="0.23"/>
         </movecamera>
-        <player1transition id="p1_transition" near="0.2" far="1000000" angle="30">
-            <from x="-0.5" y="0.5" z="0"/>
-            <to   x="0" y="0.4" z="0"/>
-        </player1transition>
-        <player2transition id="p2_transition" near="0.2" far="1000000" angle="30">
-            <from x="+0.5" y="0.5" z="0"/>
-            <to   x="0" y="0.4" z="0"/>
-        </player2transition>
-        <player1 id="player1_camera" near="0.2" far="1000000" angle="30">
+        <player1 id="player1_camera" near="0.2" far="1000000" angle="32">
             <from x="0" y="0.75" z="0.70"/>
             <to   x="0" y="0.45" z="0.23"/>
         </player1>
-        <player2 id="player2_camera" near="0.2" far="1000000" angle="30">
+        <player2 id="player2_camera" near="0.2" far="1000000" angle="32">
             <from x="0" y="0.75" z="-0.70"/>
             <to   x="0" y="0.45" z="-0.23"/>
         </player2>

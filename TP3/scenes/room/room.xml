@@ -108,6 +108,29 @@
                 </buttons>
             </ui>
         </uis>
+        <p1transition lastinstant="3.0">
+            <keyframe instant="0.3" fx="+0.48" fy="0.9" fz="-0.13" tx="0.0" ty="0.7" tz="-0.2"/>
+            <keyframe instant="0.6" fx="+0.36" fy="0.9" fz="-0.0" tx="0.0" ty="0.7" tz="-0.2"/>
+            <keyframe instant="0.9" fx="+0.22" fy="0.9" fz="+0.1" tx="0.0" ty="0.7" tz="-0.2"/>
+            <keyframe instant="1.2" fx="+0.10" fy="0.9" fz="+0.2" tx="0.0" ty="0.7" tz="-0.2"/>
+            <keyframe instant="1.5" fx="+0.00" fy="0.9" fz="+0.3" tx="0.0" ty="0.7" tz="-0.2"/>
+            <keyframe instant="1.8" fx="-0.10" fy="0.9" fz="+0.2" tx="0.0" ty="0.7" tz="-0.2"/>
+            <keyframe instant="2.1" fx="-0.22" fy="0.9" fz="+0.1" tx="0.0" ty="0.7" tz="-0.2"/>
+            <keyframe instant="2.4" fx="-0.36" fy="0.9" fz="-0.0" tx="0.0" ty="0.7" tz="-0.2"/>
+            <keyframe instant="2.7" fx="-0.48" fy="0.9" fz="-0.13" tx="0.0" ty="0.7" tz="-0.2"/>
+        </p1transition>
+
+        <p2transition lastinstant="3.0">
+            <keyframe instant="0.3" fx="-0.48" fy="0.9" fz="-0.30" tx="0.0" ty="0.7" tz="-0.2"/>
+            <keyframe instant="0.6" fx="-0.36" fy="0.9" fz="-0.40" tx="0.0" ty="0.7" tz="-0.2"/>
+            <keyframe instant="0.9" fx="-0.22" fy="0.9" fz="-0.50" tx="0.0" ty="0.7" tz="-0.2"/>
+            <keyframe instant="1.2" fx="-0.10" fy="0.9" fz="-0.60" tx="0.0" ty="0.7" tz="-0.2"/>
+            <keyframe instant="1.5" fx="+0.00" fy="0.9" fz="-0.70" tx="0.0" ty="0.7" tz="-0.2"/>
+            <keyframe instant="1.8" fx="+0.10" fy="0.9" fz="-0.60" tx="0.0" ty="0.7" tz="-0.2"/>
+            <keyframe instant="2.1" fx="+0.22" fy="0.9" fz="-0.50'" tx="0.0" ty="0.7" tz="-0.2"/>
+            <keyframe instant="2.4" fx="+0.36" fy="0.9" fz="-0.40" tx="0.0" ty="0.7" tz="-0.2"/>
+            <keyframe instant="2.7" fx="+0.48" fy="0.9" fz="-0.30" tx="0.0" ty="0.7" tz="-0.2"/>
+        </p2transition>
     </initials>
     <animations>
         <animation id="turn-light-switch" loop="0" timeupdate="0">
@@ -245,14 +268,6 @@
             <from x="+0.60" y="0.9" z="-0.10"/>
             <to   x="+0.55" y="0.88" z="-0.1"/>
         </movecamera>
-        <player1transition id="p1_transition" near="0.1" far="500" angle="60">
-            <from x="+0.0" y="0.9" z="0.3"/>
-            <to   x="+0.0" y="0.86" z="0.20"/>
-        </player1transition>
-        <player2transition id="p2_transition" near="0.1" far="500" angle="60">
-            <from x="+0.0" y="0.9" z="-0.7"/>
-            <to   x="+0.0" y="0.86" z="-0.6"/>
-        </player2transition>
         <player1 id="player1_camera" near="0.1" far="500" angle="60">
             <from x="+0.60" y="0.9" z="-0.20"/>
             <to   x="+0.55" y="0.88" z="-0.20"/>
@@ -261,6 +276,10 @@
             <from x="-0.60" y="0.90" z="-0.20"/>
             <to   x="-0.55" y="0.88" z="-0.20"/>
         </player2>
+        <perspective id="test_camera" near="0.1" far="500" angle="60">
+            <from x="0.4" y="0.9" z="-0.10"/>
+            <to   x="0.0" y="0.88" z="-0.20"/>
+        </perspective>
     </views>
     <illumination>
         <ambient    r="0.2" g="0.2" b="0.2" a="1.0"/>

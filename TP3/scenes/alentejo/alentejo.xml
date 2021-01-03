@@ -112,6 +112,29 @@
                 </buttons>
             </ui>
         </uis>
+        <p1transition lastinstant="3.0">
+            <keyframe instant="0.3" fx="+0.1" fy="1.4" fz="+0.48" tx="0.0" ty="1.0" tz="0.0"/>
+            <keyframe instant="0.6" fx="+0.2" fy="1.4" fz="+0.36" tx="0.0" ty="1.0" tz="0.0"/>
+            <keyframe instant="0.9" fx="+0.3" fy="1.4" fz="+0.24" tx="0.0" ty="1.0" tz="0.0"/>
+            <keyframe instant="1.2" fx="+0.4" fy="1.4" fz="+0.12" tx="0.0" ty="1.0" tz="0.0"/>
+            <keyframe instant="1.5" fx="+0.5" fy="1.4" fz="+0.00" tx="0.0" ty="1.0" tz="0.0"/>
+            <keyframe instant="1.8" fx="+0.4" fy="1.4" fz="-0.12" tx="0.0" ty="1.0" tz="0.0"/>
+            <keyframe instant="2.1" fx="+0.3" fy="1.4" fz="-0.24" tx="0.0" ty="1.0" tz="0.0"/>
+            <keyframe instant="2.4" fx="+0.2" fy="1.4" fz="-0.36" tx="0.0" ty="1.0" tz="0.0"/>
+            <keyframe instant="2.7" fx="+0.1" fy="1.4" fz="-0.48" tx="0.0" ty="1.0" tz="0.0"/>
+        </p1transition>
+
+        <p2transition lastinstant="3.0">
+            <keyframe instant="0.3" fx="-0.1" fy="1.4" fz="-0.48" tx="0.0" ty="1.0" tz="0.0"/>
+            <keyframe instant="0.6" fx="-0.2" fy="1.4" fz="-0.36" tx="0.0" ty="1.0" tz="0.0"/>
+            <keyframe instant="0.9" fx="-0.3" fy="1.4" fz="-0.24" tx="0.0" ty="1.0" tz="0.0"/>
+            <keyframe instant="1.2" fx="-0.4" fy="1.4" fz="-0.12" tx="0.0" ty="1.0" tz="0.0"/>
+            <keyframe instant="1.5" fx="-0.5" fy="1.4" fz="-0.00" tx="0.0" ty="1.0" tz="0.0"/>
+            <keyframe instant="1.8" fx="-0.4" fy="1.4" fz="+0.12" tx="0.0" ty="1.0" tz="0.0"/>
+            <keyframe instant="2.1" fx="-0.3" fy="1.4" fz="+0.24" tx="0.0" ty="1.0" tz="0.0"/>
+            <keyframe instant="2.4" fx="-0.2" fy="1.4" fz="+0.36" tx="0.0" ty="1.0" tz="0.0"/>
+            <keyframe instant="2.7" fx="-0.1" fy="1.4" fz="+0.48" tx="0.0" ty="1.0" tz="0.0"/>
+        </p2transition>
     </initials>
     <animations>
         <animation id="wood-box-lid-animation" loop='0' easing="easeInMidOutSine" >
@@ -127,14 +150,6 @@
             <from x="0" y="1.4" z="0.70"/>
             <to   x="0" y="1.2" z="0.23"/>
         </movecamera>
-        <player1transition id="p1_transition" near="0.1" far="2000" angle="50">
-            <from x="-0.5" y="1.4" z="0"/>
-            <to   x="0" y="1.2" z="0"/>
-        </player1transition>
-        <player2transition id="p2_transition" near="0.1" far="2000" angle="50">
-            <from x="+0.5" y="1.4" z="0"/>
-            <to   x="0" y="1.2" z="0"/>
-        </player2transition>
         <perspective id="default_camera" near="0.1" far="2000" angle="50">
             <from x="1" y="1" z="1"/>
             <to   x="0" y="0.5" z="0"/>
