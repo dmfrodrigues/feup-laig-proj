@@ -53,9 +53,17 @@ class CameraAnimation{
             if(this.graph.cameraAnimStartTime == 0){
                 this.idx = 0;
 
-                if(this.scene.cameraPosition == 1)
+                this.graph.views.current = this.graph.views.move_camera;
+                this.scene.updateCamera();
+
+                if(this.scene.cameraPosition == 1){
+                    this.setCameraPos(this.scene.camera, this.graph.views.list[this.graph.views.p1_camera]);
                     this.keys = Object.keys(this.transitions1).map(Number).sort(function (a,b){ return a-b; });
-                else this.keys = Object.keys(this.transitions2).map(Number).sort(function (a,b){ return a-b; });
+                }
+                else{ 
+                    this.setCameraPos(this.scene.camera, this.graph.views.list[this.graph.views.p2_camera]);
+                    this.keys = Object.keys(this.transitions2).map(Number).sort(function (a,b){ return a-b; });
+                }
                 
                 this.key1 = 0;
                 this.key2 = this.keys[this.idx];
@@ -71,8 +79,6 @@ class CameraAnimation{
                 
                 this.graph.cameraAnimStartTime = t;
                 this.graph.cameraAnimLastTime = t;
-                this.graph.views.current = this.graph.views.move_camera;
-                this.scene.updateViews();
             }
 
             if((this.scene.cameraPosition == 1 && t - this.graph.cameraAnimStartTime < this.lastinstant1)
