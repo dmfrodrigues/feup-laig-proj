@@ -1,6 +1,6 @@
 <lsf>
     <initials>
-        <reference length="1.0"/>
+        <reference length="0.0"/>
         <root id="root"/>
         <gameboard id="gameboard">
             <transformations>
