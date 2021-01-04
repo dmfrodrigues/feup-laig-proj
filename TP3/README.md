@@ -1,5 +1,7 @@
 # LAIG 2020/2021 - TP3
 
+[Link to game](https://dmfrodrigues.github.io/feup-laig-proj/TP3/)
+
 ## Group: T02G04
 
 | Name                             | Number    | E-Mail               |
