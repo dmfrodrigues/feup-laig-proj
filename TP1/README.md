@@ -10,6 +10,19 @@
 | Diogo Miguel Ferreira Rodrigues  | 201806429 | up201806429@fe.up.pt |
 
 ----
+
+## Media
+
+| Almost complete view                 | Detail of table and objects          |
+|--------------------------------------|--------------------------------------|
+| ![](https://i.imgur.com/RpgHm7W.jpg) | ![](https://i.imgur.com/pEPflE7.jpg) |
+
+
+| Complete view with table and window  | Window detail, view over NYC         |
+|--------------------------------------|--------------------------------------|
+| ![](https://i.imgur.com/xOV5okT.jpg) | ![](https://i.imgur.com/2QnzhBo.jpg) |
+
+----
 ## Project information
 
 - Hereditarity of materials and textures was implemented using two stacks, which are pushed (`XMLscene.pushAppearance()`) and popped (`XMLscene.popAppearance()`) similarly to CGFscene.pushMatrix() and CGFscene.popMatrix(). Current material and texture are set using `XMLscene.setAppearance(material, texture)`.

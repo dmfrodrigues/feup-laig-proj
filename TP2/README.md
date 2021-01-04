@@ -10,6 +10,19 @@
 | Diogo Miguel Ferreira Rodrigues  | 201806429 | up201806429@fe.up.pt |
 
 ----
+
+## Media
+
+| Almost complete view                 | Detail of table and objects          |
+|--------------------------------------|--------------------------------------|
+| ![](https://i.imgur.com/FbLjRl8.jpg) | ![](https://i.imgur.com/h1BnJY0.jpg) |
+
+| Complete perspective w/ bed, window & fireplace | Detail of lit fireplace and vase     |
+|-------------------------------------------------|--------------------------------------|
+| ![](https://i.imgur.com/W9Ti1vo.jpg)            | ![](https://i.imgur.com/Efta7yb.jpg) |
+
+----
+
 ## Project information
 
 - Scene
