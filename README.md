@@ -1,5 +1,10 @@
 # LAIG 2020/2021
 
+![TP1-zip](https://github.com/dmfrodrigues/feup-laig-proj/workflows/TP1-zip/badge.svg)
+![TP2-zip](https://github.com/dmfrodrigues/feup-laig-proj/workflows/TP2-zip/badge.svg)
+![TP3-zip](https://github.com/dmfrodrigues/feup-laig-proj/workflows/TP3-zip/badge.svg)
+![User manual](https://github.com/dmfrodrigues/feup-laig-proj/workflows/User%20manual/badge.svg)
+
 ## Group T02G04
 | Name                             | Number    | E-Mail               |
 | -------------------------------- | --------- | -------------------- |
