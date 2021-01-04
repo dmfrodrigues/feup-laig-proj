@@ -11,7 +11,7 @@ jobs:
     - name: Install latex and related packages
       run: |
         sudo apt update
-        sudo apt install -y texlive-base latexmk curl
+        sudo apt install -y texlive latexmk curl
     - name: Install pandoc
       run: |
         sudo apt install pandoc
