@@ -3,7 +3,7 @@
         <reference length="1.0"/>
         <root id="root"/>
         <audios>
-            <audio url="https://drive.google.com/uc?id=1HubwaEYEzPz-fU0Ga2iETLHNiI1Faw4m" volume="0.03"/>
+            <audio url="scenes/space.wav" volume="0.10"/>
         </audios>
     </initials>
     <animations>
