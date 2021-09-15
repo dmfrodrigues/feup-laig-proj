@@ -25,4 +25,8 @@ class PassiveOrchestrator extends CGFobject {
     display(){
         this.theme.display();
     }
+
+    endTheme(){
+        this.theme.pauseAudio();
+    }
 }

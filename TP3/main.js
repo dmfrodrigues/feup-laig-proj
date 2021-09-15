@@ -12,6 +12,7 @@ function getUrlVars() {
 }  
 
 var app = {};
+var backgroundOrchestrator = {};
 
 //Include additional files here
 serialInclude(
@@ -68,6 +69,7 @@ main=function(){
     startMenu();
 
     document.getElementById('play-button').addEventListener('click', () => {
+        backgroundOrchestrator.endTheme();
 
         let gameMode;
         if(document.getElementById('PvP').checked){
@@ -112,7 +114,7 @@ main=function(){
 function startMenu(){
     var backgroundScene = new XMLscene(null);
     app.setScene(backgroundScene);
-    var backgroundOrchestrator = new PassiveOrchestrator(backgroundScene, 'space.xml');
+    backgroundOrchestrator = new PassiveOrchestrator(backgroundScene, 'space.xml');
     app.run();
 }
 
