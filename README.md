@@ -73,6 +73,6 @@
 
 All files are licensed under [GNU General Public License v3](LICENSE) by **© 2020 Diogo Rodrigues, Breno Pimentel**, to the exception of:
 - Library files under `lib` folders, which were authored by the lecturers and adapted by us;
-- Most images/textures/objects, authored by various people and available over the internet.
+- Most images/textures/objects/sound files, authored by various people and available over the internet.
 
 The files not authored by us are presented as a fundamental complement to this project, and are used and made available under *fair use for education*.

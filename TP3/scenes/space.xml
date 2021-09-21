@@ -2,6 +2,9 @@
     <initials>
         <reference length="1.0"/>
         <root id="root"/>
+        <audios>
+            <audio url="scenes/space.wav" volume="0.10"/>
+        </audios>
     </initials>
     <animations>
         <animation id='star-000' loop='1'><keyframe instant='0'><translation x='0' y='0' z='-000.7'/></keyframe><keyframe instant='0.1360'><translation x='0' y='0' z='0'/></keyframe><keyframe instant='0.1361'><translation x='0' y='0' z='-100'/></keyframe><keyframe instant='20'><translation x='0' y='0' z='-000.7'/></keyframe></animation>
