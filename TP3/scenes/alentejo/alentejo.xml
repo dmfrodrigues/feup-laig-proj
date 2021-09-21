@@ -115,7 +115,7 @@
             </ui>
         </uis>
         <audios>
-            <audio url="https://drive.google.com/uc?id=1HubwaEYEzPz-fU0Ga2iETLHNiI1Faw4m" volume="0.03"/>
+            <audio url="scenes/alentejo/alentejo.mp3" volume="0.03"/>
         </audios>
         <p1transition lastinstant="3.0">
             <keyframe instant="0.3" fx="+0.1" fy="1.4" fz="+0.48" tx="0.0" ty="1.0" tz="0.0"/>

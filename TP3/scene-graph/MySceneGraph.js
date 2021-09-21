@@ -378,14 +378,33 @@ class MySceneGraph {
                         this.onXMLMinorError("Audio does not have URL, ignoring");
                         continue;
                     }
-                    let audio = new Audio(audioNode.attributes.url.value);
-                    audio.loop = true;
-                    if(typeof audioNode.attributes.volume !== 'undefined'){
-                        audio.volume = this.parseFloat(audioNode, 'volume', '<audio>');
-                    }
+
+                    const audioContext = new (window.AudioContext || window.webkitAudioContext)();
+                    const audio = audioContext.createBufferSource();
+                    
+                    const xhr = new XMLHttpRequest();
+                    xhr.open('GET', audioNode.attributes.url.value);
+                    xhr.responseType = 'arraybuffer';
+                    xhr.addEventListener('load', () => {
+                        audioContext.decodeAudioData(xhr.response).then((audioBuffer) => {
+                            audio.buffer = audioBuffer;
+                            audio.loop = true;
+                            if(typeof audioNode.attributes.volume !== 'undefined'){
+                                const gainNode = audioContext.createGain();
+                                gainNode.gain.value = this.parseFloat(audioNode, 'volume', '<audio>');
+                                gainNode.connect(audioContext.destination);
+                                audio.connect(gainNode);
+                                gainNode.connect(audioContext.destination);
+                            } else {
+                                audio.connect(audioContext.destination);
+                            }
+                        });
+                    });
+                    xhr.send();
+                    
                     this.audios.push(audio);
                 } else {
-                    this.onXMLMinorError(`Unknown node name '${aaudioNodeudio.nodeName}' in <audios>`);
+                    this.onXMLMinorError(`Unknown node name '${audioNode.nodeName}' in <audios>`);
                 }
             }
         } else this.onXMLMinorError("No audios defined for scene");
@@ -1664,19 +1683,20 @@ class MySceneGraph {
     }
 
     playAudio(){
+        console.log(this.audios.length);
         for(let i = 0; i < this.audios.length; ++i){
             let audio = this.audios[i];
-            audio.play()
-            .catch(function(error){
-                console.log("Audio error:", error, "It may happen if you change theme before the audio started playing; don't bother with that.");
-            });
+            audio.start();
         }
     }
 
     pauseAudio(){
+        console.log(this.audios.length);
         for(let i = 0; i < this.audios.length; ++i){
             let audio = this.audios[i];
-            audio.pause();
+            audio.stop();
+            console.log("Stopped");
+            console.log(audio);
         }
     }
 
