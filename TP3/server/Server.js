@@ -127,4 +127,4 @@ class Server {
     }
 }
 
-var server = new Server('https://feup-plog-tp1-staging.herokuapp.com/');
+var server = new Server('https://feup-plog-tp1.onrender.com');
